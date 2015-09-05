@@ -3,6 +3,27 @@ site_description: Description of the description
 theme: 'bootstrap'
 include_next_prev: false
 pages:
-- ['index.md', 'Index']
-- ['start.md', 'Start']
+- Home: index.md
+- Installation:
+    - Logging from ELMAH: Logging to elmah.io from ELMAH.md
+    - Logging from Web API: Logging to elmah.io from Web API.md
+    - Logging from Serilog: Logging to elmah.io from Serilog.md
+    - Logging from log4net: Logging to elmah.io from log4net.md
+    - Logging from NLog: Logging to elmah.io from NLog.md
+    - Logging from Nancy: Logging to elmah.io from Nancy.md
+    - Logging from ServiceStack: Logging to elmah.io from ServiceStack.md
+    - Logging from BlogEngine.NET: Logging to elmah.io from BlogEngine.NET.md
+    - Configure elmah.io from code: Configure elmah.io from code.md
+- Integrations:
+    - Slack: Integrate with Slack.md
+    - HipChat: Integrate with HipChat.md
+#    - Zapier: Integrate with Zapier.md
+- Help:
+    - Logging custom data: Logging custom data.md
+    - Logging errors programmatically: Logging errors programmatically.md
+    - Logging through a HTTP proxy: Logging through a HTTP proxy.md
+    - Logging to multiple logs: Logging to multiple ELMAH logs.md
+    - Remove sensitive form data: Remove sensitive form data.md
+    - Use Extended User Details without Email as Id: Use Extended User Details without Email as Id.md
+    - Use multiple logs for different environments: Use multiple logs for different environments.md
 copyright: <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
