@@ -1,0 +1,8 @@
+site_name: elmah.io docs
+site_description: Description of the description
+theme: 'bootstrap'
+include_next_prev: false
+pages:
+- ['index.md', 'Index']
+- ['start.md', 'Start']
+copyright: <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
