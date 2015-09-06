@@ -4,6 +4,7 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
+	padding-top: 90px;
 }
 h1, h2, h3, h4, h5, h6, p, span, div, input, select {
 	font-family: 'Roboto','Helvetica Neue',Arial,sans-serif;
@@ -14,9 +15,15 @@ h1, h2, h3{
 	font-weight: 200;
 }
 h1 {
-	font-size: 84px;
+	font-size: 64px;
     letter-spacing: -3px;
-    margin-bottom: 0;
+	margin: 0;
+    margin-bottom: 40px;
+}
+
+/*** Images ***/
+img{
+	max-width: 100%;
 }
 
 /*** Nav ***/
@@ -49,7 +56,39 @@ h1 {
 }
 
 /*** sidebar ***/
-.bs-sidebar.well {
+.bs-sidenav{
+	padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 5px;
+}
+.bs-sidebar .nav .nav{
+	display: block;
+}
+.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a{
+	color: #428bca;
+	border: 0;
+}
+.bs-sidebar .nav > li > a:hover, .bs-sidebar .nav > li > a:focus{
+	background: none;
+	color: #001e33;
+	border: 0;
+}
+.bs-sidebar h4{
+	font-size: 12px;
+	color: #999;
+	text-transform: uppercase;
+	color: #bbb;
+	margin-top: 20px;
+}
+.bs-sidebar .nav > li > a {
+    display: block;
+    padding: 5px 20px 5px 0px;
+    z-index: 1;
+    color: #666;
+	font-size: 13px;
+	padding: 3px 0;
+}
+/*.bs-sidebar.well {
     background-color: #333;
     border: 0;
     border-radius: 4px;
@@ -65,3 +104,4 @@ h1 {
     background-color: #333;
     border-right: 1px solid;
 }
+*/
