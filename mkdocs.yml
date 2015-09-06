@@ -17,7 +17,7 @@ pages:
 - Integrations:
     - Slack: Integrate with Slack.md
     - HipChat: Integrate with HipChat.md
-#    - Zapier: Integrate with Zapier.md
+    - Zapier: Integrate with Zapier.md
 - Help:
     - Logging custom data: Logging custom data.md
     - Logging errors programmatically: Logging errors programmatically.md
