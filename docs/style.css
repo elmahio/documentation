@@ -9,6 +9,9 @@ body {
 h1, h2, h3, h4, h5, h6, p, span, div, input, select {
 	font-family: 'Roboto','Helvetica Neue',Arial,sans-serif;
 }
+p {
+    margin: 20px 0;
+}
 
 /*** Fonts ***/
 h1, h2, h3{
@@ -26,6 +29,32 @@ h1+p, h2+p{
 /*** Images ***/
 img{
 	max-width: 100%;
+	box-shadow: 1px 5px 12px rgba(0,0,0,.2);
+}
+
+/*** PRE ***/
+pre{
+	border: 0;
+    background: none;
+	padding: 0;
+}
+pre code{
+	border: 1px solid #CFCFCF;
+    border-left-width: 4px;
+	background-color: #fff;
+}
+.hljs{
+	padding: 20px;
+	border-radius: 4px;
+}
+.hljs-keyword, .css .rule .hljs-keyword, .hljs-winutils, .nginx .hljs-title, .hljs-subst, .hljs-request, .hljs-status {
+    color: #428bca;
+    font-weight: bold;
+}
+code.powershell.hljs {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
 }
 
 /*** Nav ***/
