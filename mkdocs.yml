@@ -3,7 +3,6 @@ site_description: Description of the description
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 pages:
-- Home: index.md
 - Installation:
     - Logging from ELMAH: Logging to elmah.io from ELMAH.md
     - Logging from Web API: Logging to elmah.io from Web API.md
