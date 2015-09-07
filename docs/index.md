@@ -1,17 +1,1 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](http://mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+# Welcome to the elmah.io documentationHere you will find updated documentation on how to use elmah.io.To get started using elmah.io with ELMAH, please follow the [Logging to elmah.io from ELMAH](Logging to elmah.io from ELMAH.md).Not using ASP.NET MVC? Browse through one of our tutorials beneath the Installation menu.We integrate with various third party systems. To check out of to do this, select one of the links beneath the Integrations menu.Need help with something else related to elmah.io? We've collected help articles beneath the Help menu.This documentation site is built using the wonderful MkDocs. To check out the source, check out the [elmah.io/documentation repository](https://github.com/elmahio/documentation) on GitHub.
