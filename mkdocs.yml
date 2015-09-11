@@ -4,7 +4,6 @@ theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 site_favicon: favicon.ico
 pages:
-- Start: index.md
 - Installation:
     - Logging from ELMAH: logging-to-elmah-io-from-elmah.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
