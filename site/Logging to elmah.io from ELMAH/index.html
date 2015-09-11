@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
+        
+        
+        
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+
+	<title>Logging from ELMAH - elmah.io Documentation</title>
+
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
+                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
+                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+                <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
+                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix" role="complementary">
+	
+		<h4 href="#" >Start</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="..">Welcome</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Installation</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li class="active">
+				<a href="./">Logging from ELMAH</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Web%20API/">Logging from Web API</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Serilog/">Logging from Serilog</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20log4net/">Logging from log4net</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20NLog/">Logging from NLog</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Nancy/">Logging from Nancy</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20ServiceStack/">Logging from ServiceStack</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20BlogEngine.NET/">Logging from BlogEngine.NET</a>
+			</li>
+		
+			<li >
+				<a href="../Configure%20elmah.io%20from%20code/">Configure elmah.io from code</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Integrations</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../Integrate%20with%20Slack/">Slack</a>
+			</li>
+		
+			<li >
+				<a href="../Integrate%20with%20HipChat/">HipChat</a>
+			</li>
+		
+			<li >
+				<a href="../Integrate%20with%20Zapier/">Zapier</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Help</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../Logging%20custom%20data/">Logging custom data</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20errors%20programmatically/">Logging errors programmatically</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20through%20a%20HTTP%20proxy/">Logging through a HTTP proxy</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20multiple%20ELMAH%20logs/">Logging to multiple logs</a>
+			</li>
+		
+			<li >
+				<a href="../Remove%20sensitive%20form%20data/">Remove sensitive form data</a>
+			</li>
+		
+			<li >
+				<a href="../Use%20Extended%20User%20Details%20without%20Email%20as%20Id/">Use Extended User Details without Email as Id</a>
+			</li>
+		
+			<li >
+				<a href="../Use%20multiple%20logs%20for%20different%20environments/">Use multiple logs for different environments</a>
+			</li>
+		
+		</ul>
+	
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="logging-from-elmah">Logging from ELMAH</h1>
+<p>This article will explain the steps necessary to log errors from your web application into elmah.io. If you don’t know ELMAH, check out our ELMAH Tutorial and visit the nice folks over at the ELMAH project page. Let’s get started.</p>
+<p>Create a new ASP.NET MVC project in Visual Studio (you can choose another web project type if you’d like):</p>
+<p><img alt="Create ASP.NET MVC Website" src="../images/create_aspnetmvc_website.png" /></p>
+<p>Select a project template of your choice:</p>
+<p><img alt="Select Project Template" src="../images/select_project_template.png" /></p>
+<p>Navigate to elmah.io and login using your favorite social provider. When logged in, elmah.io redirects you to the dashboard. Click on Create new log and name your log:</p>
+<p><img alt="Create New Log" src="../images/create_new_log.png" /></p>
+<p>When created, elmah.io shows you the install instructions. Don’t pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Copy your log id from step 2 in the installation instructions (located in the dialog):</p>
+<p><img alt="Copy your log id" src="../images/copy_log_id_dialog.png" /></p>
+<p>Navigate back to your web project, right click References and select Manage NuGet Packages:</p>
+<p><img alt="Open Manage NuGet Packages" src="../images/open_manage_nuget_packages.png" /></p>
+<p>In the NuGet dialog, search for elmah.io:</p>
+<p><img alt="Search for elmah.io" src="../images/search_for_elmah_io.png" /></p>
+<p>Click Install and input your log id in the dialog appearing during installation of the NuGet package:</p>
+<p><img alt="Insert your log id" src="../images/input_log_id.png" /></p>
+<p>You’re ready to rock and roll. Hit F5 and input a URL you know doesn’t exist (like http://localhost:64987/notfound). You should see the standard 404 message displayed in the browser. To verify that the installation of elmah.io is successful, navigate back to the elmah.io dashboard and select the Search tab of your newly created log:</p>
+<p><img alt="Error Details" src="../images/error_details.png" /></p>
+<p>Seeing the error? Congrats! Every error on your application is now logged to elmah.io.</p></div>
+        </div>
+
+    <footer class="col-md-12">
+        
+    </footer>
+
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

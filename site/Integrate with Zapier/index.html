@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
+        
+        
+        
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+
+	<title>Zapier - elmah.io Documentation</title>
+
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
+                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
+                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+                <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
+                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix" role="complementary">
+	
+		<h4 href="#" >Start</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="..">Welcome</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Installation</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20ELMAH/">Logging from ELMAH</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Web%20API/">Logging from Web API</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Serilog/">Logging from Serilog</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20log4net/">Logging from log4net</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20NLog/">Logging from NLog</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20Nancy/">Logging from Nancy</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20ServiceStack/">Logging from ServiceStack</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20elmah.io%20from%20BlogEngine.NET/">Logging from BlogEngine.NET</a>
+			</li>
+		
+			<li >
+				<a href="../Configure%20elmah.io%20from%20code/">Configure elmah.io from code</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Integrations</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../Integrate%20with%20Slack/">Slack</a>
+			</li>
+		
+			<li >
+				<a href="../Integrate%20with%20HipChat/">HipChat</a>
+			</li>
+		
+			<li class="active">
+				<a href="./">Zapier</a>
+			</li>
+		
+		</ul>
+	
+		<h4 href="#" >Help</h4>
+		<ul class="nav bs-sidenav">
+		
+			<li >
+				<a href="../Logging%20custom%20data/">Logging custom data</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20errors%20programmatically/">Logging errors programmatically</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20through%20a%20HTTP%20proxy/">Logging through a HTTP proxy</a>
+			</li>
+		
+			<li >
+				<a href="../Logging%20to%20multiple%20ELMAH%20logs/">Logging to multiple logs</a>
+			</li>
+		
+			<li >
+				<a href="../Remove%20sensitive%20form%20data/">Remove sensitive form data</a>
+			</li>
+		
+			<li >
+				<a href="../Use%20Extended%20User%20Details%20without%20Email%20as%20Id/">Use Extended User Details without Email as Id</a>
+			</li>
+		
+			<li >
+				<a href="../Use%20multiple%20logs%20for%20different%20environments/">Use multiple logs for different environments</a>
+			</li>
+		
+		</ul>
+	
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="integrate-with-zapier">Integrate with Zapier</h1>
+<p>In short Zapier is the place to go, if you need to integrate two or more online systems. In this article we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In case of elmah.io, the trigger available is when new messages are logged to your log. Actions exists on the other side of the integration and tells Zapier what to do every time a trigger is fired. Hundreds of actions exists, in this example we use the GitHub action to create a new issue every time a new message is logged.</p>
+<p>Create a new account on Zapier.com. Then click the Make a New Zap button. The create new Zap page is shown:</p>
+<p><img alt="Choose a trigger and action" src="../images/choose_a_trigger_and_action.png" /></p>
+<p>Select elmah.io in the <em>Choose a Trigger app…</em> dropdown and then select <em>New Error</em> in the <em>Choose a Trigger…</em> dropdown. In the <em>Choose an Action app…</em> select <em>GitHub</em> and select <em>Create Issue</em> in the <em>Choose an Action…</em> dropdown.</p>
+<p><img alt="Choose a trigger and action" src="../images/choose_a_trigger_and_action_filled.png" /></p>
+<p>This configuration tells Zapier to create a new issue at GitHub, every time a new error is logged in elmah.io. The action could be one of the hundreds of other integrations available at Zapier. Click Continue.</p>
+<p>In section 2 select the <em>Connect a different elmah.io Account</em> and input a name and the log id of the log you want to integrate:</p>
+<p><img alt="Connect your elmah.io account" src="../images/connect_elmah_io_account.png" /></p>
+<p>Authorize your GitHub account (or whatever integration you’ve selected in the action step) and click <em>Continue</em>. Step 4 isn’t mandatory, but here you will be able to setup additional constraints to the Zap. If you’re using elmah.io for other than errors, you can tell Zapier only to create a new GitHub issue when the message is an actual error:</p>
+<p><img alt="Setup filter" src="../images/filter_elmah_io_triggers.png" /></p>
+<p>In step 5 you specify how the new issue should create created. In this example I’ve chosen the GitHub project for our open source client. For the title, I use two of the variables available from the elmah.io action. For a complete list of variables, click the Insert button next to each textbox. The variable will look something like this “MyApp: An error occurred”. The issue body contains the detail of the error (typically a stacktrace). Finally I’ve selected <em>bug</em> as a label.</p>
+<p><img alt="Match up elmah.io Error to GitHub issue" src="../images/match_up_elmah_io_error_to_github_issue.png" /></p>
+<p>Test the Zap an hit <em>Continue</em>:</p>
+<p><img alt="Test this Zap" src="../images/test_this_zap.png" /></p>
+<p>Finally, name your Zap and click the <em>Turn Zap on</em> button:</p>
+<p><img alt="Name and turn this Zap on" src="../images/name_and_turn_this_zap_on.png" /></p>
+<p>When future errors are logged in your elmah.io log, a GitHub issue is automatically created. How awesome is that!</p></div>
+        </div>
+
+    <footer class="col-md-12">
+        
+    </footer>
+
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

@@ -4,27 +4,27 @@ theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 site_favicon: favicon.ico
 pages:
-- Start:
-    - Welcome: index.md
+- Start: index.md
 - Installation:
-    - Logging from ELMAH: Logging to elmah.io from ELMAH.md
-    - Logging from Web API: Logging to elmah.io from Web API.md
-    - Logging from Serilog: Logging to elmah.io from Serilog.md
-    - Logging from log4net: Logging to elmah.io from log4net.md
-    - Logging from NLog: Logging to elmah.io from NLog.md
-    - Logging from Nancy: Logging to elmah.io from Nancy.md
-    - Logging from ServiceStack: Logging to elmah.io from ServiceStack.md
-    - Logging from BlogEngine.NET: Logging to elmah.io from BlogEngine.NET.md
-    - Configure elmah.io from code: Configure elmah.io from code.md
+    - Logging from ELMAH: logging-to-elmah-io-from-elmah.md
+    - Logging from Web API: logging-to-elmah-io-from-web-api.md
+    - Logging from Serilog: logging-to-elmah-io-from-serilog.md
+    - Logging from log4net: logging-to-elmah-io-from-log4net.md
+    - Logging from NLog: logging-to-elmah-io-from-nlog.md
+    - Logging from Nancy: logging-to-elmah-io-from-nancy.md
+    - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
+    - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
+    - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
+    - Configure elmah.io from code: configure-elmah-io-from-code.md
 - Integrations:
-    - Slack: Integrate with Slack.md
-    - HipChat: Integrate with HipChat.md
-    - Zapier: Integrate with Zapier.md
+    - Slack: integrate-elmah-io-with-slack.md
+    - HipChat: integrate-elmah-io-with-hipchat.md
+    - Zapier: integrate-elmah-io-with-zapier.md
 - Help:
-    - Logging custom data: Logging custom data.md
-    - Logging errors programmatically: Logging errors programmatically.md
-    - Logging through a HTTP proxy: Logging through a HTTP proxy.md
-    - Logging to multiple logs: Logging to multiple ELMAH logs.md
-    - Remove sensitive form data: Remove sensitive form data.md
-    - Use Extended User Details without Email as Id: Use Extended User Details without Email as Id.md
-    - Use multiple logs for different environments: Use multiple logs for different environments.md
+    - Logging custom data: logging-custom-data.md
+    - Logging errors programmatically: logging-errors-programmatically.md
+    - Logging through a HTTP proxy: logging-through-a-http-proxy.md
+    - Logging to multiple logs: logging-to-multiple-elmah-logs.md
+    - Remove sensitive form data: remove-sensitive-form-data.md
+    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
+    - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
