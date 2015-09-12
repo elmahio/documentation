@@ -3,6 +3,7 @@ site_description: Documentation on how to install and use elmah.io.
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
 site_favicon: favicon.ico
+google_analytics: ['UA-42575460-4', 'docs.elmah.io']
 pages:
 - Start: index.md
 - Installation:
