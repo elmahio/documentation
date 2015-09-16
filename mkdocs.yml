@@ -15,6 +15,7 @@ pages:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
     - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
+    - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md
     - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
 - Integrations:
