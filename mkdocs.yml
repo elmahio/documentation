@@ -17,6 +17,7 @@ pages:
     - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
     - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md
     - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
+    - Logging from Console: logging-to-elmah-io-from-console-application.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
 - Integrations:
     - Slack: integrate-elmah-io-with-slack.md
