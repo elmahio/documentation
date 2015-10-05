@@ -2,7 +2,9 @@ site_name: elmah.io docs
 site_description: Description of the description
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
-pages:
+pages: 
+- Docs:
+    - Home: index.md
 - Installation:
     - Logging from ELMAH: Logging to elmah.io from ELMAH.md
     - Logging from Web API: Logging to elmah.io from Web API.md
@@ -14,9 +16,9 @@ pages:
     - Logging from BlogEngine.NET: Logging to elmah.io from BlogEngine.NET.md
     - Configure elmah.io from code: Configure elmah.io from code.md
 - Integrations:
-    - Slack: Integrate with Slack.md
-    - HipChat: Integrate with HipChat.md
-    - Zapier: Integrate with Zapier.md
+    - Slack: IntegrateWith/Slack.md
+    - HipChat: IntegrateWith/HipChat.md
+    - Zapier: IntegrateWith/Zapier.md
 - Help:
     - Logging custom data: Logging custom data.md
     - Logging errors programmatically: Logging errors programmatically.md

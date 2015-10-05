@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,700" media="all">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Logging errors programmatically - elmah.io docs</title>
+
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <script src="/js/search.js"></script>
+        
+        <script src="../js/jquery-1.10.2.min.js"></script>
+    </head>
+
+    <body>
+		
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://elmah.io/">elmah.io</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+                <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
+                <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
+                <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+                <li><a href="http://docs.elmah.io" id="NavDocs">Docs</a></li>
+                <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-xs">
+                        <a href="/authentication/redirect/Twitter" class="pull-left"><span class="fa fa-twitter icon-2x"></span></a>
+                        <a href="/authentication/redirect/Facebook" class="pull-left"><span class="fa fa-facebook icon-2x"></span></a>
+                        <a href="/authentication/redirect/Google" class="pull-left"><span class="fa fa-google-plus icon-2x"></span></a>
+                        <a href="/authentication/redirect/windowslive" class="pull-left"><span class="fa fa-windows icon-2x"></span></a>
+                    </li>
+                    <li class="hidden-xs"><span class="navbar-text text-muted">Sign in:</span></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/Google"><span class="fa fa-google-plus"></span></a></li>
+                    <li class="hidden-xs"><a href="https://elmah.io//authentication/redirect/windowslive"><span class="fa fa-windows"></span></a></li>
+                </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+		
+            <div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary">
+	
+    <div class="icon-in-input">
+        <input type="text" class="form-control" id="search"/>
+        <button type="button" onclick="initSearchFunctionality()" class="fa fa-search"></button>
+    </div>
+    <h4 id="searchResultHeader">Search result</h4>
+    <ul id="searchResult" class="nav bs-sidenav">
+    </ul>
+	
+		
+	
+		
+	
+		
+	
+</div></div>
+            <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">
+
+<h1 id="logging-errors-programmatically">Logging errors programmatically</h1>
+<p>So you’ve setup a shiny new ELMAH log and all of your un-handled errors are logged to ELMAH. Now you’re wondering: “How do I log my handled errors to ELMAH programmatically?”</p>
+<p>You are in luck! ELMAH provides a nice API to do just that through error signaling. Consider the following code:</p>
+<pre><code class="csharp">try
+{
+    int i = 0;
+    int result = 42 / i;
+}
+catch (DivideByZeroException e)
+{
+    // What to do?
+}
+</code></pre>
+
+<p>Obviously an exception is thrown when trying to divide by zero, but what if we want to catch (and log) that exception instead of throwing it back through the call stack? With ELMAH’s <code>ErrorSignal</code> class we can log the error:</p>
+<pre><code class="csharp">try
+{
+    int i = 0;
+    int result = 42 / i;
+}
+catch (DivideByZeroException e)
+{
+    ErrorSignal.FromCurrentContext().Raise(e);
+}
+</code></pre>
+
+<p>We call the static method <code>FromCurrentContext</code> on the <code>ErrorSignal</code> class, which returns a new object for doing the actual logging. Logging happens through the Raise method, which logs the exception to the configured ELMAH storage endpoint.</p>
+<p>In the example above, I use the <code>FromCurrentContext</code> helper to create a new instance of <code>ErrorSignal</code>. ELMAH also works outside the context of a webserver and in this case, you would simply use the default logger with <code>null</code> as the http context:</p>
+<pre><code class="csharp">ErrorLog.GetDefault(null).Log(new Error(e));
+</code></pre>
+
+
+<br/><br/>
+<h2>Comments</h2>
+<hr/>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'elmahioblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
+		
+		
+			
+        </div>
+
+    <footer class="col-md-12">
+        
+    </footer>
+
+
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
