@@ -5,6 +5,7 @@ body {
     color: #333;
     background-color: #fff;
 	padding-top: 90px;
+    padding-bottom: 100px;
 	-webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, h6, p, span, div, input, select {
@@ -15,7 +16,7 @@ p {
 }
 
 /*** Fonts ***/
-h1, h2, h3{
+h1, h2{
 	font-weight: 200;
 }
 h1 {
@@ -23,8 +24,16 @@ h1 {
     letter-spacing: -3px;
 	margin: 0;
 }
-h1+p, h2+p{
+h1+p, h2+p, h1+h5+p, h2+h5+p, h1+blockquote, h2+blockquote, h1+h5+blockquote, h2+h5+blockquote{
 	margin-top: 40px;
+}
+h3{
+	margin-top: 40px;
+}
+h5{
+	font-style: italic;
+	color: #999;
+	margin-top: 20px;
 }
 
 /*** Images ***/
@@ -56,6 +65,18 @@ code.powershell.hljs {
     background-color: #333;
     color: #fff;
     border-color: #333;
+}
+
+/*** Blockquote ***/
+blockquote{
+	background-color: #FFF6D5;
+    border-left-color: #F3E3AA;
+}
+blockquote a{
+	font-weight: 500;
+}
+blockquote p:first-child{
+	margin-top: 0;
 }
 
 /*** Nav ***/
@@ -105,8 +126,15 @@ code.powershell.hljs {
     padding-top: 25px;
     padding-bottom: 25px;
 }
-
+.navbar-text{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
 /*** sidebar ***/
+.bs-sidebar .bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 .bs-sidenav{
 	padding-top: 0;
     padding-bottom: 0;
@@ -139,20 +167,32 @@ code.powershell.hljs {
 	font-size: 13px;
 	padding: 3px 0;
 }
-/*.bs-sidebar.well {
-    background-color: #333;
+
+
+/*** TOCs ***/
+.toc-index h3{
+	margin: 0;
+	margin-bottom: 16px;
+}
+
+
+/*** Form ***/
+#searchResultHeader{
+    display: none;
+}
+#searchResult{
+    display: none;
+}
+.icon-in-input{
+    position: relative;
+}
+.icon-in-input .fa{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
     border: 0;
-    border-radius: 4px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
-.bs-sidebar .nav > li > a {
-    background-color: #333;
-    color: #fff;
-}
-.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a {
-    font-weight: bold;
-    background-color: #333;
-    border-right: 1px solid;
-}
-*/

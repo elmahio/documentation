@@ -22,7 +22,11 @@
                 <li><a href="https://elmah.io/features/" id="NavFeatures">Features</a></li>
                 <li><a href="https://elmah.io/about/" id="NavAbout">About</a></li>
                 <li><a href="https://elmah.io/pricing/" id="NavPricing">Pricing</a></li>
+<<<<<<< HEAD
+                <li><a href="http://docs.elmah.io" id="NavDocs">Docs</a></li>
+=======
                 <li><a href="http://docs.elmah.io/" id="NavDocs">Docs</a></li>
+>>>>>>> c0011b450a4dd82e9ba7825cdf107b6f9e756209
                 <li><a href="http://blog.elmah.io/" id="NavBlog">Blog</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -2,11 +2,16 @@ site_name: elmah.io Documentation
 site_description: Documentation on how to install and use elmah.io.
 theme_dir: "mkdocs_bootstrap"
 include_next_prev: false
-site_favicon: favicon.ico
-google_analytics: ['UA-42575460-4', 'docs.elmah.io']
+<<<<<<< HEAD
 pages: 
 - Docs:
     - Home: index.md
+=======
+site_favicon: favicon.ico
+google_analytics: ['UA-42575460-4', 'docs.elmah.io']
+pages:
+- Start: index.md
+>>>>>>> c0011b450a4dd82e9ba7825cdf107b6f9e756209
 - Installation:
     - Logging from ELMAH: logging-to-elmah-io-from-elmah.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
@@ -21,6 +26,19 @@ pages:
     - Logging from Console: logging-to-elmah-io-from-console-application.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
 - Integrations:
+<<<<<<< HEAD
+    - Slack: IntegrateWith/Slack.md
+    - HipChat: IntegrateWith/HipChat.md
+    - Zapier: IntegrateWith/Zapier.md
+- Help:
+    - Logging custom data: Logging custom data.md
+    - Logging errors programmatically: Logging errors programmatically.md
+    - Logging through a HTTP proxy: Logging through a HTTP proxy.md
+    - Logging to multiple logs: Logging to multiple ELMAH logs.md
+    - Remove sensitive form data: Remove sensitive form data.md
+    - Use Extended User Details without Email as Id: Use Extended User Details without Email as Id.md
+    - Use multiple logs for different environments: Use multiple logs for different environments.md
+=======
     - Slack: integrate-elmah-io-with-slack.md
     - HipChat: integrate-elmah-io-with-hipchat.md
     - Zapier: integrate-elmah-io-with-zapier.md
@@ -32,3 +50,4 @@ pages:
     - Remove sensitive form data: remove-sensitive-form-data.md
     - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
+>>>>>>> c0011b450a4dd82e9ba7825cdf107b6f9e756209
