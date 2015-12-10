@@ -33,4 +33,5 @@ pages:
     - Remove sensitive form data: remove-sensitive-form-data.md
     - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
+    - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
