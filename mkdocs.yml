@@ -36,3 +36,4 @@ pages:
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
+    - Adding version information: adding-version-information.md
