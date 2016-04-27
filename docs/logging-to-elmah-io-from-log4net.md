@@ -29,7 +29,7 @@ Finally, add the log4net configuration element to web.config:
     <logId value="LOG_ID" />
   </appender>
   <root>
-    <level value="INFORMATION" />
+    <level value="Info" />
     <appender-ref ref="ElmahIoAppender" />
   </root>
 </log4net>
