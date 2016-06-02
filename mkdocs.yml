@@ -23,11 +23,15 @@ pages:
     - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
     - Configure elmah.io manually: configure-elmah-io-manually.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
-- Integrations:
-    - Slack: integrate-elmah-io-with-slack.md
-    - HipChat: integrate-elmah-io-with-hipchat.md
-    - Zapier: integrate-elmah-io-with-zapier.md
+- Apps:
+    - Slack: elmah-io-apps-slack.md
+    - HipChat: elmah-io-apps-hipchat.md
+    - GitHub: elmah-io-apps-github.md
+    - BotBuster: elmah-io-apps-botbuster.md
 - Help:
+    - Integrating with Slack manually: integrate-elmah-io-with-slack.md
+    - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
+    - Integrating with Zapier: integrate-elmah-io-with-zapier.md
     - Logging custom data: logging-custom-data.md
     - Logging errors programmatically: logging-errors-programmatically.md
     - Logging through a HTTP proxy: logging-through-a-http-proxy.md
