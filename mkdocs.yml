@@ -28,6 +28,7 @@ pages:
     - HipChat: elmah-io-apps-hipchat.md
     - GitHub: elmah-io-apps-github.md
     - BotBuster: elmah-io-apps-botbuster.md
+    - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Help:
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
