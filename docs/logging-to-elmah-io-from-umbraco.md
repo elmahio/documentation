@@ -8,7 +8,5 @@ To start utilizing elmah.io from your Umbraco site, all you need to do is instal
 Install-Package elmah.io.umbraco
 ```
 
-Hit F5 and watch messages start flowing into elmah.io:
-
-![Error from Umbraco](images/errorsinumbraco.png)
+Hit F5 and watch messages start flowing into elmah.io.
 
