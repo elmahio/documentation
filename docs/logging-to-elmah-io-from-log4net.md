@@ -1,4 +1,4 @@
-#Logging from Log4net
+# Logging from Log4net
 
 
 log4net is probably the oldest .NET logging frameworks on the block. Maintained by Apache and developed for more than a decade, makes log4net a good and well supported choice for some types of applications. log4net is based on the concept of appenders, which works pretty much like ELMAH’s error loggers. Unlike ELMAH, log4net can have multiple appenders, which makes it possible to log errors to multiple destinations. In addition log4net supports different log levels like Info and Warning. While ELMAH doesn’t have the concept of log levels, elmah.io supports all of the levels in log4net.
@@ -50,7 +50,7 @@ catch (ApplicationException ex)
 }
 ```
 
-##Context Properties
+## Context Properties
 
 log4net offers a feature called context properties. With context properties, you can log additional key/value pairs with every log message. The elmah.io appender for log4net, supports context properties as well. Context properties are handled like [custom properties](http://docs.elmah.io/logging-custom-data/) in the elmah.io UI.
 
