@@ -1,6 +1,6 @@
 # Logging from ASP.NET MVC
 
-Even though ELMAH works out of the box with ASP.NET MVC, ELMAH and MVC provides some features with interfere with one another. As usual, the great community around ELMAH have done something to fix this, using the [Elmah.Mvc][https://www.nuget.org/packages/Elmah.MVC/] NuGet package.
+Even though ELMAH works out of the box with ASP.NET MVC, ELMAH and MVC provides some features with interfere with one another. As usual, the great community around ELMAH have done something to fix this, using the [Elmah.Mvc](https://www.nuget.org/packages/Elmah.MVC/) NuGet package.
 
 To start logging exceptions from ASP.NET MVC, install the NuGet packages:
 
