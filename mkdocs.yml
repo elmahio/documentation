@@ -23,6 +23,7 @@ pages:
     - Logging from Express: logging-to-elmah-io-from-express.md
     - Configure elmah.io manually: configure-elmah-io-manually.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
+    - Logging through a HTTP proxy: logging-through-a-http-proxy.md
 - Apps:
     - Slack: elmah-io-apps-slack.md
     - HipChat: elmah-io-apps-hipchat.md
@@ -30,18 +31,17 @@ pages:
     - BotBuster: elmah-io-apps-botbuster.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Help:
+    - Logging custom data: logging-custom-data.md
+    - Logging errors programmatically: logging-errors-programmatically.md
+    - Logging to multiple logs: logging-to-multiple-elmah-logs.md
+    - Remove sensitive form data: remove-sensitive-form-data.md
+    - Handle elmah.io downtime: handle-elmah-io-downtime.md
+    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
+    - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
+    - Adding version information: adding-version-information.md
+    - ELMAH and custom errors: elmah-and-custom-errors.md
+    - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
-    - Integrating with Zapier: integrate-elmah-io-with-zapier.md
-    - Logging custom data: logging-custom-data.md
-    - Logging errors programmatically: logging-errors-programmatically.md
-    - Logging through a HTTP proxy: logging-through-a-http-proxy.md
-    - Logging to multiple logs: logging-to-multiple-elmah-logs.md
-    - Remove sensitive form data: remove-sensitive-form-data.md
-    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
-    - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
-    - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
-    - Handle elmah.io downtime: handle-elmah-io-downtime.md
-    - Adding version information: adding-version-information.md
-    - ELMAH and custom errors: elmah-and-custom-errors.md
+    - Integrating with Zapier: integrate-elmah-io-with-zapier.md 
