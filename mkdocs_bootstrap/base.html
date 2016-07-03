@@ -16,7 +16,6 @@
         <link href="/{{ base_url }}/css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="/{{ base_url }}/css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
-        <link href="/{{ base_url }}/css/base.css" rel="stylesheet">
         {%- for path in extra_css %}
         <link href="/{{ path }}" rel="stylesheet">
         {%- endfor %}
@@ -39,9 +38,13 @@
         </script>
         {% endif %}
         <script src="/{{ base_url }}/js/jquery-1.10.2.min.js"></script>
+        <link href="https://elmah.io/content/elmah.io.front/critical.css" rel="stylesheet">
+        <link href="https://elmah.io/content/elmah.io.front/elmahio.css" rel="stylesheet">
+        <link href="https://elmah.io/content/elmah.io.front/docs.css" rel="stylesheet">
+        <link href="/{{ base_url }}/css/base.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="readable body-docs">
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WKDV74"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -54,6 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		
         {% include "nav.html" %}
 
+        <div class="section">
         <div class="container">
             
 		{% if meta.list %}
@@ -64,15 +68,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			
 		{% elif meta.isindex %}
             <div class="col-md-3">{% include "toc.html" %}</div>
-            <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">{{ content }}{% include "index.html" %}</div>
+            <div class="col-md-9" role="main"><div class="docs-box">{{ content }}{% include "index.html" %}</div></div>
 		
 		{% else %}
+        
+
+            <div class="row">
+        
             <div class="col-md-3">{% include "toc.html" %}</div>
-            <div class="col-md-9" role="main" style="border-left: 1px solid #eee;">{% include "content.html" %}</div>
-		
+            <div class="col-md-9" role="main"><div class="docs-box">{% include "content.html" %}</div></div>
+		    
+            
+            </div>
 		{% endif %}
 			
         </div>
+        </div>
+
+
 
     <footer class="col-md-12">
         
