@@ -16,5 +16,6 @@ $("li.disabled a").click(function() {
     event.preventDefault();
 });
 
-
-
+$(".btn-show-all-posts").click(function(){
+    $("body").addClass("show-all-posts");
+});

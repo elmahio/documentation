@@ -1746,7 +1746,7 @@ code.powershell.hljs {
 }
 .icon-in-input {
   position: relative;
-  margin-top: 2px;
+  margin-top: 0 !important;
 }
 .icon-in-input input {
   opacity: .5;

@@ -67,15 +67,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			{% include "list.html" %}
 			
 		{% elif meta.isindex %}
-            <div class="col-md-3">{% include "toc.html" %}</div>
+            <div class="col-md-3 toc-left">{% include "toc.html" %}</div>
             <div class="col-md-9" role="main"><div class="docs-box">{{ content }}{% include "index.html" %}</div></div>
-		
 		{% else %}
         
 
             <div class="row">
         
-            <div class="col-md-3">{% include "toc.html" %}</div>
+            <div class="col-md-3 toc-left">{% include "toc.html" %}</div>
             <div class="col-md-9" role="main"><div class="docs-box">{% include "content.html" %}</div></div>
 		    
             
