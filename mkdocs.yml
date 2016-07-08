@@ -10,6 +10,7 @@ pages:
     - Logging from ELMAH: logging-to-elmah-io-from-elmah.md
     - Logging from ASP.NET MVC: logging-to-elmah-io-from-aspnet-mvc.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
+    - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
     - Logging from Serilog: logging-to-elmah-io-from-serilog.md
     - Logging from log4net: logging-to-elmah-io-from-log4net.md
     - Logging from NLog: logging-to-elmah-io-from-nlog.md
