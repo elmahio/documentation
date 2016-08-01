@@ -32,3 +32,17 @@ Log messages to elmah.io, just as with every other target and NLog:
 log.Warn("This is a warning message");
 log.Error(new Exception(), "This is an error message");
 ```
+
+## Custom Properties
+
+NLog supports custom properties like most other logging frameworks. With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](http://docs.elmah.io/logging-custom-data/) as well. Properties are persisted along side every log message in elmah.io and searchable if [named correctly](http://localhost:8000/logging-custom-data/#searching-custom-data).
+
+To log custom properties with NLog and elmah.io, you need to use an overload of each logging-method that takes a `LogEventInfo` object as parameter:
+
+```csharp
+var infoMessage = new LogEventInfo(LogLevel.Info, "", "This is an information message");
+infoMessage.Properties.Add("Some Property Key", "Some Property Value");
+log.Info(infoMessage);
+```
+
+This saves the information message in elmah.io with a custom property with key `Some Property Key`and value `Some Property Value`.
