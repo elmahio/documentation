@@ -47,7 +47,7 @@ pages:
     - ELMAH and custom errors: elmah-and-custom-errors.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
-    - Creating Rules to Perfor Actions on Messages: creating-rules-to-perform-actions-on-messages.md
+    - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
     - Integrating with Zapier: integrate-elmah-io-with-zapier.md 
