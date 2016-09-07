@@ -21,21 +21,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 (replace `API_KEY` with your API key found on your profile on elmah.io and `LOG_ID` with the log Id of the log you want to log to).
 
-To decorate errors with information about the failing request, you will need to install the [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/)  NuGet package and register `IHttpContextAccessor` in `Startup.cs`:
+That's it. Every warning and error will be logged to elmah.io.
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    ...
-    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-    ...
-}
-```
-
-That's it. Every warning and error will be logged to elmah.io. Logging manuel errors are as easy as 1-2-3:
-
-```csharp
-logger.LogError(1, new Exception(), "Unexpected error");
-```
-
-where `logger` is an instance of `Microsoft.Extensions.Logging.ILogger`.
+To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](/logging-to-elmah-io-from-microsoft-extensions-logging).
