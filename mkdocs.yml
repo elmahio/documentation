@@ -40,6 +40,7 @@ pages:
     - Logging errors programmatically: logging-errors-programmatically.md
     - Logging to multiple logs: logging-to-multiple-elmah-logs.md
     - Remove sensitive form data: remove-sensitive-form-data.md
+    - Set Up Deployment Tracking: setup-deployment-tracking.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
