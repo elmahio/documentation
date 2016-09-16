@@ -31,6 +31,7 @@ pages:
     - Slack: elmah-io-apps-slack.md
     - HipChat: elmah-io-apps-hipchat.md
     - GitHub: elmah-io-apps-github.md
+    - Bitbucket: elmah-io-apps-bitbucket.md
     - BotBuster: elmah-io-apps-botbuster.md
     - IP Filter: elmah-io-apps-ipfilter.md
     - Mailman: elmah-io-apps-mailman.md
