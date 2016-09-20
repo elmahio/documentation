@@ -48,7 +48,7 @@ An `ElmahIoSettings` object is sent to the `UseElmahIo` method. The settings cla
 
 > Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
 
-### Formatting events
+### Formatting exceptions
 
 A default exception formatter is used to format any exceptions, before sending them off to the elmah.io API. To override the format of the details field in elmah.io, set a new `IExceptionFormatter` in the `ExceptionFormatter` property on the `ElmahIoSettings` object:
 
