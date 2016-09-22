@@ -65,8 +65,4 @@ log.Info("This is a message with custom properties");
 
 Basically, we set two custom properties on contextual classes provided by log4net. To read more about the choices in log4net, check out the [log4net manual](https://logging.apache.org/log4net/release/manual/contexts.html).
 
-When looking up the log message in elmah.io, we see the context properties in the Data tab:
-
-![Context properties from log4net](images/context_properties_from_log4net.png)
-
-Besides the two custom variables that we set through `GlobalContext` and `ThreadContext`, we see a couple of build-in properties in log4net, both prefixed with `log4net:`.
+When looking up the log message in elmah.io, we see the context properties in the Data tab. Besides the two custom variables that we set through `GlobalContext` and `ThreadContext`, we see a couple of build-in properties in log4net, both prefixed with `log4net:`.
