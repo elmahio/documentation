@@ -30,3 +30,23 @@ Finally create a new logger and start logging exceptions:
 var logger = factory.CreateLogger("MyLog");
 logger.LogError(1, ex, "Unexpected error");
 ```
+
+## Filtering log messages
+
+As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warnings, errors and fatals. The rationale behind this is that we build an error management system and really doesn't do much to support millions of debug messages from your code. Sometimes you may want to log non-exception messages, though. To do so, use filters in Microsoft.Extensions.Logging.
+
+To log everything from log level `Information` and up, use the `AddElmahIo` overload which accepts a filter:
+
+```csharp
+factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new FilterLoggerSettings
+{
+    {"elmah.io", LogLevel.Information}
+});
+```
+
+In the code sample, every log message with the category `elmah.io` and a log level of `Information` and up, will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category and call the `LogInformation` method:
+
+```csharp
+var logger = factory.CreateLogger("elmah.io");
+logger.LogInformation("This is an information message");
+```
