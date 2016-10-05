@@ -23,6 +23,24 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](/logging-to-elmah-io-from-microsoft-extensions-logging).
 
+## Logging exceptions manually
+
+While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
+
+```csharp
+try
+{
+    var i = 0;
+    var result = 42/i;
+}
+catch (DivideByZeroException e)
+{
+    e.Ship("API_KEY", new Guid("LOG_ID"), HttpContext);
+}
+```
+
+When catching an exception, you simply call the `Ship` extension method with your API key, log id and the current HTTP context as parameters. We are looking into removing `API_KEY` and `LOG_ID` from these methods, since they are already specified in `Startup.cs`. For now, use app settings, dependency injection or similar to only specify these variables in one place.
+
 ## Settings
 
 ### Events
