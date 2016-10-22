@@ -92,4 +92,21 @@ In progress.
 
 ### Using Visual Studio Team Services
 
-In progress.
+If you are using Visual Studio Team Services, you should use our VSTS extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
+
+1. Go to the [elmah.io Deployment Tasks extension](https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks) on the Visual Studio Marketplace and click _Install_ (log in if not already).
+![elmah.io VSTS extension](images/vsts_extension.png)
+
+2. Select the account to install the extension into and click _Confirm_:
+![elmah.io VSTS account](images/vsts_select_account.png)
+
+3. Go to your Visual Studio Team Services project and edit your Release definition.
+![VSTS release definition](images/vsts_release_definition.png)
+
+4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
+![Add VSTS task](images/vsts_add_task.png)
+
+5. Copy your API key from your [profile](https://elmah.io/profile) and paste it into the _API Key_ field. Click _Save_.
+![VSTS task added](images/vsts_task_added.png)
+
+That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to [decorate all messages sent to elmah.io with the same version number](#decorate-your-messages-with-a-version-number).
