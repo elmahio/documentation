@@ -1,4 +1,4 @@
-# Set Up Deployment Tracking* [Decorate your messages with a version number](#decorate-your-messages-with-a-version-number)* [Tell elmah.io when you release](#tell-elmahio-when-you-release)    + [Manually using Swagger UI](#manually-using-swagger-ui)    + [Using PowerShell](#using-powershell)    + [Using Kudu](#using-kudu)    + [Using Octopus Deploy](#using-octopus-deploy)    + [Using Visual Studio Team Services](#using-visual-studio-team-services)    Deployment tracking creates an overview of the different versions of your software and show you how well each version performed. With this integration in place, you will be able to see when you released and if some of your releases caused more errors than others. While most pages on elmah.io supports everything from verbose to fatal messages, the context on deployment tracking is around warnings and errors.To set up deployment tracking, you will need two things:1. Decorate all of your messages with a version number.
+# Set Up Deployment Tracking* [Decorate your messages with a version number](#decorate-your-messages-with-a-version-number)* [Tell elmah.io when you release](#tell-elmahio-when-you-release)    + [Manually using Swagger UI](#manually-using-swagger-ui)    + [Using PowerShell](#using-powershell)    + [Using Kudu](#using-kudu)    + [Using Octopus Deploy](#using-octopus-deploy)    + [Using Visual Studio Team Services](#using-visual-studio-team-services)* [Versioning different services](#versioning-different-services)    Deployment tracking creates an overview of the different versions of your software and show you how well each version performed. With this integration in place, you will be able to see when you released and if some of your releases caused more errors than others. While most pages on elmah.io supports everything from verbose to fatal messages, the context on deployment tracking is around warnings and errors.To set up deployment tracking, you will need two things:1. Decorate all of your messages with a version number.
 2. Tell elmah.io when you release using our REST API or one of the integrations.
 
 When set up, deployment tracking is available on each of your logs.
@@ -88,7 +88,7 @@ The script generates a new version string from the current date and time. How yo
 
 ### Using Octopus Deploy
 
-In progress.
+We are looking into the possibilities of creating an integration for Octopus Deploy, but for now just [use PowerShell](#using-powershell).
 
 ### Using Visual Studio Team Services
 
@@ -110,3 +110,15 @@ If you are using Visual Studio Team Services, you should use our VSTS extension 
 ![VSTS task added](images/vsts_task_added.png)
 
 That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to [decorate all messages sent to elmah.io with the same version number](#decorate-your-messages-with-a-version-number).
+
+## Versioning Different Services
+
+Chances are that your software consist of multiple services released independently and with different version numbers. This is a common pattern when splitting up a software system in microservices. How you choose to split your elmah.io logs is entirely up to you, but we almost always recommend having a separate log for each service. When doing so, you only want deployment tracking to show the releases from the service you are currently looking at. The problem here is that deployments on elmah.io are not related to a log in any way. We could have implemented it this way, but that would limit the ways to split up logs.
+
+To make sure that only deployments related to the service you are looking at are shown, you need unique deployment names. A simple approach is to name your releases with a service name prefix like this:
+
+* service1-1.0.0
+* service1-1.1.0
+* service2-1.0.0
+
+In the examples we have two services: service1 and service2. By prefixing deployments with the servicename, we make sure that not both service1-1.0.0 and service2-1.0.0 are shown when looking at one of the services.
