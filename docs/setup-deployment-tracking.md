@@ -103,7 +103,7 @@ Notifying elmah.io of a new deployment from Octopus Deploy, is supported through
 5. Go to the Process tab of your project on Octopus Deploy and click the _Add step_ button. The elmah.io step template is available in the bottom of the list.
 ![Add step template to process](images/add_elmah_io_deployment_step.png)
 
-6. When added to the process, select _Octopus Server_ in _Run on_ and input your API key found on your [profile](https://elmah.io/profile). Optionally input a version number prefix, to [support multiple services](#using-visual-studio-team-services).
+6. When added to the process, select _Octopus Server_ in _Run on_ and input your API key found on your [profile](https://elmah.io/profile). Optionally input a version number prefix, to [support multiple services](#versioning-different-services).
 ![Save notification step](images/save_notification_step.png)
 
 And we're done. On every new deployment, Octopus Deploy will notify elmah.io
