@@ -7,9 +7,9 @@ using Elmah;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
  
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(EvernoteMvcExample.ElmahConfig), "Start")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ElmahFromCodeExample.ElmahConfig), "Start")]
  
-namespace EvernoteMvcExample
+namespace ElmahFromCodeExample
 {
     public static class ElmahConfig
     {
@@ -38,4 +38,14 @@ namespace EvernoteMvcExample
 
 Let’s look at the code. In line 5, the `ElmahConfig` class is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. In line 13 the `ServiceCenter.Current` property is set to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we actually created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the LogId found on the dashboard of the elmah.io website.
 
-That’s it! You no longer need the `<elmah>` element in your `web.config` file.
+Since `ServiceContainer` and friends are bundled with ELMAH, you still need to configure ELMAH as part of the pipeline. Add the `ErrorLogModule` to your `web.config` like this:
+
+```xml
+<system.webserver>
+<modules>
+<add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" precondition="managedHandler"/>
+</modules>
+</system.webserver>
+```
+
+That’s it! You no longer need the `<elmah>` element, config sections or anything else than the module in your `web.config` file.
