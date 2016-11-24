@@ -42,9 +42,9 @@ Since `ServiceContainer` and friends are bundled with ELMAH, you still need to c
 
 ```xml
 <system.webserver>
-<modules>
-<add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" precondition="managedHandler"/>
-</modules>
+  <modules>
+    <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" precondition="managedHandler"/>
+  </modules>
 </system.webserver>
 ```
 
