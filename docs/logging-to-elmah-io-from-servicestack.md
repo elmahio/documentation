@@ -13,7 +13,7 @@ Once installed, add the following line to your AppHost:
 LogManager.LogFactory = new ElmahLogFactory(new NLogFactory());
 ```
 
-The above example assumes that you are already using NLog as the existing framework for logging. Wrapping different logger factories in each other actually makes it possible to log errors through ELMAH and other types of messages like warnings and info messages through another logging framework. If you don’t need anything other than ELMAH logging, use the NullLogFactory instead of NLogFactory.
+The above example assumes that you are already using NLog as the existing framework for logging. Wrapping different logger factories in each other and actually makes it possible to log errors through ELMAH and other types of messages like warnings and info messages through another logging framework. If you don’t need anything other than ELMAH logging, use the NullLogFactory instead of NLogFactory.
 
 That’s it! By installing both the ServiceStack.Logging.Elmah and elmah.io packages, you should have sufficient configuration in your web.config to start logging like a pro.
 

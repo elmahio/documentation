@@ -1,8 +1,8 @@
 # Logging from Serilog
 
-Serilog is a great addition to the flowering .NET logging community, described as “A no-nonse logging library for the NoSQL era” on their project page. Serilog works as other logging frameworks like log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is build on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
+Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
 
-In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications, why adding this type of logging to your windows and console applications is just as easy. Add the Serilog.Sinks.ElmahIO NuGet package to your project:
+In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications, that is why adding this type of logging to your windows and console applications is just as easy. Add the Serilog.Sinks.ElmahIO NuGet package to your project:
 
 ```powershell
 Install-Package Serilog.Sinks.ElmahIO
@@ -18,7 +18,7 @@ var log =
 Log.Logger = log;
 ```
 
-First we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case we don’t use IoC, why the log object is set as the public static Logger property, which makes it accessible from everywhere.
+First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don’t use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
 
 When unhandled exceptions occur, ELMAH ships the errors to elmah.io through the elmah.io NuGet package. No Serilog or even magic is happening there. The fun part begins when we log handled exceptions to Serilog:
 

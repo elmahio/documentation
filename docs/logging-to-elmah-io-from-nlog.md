@@ -24,7 +24,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </rules>
 ```
 
-In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this but be aware, that your elmah.io log may run full pretty fast, if you log thousands and thousands of trace and debug messages.
+In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
 Log messages to elmah.io, just as with every other target and NLog:
 
@@ -35,7 +35,7 @@ log.Error(new Exception(), "This is an error message");
 
 ## Custom Properties
 
-NLog supports custom properties like most other logging frameworks. With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](http://docs.elmah.io/logging-custom-data/) as well. Properties are persisted along side every log message in elmah.io and searchable if [named correctly](http://localhost:8000/logging-custom-data/#searching-custom-data).
+NLog supports custom properties like most other logging frameworks. With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](http://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](http://localhost:8000/logging-custom-data/#searching-custom-data).
 
 To log custom properties with NLog and elmah.io, you need to use an overload of each logging-method that takes a `LogEventInfo` object as parameter:
 

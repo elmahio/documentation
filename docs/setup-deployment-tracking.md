@@ -17,7 +17,7 @@ If you release your software manually, creating the new release manually is easy
 
 ![Deployments POST](images/deployments_post.png)
 
-To create the release, input your API key (found on your profile) in the top right cornor and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
+To create the release, input your API key (found on your profile) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
 
 ```json
 {
@@ -45,7 +45,7 @@ Invoke-RestMethod -Method Post -Uri $url -Body $body
 
 (replace `API_KEY` with your API key found on your profile)
 
-In the example, a simple version string is sent to the API and elmah.io will automatically put a timestamp on that. Overriding user information and description, makes the experience withing the elmah.io UI better. Pulling release notes and the name and email of the deployer, is usually available through environment variables or similar, depending on the technology used for creating the deployment.
+In the example, a simple version string is sent to the API and elmah.io will automatically put a timestamp on that. Overriding user information and description, makes the experience within the elmah.io UI better. Pulling release notes and the name and email of the deployer, is usually available through environment variables or similar, depending on the technology used for creating the deployment.
 
 ### Using Kudu
 
@@ -84,7 +84,7 @@ Invoke-RestMethod -Method Post -Uri $url -Body $body
 
 (replace `MY_USERNAME` and `MY_PASSWORD` with your Azure deployment credentials and `API_KEY` with your elmah.io API key located on your profile)
 
-The script generates a new version string from the current date and time. How you want your version string looking, is really up to you. To fetch additional informations about the deployment, the Kudu `deployments` endpoint is requested with the current commit id. Finally, the script creates the deployment using the elmah.io REST API.
+The script generates a new version string from the current date and time. How you want your version string looking, is really up to you. To fetch additional information about the deployment, the Kudu `deployments` endpoint is requested with the current commit id. Finally, the script creates the deployment using the elmah.io REST API.
 
 ### Using Octopus Deploy
 
@@ -131,7 +131,7 @@ That's it! VSTS will now notify elmah.io every time the release definition is ex
 
 ## Versioning Different Services
 
-Chances are that your software consist of multiple services released independently and with different version numbers. This is a common pattern when splitting up a software system in microservices. How you choose to split your elmah.io logs is entirely up to you, but we almost always recommend having a separate log for each service. When doing so, you only want deployment tracking to show the releases from the service you are currently looking at. The problem here is that deployments on elmah.io are not related to a log in any way. We could have implemented it this way, but that would limit the ways to split up logs.
+Chances are that your software consists of multiple services released independently and with different version numbers. This is a common pattern when splitting up a software system in microservices. How you choose to split your elmah.io logs are entirely up to you, but we almost always recommend having a separate log for each service. When doing so, you only want deployment tracking to show the releases from the service you are currently looking at. The problem here is that deployments on elmah.io are not related to a log in any way. We could have implemented it this way, but that would limit the ways to split up logs.
 
 To make sure that only deployments related to the service you are looking at are shown, you need unique deployment names. A simple approach is to name your releases with a service name prefix like this:
 
@@ -139,4 +139,4 @@ To make sure that only deployments related to the service you are looking at are
 * service1-1.1.0
 * service2-1.0.0
 
-In the examples we have two services: service1 and service2. By prefixing deployments with the servicename, we make sure that not both service1-1.0.0 and service2-1.0.0 are shown when looking at one of the services.
+In the examples we have two services: service1 and service2. By prefixing deployments with the service name, we make sure that not both service1-1.0.0 and service2-1.0.0 are shown when looking at one of the services.

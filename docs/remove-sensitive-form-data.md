@@ -1,6 +1,6 @@
 # Remove sensitive form data
 
-You may have something like usernames and passwords in form posts on your website. Since ELMAH automatically logs the content of a failing form POST, sensitive data potentially ends up in your log. No one else but you and your company should really get to look inside your log, but remember that everyone connected to the internet, is a potential hacking victim.
+You may have something like usernames and passwords in form posts on your website. Since ELMAH automatically logs the content of a failing form POST, sensitive data potentially ends up in your log. No one else but you and your company should really get to look inside your log, but remember that everyone connected to the Internet, is a potential hacking victim.
 
 There’s no build-in feature to remove data from the error data, before logging it to ELMAH. Luckily [ELMAH’s Error Filtering](https://code.google.com/p/elmah/wiki/ErrorFiltering) feature lets you accomplish that anyway by writing a bit of additional code in your `global.asax.cs` file:
 

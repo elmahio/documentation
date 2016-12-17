@@ -1,6 +1,6 @@
 # Logging from Express
 
-That's right. elmah.io doesn't only work with .NET. To integrate elmah.io into an Node Express web application, install the [elmah.io](https://www.npmjs.com/package/elmah.io) npm package
+That's right. elmah.io doesn't only work with .NET. To integrate elmah.io into a Node Express web application, install the [elmah.io](https://www.npmjs.com/package/elmah.io) npm package
 
 ```powershell
 npm install elmah.io

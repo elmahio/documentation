@@ -1,6 +1,6 @@
 # Logging from Web API
 
-Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this.
+Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily, Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this.
 
 To start logging exceptions from Web API, install the NuGet packages:
 

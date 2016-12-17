@@ -12,7 +12,7 @@ To integrate Nancy and ELMAH, Christian Westman already did a great job with his
 Install-Package Nancy.Elmah
 ```
 
-It’s important that you install the elmah.io package before Nancy.Elmah, because both packages likes to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.
+It’s important that you install the elmah.io package before Nancy.Elmah, because both packages like to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.
 
 In order for Nancy to know how to log errors to Elmah, you need to add an override of the DefaultNancyBootstrapper. Create a new class in the root named Bootstrapper:
 

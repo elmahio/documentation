@@ -24,7 +24,7 @@ factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
 
 Replace `API_KEY` with your API key found on the profile page and `LOG_ID` with the id of the log you wish to log to.
 
-Finally create a new logger and start logging exceptions:
+Finally, create a new logger and start logging exceptions:
 
 ```csharp
 var logger = factory.CreateLogger("MyLog");

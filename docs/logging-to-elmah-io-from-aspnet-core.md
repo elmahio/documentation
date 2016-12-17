@@ -25,7 +25,7 @@ That's it. Every uncaught exception will be logged to elmah.io. To log exception
 
 ## Logging exceptions manually
 
-While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
+While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
 
 ```csharp
 try
@@ -62,7 +62,7 @@ app.UseElmahIo(
     });
 ```
 
-An `ElmahIoSettings` object is sent to the `UseElmahIo` method. The settings class contains properties for hooking into the log process. The action registered in the `OnMessage` property is called by elmah.io just before logging a new message to the API. Use this action to decorate/enrich your log messages with additional data like a version number. The `OnError` action is called if communication with the elmah.io API failed. If this happens, you should log the message to a local log (through Microsoft.Extensions.Logging, Serilog or similar).
+An `ElmahIoSettings` object is sent to the `UseElmahIo` method. The settings class contains properties for hooking into the log process. The action registered in the `OnMessage` property is called by elmah.io just before logging a new message to the API. Use this action to decorate/enrich your log messages with additional data, like a version number. The `OnError` action is called if communication with the elmah.io API failed. If this happens, you should log the message to a local log (through Microsoft.Extensions.Logging, Serilog or similar).
 
 > Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
 

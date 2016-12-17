@@ -1,7 +1,7 @@
 # Logging from Log4net
 
 
-log4net is probably the oldest .NET logging frameworks on the block. Maintained by Apache and developed for more than a decade, makes log4net a good and well supported choice for some types of applications. log4net is based on the concept of appenders, which works pretty much like ELMAH’s error loggers. Unlike ELMAH, log4net can have multiple appenders, which makes it possible to log errors to multiple destinations. In addition log4net supports different log levels like Info and Warning. While ELMAH doesn’t have the concept of log levels, elmah.io supports all of the levels in log4net.
+log4net is probably the oldest .NET logging frameworks on the block. Maintained by Apache and developed for more than a decade, this makes log4net a good and well supported choice for some types of applications. log4net is based on the concept of appenders, which works pretty much like ELMAH’s error loggers. Unlike ELMAH, log4net can have multiple appenders, which makes it possible to log errors to multiple destinations. In addition, log4net supports different log levels like Info and Warning. While ELMAH doesn’t have the concept of log levels, elmah.io supports all of the levels in log4net.
 
 In this tutorial we’ll add log4net to an ASP.NET MVC project, but the process is almost identical with other project types. Create a new MVC project and install the elmah.io appender:
 

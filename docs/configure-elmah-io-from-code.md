@@ -48,4 +48,4 @@ Since `ServiceContainer` and friends are bundled with ELMAH, you still need to c
 </system.webserver>
 ```
 
-That’s it! You no longer need the `<elmah>` element, config sections or anything else than the module in your `web.config` file.
+That’s it! You no longer need the `<elmah>` element, config sections or anything else other than the module in your `web.config` file.

@@ -38,4 +38,4 @@ Catch {
 }
 ```
 
-In the first line, we create a new logger object with the `LOG_ID` of the log we want to write to. Then, in the `Catch` block, the catched exception is shipped of to elmah.io including a custom message.
+In the first line, we create a new logger object with the `LOG_ID` of the log we want to write to. Then, in the `Catch` block, the catched exception is shipped off to elmah.io including a custom message.

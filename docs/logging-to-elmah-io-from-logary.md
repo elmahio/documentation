@@ -1,8 +1,8 @@
 # Logging from Logary
 
-Logary is a semantic logging framework like Serilog and Microsoft Semantic Logging. Combining semantic logs with elmah.io are at perfect fit, since elmah.io has been designed with semantics from the ground up.
+Logary is a semantic logging framework like Serilog and Microsoft Semantic Logging. Combining semantic logs with elmah.io are a perfect fit, since elmah.io has been designed with semantics from the ground up.
 
-In this tutorial we’ll add Logary to an Console application, but the process is almost identical with other project types. Create a new console application and add the elmah.io target for Logary:
+In this tutorial, we’ll add Logary to a Console application, but the process is almost identical with other project types. Create a new console application and add the elmah.io target for Logary:
 
 ```powershell
 Install-Package Logary.Targets.Elmah.Io

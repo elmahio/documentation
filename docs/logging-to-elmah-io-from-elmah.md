@@ -10,15 +10,15 @@ Select a project template of your choice:
 
 ![Select Project Template](images/select_project_template.png)
 
-Navigate to elmah.io and login using your favorite social provider. When logged in, elmah.io redirects you to the dashboard. Click on Create new log and name your log:
+Navigate to elmah.io and login using your favorite social provider. When logged in, elmah.io redirects you to the dashboard. Click on _Create new log_ and name your log:
 
 ![Create New Log](images/create_new_log.png)
 
-When created, elmah.io shows you the install instructions. Don’t pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Copy your log id from step 2 in the installation instructions (located in the dialog):
+When created, elmah.io shows you the install instructions. Don’t pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Copy your log id from Step 2 in the installation instructions (located in the dialog):
 
 ![Copy your log id](images/copy_log_id_dialog.png)
 
-Navigate back to your web project, right click References and select Manage NuGet Packages:
+Navigate back to your web project, right click _References_ and select _Manage NuGet Packages_:
 
 ![Open Manage NuGet Packages](images/open_manage_nuget_packages.png)
 
@@ -34,4 +34,4 @@ You’re ready to rock and roll. Hit F5 and input a URL you know doesn’t exist
 
 ![Error Details](images/error_details.png)
 
-Seeing the error? Congrats! Every error on your application is now logged to elmah.io.
+See the error? Congrats! Every error on your application is now logged to elmah.io.

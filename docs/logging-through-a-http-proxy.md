@@ -1,6 +1,6 @@
 # Logging through a HTTP proxy
 
-You may find yourself in a situation, where your production web servers isn’t allowed HTTP requests towards the public internet. This also impacts the elmah.io client, which requires access to the URL https://elmah.io/api. A popular choice of implementing this kind of restriction nowadays, seem to be through a HTTP proxy like squid.
+You may find yourself in a situation, where your production web servers aren't allowing HTTP requests towards the public Internet. This also impacts the elmah.io client, which requires access to the URL https://elmah.io/api. A popular choice of implementing this kind of restriction nowadays, seem to be through a HTTP proxy like squid.
 
 Luckily the elmah.io client supports proxy configuration out of the box. Let’s look at how to configure a HTTP proxy through `web.config`:
 
@@ -29,4 +29,4 @@ Luckily the elmah.io client supports proxy configuration out of the box. Let’s
 
 The above example is of course greatly simplified.
 
-The elmah.io client automatically picks up the `defaultProxy` configuration through the `system.net` element. `defaultProxy` tunnels every request from your server, including requests to elmah.io, through the proxy located on 192.18.0.1 port 3128 (or whatever IP/hostname and port your are using).
+The elmah.io client automatically picks up the `defaultProxy` configuration through the `system.net` element. `defaultProxy` tunnels every request from your server, including requests to elmah.io, through the proxy located on 192.18.0.1 port 3128 (or whatever IP/hostname and port you are using).
