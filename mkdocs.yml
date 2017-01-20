@@ -26,6 +26,7 @@ pages:
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
     - Logging from Express: logging-to-elmah-io-from-express.md
+    - Logging from WCF: logging-to-elmah-io-from-wcf.md
     - Configure elmah.io manually: configure-elmah-io-manually.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
     - Logging through a HTTP proxy: logging-through-a-http-proxy.md
