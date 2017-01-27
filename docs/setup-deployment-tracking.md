@@ -17,7 +17,7 @@ If you release your software manually, creating the new release manually is easy
 
 ![Deployments POST](images/deployments_post.png)
 
-To create the release, input your API key (found on your profile) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
+To create the release, input your API key (found on your organization settings page) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
 
 ```json
 {
@@ -43,7 +43,7 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-(replace `API_KEY` with your API key found on your profile)
+(replace `API_KEY` with your API key found on your organization settings page)
 
 In the example, a simple version string is sent to the API and elmah.io will automatically put a timestamp on that. Overriding user information and description, makes the experience within the elmah.io UI better. Pulling release notes and the name and email of the deployer, is usually available through environment variables or similar, depending on the technology used for creating the deployment.
 
@@ -82,7 +82,7 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-(replace `MY_USERNAME` and `MY_PASSWORD` with your Azure deployment credentials and `API_KEY` with your elmah.io API key located on your profile)
+(replace `MY_USERNAME` and `MY_PASSWORD` with your Azure deployment credentials and `API_KEY` with your elmah.io API key located on your organization settings page)
 
 The script generates a new version string from the current date and time. How you want your version string looking, is really up to you. To fetch additional information about the deployment, the Kudu `deployments` endpoint is requested with the current commit id. Finally, the script creates the deployment using the elmah.io REST API.
 
@@ -103,7 +103,7 @@ Notifying elmah.io of a new deployment from Octopus Deploy, is supported through
 5. Go to the Process tab of your project on Octopus Deploy and click the _Add step_ button. The elmah.io step template is available in the bottom of the list.
 ![Add step template to process](images/add_elmah_io_deployment_step.png)
 
-6. When added to the process, select _Octopus Server_ in _Run on_ and input your API key found on your [profile](https://elmah.io/profile). Optionally input a version number prefix, to [support multiple services](#versioning-different-services).
+6. When added to the process, select _Octopus Server_ in _Run on_ and input your API key found on your organization settings page. Optionally input a version number prefix, to [support multiple services](#versioning-different-services).
 ![Save notification step](images/save_notification_step.png)
 
 And we're done. On every new deployment, Octopus Deploy will notify elmah.io
@@ -124,7 +124,7 @@ If you are using Visual Studio Team Services, you should use our VSTS extension 
 4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
 ![Add VSTS task](images/vsts_add_task.png)
 
-5. Copy your API key from your [profile](https://elmah.io/profile) and paste it into the _API Key_ field. Click _Save_.
+5. Copy your API key from your organization settings page and paste it into the _API Key_ field. Click _Save_.
 ![VSTS task added](images/vsts_task_added.png)
 
 That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to [decorate all messages sent to elmah.io with the same version number](#decorate-your-messages-with-a-version-number).
