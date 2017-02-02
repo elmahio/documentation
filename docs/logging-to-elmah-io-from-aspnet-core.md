@@ -21,11 +21,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 (replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to).
 
-That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](/logging-to-elmah-io-from-microsoft-extensions-logging).
+That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](http://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
 ## Logging exceptions manually
 
-While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
+While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](http://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
 
 ```csharp
 try
