@@ -1,8 +1,10 @@
 site_name: elmah.io Documentation
 site_description: Documentation on how to install and use elmah.io.
+site_url: http://docs.elmah.io/
+site_author: Thomas Ardal
 theme_dir: "mkdocs_bootstrap"
-include_next_prev: false
-site_favicon: favicon.ico
+extra_css:
+    - style.css
 pages: 
 - Docs:
     - Home: index.md

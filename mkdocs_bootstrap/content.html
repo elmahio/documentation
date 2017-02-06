@@ -1,12 +1,12 @@
-{% if meta.source %}
+{% if page.meta.source %}
 <div class="source-links">
-{% for filename in meta.source %}
+{% for filename in page.meta.source %}
     <span class="label label-primary">{{ filename }}</span>
 {% endfor %}
 </div>
 {% endif %}
 
-{{ content }}
+{{ page.content }}
 
 <button type="button" class="btn btn-lg btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal">Give elmah.io a try now</button>
 
