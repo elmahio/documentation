@@ -52,7 +52,7 @@ catch (ApplicationException ex)
 
 ## Context Properties
 
-log4net offers a feature called context properties. With context properties, you can log additional key/value pairs with every log message. The elmah.io appender for log4net, supports context properties as well. Context properties are handled like [custom properties](http://docs.elmah.io/logging-custom-data/) in the elmah.io UI.
+log4net offers a feature called context properties. With context properties, you can log additional key/value pairs with every log message. The elmah.io appender for log4net, supports context properties as well. Context properties are handled like [custom properties](https://docs.elmah.io/logging-custom-data/) in the elmah.io UI.
 
 Let's utilize two different hooks in log4net, to add context properties to elmah.io:
 

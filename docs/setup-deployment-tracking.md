@@ -42,7 +42,7 @@ In the example, a simple version string is sent to the API and elmah.io will aut
 
 ### Using Kudu
 
-Kudu is the engine behind Git deployments on Microsoft Azure. To create a new elmah.io deployment every time you deploy a new app service to Azure, add a new post deployment script as shown in [Decorating errors with version number using Azure websites](http://blog.elmah.io/decorating-errors-with-version-number-using-azure-websites/).
+Kudu is the engine behind Git deployments on Microsoft Azure. To create a new elmah.io deployment every time you deploy a new app service to Azure, add a new post deployment script as shown in [Decorating errors with version number using Azure websites](https://blog.elmah.io/decorating-errors-with-version-number-using-azure-websites/).
 
 With a post deployment script running inside Kudu, we have the possibility to extract some more information about the current deployment. A full deployment PowerShell script for Kudu, would look like this:
 
@@ -124,7 +124,7 @@ That's it! VSTS will now notify elmah.io every time the release definition is ex
 
 ## Decorate your messages with a version number
 
-As default, all messages are decorated with the most recent deployment version. If you want to override this behavior, check out [Adding Version Information](http://docs.elmah.io/adding-version-information/) for details.
+As default, all messages are decorated with the most recent deployment version. If you want to override this behavior, check out [Adding Version Information](https://docs.elmah.io/adding-version-information/) for details.
 
 ## Versioning Different Services
 

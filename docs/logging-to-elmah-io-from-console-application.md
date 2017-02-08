@@ -1,6 +1,6 @@
 ﻿# Logging from Console
 
-Even though elmah.io support various logging frameworks like [Serilog](http://docs.elmah.io/logging-to-elmah-io-from-serilog/), [log4net](http://docs.elmah.io/logging-to-elmah-io-from-log4net/) and [NLog](http://docs.elmah.io/logging-to-elmah-io-from-nlog/), logging from a simple console application is dead simple.
+Even though elmah.io support various logging frameworks like [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/) and [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), logging from a simple console application is dead simple.
 
 To start logging, install the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package:
 

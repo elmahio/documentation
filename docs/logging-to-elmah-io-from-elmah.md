@@ -1,6 +1,6 @@
 # Logging from ELMAH
 
-This article will explain the steps necessary to log errors from your web application into elmah.io. We also offer more specific guides on [ASP.NET MVC](/logging-to-elmah-io-from-aspnet-mvc), [Web API](/logging-to-elmah-io-from-web-api), [Nancy](/logging-to-elmah-io-from-nancy) and a lot of other web- and logging-frameworks. Read through this tutorial and head over to a tutorial specific for your choice of framework afterwards. If you don’t know ELMAH, check out our [ELMAH Tutorial - what is ELMAH](http://blog.elmah.io/elmah-tutorial/) and visit the nice folks over at the [ELMAH project page](http://elmah.github.io/). Let’s get started.
+This article will explain the steps necessary to log errors from your web application into elmah.io. We also offer more specific guides on [ASP.NET MVC](/logging-to-elmah-io-from-aspnet-mvc), [Web API](/logging-to-elmah-io-from-web-api), [Nancy](/logging-to-elmah-io-from-nancy) and a lot of other web- and logging-frameworks. Read through this tutorial and head over to a tutorial specific for your choice of framework afterwards. If you don’t know ELMAH, check out our [ELMAH Tutorial - what is ELMAH](https://blog.elmah.io/elmah-tutorial/) and visit the nice folks over at the [ELMAH project page](http://elmah.github.io/). Let’s get started.
 
 Create a new ASP.NET MVC project in Visual Studio (you can choose another web project type if you’d like):
 
