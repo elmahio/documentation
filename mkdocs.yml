@@ -37,6 +37,7 @@ pages:
     - HipChat: elmah-io-apps-hipchat.md
     - GitHub: elmah-io-apps-github.md
     - Bitbucket: elmah-io-apps-bitbucket.md
+    - Jira: elmah-io-apps-jira.md
     - Microsoft Teams: elmah-io-apps-teams.md
     - BotBuster: elmah-io-apps-botbuster.md
     - IP Filter: elmah-io-apps-ipfilter.md
