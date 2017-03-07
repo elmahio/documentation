@@ -81,3 +81,13 @@ app.UseElmahIo(
 ```
 
 Besides the default exception formatted (`DefaultExceptionFormatter`), Elmah.Io.AspNetCore comes with a formatter called `YellowScreenOfDeathExceptionFormatter`. This formatter, outputs an exception and its inner exceptions as a list of exceptions, much like on the ASP.NET yellow screen of death. If you want, implementing your own exception formatter, requires you to implement a single method.
+
+### Logging responses not throwing an exception
+
+As default, uncaught exceptions (500's) and 404's are logged automatically. Let's say you have a controller returning a Bad Request and want to log that as well. Since returning a 400 from a controller doesn't trigger an exception, you will need to configure this status code:
+
+```csharp
+var settings = new ElmahIoSettings();
+settings.HandledStatusCodesToLog.Add(400);
+app.UseElmahIo("API_KEY", new Guid("LOG_ID"), settings);
+```
