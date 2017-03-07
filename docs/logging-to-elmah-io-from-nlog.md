@@ -16,13 +16,15 @@ To configure the elmah.io target, add the following configuration to your app.co
 </extensions>
  
 <targets>
-  <target name="elmahio" type="elmah.io" logId="cc6043e9-5d7b-4986-8056-cb76d4d52e5e"/>
+  <target name="elmahio" type="elmah.io" logId="LOG_ID"/>
 </targets>
  
 <rules>
   <logger name="*" minlevel="Info" writeTo="elmahio" />
 </rules>
 ```
+
+(replace `LOG_ID` with your log ID)
 
 In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
