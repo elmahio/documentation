@@ -15,11 +15,15 @@ Configure the elmah.io logger in `Startup.cs` or whatever file you are using to 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
+    ...
     app.UseElmahIo("API_KEY", new Guid("LOG_ID"));
+    ...
 }
 ```
 
-(replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to).
+(replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to)
+
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`)
 
 That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
