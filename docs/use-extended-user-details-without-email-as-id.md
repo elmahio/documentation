@@ -1,5 +1,4 @@
-# Use Extended User Details
-## without Email as Id
+# Use Extended User Details without Email as Id
 
 As you may know, ELMAH automatically logs the user identity as part of the error. To make that happen, ELMAH uses the identity object on the current thread, which gets set by most authentication frameworks for .NET (like ASP.NET Membership Provider and ASP.NET Identity). Some of you may use the user's email as key, while others use something like a database identifier. If you are using an email, you are already covered and able to see Extended User Details. If not, you need to provide elmah.io with a little help.
 
