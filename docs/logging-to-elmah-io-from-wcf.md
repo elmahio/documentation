@@ -2,8 +2,6 @@
 
 ELMAH and WCF isn't exactly known to go hand in hand. But, with a bit of custom code, logging exceptions from WCF to elmah.io is possible.
 
-> Before we begin: my condolences on the fact that you have to deal with WCF. WCF is probably the worst HTTP library ever born out of Redmond. I strongly recommend you to switch to something else like ASP.NET Web API or ASP.NET Core.
-
 Let's get started. Install elmah.io into your WCF project using NuGet:
 
 ```powershell
