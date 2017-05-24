@@ -1,5 +1,7 @@
 # Logging from ASP.NET Core
 
+[TOC]
+
 Since ELMAH hasn't been ported to ASP.NET Core yet, we've built a provider for the new logging abstraction bundled with ASP.NET Core: [Microsoft.Extensions.Logging](https://github.com/aspnet/Logging).
 
 > The elmah.io provider for ASP.NET logging is currently in beta. We would really appreciate some feedback from you guys.
@@ -15,11 +17,15 @@ Configure the elmah.io logger in `Startup.cs` or whatever file you are using to 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
+    ...
     app.UseElmahIo("API_KEY", new Guid("LOG_ID"));
+    ...
 }
 ```
 
-(replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to).
+(replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to)
+
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`)
 
 That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
@@ -65,6 +71,24 @@ app.UseElmahIo(
 An `ElmahIoSettings` object is sent to the `UseElmahIo` method. The settings class contains properties for hooking into the log process. The action registered in the `OnMessage` property is called by elmah.io just before logging a new message to the API. Use this action to decorate/enrich your log messages with additional data, like a version number. The `OnError` action is called if communication with the elmah.io API failed. If this happens, you should log the message to a local log (through Microsoft.Extensions.Logging, Serilog or similar).
 
 > Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
+
+### Filtering
+
+While elmah.io supports [ignore rules](https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/#ignore-errors-with-a-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the settings object, filtering is easy:
+
+```csharp
+app.UseElmahIo(
+    "API_KEY", 
+    new Guid("LOG_ID"), 
+    new ElmahIoSettings
+    {
+        OnFilter = message => {
+            return message.Type == "System.NullReferenceException";;
+        }
+    });
+```
+
+The example above, ignores all messages of type `System.NullReferenceException`.
 
 ### Formatting exceptions
 
