@@ -55,6 +55,7 @@ pages:
     - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
     - Adding version information: adding-version-information.md
+    - Include filename and like number in stack traces: include-filename-and-line-number-in-stacktraces.md
     - ELMAH and custom errors: elmah-and-custom-errors.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
