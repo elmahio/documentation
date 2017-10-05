@@ -29,6 +29,8 @@ pages:
     - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
     - Logging from Express: logging-to-elmah-io-from-express.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
+    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
+    - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
     - Configure elmah.io manually: configure-elmah-io-manually.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
     - Logging through a HTTP proxy: logging-through-a-http-proxy.md
