@@ -11,7 +11,7 @@ Functions don't provide any mechanism for logging all uncaught exceptions, why y
 ```csharp
 public class Function
 {
-    public static void Run(string mySbMsg)
+    public static void Run()
     {
         try
         {
@@ -19,12 +19,14 @@ public class Function
         }
         catch (Exception e)
         {
-            var logger = Elmah.Io.Client.Logger.Create(new Guid("LOG_ID"));
-            logger.Error(e, e.Message);
+            var logger = ElmahioAPI.Create("API_KEY");
+            client.Messages.Error(new Guid("LOG_ID"), e, "An error message");
             throw;
         }
     }
 }
 ```
 
-Remember to throw the catched exception, to make retry and other Azure Function features work. 
+Remember to replace `API_KEY` with your API key located on the organization settings page and `LOG_ID` with the ID of the log you want to log to.
+
+By re-throwing the catched exception, Azure Function features like retry works smoothly.
