@@ -19,23 +19,32 @@ To install elmah.io.client, run `nuget.exe`:
 nuget install elmah.io.client
 ```
 
-This will create a `packages` folder containing the latest stable version of the elmah.io.client package. Since you probably don't want to hardcode the path to the current version number, get a reference to `elmah.io.client.dll` and load it:
+This will create a `Elmah.Io.Client-version` folder containing the latest stable version of the elmah.io.client package. Since you probably don't want to hardcode the path to the current version number, reference `Elmah.Io.Client.dll` and its dependencies using `Get-ChildItem` and a bit of recursive magic:
 
 ```powershell
-$elmahIoClientPath = Get-ChildItem -Path . -Filter elmah.io.client.dll -Recurse
+$elmahIoClientPath = Get-ChildItem -Path . -Filter Elmah.Io.Client.dll -Recurse `
+  | Where-Object {$_.FullName -match "net45"}
 [Reflection.Assembly]::LoadFile($elmahIoClientPath.FullName)
+
+$restClientPath = Get-ChildItem -Path . -Filter Microsoft.Rest.ClientRuntime.dll -Recurse `
+  | Where-Object {$_.FullName -match "net45"}
+[Reflection.Assembly]::LoadFile($restClientPath.FullName)
+
+$jsonNetPath = Get-ChildItem -Path . -Filter Newtonsoft.Json.dll -Recurse `
+  | Where-Object {$_.FullName -match "net45" -and $_.FullName -notmatch "portable"}
+[Reflection.Assembly]::LoadFile($jsonNetPath.FullName)
 ```
 
-You now have `elmah.io.client.dll` loaded into your shell and everything is set up in order to log to elmah.io. To do so, add try-catch around critical code:
+You now have `Elmah.Io.Client.dll` loaded into your shell and everything is set up in order to log to elmah.io. To do so, add try-catch around critical code:
 
 ```powershell
-$logger = New-Object Elmah.Io.Client.Logger([guid]::new("LOG_ID"))
+$logger = [Elmah.Io.Client.ElmahioAPI]::Create("API_KEY")
 Try {
     # some code that may throw exceptions
 }
 Catch {
-    $logger.Error($_.Exception, "Oh no, something bad happened");
+    $logger.Messages.Error([guid]::new("LOG_ID"), $_.Exception, "Oh no")
 }
 ```
 
-In the first line, we create a new logger object with the `LOG_ID` of the log we want to write to. Then, in the `Catch` block, the catched exception is shipped off to elmah.io including a custom message.
+In the first line, we create a new logger object with the `API_KEY` of the subscription we want to use. Then, in the `Catch` block, the catched exception is shipped off to the elmah.io log specified in `LOG_ID` together with a custom message.
