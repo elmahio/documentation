@@ -64,6 +64,7 @@ pages:
     - Using the REST API: using-the-rest-api.md
     - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
     - Query messages using full-text search: query-messages-using-full-text-search.md
+    - Where do I find my API key: where-do-i-find-my-api-key.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
     - Integrating with Zapier: integrate-elmah-io-with-zapier.md 
