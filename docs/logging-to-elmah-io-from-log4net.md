@@ -1,9 +1,8 @@
 # Logging from Log4net
 
+[TOC]
 
-log4net is probably the oldest .NET logging frameworks on the block. Maintained by Apache and developed for more than a decade, this makes log4net a good and well supported choice for some types of applications. log4net is based on the concept of appenders, which works pretty much like ELMAH’s error loggers. Unlike ELMAH, log4net can have multiple appenders, which makes it possible to log errors to multiple destinations. In addition, log4net supports different log levels like Info and Warning. While ELMAH doesn’t have the concept of log levels, elmah.io supports all of the levels in log4net.
-
-In this tutorial we’ll add log4net to an ASP.NET MVC project, but the process is almost identical with other project types. Create a new MVC project and install the elmah.io appender:
+In this tutorial we’ll add logging to elmah.io from an ASP.NET MVC project through log4net. The process is identical with other project types. Create a new MVC project and install the elmah.io appender:
 
 ```powershell
 Install-Package elmah.io.log4net
@@ -27,6 +26,7 @@ Finally, add the log4net configuration element to web.config:
 <log4net>
   <appender name="ElmahIoAppender" type="elmah.io.log4net.ElmahIoAppender, elmah.io.log4net">
     <logId value="LOG_ID" />
+    <apiKey value="API_KEY" />
   </appender>
   <root>
     <level value="Info" />
@@ -35,7 +35,7 @@ Finally, add the log4net configuration element to web.config:
 </log4net>
 ```
 
-That’s it! log4net is now configured and log messages to elmah.io. Remember to replace LOG_ID with your actual log Id. To start logging, write your usual log4net log statements:
+That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where do I find my API key?](https://docs.elmah.io/where-do-i-find-my-api-key/)) and `LOG_ID` with your actual log Id. To start logging, write your usual log4net log statements:
 
 ```csharp
 var log = log4net.LogManager.GetLogger(typeof(HomeController));
@@ -66,3 +66,9 @@ log.Info("This is a message with custom properties");
 Basically, we set two custom properties on contextual classes provided by log4net. To read more about the choices in log4net, check out the [log4net manual](https://logging.apache.org/log4net/release/manual/contexts.html).
 
 When looking up the log message in elmah.io, we see the context properties in the Data tab. Besides the two custom variables that we set through `GlobalContext` and `ThreadContext`, we see a couple of build-in properties in log4net, both prefixed with `log4net:`.
+
+## Additional Resources
+
+- [Samples](https://github.com/elmahio/elmah.io.log4net/tree/master/samples)
+- [Source](https://github.com/elmahio/elmah.io.log4net)
+- [log4net Manual](https://logging.apache.org/log4net/release/manual/introduction.html)
