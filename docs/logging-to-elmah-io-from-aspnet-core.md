@@ -2,14 +2,12 @@
 
 [TOC]
 
-Since ELMAH hasn't been ported to ASP.NET Core yet, we've built a provider for the new logging abstraction bundled with ASP.NET Core: [Microsoft.Extensions.Logging](https://github.com/aspnet/Logging).
+If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
-> The elmah.io provider for ASP.NET logging is currently in beta. We would really appreciate some feedback from you guys.
-
-To log all warnings and errors from ASP.NET (Core), install the following NuGet package:
+To log all warnings and errors from ASP.NET Core, install the following NuGet package:
 
 ```powershell
-Install-Package Elmah.Io.AspNetCore -Pre
+Install-Package Elmah.Io.AspNetCore
 ```
 
 Configure the elmah.io logger in `Startup.cs` or whatever file you are using to initialize your web app:
@@ -23,11 +21,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-(replace `API_KEY` with your API key found on your organization settings page on elmah.io and `LOG_ID` with the log Id of the log you want to log to)
+Replace `API_KEY` with your API key ([Where do I find my API key?](https://docs.elmah.io/where-do-i-find-my-api-key/)) and `LOG_ID` with the log Id of the log you want to log to.
 
 > Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`)
 
-That's it. Every uncaught exception will be logged to elmah.io. To log exceptions manually (or even log verbose and information messages), check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
+That's it. Every uncaught exception will be logged to elmah.io.
 
 ## Logging exceptions manually
 
