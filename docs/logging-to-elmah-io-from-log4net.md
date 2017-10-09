@@ -1,3 +1,7 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/xdujoaelpbyg8lov?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-log4net)
+[![NuGet](https://img.shields.io/nuget/v/elmah.io.log4net.svg)](https://www.nuget.org/packages/elmah.io.log4net)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.log4net/tree/master/samples)
+
 # Logging from Log4net
 
 [TOC]
@@ -35,7 +39,7 @@ Finally, add the log4net configuration element to web.config:
 </log4net>
 ```
 
-That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where do I find my API key?](https://docs.elmah.io/where-do-i-find-my-api-key/)) and `LOG_ID` with your actual log Id. To start logging, write your usual log4net log statements:
+That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your actual log Id. To start logging, write your usual log4net log statements:
 
 ```csharp
 var log = log4net.LogManager.GetLogger(typeof(HomeController));
@@ -66,9 +70,3 @@ log.Info("This is a message with custom properties");
 Basically, we set two custom properties on contextual classes provided by log4net. To read more about the choices in log4net, check out the [log4net manual](https://logging.apache.org/log4net/release/manual/contexts.html).
 
 When looking up the log message in elmah.io, we see the context properties in the Data tab. Besides the two custom variables that we set through `GlobalContext` and `ThreadContext`, we see a couple of build-in properties in log4net, both prefixed with `log4net:`.
-
-## Additional Resources
-
-- [Samples](https://github.com/elmahio/elmah.io.log4net/tree/master/samples)
-- [Source](https://github.com/elmahio/elmah.io.log4net)
-- [log4net Manual](https://logging.apache.org/log4net/release/manual/introduction.html)

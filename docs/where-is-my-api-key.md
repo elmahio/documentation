@@ -1,4 +1,4 @@
-# Where do I find my API key?
+# Where is my API key?
 
 API keys are a new concept introduced with version 3.x of our [API](https://elmah.io/api/). API keys are located on the organization settings page.
 

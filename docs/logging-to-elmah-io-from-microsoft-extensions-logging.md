@@ -1,4 +1,10 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/eiw9tpstm67t02v6?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-extensions-logging)
+[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples)
+
 # Logging from Microsoft.Extensions.Logging
+
+[TOC]
 
 [Microsoft.Extensions.Logging](https://github.com/aspnet/Logging) is a common logging abstraction from Microsoft, much like log4net and Serilog. Microsoft.Extensions.Logging started as a new logging mechanism for ASP.NET Core, but now acts as a logging framework for all sorts of project types.
 
@@ -8,7 +14,7 @@ Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/pack
 Install-Package Elmah.Io.Extensions.Logging
 ```
 
-Locate your API key ([Where do I find my API key?](https://docs.elmah.io/where-do-i-find-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` in the following.
+Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` in the following.
 
 ## Logging from ASP.NET Core
 
