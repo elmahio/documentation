@@ -5,24 +5,57 @@
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
 ```powershell
-Install-Package Elmah.Io.Extensions.Logging -Pre
+Install-Package Elmah.Io.Extensions.Logging
 ```
 
-Then create a new `LoggerFactory`:
+Locate your API key ([Where do I find my API key?](https://docs.elmah.io/where-do-i-find-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` in the following.
+
+## Logging from ASP.NET Core
+
+Call `AddElmahIo` in the `Configure`-method in `Startup.cs`:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    ...
+    fac.AddElmahIo("API_KEY", new Guid("LOG_ID"));
+    ...
+}
+```
+
+Start logging messages by injecting an `ILogger` in your controllers:
+
+```csharp
+public class HomeController : Controller
+{
+    private readonly ILogger _logger;
+
+    public HomeController(ILogger logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        _logger.LogWarning("Request to index");
+        return View();
+    }
+}
+```
+
+## Logging from a console application
+
+Create a new `LoggerFactory`:
 
 ```csharp
 var factory = new LoggerFactory();
 ```
-
-A dependency injection based application like ASP.NET Core would get `ILoggerFactory` injected instead.
 
 Configure Microsoft.Extensions.Logging to use elmah.io:
 
 ```csharp
 factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
 ```
-
-Replace `API_KEY` with your API key found on the organization settings page and `LOG_ID` with the id of the log you wish to log to.
 
 Finally, create a new logger and start logging exceptions:
 
