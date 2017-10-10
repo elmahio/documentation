@@ -14,7 +14,7 @@ Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/pack
 Install-Package Elmah.Io.Extensions.Logging
 ```
 
-Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` in the following.
+Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) in the following.
 
 ## Logging from ASP.NET Core
 

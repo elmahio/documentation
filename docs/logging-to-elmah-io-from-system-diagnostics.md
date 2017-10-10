@@ -14,7 +14,7 @@ As default, `Trace` logs to the Win32 OutputDebugString function, but it is poss
 System.Diagnostics.Trace.Listeners.Add(new ElmahIoTraceListener(new Guid("LOG_ID")));
 ```
 
-(replace `LOG_ID` with your log id)
+Replace `LOG_ID` with your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 To start logging, call the `Trace` API:
 

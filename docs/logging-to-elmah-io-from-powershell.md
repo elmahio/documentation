@@ -47,4 +47,4 @@ Catch {
 }
 ```
 
-In the first line, we create a new logger object with the `API_KEY` of the subscription we want to use. Then, in the `Catch` block, the catched exception is shipped off to the elmah.io log specified in `LOG_ID` together with a custom message.
+In the first line, we create a new logger object with the `API_KEY` of the subscription we want to use ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). Then, in the `Catch` block, the catched exception is shipped off to the elmah.io log specified in `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) together with a custom message.

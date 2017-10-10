@@ -8,7 +8,7 @@ In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog
 Install-Package Serilog.Sinks.ElmahIO
 ```
 
-During the installation you will be prompted to input your log id, as with any other installation of elmah.io. To configure Serilog, add the following code to the Application_Start method in global.asax.cs (where LOG_ID is your log id):
+During the installation you will be prompted to input your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)), as with any other installation of elmah.io. To configure Serilog, add the following code to the Application_Start method in global.asax.cs (where LOG_ID is your log id):
 
 ```csharp
 var log =

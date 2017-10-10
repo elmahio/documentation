@@ -25,7 +25,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
 
 > Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`)
 

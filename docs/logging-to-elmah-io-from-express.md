@@ -16,6 +16,4 @@ var app = express();
 app.use(elmah.auto({logId:"LOG_ID", application:"My App Name", version: "42.0.0"}));
 ```
 
-(replace `LOG_ID` with your log ID)
-
-Every error is logged to elmah.io.
+Replace `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). Every error is logged to elmah.io.

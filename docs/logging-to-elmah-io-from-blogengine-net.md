@@ -14,7 +14,7 @@ Some of you may use the BlogEngine.NET binaries or even installed it using a one
 <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" LogId="LOG_ID" />
 ```
 
-Where LOG_ID is your log id, located on the settings page.
+Where LOG_ID is your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 To wrap this up, you may have noticed that there’s a [NuGet package](https://www.nuget.org/packages/Elmah.BlogEngine.Net/) to bring ELMAH support into BlogEngine.NET. This package adds the ELMAH assembly and config as well as adds a nice BlogEngine.NET compliant URL for browsing errors. Feel free to use this package, but remember to add it after the elmah.io package. Also, make sure to clean up the dual error log configuration:
 

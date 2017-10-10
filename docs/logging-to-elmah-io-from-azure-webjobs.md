@@ -29,6 +29,6 @@ class Program
 }
 ```
 
-Remember to replace `API_KEY` with your API key located on the organization settings page and `LOG_ID` with the ID of the log you want to log to.
+Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
 
 Azure WebJobs automatically executes the `Log`-method when an exception is thrown. In this example, we simply log the exception registered in `UnhandledExceptionEventArgs`.

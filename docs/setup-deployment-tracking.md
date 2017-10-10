@@ -10,7 +10,7 @@ If you release your software manually, creating the new release manually is easy
 
 ![Deployments POST](images/deployments_post.png)
 
-To create the release, input your API key (found on your organization settings page) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
+To create the release, input your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
 
 ```json
 {
@@ -185,7 +185,7 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-Replace `your-umbraco-site` with the name of your site, `MY_USERNAME` with your Umbraco Cloud username, `MY_PASSWORD` with your Umbraco Cloud password, `LOG_ID` with the id if the elmah.io log that should contain the deployments and finally `API_KEY` with your elmah.io API key, found and your organization settings page.
+Replace `your-umbraco-site` with the name of your site, `MY_USERNAME` with your Umbraco Cloud username, `MY_PASSWORD` with your Umbraco Cloud password, `LOG_ID` with the id if the elmah.io log that should contain the deployments ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) and finally `API_KEY` with your elmah.io API key, found and your organization settings page.
 
 There you go. When deploying changes to your Umbraco Cloud site, a new deployment is automatically created on elmah.io.
 

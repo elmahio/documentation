@@ -39,7 +39,7 @@ Finally, add the log4net configuration element to web.config:
 </log4net>
 ```
 
-That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your actual log Id. To start logging, write your usual log4net log statements:
+That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with your actual log Id. To start logging, write your usual log4net log statements:
 
 ```csharp
 var log = log4net.LogManager.GetLogger(typeof(HomeController));

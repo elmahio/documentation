@@ -27,6 +27,6 @@ public class Function
 }
 ```
 
-Remember to replace `API_KEY` with your API key located on the organization settings page and `LOG_ID` with the ID of the log you want to log to.
+Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
 
 By re-throwing the catched exception, Azure Function features like retry works smoothly.
