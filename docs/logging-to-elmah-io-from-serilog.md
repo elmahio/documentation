@@ -1,30 +1,32 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/j4rsru1m0lhkfwc4/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-elmahio/branch/master)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
 
 # Logging from Serilog
 
 Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
 
-In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications, that is why adding this type of logging to your windows and console applications is just as easy. Add the Serilog.Sinks.ElmahIO NuGet package to your project:
+In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications. Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
 
 ```powershell
-Install-Package Serilog.Sinks.ElmahIO
+Install-Package Serilog.Sinks.ElmahIo
 ```
 
-During the installation you will be prompted to input your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)), as with any other installation of elmah.io. To configure Serilog, add the following code to the Application_Start method in global.asax.cs (where LOG_ID is your log id):
+To configure Serilog, add the following code to the Application_Start method in global.asax.cs:
 
 ```csharp
 var log =
     new LoggerConfiguration()
-        .WriteTo.ElmahIO(new Guid("LOG_ID"))
+        .WriteTo.ElmahIo("API_KEY", new Guid("LOG_ID"))
         .CreateLogger();
 Log.Logger = log;
 ```
 
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)),
+
 First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don’t use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
 
-When unhandled exceptions occur, ELMAH ships the errors to elmah.io through the elmah.io NuGet package. No Serilog or even magic is happening there. The fun part begins when we log handled exceptions to Serilog:
+To log log exceptions to elmah.io through Serilog, is the `Log` class provided by Serilog:
 
 ```csharp
 try {
