@@ -25,7 +25,8 @@ namespace ElmahFromCodeExample
                 var container = new ServiceContainer(sp(context));
  
                 var config = new Dictionary<string, string>();
-                config["LogId"] = "6aeabe21-e2e9-4d07-a338-c2380e575fc1";
+                config["apiKey"] = "798de90b25ae4c849a18dc136c3ac94f";
+                config["logId"] = "6aeabe21-e2e9-4d07-a338-c2380e575fc1";
                 var log = new Elmah.Io.ErrorLog(config);
  
                 container.AddService(typeof(ErrorLog), log);
@@ -36,7 +37,9 @@ namespace ElmahFromCodeExample
 }
 ```
 
-Let’s look at the code. In line 5, the `ElmahConfig` class is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. In line 13 the `ServiceCenter.Current` property is set to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we actually created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the LogId found on the dashboard of the elmah.io website.
+Replace the value of `apiKey` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `logId` with a log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+Let’s look at the code. Our class `ElmahConfig` is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. Then we set the `ServiceCenter.Current` property to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we actually created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the API key and log ID as explained earlier.
 
 Since `ServiceContainer` and friends are bundled with ELMAH, you still need to configure ELMAH as part of the pipeline. Add the `ErrorLogModule` to your `web.config` like this:
 

@@ -4,8 +4,6 @@
 
 # Logging from ASP.NET Core
 
-[TOC]
-
 If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
 To log all warnings and errors from ASP.NET Core, install the following NuGet package:

@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/n90mht5w7nhrysg3?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-trace)
+[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Trace.svg)](https://www.nuget.org/packages/Elmah.Io.Trace)
+
 # Logging from System.Diagnostics
 
 .NET comes with its own tracing/logging feature located in the [System.Diagnostics namespaces](https://msdn.microsoft.com/en-us/library/gg145030(v=vs.110).aspx). A core part of `System.Diagnostics` is the `Trace` class, but that namespace contains utilities for performance counters, working with the event log and a lot of other features. In this article, we will focus on logging to elmah.io from `System.Diagnostics.Trace`.
@@ -11,10 +14,11 @@ Install-Package Elmah.Io.Trace
 As default, `Trace` logs to the Win32 OutputDebugString function, but it is possible to log to multiple targets (like appenders in log4net). To do so, tell `Trace` about elmah.io:
 
 ```csharp
-System.Diagnostics.Trace.Listeners.Add(new ElmahIoTraceListener(new Guid("LOG_ID")));
+System.Diagnostics.Trace.Listeners.Add(
+    new ElmahIoTraceListener("API_KEY", new Guid("LOG_ID")));
 ```
 
-Replace `LOG_ID` with your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 To start logging, call the `Trace` API:
 

@@ -8,13 +8,15 @@ Start by installing the JSNLog.Elmah package:
 Install-Package JSNLog.Elmah
 ```
 
-This installs and setup JSNLog into your project, using ELMAH as an appender. Then, install elmah.io:
+This installs and setup JSNLog into your project, using ELMAH as an appender. Then, install `Elmah.Io`:
 
 ```powershell
-Install-Package elmah.io
+Install-Package Elmah.Io
 ```
 
-Remember to input a valid log id during the installation. Add the JSNLog code before any script imports in your _Layout.cshtml file:
+During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+Add the JSNLog code before any script imports in your _Layout.cshtml file:
 
 ```csharp
 @Html.Raw(JSNLog.JavascriptLogging.Configure())

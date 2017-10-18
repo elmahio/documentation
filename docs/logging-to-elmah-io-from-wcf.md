@@ -5,8 +5,10 @@ ELMAH and WCF isn't exactly known to go hand in hand. But, with a bit of custom 
 Let's get started. Install elmah.io into your WCF project using NuGet:
 
 ```powershell
-Install-Package elmah.io
+Install-Package Elmah.Io
 ```
+
+During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 Add a new class named `HttpErrorHandler`:
 

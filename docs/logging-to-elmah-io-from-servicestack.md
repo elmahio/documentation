@@ -4,8 +4,10 @@ Logging errors to elmah.io from ServiceStack is almost as easy as installing in 
 
 ```powershell
 Install-Package ServiceStack.Logging.Elmah
-Install-Package elmah.io
+Install-Package Elmah.Io
 ```
+
+During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 Once installed, add the following line to your AppHost:
 

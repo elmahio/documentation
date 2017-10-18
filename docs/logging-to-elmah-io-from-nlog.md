@@ -4,8 +4,6 @@
 
 # Logging from NLog
 
-[TOC]
-
 NLog is one of the most popular logging frameworks for .NET. With an active history on almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
 
 To start logging messages from NLog to elmah.io, you need to install the elmah.io.nlog NuGet package:

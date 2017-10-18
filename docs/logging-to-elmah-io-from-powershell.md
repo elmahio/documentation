@@ -16,7 +16,7 @@ This script will download the latest version of the NuGet command line tool and 
 To install elmah.io.client, run `nuget.exe`:
 
 ```powershell
-nuget install elmah.io.client
+nuget install Elmah.Io.Client
 ```
 
 This will create a `Elmah.Io.Client-version` folder containing the latest stable version of the elmah.io.client package. Since you probably don't want to hardcode the path to the current version number, reference `Elmah.Io.Client.dll` and its dependencies using `Get-ChildItem` and a bit of recursive magic:

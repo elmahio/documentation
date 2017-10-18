@@ -4,8 +4,6 @@
 
 # Logging from Log4net
 
-[TOC]
-
 In this tutorial we’ll add logging to elmah.io from an ASP.NET MVC project through log4net. The process is identical with other project types. Create a new MVC project and install the elmah.io appender:
 
 ```powershell
