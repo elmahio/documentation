@@ -68,6 +68,7 @@ pages:
     - Query messages using full-text search: query-messages-using-full-text-search.md
     - Where is my log ID: where-is-my-log-id.md
     - Where is my API key: where-is-my-api-key.md
+    - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
     - Integrating with Zapier: integrate-elmah-io-with-zapier.md 
