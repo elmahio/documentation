@@ -1,6 +1,10 @@
 # Logging from Azure WebJobs
 
-Logging errors from Azure WebJobs, requires only a few lines of code. To start logging exceptions from WebJobs, install the Elmah.Io.Client NuGet package into your WebJob project:
+Logging errors from Azure WebJobs, requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
+
+### Manually using `Elmah.Io.Client` (the stable choice)
+
+Install the [Elmah.Io.Client](https://www.nuget.org/packages/elmah.io.client/) NuGet package into your WebJob project:
 
 ```powershell
 Install-Package Elmah.Io.Client
@@ -32,3 +36,26 @@ class Program
 Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
 
 Azure WebJobs automatically executes the `Log`-method when an exception is thrown. In this example, we simply log the exception registered in `UnhandledExceptionEventArgs`.
+
+### Automatic using `Elmah.Io.Functions` (the prerelease choice)
+
+We've created a client specifically for Azure WebJobs. Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
+
+```powershell
+Install-Package Elmah.Io.Functions -Pre
+```
+
+Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
+
+```csharp
+[ElmahIoExceptionFilter("API_KEY", "LOG_ID")]
+public class Functions
+{
+    public static void ProcessQueueMessage([QueueTrigger("queue")] string msg, TextWriter log)
+    {
+        throw new Exception("Some exception");
+    }
+}
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with your log ID.

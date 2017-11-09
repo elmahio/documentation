@@ -1,12 +1,16 @@
 # Logging from Azure Functions
 
-Logging errors from Azure Functions, requires only a few lines of code. To start logging exceptions from a Function, install the Elmah.Io.Client NuGet package into your Function project:
+Logging errors from Azure Functions, requires only a few lines of code. To start logging exceptions from a Function choose one of two methods:
+
+### Manually using `Elmah.Io.Client` (the stable choice)
+
+Install the [Elmah.Io.Client](https://www.nuget.org/packages/elmah.io.client/) NuGet package into your Function project:
 
 ```powershell
 Install-Package Elmah.Io.Client
 ```
 
-Functions don't provide any mechanism for logging all uncaught exceptions, why you will need to wrap your Function code in try-catch:
+Wrap your Function code in try-catch:
 
 ```csharp
 public class Function
@@ -30,3 +34,33 @@ public class Function
 Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
 
 By re-throwing the catched exception, Azure Function features like retry works smoothly.
+
+### Automatic using `Elmah.Io.Functions` (the prerelease choice)
+
+We've created a client specifically for Azure Functions. Before you start, make sure to install `Microsoft.Azure.WebJobs` version `2.1.0-beta4` into your Function App:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs -Version 2.1.0-beta4 -Pre
+```
+
+Then install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
+
+```powershell
+Install-Package Elmah.Io.Functions -Pre
+```
+
+Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
+
+```csharp
+[ElmahIoExceptionFilter("API_KEY", "LOG_ID")]
+public static class Function1
+{
+    [FunctionName("Function1")]
+    public static void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, TraceWriter log)
+    {
+        throw new Exception("Some exception");
+    }
+}
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with your log ID.
