@@ -1,3 +1,7 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/wijhscta71muvd5b?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-functions)
+[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Functions.svg)](https://www.nuget.org/packages/Elmah.Io.Functions)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Functions/tree/master/samples)
+
 # Logging from Azure WebJobs
 
 Logging errors from Azure WebJobs, requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
