@@ -107,9 +107,9 @@ Notifying elmah.io of a new deployment from Octopus Deploy, is supported through
 
 And we're done. On every new deployment, Octopus Deploy will notify elmah.io
 
-### Using Visual Studio Team Services
+### Using Visual Studio Team Services (Releases)
 
-If you are using Visual Studio Team Services, you should use our VSTS extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
+If you are using Release Management in Visual Studio Team Services, you should use our VSTS extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
 
 1. Go to the [elmah.io Deployment Tasks extension](https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks) on the Visual Studio Marketplace and click _Install_ (log in if not already).
 ![elmah.io VSTS extension](images/vsts_extension.png)
@@ -127,6 +127,36 @@ If you are using Visual Studio Team Services, you should use our VSTS extension 
 ![VSTS task added](images/vsts_task_added.png)
 
 That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
+
+### Using Visual Studio Team Services (Builds)
+
+Notifying elmah.io about new deployments is possible as a build step in Visual Studio Team Services, by adding a bit of PowerShell:
+
+1. Edit the build definition currently building your project(s).
+
+2. Click the _Add task_ button and locate the _PowerShell_ task. Click _Add_.
+![Add PowerShell task](images/add_powershell_task.png)
+
+3. Fill in the details as shown in the screenshot.
+![Fill in PowerShell content](images/fill_powershell_task.png)
+
+... and here's the code from the screenshot above:
+
+```powershell
+$ProgressPreference = "SilentlyContinue"
+
+$url = "https://api.elmah.io/v3/deployments?api_key=API_KEY"
+$body = @{
+  version = "$env:BUILD_BUILDNUMBER"
+  description = "$env:BUILD_SOURCEVERSIONMESSAGE"
+  userName = "$env:BUILD_REQUESTEDFOR"
+  userEmail = "$env:BUILD_REQUESTEDFOREMAIL"
+  logId = "LOG_ID"
+}
+Invoke-RestMethod -Method Post -Uri $url -Body $body
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the id of the log representing the application deployed by this build configuration.
 
 ### Using Umbraco Cloud
 
