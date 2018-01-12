@@ -31,3 +31,17 @@ Install-Package Elmah.Io.Umbraco
 * Commit and push all changes to the git respository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
 In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: [Config transforms](https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/).
+
+## What's inside?
+
+The Elmah.Io.Umbraco package basically installs and configures three things:
+
+* The elmah.io log4net appender (Warn and above)
+* An Umbraco content finder for logging 404's
+* ELMAH with elmah.io as error log
+
+All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors and fatal messages logged through log4net are send to elmah.io as well.
+
+## Configuration
+
+If you are running on the default Umbraco template, all nessecary configuration is added during installation of the Elmah.Io.Umbraco NuGet package. If your `web.config` file for some reason aren't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configure the elmah.io appender for log4net in your `Config\log4net.config` file. If the config isn't added or you are configuring log4net in another location (like `web.config`, here's a guide to set it up: [Logging from log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/).
