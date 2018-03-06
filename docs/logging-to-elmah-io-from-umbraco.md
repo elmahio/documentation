@@ -16,6 +16,8 @@ During the installation, you will be asked for your API key ([Where is my API ke
 
 Hit F5 and watch messages start flowing into elmah.io.
 
+> Elmah.Io.Umbraco 3.x depends on UmbracoCms.Core >= 7.6.3. If you are on a previous version of Umbraco, you can use Elmah.Io.Umbraco 1.0.25, which depends on UmbracoCms.Core 7.2.5.
+
 ## Umbraco Cloud
 
 When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco cloud, execute the following steps:
