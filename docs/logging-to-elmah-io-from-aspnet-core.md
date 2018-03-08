@@ -39,7 +39,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`)
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`), but **before** any calls to `UseStaticFiles`, `UseMvc` and similar.
 
 That's it. Every uncaught exception will be logged to elmah.io.
 
