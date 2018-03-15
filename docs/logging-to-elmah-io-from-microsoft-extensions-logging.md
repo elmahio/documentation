@@ -77,7 +77,7 @@ To log everything from log level `Information` and up, use the `AddElmahIo` over
 ```csharp
 factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new FilterLoggerSettings
 {
-    {"elmah.io", LogLevel.Information}
+    {"*", LogLevel.Information}
 });
 ```
 
