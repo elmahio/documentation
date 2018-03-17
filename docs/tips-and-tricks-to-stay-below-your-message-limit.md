@@ -57,6 +57,7 @@ void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
 
 If you're using ASP.NET Core, our client supports the `OnFilter` action:
 
+```csharp
 services.AddElmahIo(o =>
 {
     ...
@@ -65,6 +66,7 @@ services.AddElmahIo(o =>
         return message.StatusCode == 404;
     };
 });
+```
 
 ## Monitor current usage
 
