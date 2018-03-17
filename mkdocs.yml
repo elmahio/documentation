@@ -52,6 +52,7 @@ pages:
     - GitLab: elmah-io-apps-gitlab.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Help:
+    - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
     - Logging custom data: logging-custom-data.md
     - Logging errors programmatically: logging-errors-programmatically.md
     - Logging to multiple logs: logging-to-multiple-elmah-logs.md
