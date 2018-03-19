@@ -4,7 +4,7 @@
 
 # Logging from Azure Functions
 
-Logging errors from Azure Functions, requires only a few lines of code. To start logging exceptions from a Function, choose one of two methods:
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. To start logging exceptions from a Function, choose one of two methods:
 
 ### Manually using `Elmah.Io.Client` (the stable choice)
 

@@ -4,7 +4,7 @@
 
 # Logging from Azure WebJobs
 
-Logging errors from Azure WebJobs, requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
+Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
 
 ### Manually using `Elmah.Io.Client` (the stable choice)
 
