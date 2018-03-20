@@ -19,6 +19,8 @@ var loggerFactory = new LoggerFactory()
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) that should receive errors from Entity Framework.
 
+> When using Entity Framework Core from ASP.NET Core, you never create your own `LoggerFactory`. Factories are provided through DI by ASP.NET Core. Check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples/Elmah.Io.Extensions.LoggingAspNetCore2WithEfCore2) for details.
+
 Finally, enable logging in Entity Framework Core:
 
 ```csharp
