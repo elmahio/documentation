@@ -41,7 +41,25 @@ By re-throwing the catched exception, Azure Function features like retry works s
 
 ### Automatic using `Elmah.Io.Functions` (the prerelease choice)
 
-We've created a client specifically for Azure Functions. Before you start, make sure to install `Microsoft.Azure.WebJobs` version `2.1.0-beta4` into your Function App:
+We've created a client specifically for Azure Functions.
+
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#v2" aria-controls="home" role="tab" data-toggle="tab">Azure Functions v2</a></li>
+    <li role="presentation"><a href="#v1" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions v1</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="v2">
+Install the newest `Elmah.Io.Functions` package in your Azure Functions v2 project:
+
+```powershell
+Install-Package Elmah.Io.Functions -Pre
+```
+
+Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
+    </div>
+    <div role="tabpanel" class="tab-pane" id="v1">
+Before you start, make sure to install `Microsoft.Azure.WebJobs` version `2.1.0-beta4` into your Function App:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs -Version 2.1.0-beta4 -Pre
@@ -52,8 +70,10 @@ Then install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.fu
 ```powershell
 Install-Package Elmah.Io.Functions -Pre
 ```
-
+    
 Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
+    </div>
+  </div>
 
 ```csharp
 [ElmahIoExceptionFilter("API_KEY", "LOG_ID")]
