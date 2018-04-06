@@ -1,12 +1,12 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gdgwwlu1j8yh7esl?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-nlog)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
-[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/1.x/Elmah.Io.NLog.Console)
+[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
 
 # Logging from NLog
 
 NLog is one of the most popular logging frameworks for .NET. With an active history on almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
 
-To start logging messages from NLog to elmah.io, you need to install the elmah.io.nlog NuGet package:
+To start logging messages from NLog to elmah.io, you need to install the [Elmah.Io.NLog](https://www.nuget.org/packages/Elmah.Io.NLog/) NuGet package:
 
 ```powershell
 Install-Package elmah.io.nlog
@@ -20,7 +20,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </extensions>
  
 <targets>
-  <target name="elmahio" type="elmah.io" logId="LOG_ID"/>
+  <target name="elmahio" type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
 </targets>
  
 <rules>
@@ -28,7 +28,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </rules>
 ```
 
-(replace `LOG_ID` with your log ID)
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)),
 
 In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
@@ -52,3 +52,11 @@ log.Info(infoMessage);
 ```
 
 This saves the information message in elmah.io with a custom property with key `Some Property Key`and value `Some Property Value`.
+
+As of NLog 4.5, structured logging is supported as well. To log a property as part of the log message, use the new syntax as shown here:
+
+```csharp
+log.Warn("Property named {FirstName}", "Donald");
+```
+
+In the example, NLog will log the message `Property named "Donald"`, but the key (`FirstName`) and value (`Donald`), will also be available in the Data tab inside elmah.io.
