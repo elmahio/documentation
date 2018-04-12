@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
 
-# Logging from Serilog
+# Logging to elmah.io from Serilog
 
 Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
 

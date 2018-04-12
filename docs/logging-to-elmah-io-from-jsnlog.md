@@ -1,4 +1,4 @@
-# Logging from JSNLog
+# Logging to elmah.io from JSNLog
 
 Using JSNLog you will be able to log JavaScript errors to elmah.io. In this sample, we will focus about logging JavaScript errors from a ASP.NET MVC web application, but you can use JSNLog to log anything to elmah.io, so please check out their documentation.
 

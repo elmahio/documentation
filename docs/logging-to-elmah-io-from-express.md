@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/elmah.io.svg)](https://badge.fury.io/js/elmah.io)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.express/tree/master/examples/express)
 
-# Logging from Express
+# Logging to elmah.io from Express
 
 That's right. elmah.io doesn't only work with .NET. To integrate elmah.io into a Node Express web application, install the [elmah.io](https://www.npmjs.com/package/elmah.io) npm package
 

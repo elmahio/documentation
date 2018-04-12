@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Functions.svg)](https://www.nuget.org/packages/Elmah.Io.Functions)
 [![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Functions/tree/master/samples)
 
-# Logging from Azure WebJobs
+# Logging to elmah.io from Azure WebJobs
 
 Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
 

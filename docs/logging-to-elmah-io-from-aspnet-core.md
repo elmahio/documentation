@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.AspNetCore.svg)](https://www.nuget.org/packages/Elmah.Io.AspNetCore)
 [![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/master/samples)
 
-# Logging from ASP.NET Core
+# Logging to elmah.io from ASP.NET Core
 
 If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 

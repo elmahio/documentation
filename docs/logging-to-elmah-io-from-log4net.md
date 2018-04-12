@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.log4net.svg)](https://www.nuget.org/packages/elmah.io.log4net)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.log4net/tree/master/samples)
 
-# Logging from Log4net
+# Logging to elmah.io from Log4net
 
 In this tutorial we’ll add logging to elmah.io from an ASP.NET MVC project through log4net. The process is identical with other project types. Create a new MVC project and install the elmah.io appender:
 

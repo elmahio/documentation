@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Logary.Targets.Elmah.Io.svg)](https://www.nuget.org/packages/Logary.Targets.Elmah.Io/)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/logary/logary/tree/master/examples)
 
-# Logging from Logary
+# Logging to elmah.io from Logary
 
 Logary is a semantic logging framework like Serilog and Microsoft Semantic Logging. Combining semantic logs with elmah.io are a perfect fit, since elmah.io has been designed with semantics from the ground up.
 

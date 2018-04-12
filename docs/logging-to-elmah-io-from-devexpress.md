@@ -1,4 +1,4 @@
-# Logging from DevExpress (eXpressApp Framework)
+# Logging to elmah.io from DevExpress (eXpressApp Framework)
 
 eXpressApp Framework (XAF) is built on top of ASP.NET. Installing elmah.io corresponds any other ASP.NET site:
 

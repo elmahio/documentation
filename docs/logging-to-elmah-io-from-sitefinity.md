@@ -1,4 +1,4 @@
-# Logging from Sitefinity
+# Logging to elmah.io from Sitefinity
 
 Sitefinity is a CMS from Telerik, implemented on top of ASP.NET. Like other content management systems build on top of ASP.NET, ELMAH is supported out of the box.
 

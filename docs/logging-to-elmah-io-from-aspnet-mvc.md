@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Mvc.svg)](https://www.nuget.org/packages/Elmah.Io.Mvc)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples/Elmah.Io.Mvc)
 
-# Logging from ASP.NET MVC
+# Logging to elmah.io from ASP.NET MVC
 
 Even though ELMAH works out of the box with ASP.NET MVC, ELMAH and MVC provides some features which interfere with one another. As usual, the great community around ELMAH have done something to fix this, by using the [Elmah.Mvc](https://www.nuget.org/packages/Elmah.MVC/) NuGet package. We've built a package for ASP.NET MVC exclusively, which installs all the necessary packages.
 

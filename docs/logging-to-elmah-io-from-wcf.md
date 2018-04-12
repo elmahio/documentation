@@ -1,4 +1,4 @@
-# Logging from WCF
+# Logging to elmah.io from WCF
 
 ELMAH and WCF isn't exactly known to go hand in hand. But, with a bit of custom code, logging exceptions from WCF to elmah.io is possible.
 

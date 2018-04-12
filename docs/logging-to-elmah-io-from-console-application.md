@@ -1,4 +1,4 @@
-# Logging from Console
+# Logging to elmah.io from Console
 
 Even though elmah.io support various logging frameworks like [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/) and [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), logging from a simple console application is dead simple. Since we currently provide two different versions of our API, the examples are split by version.
 

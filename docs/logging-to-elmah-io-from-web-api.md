@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.WebApi.svg)](https://www.nuget.org/packages/Elmah.Io.WebApi)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples/Elmah.Io.WebApi)
 
-# Logging from Web API
+# Logging to elmah.io from Web API
 
 Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily, Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this. We've built a package for ASP.NET Web API exclusively, which installs all the necessary packages.
 

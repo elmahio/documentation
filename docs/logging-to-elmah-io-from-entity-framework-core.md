@@ -2,7 +2,7 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples)
 
-# Logging from Entity Framework Core
+# Logging to elmah.io from Entity Framework Core
 
 Both elmah.io and Entity Framework Core supports logging through Microsoft.Extensions.Logging. To log all errors happening inside Entity Framework Core, install the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) NuGet package:
 

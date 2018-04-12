@@ -1,4 +1,4 @@
-# Logging from BlogEngine.NET
+# Logging to elmah.io from BlogEngine.NET
 
 Because BlogEngine.NET is written in ASP.NET, it doesn’t really need any custom code to use ELMAH and elmah.io. In fact, ELMAH works out of the box for most web frameworks by Microsoft. If you are building and deploying the code yourself, installing elmah.io is achieved using our NuGet package:
 

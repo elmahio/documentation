@@ -2,7 +2,7 @@
 
 Since AWS now supports .NET Core, logging to elmah.io from a lambda is easy.
 
-## Logging from AWS Serverless Application
+## Logging to elmah.io from AWS Serverless Application
 
 AWS Serverless Applications are running on ASP.NET Core. The configuration therefore matches our documentation for ASP.NET Core. Check out [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) for details on how to log all uncaught exceptions from an AWS Serverless Application.
 
