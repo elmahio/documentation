@@ -43,10 +43,10 @@ By re-throwing the catched exception, Azure Function features like retry works s
 
 We've created a client specifically for Azure Functions.
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#v2" aria-controls="home" role="tab" data-toggle="tab">Azure Functions v2</a></li>
-    <li role="presentation"><a href="#v1" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions v1</a></li>
-  </ul>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#v2" aria-controls="home" role="tab" data-toggle="tab">Azure Functions v2</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#v1" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions v1</a></li>
+</ul>
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="v2">
