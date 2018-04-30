@@ -189,6 +189,7 @@ a:focus {
 }
 .main-content-body h1 {
 	margin-bottom: 30px;
+	word-break: break-word;
 }
 .main-content-body h1:after {
 	content: "";

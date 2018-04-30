@@ -16,10 +16,10 @@ Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-ap
 
 ## Logging from ASP.NET Core
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#setup2" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
-    <li role="presentation"><a href="#setup1" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
-  </ul>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
+</ul>
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="setup2">
@@ -80,10 +80,10 @@ As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warni
 
 To log everything from log level `Information` and up, do the following:
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
-  </ul>
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#home" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
+</ul>
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
