@@ -117,6 +117,30 @@ var logger = factory.CreateLogger("elmah.io");
 logger.LogInformation("This is an information message");
 ```
 
+## Decorating log messages
+
+Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`. To add additional properties, use the `OnMessage` action. As an example, we'll add the name of the current user to all log messages:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory)
+{
+    factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new ElmahIoProviderOptions
+    {
+        OnMessage = msg =>
+        {
+            var context = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>().HttpContext;
+            if (context == null) return;
+        
+            msg.User = context.User?.Identity?.Name;
+        }
+    });
+
+    ....
+}
+```
+
+For ASP.NET Core 2.x projects, you will need to use the old way of configuring logging (using `ILoggerFactory`), in order to resolve the `IHttpContextAccessor` object from DI.
+
 ## appsettings.json configuration
 
 Some of the configuration for Elmah.Io.Extensions.Logging, can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
