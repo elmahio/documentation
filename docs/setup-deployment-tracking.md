@@ -123,7 +123,7 @@ If you are using Release Management in Visual Studio Team Services, you should u
 4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
 ![Add VSTS task](images/vsts_add_task.png)
 
-5. Copy your API key from your organization settings page and paste it into the _API Key_ field. Click _Save_.
+5. Copy your API key from your organization settings page and paste it into the _API Key_ field. In most cases, you want to input the ID of the log new deployments belong to. As default, we use the release name on VSTS as the version number string on elmah.io. If you require a custom naming scheme, change the value in the _Version_ field. All [default and custom release variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts&tabs=batch) are available through PowerShell variables. Finally, click _Save_.
 ![VSTS task added](images/vsts_task_added.png)
 
 That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
