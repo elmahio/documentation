@@ -70,9 +70,13 @@ services.AddElmahIo(o =>
 
 ## Monitor current usage
 
-We sent you an email when you have used 90% of your limit. We also send you an email daily, when you have reached your limit. Monitoring your usage is a good supplement to the emails, since you are able to react early on (by upgrading, ignoring errors or something else). There's a usage graph on the Organisation Settings view:
+We send you an email when you have used 90% of your limit and again when reaching the limit. Monitoring your usage is a good supplement to the emails, since you are able to react early on (by upgrading, ignoring errors or something else). There's a usage graph on the Organisation Settings view:
 
 ![Usage Graph](/images/usage_graph.png)
+
+By clicking the question mark next to the counter, you will be able to see which logs that are taking up space:
+
+![Detailed Usage Report](/images/detailed-usage-report.png)
 
 ## Fix bugs
 
