@@ -23,6 +23,22 @@ a:focus {
 	outline-offset: -2px;
 }
 
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border: 0;
+    border-left: 5px solid #eee;
+    background-color: #FFF6D5;
+    border-left-color: #F3E3AA;
+    text-align: left;
+}
+blockquote p:before, blockquote p:after{
+    display: none;
+}
+blockquote a, blockquote a:visited {
+    color: #0da58e;
+}
+
 .btn-primary {
 	background: linear-gradient(0deg, #179C99 0%, #18B79C 100%);
 	border-color: #18A19A;
