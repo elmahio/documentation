@@ -4,76 +4,17 @@
 
 # Logging to elmah.io from Azure Functions
 
-Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. To start logging exceptions from a Function, choose one of two methods:
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure Functions.
 
-### Manually using `Elmah.Io.Client` (the stable choice)
+> For Functions v1, make sure to install the `Microsoft.Azure.WebJobs` in minimum version `2.2.0`
 
-Install the [Elmah.Io.Client](https://www.nuget.org/packages/elmah.io.client/) NuGet package into your Function project:
-
-```powershell
-Install-Package Elmah.Io.Client
-```
-
-Wrap your Function code in try-catch:
-
-```csharp
-public class Function
-{
-    public static void Run()
-    {
-        try
-        {
-            // Business logic goes here
-        }
-        catch (Exception e)
-        {
-            var logger = ElmahioAPI.Create("API_KEY");
-            client.Messages.Error(new Guid("LOG_ID"), e, "An error message");
-            throw;
-        }
-    }
-}
-```
-
-Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
-
-By re-throwing the catched exception, Azure Function features like retry works smoothly.
-
-### Automatic using `Elmah.Io.Functions` (the prerelease choice)
-
-We've created a client specifically for Azure Functions.
-
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#v2" aria-controls="home" role="tab" data-toggle="tab">Azure Functions v2</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#v1" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions v1</a></li>
-</ul>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="v2">
-Install the newest `Elmah.Io.Functions` package in your Azure Functions v2 project:
+Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
 ```powershell
-Install-Package Elmah.Io.Functions -Pre
+Install-Package Elmah.Io.Functions
 ```
 
 Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
-    </div>
-    <div role="tabpanel" class="tab-pane" id="v1">
-Before you start, make sure to install `Microsoft.Azure.WebJobs` version `2.1.0-beta4` into your Function App:
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs -Version 2.1.0-beta4 -Pre
-```
-
-Then install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
-
-```powershell
-Install-Package Elmah.Io.Functions -Pre
-```
-    
-Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
-    </div>
-  </div>
 
 ```csharp
 [ElmahIoExceptionFilter("API_KEY", "LOG_ID")]
