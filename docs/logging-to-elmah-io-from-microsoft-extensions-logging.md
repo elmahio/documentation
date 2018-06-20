@@ -24,6 +24,7 @@ Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-ap
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="setup2">
 In the `Program.cs` file, call the `ConfigureLogging`-method and configure elmah.io like shown here:
+
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
@@ -39,6 +40,24 @@ WebHost.CreateDefaultBuilder(args)
     .Build();
 ```
 By calling, the `AddFilter`-method, you ensure that only warnings and up are logged to elmah.io.
+
+API key and log ID can also be configured in `appsettings.json`:
+
+```json
+{
+  ...
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+```
+
+Then use the `AddElmahIo` overload without the options action:
+
+```csharp
+logging.AddElmahIo();
+```
 </div>
     <div role="tabpanel" class="tab-pane" id="setup1">
 Call `AddElmahIo` in the `Configure`-method in `Startup.cs`:
