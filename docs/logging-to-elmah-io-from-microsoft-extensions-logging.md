@@ -53,10 +53,17 @@ API key and log ID can also be configured in `appsettings.json`:
 }
 ```
 
-Then use the `AddElmahIo` overload without the options action:
+Then configure the section and use the `AddElmahIo` overload (without any parameters):
 
 ```csharp
-logging.AddElmahIo();
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging((ctx, logging) =>
+    {
+        logging.Services.Configure<ElmahIoProviderOptions>(ctx.Configuration.GetSection("ElmahIo"));
+        logging.AddElmahIo();
+    })
+    .Build();
 ```
 </div>
     <div role="tabpanel" class="tab-pane" id="setup1">
