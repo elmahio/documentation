@@ -368,6 +368,9 @@ footer .copyright a {
 	.navbar-signin li.hidden-xs {
 		display: none;
 	}
+	.navbar-nav-btn {
+	    padding: 10px 15px;
+	}
 	.container {
 		max-width: 100%;
 	}
