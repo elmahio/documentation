@@ -8,6 +8,10 @@ $(document).ready(function(){
 		setTop: "0px"
 	});
 
+	// Style all tables - markdown fix
+	$('table').addClass('table');
+	$('table thead').addClass('thead-light');
+
 	// Show all links on click
     $('#show-all-links').on('click', function(){
     	$('.main-nav').removeClass('d-none');
