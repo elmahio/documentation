@@ -216,6 +216,12 @@ blockquote a, blockquote a:visited {
     border-bottom: 1px solid #dddddd;
     margin-top: 30px;
 }
+.main-content-body h2 {
+	font-size: 28px;
+}
+.main-content-body h3 {
+	font-size: 26px;
+}
 .main-content-body img {
     max-width: 100%;
     box-shadow: 1px 5px 12px rgba(0, 0, 0, 0.2);
