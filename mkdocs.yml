@@ -17,6 +17,7 @@ pages:
     - Logging from log4net: logging-to-elmah-io-from-log4net.md
     - Logging from NLog: logging-to-elmah-io-from-nlog.md
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
+    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from Logary: logging-to-elmah-io-from-logary.md
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
