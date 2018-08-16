@@ -2,10 +2,12 @@ site_name: elmah.io Documentation
 site_description: Documentation on how to install and use elmah.io.
 site_url: https://docs.elmah.io/
 site_author: Thomas Ardal
-theme_dir: "mkdocs_bs4"
+theme:
+    name: null
+    custom_dir: "mkdocs_bs4/"
 extra_css:
     - style.css
-pages: 
+nav: 
 - Docs:
     - Home: index.md
 - Installation:
