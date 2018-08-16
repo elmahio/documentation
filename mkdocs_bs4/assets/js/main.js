@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 	// Search function
     if($("#search").length != 0) {
-    	$.getJSON('/mkdocs/search_index.json').done(searchData);
+    	$.getJSON('/search/search_index.json').done(searchData);
 
     	function searchData(data) {
 
