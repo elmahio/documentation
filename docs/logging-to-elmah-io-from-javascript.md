@@ -83,6 +83,12 @@ Add the `elmah.io.js` library in your `libman.json` file:
 }
 ```
 
+or using the LibMan CLI:
+
+```powershell
+libman install https://github.com/elmahio/elmah.io.js/blob/1.0.2/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+```
+
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
