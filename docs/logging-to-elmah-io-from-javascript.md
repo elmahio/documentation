@@ -1,5 +1,7 @@
 # Logging to elmah.io from JavaScript
 
+> We are currently building elmah.io.js. The description below is an example of how installation and usage may turn out. Nothing of the below works yet! :)
+
 elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors, requires nothing more than installing the `elmahio.js` script on your website.
 
 Pick an installation method of your choice:
