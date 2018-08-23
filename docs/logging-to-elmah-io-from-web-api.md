@@ -14,6 +14,14 @@ Install-Package Elmah.Io.WebApi
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-toggle="tab">Web API 2.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-toggle="tab">Web API 1.x</a></li>
+</ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="setup2">
+
 Add the following code to your `WebApiConfig.cs` file:
 
 ```csharp
@@ -28,9 +36,11 @@ public static class WebApiConfig
 }
 ```
 
-`IExceptionLogger` is a new concept in Web API 2. It intercepts all thrown exceptions, even errors in controller contructors and routing errors.
+The registered `IExceptionLogger` intercepts all thrown exceptions, even errors in controller contructors and routing errors.
 
-If you are using Web API 1, there’s another way to add exception logging:
+  </div>
+  <div role="tabpanel" class="tab-pane" id="setup1">
+Add the following code to your `Global.asax.cs` file:
 
 ```csharp
 protected void Application_Start()
@@ -42,5 +52,25 @@ protected void Application_Start()
 ```
 
 In this case you register a new global filter with Web API. The downside of this approach is, that only errors thrown in controller actions are logged.
+  </div>
+</div>
 
 All uncaught exceptions in ASP.NET Web API are now logged to elmah.io
+
+## Logging from exception/action filters
+
+It's a widely used Web API approach, to handle all exceptions in a global exception/action filter and return a nicely formatted JSON/XML error response to the client. This is a nice approach to avoid throwing internal server errors, but it also puts ELMAH out of the game. When catching any exception manually and converting it to a response message, errors won't be logged in elmah.io.
+
+To overcome this, errors should be logged manually from your global exception/action filter:
+
+```csharp
+public class NotImplExceptionFilterAttribute : ExceptionFilterAttribute 
+{
+    public override void OnException(HttpActionExecutedContext context)
+    {
+        ErrorSignal.FromCurrentContext().Raise(context.Exception);
+
+        // Now generate the result to the client
+    }
+}
+```
