@@ -27,7 +27,7 @@ If you want to be able to rollback to another solution, in case elmah.io goes do
 
 We constantly work to improve the uptime of the entire solution.
 
-## Response explaination
+## Response explanation
 
 Here's an overview of the types of errors you can experience from the API:
 
