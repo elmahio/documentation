@@ -178,6 +178,8 @@ logger.log({
 });
 ```
 
+The `Error` object used, should be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" target="_blank" rel="noopener noreferrer">JavaScript Error object</a>.
+
 As for the `log`-function, check out [message reference](#message-reference).
 
 > Manual logging only works when initializing the elmah.io logger from code.
