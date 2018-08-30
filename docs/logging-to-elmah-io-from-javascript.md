@@ -1,6 +1,6 @@
 # Logging to elmah.io from JavaScript
 
-> We are currently building elmah.io.js. The description below is an example of how installation and usage may turn out. Nothing of the below works yet! :)
+> elmah.io.js is currently in beta. We don't recommend this for production just yet. Feel free to play around with it, but remember to <a href="https://headwayapp.co/elmah-io-changelog/deprecating-the-v2-api-68030" target="_blank" rel="noopener noreferrer">disable access to the v2 API</a> on your log and [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. Without these changes, everyone will be able to browse your logs (<a href="https://www.troyhunt.com/aspnet-session-hijacking-with-google/" target="_blank" rel="noopener noreferrer">you don't want that!</a>).
 
 [TOC]
 
