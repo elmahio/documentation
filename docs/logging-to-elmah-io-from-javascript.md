@@ -124,7 +124,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Install the `elmah.io.js` NuGet package:
 
 ```ps
-Install-Package elmah.io.js
+Install-Package elmah.io.js -Prerelease
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
