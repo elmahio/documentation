@@ -204,7 +204,7 @@ logger.fatal('This is fatal');
 logger.fatal('This is fatal', new Error('A JavaScript error object'));
 
 logger.log({
-  title: 'This is a custom log message'),
+  title: 'This is a custom log message',
   type: 'Of some type',
   severity: 'Error'
 });
@@ -241,6 +241,7 @@ Log messages can be enriched by adding an `onMessage` callback on the options:
 new Elmahio({
     ...
     onMessage: function(msg) {
+        if (!msg.data) msg.data = [];
         msg.data.push({key: 'MyCustomKey', value: 'MyCustomValue'});
     }
 });
