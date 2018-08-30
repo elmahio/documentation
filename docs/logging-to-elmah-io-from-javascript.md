@@ -2,7 +2,11 @@
 
 > We are currently building elmah.io.js. The description below is an example of how installation and usage may turn out. Nothing of the below works yet! :)
 
+[TOC]
+
 elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors, requires nothing more than installing the `elmahio.js` script on your website.
+
+## Installation
 
 Pick an installation method of your choice:
 
@@ -147,25 +151,106 @@ You may want to log errors manually or even log information messages from JavaSc
 var logger = new Elmahio({
     apiKey: 'YOUR-API-KEY',
     logId: 'YOUR-LOG-ID'
-  });
+});
 
-log.verbose('This is verbose');
-log.verbose('This is verbose', new Error("A JavaScript error object"));
+logger.verbose('This is verbose');
+logger.verbose('This is verbose', new Error('A JavaScript error object'));
 
-log.debug('This is debug');
-log.debug('This is debug', new Error("A JavaScript error object"));
+logger.debug('This is debug');
+logger.debug('This is debug', new Error('A JavaScript error object'));
 
-log.information('This is information');
-log.information('This is information', new Error("A JavaScript error object"));
+logger.information('This is information');
+logger.information('This is information', new Error('A JavaScript error object'));
 
-log.warning('This is warning');
-log.warning('This is warning', new Error("A JavaScript error object"));
+logger.warning('This is warning');
+logger.warning('This is warning', new Error('A JavaScript error object'));
 
-log.error('This is error');
-log.error('This is error', new Error("A JavaScript error object"));
+logger.error('This is error');
+logger.error('This is error', new Error('A JavaScript error object'));
 
-log.fatal('This is fatal');
-log.fatal('This is fatal', new Error("A JavaScript error object"));
+logger.fatal('This is fatal');
+logger.fatal('This is fatal', new Error('A JavaScript error object'));
+
+logger.log({
+  title: 'This is a custom log message'),
+  type: 'Of some type',
+  severity: 'Error'
+});
 ```
 
+As for the `log`-function, check out [message reference](#message-reference).
+
 > Manual logging only works when initializing the elmah.io logger from code.
+
+## Events
+
+##### Filtering log messages
+
+Log messages can be filtered, by adding an `OnFilter` callback on the options:
+
+```javascript
+new Elmahio({
+    ...
+    onFilter: function(msg) {
+        return msg.severity === 'Verbose';
+    }
+})
+```
+
+In the example, all log [messages](#message-reference) with a severity of `Verbose`, are not logged to elmah.io.
+
+##### Enriching log messages
+
+Log messages can be enriched by adding an `onMessage` callback on the options:
+
+```javascript
+new Elmahio({
+    ...
+    onMessage: function(msg) {
+        msg.data.push({key: 'MyCustomKey', value: 'MyCustomValue'});
+    }
+});
+```
+
+In the example, all log [messages](#message-reference) are enriched with a data variable with they key `MyCustomKey` and value `MyCustomValue`.
+
+##### Handling errors
+
+To react on errors happening in elmah.io.js, add a callback to `onError`:
+
+```javascript
+new Elmahio({
+    ...
+    onError: function(status, text) {
+        console.log('An error happened in elmah.io.js', status, text);
+    }
+});
+```
+
+In the example, all errors are written to the console.
+
+## Message reference
+
+This is an example of the elmah.io.js `msg` object that is used in various callbacks, etc.:
+
+```javascript
+{
+  title: 'The title of the message',
+  detail: 'The error stack',
+  source: 'The source of the error (typically a filename)',
+  severity: 'Error',
+  type: 'The type of the error',
+  url: 'http://url.of/current/page',
+  application: 'Application name set through options',
+  queryString: [
+    {key: 'id', value: '42'}
+  ],
+  data: [
+    {key: 'User-Language', value: 'en-US'},
+    {key: 'Color-Depth', value: '24'}
+  ],
+  serverVariables: [
+    {key: 'User-Agent', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'}
+  ]
+}
+```
