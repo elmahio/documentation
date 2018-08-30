@@ -38,7 +38,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.rawgit.com/elmahio/elmah.io.js/1.0.2/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/elmahio/elmah.io.js/3.0.0-beta1/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -99,7 +99,7 @@ Add the `elmah.io.js` library in your `libman.json` file:
     ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.js/1.0.2/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.js/3.0.0-beta1/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
