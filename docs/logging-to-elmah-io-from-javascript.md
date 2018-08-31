@@ -1,3 +1,7 @@
+[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://www.nuget.org/packages/elmah.io.js)
+[![npm](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://img.shields.io/npm/v/elmah.io.js.svg)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
+
 # Logging to elmah.io from JavaScript
 
 > elmah.io.js is currently in beta. We don't recommend this for production just yet. Feel free to play around with it, but remember to <a href="https://headwayapp.co/elmah-io-changelog/deprecating-the-v2-api-68030" target="_blank" rel="noopener noreferrer">disable access to the v2 API</a> on your log and [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. Without these changes, everyone will be able to browse your logs (<a href="https://www.troyhunt.com/aspnet-session-hijacking-with-google/" target="_blank" rel="noopener noreferrer">you don't want that!</a>).
