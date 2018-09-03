@@ -326,6 +326,31 @@ class ElmahIoErrorHandler implements ErrorHandler {
 
 All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.js/tree/master/samples/Elmah.Io.Js.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.Js.Angular</a> sample for some real working code.
 
+## React
+
+To log all errors from a React application, install the `elmah.io.js` npm package as described above. Then modify the `App.js` file:
+
+```javascript
+...
+import Elmahio from '../node_modules/elmah.io.js/dist/elmahio';
+
+export default class App extends Component {
+  ...
+
+  constructor() {
+    super();
+    var log = new Elmahio({
+      apiKey: 'API_KEY',
+      logId: 'LOG_ID'
+    });
+  }
+
+  ...
+}
+```
+
+When initializing your React app, elmah.io is configured and all errors happening in the application are logged.
+
 ## Message reference
 
 This is an example of the elmah.io.js `msg` object that is used in various callbacks, etc.:
