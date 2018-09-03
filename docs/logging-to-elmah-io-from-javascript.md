@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://www.nuget.org/packages/elmah.io.js)
 [![npm](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://img.shields.io/npm/v/elmah.io.js.svg)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
 
 # Logging to elmah.io from JavaScript
 
@@ -267,6 +267,64 @@ new Elmahio({
 ```
 
 In the example, all errors are written to the console.
+
+## Angular
+
+`elmah.io.js` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.js` through npm as described above. Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
+
+```json
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  ...
+  "apps": [
+    {
+      ...
+      "scripts": [
+        "../node_modules/elmah.io.js/dist/elmahio.min.js"
+      ],
+      ...
+    }
+  ],
+  ...
+}
+```
+
+In the `app.module.ts` file, add a new `ErrorHandler` and add it to the `providers` section:
+
+```typescript
+import { NgModule, ErrorHandler } from '@angular/core';
+...
+
+class ElmahIoErrorHandler implements ErrorHandler {
+  logger: any;
+  constructor() {
+    this.logger = new Elmahio({
+      apiKey: 'API_KEY',
+      logId: 'LOG_ID',
+    });
+  }
+  handleError(error) {
+    if (error && error.message) {
+      this.logger.error(error.message, error);
+    } else {
+      this.logger.error('Error in application', error);
+    }
+  }
+}
+
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...
+  ],
+  providers: [{ provide: ErrorHandler, useClass: ElmahIoErrorHandler }],
+  ...
+})
+```
+
+All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.js/tree/master/samples/Elmah.Io.Js.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.Js.Angular</a> sample for some real working code.
 
 ## Message reference
 
