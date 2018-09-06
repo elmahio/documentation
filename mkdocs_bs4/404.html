@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,33 +6,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% if page.meta.description %}<meta name="description" content="{{ page.meta.description[0] }}">{% endif %}
-    <meta name="author" content="{{ config.site_author }}">
+    <meta name="description" content="H">
+    <meta name="author" content="Thomas Ardal">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="{{ page.title }}">
-    {% if page.meta.description %}<meta name="twitter:description" content="{{ page.meta.description[0] }}">{% endif %}
-    {% if page.meta.image %}<meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
-    <meta property="og:title" content="{{ page.title }}">
-    {% if page.meta.description %}<meta property="og:description" content="{{ page.meta.description[0] }}">{% endif %}
+    <meta name="twitter:title" content="Home">
+    <meta name="twitter:description" content="H">
+
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="H">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.canonical_url }}">
-    {% if page.meta.image %}<meta property="og:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
+    <meta property="og:url" content="http://127.0.0.1:8000/">
+
     <meta property="fb:app_id" content="218008838347208" />
 
-    <title>{{ page.title }} | elmah.io</title>
+    <title>Home | elmah.io</title>
 
-    <link rel="canonical" href="{{ page.canonical_url }}">
-    <link rel="shortcut icon" href="{{ base_url|url }}/favicon.ico">
+    <link rel="canonical" href="http://127.0.0.1:8000/">
+    <link rel="shortcut icon" href="./favicon.ico">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/highlight.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/style.css">
-  </head>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="./assets/css/highlight.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  <script type="text/javascript">document.write("<script src=//" + window.location.hostname + ":8000/livereload.js?port=8000> </"+"script>");</script></head>
   <body>
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WKDV74"
@@ -74,17 +75,9 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <div class="docs-box">
-				<h1><span class="badge badge-danger">404</span> Seems like this page is missing</h1>
-				<p>See if you can find what you were looking for in the left column.</p>
-			</div>
+            <h1><span class="badge badge-danger">404</span> Seems like this page is missing</h1>
+            <p>See if you can find what you were looking for in the left column.</p>
 
-            <br/>
-            <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
-            <p class="text-center">
-                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-none d-sm-block" style="white-space: normal;">See how we can help you monitor your website for crashes</a>
-                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
-            </p>
           </div>
         </article>
       </div>
@@ -94,7 +87,7 @@
     	<div class="pre-footer">
 	    	<div class="container">
 	    		<div class="company-logo">
-					<img class="img-fluid" src="{{ base_url|url }}/assets/img/elmahio.png" alt="elmah.io">
+					<img class="img-fluid" src="./assets/img/elmahio.png" alt="elmah.io">
 				</div>
 				<a href="https://app.elmah.io/signup/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
 			</div>
