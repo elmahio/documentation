@@ -61,7 +61,7 @@ $(document).ready(function(){
 	    			container.append("<ul><h3>Search results</h3></ul>");
 	    		}
 				result.forEach(function(value){
-					$("#searchList ul").append("<li><a href='" + value.location +"'>" + value.title + "</a></li>");
+					$("#searchList ul").append("<li><a href='../"+ value.location +"'>" + value.title + "</a></li>");
 				});
 			});
     	}
