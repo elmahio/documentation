@@ -2,10 +2,12 @@ site_name: elmah.io Documentation
 site_description: Documentation on how to install and use elmah.io.
 site_url: https://docs.elmah.io/
 site_author: Thomas Ardal
-theme_dir: "mkdocs_bs4"
+theme:
+    name: null
+    custom_dir: "mkdocs_bs4/"
 extra_css:
     - style.css
-pages: 
+nav: 
 - Docs:
     - Home: index.md
 - Installation:
@@ -17,6 +19,7 @@ pages:
     - Logging from log4net: logging-to-elmah-io-from-log4net.md
     - Logging from NLog: logging-to-elmah-io-from-nlog.md
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
+    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from Logary: logging-to-elmah-io-from-logary.md
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
@@ -76,6 +79,8 @@ pages:
     - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
     - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
     - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
+    - How prices are calculated: how-prices-are-calculated.md
+    - How to configure API key permissions: how-to-configure-api-key-permissions.md
     - ELMAH and elmah.io differences: elmah-and-elmah-io-differences.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md

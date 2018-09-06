@@ -2,7 +2,7 @@
 
 API keys are a new concept introduced with version 3.x of our [API](https://elmah.io/api/). API keys are located on the organization settings page.
 
-To open organization settings, click the gears icon next to your organization name on either the left menu or through the [dashboard](https://elmah.io/dashboard/):
+To open organization settings, click the gears icon next to your organization name on either the left menu or through the dashboard:
 
 ![Organization settings](images/organization-settings.png)
 

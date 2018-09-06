@@ -1,4 +1,10 @@
-# Set Up Deployment Tracking[TOC]    Deployment tracking creates an overview of the different versions of your software and show you how well each version performed. With this integration in place, you will be able to see when you released and if some of your releases caused more errors than others. While most pages on elmah.io supports everything from verbose to fatal messages, the context on deployment tracking is around warnings and errors.To set up deployment tracking, you will need to tell elmah.io when you release, using our REST API or one of the integrations. Deployments are as default created on all of your logs, but this can be tweaked. More about this later.
+# Set Up Deployment Tracking
+
+[TOC]
+    
+Deployment tracking creates an overview of the different versions of your software and show you how well each version performed. With this integration in place, you will be able to see when you released and if some of your releases caused more errors than others. While most pages on elmah.io supports everything from verbose to fatal messages, the context on deployment tracking is around warnings and errors.
+
+To set up deployment tracking, you will need to tell elmah.io when you release, using our REST API or one of the integrations. Deployments are as default created on all of your logs, but this can be tweaked. More about this later.
 
 ## Tell elmah.io when you release
 
@@ -123,7 +129,7 @@ If you are using Release Management in Visual Studio Team Services, you should u
 4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
 ![Add VSTS task](images/vsts_add_task.png)
 
-5. Copy your API key from your organization settings page and paste it into the _API Key_ field. Click _Save_.
+5. Copy your API key from your organization settings page and paste it into the _API Key_ field. In most cases, you want to input the ID of the log new deployments belong to. As default, we use the release name on VSTS as the version number string on elmah.io. If you require a custom naming scheme, change the value in the _Version_ field. All [default and custom release variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts&tabs=batch) are available through PowerShell variables. Finally, click _Save_.
 ![VSTS task added](images/vsts_task_added.png)
 
 That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
@@ -239,6 +245,31 @@ pipelines:
 ```
 
 The script uses `curl` to invoke the elmah.io Deployments endpoint with the API key (`$ELMAHIO_APIKEY`) and a version number (`$BITBUCKET_BUILD_NUMBER`). The posted JSON can be extended to support additional properties like changelog and the name of the person triggering the deployment. Check out the [API documentation](http://api.elmah.io/swagger/ui/index) for details.
+
+### Using Atlassian Bamboo
+
+Setting up elmah.io Deployment Tracking on Bamboo, is easy using a bit of PowerShell.
+
+1. Add a new Script Task and select *Windows PowerShell* in *Interpreter*.
+
+2. Select *Inline* in *Script location* and add the following PowerShell to *Script body*:
+
+```powershell
+$ProgressPreference = "SilentlyContinue"
+
+Write-Host $bamboo_buildNumber
+
+$url = "https://api.elmah.io/v3/deployments?api_key=API_KEY"
+$body = @{
+  version = $Env:bamboo_buildNumber
+  logId = "LOG_ID"
+}
+Invoke-RestMethod -Method Post -Uri $url -Body $body
+```
+
+![PowerShell task in Bamboo](images/bamboo.png)
+
+Replace `API_KEY` and `LOG_ID` and everything is configured. The script uses the build number of the current build as version number (`$Env:bamboo_buildNumber`). If you prefer another scheme, Bamboo offers a range of <a href="https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html" target="_blank" rel="noopener noreferrer">variables</a>.
 
 ## Decorate your messages with a version number
 

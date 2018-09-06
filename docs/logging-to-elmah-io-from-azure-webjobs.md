@@ -4,49 +4,12 @@
 
 # Logging to elmah.io from Azure WebJobs
 
-Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. To start logging exceptions from WebJobs, choose one of two methods:
+Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure WebJobs.
 
-### Manually using `Elmah.Io.Client` (the stable choice)
-
-Install the [Elmah.Io.Client](https://www.nuget.org/packages/elmah.io.client/) NuGet package into your WebJob project:
+Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 
 ```powershell
-Install-Package Elmah.Io.Client
-```
-
-Add the following code to your `Program.cs` file:
-
-```csharp
-class Program
-{
-    static void Main()
-    {
-        AppDomain.CurrentDomain.UnhandledException += Log;
-        ...
-    }
-
-    private static void Log(object sender, UnhandledExceptionEventArgs e)
-    {
-        var exception = e.ExceptionObject as Exception;
-        if (exception != null)
-        {
-            var logger = ElmahioAPI.Create("API_KEY");
-            client.Messages.Error(new Guid("LOG_ID"), exception, "An error message");
-        }
-    }
-}
-```
-
-Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log you want to log to.
-
-Azure WebJobs automatically executes the `Log`-method when an exception is thrown. In this example, we simply log the exception registered in `UnhandledExceptionEventArgs`.
-
-### Automatic using `Elmah.Io.Functions` (the prerelease choice)
-
-We've created a client specifically for Azure WebJobs. Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
-
-```powershell
-Install-Package Elmah.Io.Functions -Pre
+Install-Package Elmah.Io.Functions
 ```
 
 Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:

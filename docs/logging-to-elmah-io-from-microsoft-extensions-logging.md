@@ -24,6 +24,7 @@ Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-ap
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="setup2">
 In the `Program.cs` file, call the `ConfigureLogging`-method and configure elmah.io like shown here:
+
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
@@ -39,6 +40,31 @@ WebHost.CreateDefaultBuilder(args)
     .Build();
 ```
 By calling, the `AddFilter`-method, you ensure that only warnings and up are logged to elmah.io.
+
+API key and log ID can also be configured in `appsettings.json`:
+
+```json
+{
+  ...
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+```
+
+Then configure the section and use the `AddElmahIo` overload (without any parameters):
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging((ctx, logging) =>
+    {
+        logging.Services.Configure<ElmahIoProviderOptions>(ctx.Configuration.GetSection("ElmahIo"));
+        logging.AddElmahIo();
+    })
+    .Build();
+```
 </div>
     <div role="tabpanel" class="tab-pane" id="setup1">
 Call `AddElmahIo` in the `Configure`-method in `Startup.cs`:
@@ -116,6 +142,30 @@ In the code sample, every log message with log level of `Information` and up, wi
 var logger = factory.CreateLogger("elmah.io");
 logger.LogInformation("This is an information message");
 ```
+
+## Decorating log messages
+
+Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`. To add additional properties, use the `OnMessage` action. As an example, we'll add the name of the current user to all log messages:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory)
+{
+    factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new ElmahIoProviderOptions
+    {
+        OnMessage = msg =>
+        {
+            var context = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>().HttpContext;
+            if (context == null) return;
+        
+            msg.User = context.User?.Identity?.Name;
+        }
+    });
+
+    ....
+}
+```
+
+For ASP.NET Core 2.x projects, you will need to use the old way of configuring logging (using `ILoggerFactory`), in order to resolve the `IHttpContextAccessor` object from DI.
 
 ## appsettings.json configuration
 

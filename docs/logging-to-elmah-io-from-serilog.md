@@ -4,6 +4,8 @@
 
 # Logging to elmah.io from Serilog
 
+[TOC]
+
 Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
 
 In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications. Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
@@ -60,3 +62,39 @@ using (LogContext.PushProperty("ThreadId", Thread.CurrentThread.ManagedThreadId)
 ```
 
 Beneath the Data tab on the logged message details, the `ApplicationIdentifier`, `ThreadId` and `Type` properties can be found.
+
+## ASP.NET Core
+
+Serilog provides a package for ASP.NET Core, that routes log messages from inside core through Serilog. We recommend to use this package together with the elmah.io sink, in order to capture warnings and errors happening inside ASP.NET Core.
+
+To use this, install the following packages:
+
+```powershell
+Install-Package Serilog.AspNetCore -DependencyVersion Highest
+Install-Package Elmah.Io.Client
+Install-Package Serilog.Sinks.ElmahIo
+```
+
+(We install the `Elmah.Io.Client` manually, to make sure we run on the most recent version)
+
+Configure Serilog as usual:
+
+```csharp
+Log.Logger = new LoggerConfiguration()
+    ...
+    .WriteTo.ElmahIo("API_KEY", new Guid("LOG_ID"), LogEventLevel.Warning)
+    .CreateLogger();
+```
+
+Finally, call the `UseSerilog`-method:
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost
+        .CreateDefaultBuilder(args)
+	    .UseStartup<Startup>()
+        .UseSerilog()
+        .Build();
+```
+
+Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to elmah.io.
