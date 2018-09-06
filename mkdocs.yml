@@ -5,9 +5,11 @@ site_author: Thomas Ardal
 theme:
     name: null
     custom_dir: "mkdocs_bs4/"
+    static_templates:
+    - 404.html
 extra_css:
     - style.css
-nav: 
+nav:
 - Docs:
     - Home: index.md
 - Installation:
@@ -84,4 +86,4 @@ nav:
     - ELMAH and elmah.io differences: elmah-and-elmah-io-differences.md
     - Integrating with Slack manually: integrate-elmah-io-with-slack.md
     - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
-    - Integrating with Zapier: integrate-elmah-io-with-zapier.md 
+    - Integrating with Zapier: integrate-elmah-io-with-zapier.md
