@@ -5,23 +5,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% if page.meta.description %}<meta name="description" content="{{ page.meta.description[0] }}">{% endif %}
+    {% if page.meta.description %}<meta name="description" content="{{ page.meta.description }}">{% endif %}
     <meta name="author" content="{{ config.site_author }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="{{ page.title }}">
-    {% if page.meta.description %}<meta name="twitter:description" content="{{ page.meta.description[0] }}">{% endif %}
+    <meta name="twitter:title" content="{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+    {% if page.meta.description %}<meta name="twitter:description" content="{{ page.meta.description }}">{% endif %}
     {% if page.meta.image %}<meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
-    <meta property="og:title" content="{{ page.title }}">
-    {% if page.meta.description %}<meta property="og:description" content="{{ page.meta.description[0] }}">{% endif %}
+    <meta property="og:title" content="{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+    {% if page.meta.description %}<meta property="og:description" content="{{ page.meta.description }}">{% endif %}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.canonical_url }}">
     {% if page.meta.image %}<meta property="og:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
     <meta property="fb:app_id" content="218008838347208" />
-
-    <title>{{ page.title }} | elmah.io</title>
-
+    <title>{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
     <link rel="canonical" href="{{ page.canonical_url }}">
     <link rel="shortcut icon" href="{{ base_url|url }}/favicon.ico">
 
