@@ -10,16 +10,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+    <meta name="twitter:title" content="{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %} | elmah.io">
     {% if page.meta.description %}<meta name="twitter:description" content="{{ page.meta.description }}">{% endif %}
     {% if page.meta.image %}<meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
-    <meta property="og:title" content="{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+    <meta property="og:title" content="{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %} | elmah.io">
     {% if page.meta.description %}<meta property="og:description" content="{{ page.meta.description }}">{% endif %}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.canonical_url }}">
     {% if page.meta.image %}<meta property="og:image" content="{{ config.site_url }}{{ page.meta.image[0] }}">{% endif %}
     <meta property="fb:app_id" content="218008838347208" />
-    <title>{% if page.meta.title %}{{ page.meta.title }} - {% else %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    <title>{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %} | elmah.io</title>
     <link rel="canonical" href="{{ page.canonical_url }}">
     <link rel="shortcut icon" href="{{ base_url|url }}/favicon.ico">
 
