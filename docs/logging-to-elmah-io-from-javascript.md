@@ -20,6 +20,7 @@ Pick an installation method of your choice:
     <li role="presentation" class="nav-item"><a class="nav-link" href="#npm" aria-controls="profile" role="tab" data-toggle="tab">npm</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#nuget" aria-controls="profile" role="tab" data-toggle="tab">NuGet</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#libman" aria-controls="profile" role="tab" data-toggle="tab">Library Manager</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#aspnetcore" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#bower" aria-controls="profile" role="tab" data-toggle="tab">Bower</a></li>
 </ul>
 
@@ -136,6 +137,33 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 ```html
 <script src="~/Scripts/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="aspnetcore">
+
+If not already configured, follow the guide [installing elmah.io in ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
+
+Install the `Elmah.Io.AspNetCore.Mvc` NuGet package:
+
+```ps
+Install-Package Elmah.Io.AspNetCore.Mvc
+```
+
+Copy and paste the following line to the top of the `_Layout.cshtml` file:
+
+```html
+@addTagHelper *, Elmah.Io.AspNetCore.Mvc
+```
+
+In the bottom of the file (but before referencing other JavaScript files), add the following tag helper:
+
+```html
+<elmah-io/>
+```
+
+If you want to log JavaScript errors from production only, make sure to move the `elmah-io` element inside the tag `<environment exclude="Development">`.
+
+elmah.io automatically pulls your API key and log ID from the options specified as part of the installation for logging serverside errors from ASP.NET Core.
 
   </div>
 </div>
