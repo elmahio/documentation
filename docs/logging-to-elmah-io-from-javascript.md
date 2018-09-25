@@ -143,16 +143,16 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 
 If not already configured, follow the guide [installing elmah.io in ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
 
-Install the `Elmah.Io.AspNetCore.Mvc` NuGet package:
+Install the `Elmah.Io.AspNetCore.TagHelpers` NuGet package:
 
 ```ps
-Install-Package Elmah.Io.AspNetCore.Mvc
+Install-Package Elmah.Io.AspNetCore.TagHelpers
 ```
 
 Copy and paste the following line to the top of the `_Layout.cshtml` file:
 
 ```html
-@addTagHelper *, Elmah.Io.AspNetCore.Mvc
+@addTagHelper *, Elmah.Io.AspNetCore.TagHelpers
 ```
 
 In the bottom of the file (but before referencing other JavaScript files), add the following tag helper:
