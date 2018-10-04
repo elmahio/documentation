@@ -170,7 +170,7 @@ elmah.io automatically pulls your API key and log ID from the options specified 
 
 That's it. All uncaught errors on your website, are now logged to elmah.io.
 
-## Configuration in code
+## Options
 
 If you prefer configuring in code (or need to access the options for something else), API key and log ID can be configured by referencing the `elmahio.min.js` script with parameters:
 
@@ -187,6 +187,8 @@ new Elmahio({
 });
 ```
 
+##### Application name
+
 The `application` property on elmah.io, can be set on all log messages by setting the `application` option:
 
 ```javascript
@@ -197,6 +199,8 @@ new Elmahio({
 });
 ```
 
+##### Debug output
+
 For debug purposes, debug output from the logger to the console can be enabled using the `debug` option:
 
 ```javascript
@@ -206,6 +210,52 @@ new Elmahio({
     debug: true
 });
 ```
+
+##### Message filtering
+
+Log messages can be filtered, by adding an `filter` handler in options:
+
+```javascript
+new Elmahio({
+    ...
+    filter: function(msg) {
+        return msg.severity === 'Verbose';
+    }
+})
+```
+
+In the example, all log [messages](#message-reference) with a severity of `Verbose`, are not logged to elmah.io.
+
+## Events
+
+##### Enriching log messages
+
+Log messages can be enriched by subscribing to the `message` event:
+
+```javascript
+new Elmahio({
+    ...
+}).on('message', function(msg) {
+    if (!msg.data) msg.data = [];
+    msg.data.push({key: 'MyCustomKey', value: 'MyCustomValue'});
+});
+```
+
+In the example, all log [messages](#message-reference) are enriched with a data variable with they key `MyCustomKey` and value `MyCustomValue`.
+
+##### Handling errors
+
+To react on errors happening in elmah.io.js, subscribe to the `error` event:
+
+```javascript
+new Elmahio({
+    ...
+}).on('error', function(status, text) {
+    console.log('An error happened in elmah.io.js', status, text);
+});
+```
+
+In the example, all errors are written to the console.
 
 ## Logging manually
 
@@ -248,53 +298,13 @@ As for the `log`-function, check out [message reference](#message-reference).
 
 > Manual logging only works when initializing the elmah.io logger from code.
 
-## Events
+## IntelliSense
 
-##### Filtering log messages
+If installing through npm or similar, Visual Studio should pick up the TypeScript mappings from the elmah.io.js package. If not, add the following line in the top of the JavaScript file where you wan't elmah.io.js IntelliSense:
 
-Log messages can be filtered, by adding an `OnFilter` callback on the options:
-
-```javascript
-new Elmahio({
-    ...
-    onFilter: function(msg) {
-        return msg.severity === 'Verbose';
-    }
-})
+```xml
+/// <reference path="/path/to/elmahio.d.ts" />
 ```
-
-In the example, all log [messages](#message-reference) with a severity of `Verbose`, are not logged to elmah.io.
-
-##### Enriching log messages
-
-Log messages can be enriched by adding an `onMessage` callback on the options:
-
-```javascript
-new Elmahio({
-    ...
-    onMessage: function(msg) {
-        if (!msg.data) msg.data = [];
-        msg.data.push({key: 'MyCustomKey', value: 'MyCustomValue'});
-    }
-});
-```
-
-In the example, all log [messages](#message-reference) are enriched with a data variable with they key `MyCustomKey` and value `MyCustomValue`.
-
-##### Handling errors
-
-To react on errors happening in elmah.io.js, add a callback to `onError`:
-
-```javascript
-new Elmahio({
-    ...
-    onError: function(status, text) {
-        console.log('An error happened in elmah.io.js', status, text);
-    }
-});
-```
-
-In the example, all errors are written to the console.
 
 ## Angular
 
@@ -381,7 +391,7 @@ When initializing your React app, elmah.io is configured and all errors happenin
 
 ## Message reference
 
-This is an example of the elmah.io.js `msg` object that is used in various callbacks, etc.:
+This is an example of the elmah.io.js `Message` object that is used in various callbacks, etc.:
 
 ```javascript
 {
@@ -404,3 +414,5 @@ This is an example of the elmah.io.js `msg` object that is used in various callb
   ]
 }
 ```
+
+For a complete definition, check out the `Message` interface in the [elmah.io.js TypeScript mappings](https://github.com/elmahio/elmah.io.js/blob/master/elmahio.d.ts).
