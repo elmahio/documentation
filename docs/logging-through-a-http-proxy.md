@@ -17,7 +17,7 @@ Luckily the elmah.io client supports proxy configuration out of the box. Let’s
   </configSections>
   <elmah>
     <security allowRemoteAccess="false" />
-    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" ApiKey="..." LogId="..." />
+    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="..." logId="..." />
   </elmah>
   <system.net>
     <defaultProxy>
