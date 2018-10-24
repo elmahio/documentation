@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://www.nuget.org/packages/elmah.io.js)
 [![npm](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://img.shields.io/npm/v/elmah.io.js.svg)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
 
 # Logging to elmah.io from JavaScript
 
