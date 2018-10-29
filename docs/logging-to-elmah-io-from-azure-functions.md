@@ -48,3 +48,35 @@ The variables above, would require you to add your API key and log ID to your `s
   }
 }
 ```
+
+## Adding debug information to error messages
+
+When debugging error messages logged from functions, it may be a good help to add information about the context the failing function is executed in. Contextual information isn't available for exception filters, but you can add it by implementing the following class:
+
+```csharp
+public class DebuggingFilter : FunctionInvocationFilterAttribute
+{
+    public override Task OnExecutingAsync(FunctionExecutingContext executingContext, CancellationToken cancellationToken)
+    {
+        executingContext.Properties.Add("message", executingContext.Arguments.First().Value.ToString());
+        executingContext.Properties.Add("connection", ConfigurationManager.AppSettings["connection"]);
+        return base.OnExecutingAsync(executingContext, cancellationToken);
+    }
+}
+```
+
+In the example, I add two properties (`message` and `connectiction`). This is an example only and you will need to add named values matching your setup. Properties added to `FunctionExecutingContext` are automatically picked up and logged to elmah.io.
+
+Finally, add `DebuggingFilter` to your function:
+
+```csharp
+public static class MyFunction
+{
+    [DebuggingFilter]
+    [FunctionName("MyFunction")]
+    public static async Task Run(string mySbMsg)
+    {
+        ...
+    }
+}
+```
