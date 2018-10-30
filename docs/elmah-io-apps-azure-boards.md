@@ -8,6 +8,8 @@ In order to create bugs on Azure Boards, you will need to generate a personal ac
 
 For this example, I have picket the longest possible expiration period, but you can decide for a shorter period if you'd like. Remember to enable the *Read & write* scope. Next, click the *Create* button and copy the generated token.
 
+> Bugs created by elmah.io will have the *CreatedBy* set to the user generating the personal access token. If you want to identify bugs created by elmah.io, you should create the token from a new user (like elmahio@yourdomain.com).
+
 ## Install the Azure Boards App on elmah.io
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Azure Boards app and click the *Install* button:
