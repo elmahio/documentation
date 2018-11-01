@@ -98,3 +98,42 @@ public static IWebHost BuildWebHost(string[] args) =>
 ```
 
 Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to elmah.io.
+
+## Config using appsettings.json
+
+While Serilog provides a great fluent C# API, some prefer to configure Serilog using an `appsettings.json` file. To configure the elmah.io sink this way, you will need to install the `Serilog.Settings.Configuration` NuGet package. Then configure elmah.io in your `appsettings.json` file:
+
+```json
+{
+    ...
+    "Serilog":{
+        "Using":[
+            "Serilog.Sinks.ElmahIo"
+        ],
+        "MinimumLevel": "Warning",
+        "WriteTo":[
+            {
+                "Name": "ElmahIo",
+                "Args":{
+                    "apiKey": "API_KEY",
+                    "logId": "LOG_ID"
+                }
+            }
+        ]
+    }
+}
+```
+
+> Make sure to specify the `apiKey` and `logId` arguments with the first character in lowercase.
+
+Finally, tell Serilog to read the configuration from the `appsettings.json` file:
+
+```csharp
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
+
+var logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(configuration)
+    .CreateLogger();
+```

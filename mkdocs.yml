@@ -56,6 +56,7 @@ nav:
     - WebClient: elmah-io-apps-webclient.md
     - YouTrack: elmah-io-apps-youtrack.md
     - GitLab: elmah-io-apps-gitlab.md
+    - Azure Boards: elmah-io-apps-azure-boards.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Help:
     - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md

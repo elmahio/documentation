@@ -13,7 +13,7 @@ When installed, BlogEngine.NET starts reporting errors to elmah.io. To check it 
 Some of you may use the BlogEngine.NET binaries or even installed it using a one-click installer. In this case you will need to add elmah.io manually. To do that, use a tool like NuGet Package Explorer to download the most recent versions of ELMAH and elmah.io. Copy Elmah.dll and Elmah.Io.dll to the bin directory of your BlogEngine.NET installation. Also modify your web.config to include the ELMAH config as shown in the config example. Last but not least, remember to add the elmah.io error logger configuration as a child node to the ```<elmah>``` element:
 
 ```xml
-<errorLog type="Elmah.Io.ErrorLog, Elmah.Io" ApiKey="API_KEY" LogId="LOG_ID" />
+<errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="API_KEY" logId="LOG_ID" />
 ```
 
 Where `API_KEY` is your API key and `LOG_ID` is your log ID.
@@ -23,7 +23,7 @@ To wrap this up, you may have noticed that there’s a [NuGet package](https://w
 ```xml
 <elmah>
   <security allowRemoteAccess="false" />
-  <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" ApiKey="APIKEY" LogId="LOGID" />
+  <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="APIKEY" logId="LOGID" />
   <security allowRemoteAccess="true" />
   <errorLog type="Elmah.SqlServerCompactErrorLog, Elmah" connectionStringName="elmah-sqlservercompact" />
 </elmah>

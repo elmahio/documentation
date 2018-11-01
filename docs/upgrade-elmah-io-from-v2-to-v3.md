@@ -28,7 +28,7 @@ Next, you will need to add your API key to your `web.config`. Where the 2.x clie
 
 ```xml
 <elmah>
-  <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" ApiKey="API_KEY" LogId="LOG_ID" />
+  <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="API_KEY" logId="LOG_ID" />
 </elmah>
 ```
 
