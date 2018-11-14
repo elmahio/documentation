@@ -295,7 +295,7 @@ code {
 }
 
 footer .btn {
-	width: 222px;
+	width: 280px;
 	outline: none;
 }
 footer .btn span {
@@ -331,7 +331,7 @@ footer .links ul li a {
 }
 
 footer .social li a {
-	width: 40px;
+    width: 40px;
     height: 40px;
     background: rgba(255,255,255,.05);
     display: block;
