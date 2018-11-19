@@ -63,6 +63,14 @@ using (LogContext.PushProperty("ThreadId", Thread.CurrentThread.ManagedThreadId)
 
 Beneath the Data tab on the logged message details, the `ApplicationIdentifier`, `ThreadId` and `Type` properties can be found.
 
+`Serilog.Sinks.ElmahIo` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:
+
+```csharp
+logger.Information("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger");
+```
+
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+
 ## ASP.NET Core
 
 Serilog provides a package for ASP.NET Core, that routes log messages from inside core through Serilog. We recommend to use this package together with the elmah.io sink, in order to capture warnings and errors happening inside ASP.NET Core.
