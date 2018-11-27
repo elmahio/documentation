@@ -1,5 +1,7 @@
 # Tips and tricks to stay below your message limit
 
+[TOC]
+
 Each plan on elmah.io include a maximum number of messages per month. The number of messages are calculated from how many times your applications have called our API and successfully stored a message (in most cases messages equals errors). Deleting messages either one by one or in batches are fully supported, but do not result in a decrease in the current message count. Our costs are primarily around receiving, indexing and notifying about messages, why we cannot allow someone on a lower plan like the Small Business, to log millions and yet millions of messages and then just clean up regularly. We're sure that everyone understand the challenge here.
 
 With that said, we want to help you stay within your message limits. Luckily, there's a lot of ways to limit messages. This article contains a list of the most common tactics to staying below your message limit.
@@ -85,3 +87,11 @@ By clicking the question mark next to the counter, you will be able to see which
 ## Fix bugs
 
 Seeing the same error over and over again? Maybe the best idea is to fix it :) I mean, that's the whole purpose of elmah.io: to help you fix bugs. And remember, the less bugs you have, the cheaper elmah.io gets. The ultimate motivation!
+
+## Purchase a top-up
+
+Sometimes, a spike in errors can be caused by unexpected events like a blackhat bot deciding to bombard your site with requests or a junior dev on your team accidentally enabling verbose logging. In these cases, purchasing a top-up may be a better solution than permanently upgrading your plan. Top-ups can be purchased from your subscription, when you reach 90% of your included messages. Top-ups are purchased in bundles of 25,000 messages, valid for the rest of the calendar month.
+
+## Upgrading to the next plan
+
+If you constantly go over the limit, you have probably reached a point where you will need to upgrade to a larger plan. You can upgrade and downgrade at any time, why upgrading a few months (until you get errors under control) and then downgrade again, is perfectly fine.
