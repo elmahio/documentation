@@ -1,10 +1,10 @@
-[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://www.nuget.org/packages/elmah.io.js)
-[![npm](https://img.shields.io/nuget/v/Elmah.Io.Js.svg)](https://img.shields.io/npm/v/elmah.io.js.svg)
-[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.js/tree/master/samples)
+[![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
+[![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://img.shields.io/npm/v/elmah.io.javascript.svg)
+[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/master/samples)
 
 # Logging to elmah.io from JavaScript
 
-> elmah.io.js is currently in beta. We don't recommend this for production just yet. Feel free to play around with it, but remember to <a href="https://headwayapp.co/elmah-io-changelog/deprecating-the-v2-api-68030" target="_blank" rel="noopener noreferrer">disable access to the v2 API</a> on your log and [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. Without these changes, everyone will be able to browse your logs (<a href="https://www.troyhunt.com/aspnet-session-hijacking-with-google/" target="_blank" rel="noopener noreferrer">you don't want that!</a>).
+> elmah.io.javascript is currently in beta. We don't recommend this for production just yet. Feel free to play around with it, but remember to <a href="https://headwayapp.co/elmah-io-changelog/deprecating-the-v2-api-68030" target="_blank" rel="noopener noreferrer">disable access to the v2 API</a> on your log and [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. Without these changes, everyone will be able to browse your logs (<a href="https://www.troyhunt.com/aspnet-session-hijacking-with-google/" target="_blank" rel="noopener noreferrer">you don't want that!</a>).
 
 [TOC]
 
@@ -27,7 +27,7 @@ Pick an installation method of your choice:
   <div class="tab-content">
 <div role="tabpanel" class="tab-pane active" id="manually">
 
-Download the latest release as a zip: [https://github.com/elmahio/elmah.io.js/releases](https://github.com/elmahio/elmah.io.js/releases)
+Download the latest release as a zip: [https://github.com/elmahio/elmah.io.javascript/releases](https://github.com/elmahio/elmah.io.javascript/releases)
 
 Unpack and copy `elmahio.min.js` to the `Scripts` folder or whatever folder you use to store JavaScript files.
 
@@ -43,28 +43,28 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.rawgit.com/elmahio/elmah.io.js/3.0.0-beta2/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.0.0-beta3/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
   </div>
   <div role="tabpanel" class="tab-pane" id="npm">
 
-Install the elmah.io.js npm package:
+Install the elmah.io.javascript npm package:
 
 ```ps
-npm install elmah.io.js
+npm install elmah.io.javascript
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/node_modules/elmah.io.js/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
   </div>
   <div role="tabpanel" class="tab-pane" id="bower">
 
-Since Bower is <a href="https://bower.io/blog/2017/how-to-migrate-away-from-bower/" target="_blank" rel="noopener noreferrer">no longer maintained</a>, installing `elmah.io.js` through Bower, is supported using `bower-npm-resolver`. Install the resolver:
+Since Bower is <a href="https://bower.io/blog/2017/how-to-migrate-away-from-bower/" target="_blank" rel="noopener noreferrer">no longer maintained</a>, installing `elmah.io.javascript` through Bower, is supported using `bower-npm-resolver`. Install the resolver:
 
 ```ps
 npm install bower-npm-resolver --save
@@ -80,22 +80,22 @@ Add the resolver in your `.bowerrc` file:
 }
 ```
 
-Install the `elmah.io.js` npm package:
+Install the `elmah.io.javascript` npm package:
 
 ```ps
-bower install npm:elmah.io.js --save
+bower install npm:elmah.io.javascript --save
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/bower_components/elmah.io.js/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/bower_components/elmah.io.javascript/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
   </div>
   <div role="tabpanel" class="tab-pane" id="libman">
 
-Add the `elmah.io.js` library in your `libman.json` file:
+Add the `elmah.io.javascript` library in your `libman.json` file:
 
 ```json
 {
@@ -104,7 +104,7 @@ Add the `elmah.io.js` library in your `libman.json` file:
     ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.js/3.0.0-beta2/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.0.0-beta3/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
@@ -114,7 +114,7 @@ Add the `elmah.io.js` library in your `libman.json` file:
 or using the LibMan CLI:
 
 ```powershell
-libman install https://raw.githubusercontent.com/elmahio/elmah.io.js/3.0.0-beta2/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.0.0-beta3/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -126,10 +126,10 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
   </div>
   <div role="tabpanel" class="tab-pane" id="nuget">
 
-Install the `elmah.io.js` NuGet package:
+Install the `elmah.io.javascript` NuGet package:
 
 ```ps
-Install-Package elmah.io.js -Prerelease
+Install-Package elmah.io.javascript -Prerelease
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -245,13 +245,13 @@ In the example, all log [messages](#message-reference) are enriched with a data 
 
 ##### Handling errors
 
-To react on errors happening in elmah.io.js, subscribe to the `error` event:
+To react on errors happening in elmah.io.javascript, subscribe to the `error` event:
 
 ```javascript
 new Elmahio({
     ...
 }).on('error', function(status, text) {
-    console.log('An error happened in elmah.io.js', status, text);
+    console.log('An error happened in elmah.io.javascript', status, text);
 });
 ```
 
@@ -300,7 +300,7 @@ As for the `log`-function, check out [message reference](#message-reference).
 
 ## IntelliSense
 
-If installing through npm or similar, Visual Studio should pick up the TypeScript mappings from the elmah.io.js package. If not, add the following line in the top of the JavaScript file where you wan't elmah.io.js IntelliSense:
+If installing through npm or similar, Visual Studio should pick up the TypeScript mappings from the elmah.io.javascript package. If not, add the following line in the top of the JavaScript file where you wan't elmah.io.javascript IntelliSense:
 
 ```xml
 /// <reference path="/path/to/elmahio.d.ts" />
@@ -308,7 +308,7 @@ If installing through npm or similar, Visual Studio should pick up the TypeScrip
 
 ## Angular
 
-`elmah.io.js` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.js` through npm as described above. Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
+`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described above. Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
 
 ```json
 {
@@ -318,7 +318,7 @@ If installing through npm or similar, Visual Studio should pick up the TypeScrip
     {
       ...
       "scripts": [
-        "../node_modules/elmah.io.js/dist/elmahio.min.js"
+        "../node_modules/elmah.io.javascript/dist/elmahio.min.js"
       ],
       ...
     }
@@ -362,15 +362,15 @@ class ElmahIoErrorHandler implements ErrorHandler {
 })
 ```
 
-All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.js/tree/master/samples/Elmah.Io.Js.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.Js.Angular</a> sample for some real working code.
+All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> sample for some real working code.
 
 ## React
 
-To log all errors from a React application, install the `elmah.io.js` npm package as described above. Then modify the `App.js` file:
+To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `App.js` file:
 
 ```javascript
 ...
-import Elmahio from '../node_modules/elmah.io.js/dist/elmahio';
+import Elmahio from '../node_modules/elmah.io.javascript/dist/elmahio';
 
 export default class App extends Component {
   ...
@@ -391,7 +391,7 @@ When initializing your React app, elmah.io is configured and all errors happenin
 
 ## Message reference
 
-This is an example of the elmah.io.js `Message` object that is used in various callbacks, etc.:
+This is an example of the elmah.io.javascript `Message` object that is used in various callbacks, etc.:
 
 ```javascript
 {
@@ -415,4 +415,4 @@ This is an example of the elmah.io.js `Message` object that is used in various c
 }
 ```
 
-For a complete definition, check out the `Message` interface in the [elmah.io.js TypeScript mappings](https://github.com/elmahio/elmah.io.js/blob/master/elmahio.d.ts).
+For a complete definition, check out the `Message` interface in the [elmah.io.javascript TypeScript mappings](https://github.com/elmahio/elmah.io.javascript/blob/master/elmahio.d.ts).
