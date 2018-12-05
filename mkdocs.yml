@@ -40,6 +40,7 @@ nav:
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Orchard: logging-to-elmah-io-from-orchard.md
+    - Logging from Blazor: logging-to-elmah-io-from-blazor.md
     - Configure elmah.io manually: configure-elmah-io-manually.md
     - Configure elmah.io from code: configure-elmah-io-from-code.md
     - Logging through a HTTP proxy: logging-through-a-http-proxy.md

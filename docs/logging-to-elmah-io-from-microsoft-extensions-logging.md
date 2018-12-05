@@ -145,7 +145,17 @@ logger.LogInformation("This is an information message");
 
 ## Decorating log messages
 
-Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`. To add additional properties, use the `OnMessage` action. As an example, we'll add the name of the current user to all log messages:
+Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`). To add additional properties, use one of two approaches as described below.
+
+`Elmah.Io.Extensions.Logging` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:
+
+```csharp
+logger.LogInformation("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger");
+```
+
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+
+An alternative is to use the `OnMessage` action. As an example, we'll add the name of the current user to all log messages:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory)

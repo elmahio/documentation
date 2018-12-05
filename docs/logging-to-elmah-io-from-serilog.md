@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/j4rsru1m0lhkfwc4/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-elmahio/branch/master)
+﻿[![Build status](https://ci.appveyor.com/api/projects/status/j4rsru1m0lhkfwc4/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-elmahio/branch/master)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
 
@@ -24,7 +24,7 @@ var log =
 Log.Logger = log;
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)),
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don’t use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
 
@@ -62,6 +62,14 @@ using (LogContext.PushProperty("ThreadId", Thread.CurrentThread.ManagedThreadId)
 ```
 
 Beneath the Data tab on the logged message details, the `ApplicationIdentifier`, `ThreadId` and `Type` properties can be found.
+
+`Serilog.Sinks.ElmahIo` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:
+
+```csharp
+logger.Information("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger");
+```
+
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
 ## ASP.NET Core
 
