@@ -415,4 +415,4 @@ This is an example of the elmah.io.javascript `Message` object that is used in v
 }
 ```
 
-For a complete definition, check out the `Message` interface in the [elmah.io.javascript TypeScript mappings](https://github.com/elmahio/elmah.io.javascript/blob/master/elmahio.d.ts).
+For a complete definition, check out the `Message` interface in the [elmah.io.javascript TypeScript mappings](https://github.com/elmahio/elmah.io.javascript/blob/master/typescript/elmahio.d.ts).
