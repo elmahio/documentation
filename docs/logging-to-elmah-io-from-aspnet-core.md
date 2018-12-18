@@ -1,8 +1,10 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/j57ekc2k9eon3u9u?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-aspnetcore)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.AspNetCore.svg)](https://www.nuget.org/packages/Elmah.Io.AspNetCore)
-[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/master/samples)
 
 # Logging to elmah.io from ASP.NET Core
+
+[TOC]
 
 If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
@@ -180,3 +182,26 @@ services.AddElmahIo(o =>
 ```
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
+
+## Logging health check results
+
+ASP.NET Core 2.2 introduced a new feature named Health Checks. Health checks enable much more sofisticated uptime checks, by allowing you to verify not only uptime on your own website, but also on any dependency or precondition necessary for your website to work. For a general introduction to health checks, I recommend you to read [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/).
+
+Health checks have error reporting built-in. We provide a publisher in order to allow ASP.NET Core to ship health check errors directly to your log on elmah.io. Start by installing the `Elmah.Io.AspNetCore.HealthChecks` NuGet package:
+
+```ps
+Install-Package Elmah.Io.AspNetCore.HealthChecks -IncludePrerelease
+```
+
+Then configure the elmah.io publisher as part of initializing health checks:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services
+        .AddHealthChecks()
+        .AddElmahIoPublisher("API_KEY", new Guid("LOG_ID"));
+    ...
+}
+```
