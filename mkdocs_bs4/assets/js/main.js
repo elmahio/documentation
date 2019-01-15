@@ -3,19 +3,27 @@ $(document).ready(function(){
 	// Highlight init
 	hljs.initHighlightingOnLoad();
 
-	// Scrollbar function
-    $(".main-nav").mCustomScrollbar({
-		setTop: "0px"
-	});
-
 	// Style all tables - markdown fix
 	$('table').addClass('table');
 	$('table thead').addClass('thead-light');
 
-	// Show all links on click
-    $('#show-all-links').on('click', function(){
-    	$('.main-nav').removeClass('d-none');
-    	$(this).remove();
+	// Show sidebar on click
+    $('#show-sidebar').on('click', function(){
+    	$('body').addClass('sidebar-open');
+    	$('.sidebar').addClass('sidebar-active');
+    });
+
+    // Sidebar li dropdown
+    $('.main-nav .li_dropdown .li_parent').on('click', function(){
+    	$(this).parent().toggleClass('active');
+    });
+
+    // Close sidebar on click
+    $(document).on('click', '.sidebar-open', function(e){
+    	if($(e.target).hasClass('sidebar-open')) {
+    		$('body').removeClass('sidebar-open');
+    		$('.sidebar').removeClass('sidebar-active');
+    	}
     });
 
     // Add permalink to headings 2 - 6

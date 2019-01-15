@@ -25,8 +25,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ base_url|url }}/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="{{ base_url|url }}/assets/fonts/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="{{ base_url|url }}/assets/css/highlight.css">
     <link rel="stylesheet" href="{{ base_url|url }}/assets/css/style.css">
   </head>
@@ -49,16 +48,15 @@
         <aside class="sidebar">
           <div class="sidebar-body">
             <div class="input-group mb-3">
-              <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+              <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-search"></i></span></div>
               <input type="text" id="search" class="form-control" placeholder="Search ..." />
             </div>
             <div id="searchList"></div>
             <hr>
-            <a id="show-all-links" href="javascript:;" class="btn btn-light btn-block d-block d-md-none">Show documentation links</a>
-            <ul class="main-nav d-none d-md-block">
+            <ul class="main-nav">
               {% for nav_item in nav %}
-              <li>
-                <a href="javascript:;">{{ nav_item.title }}</a>
+              <li {% if loop.index != 1 %}class="li_dropdown{% if nav_item.active %} active{% endif %}"{% endif %}>
+                <a class="li_parent" href="javascript:;">{{ nav_item.title }}</a>
                 <ul>
                   {% for nav_item in nav_item.children %}
                   <li {% if nav_item.active %}class="active"{% endif %}><a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
@@ -69,6 +67,7 @@
             </ul>
           </div>
         </aside>
+        <a id="show-sidebar" href="javascript:;" class="btn btn-light btn-block d-block d-md-none"><span class="fal fa-bars"></span> <span>Documentation menu</span></a>
         <article class="col main-content">
           <div class="main-content-body">
 
@@ -135,9 +134,9 @@
                     <div class="col">
                         <h5>Social</h5>
                         <ul class="list-unstyled social">
-                            <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
     			</div>
@@ -160,7 +159,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="{{ base_url|url }}/assets/js/bootstrap.min.js"></script>
     <script src="{{ base_url|url }}/assets/js/highlight.pack.js"></script>
-    <script src="{{ base_url|url }}/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="{{ base_url|url }}/assets/js/fuse.min.js"></script>
     <script src="{{ base_url|url }}/assets/js/main.js"></script>
   </body>
