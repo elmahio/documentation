@@ -78,3 +78,4 @@ window.CRISP_WEBSITE_ID = "0953a6c5-b359-4b48-b055-9f7eb319862c";
     s.async = 1;
     d.getElementsByTagName("head")[0].appendChild(s);
 })();
+$crisp.push(["safe", true]);
