@@ -1,5 +1,7 @@
 # Logging to elmah.io from JSNLog
 
+> While logging through JSNLog still works, we recommend to use our native integration with JavaScript: [Logging to elmah.io from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/)
+
 Using JSNLog you will be able to log JavaScript errors to elmah.io. In this sample, we will focus about logging JavaScript errors from a ASP.NET MVC web application, but you can use JSNLog to log anything to elmah.io, so please check out their documentation.
 
 Start by installing the JSNLog.Elmah package:
