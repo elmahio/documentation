@@ -68,6 +68,17 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+Then call the `AddElmahIo` without parameters:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    ...
+    app.UseElmahIo();
+    ...
+}
+```
+
 You can still configure additional options on the `ElmahIoOptions` object:
 
 ```csharp
