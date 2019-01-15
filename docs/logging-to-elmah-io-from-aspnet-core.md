@@ -68,7 +68,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Then call the `AddElmahIo` without parameters:
+Finally, call the `AddElmahIo` (as you would do with config in C# too):
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
