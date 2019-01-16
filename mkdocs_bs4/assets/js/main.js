@@ -26,6 +26,11 @@ $(document).ready(function(){
     	}
     });
 
+    // Back to top button
+    $('#back-to-top').on('click', function(){
+    	$("html, body").animate({scrollTop: 0}, 800);
+    });
+
     // Add permalink to headings 2 - 6
     $('.main-content-body h2, .main-content-body h3, .main-content-body h4, .main-content-body h5, .main-content-body h6').each(function(){
 		var permalink = $(this).attr('id'),
