@@ -10,41 +10,55 @@ theme:
 extra_css:
     - style.css
 nav:
-- Docs:
-    - Home: index.md
-- Installation:
-    - Logging from ELMAH: logging-to-elmah-io-from-elmah.md
+- Getting Started:
+    - Quickstart: index.md
+    - Authentication: authentication.md
+- ASP.NET / MVC / Web API:
+    - Logging from WebForms: logging-to-elmah-io-from-elmah.md
     - Logging from ASP.NET MVC: logging-to-elmah-io-from-aspnet-mvc.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
+    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
+    - Logging custom data: logging-custom-data.md
+    - Logging errors programmatically: logging-errors-programmatically.md
+    - Logging to multiple logs: logging-to-multiple-elmah-logs.md
+    - Remove sensitive form data: remove-sensitive-form-data.md
+    - Configure elmah.io manually: configure-elmah-io-manually.md
+    - Configure elmah.io from code: configure-elmah-io-from-code.md
+    - Logging through a HTTP proxy: logging-through-a-http-proxy.md
+    - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
+    - Specify API key and log ID through appSettings: specify-api-key-and-log-id-through-appsettings.md
+    - ELMAH and custom errors: elmah-and-custom-errors.md
+    - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
+- ASP.NET Core:
     - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
+    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
+- Logging Frameworks:
     - Logging from Serilog: logging-to-elmah-io-from-serilog.md
     - Logging from log4net: logging-to-elmah-io-from-log4net.md
     - Logging from NLog: logging-to-elmah-io-from-nlog.md
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
-    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
-    - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from Logary: logging-to-elmah-io-from-logary.md
+    - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
+- CMS/Blogs:
+    - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md
+    - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
+    - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
+    - Logging from Orchard: logging-to-elmah-io-from-orchard.md
+- Logging from something else:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
-    - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
-    - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md
-    - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
-    - Logging from Console: logging-to-elmah-io-from-console-application.md
-    - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
-    - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
-    - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
-    - Logging from Express: logging-to-elmah-io-from-express.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
+    - Logging from Blazor: logging-to-elmah-io-from-blazor.md
+    - Logging from Express: logging-to-elmah-io-from-express.md
+    - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
-    - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
-    - Logging from Orchard: logging-to-elmah-io-from-orchard.md
-    - Logging from Blazor: logging-to-elmah-io-from-blazor.md
-    - Configure elmah.io manually: configure-elmah-io-manually.md
-    - Configure elmah.io from code: configure-elmah-io-from-code.md
-    - Logging through a HTTP proxy: logging-through-a-http-proxy.md
-- Apps:
+    - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
+    - Logging from Console: logging-to-elmah-io-from-console-application.md
+    - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
+    - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
+- Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - HipChat: elmah-io-apps-hipchat.md
     - GitHub: elmah-io-apps-github.md
@@ -58,34 +72,27 @@ nav:
     - YouTrack: elmah-io-apps-youtrack.md
     - GitLab: elmah-io-apps-gitlab.md
     - Azure Boards: elmah-io-apps-azure-boards.md
+    - Zapier: integrate-elmah-io-with-zapier.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
-- Help:
-    - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
-    - Logging custom data: logging-custom-data.md
-    - Logging errors programmatically: logging-errors-programmatically.md
-    - Logging to multiple logs: logging-to-multiple-elmah-logs.md
-    - Remove sensitive form data: remove-sensitive-form-data.md
-    - Set Up Deployment Tracking: setup-deployment-tracking.md
+- Uptime Monitoring:
+    - Set up Uptime Monitoring: setup-uptime-monitoring.md
+    - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
+- Deployment Tracking:
+    - Set up Deployment Tracking: setup-deployment-tracking.md
+- Everything Else:
     - Managing Organisations and Users: managing-organisations-and-users.md
-    - Handle elmah.io downtime: handle-elmah-io-downtime.md
-    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
-    - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
-    - Specify API key and log ID through appSettings: specify-api-key-and-log-id-through-appsettings.md
-    - Adding version information: adding-version-information.md
-    - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
-    - ELMAH and custom errors: elmah-and-custom-errors.md
-    - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
-    - Using the REST API: using-the-rest-api.md
-    - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
-    - Query messages using full-text search: query-messages-using-full-text-search.md
     - Where is my log ID: where-is-my-log-id.md
     - Where is my API key: where-is-my-api-key.md
-    - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
-    - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
-    - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
-    - How prices are calculated: how-prices-are-calculated.md
     - How to configure API key permissions: how-to-configure-api-key-permissions.md
+    - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
+    - Query messages using full-text search: query-messages-using-full-text-search.md
+    - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
+    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
+    - Adding version information: adding-version-information.md
+    - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
+    - How prices are calculated: how-prices-are-calculated.md
+    - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
+    - Handle elmah.io downtime: handle-elmah-io-downtime.md
+    - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
+    - Using the REST API: using-the-rest-api.md
     - ELMAH and elmah.io differences: elmah-and-elmah-io-differences.md
-    - Integrating with Slack manually: integrate-elmah-io-with-slack.md
-    - Integrating with HipChat manually: integrate-elmah-io-with-hipchat.md
-    - Integrating with Zapier: integrate-elmah-io-with-zapier.md

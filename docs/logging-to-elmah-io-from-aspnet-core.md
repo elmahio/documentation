@@ -154,6 +154,27 @@ services.AddElmahIo(o =>
 
 The example above, ignores all messages of type `System.NullReferenceException`.
 
+### Remove sensitive form data
+
+The `OnMessage` event can be used to filter sensitive form data as well. In the following example, we remove the server variable named `Secret-Key` from all messages, before sending them to elmah.io.
+
+```csharp
+services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+    
+    options.OnMessage = msg =>
+    {
+        var item = msg.ServerVariables.FirstOrDefault(x => x.Key == "Secret-Key"); 
+        if (item != null)
+        {
+            msg.ServerVariables.Remove(item);
+        }
+    };
+});
+```
+
 ### Formatting exceptions
 
 A default exception formatter is used to format any exceptions, before sending them off to the elmah.io API. To override the format of the details field in elmah.io, set a new `IExceptionFormatter` in the `ExceptionFormatter` property on the `ElmahIoOptions` object:
