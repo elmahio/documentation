@@ -10,3 +10,26 @@ You are probably here because your application doesn't log errors to elmah.io, e
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter or similar).
 - If you are using custom errors, make sure to configure it correctly. For more details, check out the following post: <a href="https://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging" target="_blank" rel="noopener noreferrer">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.
+
+## Common exceptions and how to fix them
+
+Here you will a list of common exceptions and how to solve them.
+
+### TypeLoadException
+
+**Exception**
+
+```
+[TypeLoadException: Inheritance security rules violated by type: 'System.Net.Http.WebRequestHandler'. Derived types must either match the security accessibility of the base type or be less accessible.]
+   Microsoft.Rest.ServiceClient`1.CreateRootHandler() +0
+   Microsoft.Rest.ServiceClient`1..ctor(DelegatingHandler[] handlers) +59
+   Elmah.Io.Client.ElmahioAPI..ctor(DelegatingHandler[] handlers) +96
+   Elmah.Io.Client.ElmahioAPI..ctor(ServiceClientCredentials credentials, DelegatingHandler[] handlers) +70
+   Elmah.Io.Client.ElmahioAPI.Create(String apiKey, ElmahIoOptions options) +146
+   Elmah.Io.Client.ElmahioAPI.Create(String apiKey) +91
+   Elmah.Io.ErrorLog..ctor(IDictionary config) +109
+```
+
+**Solution**
+
+This is most likely caused by a problem with the `System.Net.Http` NuGet package. Make sure to upgrade to the newest version (`4.3.4` as of writing this). The default template for creating a new web application, installs version `4.3.0` which is seriously flawed.
