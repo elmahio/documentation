@@ -55,7 +55,7 @@
             <hr>
             <ul class="main-nav">
               {% for nav_item in nav %}
-              <li {% if loop.index != 1 %}class="li_dropdown{% if (nav_item.active or loop.index == 2) %} active{% endif %}"{% endif %}>
+              <li {% if loop.index != 1 %}class="li_dropdown{% if nav_item.active %} active{% endif %}"{% endif %}>
                 <a class="li_parent" href="javascript:;">{{ nav_item.title }}</a>
                 <ul>
                   {% for nav_item in nav_item.children %}
