@@ -82,13 +82,16 @@ $(document).ready(function(){
 
 });
 
-window.$crisp = [];
-window.CRISP_WEBSITE_ID = "0953a6c5-b359-4b48-b055-9f7eb319862c";
-(function() {
-    d = document;
-    s = d.createElement("script");
-    s.src = "https://client.crisp.chat/l.js";
-    s.async = 1;
-    d.getElementsByTagName("head")[0].appendChild(s);
+window.intercomSettings = {
+    app_id: 'i2hhgdvj',
+    system: 'elmah.io'
+};
+(function () {
+    var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', intercomSettings); } else {
+        var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Intercom = i; function l() {
+            var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true;
+            s.src = 'https://widget.intercom.io/widget/i2hhgdvj';
+            var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        } if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); }
+    }
 })();
-$crisp.push(["safe", true]);
