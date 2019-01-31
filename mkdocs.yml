@@ -28,6 +28,7 @@ nav:
     - Use multiple logs for different environments: use-multiple-logs-for-different-environments.md
     - Specify API key and log ID through appSettings: specify-api-key-and-log-id-through-appsettings.md
     - ELMAH and custom errors: elmah-and-custom-errors.md
+    - Logging from a custom HTTP module: logging-from-a-custom-http-module.md
     - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
     - ASP.NET troubleshooting: asp-net-troubleshooting.md
 - ASP.NET Core:
