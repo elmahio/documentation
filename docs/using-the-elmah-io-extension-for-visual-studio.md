@@ -12,7 +12,7 @@ Double/click the downloaded VSIX and enable elmah.io in the versions of Visual S
 
 ## Usage
 
-Inside Visual Studio navigate to View | Other Windows | elmah.io or simply search for elmah.io in the Quick Launcher (<kbd>Ctrl</kbd>+<kbd>Q</kbd>).
+Inside Visual Studio navigate to View | Other Windows | elmah.io or simply search for elmah.io in the Quick Launcher (<kbd>Ctrl</kbd> + <kbd>Q</kbd>).
 
 You'll see the elmah.io window somewhere:
 
