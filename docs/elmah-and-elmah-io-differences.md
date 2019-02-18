@@ -16,6 +16,24 @@ ELMAH is an error logging framework originally developed by Atif Aziz able to lo
 
 elmah.io is a cloud-based error management system originally developed on top of ELMAH (see history for details). Besides supporting ELMAH, elmah.io also integrates with popular logging frameworks like [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/) and web frameworks like [ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/). elmah.io offers a superior [notification](https://elmah.io/features/notifications/) model to ELMAH, with integrations to mail, Slack, HipChat and many others. elmah.io also built a lot of features outside the scope of ELMAH, like a complete [uptime monitoring](https://elmah.io/features/uptimemonitoring/) system.
 
+## Comparison
+
+| Feature | ELMAH | elmah.io |
+|---|---|---|
+| Error Logging | ✅ | ✅ |
+| Self-hosted | ✅ | ❌ |
+| Cloud-hosted | ❌ | ✅ |
+| Search | ❌ | ✅ |
+| New error detection | ❌ | ✅ |
+| [Error grouping](https://blog.elmah.io/improved-message-grouping/) | ❌ | ✅ |
+| [Issue tracking](https://blog.elmah.io/mark-errors-as-fixed-dashboards-and-more/) | ❌ | ✅ |
+| [log4net](https://elmah.io/features/log4net/)/[NLog](https://elmah.io/features/nlog/)/[Serilog](https://elmah.io/features/serilog/) | ❌ | ✅ |
+| [Clientside error logging](https://elmah.io/features/clientside-logging/) | ❌ | ✅ |
+| [Slack/Teams/HipChat/etc.](https://elmah.io/features/appstore/) | ❌ | ✅ |
+| [Deployment tracking](https://elmah.io/features/deploymenttracking/) | ❌ | ✅ |
+| [Uptime monitoring](https://elmah.io/features/uptimemonitoring/) | ❌ | ✅ |
+| [Discount on popular software](https://elmah.io/goodiebag/) | ❌ | ✅ |
+
 ## History
 
 So, why name a service elmah.io, when only a minor part of a client integration uses ELMAH? When elmah.io was introduced back in 2013, the intention was to create a cloud-based error logger for ELMAH. We had some simple search and graphing possibilities, but the platform was meant as an alternative to host your own errors logs in SQL Server or similar.
