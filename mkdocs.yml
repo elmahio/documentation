@@ -33,6 +33,7 @@ nav:
     - ASP.NET troubleshooting: asp-net-troubleshooting.md
 - ASP.NET Core:
     - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
+    - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
     - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - ASP.NET Core troubleshooting: asp-net-core-troubleshooting.md
 - Logging Frameworks:
