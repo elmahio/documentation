@@ -306,7 +306,18 @@ If installing through npm or similar, Visual Studio should pick up the TypeScrip
 /// <reference path="/path/to/elmahio.d.ts" />
 ```
 
-## Angular
+## Source maps
+
+`elmah.io.javascript` automatically tries to translate stack traces from minified code into developer friendly traces using JavaScript source maps. In order for this to work, you will need to publish a valid `.map` source map file to your production environment and reference it in the end of your JavaScript:
+
+```javascript
+var v = 42;
+//# sourceMappingURL=/script.map
+```
+
+## Samples
+
+##### Angular
 
 `elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described above. Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
 
@@ -364,7 +375,7 @@ class ElmahIoErrorHandler implements ErrorHandler {
 
 All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> sample for some real working code.
 
-## React
+##### React
 
 To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `App.js` file:
 
