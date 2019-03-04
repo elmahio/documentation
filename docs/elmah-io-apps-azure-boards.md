@@ -1,3 +1,8 @@
+---
+title: Integrate elmah.io with Azure DevOps Boards
+description: What would you say if I told you that elmah.io can create bugs for you? With the Azure Boards app, all your bugs are automatically created on Azure DevOps.
+---
+
 # Install Azure Boards App for elmah.io
 
 ## Get your personal access token

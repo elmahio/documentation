@@ -1,3 +1,8 @@
+---
+title: Integrate elmah.io with Microsoft Teams
+description: Notify your team when new errors are introduced in production. With the elmah.io app for Microsoft Teams time from introducing a bug to fix is heavily reduced.
+---
+
 # Install Microsoft Teams App for elmah.io
 
 To install the integration with Microsoft Teams, go to teams and click the *Store* menu item. Search for "elmah.io" and click the app:

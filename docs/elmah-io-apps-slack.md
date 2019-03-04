@@ -1,3 +1,8 @@
+---
+title: Integrate elmah.io with Slack
+description: Automatically receive messages in Slack when new errors are logged to elmah.io. With our Slack app, integrating Slack is only a few mouse clicks away.
+---
+
 # Install Slack App for elmah.io
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Slack app and click the *Install* button. You will be asked to allow access from elmah.io:
