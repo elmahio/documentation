@@ -78,7 +78,14 @@ $(document).ready(function(){
 				});
 			});
     	}
-    }
+	}
+
+	// Lightbox integration
+	$(".main-content-body img").each(function () {
+		if(!$(this).parent("a").length) {
+			$(this).wrap(function () { return "<a href=" + this.src + " data-fancybox></a>"; });
+		}
+	});
 
 });
 
