@@ -12,6 +12,8 @@ To start logging messages from NLog to elmah.io, you need to install the [Elmah.
 Install-Package elmah.io.nlog
 ```
 
+> There is a bug in NLog 4.6.0 that causes the elmah.io target not to load correctly (the bug will be fixed in 4.6.1). For now, use 4.5.11.
+
 To configure the elmah.io target, add the following configuration to your app.config/web.config/nlog.config depending on what kind of project you’ve created:
 
 ```xml
@@ -28,7 +30,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </rules>
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)),
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
