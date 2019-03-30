@@ -12,7 +12,7 @@ To start logging messages from NLog to elmah.io, you need to install the [Elmah.
 Install-Package elmah.io.nlog
 ```
 
-> There is a bug in NLog 4.6.0 that causes the elmah.io target not to load correctly (the bug will be fixed in 4.6.1). For now, use 4.5.11.
+> Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11` or `4.6.1`.
 
 To configure the elmah.io target, add the following configuration to your app.config/web.config/nlog.config depending on what kind of project you’ve created:
 
