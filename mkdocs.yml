@@ -36,6 +36,7 @@ nav:
     - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
     - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
+    - Logging from Blazor: logging-to-elmah-io-from-blazor.md
     - ASP.NET Core troubleshooting: asp-net-core-troubleshooting.md
 - Logging Frameworks:
     - Logging from Serilog: logging-to-elmah-io-from-serilog.md
@@ -53,7 +54,6 @@ nav:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
-    - Logging from Blazor: logging-to-elmah-io-from-blazor.md
     - Logging from Express: logging-to-elmah-io-from-express.md
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
