@@ -96,7 +96,7 @@ That's it folks. The app is now public and available on elmah.io.
 
 ## Testing the Package
 
-To test that everything is working, we'll start by creating a new bin on RequestBin. Go to [RequestBin](https://requestbin.fullcontact.com/1ka16xf1) and click the *Create a RequestBin* button:
+To test that everything is working, we'll start by creating a new bin on RequestBin. Go to [RequestBin](https://requestbin.fullcontact.com) and click the *Create a RequestBin* button:
 
 ![Bin Created](/images/create_requestbin.png)
 
