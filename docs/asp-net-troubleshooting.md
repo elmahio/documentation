@@ -9,7 +9,7 @@ You are probably here because your application doesn't log errors to elmah.io, e
 - Make sure that your server has an outgoing internet connection and that it can communicate with `api.elmah.io` on port `443`. Most of our integrations support setting up an HTTP proxy if your server doesn't allow outgoing traffic.
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter or similar).
-- If you are using custom errors, make sure to configure it correctly. For more details, check out the following post: <a href="https://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging" target="_blank" rel="noopener noreferrer">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.
+- If you are using custom errors, make sure to configure it correctly. For more details, check out the following posts: [Web.config customErrors element with ASP.NET explained](https://blog.elmah.io/web-config-customerrors-element-with-aspnet-explained/) and <a href="https://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging" target="_blank" rel="noopener noreferrer">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.
 
 ## Common exceptions and how to fix them
 
