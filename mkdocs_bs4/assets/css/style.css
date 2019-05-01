@@ -395,6 +395,14 @@ footer .copyright a {
 	color: #999;
 }
 
+footer .footer-badges img {
+	margin: 0px 3px;
+	height: 40px;
+}
+footer .footer-badges img:last-child {
+	margin-right: 0px;
+}
+
 .main-content-body > h2 > a,
 .main-content-body > h3 > a,
 .main-content-body > h4 > a,
@@ -481,6 +489,9 @@ kbd {
 	.navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
 	    padding-right: 15px;
 	    padding-left: 15px;
+	}
+	footer .footer-badges {
+		margin-bottom: 15px;
 	}
 }
 
