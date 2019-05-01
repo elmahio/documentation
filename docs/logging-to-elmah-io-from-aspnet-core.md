@@ -65,10 +65,13 @@ Configuring elmah.io is done by calling the `Configure` method instead of `AddEl
 public void ConfigureServices(IServiceCollection services)
 {
     services.Configure<ElmahIoOptions>(Configuration.GetSection("ElmahIo"));
+    services.AddElmahIo();
 }
 ```
 
-Finally, call the `AddElmahIo` (as you would do with config in C# too):
+Notice that you still need to call `AddElmahIo` in order to correctly register middleware dependencies.
+
+Finally, call the `UseElmahIo`-method (as you would do with config in C# too):
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -92,6 +95,7 @@ public void ConfigureServices(IServiceCollection services)
             msg.Version = "1.0.0";
         };
     });
+    services.AddElmahIo();
 }
 ```
 

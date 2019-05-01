@@ -41,3 +41,57 @@ public void ConfigureServices(IServiceCollection services)
     ....
 }
 ```
+
+### ArgumentException
+
+**Exception**
+
+```
+[ArgumentException: Input an API key Parameter name: apiKey]
+   Elmah.Io.AspNetCore.Extensions.StringExtensions.AssertApiKey(string apiKey)
+   Elmah.Io.AspNetCore.ElmahIoMiddleware..ctor(RequestDelegate next, IBackgroundTaskQueue queue, IOptions<ElmahIoOptions> options)
+   Microsoft.Extensions.Internal.ActivatorUtilities+ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   Microsoft.AspNetCore.Builder.UseMiddlewareExtensions+<>c__DisplayClass4_0.<UseMiddleware>b__0(RequestDelegate next)
+   Microsoft.AspNetCore.Builder.Internal.ApplicationBuilder.Build()
+   Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+```
+
+**Solution**
+
+You forgot to call the `AddElmahIo`-method in the `Startup.cs` file:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddElmahIo(o =>
+    {
+        ...
+    });
+    ....
+}
+```
+
+or you called `AddElmahIo` without options and didn't provide these options elsewhere:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddElmahIo();
+    ....
+}
+```
+
+Even though you configure elmah.io through `appsettings.json` you still need to call `AddElmahIo`. In this case, you can register `ElmahIoOptions` manually and use the empty `AddElmahIo` overload:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.Configure<ElmahIoOptions>(Configuration.GetSection("ElmahIo"));
+    services.AddElmahIo();
+    ....
+}
+```
