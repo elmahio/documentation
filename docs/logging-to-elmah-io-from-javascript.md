@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
-[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/master/samples)
 
 # Logging to elmah.io from JavaScript
 
@@ -373,7 +373,7 @@ class ElmahIoErrorHandler implements ErrorHandler {
 })
 ```
 
-All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> sample for some real working code.
+All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.
 
 ##### React
 
@@ -399,6 +399,8 @@ export default class App extends Component {
 ```
 
 When initializing your React app, elmah.io is configured and all errors happening in the application are logged.
+
+Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.
 
 ## Message reference
 
