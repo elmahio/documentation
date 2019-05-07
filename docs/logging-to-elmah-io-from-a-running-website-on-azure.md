@@ -25,3 +25,16 @@ Finally, you need to add your API key ([Where is my API key?](https://docs.elmah
 Make sure to use the app setting names `ELMAHIO_APIKEY` and `ELMAHIO_LOGID`.
 
 Your Azure web application now logs all uncaught exceptions to elmah.io. Please notice that this only works for ASP.NET, MVC, Web API, and similar. ASP.NET Core websites should be installed locally and re-deployed. Also, the elmah.io Site Extensions supports .NET Full Framework 4.6 and newer.
+
+## Troubleshooting
+
+**ConfigurationErrorsException: Could not load file or assembly 'Elmah' or one of its dependencies. The system cannot find the file specified.**
+
+After uninstalling the elmah.io site extension, you may see the configuration error above. This means that elmah.io's uninstall script for some reason wasn't allowed to run or resulted in an error.
+
+To make sure that elmah.io is completely removed, follow these steps:
+
+1. Stop your website.
+2. Browse your website files through Kudu.
+3. Remove all files starting with `Elmah`.
+4. Start your website.
