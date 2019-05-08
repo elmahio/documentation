@@ -4,6 +4,8 @@
 
 # Logging to elmah.io from Microsoft.Extensions.Logging
 
+[TOC]
+
 [Microsoft.Extensions.Logging](https://github.com/aspnet/Logging) is a common logging abstraction from Microsoft, much like log4net and Serilog. Microsoft.Extensions.Logging started as a new logging mechanism for ASP.NET Core, but now acts as a logging framework for all sorts of project types.
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
@@ -100,7 +102,39 @@ public class HomeController : Controller
 }
 ```
 
-## Filtering log messages
+## Options
+
+### appsettings.json configuration
+
+Some of the configuration for Elmah.Io.Extensions.Logging, can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
+
+```json
+{
+  "Logging": {
+    ...
+    "ElmahIo": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
+  }
+}
+```
+
+Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging((ctx, logging) =>
+    {
+        logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
+        ...
+    })
+    .Build();
+```
+
+### Filtering log messages
 
 As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warnings, errors and fatals. The rationale behind this is that we build an error management system and really doesn't do much to support millions of debug messages from your code. Sometimes you may want to log non-exception messages, though. To do so, use filters in Microsoft.Extensions.Logging.
 
@@ -143,7 +177,7 @@ var logger = factory.CreateLogger("elmah.io");
 logger.LogInformation("This is an information message");
 ```
 
-## Decorating log messages
+### Decorating log messages
 
 Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`). To add additional properties, use one of two approaches as described below.
 
@@ -177,35 +211,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 For ASP.NET Core 2.x projects, you will need to use the old way of configuring logging (using `ILoggerFactory`), in order to resolve the `IHttpContextAccessor` object from DI.
 
-## appsettings.json configuration
+### Logging through a proxy
 
-Some of the configuration for Elmah.Io.Extensions.Logging, can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
+> Proxy configuration requires `3.5.39-pre` or newer.
 
-```json
-{
-  "Logging": {
-    ...
-    "ElmahIo": {
-      "LogLevel": {
-        "Default": "Warning"
-      }
-    }
-  }
-}
-```
-
-Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
+You can log through a proxy using options:
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
     .ConfigureLogging((ctx, logging) =>
     {
-        logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-        ...
+        logging.AddElmahIo(options =>
+        {
+            ...
+            options.WebProxy = new WebProxy("localhost", 8000);
+        });
     })
     .Build();
 ```
+
+In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
 
 ## Logging from a console application
 
