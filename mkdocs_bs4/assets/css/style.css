@@ -71,12 +71,6 @@ blockquote a, blockquote a:visited {
 	border-color: #18A19A;
 }
 
-.btn-light {
-	background: #ffffff;
-	border-color: #ced4da;
-	box-shadow: none !important;
-}
-
 .navbar {
 	padding: 14px 0px;
 	margin-bottom: 40px;
@@ -108,10 +102,11 @@ blockquote a, blockquote a:visited {
 	color: #ffffff;
 }
 
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active {
-	color: #212529;
+.btn-outline-light {
+	box-shadow: none !important;
+}
+.btn-outline-light:focus {
+	color: #ffffff;
 	text-decoration: none;
 }
 
