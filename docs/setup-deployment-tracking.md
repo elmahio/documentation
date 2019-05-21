@@ -12,6 +12,14 @@ For a complete overview of the possibilities with deployment tracking, watch thi
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vVX_yaLi4f8?rel=0" allowfullscreen></iframe>
 </div><br/>
 
+## Generate a new API key
+
+While you can use the same API key for everything, we recommend you to create an API key specific for deployment tracking. To do so, go to the organization settings page by clicking the gears icon next to the organization name on either the dashboard or in the left menu. Select the *API Keys* tabs and click *Add API Key*. Fill in a name of choice and enable the *Deployments* > *Write* permission only:
+
+![Deployment tracking API key](images/deployment-tracking-api-key.png)
+
+Click the save button and copy the API key for later use.
+
 ## Tell elmah.io when you release
 
 When you create a release of your software either manually or with the help from a tool like Octopus, you need to tell elmah.io about it. The [elmah.io REST API v3](https://api.elmah.io/swagger/ui/index), provides an endpoint named `deployments`, which you can call when creating releases. After calling the endpoint, all new messages to your logs, will automatically be decorated with the most recent version number.
