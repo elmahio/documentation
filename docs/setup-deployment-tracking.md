@@ -53,6 +53,10 @@ $url = 'https://api.elmah.io/v3/deployments?api_key=API_KEY'
 $body = @{
   version = $version
 }
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.SecurityProtocolType]::Tls12,
+    [Net.SecurityProtocolType]::Tls11,
+    [Net.SecurityProtocolType]::Tls
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
@@ -98,6 +102,10 @@ $body = @{
   userEmail = $deployInfo.author_email
 }
 
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.SecurityProtocolType]::Tls12,
+    [Net.SecurityProtocolType]::Tls11,
+    [Net.SecurityProtocolType]::Tls
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
@@ -127,30 +135,30 @@ Notifying elmah.io of a new deployment from Octopus Deploy, is supported through
 
 And we're done. On every new deployment, Octopus Deploy will notify elmah.io
 
-### Using Visual Studio Team Services (Releases)
+### Using Azure DevOps Releases
 
-If you are using Release Management in Visual Studio Team Services, you should use our VSTS extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
+If you are using Releases in Azure DevOps, you should use our extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
 
 1. Go to the [elmah.io Deployment Tasks extension](https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks) on the Visual Studio Marketplace and click _Install_ (log in if not already).
-![elmah.io VSTS extension](images/vsts_extension.png)
+![elmah.io Azure DevOps extension](images/vsts_extension.png)
 
 2. Select the account to install the extension into and click _Confirm_:
-![elmah.io VSTS account](images/vsts_select_account.png)
+![elmah.io Azure DevOps account](images/vsts_select_account.png)
 
-3. Go to your Visual Studio Team Services project and edit your Release definition.
-![VSTS release definition](images/vsts_release_definition.png)
+3. Go to your Azure DevOps project and edit your Release definition.
+![Azure DevOps release definition](images/vsts_release_definition.png)
 
 4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
-![Add VSTS task](images/vsts_add_task.png)
+![Add Azure DevOps task](images/vsts_add_task.png)
 
-5. Copy your API key from your organization settings page and paste it into the _API Key_ field. In most cases, you want to input the ID of the log new deployments belong to. As default, we use the release name on VSTS as the version number string on elmah.io. If you require a custom naming scheme, change the value in the _Version_ field. All [default and custom release variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts&tabs=batch) are available through PowerShell variables. Finally, click _Save_.
-![VSTS task added](images/vsts_task_added.png)
+5. Copy your API key from your organization settings page and paste it into the _API Key_ field. In most cases, you want to input the ID of the log new deployments belong to. As default, we use the release name on Azure DevOps as the version number string on elmah.io. If you require a custom naming scheme, change the value in the _Version_ field. All [default and custom release variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts&tabs=batch) are available through PowerShell variables. Finally, click _Save_.
+![Azure DevOps task added](images/vsts_task_added.png)
 
-That's it! VSTS will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
+That's it! Azure DevOps will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
 
-### Using Visual Studio Team Services (Builds)
+### Using Azure DevOps Builds
 
-Notifying elmah.io about new deployments is possible as a build step in Visual Studio Team Services, by adding a bit of PowerShell:
+Notifying elmah.io about new deployments is possible as a build step in Azure DevOps, by adding a bit of PowerShell:
 
 1. Edit the build definition currently building your project(s).
 
@@ -173,6 +181,10 @@ $body = @{
   userEmail = "$env:BUILD_REQUESTEDFOREMAIL"
   logId = "LOG_ID"
 }
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.SecurityProtocolType]::Tls12,
+    [Net.SecurityProtocolType]::Tls11,
+    [Net.SecurityProtocolType]::Tls
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
@@ -232,6 +244,10 @@ $body = @{
   logId = $logId
 }
 
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.SecurityProtocolType]::Tls12,
+    [Net.SecurityProtocolType]::Tls11,
+    [Net.SecurityProtocolType]::Tls
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
@@ -278,6 +294,10 @@ $body = @{
   version = $Env:bamboo_buildNumber
   logId = "LOG_ID"
 }
+[Net.ServicePointManager]::SecurityProtocol = `
+    [Net.SecurityProtocolType]::Tls12,
+    [Net.SecurityProtocolType]::Tls11,
+    [Net.SecurityProtocolType]::Tls
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
