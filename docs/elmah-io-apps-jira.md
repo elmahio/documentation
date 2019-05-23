@@ -18,3 +18,23 @@ To generate a new token specific for elmah.io, go to [https://id.atlassian.com/m
 Go back to elmah.io and input your email in the *Username* field and the API token from the previous step in the *Password* field. If you don't like to use an existing user account for the integration, you can create a new Atlassian account for elmah.io and generate the API token from that account instead.
 
 Click *Save* and the app is added to your log. When new errors are logged, issues are automatically created in the configured Jira project.
+
+## Troubleshooting
+
+If errors aren't showing up in Jira, please check that the following are all true:
+
+- When clicking the *Test* button on the Jira app settings screen, the button turns green.
+- There's a message logged in the log where you set up the Jira integration.
+- The message is marked as new (yellow start next to the title on the search result).
+- The message is either of severity `Error` or `Fatal`.
+
+To trigger an error manually, go to [https://api.elmah.io/swagger/ui/index](https://api.elmah.io/swagger/ui/index) and input an elmah.io API key with the *Messages* - *Write* permission enabled. Expand *Messages* and the *POST* node with the URL `/v3/messages/{logId}`. Input your log ID and the following JSON:
+
+```json
+{
+  "title": "This is a test",
+  "severity": "Error"
+}
+```
+
+Finally, click the *Try it out!* button and verify that the API returns a status code of *201*. The new error should show up in Jira. If testing this multiple times, you will need to make small adjustments to the title field inside the JSON, for additional errors to be marked as new.
