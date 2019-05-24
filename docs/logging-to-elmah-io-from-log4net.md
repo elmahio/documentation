@@ -87,3 +87,32 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
 ```
 
 This rather ugly piece of code would go into an initalization block, depending on the project type. The code starts by getting the configured elmah.io appender (typically set up in `web.config` or `log4net.config`). With the appender, you can access the underlying elmah.io client and subscribe to the `OnMessage` event. This let you trigger a small piece of code, just before sending log messages to elmah.io. In this case, we set the `User` property to the currently logged in user. Remember to call the `ActiveOptions` method, to make sure that the `Client` property is initialized.
+
+## Specify API key and log ID in appSettings
+
+You may prefer storing the API key and log ID in the `appSettings` element over having the values embedded into the `appender` element. This can be the case for easy config transformation, overwriting values on Azure, or similar. log4net provides a feature named pattern strings to address just that:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+  <appSettings>
+    <add key="logId" value="LOG_ID"/>
+    <add key="apiKey" value="API_KEY"/>
+  </appSettings>
+  <log4net>
+    <root>
+      <level value="ALL" />
+      <appender-ref ref="ElmahIoAppender" />
+    </root>
+    <appender name="ElmahIoAppender" type="elmah.io.log4net.ElmahIoAppender, elmah.io.log4net">
+      <logId type="log4net.Util.PatternString" value="%appSetting{logId}" />
+      <apiKey type="log4net.Util.PatternString" value="%appSetting{apiKey}" />
+    </appender>
+  </log4net>
+</configuration>
+```
+
+The `logId` and `apiKey` elements underneath the elmah.io appender have been extended to include `type="log4net.Util.PatternString"`. This allows for complex patterns in the `value` attribute. In this example, I reference an app setting from its name, by adding a value of `%appSetting{logId}` where `logId` is a reference to the app setting key specified above.
