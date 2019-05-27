@@ -70,6 +70,7 @@ nav:
     - Bitbucket: elmah-io-apps-bitbucket.md
     - Jira: elmah-io-apps-jira.md
     - Microsoft Teams: elmah-io-apps-teams.md
+    - Twilio: elmah-io-apps-twilio.md
     - BotBuster: elmah-io-apps-botbuster.md
     - IP Filter: elmah-io-apps-ipfilter.md
     - Mailman: elmah-io-apps-mailman.md
