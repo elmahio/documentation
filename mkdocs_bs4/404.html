@@ -10,14 +10,13 @@
     <title>404 Error | elmah.io</title>
 
     <link rel="canonical" href="{{ page.canonical_url }}">
-    <link rel="shortcut icon" href="{{ base_url|url }}/favicon.ico">
+    <link rel="shortcut icon" href="{{ absolute|url }}/favicon.ico">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/highlight.css">
-    <link rel="stylesheet" href="{{ base_url|url }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ absolute|url }}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ absolute|url }}/assets/fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ absolute|url }}/assets/css/highlight.css">
+    <link rel="stylesheet" href="{{ absolute|url }}/assets/css/style.css">
   </head>
   <body>
     <!-- Google Tag Manager -->
@@ -73,7 +72,7 @@
     	<div class="pre-footer">
 	    	<div class="container">
 	    		<div class="company-logo">
-					<img class="img-fluid" src="./assets/img/elmahio.png" alt="elmah.io">
+					<img class="img-fluid" src="{{ absolute|url }}/assets/img/elmahio.png" alt="elmah.io">
 				</div>
 				<a href="https://app.elmah.io/signup/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
 			</div>
@@ -119,33 +118,42 @@
                     <div class="col">
                         <h5>Social</h5>
                         <ul class="list-unstyled social">
-                            <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
     			</div>
     		</div>
     	</div>
     	<div class="copyright">
-    		<div class="container">
-    			<div class="text-center">
-					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
-					<p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
-				</div>
-    		</div>
-    	</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+                        <div class="text-center text-lg-left">
+                            <p>2013 - <script>document.write(new Date().getFullYear());</script> @ elmah.io. All Rights Reserved.</p>
+                            <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12 order-1 order-lg-2">
+                        <div class="footer-badges text-center text-lg-right">
+                            <img src="{{ absolute|url }}/assets/img/pcicompliant.png" draggable="false" alt="PCI Compliant" />
+                            <img src="{{ absolute|url }}/assets/img/gdpr.png" draggable="false" alt="GDPR Compliant" />
+                            <img src="{{ absolute|url }}/assets/img/shieldssl.png" draggable="false" alt="Alpha SSL" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="{{ base_url|url }}/assets/js/bootstrap.min.js"></script>
-    <script src="{{ base_url|url }}/assets/js/highlight.pack.js"></script>
-    <script src="{{ base_url|url }}/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="{{ base_url|url }}/assets/js/fuse.min.js"></script>
-    <script src="{{ base_url|url }}/assets/js/main.js"></script>
+    <script src="{{ absolute|url }}/assets/js/bootstrap.min.js"></script>
+    <script src="{{ absolute|url }}/assets/js/highlight.pack.js"></script>
+    <script src="{{ absolute|url }}/assets/js/fuse.min.js"></script>
+    <script src="{{ absolute|url }}/assets/js/main.js"></script>
   </body>
 </html>
