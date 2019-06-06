@@ -3,6 +3,8 @@
 
 # Logging to elmah.io from Express
 
+> The elmah.io integration for Express has been deprecated. For details on how to log errors to elmah.io from Express, check out [https://github.com/elmahio/other-language-examples/blob/master/Node-Express/log.js](https://github.com/elmahio/other-language-examples/blob/master/Node-Express/log.js).
+
 That's right. elmah.io doesn't only work with .NET. To integrate elmah.io into a Node Express web application, install the [elmah.io](https://www.npmjs.com/package/elmah.io) npm package
 
 ```powershell
