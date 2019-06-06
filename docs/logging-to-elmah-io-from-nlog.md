@@ -70,3 +70,24 @@ log.Info("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger")
 ```
 
 This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (`Quote` and `User`) to the *Data* tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+
+## Specify API key and log ID in appSettings
+
+If you are already using elmah.io, you may have your API key and log ID in the `appSettings` element already. To use these settings from withing the NLog target configuration you can use an NLog layout formatter:
+
+```xml
+<targets>
+  <target name="elmahio" type="elmah.io" apiKey="${appsetting:item=apiKey}" logId="${appsetting:item=logId}"/>
+</targets>
+```
+
+By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for this attribute is in an `appSettings` element named `elmahKey`:
+
+```xml
+<appSettings>
+  <add key="apiKey" value="API_KEY" />
+  <add key="logId" value="LOG_ID" />
+</appSettings>
+```
+
+> The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
