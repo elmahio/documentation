@@ -91,3 +91,15 @@ By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for
 ```
 
 > The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
+
+## Setting application name
+
+The application field on elmah.io can be set globally through NLog config:
+
+```xml
+<targets>
+  <target name="elmahio" xsi:type="elmahio:elmah.io" apiKey="API_KEY" logId="LOG_ID" application="APP_NAME" />
+</targets>
+```
+
+Replace `APP_NAME` with the application you want logged to elmah.io
