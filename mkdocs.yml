@@ -78,6 +78,7 @@ nav:
     - YouTrack: elmah-io-apps-youtrack.md
     - GitLab: elmah-io-apps-gitlab.md
     - Azure Boards: elmah-io-apps-azure-boards.md
+    - Trello: elmah-io-apps-trello.md
     - Zapier: integrate-elmah-io-with-zapier.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Uptime Monitoring:
