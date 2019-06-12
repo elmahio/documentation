@@ -8,6 +8,8 @@ To export all data from a log, run the tool with the minimum number of parameter
 dotnet Elmah.Io.Export.dll -ApiKey c7e049966ddf450f8ce6aeded7b581d0 -LogId 9f01ca78-174a-4a96-9f84-a336917a9deb
 ```
 
+> Be sure to use an API key with the *Messages* > *Read* permission enabled.
+
 The following switches are available:
 
 |Name|Required|Default|Description|
