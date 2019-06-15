@@ -55,6 +55,10 @@ blockquote a, blockquote a:visited {
     color: #0da58e;
 }
 
+.btn:active {
+    transform: translateY(1px);
+}
+
 .btn-primary {
 	background: linear-gradient(0deg, #179C99 0%, #18B79C 100%);
 	border-color: #18A19A;
@@ -115,19 +119,35 @@ blockquote a, blockquote a:visited {
 }
 
 .btn-signup-trial {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-signup-trial:hover,.btn-signup-trial:focus,.btn-signup-trial:active {
+    box-shadow: none;
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    text-decoration: none;
+}
+
+.dark-mode .btn-signup-trial {
     background: #ff9a44;
     color: #fff;
     border: 1px solid #fc6076;
     background-image: linear-gradient(-20deg,#fc6076 0%,#ff9a44 100%);
+    text-decoration: none;
 }
-.btn-signup-trial:hover,
-.btn-signup-trial:focus,
-.btn-signup-trial:active {
+
+.dark-mode .btn-signup-trial:hover,.dark-mode .btn-signup-trial:focus,.dark-mode .btn-signup-trial:active {
     color: #fff;
     background: #ff9a44;
     box-shadow: none;
     text-decoration: none;
     background-image: linear-gradient(-20deg,#ff9a44 0%,#fc6076 100%);
+    text-decoration: none;
 }
 
 .sidebar-body, .main-content-body {
@@ -352,7 +372,7 @@ code {
 }
 
 footer .btn {
-	width: 280px;
+	width: 222px;
 	outline: none;
 }
 footer .btn span {
@@ -367,6 +387,8 @@ footer .btn span.info {
 footer .btn.btn-primary {
 	background-color: #0da58e;
     border-color: #0da58e;
+    color: #ffffff;
+    text-decoration: none !important;
 }
 footer .btn.btn-primary:hover {
     background-color: #0d917d;
