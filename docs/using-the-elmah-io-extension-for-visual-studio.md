@@ -4,30 +4,36 @@ Being able to focus on .NET developers makes it possible to do all kinds of cool
 
 ## Installation
 
-[Download the elmah.io extension](https://marketplace.visualstudio.com/items?itemName=ThomasArdal.elmahio) from the Visual Studio Marketplace.
+[Download the elmah.io extension](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahio) from the Visual Studio Marketplace.
 
-> Don't use the Extensions and Updates feature inside Visual Studio, since Visual Studio 2015 causes a problem with installing extensions in previous versions.
+> Don't use the Extensions and Updates feature inside Visual Studio, since Visual Studio causes a problem with installing extensions in previous versions.
 
-Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2012, 2013 and 2015.
+Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2015, 2017 and 2019.
 
 ## Usage
 
 Inside Visual Studio navigate to View | Other Windows | elmah.io or simply search for elmah.io in the Quick Launcher (<kbd>Ctrl</kbd> + <kbd>Q</kbd>).
 
-You'll see the elmah.io window somewhere:
+You'll see the elmah.io window somewhere. Click the *Sign In* button and sign in with a username/password or one of the social providers:
 
-![elmah.io windows in Visual Studio](/images/elmah_io_vs1.png)
+![Sign in](/images/visualstudio-signin.png)
 
-Click the sign in button in the top left corner. Log in using the same provider that you're using on the website:
+If you are part of multiple elmah.io organizations, select the one you want to access: 
 
-![Sign in window](/images/elmah_io_vs2.png)
+![Select organization](/images/visualstudio-selectorganization.png)
+
+If this is the first time someone is browsing the chosen organization from Visual Studio, authorize the creation of a new API key:
+
+![Authorize API key](images/visualstudio-authorize.png)
 
 Once logged in, the list of logs is populated with all of your logs defined at elmah.io. Select a log and click the search icon:
 
-![Browse a log inside Visual Studio](/images/elmah_io_vs3.png)
+![Browse a log inside Visual Studio](/images/visualstudio-browse.png)
+
+Log messages can be filtered by date range, full-text search and using Lucene query language as already known from the elmah.io UI. 
 
 To inspect a single message, double-click it and the message details window will open:
 
-![Message details](/images/elmah_io_vs4.png)
+![Message details](/images/visualstudio-details.png)
 
 The toolbar in the top provides a couple of options: View the message on elmah.io, hide the message and delete the message.
