@@ -408,7 +408,9 @@ footer .links ul li a {
 	color: #929292;
 	font-size: 16px;
 }
-
+footer .social {
+	text-align: center;
+}
 footer .social li a {
     width: 40px;
     height: 40px;
@@ -420,7 +422,7 @@ footer .social li a {
     font-size: 16px;
     line-height: 38px;
     border: 1px solid rgba(255,255,255,.05);
-    margin-bottom: .6rem;
+    margin: 0;
 }
 footer .social li a:hover {
     background: rgba(255,255,255,.1);
@@ -536,6 +538,9 @@ kbd {
 	}
 	footer .footer-badges {
 		margin-bottom: 15px;
+	}
+	footer .social {
+		margin-top: 15px;
 	}
 }
 
