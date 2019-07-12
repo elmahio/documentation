@@ -25,7 +25,9 @@ During installation of the elmah.io package, NuGet will ask you for your elmah.i
 </elmah>
 ```
 
-Replace the `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). That’s it! You can now build and deploy your website using different configurations. When nothing is changed, Visual Studio will build your website using the Debug configuration. This configuration looks for the ELMAH code in the `web.debug.config` file. We didn’t add any ELMAH configuration to this file, why the default values from `web.config` are used. When selecting the Release configuration, Web. Config transformations will replace the default values in `web.config` with the new ELMAH configuration from `web.release.config`.
+Replace the `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). For more information about Web.config transformations, check out the blog post [Web.config transformations - The definitive syntax guide](https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/). For help debugging problems, we have created the [Web.config Transformation Tester](https://elmah.io/tools/webconfig-transformation-tester/).
+
+That’s it! You can now build and deploy your website using different configurations. When nothing is changed, Visual Studio will build your website using the Debug configuration. This configuration looks for the ELMAH code in the `web.debug.config` file. We didn’t add any ELMAH configuration to this file, why the default values from `web.config` are used. When selecting the Release configuration, Web. Config transformations will replace the default values in `web.config` with the new ELMAH configuration from `web.release.config`.
 
 ## Logging to elmah.io from production only
 
