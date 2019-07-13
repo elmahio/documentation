@@ -449,29 +449,29 @@ footer .footer-badges img:last-child {
 	margin-right: 0px;
 }
 
-.main-content-body > h2 > a,
-.main-content-body > h3 > a,
-.main-content-body > h4 > a,
-.main-content-body > h5 > a,
-.main-content-body > h6 > a {
+.main-content-body h2 > a,
+.main-content-body h3 > a,
+.main-content-body h4 > a,
+.main-content-body h5 > a,
+.main-content-body h6 > a {
     color: inherit;
     text-decoration: none;
 }
 
-.main-content-body > h2 > a > i,
-.main-content-body > h3 > a > i,
-.main-content-body > h4 > a > i,
-.main-content-body > h5 > a > i,
-.main-content-body > h6 > a > i {
+.main-content-body h2 > a > i,
+.main-content-body h3 > a > i,
+.main-content-body h4 > a > i,
+.main-content-body h5 > a > i,
+.main-content-body h6 > a > i {
     display: none;
     margin-left: 8px;
 }
 
-.main-content-body > h2 > a:hover > i,
-.main-content-body > h3 > a:hover > i,
-.main-content-body > h4 > a:hover > i,
-.main-content-body > h5 > a:hover > i,
-.main-content-body > h6 > a:hover > i {
+.main-content-body h2 > a:hover > i,
+.main-content-body h3 > a:hover > i,
+.main-content-body h4 > a:hover > i,
+.main-content-body h5 > a:hover > i,
+.main-content-body h6 > a:hover > i {
     display: inline-block;
 }
 
