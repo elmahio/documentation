@@ -43,6 +43,30 @@ $(document).ready(function(){
 		}
 	});
 
+    // TOC
+    if($('.toc').length) {
+        // Add title
+        var tocTitle = $('<h2><i class="fal fa-list-alt mr-1"></i> Contents</h2>');
+        $('.toc').prepend(tocTitle);
+
+        // Add functionality
+        $('.toc a').on('click', function(){
+            var target = $(this.hash);
+
+            // If there is a tab, get tab of the target and show it
+            if($('.nav-tabs').length && $('.tab-pane ' + this.hash).length) {
+                var targetTab = $(this.hash)[0].closest('.tab-pane'),
+                    targetTabId = $(targetTab).attr('id');
+                $('a[href="#'+ targetTabId +'"]').tab('show');
+            }
+
+            // Scroll to target
+            $('html, body').animate({
+                scrollTop: (target.offset().top - 80)
+            }, 500);
+        });
+    }
+
 	// Search function
     if($("#search").length != 0) {
     	$.getJSON('/search/search_index.json').done(searchData);

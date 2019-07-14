@@ -510,6 +510,38 @@ kbd {
     white-space: nowrap;
 }
 
+/* Table Of Contents */
+.toc {
+	padding: 15px 20px;
+    background: #f5f5f5;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 30px;
+    display: inline-block;
+    border-left: 3px solid #0da58e;
+}
+.toc h2 {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+.toc ul {
+	list-style: none;
+	margin: 0px;
+}
+.toc > ul,
+.toc > ul > li > ul {
+	padding: 0px;
+}
+.toc > ul > li > a {
+	display: none;
+}
+.toc li ul {
+	padding: 0px 0px 0px 30px;
+}
+.toc li a {
+	color: #222;
+	font-size: 15px;
+}
+
 @media (min-width: 1200px) {
 	.container {
 		max-width: 1200px;
