@@ -4,6 +4,8 @@
 
 # Logging to elmah.io from NLog
 
+[TOC]
+
 NLog is one of the most popular logging frameworks for .NET. With an active history on almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
 
 To start logging messages from NLog to elmah.io, you need to install the [Elmah.Io.NLog](https://www.nuget.org/packages/Elmah.Io.NLog/) NuGet package:
@@ -103,3 +105,70 @@ The application field on elmah.io can be set globally through NLog config:
 ```
 
 Replace `APP_NAME` with the application you want logged to elmah.io
+
+## Configure the elmah.io target from code
+
+The elmah.io target can be configured from C# code if you prefer or need to access the built-in events (see more later). The following adds logging to elmah.io:
+
+```csharp
+var config = new LoggingConfiguration();
+var elmahIoTarget = new ElmahIoTarget();
+elmahIoTarget.Name = "elmahio";
+elmahIoTarget.ApiKey = "API_KEY";
+elmahIoTarget.LogId = "LOG_ID";
+config.AddTarget(elmahIoTarget);
+config.AddRuleForAllLevels(elmahIoTarget);
+LogManager.Configuration = config;
+```
+
+The example will log all log levels to elmah.io. For more information about how to configure individual log levels, check out the [NLog documentation on GitHub](https://github.com/NLog/NLog/wiki/Configure-from-code).
+
+## Message hooks
+
+`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io NLog target must be configured through C# (see example above).
+
+> Message hooks require `Elmah.Io.NLog` version `3.4.53` or newer.
+
+### Decorating log messages
+
+To include additional information on log messages, you can use the OnMessage event when initializing the elmah.io target:
+
+```csharp
+var elmahIoTarget = new ElmahIoTarget();
+...
+elmahIoTarget.OnMessage = msg =>
+{
+    msg.Version = "1.0.0";
+};
+```
+
+The example above includes a version number on all errors.
+
+### Handle errors
+
+To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io target:
+
+```csharp
+var elmahIoTarget = new ElmahIoTarget();
+...
+elmahIoTarget.OnError = (msg, err) =>
+{
+    // Do something here
+};
+```
+
+The example implements a callback if logging to elmah.io fails. How you choose to implement this is entirely up to your application and tech stack.
+
+### Error filtering
+To ignore specific errors based on their content, you can use the OnFilter event when initializing the elmah.io target:
+
+```csharp
+var elmahIoTarget = new ElmahIoTarget();
+...
+elmahIoTarget.OnFilter = msg =>
+{
+    return msg.Title.Contains("trace");
+};
+```
+
+The example above ignores any log messages with the word `trace` in the title.
