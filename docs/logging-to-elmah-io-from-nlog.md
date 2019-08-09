@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gdgwwlu1j8yh7esl?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-nlog)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
 
 # Logging to elmah.io from NLog
 

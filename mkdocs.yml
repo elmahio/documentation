@@ -13,6 +13,7 @@ nav:
 - Getting Started:
     - Quick start: index.md
     - Authentication: authentication.md
+    - Integrations high level overview: integrations-high-level-overview.md
 - ASP.NET / MVC / Web API:
     - Logging from WebForms: logging-to-elmah-io-from-elmah.md
     - Logging from ASP.NET MVC: logging-to-elmah-io-from-aspnet-mvc.md

@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/hn4jr5q06ba7vp7c?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-umbraco)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.umbraco.svg)](https://www.nuget.org/packages/elmah.io.umbraco/)
-[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.umbraco/tree/master/Elmah.Io.Umbraco.Example)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.umbraco/tree/master/samples/)
 
 # Logging to elmah.io from Umbraco
 
