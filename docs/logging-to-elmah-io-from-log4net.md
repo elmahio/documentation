@@ -4,6 +4,8 @@
 
 # Logging to elmah.io from Log4net
 
+[TOC]
+
 In this tutorial we’ll add logging to elmah.io from an ASP.NET MVC project through log4net. The process is identical with other project types. Create a new MVC project and install the elmah.io appender:
 
 ```powershell
@@ -87,6 +89,22 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
 ```
 
 This rather ugly piece of code would go into an initalization block, depending on the project type. The code starts by getting the configured elmah.io appender (typically set up in `web.config` or `log4net.config`). With the appender, you can access the underlying elmah.io client and subscribe to the `OnMessage` event. This let you trigger a small piece of code, just before sending log messages to elmah.io. In this case, we set the `User` property to the currently logged in user. Remember to call the `ActiveOptions` method, to make sure that the `Client` property is initialized.
+
+Elmah.Io.Log4Net provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field without overriding the `OnMessage` event as illustrated above:
+
+```csharp
+var properties = new PropertiesDictionary();
+properties["user"] = "Arnold Schwarzenegger";
+log.Logger.Log(new LoggingEvent(new LoggingEventData
+{
+    Level = Level.Error,
+    TimeStampUtc = DateTime.UtcNow,
+    Properties = properties,
+    Message = "Hasta la vista, baby",
+}));
+```
+
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
 ## Specify API key and log ID in appSettings
 
