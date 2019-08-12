@@ -44,7 +44,7 @@ namespace MyFunction
                 .AddEnvironmentVariables()
                 .Build();
 
-            builder.Services.Configure<ElmahIoOptions>(o =>
+            builder.Services.Configure<ElmahIoFunctionOptions>(o =>
             {
                 o.ApiKey = config["apiKey"];
                 o.LogId = new Guid(config["logId"]);
@@ -56,7 +56,7 @@ namespace MyFunction
 }
 ```
 
-Notice how API key and log ID are configured through the `ElmahIoOptions` object. In the last line of the `Configure`-method, the `ElmahIoExceptionFilter`-filter is configured. This filter will automatically catch any exception caused by your filter and log it to elmah.io.
+Notice how API key and log ID are configured through the `ElmahIoFunctionOptions` object. In the last line of the `Configure`-method, the `ElmahIoExceptionFilter`-filter is configured. This filter will automatically catch any exception caused by your filter and log it to elmah.io.
 
 In your settings, add the `apiKey`and `logId` variables:
 
@@ -78,7 +78,7 @@ Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.i
 To set the application name on all errors, set the `Application` property during initialization:
 
 ```csharp
-builder.Services.Configure<ElmahIoOptions>(o =>
+builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 {
     o.ApiKey = config["apiKey"];
     o.LogId = new Guid(config["logId"]);
@@ -92,10 +92,10 @@ builder.Services.Configure<ElmahIoOptions>(o =>
 
 ### Decorating log messages
 
-To include additional information on log messages, you can use the `OnMessage` event when initializing `ElmahIoOptions`:
+To include additional information on log messages, you can use the `OnMessage` event when initializing `ElmahIoFunctionOptions`:
 
 ```csharp
-builder.Services.Configure<ElmahIoOptions>(o =>
+builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 {
     o.ApiKey = config["apiKey"];
     o.LogId = new Guid(config["logId"]);
@@ -110,10 +110,10 @@ The example above includes a version number on all errors.
 
 ### Handle errors
 
-To handle any errors happening while processing a log message, you can use the `OnError` event when initializing `ElmahIoOptions`:
+To handle any errors happening while processing a log message, you can use the `OnError` event when initializing `ElmahIoFunctionOptions`:
 
 ```csharp
-builder.Services.Configure<ElmahIoOptions>(o =>
+builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 {
     o.ApiKey = config["apiKey"];
     o.LogId = new Guid(config["logId"]);
@@ -128,10 +128,10 @@ The example above logs any errors during communication with elmah.io to a local 
 
 ### Error filtering
 
-To ignore specific errors based on their content, you can use the `OnFilter` event when initializing `ElmahIoOptions`:
+To ignore specific errors based on their content, you can use the `OnFilter` event when initializing `ElmahIoFunctionOptions`:
 
 ```csharp
-builder.Services.Configure<ElmahIoOptions>(o =>
+builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 {
     o.ApiKey = config["apiKey"];
     o.LogId = new Guid(config["logId"]);
