@@ -10,9 +10,6 @@ Install-Package Elmah.Io.Extensions.Logging
 In the `Startup.cs` file, add elmah.io logging configuration:
 
 ```csharp
-...
-using Elmah.Io.Blazor;
-
 namespace MyBlazorApp
 {
     public class Startup
