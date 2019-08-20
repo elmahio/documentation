@@ -73,7 +73,7 @@ This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well
 
 ## Message hooks
 
-`Serilog.Sinks.ElmahIo` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io Serilog sinks must be configured through C# (see example above).
+`Serilog.Sinks.ElmahIo` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core.
 
 > Message hooks require `Serilog.Sinks.ElmahIo` version `3.3.0` or newer.
 
@@ -94,11 +94,11 @@ Log.Logger =
         .CreateLogger();
 ```
 
-The example above includes a version number on all errors.
+The example above includes a version number on all errors. Since the elmah.io sink also picks up encrichers specified with Serilog, this example could be implemented by enriching all log messages with a field named `version`.
 
 ### Handle errors
 
-To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io target:
+To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io sink:
 
 ```csharp
 Log.Logger =
@@ -116,7 +116,8 @@ Log.Logger =
 The example implements a callback if logging to elmah.io fails. How you choose to implement this is entirely up to your application and tech stack.
 
 ### Error filtering
-To ignore specific errors based on their content, you can use the OnFilter event when initializing the elmah.io target:
+
+To ignore specific messages based on their content, you can use the OnFilter event when initializing the elmah.io sink:
 
 ```csharp
 Log.Logger =
@@ -131,7 +132,7 @@ Log.Logger =
         .CreateLogger();
 ```
 
-The example above ignores any log messages with the word `trace` in the title.
+The example above ignores any log message with the word `trace` in the title.
 
 ## ASP.NET Core
 
