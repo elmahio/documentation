@@ -19,7 +19,7 @@ To configure Serilog, add the following code to the Application_Start method in 
 ```csharp
 var log =
     new LoggerConfiguration()
-        .WriteTo.ElmahIo("API_KEY", new Guid("LOG_ID"))
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID")))
         .CreateLogger();
 Log.Logger = log;
 ```
@@ -52,7 +52,7 @@ var logger =
     new LoggerConfiguration()
         .Enrich.WithProperty("ApplicationIdentifier", "MyCoolApp")
         .Enrich.FromLogContext()
-        .WriteTo.ElmahIO(new Guid("a6ac10b1-98b3-495f-960e-424fb18e3caf"))
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID")))
         .CreateLogger();
 
 using (LogContext.PushProperty("ThreadId", Thread.CurrentThread.ManagedThreadId))
@@ -70,6 +70,68 @@ logger.Information("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwar
 ```
 
 This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+
+## Message hooks
+
+`Serilog.Sinks.ElmahIo` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io Serilog sinks must be configured through C# (see example above).
+
+> Message hooks require `Serilog.Sinks.ElmahIo` version `3.3.0` or newer.
+
+### Decorating log messages
+
+To include additional information on log messages, you can use the OnMessage event when initializing the elmah.io target:
+
+```csharp
+Log.Logger =
+    new LoggerConfiguration()
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+        {
+            OnMessage = msg =>
+            {
+                msg.Version = "1.0.0";
+            }
+        })
+        .CreateLogger();
+```
+
+The example above includes a version number on all errors.
+
+### Handle errors
+
+To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io target:
+
+```csharp
+Log.Logger =
+    new LoggerConfiguration()
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+        {
+            OnError = (msg, ex) =>
+            {
+                Console.Error.WriteLine(ex.Message);
+            }
+        })
+        .CreateLogger();
+```
+
+The example implements a callback if logging to elmah.io fails. How you choose to implement this is entirely up to your application and tech stack.
+
+### Error filtering
+To ignore specific errors based on their content, you can use the OnFilter event when initializing the elmah.io target:
+
+```csharp
+Log.Logger =
+    new LoggerConfiguration()
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+        {
+            OnFilter = msg =>
+            {
+                return msg.Title.Contains("trace");
+            }
+        })
+        .CreateLogger();
+```
+
+The example above ignores any log messages with the word `trace` in the title.
 
 ## ASP.NET Core
 
