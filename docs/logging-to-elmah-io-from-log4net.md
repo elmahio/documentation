@@ -76,7 +76,7 @@ When looking up the log message in elmah.io, we see the context properties in th
 In case you want to set one or more core properties on each elmah.io message logged, you will need to add a bit of log4net magic. Examples could be, setting the `User` property on all log messages or setting a version number in the `Version` property. In the following code, we set the currently logged in username on all log messages:
 
 ```csharp
-Hierarchy hier = log4netassembly.LogManager.GetRepository() as Hierarchy;
+Hierarchy hier = log4net.LogManager.GetRepository() as Hierarchy;
 var elmahIoAppender = (ElmahIoAppender)(hier?.GetAppenders())
     .FirstOrDefault(appender => appender.Name
         .Equals("ElmahIoAppender", StringComparison.InvariantCultureIgnoreCase));
