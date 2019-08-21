@@ -91,6 +91,7 @@ nav:
     - Managing Organisations and Users: managing-organisations-and-users.md
     - Where is my log ID: where-is-my-log-id.md
     - Where is my API key: where-is-my-api-key.md
+    - Where is my invoice / receipt: where-is-my-invoice-receipt.md
     - How to configure API key permissions: how-to-configure-api-key-permissions.md
     - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
     - Query messages using full-text search: query-messages-using-full-text-search.md
