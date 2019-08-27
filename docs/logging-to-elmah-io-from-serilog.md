@@ -1,6 +1,6 @@
 ﻿[![Build status](https://ci.appveyor.com/api/projects/status/j4rsru1m0lhkfwc4/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-elmahio/branch/master)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
-[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
 
 # Logging to elmah.io from Serilog
 
@@ -142,30 +142,46 @@ To use this, install the following packages:
 
 ```powershell
 Install-Package Serilog.AspNetCore -DependencyVersion Highest
-Install-Package Elmah.Io.Client
 Install-Package Serilog.Sinks.ElmahIo
 ```
-
-(We install the `Elmah.Io.Client` manually, to make sure we run on the most recent version)
 
 Configure Serilog as usual:
 
 ```csharp
-Log.Logger = new LoggerConfiguration()
-    ...
-    .WriteTo.ElmahIo("API_KEY", new Guid("LOG_ID"), LogEventLevel.Warning)
-    .CreateLogger();
+public static int Main(string[] args)
+{
+    Log.Logger = new LoggerConfiguration()
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+        {
+            MinimumLogEventLevel = Events.LogEventLevel.Warning
+        })
+        .CreateLogger();
+
+    try
+    {
+        CreateWebHostBuilder(args).Build().Run();
+        return 0;
+    }
+    catch (Exception ex)
+    {
+        Log.Fatal(ex, "Host terminated unexpectedly");
+        return 1;
+    }
+    finally
+    {
+        Log.CloseAndFlush();
+    }
+}
 ```
 
-Finally, call the `UseSerilog`-method:
+Finally, call the `UseSerilog`-method in `BuildWebHost`:
 
 ```csharp
 public static IWebHost BuildWebHost(string[] args) =>
     WebHost
         .CreateDefaultBuilder(args)
 	    .UseStartup<Startup>()
-        .UseSerilog()
-        .Build();
+        .UseSerilog();
 ```
 
 Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to elmah.io.
