@@ -189,27 +189,59 @@ logger.LogInformation("{Quote} from {User}", "Hasta la vista, baby", "Arnold Sch
 
 This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add the `Quote` key and value to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
-An alternative is to use the `OnMessage` action. As an example, we'll add the name of the current user to all log messages:
+An alternative is to use the `OnMessage` action. As an example, we'll add a version number to all messages:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory)
-{
-    factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new ElmahIoProviderOptions
+logging
+    .AddElmahIo(options =>
     {
-        OnMessage = msg =>
-        {
-            var context = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>().HttpContext;
-            if (context == null) return;
-        
-            msg.User = context.User?.Identity?.Name;
-        }
-    });
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
 
-    ....
+        options.OnMessage = msg =>
+        {
+            msg.Version = "2.0.0";
+        };
+    });
+```
+
+In some scenarios you want to include information from the current HTTP context. Resolving a HTTP context isn't possible when configuring logging through Microsoft.Extensions.Logging in the `Program.cs` file. In this case you need to implement a bit of custom code. In the following example, we set the name of the currently logged in user on all messages. Start by creating a new class named `DecorateElmahIoMessages`:
+
+```csharp
+private class DecorateElmahIoMessages : IConfigureOptions<ElmahIoProviderOptions>
+{
+    private readonly IHttpContextAccessor httpContextAccessor;
+
+    public DecorateElmahIoMessages(IHttpContextAccessor httpContextAccessor)
+    {
+        this.httpContextAccessor = httpContextAccessor;
+    }
+
+    public void Configure(ElmahIoProviderOptions options)
+    {
+        options.OnMessage = msg =>
+        {
+            var context = httpContextAccessor.HttpContext;
+            if (context == null) return;
+            msg.User = context.User?.Identity?.Name;
+        };
+    }
 }
 ```
 
-For ASP.NET Core 2.x projects, you will need to use the old way of configuring logging (using `ILoggerFactory`), in order to resolve the `IHttpContextAccessor` object from DI.
+Then register `IHttpContextAccessor` and the new class in the `ConfigureServices` method in the `Startup.cs` file:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    services.AddSingleton<IConfigureOptions<ElmahIoProviderOptions>, DecorateElmahIoMessages>();
+
+    ...
+}
+```
+
+elmah.io now executes the `OnMessage` action for all log messages.
 
 ### Logging through a proxy
 
