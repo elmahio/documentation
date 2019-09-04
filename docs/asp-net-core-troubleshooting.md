@@ -11,7 +11,7 @@ So, your ASP.NET Core application doesn't log errors to elmah.io? We are here wi
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter, a piece of middleware, or similar).
 
-## Common exceptions and how to fix them
+## Common problems and how to fix them
 
 Here you will a list of common exceptions and how to solve them.
 
@@ -95,4 +95,16 @@ public void ConfigureServices(IServiceCollection services)
     services.AddElmahIo();
     ....
 }
+```
+
+### An error occurred while starting the application
+
+If you see the error `An error occurred while starting the application` and the exception isn't logged to elmah.io, they error probably happens before hitting the elmah.io middleware. To help find out what is going on, add the following lines to your `Program.cs` file:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
+        .CaptureStartupErrors(true)
+        .UseStartup<Startup>();
 ```
