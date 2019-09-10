@@ -59,6 +59,7 @@ nav:
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
+    - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from Console: logging-to-elmah-io-from-console-application.md
