@@ -1,5 +1,7 @@
 # Logging to elmah.io from Blazor
 
+> Please notice that we currently support server-side Blazor only. When client-side Blazor is officially released, we will make sure to follow along.
+
 To start logging to elmah.io from Blazor, install the following NuGet packages:
 
 ```powershell
