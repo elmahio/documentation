@@ -402,6 +402,8 @@ When initializing your React app, elmah.io is configured and all errors happenin
 
 Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.
 
+> React have a known bug where errors are submitted twice. For better error handling in React, you should look into [Error Boundaries](https://reactjs.org/docs/error-boundaries.html).
+
 ## Message reference
 
 This is an example of the elmah.io.javascript `Message` object that is used in various callbacks, etc.:
