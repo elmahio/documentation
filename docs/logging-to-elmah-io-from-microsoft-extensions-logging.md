@@ -18,13 +18,6 @@ Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-ap
 
 ## Logging from ASP.NET Core
 
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
-</ul>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="setup2">
 In the `Program.cs` file, call the `ConfigureLogging`-method and configure elmah.io like shown here:
 
 ```csharp
@@ -67,20 +60,6 @@ WebHost.CreateDefaultBuilder(args)
     })
     .Build();
 ```
-</div>
-    <div role="tabpanel" class="tab-pane" id="setup1">
-Call `AddElmahIo` in the `Configure`-method in `Startup.cs`:
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
-{
-    ...
-    fac.AddElmahIo("API_KEY", new Guid("LOG_ID"));
-    ...
-}
-```
-</div>
-  </div>
 
 Start logging messages by injecting an `ILogger` in your controllers:
 
@@ -140,14 +119,8 @@ As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warni
 
 To log everything from log level `Information` and up, do the following:
 
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#home" aria-controls="home" role="tab" data-toggle="tab">ASP.NET Core 2.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core 1.x</a></li>
-</ul>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
 Inside the `ConfigureLogging`-method in `Startup.cs`, change the minimum level:
+
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
@@ -158,17 +131,6 @@ WebHost.CreateDefaultBuilder(args)
     })
     .Build();
 ```
-</div>
-    <div role="tabpanel" class="tab-pane" id="profile">
-Use the `AddElmahIo` overload which accepts a filter:
-```csharp
-factory.AddElmahIo("API_KEY", new Guid("LOG_ID"), new FilterLoggerSettings
-{
-    {"*", LogLevel.Information}
-});
-```
-</div>
-  </div>
 
 In the code sample, every log message with log level of `Information` and up, will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category and call the `LogInformation` method:
 
@@ -245,7 +207,7 @@ elmah.io now executes the `OnMessage` action for all log messages.
 
 ### Logging through a proxy
 
-> Proxy configuration requires `3.5.39-pre` or newer.
+> Proxy configuration requires `3.5.49` or newer.
 
 You can log through a proxy using options:
 
