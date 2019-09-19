@@ -134,3 +134,75 @@ You may prefer storing the API key and log ID in the `appSettings` element over 
 ```
 
 The `logId` and `apiKey` elements underneath the elmah.io appender have been extended to include `type="log4net.Util.PatternString"`. This allows for complex patterns in the `value` attribute. In this example, I reference an app setting from its name, by adding a value of `%appSetting{logId}` where `logId` is a reference to the app setting key specified above.
+
+## ASP.NET Core
+
+Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/master/samples/Elmah.Io.Log4Net.AspNetCore22) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
+
+To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet package:
+
+```ps
+Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
+```
+
+Include a log4net config file to the root of the project:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<log4net>
+  <root>
+    <level value="WARN" />
+    <appender-ref ref="ElmahIoAppender" />
+    <appender-ref ref="ConsoleAppender" />
+  </root>
+  <appender name="ElmahIoAppender" type="elmah.io.log4net.ElmahIoAppender, elmah.io.log4net">
+    <logId value="LOG_ID" />
+    <apiKey value="API_KEY" />
+    <!--<application value="My app" />-->
+  </appender>
+  <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline" />
+    </layout>
+  </appender>
+</log4net>
+```
+
+In the `Program.cs` file, make sure to set up log4net:
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                logging.AddLog4Net();
+            })
+            .UseStartup<Startup>();
+}
+```
+
+All internal logging from ASP.NET Core, as well as manual logging you create through the `ILogger` interface, now goes directly into elmah.io.
+
+A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through log4net from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Log4Net` NuGet package:
+
+```ps
+Install-Package Elmah.Io.AspNetCore.Log4Net -IncludePrerelease
+```
+
+Finally, make sure to call the `UseElmahIoLog4Net` method in the `Configure` method in the `Startup.cs` file:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    ... // Exception handling middleware
+    app.UseElmahIoLog4Net();
+    ... // UseMvc etc.
+}
+```
