@@ -43,36 +43,6 @@ log.Warn("This is a warning message");
 log.Error(new Exception(), "This is an error message");
 ```
 
-## Custom Properties
-
-NLog supports custom properties like most other logging frameworks. With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
-
-To log custom properties with NLog and elmah.io, you need to use an overload of each logging-method that takes a `LogEventInfo` object as parameter:
-
-```csharp
-var infoMessage = new LogEventInfo(LogLevel.Info, "", "This is an information message");
-infoMessage.Properties.Add("Some Property Key", "Some Property Value");
-log.Info(infoMessage);
-```
-
-This saves the information message in elmah.io with a custom property with key `Some Property Key`and value `Some Property Value`.
-
-As of NLog 4.5, structured logging is supported as well. To log a property as part of the log message, use the new syntax as shown here:
-
-```csharp
-log.Warn("Property named {FirstName}", "Donald");
-```
-
-In the example, NLog will log the message `Property named "Donald"`, but the key (`FirstName`) and value (`Donald`), will also be available in the *Data* tab inside elmah.io.
-
-Elmah.Io.NLog provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the `User` field using structured logging only:
-
-```csharp
-log.Info("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger");
-```
-
-This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add two key/value pairs (`Quote` and `User`) to the *Data* tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
-
 ## Specify API key and log ID in appSettings
 
 If you are already using elmah.io, you may have your API key and log ID in the `appSettings` element already. To use these settings from withing the NLog target configuration you can use an NLog layout formatter:
@@ -127,33 +97,54 @@ The example will log all log levels to elmah.io. For more information about how 
 
 NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) to all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
 
-To include a property on a log message, you can use the `LogEventInfo` class provided by NLog:
+With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
+
+One way to log custom properties with NLog and elmah.io, is to use the overload of each logging-method that takes a `LogEventInfo` object as parameter:
 
 ```csharp
-var logEvent = new LogEventInfo(LogLevel.Info, "", "myLogEvent");
-logEvent.Properties["user"] = "Me";
-logger.Log(logEvent);
+var infoMessage = new LogEventInfo(LogLevel.Info, "", "This is an information message");
+infoMessage.Properties.Add("Some Property Key", "Some Property Value");
+log.Info(infoMessage);
 ```
 
-In this example, a `user` property is added to the *Data* tab inside elmah.io. NLog also provides a fluent API (available in the `NLog.Fluent` namespace) that some might find more readable:
+This saves the information message in elmah.io with a custom property with key `Some Property Key`and value `Some Property Value`.
+
+As of NLog 4.5, structured logging is supported as well. To log a property as part of the log message, use the new syntax as shown here:
+
+```csharp
+log.Warn("Property named {FirstName}", "Donald");
+```
+
+In the example, NLog will log the message `Property named "Donald"`, but the key (`FirstName`) and value (`Donald`), will also be available in the *Data* tab inside elmah.io.
+
+`Elmah.Io.NLog` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the `User` field using structured logging only:
+
+```csharp
+log.Info("{Quote} from {User}", "Hasta la vista, baby", "T-800");
+```
+
+This will fill in the value `T-800` in the `User` field, as well as add two key/value pairs (`Quote` and `User`) to the *Data* tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+
+
+NLog also provides a fluent API (available in the `NLog.Fluent` namespace) that some might find more readable:
 
 ```csharp
 logger.Info()
-      .Message("myLogEvent")
-      .Property("user", "me")
+      .Message("I'll be back")
+      .Property("User", "T-800")
       .Write();
 ```
 
 If you want to use the normal logging methods like `Info` and `Error`, you can do so in junction with the `MappedDiagnosticsLogicalContext` class, also provided by NLog:
 
 ```csharp
-using (MappedDiagnosticsLogicalContext.SetScoped("user", "me"))
+using (MappedDiagnosticsLogicalContext.SetScoped("User", "T-800"))
 {
-   logger.Info("myLogEvent");
+   logger.Info("I'll be back");
 }
 ```
 
-This will create the exact same result as the examples above.
+This will create the exact same result as the example above.
 
 ## Message hooks
 
