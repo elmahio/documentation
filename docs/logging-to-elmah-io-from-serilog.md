@@ -186,6 +186,23 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to elmah.io.
 
+A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through Serilog from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Serilog` NuGet package:
+
+```ps
+Install-Package Elmah.Io.AspNetCore.Serilog -IncludePrerelease
+```
+
+Finally, make sure to call the `UseElmahIoSerilog` method in the `Configure` method in the `Startup.cs` file:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    ... // Exception handling middleware
+    app.UseElmahIoSerilog();
+    ... // UseMvc etc.
+}
+```
+
 ## Config using appsettings.json
 
 While Serilog provides a great fluent C# API, some prefer to configure Serilog using an `appsettings.json` file. To configure the elmah.io sink this way, you will need to install the `Serilog.Settings.Configuration` NuGet package. Then configure elmah.io in your `appsettings.json` file:
