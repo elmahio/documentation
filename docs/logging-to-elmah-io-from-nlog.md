@@ -144,6 +144,25 @@ elmahIoTarget.OnMessage = msg =>
 
 The example above includes a version number on all errors.
 
+If you want to decorate a single log message with one ore more contextual variables, the `OnMessage` hook is typically not the best solution. You should use either `Properties` directly on `LogEventInfo`:
+
+```csharp
+var logEvent = LogEventInfo() { Level = LogLevel.Info };
+logEvent.Properties["myProperty"] = "myValue";
+logger.Log(logEvent);
+```
+
+or the `MappedDiagnosticsLogicalContext` class provided by NLog:
+
+```csharp
+using (NLog.MappedDiagnosticsLogicalContext.SetScoped("myProperty", Guid.NewGuid()))
+{
+   logger.Info("myLogEvent");
+}
+```
+
+elmah.io will automatically pick up those properties and include them on the *Data* tab.
+
 ### Handle errors
 
 To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io target:
