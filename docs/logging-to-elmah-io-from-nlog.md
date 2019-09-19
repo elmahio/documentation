@@ -123,9 +123,41 @@ LogManager.Configuration = config;
 
 The example will log all log levels to elmah.io. For more information about how to configure individual log levels, check out the [NLog documentation on GitHub](https://github.com/NLog/NLog/wiki/Configure-from-code).
 
+## Logging custom properties
+
+NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) to all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
+
+To include a property on a log message, you can use the `LogEventInfo` class provided by NLog:
+
+```csharp
+var logEvent = new LogEventInfo(LogLevel.Info, "", "myLogEvent");
+logEvent.Properties["user"] = "Me";
+logger.Log(logEvent);
+```
+
+In this example, a `user` property is added to the *Data* tab inside elmah.io. NLog also provides a fluent API (available in the `NLog.Fluent` namespace) that some might find more readable:
+
+```csharp
+logger.Info()
+      .Message("myLogEvent")
+      .Property("user", "me")
+      .Write();
+```
+
+If you want to use the normal logging methods like `Info` and `Error`, you can do so in junction with the `MappedDiagnosticsLogicalContext` class, also provided by NLog:
+
+```csharp
+using (MappedDiagnosticsLogicalContext.SetScoped("user", "me"))
+{
+   logger.Info("myLogEvent");
+}
+```
+
+This will create the exact same result as the examples above.
+
 ## Message hooks
 
-`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io NLog target must be configured through C# (see example above).
+`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io NLog target must be [configured through C#](#configure-the-elmahio-target-from-code).
 
 > Message hooks require `Elmah.Io.NLog` version `3.4.53` or newer.
 
@@ -143,25 +175,6 @@ elmahIoTarget.OnMessage = msg =>
 ```
 
 The example above includes a version number on all errors.
-
-If you want to decorate a single log message with one ore more contextual variables, the `OnMessage` hook is typically not the best solution. You should use either `Properties` directly on `LogEventInfo`:
-
-```csharp
-var logEvent = LogEventInfo() { Level = LogLevel.Info };
-logEvent.Properties["myProperty"] = "myValue";
-logger.Log(logEvent);
-```
-
-or the `MappedDiagnosticsLogicalContext` class provided by NLog:
-
-```csharp
-using (NLog.MappedDiagnosticsLogicalContext.SetScoped("myProperty", Guid.NewGuid()))
-{
-   logger.Info("myLogEvent");
-}
-```
-
-elmah.io will automatically pick up those properties and include them on the *Data* tab.
 
 ### Handle errors
 
