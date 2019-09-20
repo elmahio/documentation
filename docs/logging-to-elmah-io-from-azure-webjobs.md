@@ -6,10 +6,12 @@
 
 Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure WebJobs.
 
+> Support for Azure WebJobs have been stopped on version `3.1.23` of the `Elmah.Io.Functions` package. The newer versions only work with Azure Functions.
+
 Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 
 ```powershell
-Install-Package Elmah.Io.Functions
+Install-Package Elmah.Io.Functions -Version 3.1.23
 ```
 
 Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
