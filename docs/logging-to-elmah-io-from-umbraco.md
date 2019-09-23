@@ -4,7 +4,9 @@
 
 # Logging to elmah.io from Umbraco
 
-Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. In fact, all the log levels that you already know from log4net, NLog and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on log4net, [which elmah.io also support](https://docs.elmah.io/logging-to-elmah-io-from-log4net/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
+[TOC]
+
+Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. In fact, all the log levels that you already know from log4net, NLog and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on Serilog, [which elmah.io also support](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
 
 To start utilizing elmah.io from your Umbraco site, all you need to do is install the `Elmah.Io.Umbraco` package:
 
@@ -15,8 +17,6 @@ Install-Package Elmah.Io.Umbraco
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 Hit F5 and watch messages start flowing into elmah.io.
-
-> Elmah.Io.Umbraco 3.x depends on UmbracoCms.Core >= 7.6.3. If you are on a previous version of Umbraco, you can use Elmah.Io.Umbraco 1.0.25, which depends on UmbracoCms.Core 7.2.5.
 
 ## Umbraco Cloud
 
@@ -38,12 +38,22 @@ In case you want logging to different elmah.io logs from each Umbraco Cloud envi
 
 The Elmah.Io.Umbraco package basically installs and configures three things:
 
-* The elmah.io log4net appender (Warn and above)
+* The elmah.io Serilog sink (Warning and above)
 * An Umbraco content finder for logging 404's
 * ELMAH with elmah.io as error log
 
-All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors and fatal messages logged through log4net are send to elmah.io as well.
+All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors and fatal messages logged through Serilog are send to elmah.io as well.
 
 ## Configuration
 
-If you are running on the default Umbraco template, all nessecary configuration is added during installation of the Elmah.Io.Umbraco NuGet package. If your `web.config` file for some reason aren't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configure the elmah.io appender for log4net in your `Config\log4net.config` file. If the config isn't added or you are configuring log4net in another location (like `web.config`, here's a guide to set it up: [Logging from log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/).
+If you are running on the default Umbraco template, all nessecary configuration is added during installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason aren't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configure the elmah.io sink for Serilog in your `config\serilog.user.config` file.
+
+## Umbraco 7
+
+We still support Umbraco 7 through [Elmah.Io.Umbraco 3.2.35](https://www.nuget.org/packages/elmah.io.umbraco/3.2.35):
+
+```powershell
+Install-Package Elmah.Io.Umbraco -Version 3.2.35
+```
+
+New features will be added to the updated package for Umbraco 8 only.
