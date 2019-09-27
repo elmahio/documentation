@@ -18,7 +18,13 @@ Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-ap
 
 ## Logging from ASP.NET Core
 
-In the `Program.cs` file, call the `ConfigureLogging`-method and configure elmah.io like shown here:
+In the `Program.cs` file, add a new `using` statement:
+
+```csharp
+using Elmah.Io.Extensions.Logging;
+```
+
+Then call the `ConfigureLogging`-method and configure elmah.io like shown here:
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
