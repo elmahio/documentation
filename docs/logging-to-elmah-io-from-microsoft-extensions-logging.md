@@ -253,3 +253,24 @@ Finally, create a new logger and start logging exceptions:
 var logger = factory.CreateLogger("MyLog");
 logger.LogError(1, ex, "Unexpected error");
 ```
+
+## Troubleshooting
+
+**`x` message(s) dropped because of queue size limit**
+
+If you see this message in your log, it means that you are logging a large number of messages to elmah.io through Microsoft.Extensions.Logging within a short period of time. Either turn down the volume using filters:
+
+```csharp
+logging.AddElmahIo(options => { ... });
+logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
+```
+
+or increase the queue size of `Elmah.Io.Extensions.Logging`:
+
+```csharp
+logging.AddElmahIo(options =>
+{
+    ...
+    options.BackgroundQueueSize = 5000;
+});
+```
