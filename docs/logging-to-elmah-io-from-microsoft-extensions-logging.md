@@ -6,7 +6,7 @@
 
 [TOC]
 
-[Microsoft.Extensions.Logging](https://github.com/aspnet/Logging) is a common logging abstraction from Microsoft, much like log4net and Serilog. Microsoft.Extensions.Logging started as a new logging mechanism for ASP.NET Core, but now acts as a logging framework for all sorts of project types.
+[Microsoft.Extensions.Logging](https://github.com/aspnet/Logging) is a common logging abstraction from Microsoft, much like log4net and Serilog. Microsoft.Extensions.Logging started as a new logging mechanism for ASP.NET Core but now acts as a logging framework for all sorts of project types.
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
@@ -42,7 +42,7 @@ WebHost.CreateDefaultBuilder(args)
 ```
 By calling, the `AddFilter`-method, you ensure that only warnings and up are logged to elmah.io.
 
-API key and log ID can also be configured in `appsettings.json`:
+The API key and log ID can also be configured in `appsettings.json`:
 
 ```json
 {
@@ -87,75 +87,55 @@ public class HomeController : Controller
 }
 ```
 
-## Options
+### Include HTTP context
 
-### appsettings.json configuration
+A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET Core project. When combining the two, you would expect the log messages to contain relevant information from the HTTP context (like URL, status code, cookies, etc.). This is not the case out of the box, since Microsoft.Extensions.Logging doesn't know which project type that includes it.
 
-Some of the configuration for Elmah.Io.Extensions.Logging, can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
+To add HTTP context properties to log messages when logging from ASP.NET Core, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
 
-```json
+```ps
+Install-Package Elmah.Io.AspNetCore.ExtensionsLogging -IncludePrerelease
+```
+
+Then call the `UseElmahIoExtensionsLogging` method in the `Configure` method in the `Startup.cs` file:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-  "Logging": {
-    ...
-    "ElmahIo": {
-      "LogLevel": {
-        "Default": "Warning"
-      }
-    }
-  }
+    ... // Exception handling middleware
+    app.UseElmahIoExtensionsLogging();
+    ... // UseMvc etc.
 }
 ```
 
-Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
+> Logging HTTP context requires `Elmah.Io.Extensions.Logging` version `3.6.x` or newer.
+
+## Logging custom properties
+
+`Elmah.Io.Extensions.Logging` support Microsoft.Extensions.Logging scopes from version `3.6.x`. In short, scopes are a way to decorate your log messages like enrichers in Serilog and context in NLog and log4net. By including properties to a scope, these properties automatically go into the *Data* tab on elmah.io.
+
+To define a new scope, wrap your logging code in a `using`:
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
-    {
-        logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-        ...
-    })
-    .Build();
+using (_logger.BeginScope(new Dictionary<string, object> { { "UserId", 42 } }))
+{
+    _logger.LogInformation("Someone says hello");
+}
 ```
 
-### Filtering log messages
+In the example above, the `UserId` key will be added on the *Data* tab with the value of `42`.
 
-As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warnings, errors and fatals. The rationale behind this is that we build an error management system and really doesn't do much to support millions of debug messages from your code. Sometimes you may want to log non-exception messages, though. To do so, use filters in Microsoft.Extensions.Logging.
-
-To log everything from log level `Information` and up, do the following:
-
-Inside the `ConfigureLogging`-method in `Startup.cs`, change the minimum level:
+Like the other logging framework integrations, `Elmah.Io.Extensions.Logging` supports a range of known keys that can be used to insert value in the correct fields on the elmah.io UI.
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
-    {
-        ...
-        logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
-    })
-    .Build();
+using (_logger.BeginScope(new Dictionary<string, object>
+    { { "statuscode", 500 }, { "method", "GET" } }))
+{
+    _logger.LogError("Request to {url} caused an error", "/profile");
+}
 ```
 
-In the code sample, every log message with log level of `Information` and up, will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category and call the `LogInformation` method:
-
-```csharp
-var logger = factory.CreateLogger("elmah.io");
-logger.LogInformation("This is an information message");
-```
-
-### Decorating log messages
-
-Since Microsoft.Extensions.Logging isn't specific for web applications, messages logged through `Elmah.Io.Extensions.Logging`, doesn't include any properties from the HTTP context (like `Elmah.Io.AspNetCore`). To add additional properties, use one of two approaches as described below.
-
-`Elmah.Io.Extensions.Logging` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:
-
-```csharp
-logger.LogInformation("{Quote} from {User}", "Hasta la vista, baby", "Arnold Schwarzenegger");
-```
-
-This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add the `Quote` key and value to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+In this example, a log message with the template `Request to {url} caused an error` is logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
 An alternative is to use the `OnMessage` action. As an example, we'll add a version number to all messages:
 
@@ -163,9 +143,7 @@ An alternative is to use the `OnMessage` action. As an example, we'll add a vers
 logging
     .AddElmahIo(options =>
     {
-        options.ApiKey = "API_KEY";
-        options.LogId = new Guid("LOG_ID");
-
+        ...
         options.OnMessage = msg =>
         {
             msg.Version = "2.0.0";
@@ -173,10 +151,10 @@ logging
     });
 ```
 
-In some scenarios you want to include information from the current HTTP context. Resolving a HTTP context isn't possible when configuring logging through Microsoft.Extensions.Logging in the `Program.cs` file. In this case you need to implement a bit of custom code. In the following example, we set the name of the currently logged in user on all messages. Start by creating a new class named `DecorateElmahIoMessages`:
+You can even access the current HTTP context in the `OnMessage` action. To do so, start by creating a new class named `DecorateElmahIoMessages`:
 
 ```csharp
-private class DecorateElmahIoMessages : IConfigureOptions<ElmahIoProviderOptions>
+public class DecorateElmahIoMessages : IConfigureOptions<ElmahIoProviderOptions>
 {
     private readonly IHttpContextAccessor httpContextAccessor;
 
@@ -209,7 +187,63 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-elmah.io now executes the `OnMessage` action for all log messages.
+## Options
+
+### appsettings.json configuration
+
+Some of the configuration for Elmah.Io.Extensions.Logging can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
+
+```json
+{
+  "Logging": {
+    ...
+    "ElmahIo": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
+  }
+}
+```
+
+Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging((ctx, logging) =>
+    {
+        logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
+        ...
+    })
+    .Build();
+```
+
+### Filtering log messages
+
+As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warnings, errors, and fatals. The rationale behind this is that we build an error management system and doesn't do much to support millions of debug messages from your code. Sometimes you may want to log non-exception messages, though. To do so, use filters in Microsoft.Extensions.Logging.
+
+To log everything from log level `Information` and up, do the following:
+
+Inside the `ConfigureLogging`-method in `Startup.cs`, change the minimum level:
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging((ctx, logging) =>
+    {
+        ...
+        logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
+    })
+    .Build();
+```
+
+In the code sample, every log message with a log level of `Information` and up will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category, and call the `LogInformation` method:
+
+```csharp
+var logger = factory.CreateLogger("elmah.io");
+logger.LogInformation("This is an information message");
+```
 
 ### Logging through a proxy
 
