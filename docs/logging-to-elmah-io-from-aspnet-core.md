@@ -241,3 +241,5 @@ public void ConfigureServices(IServiceCollection services)
     ...
 }
 ```
+
+> If using `Elmah.Io.AspNetCore.HealthChecks` together with *Health Checks UI* make sure to call `AddHealthChecksUI` **after** calling `AddElmahIoPublisher`.
