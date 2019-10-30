@@ -321,8 +321,33 @@ blockquote a, blockquote a:visited {
 	border: 1px solid #CFCFCF;
 	background-color: #fff;
 }
+
+.hljs-wrapper {
+	position: relative;
+}
+
+.btn-clipboard {
+	position: absolute;
+    top: 3px;
+    right: 3px;
+    z-index: 10;
+    display: block;
+    padding: .25rem .5rem;
+    font-size: 75%;
+    color: #818a91;
+    background-color: transparent;
+    border: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+    outline: none !important;
+}
+.btn-clipboard:hover {
+    color: #fff;
+    background-color: #0da58e;
+}
+
 .hljs {
-	padding: 20px;
+	padding: 25px;
 	border-radius: 4px;
 }
 .hljs-keyword,

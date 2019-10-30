@@ -1,7 +1,40 @@
 $(document).ready(function(){
 
 	// Highlight init
-	hljs.initHighlightingOnLoad();
+	function initHighlight(wrapperHighlight) {
+		hljs.initHighlighting();
+		wrapperHighlight(addClipboardJS);
+	}
+
+	// Wrap highlight
+	function wrapperHighlight(addClipboardJS) {
+		$('.hljs').parent().wrap('<div class="hljs-wrapper"></div>');
+		$('.hljs-wrapper').prepend('<button class="btn-clipboard" title="Copy to clipboard">Copy</button>');
+		addClipboardJS();
+	}
+
+	// Add clipboard functionality
+	function addClipboardJS() {
+		var clipboard = new ClipboardJS(".btn-clipboard",{
+            target: function(clipboard) {
+                return clipboard.nextElementSibling
+            }
+        });
+        clipboard.on("success", function(clipboard) {
+        	$(clipboard.trigger).text('Copied!');
+        	setTimeout(function () {
+            	$(clipboard.trigger).text('Copy');
+        	}, 1000);
+            clipboard.clearSelection();
+        });
+        clipboard.on("error", function(clipboard) {
+            var label = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
+            var text = "Press " + label + "C to copy";
+            $(clipboard.trigger).text(text);
+        });
+	}
+
+	initHighlight(wrapperHighlight);
 
 	// Style all tables - markdown fix
 	$('table').addClass('table');
