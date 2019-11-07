@@ -105,4 +105,5 @@ nav:
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
+    - Email troubleshooting: email-troubleshooting.md
     - ELMAH and elmah.io differences: elmah-and-elmah-io-differences.md
