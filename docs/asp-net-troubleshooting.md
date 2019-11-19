@@ -10,10 +10,11 @@ You are probably here because your application doesn't log errors to elmah.io, e
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter or similar).
 - If you are using custom errors, make sure to configure it correctly. For more details, check out the following posts: [Web.config customErrors element with ASP.NET explained](https://blog.elmah.io/web-config-customerrors-element-with-aspnet-explained/) and <a href="https://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging" target="_blank" rel="noopener noreferrer">Demystifying ASP.NET MVC 5 Error Pages and Error Logging</a>.
+- 
 
-## Common exceptions and how to fix them
+## Common errors and how to fix them
 
-Here you will a list of common exceptions and how to solve them.
+Here you will a list of common errors/exceptions and how to solve them.
 
 ### TypeLoadException
 
@@ -33,3 +34,22 @@ Here you will a list of common exceptions and how to solve them.
 **Solution**
 
 This is most likely caused by a problem with the `System.Net.Http` NuGet package. Make sure to upgrade to the newest version (`4.3.4` as of writing this). The default template for creating a new web application, installs version `4.3.0` which is seriously flawed.
+
+### Exceptions aren't logged to elmah.io when adding the `HandleError` attribute
+
+Much like custom errors, the `HandleError` attribute can swallow exceptions from your website. This means that ASP.NET MVC catches any exceptions and show the `Error.cshtml` view. To log exceptions with this setup, you will need to extend your `Error.cshtml` file:
+
+```csharp
+@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    if (Model.Exception != null)
+    {
+        Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(new Elmah.Error(Model.Exception, HttpContext.Current));
+    }
+}
+
+<div>
+    Your error page content goes here 
+</div> 
+```
