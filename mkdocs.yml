@@ -86,6 +86,12 @@ nav:
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
     - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
+- Heartbeats:
+    - Set up Heartbeats: setup-heartbeats.md
+    - Logging heartbeats from ASP.NET Core: logging-heartbeats-from-asp-net-core.md
+    - Logging heartbeats from Azure Functions: logging-heartbeats-from-azure-functions.md
+    - Logging heartbeats from PowerShell: logging-heartbeats-from-powershell.md
+    - Logging heartbeats from cURL: logging-heartbeats-from-curl.md
 - Deployment Tracking:
     - Set up Deployment Tracking: setup-deployment-tracking.md
 - Everything Else:
