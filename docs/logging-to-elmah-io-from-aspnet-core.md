@@ -221,6 +221,8 @@ In this example, the elmah.io client routes all traffic through `http://localhos
 
 ## Logging health check results
 
+> The current elmah.io health check publisher will be discontinued. In the future, ASP.NET Core Health Checks will be integrated with elmah.io Heartbeats. Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.
+
 ASP.NET Core 2.2 introduced a new feature named Health Checks. Health checks enable much more sofisticated uptime checks, by allowing you to verify not only uptime on your own website, but also on any dependency or precondition necessary for your website to work. For a general introduction to health checks, I recommend you to read [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/).
 
 Health checks have error reporting built-in. We provide a publisher in order to allow ASP.NET Core to ship health check errors directly to your log on elmah.io. Start by installing the `Elmah.Io.AspNetCore.HealthChecks` NuGet package:
