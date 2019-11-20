@@ -290,6 +290,10 @@ logger.log({
   type: 'Of some type',
   severity: 'Error'
 });
+
+var msg = logger.message(); // Get a prefilled message
+msg.title = "This is a custom log message";
+logger.log(msg);
 ```
 
 The `Error` object used, should be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error" target="_blank" rel="noopener noreferrer">JavaScript Error object</a>.
