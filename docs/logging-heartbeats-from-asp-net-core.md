@@ -45,7 +45,7 @@ services
 
 If `Application` is not set, log messages will receive a default value of `Heartbeats` to make the messages distinguable from other messages.
 
-### Calbacks
+### Callbacks
 
 The elmah.io publisher offer callbacks already known from `Elmah.Io.AspNetCore`.
 
