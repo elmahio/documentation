@@ -126,3 +126,29 @@ services.Configure<HealthCheckPublisherOptions>(options =>
 ```
 
 If setting `Period` to 5 minutes, you should set the heartbeat interval on elmah.io to 5 minutes and grace to 1 minute.
+
+## Troubleshooting
+
+Here's a list of things to check for if no heartbeats are registered:
+
+- Did you include both `API_KEY`, `LOG_ID`, and `HEARTBEAT_ID`?
+- The publisher needs to be called before the `AddElmahIo` call from `Elmah.Io.AspNetCore`:
+
+```csharp
+services
+    .AddHealthChecks()
+    .AddElmahIoPublisher();
+
+services.AddElmahIo();
+```
+
+- If you are using Health Checks UI, it needs to be configured after the `AddElmahIoPublisher`-method:
+
+```csharp
+services
+    .AddHealthChecks()
+    .AddElmahIoPublisher();
+
+service
+    .AddHealthChecksUI();
+```
