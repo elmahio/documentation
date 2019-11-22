@@ -1,5 +1,7 @@
 # Set up Heartbeats
 
+[TOC]
+
 > The Heartbeats feature is currently in closed beta and highly experimental.
 
 elmah.io Heartbeats complements the Error Logging and Uptime Monitoring features already available on elmah.io. Where Uptime Monitoring is based on us pinging your public HTTP endpoints, Heartbeats is the other way around. When configured, your services, scheduled tasks, and websites ping the elmah.io in a specified interval. We call these ping Heartbeats, hence the name of the feature. Whether you should use Uptime Monitoring or Heartbeats to monitor your code, depends on a range of variables. Uptime Monitoring is great at making sure that your public endpoints can be reached from multiple locations. Scheduled tasks and services typically don't have public endpoints and are expected to run at a specified interval. With Heartbeats, setting up monitoring on this kind of services is extremely easy, since elmah.io will automatically detect when an unhealthy heartbeat is received or if no heartbeat is received.
@@ -46,7 +48,7 @@ public class Program
             api.Heartbeats.Create("HEARTBEAT_ID", "LOG_ID", new CreateHeartbeat
             {
                 Result = "Healthy"
-            }) 
+            }); 
         }
         catch (Exception e)
         {
@@ -54,7 +56,7 @@ public class Program
             {
                 Result = "Unhealthy",
                 Reason = e.ToString()
-            }) 
+            });
         }
     }
 }
@@ -71,3 +73,18 @@ The body of the create hearbeat request (or the `CreateHeartbeat` class when usi
 `Result` is the status of the heartbeat and can take one of the following three values: `Healthy`, `Degraded`, or `Unhealthy`. Depending on the heartbeat status, a log message can be created in the configured log. Log messages are only created on state changes. This means that if logging two `Unhealthy` requests, only the first request triggers a new error. If logging a `Healthy` heartbeat after logging an `Unhealthy` heartbeat, an information message will be logged. Transitioning to `Degraded` logs a warning.
 
 `Reason` can be used to specify why a heartbeat check is either `Degraded` or `Unhealthy`. If your service throws an exception, the full exception including its stack trace is a good candidate for the `Reason` property. When using integrations like the one with ASP.NET Core Health Checks, the health check report is used as the reason of the failing heartbeat.
+
+## Application and Version
+
+When logging errors through one or more of the integrations, you may already use the `Application` and/or `Version` fields to set an application name and software version on all messages logged to elmah.io. Since Heartbeats will do the actual logging of messages in this case, you can configure it to use the same application name and/or version number as your remaining integrations.
+
+```csharp
+api.Heartbeats.Create("HEARTBEAT_ID", "LOG_ID", new CreateHeartbeat
+{
+    Result = "...",
+    Application = "MyApp",
+    Version = "1.0.0"
+});
+```
+
+If application name is not configured, all messages logged from Heartbeats will get a default value of `Heartbeats`. If no version number is configured, log messages from Heartbeats will be assigned the latest version created through Deployment Tracking.
