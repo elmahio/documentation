@@ -232,3 +232,15 @@ namespace My.FunctionApp
 ```
 
 In the example above, the new function named `Heartbeat` (the name is entirely up to you) executes every 5 minutes. Replace the comment with your checks like opening a connection to the database. If everything works as it should, a `Healthy` heartbeat is logged to elmah.io. If an exception is thrown while checking your dependencies, an `Unhealthy` heartbeat is created.
+
+When running locally, you may want to disable heartbeats. You can use the `Disable` attribute for that by including the following code:
+
+```csharp
+#if DEBUG
+    [Disable]
+#endif
+    public class Heartbeat
+    {
+        ...
+    }
+```
