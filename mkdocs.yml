@@ -93,6 +93,7 @@ nav:
     - Logging heartbeats from PowerShell: logging-heartbeats-from-powershell.md
     - Logging heartbeats from cURL: logging-heartbeats-from-curl.md
     - Logging heartbeats from Umbraco: logging-heartbeats-from-umbraco.md
+    - Logging heartbeats from Hangfire: logging-heartbeats-from-hangfire.md
 - Deployment Tracking:
     - Set up Deployment Tracking: setup-deployment-tracking.md
 - Everything Else:
