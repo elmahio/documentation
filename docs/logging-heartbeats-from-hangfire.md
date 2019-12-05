@@ -39,3 +39,49 @@ public void Test()
 Replace `API_KEY` ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)), `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)), and `HEARTBEAT_ID` with the correct variables from elmah.io.
 
 When the job successfully runs, a `Healthy` heartbeat is logged to elmah.io. If an exception is thrown an `Unhealthy` heartbeat is logged. elmah.io will automatically create an error if a heartbeat is missing, as long as the heartbeat is correctly configured as explained in [Set up Heartbeats](https://docs.elmah.io/setup-heartbeats/).
+
+## Move configuration to config files
+
+You normally don't include your API key, log ID and heartbeat ID in C# code as shown in the example above. Unfortunately, Hangfire attributes doesn't support dependency injection or configuration from config files. There's a small "hack" that you can use to move configuration to a configuration file by creating a custom attribute:
+
+```csharp
+using Elmah.Io.Heartbeats.Hangfire;
+using Hangfire.Common;
+using Hangfire.Server;
+using System.Configuration;
+
+public class AppSettingsElmahIoHeartbeatAttribute : JobFilterAttribute, IServerFilter
+{
+    private readonly ElmahIoHeartbeatAttribute _inner;
+
+    public AppSettingsElmahIoHeartbeatAttribute()
+    {
+        var apiKey = ConfigurationManager.AppSettings["apiKey"];
+        var logId = ConfigurationManager.AppSettings["logId"];
+        var heartbeatId = ConfigurationManager.AppSettings["heartbeatId"];
+        _inner = new ElmahIoHeartbeatAttribute(apiKey, logId, heartbeatId);
+    }
+
+    public void OnPerformed(PerformedContext filterContext)
+    {
+        _inner.OnPerformed(filterContext);
+    }
+
+    public void OnPerforming(PerformingContext filterContext)
+    {
+        _inner.OnPerforming(filterContext);
+    }
+}
+```
+
+In the example the `AppSettingsElmahIoHeartbeatAttribute` class wrap `ElmahIoHeartbeatAttribute`. By doing so, it is possible to fetch configuration from application settings as part of the constructor. The approach would be similar when using `IConfiguration` (like in ASP.NET Core), but you will need to share a reference to the configuration object somehow.
+
+To use `AppSettingsElmahIoHeartbeatAttribute` simply add it to the method:
+
+```csharp
+[AppSettingsElmahIoHeartbeat]
+public void Test()
+{
+    ...
+}
+```
