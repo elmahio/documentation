@@ -127,6 +127,19 @@ services.Configure<HealthCheckPublisherOptions>(options =>
 
 If setting `Period` to 5 minutes, you should set the heartbeat interval on elmah.io to 5 minutes and grace to 1 minute.
 
+## Ignoring heartbeats on localhost, staging, etc.
+
+Monitoring hearbeats is important in your production environment. When running locally or even on staging, you probably don't want to monitor heartbeats. ASP.NET Core health checks doesn't seem to support a great deal of configuration through `appsettings.json`, Azure app settings, etc. The easiest way to tell ASP.NET Core to log heartbeats to elmah.io, is to avoid setting up health checks unless a heartbeat id is configured:
+
+```csharp
+if (!string.IsNullOrWhiteSpace(Configuration["ElmahIo:HeartbeatId"]))
+{
+    services.AddHealthChecks().AddElmahIoPublisher();
+}
+```
+
+In this example, we only configure health checks and the elmah.io publisher if the `ElmahIo:HeartbeatId` setting is defined in config.
+
 ## Troubleshooting
 
 Here's a list of things to check for if no heartbeats are registered:
