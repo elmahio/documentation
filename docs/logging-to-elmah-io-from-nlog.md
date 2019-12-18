@@ -195,3 +195,15 @@ elmahIoTarget.OnFilter = msg =>
 ```
 
 The example above ignores any log messages with the word `trace` in the title.
+
+## Troubleshooting
+
+Here are some things to try out if logging from NLog to elmah.io doesn't work:
+
+- Make sure that you have the newest `Elmah.Io.NLog` and `Elmah.Io.Client` packages installed.
+- Make sure to include all of the configuration from the example above. That includes both the `<extensions>`, `<targets>`, and `<rules>` element.
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure to include a valid log ID.
+- Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
+- Always make sure to call `LogManager.Shutdown()` before existing the application to make sure that all log messages are flushed.
+- Extend the `nlog` element with `internalLogLevel="Warn" internalLogFile="c:\temp\nlog-internal.log` and inspect that log file for any internal NLog errors.
