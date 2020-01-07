@@ -244,3 +244,15 @@ When running locally, you may want to disable heartbeats. You can use the `Disab
         ...
     }
 ```
+
+or add the following to `local.settings.json`:
+
+```json
+{
+  ...
+  "Values": {
+    "AzureWebJobs.Heartbeat.Disabled": true,
+    ...
+  }
+}
+```
