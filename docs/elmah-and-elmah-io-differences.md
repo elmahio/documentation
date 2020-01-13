@@ -32,6 +32,7 @@ elmah.io is a cloud-based error management system originally developed on top of
 | [Slack/Teams/HipChat/etc.](https://elmah.io/features/appstore/) | ❌ | ✅ |
 | [Deployment tracking](https://elmah.io/features/deploymenttracking/) | ❌ | ✅ |
 | [Uptime monitoring](https://elmah.io/features/uptimemonitoring/) | ❌ | ✅ |
+| [Heartbeats](https://elmah.io/features/heartbeats/) | ❌ | ✅ |
 | [Discount on popular software](https://elmah.io/goodiebag/) | ❌ | ✅ |
 
 ## History
