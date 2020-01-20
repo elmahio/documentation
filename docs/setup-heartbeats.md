@@ -40,51 +40,42 @@ public class Program
 {
     public static void Main()
     {
+        var logId = new Guid("LOG_ID");
         var api = ElmahioAPI.Create("API_KEY");
         try
         {
             // Your task code goes here
 
-            api.Heartbeats.Create("HEARTBEAT_ID", "LOG_ID", new CreateHeartbeat
-            {
-                Result = "Healthy"
-            }); 
+            api.Heartbeats.Healthy(logId, "HEARTBEAT_ID");
         }
         catch (Exception e)
         {
-            api.Heartbeats.Create("HEARTBEAT_ID", "LOG_ID", new CreateHeartbeat
-            {
-                Result = "Unhealthy",
-                Reason = e.ToString()
-            });
+            api.Heartbeats.Unhealthy(logId, "HEARTBEAT_ID");
         }
     }
 }
 ```
 
-Replace `API_KEY`, `HEARTBEAT_ID`, and `LOG_ID` with the values stored in the previous steps.
+Replace `LOG_ID`, `API_KEY`, and `HEARTBEAT_ID` with the values stored in the previous steps.
 
-When the code runs without throwing an exception, your task now creates a `Healthy` heartbeat. If an exception occurs, the code creates an `Unhealthy` heartbeat and uses the exception text as the reason.
+When the code runs without throwing an exception, your task now creates a `Healthy` heartbeat. If an exception occurs, the code creates an `Unhealthy` heartbeat and uses the exception text as the reason. There's an additional method named `Degraded` for logging a degraded heartbeat.
 
-## Result and Reason
+Depending on the heartbeat status, a log message can be created in the configured log. Log messages are only created on state changes. This means that if logging two `Unhealthy` requests, only the first request triggers a new error. If logging a `Healthy` heartbeat after logging an `Unhealthy` heartbeat, an information message will be logged. Transitioning to `Degraded` logs a warning.
 
-The body of the create hearbeat request (or the `CreateHeartbeat` class when using `Elmah.Io.Client`) contains two properties as we saw in the example: `Result` and `Reason`.
+## Additional properties
 
-`Result` is the status of the heartbeat and can take one of the following three values: `Healthy`, `Degraded`, or `Unhealthy`. Depending on the heartbeat status, a log message can be created in the configured log. Log messages are only created on state changes. This means that if logging two `Unhealthy` requests, only the first request triggers a new error. If logging a `Healthy` heartbeat after logging an `Unhealthy` heartbeat, an information message will be logged. Transitioning to `Degraded` logs a warning.
+### Reason
 
-`Reason` can be used to specify why a heartbeat check is either `Degraded` or `Unhealthy`. If your service throws an exception, the full exception including its stack trace is a good candidate for the `Reason` property. When using integrations like the one with ASP.NET Core Health Checks, the health check report is used as the reason of the failing heartbeat.
+The `Healthy`, `Unhealthy`, and `Degraded` methods (or the `CreateHeartbeat` class when using the raw `Create` method) accepts an additional parameter named `reason`.
 
-## Application and Version
+`reason` can be used to specify why a heartbeat check is either `Degraded` or `Unhealthy`. If your service throws an exception, the full exception including its stack trace is a good candidate for the `reason` parameter. When using integrations like the one with ASP.NET Core Health Checks, the health check report is used as the reason of the failing heartbeat.
+
+### Application and Version
 
 When logging errors through one or more of the integrations, you may already use the `Application` and/or `Version` fields to set an application name and software version on all messages logged to elmah.io. Since Heartbeats will do the actual logging of messages in this case, you can configure it to use the same application name and/or version number as your remaining integrations.
 
 ```csharp
-api.Heartbeats.Create("HEARTBEAT_ID", "LOG_ID", new CreateHeartbeat
-{
-    Result = "...",
-    Application = "MyApp",
-    Version = "1.0.0"
-});
+api.Heartbeats.Unhealthy(logId, "HEARTBEAT_ID", application: "MyApp", version: "1.0.0");
 ```
 
-If application name is not configured, all messages logged from Heartbeats will get a default value of `Heartbeats`. If no version number is configured, log messages from Heartbeats will be assigned the latest version created through Deployment Tracking.
+If application name is not configured, all messages logged from Heartbeats will get a default value of `Heartbeats`. If no version number is configured, log messages from Heartbeats will be assigned the latest version created through [Deployment Tracking](https://elmah.io/features/deploymenttracking/).
