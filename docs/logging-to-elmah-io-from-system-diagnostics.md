@@ -3,6 +3,8 @@
 
 # Logging to elmah.io from System.Diagnostics
 
+> Logging through `System.Diagnostics` has been deprecated. Please use the `Elmah.Io.Client` package to log trace messages to elmah.io.
+
 .NET comes with its own tracing/logging feature located in the [System.Diagnostics namespaces](https://msdn.microsoft.com/en-us/library/gg145030(v=vs.110).aspx). A core part of `System.Diagnostics` is the `Trace` class, but that namespace contains utilities for performance counters, working with the event log and a lot of other features. In this article, we will focus on logging to elmah.io from `System.Diagnostics.Trace`.
 
 To start logging, install the [Elmah.Io.Trace](https://www.nuget.org/packages/Elmah.Io.Trace/) package:
