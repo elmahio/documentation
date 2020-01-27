@@ -1,6 +1,6 @@
 # Logging heartbeats from cURL
 
-> The Heartbeats feature is currently in closed beta and highly experimental.
+> The Heartbeats feature is currently in beta and still experimental.
 
 Sometimes is just easier to use cURL when needing to call a REST API. Creating elmah.io heartbeats is easy using cURL and fits well into scripts, scheduled tasks, and similar.
 

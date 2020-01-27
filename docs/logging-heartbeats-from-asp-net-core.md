@@ -2,7 +2,7 @@
 
 [TOC]
 
-> The Heartbeats feature is currently in closed beta and highly experimental.
+> The Heartbeats feature is currently in beta and still experimental.
 
 ASP.NET Core offers a feature called Health Checks from version 2.2 and forward. For more information about health checks, check out our blog post: [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/). The Heartbeats feature on elmah.io support health checks too, by publishing health check results as heartbeats.
 

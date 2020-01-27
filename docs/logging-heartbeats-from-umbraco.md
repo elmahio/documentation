@@ -1,6 +1,6 @@
 # Logging heartbeats from Umbraco
 
-> The Heartbeats feature is currently in closed beta and highly experimental.
+> The Heartbeats feature is currently in beta and still experimental.
 
 Umbraco comes with a nice health check feature which can carry out a range of built-in health checks as well as custom checks you may want to add. Umbraco Health Checks fits perfectly with elmah.io Heartbeats.
 

@@ -1,6 +1,6 @@
 # Logging heartbeats from PowerShell
 
-> The Heartbeats feature is currently in closed beta and highly experimental.
+> The Heartbeats feature is currently in beta and still experimental.
 
 The Heartbeats feature is a great way to verify that scripts run successfully too. A lot of people have PowerShell scripts running on a schedule to clean up folders on the file system, make batch changes in a database, and more.
 

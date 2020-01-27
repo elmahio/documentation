@@ -2,7 +2,7 @@
 
 [TOC]
 
-> The Heartbeats feature is currently in closed beta and highly experimental.
+> The Heartbeats feature is currently in beta and still experimental.
 
 Azure Functions are great candidates for adding heartbeats. For web API's implemented with Azure Functions, you should create a `/health` endpoint and ping that using Uptime Monitoring. But for timer triggered, queue triggers, and similar function apps, heartbeats are a great way to verify that your function is successfully running. The rest of this document is split into different ways of adding heartbeats to one or more functions.
 
