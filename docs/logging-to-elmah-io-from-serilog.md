@@ -243,3 +243,22 @@ var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(configuration)
     .CreateLogger();
 ```
+
+## Extended exception details with Serilog.Exceptions
+
+The more information you have on an error, the easier it is to find out what went wrong. Muhammad Rehan Saeed made a nice enrichment package for Serilog named `Serilog.Exceptions`. The package uses reflection on a logged exception to log additional information depending on the concrete exception type. You can install the package through NuGet:
+
+```ps
+Install-Package Serilog.Exceptions
+```
+
+And configure it in C# code:
+
+```csharp
+Logger logger = new LoggerConfiguration()
+    .Enrich.WithExceptionDetails()
+    .WriteTo.ElmahIo(...)    
+    .CreateLogger();
+```
+
+The elmah.io sink will automatically pick up the additional information and show them in the extended message details overlay. To navigate to this view, click an error on the search view. Then click the <kbd><span class="fa fa-bars"></span></kbd> button in the upper right corner to open extended message details. The information logged by `Serilog.Exceptions` are available beneath the *Data* tab.
