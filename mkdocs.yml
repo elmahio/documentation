@@ -38,6 +38,7 @@ nav:
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
     - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from Blazor: logging-to-elmah-io-from-blazor.md
+    - Using different logs per environment in ASP.NET Core: using-different-logs-per-environment-in-aspnet-core.md
     - ASP.NET Core troubleshooting: asp-net-core-troubleshooting.md
 - Logging Frameworks:
     - Logging from Serilog: logging-to-elmah-io-from-serilog.md
