@@ -255,7 +255,7 @@ Install-Package Serilog.Exceptions
 And configure it in C# code:
 
 ```csharp
-Logger logger = new LoggerConfiguration()
+var logger = new LoggerConfiguration()
     .Enrich.WithExceptionDetails()
     .WriteTo.ElmahIo(...)    
     .CreateLogger();
