@@ -2,16 +2,19 @@
 
 > Please notice that we currently support server-side Blazor only. When client-side Blazor is officially released, we will make sure to follow along.
 
-To start logging to elmah.io from Blazor, install the following NuGet packages:
+To start logging to elmah.io from Blazor, install the following NuGet package:
 
 ```powershell
-Install-Package Blazor.Extensions.Logging
 Install-Package Elmah.Io.Extensions.Logging
 ```
 
 In the `Startup.cs` file, add elmah.io logging configuration:
 
 ```csharp
+using Microsoft.Extensions.DependencyInjection;
+using Elmah.Io.Extensions.Logging;
+...
+
 namespace MyBlazorApp
 {
     public class Startup
