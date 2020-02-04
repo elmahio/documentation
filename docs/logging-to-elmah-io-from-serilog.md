@@ -191,10 +191,10 @@ Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to
 A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through Serilog from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Serilog` NuGet package:
 
 ```ps
-Install-Package Elmah.Io.AspNetCore.Serilog -IncludePrerelease
+Install-Package Elmah.Io.AspNetCore.Serilog
 ```
 
-Finally, make sure to call the `UseElmahIoSerilog` method in the `Configure` method in the `Startup.cs` file:
+Then, call the `UseElmahIoSerilog` method in the `Configure` method in the `Startup.cs` file:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -203,6 +203,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     app.UseElmahIoSerilog();
     ... // UseMvc etc.
 }
+```
+
+The middleware uses Serilog's `LogContext` feature to enrich each log message with additional properties. To turn on the log context, extend your Serilog config:
+
+```csharp
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.ElmahIo(...)
+    .Enrich.FromLogContext() // <-- add this line
+    .CreateLogger();
 ```
 
 ## Config using appsettings.json
