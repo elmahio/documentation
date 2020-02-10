@@ -1,6 +1,6 @@
 # ASP.NET Core Troubleshooting
 
-So, your ASP.NET Core application doesn't log errors to elmah.io? We are here with a few things to try out.
+So, your ASP.NET Core application doesn't log errors to elmah.io? Here is a list of things to try out:
 
 - Make sure to reference the most recent version of the <a href="https://www.nuget.org/packages/elmah.io.aspnetcore/" target="_blank" rel="noopener noreferrer">Elmah.Io.AspNetCore</a> NuGet package.
 - Make sure that the <a href="https://www.nuget.org/packages/Elmah.Io.Client/" target="_blank" rel="noopener noreferrer">Elmah.Io.Client</a> NuGet package is installed and that the major version matches that of `Elmah.Io.AspNetCore`.
@@ -10,6 +10,16 @@ So, your ASP.NET Core application doesn't log errors to elmah.io? We are here wi
 - Make sure that your server has an outgoing internet connection and that it can communicate with `api.elmah.io` on port `443`. The integration for ASP.NET Core support setting up an HTTP proxy if your server doesn't allow outgoing traffic. Check out [Logging through a proxy](/logging-to-elmah-io-from-aspnet-core/#logging-through-a-proxy) for details.
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter, a piece of middleware, or similar).
+- Make sure that you haven't reached the message limit included in your current plan. Your current usage can be viewed on the *Subscription* tab on organization settings.
+
+<div class="alert alert-primary">
+    <div class="row">
+        <div class="col-auto align-self-start">
+            <div class="fa fa-lightbulb"></div>
+        </div>
+        <div class="col">Some of the bullets above have been implemented as Roslyn analyzers. Check out <a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a> for details.</div>
+    </div>
+</div>
 
 ## Common problems and how to fix them
 
@@ -99,7 +109,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### An error occurred while starting the application
 
-If you see the error `An error occurred while starting the application` and the exception isn't logged to elmah.io, they error probably happens before hitting the elmah.io middleware. To help find out what is going on, add the following lines to your `Program.cs` file:
+If you see the error `An error occurred while starting the application` and the exception isn't logged to elmah.io, the error probably happens before hitting the elmah.io middleware. To help find out what is going on, add the following lines to your `Program.cs` file:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
