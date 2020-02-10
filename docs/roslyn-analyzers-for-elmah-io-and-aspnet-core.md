@@ -36,7 +36,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-## EIO1002 UseElmahIo must be called before/after {1}
+## EIO1002 UseElmahIo must be called before/after Use*
 
 `UseElmahIo` needs to be called after any calls to `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthorization`, and `UseAuthentication` but before any calls to `UseEndpoints` and `UseMvc`:
 
