@@ -221,7 +221,7 @@ new Elmahio({
     filter: function(msg) {
         return msg.severity === 'Verbose';
     }
-})
+});
 ```
 
 In the example, all log [messages](#message-reference) with a severity of `Verbose`, are not logged to elmah.io.
