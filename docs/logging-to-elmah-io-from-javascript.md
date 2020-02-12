@@ -43,7 +43,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.1.1/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.1.3/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -104,7 +104,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
     ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1.1/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1.3/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
@@ -113,8 +113,8 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
 
 or using the LibMan CLI:
 
-```powershell
-libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1.1/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+```cmd
+libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1.3/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
