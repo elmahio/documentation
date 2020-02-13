@@ -35,6 +35,9 @@ a:focus {
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px;
 }
+a[data-fancybox] img {
+	cursor: zoom-in;
+}
 
 blockquote {
     padding: 10px 20px;
