@@ -97,6 +97,7 @@ nav:
     - Logging heartbeats from cURL: logging-heartbeats-from-curl.md
     - Logging heartbeats from Umbraco: logging-heartbeats-from-umbraco.md
     - Logging heartbeats from Hangfire: logging-heartbeats-from-hangfire.md
+    - Logging heartbeats from .NET Core Worker Services: logging-heartbeats-from-net-core-worker-services.md
 - Deployment Tracking:
     - Set up Deployment Tracking: setup-deployment-tracking.md
 - Everything Else:
