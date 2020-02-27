@@ -1,5 +1,7 @@
 # Logging to elmah.io from a running website on Azure
 
+> Adding elmah.io on a running website isn't the recommended way to install. It should be used if you are unable to deploy a new version only.
+
 To enable error logging to elmah.io, you usually install one of our client integrations through PowerShell or Visual Studio and deploy a new version of your website to a web server. Sometimes you need to monitor an already running website or don't want logging logic as part of your repository. Using the elmah.io Site Extension for Azure App Services, error logging can be added to an already running website.
 
 Check out this video tutorial or keep reading for the text version:
