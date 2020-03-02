@@ -51,6 +51,14 @@ namespace MyFunction
 
 Notice how API key and log ID are configured through the `ElmahIoFunctionOptions` object. In the last line of the `Configure`-method, the `ElmahIoExceptionFilter`-filter is configured. This filter will automatically catch any exception caused by your filter and log it to elmah.io.
 
+A quick comment about the obsolete warning showed when using the package. Microsoft marked `IFunctionFilter` as obsolete. Not because it will be removed, but because they may change the way attributes work in functions in the future. For now, you can suppress this warning with the following code:
+
+```csharp
+#pragma warning disable CS0618 // Type or member is obsolete
+builder.Services.AddSingleton<IFunctionFilter, ElmahIoExceptionFilter>();
+#pragma warning restore CS0618 // Type or member is obsolete
+```
+
 In your settings, add the `apiKey`and `logId` variables:
 
 ```json
