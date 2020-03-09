@@ -2,6 +2,8 @@
 
 [TOC]
 
+> Creating apps for elmah.io is no longer supported. Get in contact if you need an integration not already available in the app store.
+
 Developing custom apps for elmah.io is possible through a bit of JSON and NuGet magic. This document will show you how.
 
 Apps on elmah.io are basically a nice wrapper around the Business Rule Engine on elmah.io. Using business rules, users can execute various actions based on full-text and Lucene queries against logged messages. Ignore messages based on a specific user agent or call the Slack API when fatal messages are logged are just a few examples on the possibilities using rules.
