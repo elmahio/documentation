@@ -81,25 +81,3 @@ Configure the new proxy in `web.config`:
   <module type="YourNamespace.AuthenticatingProxy, YourAssembly" />
 </defaultProxy>
 ```
-
-## ASP.NET Core
-
-ASP.NET Core websites doesn't have a `web.config` file. In this case, you will need to configure the proxy through code:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddElmahIo(options =>
-    {
-        options.ApiKey = "API_KEY";
-        options.LogId = new Guid("LOG_ID");
-        
-        options.WebProxy = new WebProxy("localhost", 8888);
-    });
-    ...
-}
-```
-
-In the example above, a proxy running on port 8888 locally, is set up using the `WebProxy` property of the elmah.io options.
-
-> ASP.NET Core 2.1 seems to have some problems when setting up authenticated proxies. We will update the documentation as soon as we know more.

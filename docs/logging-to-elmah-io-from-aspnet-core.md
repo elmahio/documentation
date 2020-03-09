@@ -219,6 +219,8 @@ services.AddElmahIo(o =>
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
 
+> ASP.NET Core 2.1 seems to have some problems when setting up authenticated proxies.
+
 ## Logging health check results
 
 > The current elmah.io health check publisher will be discontinued. In the future, ASP.NET Core Health Checks will be integrated with elmah.io Heartbeats. Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.
