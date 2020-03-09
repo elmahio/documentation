@@ -18,9 +18,7 @@ Uptime checks are automatic HTTP requests that you may already know from Azure, 
 
 ## SSL certificate expire checks
 
-Expiring SSL certificates causes errors in your users browser. If you ever tried forgetting to renew a SSL certificate, you know how many problems it can cause. With the SSL check option available when creating a new uptime check, elmah.io automatically validates your SSL certificates daily:
-
-![SSL checks](images/ssl-checks.gif)
+Expiring SSL certificates causes errors in your users browser. If you ever tried forgetting to renew a SSL certificate, you know how many problems it can cause. With the SSL check option available when creating a new uptime check, elmah.io automatically validates your SSL certificates daily.
 
 When your SSL certificate is up for renewal, we start notifying you through the error logs.
 

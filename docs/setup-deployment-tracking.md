@@ -156,7 +156,7 @@ If you are using Releases in Azure DevOps, you should use our extension to notif
 
 That's it! Azure DevOps will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID as well, if you want to support [versioning different services](#decorate-your-messages-with-a-version-number).
 
-### Using Azure DevOps Builds
+### Using Azure DevOps Pipelines
 
 Notifying elmah.io about new deployments is possible as a build step in Azure DevOps, by adding a bit of PowerShell:
 

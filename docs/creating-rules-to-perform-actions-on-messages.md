@@ -28,7 +28,7 @@ To ignore all messages with a HTTP status code of 400, you would need to set-up 
 |---|---|---|
 | Ignore 400s | `statusCode:400` | Ignore |
 
-The _Then_ part would look like this:
+The rule would look like this in the UI:
 
 ![Then Ignore](images/thenignore.png)
 
@@ -40,7 +40,7 @@ To hide all messages with a severity of `Warning`, you would need to set up the 
 |---|---|---|
 | Hide Warnings | `severity:Warning` | Hide |
 
-The _Then_ part would look like this:
+The rule would look like this in the UI:
 
 ![Then Ignore](images/thenhide.png)
 
@@ -52,7 +52,7 @@ To send an email on all messages containing the word _billing_ somewhere, you wo
 |---|---|---|
 | Mail on billing | `billing` | Email |
 
-The _Then_ part would look like this:
+The rule would look like this in the UI:
 
 ![Then Email](images/thenemail.png)
 
@@ -64,7 +64,7 @@ To make a HTTP request on every new message with a severity of `Fatal`, you woul
 |---|---|---|
 | Request on new fatal | `isNew:true AND severity:Fatal` | HTTP |
 
-The _Then_ part would look like this:
+The rule would look like this in the UI:
 
 ![Then HTTP](images/thenhttp.png)
 
