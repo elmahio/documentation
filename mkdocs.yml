@@ -105,6 +105,7 @@ nav:
     - Create deployments from Kudu: create-deployments-from-kudu.md
     - Create deployments from Azure DevOps Pipelines: create-deployments-from-azure-devops-pipelines.md
     - Create deployments from Azure DevOps Releases: create-deployments-from-azure-devops-releases.md
+    - Create deployments from GitHub Actions: create-deployments-from-github-actions.md
     - Create deployments from Umbraco Cloud: create-deployments-from-umbraco-cloud.md
     - Create deployments from Bitbucket Pipelines: create-deployments-from-bitbucket-pipelines.md
     - Create deployments from Atlassian Bamboo: create-deployments-from-atlassian-bamboo.md

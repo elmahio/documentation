@@ -47,6 +47,7 @@ We support a range of different integrations to avoid you manually having to use
 - [Kudu](/create-deployments-from-kudu/)
 - [Azure DevOps Pipelines](/create-deployments-from-azure-devops-pipelines/)
 - [Azure DevOps Releases](/create-deployments-from-azure-devops-releases/)
+- [GitHub Actions](/create-deployments-from-github-actions/)
 - [Umbraco Cloud](/create-deployments-from-umbraco-cloud/)
 - [Bitbucket Pipelines](/create-deployments-from-bitbucket-pipelines/)
 - [Atlassian Bamboo](/create-deployments-from-atlassian-bamboo/)
