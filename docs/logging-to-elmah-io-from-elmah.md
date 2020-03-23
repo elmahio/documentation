@@ -9,7 +9,7 @@ This article will explain the steps necessary to log errors from your web applic
 This guide is also available as a short video tutorial here:
 
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZiebaLptkKs?rel=0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" allowfullscreen></iframe>
 </div><br/>
 
 Create a new *ASP.NET Web Application* in Visual Studio :
