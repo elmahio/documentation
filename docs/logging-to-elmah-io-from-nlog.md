@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gdgwwlu1j8yh7esl?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-nlog)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
 
 # Logging to elmah.io from NLog
 
@@ -14,7 +14,9 @@ To start logging messages from NLog to elmah.io, you need to install the [Elmah.
 Install-Package elmah.io.nlog
 ```
 
-> Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11` or `4.6.1`.
+> Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11`, `4.6.1`, or newer.
+
+## Configuration in .NET
 
 To configure the elmah.io target, add the following configuration to your app.config/web.config/nlog.config depending on what kind of project you’ve created:
 
@@ -43,7 +45,7 @@ log.Warn("This is a warning message");
 log.Error(new Exception(), "This is an error message");
 ```
 
-## Specify API key and log ID in appSettings
+### Specify API key and log ID in appSettings
 
 If you are already using elmah.io, you may have your API key and log ID in the `appSettings` element already. To use these settings from withing the NLog target configuration you can use an NLog layout formatter:
 
@@ -64,7 +66,7 @@ By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for
 
 > The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
 
-## Setting application name
+### Setting application name
 
 The application field on elmah.io can be set globally through NLog config:
 
@@ -76,7 +78,59 @@ The application field on elmah.io can be set globally through NLog config:
 
 Replace `APP_NAME` with the application you want logged to elmah.io
 
-## Configure the elmah.io target from code
+## Configuration in .NET Core
+
+.NET Core switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
+
+```ps
+Install-Package NLog.Extensions.Logging
+```
+
+Extend the `appsettings.json` file with a new `NLog` section:
+
+```json
+{
+  "NLog": {
+    "throwConfigExceptions": true,
+    "extensions": [
+      { "assembly": "Elmah.Io.NLog" }
+    ],
+    "targets": {
+      "elmahio": {
+        "type": "elmah.io",
+        "apiKey": "API_KEY",
+        "logId": "LOG_ID"
+      }
+    },
+    "rules": [
+      {
+        "logger": "*",
+        "minLevel": "Info",
+        "writeTo": "elmahio"
+      }
+    ]
+  }
+}
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+If you haven't already loaded the configuration in your application, make sure to do so:
+
+```csharp
+var config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .Build();
+
+```
+
+Finally, tell NLog how to load the `NLog` configuration section:
+
+```csharp
+LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
+```
+
+## Configuration in code
 
 The elmah.io target can be configured from C# code if you prefer or need to access the built-in events (see more later). The following adds logging to elmah.io:
 
