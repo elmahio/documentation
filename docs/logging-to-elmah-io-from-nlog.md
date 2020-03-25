@@ -130,6 +130,44 @@ Finally, tell NLog how to load the `NLog` configuration section:
 LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
 ```
 
+### elmah.io configuration outside the NLog section
+
+You might not want the elmah.io API key and log Id inside the `NLog` section or already have an `ElmahIo` section defined and want to reuse that. Splitting up configuration like that is supported through NLog layout renderers:
+
+```json
+{
+  "NLog": {
+    ...
+    "targets": {
+      "elmahio": {
+        "type": "elmah.io",
+        "apiKey": "${configsetting:item=ElmahIo.ApiKey}",
+        "logId": "${configsetting:item=ElmahIo.LogId}"
+      }
+    },
+    ...
+  },
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+```
+
+Notice how the value of the `apiKey` and `logId` parameters have been replaced with `${configsetting:item=ElmahIo.*}`. In the bottom the `ElmahIo` section wrap the API key and log Id.
+
+To make this work, you will need an additional line of C# when setting up NLog logging:
+
+```csharp
+var config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .Build();
+
+ConfigSettingLayoutRenderer.DefaultConfiguration = config; // 👈 add this line
+
+LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
+```
+
 ## Configuration in code
 
 The elmah.io target can be configured from C# code if you prefer or need to access the built-in events (see more later). The following adds logging to elmah.io:
