@@ -13,7 +13,7 @@ The easiest way of including a heartbeat is to include the `ElmahIoHeartbeatFilt
 Start by installing the `Elmah.Io.Functions` package:
 
 ```ps
-Install-Package Elmah.Io.Functions -IncludePrerelease
+Install-Package Elmah.Io.Functions
 ```
 
 `Elmah.Io.Functions` requires dependency injection part of the `Microsoft.Azure.Functions.Extensions` package, why you will need this package if not already added.
@@ -64,7 +64,7 @@ The example above installs the heartbeat filter for all functions. If you have m
 Start by installing the `Elmah.Io.Client` NuGet package:
 
 ```ps
-Install-Package Elmah.Io.Client -IncludePrerelease
+Install-Package Elmah.Io.Client
 ```
 
 Extend the `Startup.cs` file with the following code:
