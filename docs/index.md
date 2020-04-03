@@ -49,10 +49,10 @@ Welcome to the quick start installation guide. Here you will find a quick introd
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft Extensions Logging">
+        <a href="https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/microsoft.png" alt="Microsoft Extensions Logging" />
+                    <img class="no-lightbox" src="assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging" />
                 </div>
                 <div class="guide-title">MEL</div>
             </div>
