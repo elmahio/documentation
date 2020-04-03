@@ -29,12 +29,12 @@ Welcome to the quick start installation guide. Here you will find a quick introd
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-web-api/" title="ASP.NET Web Api">
+        <a href="https://docs.elmah.io/logging-to-elmah-io-from-web-api/" title="ASP.NET Web API">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/aspnet.png" alt="ASP.NET Web Api" />
+                    <img class="no-lightbox" src="assets/img/guides/aspnet.png" alt="ASP.NET Web API" />
                 </div>
-                <div class="guide-title">ASP.NET Web Api</div>
+                <div class="guide-title">ASP.NET Web API</div>
             </div>
         </a>
     </div>
