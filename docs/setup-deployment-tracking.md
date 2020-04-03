@@ -4,7 +4,11 @@
     
 Deployment tracking creates an overview of the different versions of your software and show you how well each version performed. With this integration in place, you will be able to see when you released and if some of your releases caused more errors than others. While most pages on elmah.io supports everything from verbose to fatal messages, the context on deployment tracking is around warnings and errors.
 
-To set up deployment tracking, you will need to tell elmah.io when you release, using our REST API or one of the integrations. Deployments are as default created on all of your logs, but this can be tweaked. More about this later.
+To set up deployment tracking, you will need to tell elmah.io when you release, using our REST API or one of the integrations:
+
+> insert technology boxes here
+
+Deployments are as default created on all of your logs, but this can be tweaked. More about this later.
 
 For a complete overview of the possibilities with deployment tracking, watch this video tutorial:
 
