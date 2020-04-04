@@ -124,8 +124,17 @@ Welcome to the quick start installation guide. Here you will find a quick introd
 
 Install the `Elmah.Io` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
 ```
 
 During the installation, you will be asked for your API key and log ID.
@@ -140,8 +149,17 @@ For more information, check out the installation guides for [WebForms](/logging-
 
 Install the `Elmah.Io.AspNetCore` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore
 ```
 
 Once installed, call `AddElmahIo` in the `ConfigureServices`-method and `UseElmahIo` in the `Configure`-method (both in the `Startup.cs` file):
@@ -154,14 +172,14 @@ public void ConfigureServices(IServiceCollection services)
         o.ApiKey = "API_KEY";
         o.LogId = new Guid("LOG_ID");
     });
-    ...
+    // ...
 }
 
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
-    ...
+    // ...
     app.UseElmahIo();
-    ...
+    // ...
 }
 ```
 

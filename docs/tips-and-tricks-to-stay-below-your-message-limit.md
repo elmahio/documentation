@@ -66,7 +66,7 @@ If you're using ASP.NET Core, our client supports the `OnFilter` action:
 ```csharp
 services.AddElmahIo(o =>
 {
-    ...
+    // ...
     o.OnFilter = message =>
     {
         return message.StatusCode == 404;

@@ -42,7 +42,7 @@ Make sure to set the `useDefaultCredentials` attribute to `true`:
 ```xml
 <system.net>
   <defaultProxy useDefaultCredentials="true">
-    ...
+    <!-- ... -->
   </defaultProxy>
 </system.net>
 ```

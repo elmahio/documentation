@@ -8,8 +8,17 @@ Logary is a semantic logging framework like Serilog and Microsoft Semantic Loggi
 
 In this tutorial, we’ll add Logary to a Console application, but the process is almost identical with other project types. Create a new console application and add the elmah.io target for Logary:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Logary.Targets.Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Logary.Targets.Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Logary.Targets.Elmah.Io" Version="4.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Logary.Targets.Elmah.Io
 ```
 
 ## Configuration in F&#35;

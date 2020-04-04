@@ -6,8 +6,17 @@ Umbraco comes with a nice health check feature which can carry out a range of bu
 
 To start publishing Umbraco Health Checks to elmah.io, create a new health check. Select *1 day* in *Interval* and *5 minutes* in *Grace*. Next, install the `Elmah.Io.Umbraco` NuGet package:
 
-```powershell
-Install-Package Elmah.Io.Umbraco -IncludePrelease
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Umbraco
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Umbraco
 ```
 
 For Umbraco to automatically execute health checks, you will need to set your back office URL in the `umbracoSettings.config` file:
@@ -15,8 +24,8 @@ For Umbraco to automatically execute health checks, you will need to set your ba
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <settings>
-  ...
-  <web.routing ... umbracoApplicationUrl="https://localhost:44381/umbraco/">
+  <!-- ... -->
+  <web.routing umbracoApplicationUrl="https://localhost:44381/umbraco/">
   </web.routing>
 </settings>
 ```

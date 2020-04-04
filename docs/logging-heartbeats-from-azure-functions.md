@@ -12,8 +12,17 @@ The easiest way of including a heartbeat is to include the `ElmahIoHeartbeatFilt
 
 Start by installing the `Elmah.Io.Functions` package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Functions
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Functions
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Functions" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Functions
 ```
 
 `Elmah.Io.Functions` requires dependency injection part of the `Microsoft.Azure.Functions.Extensions` package, why you will need this package if not already added.
@@ -63,8 +72,17 @@ The example above installs the heartbeat filter for all functions. If you have m
 
 Start by installing the `Elmah.Io.Client` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
 ```
 
 Extend the `Startup.cs` file with the following code:
@@ -241,7 +259,7 @@ When running locally, you may want to disable heartbeats. You can use the `Disab
 #endif
     public class Heartbeat
     {
-        ...
+        // ...
     }
 ```
 
@@ -249,10 +267,10 @@ or add the following to `local.settings.json`:
 
 ```json
 {
-  ...
+  // ...
   "Values": {
     "AzureWebJobs.Heartbeat.Disabled": true,
-    ...
+    // ...
   }
 }
 ```

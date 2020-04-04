@@ -10,8 +10,17 @@
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Extensions.Logging
 ```
 
 Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) in the following.
@@ -46,7 +55,7 @@ The API key and log ID can also be configured in `appsettings.json`:
 
 ```json
 {
-  ...
+  // ...
   "ElmahIo": {
     "ApiKey": "API_KEY",
     "LogId": "LOG_ID"
@@ -93,8 +102,17 @@ A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET C
 
 To add HTTP context properties to log messages when logging from ASP.NET Core, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
 
-```ps
-Install-Package Elmah.Io.AspNetCore.ExtensionsLogging -IncludePrerelease
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 
 Then call the `UseElmahIoExtensionsLogging` method in the `Configure` method in the `Startup.cs` file:
@@ -102,9 +120,9 @@ Then call the `UseElmahIoExtensionsLogging` method in the `Configure` method in 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-    ... // Exception handling middleware
+    // ... Exception handling middleware
     app.UseElmahIoExtensionsLogging();
-    ... // UseMvc etc.
+    // ... UseMvc etc.
 }
 ```
 
@@ -143,7 +161,7 @@ An alternative is to use the `OnMessage` action. As an example, we'll add a vers
 logging
     .AddElmahIo(options =>
     {
-        ...
+        // ...
         options.OnMessage = msg =>
         {
             msg.Version = "2.0.0";
@@ -182,8 +200,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     services.AddSingleton<IConfigureOptions<ElmahIoProviderOptions>, DecorateElmahIoMessages>();
-
-    ...
+    // ...
 }
 ```
 
@@ -196,7 +213,7 @@ Some of the configuration for Elmah.Io.Extensions.Logging can be done through th
 ```json
 {
   "Logging": {
-    ...
+    // ...
     "ElmahIo": {
       "LogLevel": {
         "Default": "Warning"
@@ -214,7 +231,7 @@ WebHost.CreateDefaultBuilder(args)
     .ConfigureLogging((ctx, logging) =>
     {
         logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-        ...
+        // ...
     })
     .Build();
 ```
@@ -232,7 +249,7 @@ WebHost.CreateDefaultBuilder(args)
     .UseStartup<Startup>()
     .ConfigureLogging((ctx, logging) =>
     {
-        ...
+        // ...
         logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
     })
     .Build();
@@ -258,7 +275,7 @@ WebHost.CreateDefaultBuilder(args)
     {
         logging.AddElmahIo(options =>
         {
-            ...
+            // ...
             options.WebProxy = new WebProxy("localhost", 8000);
         });
     })
@@ -295,7 +312,7 @@ logger.LogError(1, ex, "Unexpected error");
 If you see this message in your log, it means that you are logging a large number of messages to elmah.io through Microsoft.Extensions.Logging within a short period of time. Either turn down the volume using filters:
 
 ```csharp
-logging.AddElmahIo(options => { ... });
+logging.AddElmahIo(options => { /*...*/ });
 logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 ```
 
@@ -304,7 +321,7 @@ or increase the queue size of `Elmah.Io.Extensions.Logging`:
 ```csharp
 logging.AddElmahIo(options =>
 {
-    ...
+    // ...
     options.BackgroundQueueSize = 5000;
 });
 ```

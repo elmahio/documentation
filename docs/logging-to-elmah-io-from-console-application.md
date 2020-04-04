@@ -4,10 +4,19 @@
 
 Even though elmah.io support various logging frameworks like [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), and [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), logging from a simple console application is dead simple.
 
-To start logging, install the [Elmah.Io.Client](https://www.nuget.org/packages/elmah.io.client/) NuGet package:
+To start logging, install the `Elmah.Io.Client` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
 ```
 
 Create a new `ElmahioAPI`:

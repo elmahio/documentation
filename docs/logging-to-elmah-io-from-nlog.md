@@ -8,10 +8,19 @@
 
 NLog is one of the most popular logging frameworks for .NET. With an active history on almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
 
-To start logging messages from NLog to elmah.io, you need to install the [Elmah.Io.NLog](https://www.nuget.org/packages/Elmah.Io.NLog/) NuGet package:
+To start logging messages from NLog to elmah.io, you need to install the `Elmah.Io.NLog` NuGet package:
 
-```powershell
-Install-Package elmah.io.nlog
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.NLog
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.NLog
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.NLog" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.NLog
 ```
 
 > Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11`, `4.6.1`, or newer.
@@ -82,8 +91,17 @@ Replace `APP_NAME` with the application you want logged to elmah.io
 
 .NET Core switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package NLog.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package NLog.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="NLog.Extensions.Logging" Version="1.*" />
+```
+```xml fct_label="Paket CLI"
+paket add NLog.Extensions.Logging
 ```
 
 Extend the `appsettings.json` file with a new `NLog` section:
@@ -137,7 +155,7 @@ You might not want the elmah.io API key and log Id inside the `NLog` section or 
 ```json
 {
   "NLog": {
-    ...
+    // ...
     "targets": {
       "elmahio": {
         "type": "elmah.io",
@@ -145,7 +163,7 @@ You might not want the elmah.io API key and log Id inside the `NLog` section or 
         "logId": "${configsetting:item=ElmahIo.LogId}"
       }
     },
-    ...
+    // ...
   },
   "ElmahIo": {
     "ApiKey": "API_KEY",
@@ -250,7 +268,7 @@ To include additional information on log messages, you can use the OnMessage eve
 
 ```csharp
 var elmahIoTarget = new ElmahIoTarget();
-...
+// ...
 elmahIoTarget.OnMessage = msg =>
 {
     msg.Version = "1.0.0";
@@ -265,7 +283,7 @@ To handle any errors happening while processing a log message, you can use the O
 
 ```csharp
 var elmahIoTarget = new ElmahIoTarget();
-...
+// ...
 elmahIoTarget.OnError = (msg, err) =>
 {
     // Do something here
@@ -279,7 +297,7 @@ To ignore specific errors based on their content, you can use the OnFilter event
 
 ```csharp
 var elmahIoTarget = new ElmahIoTarget();
-...
+// ...
 elmahIoTarget.OnFilter = msg =>
 {
     return msg.Title.Contains("trace");

@@ -6,8 +6,17 @@
 
 Both elmah.io and Entity Framework Core supports logging through Microsoft.Extensions.Logging. To log all errors happening inside Entity Framework Core, install the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Extensions.Logging
 ```
 
 Then add elmah.io to a new or existing `LoggerFactory`:
@@ -26,7 +35,7 @@ Finally, enable logging in Entity Framework Core:
 ```csharp
 optionsBuilder
     .UseLoggerFactory(loggerFactory)
-    .UseSqlServer(...);
+    .UseSqlServer(/*...*/);
 ```
 
 (`UseSqlServer` included for illustration purposes only - elmah.io works with any provider)

@@ -99,9 +99,9 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
 
 ```json
 {
-  ...
+  // ...
   "libraries": [
-    ...
+    // ...
     {
       "provider": "filesystem",
       "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1.3/dist/elmahio.min.js",
@@ -128,8 +128,17 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 
 Install the `elmah.io.javascript` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package elmah.io.javascript
+```
+```cmd fct_label=".NET CLI"
+dotnet add package elmah.io.javascript
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="elmah.io.javascript" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add elmah.io.javascript
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -145,8 +154,17 @@ If not already configured, follow the guide [installing elmah.io in ASP.NET Core
 
 Install the `Elmah.Io.AspNetCore.TagHelpers` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore.TagHelpers
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.TagHelpers
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.TagHelpers
 ```
 
 Copy and paste the following line to the top of the `_Layout.cshtml` file:
@@ -217,7 +235,7 @@ Log messages can be filtered, by adding an `filter` handler in options:
 
 ```javascript
 new Elmahio({
-    ...
+    // ...
     filter: function(msg) {
         return msg.severity === 'Verbose';
     }
@@ -234,7 +252,7 @@ Log messages can be enriched by subscribing to the `message` event:
 
 ```javascript
 new Elmahio({
-    ...
+    // ...
 }).on('message', function(msg) {
     if (!msg.data) msg.data = [];
     msg.data.push({key: 'MyCustomKey', value: 'MyCustomValue'});
@@ -249,7 +267,7 @@ To react on errors happening in elmah.io.javascript, subscribe to the `error` ev
 
 ```javascript
 new Elmahio({
-    ...
+    // ...
 }).on('error', function(status, text) {
     console.log('An error happened in elmah.io.javascript', status, text);
 });
@@ -328,17 +346,17 @@ var v = 42;
 ```json
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  ...
+  // ...
   "apps": [
     {
-      ...
+      // ...
       "scripts": [
         "../node_modules/elmah.io.javascript/dist/elmahio.min.js"
       ],
-      ...
+      // ...
     }
   ],
-  ...
+  // ...
 }
 ```
 
@@ -346,7 +364,7 @@ In the `app.module.ts` file, add a new `ErrorHandler` and add it to the `provide
 
 ```typescript
 import { NgModule, ErrorHandler } from '@angular/core';
-...
+// ...
 
 class ElmahIoErrorHandler implements ErrorHandler {
   logger: any;
@@ -367,13 +385,13 @@ class ElmahIoErrorHandler implements ErrorHandler {
 
 @NgModule({
   declarations: [
-    ...
+    // ...
   ],
   imports: [
-    ...
+    // ...
   ],
   providers: [{ provide: ErrorHandler, useClass: ElmahIoErrorHandler }],
-  ...
+  // ...
 })
 ```
 
@@ -384,11 +402,11 @@ All errors are shipped to the `handleError`-function by Angular and logged to el
 To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `App.js` file:
 
 ```javascript
-...
+// ...
 import Elmahio from '../node_modules/elmah.io.javascript/dist/elmahio';
 
 export default class App extends Component {
-  ...
+  // ...
 
   constructor() {
     super();
@@ -398,7 +416,7 @@ export default class App extends Component {
     });
   }
 
-  ...
+  // ...
 }
 ```
 

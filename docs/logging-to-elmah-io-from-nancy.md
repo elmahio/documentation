@@ -1,17 +1,35 @@
 # Logging to elmah.io from Nancy
 
-As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the elmah.io NuGet package:
+As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the `Elmah.Io` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
 ```
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-To integrate Nancy and ELMAH, Christian Westman already did a great job with his Nancy.Elmah project. Install it using NuGet:
+To integrate Nancy and ELMAH, Christian Westman already did a great job with his `Nancy.Elmah` package. Install it using NuGet:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Nancy.Elmah
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Nancy.Elmah
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Nancy.Elmah" Version="0.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Nancy.Elmah
 ```
 
 It’s important that you install the elmah.io package before Nancy.Elmah, because both packages like to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.

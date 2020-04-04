@@ -8,10 +8,19 @@
 
 Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure Functions.
 
-Install the newest `Elmah.Io.Functions` prerelease package in your Azure Functions project:
+Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
-```powershell
-Install-Package Elmah.Io.Functions -IncludePrerelease
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Functions
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Functions" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Functions
 ```
 
 The elmah.io integration for Azure Functions v2 uses function filters and dependency injection part of the `Microsoft.Azure.Functions.Extensions` package. To configure elmah.io, open the `Startup.cs` file or create a new one if not already there. In the `Configure`-method, add the elmah.io options and exception filter:
@@ -63,9 +72,9 @@ In your settings, add the `apiKey`and `logId` variables:
 
 ```json
 {
-  ...
+  // ...
   "Values": {
-    ...
+    // ...
     "apiKey": "API_KEY",
     "logId": "LOG_ID"
   }
@@ -149,8 +158,17 @@ The example above ignores any errors generated during an HTTP `GET` request.
 
 Azure Functions can log through Microsoft.Extensions.Logging (MEL) too. By adding the filter, as shown above, all uncaught exceptions are automatically logged. But when configuring your Function app to log through MEL, custom messages can be logged through the `ILogger` interface. Furthermore, you will get detailed log messages from within the Function host. To set this up, install the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```ps
-Install-Package Elmah.Io.Extensions.Logging -IncludePrerelease
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Extensions.Logging
 ```
 
 Then extend your `Startup.cs` file like this:

@@ -4,8 +4,17 @@ The [Elmah.Io NuGet package](https://www.nuget.org/packages/elmah.io/) normally 
 
 Start by installing the `Elmah.Io` package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
 ```
 
 If a dialog is shown during the installation, input your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). Don't worry if the configuration isn't added, since we will verify this later.

@@ -13,7 +13,7 @@ pipelines:
   default:
     - step:
         script:
-          ...
+          # ...
           - curl -X POST -d "{\"version\":\"$BITBUCKET_BUILD_NUMBER\"}" -H "Content-Type:application/json" https://api.elmah.io/v3/deployments?api_key=$ELMAHIO_APIKEY
 ```
 

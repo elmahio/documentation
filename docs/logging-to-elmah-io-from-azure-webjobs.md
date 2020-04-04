@@ -10,8 +10,17 @@ Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/),
 
 Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Functions -Version 3.1.23
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Functions --version 3.1.23
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Functions" Version="3.1.23" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Functions --version 3.1.23
 ```
 
 Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:

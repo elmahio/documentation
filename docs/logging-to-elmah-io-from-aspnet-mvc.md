@@ -6,10 +6,19 @@
 
 Even though ELMAH works out of the box with ASP.NET MVC, ELMAH and MVC provides some features which interfere with one another. As usual, the great community around ELMAH have done something to fix this, by using the [Elmah.Mvc](https://www.nuget.org/packages/Elmah.MVC/) NuGet package. We've built a package for ASP.NET MVC exclusively, which installs all the necessary packages.
 
-To start logging exceptions from ASP.NET MVC, install the NuGet package:
+To start logging exceptions from ASP.NET MVC, install the `Elmah.Io.Mvc` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Mvc
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Mvc
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Mvc" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Mvc
 ```
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). That's it. Every unhandled exception in ASP.NET MVC, is logged to elmah.io.

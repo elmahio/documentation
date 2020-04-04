@@ -8,8 +8,17 @@ ASP.NET Core offers a feature called Health Checks from version 2.2 and forward.
 
 To publish health checks as elmah.io heartbeats, install the `Elmah.Io.AspNetCore.HealthChecks` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore.HealthChecks
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.HealthChecks
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.HealthChecks" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.HealthChecks
 ```
 
 Then configure the elmah.io health check publisher:

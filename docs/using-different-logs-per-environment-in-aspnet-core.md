@@ -13,14 +13,12 @@ To only add elmah.io when on staging or production, you can add the following co
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    ...
-
+    // ...
     if (env.IsProduction() || env.IsStaging())
     {
         app.UseElmahIo();
     }
-
-    ...
+    // ...
 }
 ```
 
