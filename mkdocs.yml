@@ -9,6 +9,9 @@ theme:
     - 404.html
 extra_css:
     - style.css
+markdown_extensions:
+    - markdown_fenced_code_tabs:
+        template: "bootstrap4"
 nav:
 - Getting Started:
     - Quick start: index.md

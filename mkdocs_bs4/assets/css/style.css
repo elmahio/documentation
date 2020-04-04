@@ -353,10 +353,10 @@ blockquote a, blockquote a:visited {
 	top: 0;
 	left: 0;
 }
-.main-content-body pre code {
+/*.main-content-body pre code {
 	border: 1px solid #CFCFCF;
 	background-color: #fff;
-}
+}*/
 
 .hljs-wrapper {
 	position: relative;
@@ -373,7 +373,7 @@ blockquote a, blockquote a:visited {
     color: #818a91;
     background-color: transparent;
     border: 0;
-    border-radius: .25rem;
+    border-radius: 0;
     cursor: pointer;
     outline: none !important;
 }
@@ -384,7 +384,7 @@ blockquote a, blockquote a:visited {
 
 .hljs {
 	padding: 25px;
-	border-radius: 4px;
+	border-radius: 0px;
 }
 .hljs-keyword,
 .css .rule .hljs-keyword,
@@ -393,19 +393,19 @@ blockquote a, blockquote a:visited {
 .hljs-subst,
 .hljs-request,
 .hljs-status {
-	color: #034482;
+	/*color: #ff79c6;*/
 	font-weight: bold;
 }
 .hljs-title,
 .hljs-id,
 .scss .hljs-preprocessor {
-	color: #0da58e;
+	/*color: #50fa7b;*/
 }
-code.powershell.hljs {
+/*code.powershell.hljs {
 	background-color: #333;
 	color: #fff;
 	border-color: #333;
-}
+}*/
 code {
     padding: 2px 4px;
     font-size: 90%;
@@ -654,6 +654,32 @@ kbd {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Codeblock tabs */
+.md-fenced-code-tabs {
+	background: #2e3440;
+	margin-bottom: 20px;
+}
+.md-fenced-code-tabs .nav-tabs {
+	background: #252b38;
+	border-bottom: 1px solid #212838;
+}
+.md-fenced-code-tabs .nav-tabs .nav-item .nav-link {
+	font-size: 12px;
+    font-weight: 600;
+    border: none;
+    color: #818a91;
+}
+.md-fenced-code-tabs .nav-tabs .nav-item .nav-link.active {
+	background-color: #3f4552;
+	border: none;
+	border-bottom: 1px solid #18a19a;
+	color: #f8f8f8;
+	border-radius: 0;
+}
+.md-fenced-code-tabs pre {
+	margin: 0;
 }
 
 @media (min-width: 1200px) {
