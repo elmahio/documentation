@@ -73,7 +73,7 @@ Click one of the integrations below or continue reading to learn more about Hear
         <a href="/logging-heartbeats-from-net-core-worker-services/" title="Worker Services">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="Worker Services" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="Worker Services" />
                 </div>
                 <div class="guide-title">Worker Services</div>
             </div>
