@@ -9,110 +9,120 @@ Welcome to the quick start installation guide. Here you will find a quick introd
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-elmah/" title="ASP.NET">
+        <a href="/logging-to-elmah-io-from-elmah/" title="ASP.NET">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/aspnet.png" alt="ASP.NET" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET" />
                 </div>
                 <div class="guide-title">ASP.NET</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/" title="ASP.NET MVC">
+        <a href="/logging-to-elmah-io-from-aspnet-mvc/" title="ASP.NET MVC">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/aspnet.png" alt="ASP.NET MVC" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET MVC" />
                 </div>
                 <div class="guide-title"><span>ASP.NET MVC</span></div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-web-api/" title="ASP.NET Web API">
+        <a href="/logging-to-elmah-io-from-web-api/" title="ASP.NET Web API">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/aspnet.png" alt="ASP.NET Web API" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET Web API" />
                 </div>
                 <div class="guide-title">ASP.NET Web API</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/" title="ASP.NET Core">
+        <a href="/logging-to-elmah-io-from-aspnet-core/" title="ASP.NET Core">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/aspnetcore.png" alt="ASP.NET Core" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core" />
                 </div>
                 <div class="guide-title">ASP.NET Core</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
+        <a href="/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging" />
+                    <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging" />
                 </div>
                 <div class="guide-title">MEL</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-serilog/" title="Serilog">
+        <a href="/logging-to-elmah-io-from-azure-functions/" title="Azure Functions">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/serilog.png" alt="Serilog" />
+                    <img class="no-lightbox" src="/./assets/img/guides/azure-functions.png" alt="Azure Functions" />
+                </div>
+                <div class="guide-title">Functions</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-to-elmah-io-from-serilog/" title="Serilog">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/serilog.png" alt="Serilog" />
                 </div>
                 <div class="guide-title">Serilog</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-log4net/" title="log4net">
+        <a href="/logging-to-elmah-io-from-log4net/" title="log4net">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/log4net.png" alt="log4net" />
+                    <img class="no-lightbox" src="/./assets/img/guides/log4net.png" alt="log4net" />
                 </div>
                 <div class="guide-title">log4net</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-nlog/" title="NLog">
+        <a href="/logging-to-elmah-io-from-nlog/" title="NLog">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/nlog.png" alt="NLog" />
+                    <img class="no-lightbox" src="/./assets/img/guides/nlog.png" alt="NLog" />
                 </div>
                 <div class="guide-title">NLog</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-logary/" title="Logary">
+        <a href="/logging-to-elmah-io-from-logary/" title="Logary">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/logary.png" alt="Logary" />
+                    <img class="no-lightbox" src="/./assets/img/guides/logary.png" alt="Logary" />
                 </div>
                 <div class="guide-title">Logary</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-umbraco/" title="Umbraco">
+        <a href="/logging-to-elmah-io-from-umbraco/" title="Umbraco">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/umbraco.png" alt="Umbraco" />
+                    <img class="no-lightbox" src="/./assets/img/guides/umbraco.png" alt="Umbraco" />
                 </div>
                 <div class="guide-title">Umbraco</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="https://docs.elmah.io/logging-to-elmah-io-from-javascript/" title="JavaScript">
+        <a href="/logging-to-elmah-io-from-javascript/" title="JavaScript">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="assets/img/guides/javascript.png" alt="JavaScript" />
+                    <img class="no-lightbox" src="/./assets/img/guides/javascript.png" alt="JavaScript" />
                 </div>
                 <div class="guide-title">JavaScript</div>
             </div>

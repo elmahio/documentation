@@ -106,8 +106,10 @@ $(document).ready(function(){
 
     	function searchData(data) {
 
-    		let container = $("#searchList");
-    		let options = {
+			console.log(data);
+
+    		var container = $("#searchList");
+    		var options = {
 				shouldSort: true,
 				tokenize: true,
 				threshold: 0,
@@ -120,10 +122,10 @@ $(document).ready(function(){
 				]
 			};
 
-			let fuse = new Fuse(data.docs, options);
+			var fuse = new Fuse(data.docs, options);
 
 			$('#search').on('keyup', function(){
-				let result = fuse.search(this.value);
+				var result = fuse.search(this.value);
 				if(result.length === 0) {
 					container.html('');
 				} else {

@@ -6,7 +6,78 @@ Deployment tracking creates an overview of the different versions of your softwa
 
 To set up deployment tracking, you will need to tell elmah.io when you release, using our REST API or one of the integrations:
 
-> insert technology boxes here
+<div class="guides-boxes row">
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-powershell/" title="PowerShell">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/powershell.png" alt="PowerShell" />
+                </div>
+                <div class="guide-title">PowerShell</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-octopus-deploy/" title="Octopus Deploy">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/octopus-deploy.png" alt="Octopus Deploy" />
+                </div>
+                <div class="guide-title">Octopus Deploy</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-azure-devops-releases/" title="Azure DevOps">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/azure-devops.png" alt="Azure DevOps" />
+                </div>
+                <div class="guide-title">Azure DevOps</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-github-actions/" title="GitHub Actions">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/github-actions.png" alt="GitHub Actions" />
+                </div>
+                <div class="guide-title">GitHub Actions</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-umbraco-cloud/" title="Umbraco Cloud">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/umbraco.png" alt="Umbraco Cloud" />
+                </div>
+                <div class="guide-title">Umbraco Cloud</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-bitbucket-pipelines/" title="Bitbucket Pipelines">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/bitbucket.png" alt="Bitbucket Pipelines" />
+                </div>
+                <div class="guide-title">Bitbucket Pipelines</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/create-deployments-from-atlassian-bamboo/" title="Bamboo">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/bamboo.png" alt="Bamboo" />
+                </div>
+                <div class="guide-title">Bamboo</div>
+            </div>
+        </a>
+    </div>
+</div>
 
 Deployments are as default created on all of your logs, but this can be tweaked. More about this later.
 

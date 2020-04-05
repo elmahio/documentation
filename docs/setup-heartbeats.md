@@ -8,7 +8,78 @@ elmah.io Heartbeats complements the Error Logging and Uptime Monitoring features
 
 Click one of the integrations below or continue reading to learn more about Heartbeats:
 
-> Insert technology boxes here
+<div class="guides-boxes row">
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-asp-net-core/" title="ASP.NET Core">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core" />
+                </div>
+                <div class="guide-title">ASP.NET Core</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-azure-functions/" title="Azure Functions">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/azure-functions.png" alt="Azure Functions" />
+                </div>
+                <div class="guide-title">Functions</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-powershell/" title="PowerShell">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/powershell.png" alt="PowerShell" />
+                </div>
+                <div class="guide-title">PowerShell</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-curl/" title="cURL">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/curl.png" alt="cURL" />
+                </div>
+                <div class="guide-title">cURL</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-umbraco/" title="Umbraco">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/umbraco.png" alt="Umbraco" />
+                </div>
+                <div class="guide-title">Umbraco</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-hangfire/" title="Hangfire">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/hangfire.png" alt="Hangfire" />
+                </div>
+                <div class="guide-title">Hangfire</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-net-core-worker-services/" title="Worker Services">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="Worker Services" />
+                </div>
+                <div class="guide-title">Worker Services</div>
+            </div>
+        </a>
+    </div>
+</div>
 
 To better understand Heartbeats, let's create a simple example. For detailed instructions on how to set up Heartbeats in different languages and frameworks, select one of the specific articles in the left menu.
 
