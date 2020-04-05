@@ -27,7 +27,7 @@ void ErrorLog_Logged(object sender, Elmah.ErrorLoggedEventArgs args)
 {
     if (args.Entry.Error.StatusCode == 500)
     {
-        var elmahIoLog = new Elmah.Io.ErrorLog(...);
+        var elmahIoLog = new Elmah.Io.ErrorLog(/*...*/);
         elmahIoLog.Log(args.Entry.Error);
     }
 }

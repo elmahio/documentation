@@ -100,7 +100,7 @@ The response body looks like this:
       "dateTime": "2016-07-03T14:25:46.087857Z",
       "severity": "Information"
     },
-    ...
+    // ...
   ],
   "total": 42
 }

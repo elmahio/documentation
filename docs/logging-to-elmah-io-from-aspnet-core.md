@@ -10,8 +10,17 @@ If you are looking to log all uncaught errors from ASP.NET Core, you've come to 
 
 To log all warnings and errors from ASP.NET Core, install the following NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore
 ```
 
 Call `AddElmahIo` in the `ConfigureServices`-method in the `Startup.cs` file:
@@ -24,7 +33,7 @@ public void ConfigureServices(IServiceCollection services)
         o.ApiKey = "API_KEY";
         o.LogId = new Guid("LOG_ID");
     });
-    ...
+    // ...
 }
 ```
 
@@ -35,9 +44,9 @@ Call `UseElmahIo` in the `Configure`-method in the `Startup.cs` file:
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
 {
-    ...
+    // ...
     app.UseElmahIo();
-    ...
+    // ...
 }
 ```
 
@@ -51,7 +60,7 @@ If you have different environments (everyone have a least localhost and producti
 
 ```json
 {
-  ...
+  // ...
   "ElmahIo": {
     "ApiKey": "API_KEY",
     "LogId": "LOG_ID"
@@ -76,9 +85,9 @@ Finally, call the `UseElmahIo`-method (as you would do with config in C# too):
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    ...
+    // ...
     app.UseElmahIo();
-    ...
+    // ...
 }
 ```
 
@@ -148,7 +157,7 @@ While elmah.io supports [ignore rules](https://docs.elmah.io/creating-rules-to-p
 ```csharp
 services.AddElmahIo(o =>
 {
-    ...
+    // ...
     o.OnFilter = message =>
     {
         return message.Type == "System.NullReferenceException";
@@ -186,7 +195,7 @@ A default exception formatter is used to format any exceptions, before sending t
 ```csharp
 services.AddElmahIo(o =>
 {
-    ...
+    // ...
     o.ExceptionFormatter = new DefaultExceptionFormatter();
 }
 ```
@@ -200,7 +209,7 @@ As default, uncaught exceptions (500's) and 404's are logged automatically. Let'
 ```csharp
 services.AddElmahIo(o =>
 {
-    ...
+    // ...
     o.HandledStatusCodesToLog = new List<int> { 400 };
 }
 ```
@@ -212,7 +221,7 @@ Since ASP.NET Core no longer support proxy configuration through `web.config`, y
 ```csharp
 services.AddElmahIo(o =>
 {
-    ...
+    // ...
     o.WebProxy = new System.Net.WebProxy("localhost", 8888);
 }
 ```
@@ -238,11 +247,11 @@ Then configure the elmah.io publisher as part of initializing health checks:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    ...
+    // ...
     services
         .AddHealthChecks()
         .AddElmahIoPublisher("API_KEY", new Guid("LOG_ID"));
-    ...
+    // ...
 }
 ```
 

@@ -2,10 +2,19 @@
 
 > Please notice that we currently support server-side Blazor only. When client-side Blazor is officially released, we will make sure to follow along.
 
-To start logging to elmah.io from Blazor, install the following NuGet package:
+To start logging to elmah.io from Blazor, install the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Extensions.Logging
 ```
 
 In the `Startup.cs` file, add elmah.io logging configuration:
@@ -13,7 +22,6 @@ In the `Startup.cs` file, add elmah.io logging configuration:
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Elmah.Io.Extensions.Logging;
-...
 
 namespace MyBlazorApp
 {
@@ -30,7 +38,7 @@ namespace MyBlazorApp
             );
         }
 
-        ...
+        // ...
     }
 }
 ```
@@ -43,7 +51,7 @@ Exceptions can be logged manually, by injecting an `ILogger` into your view and 
 @using Microsoft.Extensions.Logging
 @inject ILogger<FetchData> logger
 
-...
+<!-- ... -->
 
 @functions {
     WeatherForecast[] forecasts;
@@ -68,7 +76,7 @@ Exceptions can be logged manually, by injecting an `ILogger` into your view and 
 @using Microsoft.Extensions.Logging
 @inject ILogger<Counter> logger
 
-...
+<!-- ... -->
 
 @functions {
     int currentCount = 0;

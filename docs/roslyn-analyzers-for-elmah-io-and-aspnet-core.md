@@ -21,7 +21,7 @@ All issues are listed as warnings in the *Error list* as well. The following is 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddElmahIo(...); //👈
+    services.AddElmahIo(/*...*/); //👈
 }
 ```
 
@@ -49,7 +49,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     }
     else
     {
-        app.UseExceptionHandler(...);
+        app.UseExceptionHandler(/*...*/);
     }
 
     app.UseAuthentication();
@@ -58,6 +58,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseElmahIo(); //👈
 
     app.UseEndpoints();
-    app.UseMvc(...);
+    app.UseMvc(/*...*/);
 }
 ```

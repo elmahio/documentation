@@ -1,11 +1,23 @@
-# Specify API key and log ID through appSettingsWhen integrating to elmah.io from ASP.NET, MVC, Web API and similar, we use the open source project ELMAH to log uncaught exceptions. ELMAH requires configuration in `web.config`, which in the case of elmah.io could look something like this:```xml<elmah>    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="API_KEY" logId="LOG_ID" /></elmah>```You'd normally use web.config Transformations to specify different API keys and log IDs for different environments (see [Use multiple logs for different environments](https://docs.elmah.io/use-multiple-logs-for-different-environments/)). When hosting on Microsoft Azure (and other cloud-based offerings), a better approach is to specify configuration in the `appSettings` element and overwrite values through the web app settings in the Portal.The elmah.io clients built for ASP.NET based web frameworks support this scenario through additional attributes on the `<errorLog>` element:
+# Specify API key and log ID through appSettings
+
+When integrating to elmah.io from ASP.NET, MVC, Web API and similar, we use the open source project ELMAH to log uncaught exceptions. ELMAH requires configuration in `web.config`, which in the case of elmah.io could look something like this:
+
+```xml
+<elmah>
+    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="API_KEY" logId="LOG_ID" />
+</elmah>
+```
+
+You'd normally use web.config Transformations to specify different API keys and log IDs for different environments (see [Use multiple logs for different environments](https://docs.elmah.io/use-multiple-logs-for-different-environments/)). When hosting on Microsoft Azure (and other cloud-based offerings), a better approach is to specify configuration in the `appSettings` element and overwrite values through the web app settings in the Portal.
+
+The elmah.io clients built for ASP.NET based web frameworks support this scenario through additional attributes on the `<errorLog>` element:
 
 ```xml
 <appSettings>
     <add key="apiKeyRef" value="API_KEY" />
     <add key="logIdRef" value="LOG_ID" />
 </appSettings>
-...
+<!-- ... -->
 <elmah>
     <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKeyKey="apiKeyRef" logIdKey="logIdRef" />
 </elmah>

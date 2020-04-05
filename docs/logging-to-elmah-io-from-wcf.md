@@ -4,8 +4,17 @@ ELMAH and WCF isn't exactly known to go hand in hand. But, with a bit of custom 
 
 Let's get started. Install elmah.io into your WCF project using NuGet:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
 ```
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
@@ -72,7 +81,7 @@ We'll use the `ServiceErrorBehaviourAttribute` class for decorating endpoints wh
 [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
 public class Service1 : IService1
 {
-    ...
+    // ...
 }
 ```
 

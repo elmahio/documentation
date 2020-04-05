@@ -10,8 +10,17 @@ Scheduling recurring tasks with Hangfire is easy. Monitoring if tasks successful
 
 To publish heartbeats from Hangifre, install the `Elmah.Io.Heartbeats.Hangfire` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Heartbeats.Hangfire -IncludePrerelease
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Heartbeats.Hangfire --version 3.0.4-pre
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Heartbeats.Hangfire" Version="3.0.4-pre" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Heartbeats.Hangfire --version 3.0.4-pre
 ```
 
 For this example, we'll schedule a method named `Test` to execute every minute:
@@ -32,7 +41,7 @@ And decorate the `Test`-method with the `ElmahIoHeartbeat` attribute:
 [ElmahIoHeartbeat("API_KEY", "LOG_ID", "HEARTBEAT_ID")]
 public void Test()
 {
-    ...
+    // ...
 }
 ```
 
@@ -82,6 +91,6 @@ To use `AppSettingsElmahIoHeartbeatAttribute` simply add it to the method:
 [AppSettingsElmahIoHeartbeat]
 public void Test()
 {
-    ...
+    // ...
 }
 ```

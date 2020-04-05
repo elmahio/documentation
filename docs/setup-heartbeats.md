@@ -101,8 +101,17 @@ Copy and store the API key somewhere. Navigate back to your log and click the *I
 
 Time to do the integration. Like mentioned before, there are multiple ways of invoking the API. For this example, we'll use C#. Install the `Elmah.Io.Client` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
 ```
 
 Extend your C# with the following code:

@@ -2,11 +2,34 @@
 
 Orchard CMS is a free, open source community-focused content management system built on the ASP.NET MVC and ASP.NET Core platforms. This tutorial is written for the ASP.NET Core version of Orchard. If you want to log to elmah.io from the MVC version, you should follow our [tutorial for MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/).
 
-To start logging to elmah.io, install the following two packages (in that order):
+To start logging to elmah.io, install the `Elmah.Io.Client` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
+```
+
+Install the `Elmah.Io.AspNetCore` NuGet package:
+
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore
 ```
 
 Then modify your `Startup.cs` file:
@@ -16,7 +39,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        ...
+        // ...
         services.AddElmahIo(o =>
         {
             o.ApiKey = "API_KEY";
@@ -26,9 +49,9 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        ...
+        // ...
         app.UseElmahIo();
-        ...
+        // ...
     }
 }
 ```
@@ -41,28 +64,37 @@ Orchard uses NLog as the internal logging framework. Hooking into this pipeline 
 
 Install the `Elmah.Io.Nlog` NuGet package:
 
-```powershell
-Install-Package Elmah.Io.NLog -Pre
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.NLog
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.NLog
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.NLog" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.NLog
 ```
 
 Add the elmah.io target to the `NLog.config`-file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog ...>
+<nlog>
 
   <extensions>
-    ...
+    <!-- ... -->
     <add assembly="Elmah.Io.NLog"/>
   </extensions>
  
   <targets>
-    ...
+    <!-- ... -->
     <target name="elmahio" type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
   </targets>
 
   <rules>
-    ...
+    <!-- ... -->
     <logger name="*" minlevel="Warn" writeTo="elmahio" />
   </rules>
 </nlog>

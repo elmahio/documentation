@@ -4,10 +4,19 @@ We bet that you use at least two environments for hosting your website: localhos
 
 > To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild or third for the transformations to replace the right ELMAH config.
 
-Whether or not you want errors from localhost logged on elmah.io, start by installing the elmah.io NuGet package:
+Whether or not you want errors from localhost logged on elmah.io, start by installing the `Elmah.Io` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
 ```
 
 Then choose one of the two paths below.

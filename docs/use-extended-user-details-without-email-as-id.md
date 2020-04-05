@@ -12,7 +12,7 @@ var logger = ErrorLog.Client;
 logger.OnMessage += (sender, args) =>
 {
     if (string.IsNullOrWhiteSpace(args.Message.User)) return;
-    var db = ...;
+    var db = /*...*/;
     var user = db.GetById<User>(args.Message.User);
     args.Message.Data.Add(new Item {Key = "X-ELMAHIO-USEREMAIL", Value = user.Email});
 }
@@ -27,7 +27,7 @@ services.AddElmahIo(o =>
     o.OnMessage = message =>
     {
         if (string.IsNullOrWhiteSpace(message.User)) return;
-        var db = ...;
+        var db = /*...*/;
         var user = db.GetById<User>(message.User);
         message.Data.Add(new Item {Key = "X-ELMAHIO-USEREMAIL", Value = user.Email});
     };

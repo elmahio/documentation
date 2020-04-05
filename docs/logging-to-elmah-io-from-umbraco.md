@@ -10,8 +10,17 @@ Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbr
 
 To start utilizing elmah.io from your Umbraco site, all you need to do is install the `Elmah.Io.Umbraco` package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Umbraco
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Umbraco
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Umbraco
 ```
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
@@ -26,8 +35,17 @@ When using Umbraco Cloud, you may not have a local clone of the source code. To 
 
 * Install `Elmah.Io.Umbraco` into your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Umbraco
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Umbraco
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Umbraco
 ```
 
 * Commit and push all changes to the git respository. This will add elmah.io logging to your remote Umbraco Cloud project.
@@ -50,10 +68,19 @@ If you are running on the default Umbraco template, all nessecary configuration 
 
 ## Umbraco 7
 
-We still support Umbraco 7 through [Elmah.Io.Umbraco 3.2.35](https://www.nuget.org/packages/elmah.io.umbraco/3.2.35):
+We still support Umbraco 7 through the `Elmah.Io.Umbraco` package version `3.2.35`:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Umbraco -Version 3.2.35
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Umbraco --version 3.2.35
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Umbraco" Version="3.2.35" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Umbraco --version 3.2.35
 ```
 
 New features will be added to the updated package for Umbraco 8 only.

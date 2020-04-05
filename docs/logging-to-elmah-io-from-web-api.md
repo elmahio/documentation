@@ -6,10 +6,19 @@
 
 Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily, Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this. We've built a package for ASP.NET Web API exclusively, which installs all the necessary packages.
 
-To start logging exceptions from Web API, install the NuGet package:
+To start logging exceptions from Web API, install the `Elmah.Io.WebApi` NuGet package:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.WebApi
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.WebApi
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.WebApi" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.WebApi
 ```
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
@@ -29,9 +38,9 @@ public static class WebApiConfig
 {
     public static void Register(HttpConfiguration config)
     {
-        ...
+        // ...
         config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
-        ...
+        // ...
     }
 }
 ```
@@ -45,9 +54,9 @@ Add the following code to your `Global.asax.cs` file:
 ```csharp
 protected void Application_Start()
 {
-    ...
+    // ...
     GlobalConfiguration.Configuration.Filters.Add(new ElmahHandleErrorApiAttribute());
-    ...
+    // ...
 }
 ```
 

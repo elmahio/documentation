@@ -10,8 +10,17 @@ Serilog is a great addition to the flowering .NET logging community, described a
 
 In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications. Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
 
-```powershell
+```powershell fct_label="Package Manager"
 Install-Package Serilog.Sinks.ElmahIo
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Serilog.Sinks.ElmahIo
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Serilog.Sinks.ElmahIo" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Serilog.Sinks.ElmahIo
 ```
 
 To configure Serilog, add the following code to the Application_Start method in global.asax.cs:
@@ -142,9 +151,21 @@ Serilog provides a package for ASP.NET Core, that routes log messages from insid
 
 To use this, install the following packages:
 
-```powershell
-Install-Package Serilog.AspNetCore -DependencyVersion Highest
+```powershell fct_label="Package Manager"
+Install-Package Serilog.AspNetCore
 Install-Package Serilog.Sinks.ElmahIo
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Serilog.AspNetCore
+dotnet add package Serilog.Sinks.ElmahIo
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Serilog.AspNetCore" Version="3.*" />
+<PackageReference Include="Serilog.Sinks.ElmahIo" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Serilog.AspNetCore
+paket add Serilog.Sinks.ElmahIo
 ```
 
 Configure Serilog as usual:
@@ -190,8 +211,17 @@ Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to
 
 A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through Serilog from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Serilog` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore.Serilog
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.Serilog
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.Serilog" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.Serilog
 ```
 
 Then, call the `UseElmahIoSerilog` method in the `Configure` method in the `Startup.cs` file:
@@ -199,9 +229,9 @@ Then, call the `UseElmahIoSerilog` method in the `Configure` method in the `Star
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 {
-    ... // Exception handling middleware
+    // ... Exception handling middleware
     app.UseElmahIoSerilog();
-    ... // UseMvc etc.
+    // ... UseMvc etc.
 }
 ```
 
@@ -209,7 +239,7 @@ The middleware uses Serilog's `LogContext` feature to enrich each log message wi
 
 ```csharp
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.ElmahIo(...)
+    .WriteTo.ElmahIo(/*...*/)
     .Enrich.FromLogContext() // <-- add this line
     .CreateLogger();
 ```
@@ -220,7 +250,7 @@ While Serilog provides a great fluent C# API, some prefer to configure Serilog u
 
 ```json
 {
-    ...
+    // ...
     "Serilog":{
         "Using":[
             "Serilog.Sinks.ElmahIo"
@@ -257,8 +287,17 @@ var logger = new LoggerConfiguration()
 
 The more information you have on an error, the easier it is to find out what went wrong. Muhammad Rehan Saeed made a nice enrichment package for Serilog named `Serilog.Exceptions`. The package uses reflection on a logged exception to log additional information depending on the concrete exception type. You can install the package through NuGet:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Serilog.Exceptions
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Serilog.Exceptions
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Serilog.Exceptions" Version="5.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Serilog.Exceptions
 ```
 
 And configure it in C# code:
@@ -266,7 +305,7 @@ And configure it in C# code:
 ```csharp
 var logger = new LoggerConfiguration()
     .Enrich.WithExceptionDetails()
-    .WriteTo.ElmahIo(...)    
+    .WriteTo.ElmahIo(/*...*/)    
     .CreateLogger();
 ```
 

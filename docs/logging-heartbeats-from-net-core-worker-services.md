@@ -6,8 +6,17 @@
 
 To register heartbeats from a worker service, start by creating a new heartbeat on the elmah.io UI. For this example, we want to monitor that a Service Worker is running every 5 minutes, why we set *Interval* to 5 minutes and *Grace* to 1 minute. Next, install the `Elmah.Io.Client` NuGet package:
 
-```ps
+```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
 ```
 
 In the `Program.cs` or `Startup.cs` file (depending on where you register dependencies), register `IHeartbeats` from the elmah.io client:
