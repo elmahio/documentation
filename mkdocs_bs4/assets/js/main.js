@@ -105,9 +105,6 @@ $(document).ready(function(){
     	$.getJSON('/search/search_index.json').done(searchData);
 
     	function searchData(data) {
-
-			console.log(data);
-
     		var container = $("#searchList");
     		var options = {
 				shouldSort: true,
