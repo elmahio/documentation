@@ -35,6 +35,42 @@ Here you will a list of common errors/exceptions and how to solve them.
 
 This is most likely caused by a problem with the `System.Net.Http` NuGet package. Make sure to upgrade to the newest version (`4.3.4` as of writing this). The default template for creating a new web application, installs version `4.3.0` which is seriously flawed.
 
+### AmbiguousMatchException
+
+**Exception**
+
+```
+[AmbiguousMatchException: Multiple custom attributes of the same type found.]
+   System.Attribute.GetCustomAttribute(Assembly element, Type attributeType, Boolean inherit) +119
+   System.Reflection.CustomAttributeExtensions.GetCustomAttribute(Assembly element, Type attributeType) +16
+   Microsoft.Rest.ServiceClient`1.get_FrameworkVersion() +226
+   Microsoft.Rest.ServiceClient`1.SetDefaultAgentInfo() +93
+   Microsoft.Rest.ServiceClient`1.InitializeHttpClient(HttpClient httpClient, HttpClientHandler httpClientHandler, DelegatingHandler[] handlers) +386
+   Microsoft.Rest.ServiceClient`1..ctor(HttpClient serviceHttpClient, HttpClientHandler rootHandler, Boolean disposeHttpClient, DelegatingHandler[] delHandlers) +82
+   Microsoft.Rest.ServiceClient`1..ctor(HttpClientHandler rootHandler, DelegatingHandler[] handlers) +66
+   Elmah.Io.Client.ElmahioAPI..ctor(HttpClientHandler rootHandler, DelegatingHandler[] handlers) +104
+   Elmah.Io.Client.ElmahioAPI..ctor(ServiceClientCredentials credentials, HttpClientHandler rootHandler, DelegatingHandler[] handlers) +78
+   Elmah.Io.ErrorLog..ctor(IDictionary config) +225
+ 
+[TargetInvocationException: Exception has been thrown by the target of an invocation.]
+   System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor) +0
+   System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture) +359
+   System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes, StackCrawlMark& stackMark) +1485
+   System.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes) +298
+   System.Activator.CreateInstance(Type type, Object[] args) +34
+   Elmah.ErrorLog.GetDefaultImpl(HttpContext context) +178
+   Elmah.ServiceCenter.GetService(Object context, Type serviceType) +17
+   Elmah.ErrorLog.GetDefault(HttpContext context) +34
+   Elmah.ErrorPageBase.get_ErrorLog() +39
+   Elmah.ErrorLogPage.OnLoad(EventArgs e) +400
+   System.Web.UI.Control.LoadRecursive() +154
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +4082
+```
+
+**Solution**
+
+This is most likely caused by some other software installed on the machine hosting your website. Applications like Microsoft Monitoring Agent (Application Insights) are known for creating problems for other software running on the same machine. Pause or stop any other monitoring service to see if the problem goes away.
+
 ### Exceptions aren't logged to elmah.io when adding the `HandleError` attribute
 
 Much like custom errors, the `HandleError` attribute can swallow exceptions from your website. This means that ASP.NET MVC catches any exceptions and show the `Error.cshtml` view. To log exceptions with this setup, you will need to extend your `Error.cshtml` file:
