@@ -23,7 +23,7 @@ The example is for ASP.NET and using the `Elmah.Io.Client` package. Similar opti
 
 **Log to multiple logs**
 
-If you want to be able to rollback to another solution, in case elmah.io goes down, you can actually log to multiple error logs as described here: [Logging to multiple ELMAH logs](logging-to-multiple-elmah-logs). If you are using one of our integrations for other web and logging framework, various options are available too. This could be logging to a local file or database.
+If you want to be able to rollback to another solution, in case elmah.io goes down, you can actually log to multiple error logs as described here: [Logging to multiple ELMAH logs](/logging-to-multiple-elmah-logs/). If you are using one of our integrations for other web and logging framework, various options are available too. This could be logging to a local file or database.
 
 We constantly work to improve the uptime of the entire solution.
 
