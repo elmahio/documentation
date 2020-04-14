@@ -11,16 +11,16 @@ Scheduling recurring tasks with Hangfire is easy. Monitoring if tasks successful
 To publish heartbeats from Hangifre, install the `Elmah.Io.Heartbeats.Hangfire` NuGet package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Heartbeats.Hangfire -IncludePrerelease
+Install-Package Elmah.Io.Heartbeats.Hangfire
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Heartbeats.Hangfire --version 3.0.4-pre
+dotnet add package Elmah.Io.Heartbeats.Hangfire
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Heartbeats.Hangfire" Version="3.0.4-pre" />
+<PackageReference Include="Elmah.Io.Heartbeats.Hangfire" Version="3.*" />
 ```
 ```xml fct_label="Paket CLI"
-paket add Elmah.Io.Heartbeats.Hangfire --version 3.0.4-pre
+paket add Elmah.Io.Heartbeats.Hangfire
 ```
 
 For this example, we'll schedule a method named `Test` to execute every minute:
