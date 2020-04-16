@@ -4,8 +4,6 @@
 
 # Logging heartbeats from Hangfire
 
-> The Heartbeats feature is currently in beta and still experimental.
-
 Scheduling recurring tasks with Hangfire is easy. Monitoring if tasks successfully execute or even run can be a challenge. With elmah.io Heartbeats we provide native monitoring of Hangfire recurring taks.
 
 To publish heartbeats from Hangifre, install the `Elmah.Io.Heartbeats.Hangfire` NuGet package:

@@ -1,7 +1,5 @@
 # Logging heartbeats from Umbraco
 
-> The Heartbeats feature is currently in beta and still experimental.
-
 Umbraco comes with a nice health check feature which can carry out a range of built-in health checks as well as custom checks you may want to add. Umbraco Health Checks fits perfectly with elmah.io Heartbeats.
 
 To start publishing Umbraco Health Checks to elmah.io, create a new health check. Select *1 day* in *Interval* and *5 minutes* in *Grace*. Next, install the `Elmah.Io.Umbraco` NuGet package:
