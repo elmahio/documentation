@@ -305,7 +305,7 @@ And configure it in C# code:
 ```csharp
 var logger = new LoggerConfiguration()
     .Enrich.WithExceptionDetails()
-    .WriteTo.ElmahIo(/*...*/)    
+    .WriteTo.ElmahIo(/*...*/)
     .CreateLogger();
 ```
 
@@ -347,7 +347,9 @@ Set up destructuring from attributes:
 
 ```csharp
 Log.Logger = new LoggerConfiguration()
-    .Destructure.UsingAttributes();
+    .Destructure.UsingAttributes()
+    .WriteTo.ElmahIo(/*...*/)
+    .CreateLogger();
 ```
 
 Make sure to decorate any properties including sensitive data with the `NotLogged` attribute:
