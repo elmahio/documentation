@@ -310,3 +310,54 @@ var logger = new LoggerConfiguration()
 ```
 
 The elmah.io sink will automatically pick up the additional information and show them in the extended message details overlay. To navigate to this view, click an error on the search view. Then click the <kbd><span class="fa fa-bars"></span></kbd> button in the upper right corner to open extended message details. The information logged by `Serilog.Exceptions` are available beneath the *Data* tab.
+
+## Remove sensitive data
+
+Structured logging with Serilog is a great way to store a lot of contextual information about a log message. In some cases, it may result in sensitive data being stored in your log, though. We recommend you to remove any sensitive data from your log messages before storing them on elmah.io and anywhere else. To implement this, you can use the `OnMessage` event as already shown previously in the document:
+
+```csharp
+OnMessage = msg =>
+{
+    foreach (var d in msg.Data)
+    {
+        if (d.Key.Equals("Password"))
+        {
+            d.Value = "****";
+        }
+    }
+}
+```
+
+An alternative to replacing sensitive values manually is to use a custom destructuring package for Serilog. The following example shows how to achieve this using the `Destructurama.Attributed` package:
+
+```powershell fct_label="Package Manager"
+Install-Package Destructurama.Attributed
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Destructurama.Attributed
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Destructurama.Attributed" Version="2.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Destructurama.Attributed
+```
+
+Set up destructuring from attributes:
+
+```csharp
+Log.Logger = new LoggerConfiguration()
+    .Destructure.UsingAttributes();
+```
+
+Make sure to decorate any properties including sensitive data with the `NotLogged` attribute:
+
+```csharp
+public class LoginModel
+{
+    public string Username { get; set; }
+
+    [NotLogged]
+    public string Password { get; set; }
+}
+```
