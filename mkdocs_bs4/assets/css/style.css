@@ -342,8 +342,6 @@ blockquote a, blockquote a:visited {
 .main-content-body pre {
 	padding: 0;
 	margin: 20px 0 20px 0;
-	word-break: break-all;
-	word-wrap: break-word;
 	background-color: transparent;
 	border: 0;
 	position: relative;
