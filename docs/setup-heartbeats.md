@@ -77,6 +77,16 @@ Click one of the integrations below or continue reading to learn more about Hear
             </div>
         </a>
     </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-aws-lambdas/" title="AWS Lambda">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/aws-lambda.png" alt="AWS Lambda" />
+                </div>
+                <div class="guide-title">AWS Lambda</div>
+            </div>
+        </a>
+    </div>
 </div>
 
 To better understand Heartbeats, let's create a simple example. For detailed instructions on how to set up Heartbeats in different languages and frameworks, select one of the specific articles in the left menu.
