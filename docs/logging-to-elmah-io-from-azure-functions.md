@@ -217,3 +217,7 @@ public class MyFunction
     }
 }
 ```
+
+## Azure Functions v1
+
+The recent `Elmah.Io.Functions` package no longer supports Azure Functions v1. You can still log from Functions v1 using an older version of the package. Check out [Logging to elmah.io from Azure WebJobs](/logging-to-elmah-io-from-azure-webjobs/) for details. The guide is for Azure WebJobs but installation for Functions v1 is identical.
