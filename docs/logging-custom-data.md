@@ -55,9 +55,10 @@ Example:
 ```csharp
 Elmah.ErrorLog.GetDefault(null);
 var logger = ErrorLog.Client;
-logger.OnMessage += (sender, args) =>{
+logger.OnMessage += (sender, args) =>
+{
     if (args.Message.Data == null) args.Message.Data = new List<Item>();
-    args.Message.Data.Add(new Item { Key = "X-ELMAHIO-SEARCH-myVariable", Value = "Some funky value" });
+    args.Message.Data.Add(new Item { Key = "X-ELMAHIO-SEARCH-myVariable", Value = "Some value" });
 };
 ```
 
