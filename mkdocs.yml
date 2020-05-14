@@ -102,6 +102,7 @@ nav:
     - Logging heartbeats from Hangfire: logging-heartbeats-from-hangfire.md
     - Logging heartbeats from .NET Core Worker Services: logging-heartbeats-from-net-core-worker-services.md
     - Logging heartbeats from AWS Lambdas: logging-heartbeats-from-aws-lambdas.md
+    - Heartbeats Troubleshooting: heartbeats-troubleshooting.md
 - Deployment Tracking:
     - Set up Deployment Tracking: setup-deployment-tracking.md
     - Create deployments from PowerShell: create-deployments-from-powershell.md
