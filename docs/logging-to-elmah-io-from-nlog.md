@@ -258,17 +258,19 @@ This will create the exact same result as the example above.
 
 ## Message hooks
 
-`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Similar for all hooks is that the elmah.io NLog target must be [configured through C#](#configure-the-elmahio-target-from-code).
+`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Message hooks needs to be implemented in C#. Either [configure the elmah.io target in C#](#configuration-in-code) or fetch the target already configured in XML:
 
-> Message hooks require `Elmah.Io.NLog` version `3.4.53` or newer.
+```csharp
+var elmahIoTarget = (ElmahIoTarget)LogManager.Configuration.FindTargetByName("elmahio");
+```
+
+You also need to install the most recent version of the `Elmah.Io.Client` NuGet package to use message hooks.
 
 ### Decorating log messages
 
-To include additional information on log messages, you can use the OnMessage event when initializing the elmah.io target:
+To include additional information on log messages, you can use the `OnMessage` action:
 
 ```csharp
-var elmahIoTarget = new ElmahIoTarget();
-// ...
 elmahIoTarget.OnMessage = msg =>
 {
     msg.Version = "1.0.0";
@@ -282,8 +284,6 @@ The example above includes a version number on all errors.
 To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io target:
 
 ```csharp
-var elmahIoTarget = new ElmahIoTarget();
-// ...
 elmahIoTarget.OnError = (msg, err) =>
 {
     // Do something here
@@ -296,8 +296,6 @@ The example implements a callback if logging to elmah.io fails. How you choose t
 To ignore specific errors based on their content, you can use the OnFilter event when initializing the elmah.io target:
 
 ```csharp
-var elmahIoTarget = new ElmahIoTarget();
-// ...
 elmahIoTarget.OnFilter = msg =>
 {
     return msg.Title.Contains("trace");
