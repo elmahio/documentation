@@ -100,6 +100,8 @@ public class HomeController : Controller
 
 A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET Core project. When combining the two, you would expect the log messages to contain relevant information from the HTTP context (like URL, status code, cookies, etc.). This is not the case out of the box, since Microsoft.Extensions.Logging doesn't know which project type that includes it.
 
+> Logging HTTP context requires `Elmah.Io.Extensions.Logging` version `3.6.x` or newer.
+
 To add HTTP context properties to log messages when logging from ASP.NET Core, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
 
 ```powershell fct_label="Package Manager"
@@ -126,7 +128,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-> Logging HTTP context requires `Elmah.Io.Extensions.Logging` version `3.6.x` or newer.
+It's important to call the `UseElmahIoExtensionsLogging` method **after** any calls to `UseElmahIo`, `UseAuthentication`, and other exception handling middleware but **before** `UseMvc` and `UseEndpoints`.
 
 ## Logging custom properties
 
