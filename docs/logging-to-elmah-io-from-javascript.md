@@ -453,3 +453,20 @@ This is an example of the elmah.io.javascript `Message` object that is used in v
 ```
 
 For a complete definition, check out the `Message` interface in the [elmah.io.javascript TypeScript mappings](https://github.com/elmahio/elmah.io.javascript/blob/master/typescript/elmahio.d.ts).
+
+## Troubleshooting
+
+If errors aren't logged from JavaScript, here's a list of things to try out:
+
+- Make sure that the log with the specified ID exists.
+- Make sure that the log isn't disabled and/or contain any ignore filters that could ignore client-side errors.
+- Make sure that the API key is valid and contain the *Messages* | *Write* permission.
+- Enable debugging when initializing `elmah.io.javascript` to get additional debug and error messages from within the script printed to the browser console:
+
+```javascript
+new Elmahio({
+    apiKey: 'YOUR-API-KEY',
+    logId: 'YOUR-LOG-ID',
+    debug: true
+});
+```
