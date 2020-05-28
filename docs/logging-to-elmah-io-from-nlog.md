@@ -1,12 +1,12 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gdgwwlu1j8yh7esl?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-nlog)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/master/samples)
 
 # Logging to elmah.io from NLog
 
 [TOC]
 
-NLog is one of the most popular logging frameworks for .NET. With an active history on almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
+NLog is one of the most popular logging frameworks for .NET. With an active history of almost 10 years, the possibilities with NLog are many and it’s easy to find documentation on how to use it.
 
 To start logging messages from NLog to elmah.io, you need to install the `Elmah.Io.NLog` NuGet package:
 
@@ -86,6 +86,20 @@ The application field on elmah.io can be set globally through NLog config:
 ```
 
 Replace `APP_NAME` with the application you want logged to elmah.io
+
+### IntelliSense
+
+There is support for adding IntelliSense in Visual Studio for the `NLog.config` file. Extend the `nlog` root element like this:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:elmahio="http://www.nlog-project.org/schemas/NLog.Targets.Elmah.Io.xsd"
+      xsi:schemaLocation="http://www.nlog-project.org/schemas/NLog.Targets.Elmah.Io.xsd http://www.nlog-project.org/schemas/NLog.Targets.Elmah.Io.xsd">
+  <!-- ... -->
+</nlog>
+```
 
 ## Configuration in .NET Core
 
@@ -186,6 +200,14 @@ ConfigSettingLayoutRenderer.DefaultConfiguration = config; // 👈 add this line
 LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
 ```
 
+### IntelliSense
+
+There is support for adding IntelliSense in Visual Studio for the `NLog` section in the `appsettings.json` file. Copy and paste the following link into the *Schema* textbox above the file content:
+
+```
+https://nlog-project.org/schemas/appsettings.schema.json
+```
+
 ## Configuration in code
 
 The elmah.io target can be configured from C# code if you prefer or need to access the built-in events (see more later). The following adds logging to elmah.io:
@@ -207,9 +229,9 @@ The example will log all log levels to elmah.io. For more information about how 
 
 NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) to all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
 
-With custom properties, you can log additional key/value pairs with every log message. The elmah.io appender for NLog, supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
+With custom properties, you can log additional key/value pairs with every log message. The elmah.io target for NLog supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
 
-One way to log custom properties with NLog and elmah.io, is to use the overload of each logging-method that takes a `LogEventInfo` object as parameter:
+One way to log custom properties with NLog and elmah.io is to use the overload of each logging-method that takes a `LogEventInfo` object as a parameter:
 
 ```csharp
 var infoMessage = new LogEventInfo(LogLevel.Info, "", "This is an information message");
@@ -217,7 +239,7 @@ infoMessage.Properties.Add("Some Property Key", "Some Property Value");
 log.Info(infoMessage);
 ```
 
-This saves the information message in elmah.io with a custom property with key `Some Property Key`and value `Some Property Value`.
+This saves the information message in elmah.io with a custom property with key `Some Property Key` and value `Some Property Value`.
 
 As of NLog 4.5, structured logging is supported as well. To log a property as part of the log message, use the new syntax as shown here:
 
@@ -245,7 +267,7 @@ logger.Info()
       .Write();
 ```
 
-If you want to use the normal logging methods like `Info` and `Error`, you can do so in junction with the `MappedDiagnosticsLogicalContext` class, also provided by NLog:
+If you want to use the normal logging methods like `Info` and `Error`, you can do so injunction with the `MappedDiagnosticsLogicalContext` class, also provided by NLog:
 
 ```csharp
 using (MappedDiagnosticsLogicalContext.SetScoped("User", "T-800"))
@@ -254,11 +276,11 @@ using (MappedDiagnosticsLogicalContext.SetScoped("User", "T-800"))
 }
 ```
 
-This will create the exact same result as the example above.
+This will create the same result as the example above.
 
 ## Message hooks
 
-`Elmah.Io.NLog` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core. Message hooks needs to be implemented in C#. Either [configure the elmah.io target in C#](#configuration-in-code) or fetch the target already configured in XML:
+`Elmah.Io.NLog` provides message hooks similar to the integrations with ASP.NET and ASP.NET Core. Message hooks need to be implemented in C#. Either [configure the elmah.io target in C#](#configuration-in-code) or fetch the target already configured in XML:
 
 ```csharp
 var elmahIoTarget = (ElmahIoTarget)LogManager.Configuration.FindTargetByName("elmahio");
@@ -304,6 +326,10 @@ elmahIoTarget.OnFilter = msg =>
 
 The example above ignores any log messages with the word `trace` in the title.
 
+## Include HTTP context in ASP.NET and ASP.NET Core
+
+When logging through NLog from a web application, you may want to include HTTP contextual information like the current URL, status codes, server variables, etc. NLog provides two web-packages to include this information. For ASP.NET, MVC, and Web API you can install the `NLog.Web` NuGet package. For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fill in all possible fields on messages sent to elmah.io.
+
 ## Troubleshooting
 
 Here are some things to try out if logging from NLog to elmah.io doesn't work:
@@ -313,5 +339,5 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
 - Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
 - Make sure to include a valid log ID.
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
-- Always make sure to call `LogManager.Shutdown()` before existing the application to make sure that all log messages are flushed.
+- Always make sure to call `LogManager.Shutdown()` before exiting the application to make sure that all log messages are flushed.
 - Extend the `nlog` element with `internalLogLevel="Warn" internalLogFile="c:\temp\nlog-internal.log` and inspect that log file for any internal NLog errors.
