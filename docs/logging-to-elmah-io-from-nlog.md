@@ -328,7 +328,17 @@ The example above ignores any log messages with the word `trace` in the title.
 
 ## Include HTTP context in ASP.NET and ASP.NET Core
 
-When logging through NLog from a web application, you may want to include HTTP contextual information like the current URL, status codes, server variables, etc. NLog provides two web-packages to include this information. For ASP.NET, MVC, and Web API you can install the `NLog.Web` NuGet package. For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fill in all possible fields on messages sent to elmah.io.
+When logging through NLog from a web application, you may want to include HTTP contextual information like the current URL, status codes, server variables, etc. NLog provides two web-packages to include this information. For ASP.NET, MVC, and Web API you can install the `NLog.Web` NuGet package and include the following code in `web.config`:
+
+```xml
+<system.webServer>
+  <modules runAllManagedModulesForAllRequests="true">
+    <add name="NLog" type="NLog.Web.NLogHttpModule, NLog.Web" />
+  </modules>
+</system.webServer>
+```
+
+For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fill in all possible fields on messages sent to elmah.io.
 
 ## Troubleshooting
 
