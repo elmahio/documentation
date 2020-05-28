@@ -1,36 +1,44 @@
+---
+title: Integrate elmah.io with Zapier
+description: Learn how to integrate elmah.io with more than 2,000 online tools using our custom build integration with Zapier.
+---
+
 # Integrate with Zapier
 
-In short, Zapier is the place to go, if you need to integrate two or more online systems. In this article we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In case of elmah.io, the trigger available is when new messages are logged to your log. Actions exists on the other side of the integration and tells Zapier what to do every time a trigger is fired. Hundreds of actions exist, in this example we use the GitHub action to create a new issue every time a new message is logged.
+Zapier is the place to go if you need to integrate two or more online systems. In this article, we use an integration point provided by elmah.io and Zapier called a trigger. A trigger is (as the name suggest) something that triggers an action in Zapier. In the case of elmah.io, the trigger available is when new errors are logged to your log. Actions exist on the other side of the integration and tell Zapier what to do every time a trigger is fired. This guide will show you how to set up the trigger. What action you want to execute when new errors are logged will depend on the tools and workflows used in your organization.
 
-Create a new account on Zapier.com. Then click the Make a New Zap button. The create new Zap page is shown:
+Create a new account on zapier.com. Then click the *Make a Zap* button. The create new Zap page is shown:
 
 ![Choose a trigger and action](images/choose_a_trigger_and_action.png)
 
-Select elmah.io in the _Choose a Trigger app…_ dropdown and then select _New Error_ in the _Choose a Trigger…_ dropdown. In the _Choose an Action app…_ select _GitHub_ and select _Create Issue_ in the _Choose an Action…_ dropdown.
+Search for *elmah.io* in the search field and select the app and the *New Error* trigger:
 
-![Choose a trigger and action](images/choose_a_trigger_and_action_filled.png)
+![App and trigger selected](images/elmah_io_and_trigger_selected.png)
 
-This configuration tells Zapier to create a new issue at GitHub, every time a new error is logged in elmah.io. The action could be one of the hundreds of other integrations available at Zapier. Click Continue.
+Click *Continue* and you will be presented with the following screen:
 
-In Section 2 select the _Connect a different elmah.io Account_ and input a name and the log id of the log you want to integrate:
+![Choose elmah.io account](images/choose_elmah_io_account.png)
 
-![Connect your elmah.io account](images/connect_elmah_io_account.png)
+Click the search dropdown and select *Add a New Account* or select an existing account if you have already set up other zaps using elmah.io. Adding a new account will show a popup asking you to sign in to elmah.io:
 
-Authorize your GitHub account (or whatever integration you’ve selected in the action step) and click _Continue_. Step 4 isn’t mandatory, but here you will be able to setup additional constraints to the Zap. If you’re using elmah.io for other than errors, you can tell Zapier only to create a new GitHub issue when the message is an actual error:
+![Sign in to elmah.io popup](images/sign_into_elmah_io_zapier_popup.png)
 
-![Setup filter](images/filter_elmah_io_triggers.png)
+Sign in with your elmah.io username/password or social provider. On the following screen you will be asked to authorize elmah.io to notify Zapier every time a new error is logged in a log selected on a later stage:
 
-In Step 5 you specify how the new issue should create created. In this example I’ve chosen the GitHub project for our open source client. For the title, I use two of the variables available from the elmah.io action. For a complete list of variables, click the Insert button next to each textbox. The variable will look something like this “MyApp: An error occurred”. The issue body contains the detail of the error (typically a stacktrace). Finally, I’ve selected _bug_ as a label.
+![Authorize zapier and elmah.io](images/authorize_elmah_io_and_zapier.png)
 
-![Match up elmah.io Error to GitHub issue](images/match_up_elmah_io_error_to_github_issue.png)
+Click the *Authorize* button and your account will be added to the account list on Zapier:
 
-Test the Zap and hit _Continue_:
+![elmah.io account selected on Zapier](images/elmah_io_account_selected_on_zapier.png)
 
-![Test this Zap](images/test_this_zap.png)
+Click *Continue*. In the following step you will select the elmah.io log that you want to integrate with Zapier:
 
-Finally, name your Zap and click the _Turn Zap on_ button:
+![Select elmah.io log](images/select_log_on_zapier.png)
 
-![Name and turn this Zap on](images/name_and_turn_this_zap_on.png)
+The dropdown contains all of the logs you have access to within your organization. Select a log and click *Continue*. In the following step you will test the trigger:
 
-When future errors are logged in your elmah.io log, a GitHub issue is automatically created. How awesome is that!
+![Test trigger](images/test_zapier_trigger.png)
 
+Click *Test trigger* and Zapier will pull recent errors from the chosen log. Select the error the represents how a typical error in the chosen log looks like. The values from the chosen error will be used when filling in the action, why selecting a good example in this step can make it easier to configure later on.
+
+When you are done, click the *Continue* button. The elmah.io trigger is now configured. Select an app and event of your choice to create actions on the newly created trigger.
