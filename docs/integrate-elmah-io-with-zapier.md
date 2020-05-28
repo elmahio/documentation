@@ -9,7 +9,7 @@ Zapier is the place to go if you need to integrate two or more online systems. I
 
 Create a new account on zapier.com. Then click the *Make a Zap* button. The create new Zap page is shown:
 
-![Choose a trigger and action](images/choose_a_trigger_and_action.png)
+![Choose a trigger and action](images/choose_a_trigger_and_action2.png)
 
 Search for *elmah.io* in the search field and select the app and the *New Error* trigger:
 
