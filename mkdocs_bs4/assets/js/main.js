@@ -123,13 +123,19 @@ $(document).ready(function(){
 
 			$('#search').on('keyup', function(){
 				var result = fuse.search(this.value);
-				if(result.length === 0) {
+
+				// prevent displaying duplicates on search
+				var filteredResults = result.filter(function(res) {
+					return res.location.match(/(\/#)/g) === null;
+				});
+
+				if(filteredResults.length === 0) {
 					container.html('');
 				} else {
 					container.html('');
 	    			container.append("<ul><h3>Search results</h3></ul>");
 	    		}
-				result.forEach(function(value){
+				filteredResults.forEach(function(value){
 					$("#searchList ul").append("<li><a href='../"+ value.location +"'>" + value.title + "</a></li>");
 				});
 			});
