@@ -17,9 +17,9 @@ Search for *elmah.io* in the search field and select the app and the *New Error*
 
 Click *Continue* and you will be presented with the following screen:
 
-![Choose elmah.io account](images/choose_elmah_io_account.png)
+![Choose elmah.io account](images/choose_elmah_io_account2.png)
 
-Click the search dropdown and select *Add a New Account* or select an existing account if you have already set up other zaps using elmah.io. Adding a new account will show a popup asking you to sign in to elmah.io:
+Click the *Sign in to elmah.io* button or select an existing account if you have already set up other zaps using elmah.io. Adding a new account will show a popup asking you to sign in to elmah.io:
 
 ![Sign in to elmah.io popup](images/sign_into_elmah_io_zapier_popup.png)
 
