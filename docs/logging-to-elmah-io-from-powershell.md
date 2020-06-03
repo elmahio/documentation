@@ -1,6 +1,6 @@
 # Logging to elmah.io from PowerShell
 
-In order for you to be able to log to elmah.io from PowerShell, you will need the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package. This package contains the raw client libraries for communicating with the [elmah.io API](https://elmah.io/api/v2).
+In order for you to be able to log to elmah.io from PowerShell, you will need the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package. This package contains the raw client libraries for communicating with the [elmah.io API](https://api.elmah.io/swagger/index.html).
 
 First of all, you will need to include `elmah.io.client.dll` in your PowerShell script. How you do this is entirely up to you of course. You can place this assembly with your script or you can download it through NuGet on every execution. To download the elmah.io.client package through NuGet, you will need `nuget.exe`:
 

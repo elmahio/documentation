@@ -2,11 +2,11 @@
 
 [TOC]
 
-Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities using the API in a use case driven approach. For a details reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/ui/index) or the [API V2 documentation](https://elmah.io/api/v2).
+Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities using the API in a use case driven approach. For a details reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/ui/index).
 
 ## Security
 
-Security in V3 of our API is implemented using API keys ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). When creating a new organization, a default API key is automatically created.
+Security is implemented using API keys ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). When creating a new organization, a default API key is automatically created.
 
 You can create new keys and revoke an existing key, if you suspect that the key has been compromised. The API key acts as a secret and should not be available to people outside your team/organization.
 
@@ -16,8 +16,6 @@ All requests to the elmah.io API needs the API key as either a HTTP header or qu
 GET https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY
 ```
 
-API V2 doesn't require (or support) API keys, why someone could extract information from your log using the log ID only. The log ID is used to tell elmah.io which log to put a new error into, when logged from your application ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). As long as V2 of our API is available, the log ID needs to be kept secret as well.
-
 ## Messages
 
 ### Creating messages
@@ -25,11 +23,7 @@ API V2 doesn't require (or support) API keys, why someone could extract informat
 Before doing anything, we will need some messages to play with. The `Create Message` endpoint does just that. To create a simple message, POST to:
 
 ```bash
-# API V3
 POST https://api.elmah.io/v3/messages/LOG_ID
-
-# API V2
-POST https://elmah.io/api/v2/messages?logid=LOG_ID
 ```
 
 with a JSON body:
@@ -51,11 +45,7 @@ If everything where successful, the API returns a HTTP status code of `201` and 
 In the example above, the API returned the URL for getting the newly created message:
 
 ```bash
-# API V3
 GET https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3
-
-# API V2
-GET https://elmah.io/api/v2/messages?id=81C7C282C9FDAEA3&logid=LOG_ID
 ```
 
 By making a GET request to this URL, we get back the message details:
@@ -76,11 +66,7 @@ As shown in the returned body, elmah.io automatically inserted some missing fiel
 For the demo, we have inserted a couple of additional messages, which leads us to the next endpoint: searching messages. The search endpoint shares the root path with the get message endpoint, but only take a log ID. The simplest possible configuration, queries the API for a list of the 15 most recent messages by calling:
 
 ```bash
-# API V3
 GET https://api.elmah.io/v3/messages/LOG_ID
-
-# API V2
-GET https://elmah.io/api/v2/messages?logid=LOG_ID
 ```
 
 The response body looks like this:
@@ -111,11 +97,7 @@ For simplicity, the response has been simplified by not showing all of the resul
 Returning all messages may be fine, but being able to search by terms is even more fun. To search, use the `query`, `from` and `to` parameters as shown here:
 
 ```bash
-# API V3
 GET https://api.elmah.io/v3/messages/LOG_ID?query=another
-
-# API V2
-GET https://elmah.io/api/v2/messages?logid=LOG_ID?query=another
 ```
 
 Searching for `another` will return the following response:
@@ -141,11 +123,7 @@ Now only `81C7C282C9FDAEA3` shows up, since that message contains the text `anot
 When fixing the bug causing an error logged at elmah.io, you may want to delete the error. Deleting a single error is as easy as fetching it. Create a DELETE request to the errors unique URL:
 
 ```bash
-# API V3
 DELETE https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3
-
-# API V2
-DELETE https://elmah.io/api/v2/messages?id=81C7C282C9FDAEA3&logid=LOG_ID
 ```
 
 When successfully deleted, the delete endpoint returns a HTTP status code of `200`.
@@ -155,11 +133,7 @@ When successfully deleted, the delete endpoint returns a HTTP status code of `20
 Deleting messages one by one can be tedious work. To delete multiple errors, you can utilize the Delete Messages endpoint by creating a DELETE request to:
 
 ```bash
-# API V3
 DELETE https://api.elmah.io/v3/messages/LOG_ID
-
-# API V2
-DELETE https://elmah.io/api/v2/messages?logid=LOG_ID
 ```
 
 The request **must** contain a body with at least a query:
@@ -179,11 +153,7 @@ Depending on your use case, you may want to hide a message, rather than deleting
 To hide a message, use the `_hide` endpoints like this:
 
 ```bash
-# API V3
 POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_hide
-
-# API V2
-POST https://elmah.io/api/v2/messages/_hide?id=99CDEA3D6A631F09&logid=LOG_ID
 ```
 
 If successful, the endpoint returns a HTTP status code of `200`.

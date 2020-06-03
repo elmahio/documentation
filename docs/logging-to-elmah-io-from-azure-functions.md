@@ -23,7 +23,7 @@ dotnet add package Elmah.Io.Functions
 paket add Elmah.Io.Functions
 ```
 
-The elmah.io integration for Azure Functions v2 uses function filters and dependency injection part of the `Microsoft.Azure.Functions.Extensions` package. To configure elmah.io, open the `Startup.cs` file or create a new one if not already there. In the `Configure`-method, add the elmah.io options and exception filter:
+The elmah.io integration for Azure Functions uses function filters and dependency injection part of the `Microsoft.Azure.Functions.Extensions` package. To configure elmah.io, open the `Startup.cs` file or create a new one if not already there. In the `Configure`-method, add the elmah.io options and exception filter:
 
 ```csharp
 using Elmah.Io.Functions;

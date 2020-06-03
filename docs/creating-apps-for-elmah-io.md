@@ -117,15 +117,13 @@ Input the bin ID and click the *Save* button.
 To test that everything is working, you can use elmah.io's API to publish a new message to your log, which should match the query specified in `manifest.json`:
 
 ```powershell
-curl -H "Content-Type: application/json" -X POST -d '{"title": "Manual error", "severity": "Error"}' https://elmah.io/api/v2/messages?logId=MyLogId
+curl -H "Content-Type: application/json" -X POST -d '{"title": "Manual error", "severity": "Error"}' https://api.elmah.io/v3/messages/LOG_ID
 ```
 
-(replace `MyLogId` with your log ID)
+(replace `LOG_ID` with your log ID)
 
 Refresh the bin at RequestBin and observe the HTTP request performed by the app:
 
 ![HTTP request in RequestBin](/images/requestbin_message.png)
 
 Isn't that just the most awesome thing you have seen all day? The JSON format specified in `manifest.json` now ends up on RequestBin using a homebrewed elmah.io app.
-
-To see more examples of elmah.io apps, check out [elmah.io.apps.slack](https://github.com/elmahio/elmah.io.apps.slack), [elmah.io.apps.hipchat](https://github.com/elmahio/elmah.io.apps.hipchat) and [elmah.io.apps.github](https://github.com/elmahio/elmah.io.apps.github) all available on GitHub. We also provide a [Playground app](https://github.com/elmahio/elmah.io.apps.playground) to showcase the different types of variables. For even more information, get in contact with us. We are always happy to help, even if you're just playing around with app development for the fun of it.

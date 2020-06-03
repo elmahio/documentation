@@ -8,7 +8,7 @@
 
 elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors, requires nothing more than installing the `elmahio.js` script on your website.
 
-> Remember to <a href="https://headwayapp.co/elmah-io-changelog/deprecating-the-v2-api-68030" target="_blank" rel="noopener noreferrer">disable access to the v2 API</a> on your log and [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. Without these changes, everyone will be able to browse your logs (<a href="https://www.troyhunt.com/aspnet-session-hijacking-with-google/" target="_blank" rel="noopener noreferrer">you don't want that!</a>).
+> Remember to [generate a new API key](https://blog.elmah.io/api-key-permissions/) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
 
 ## Installation
 
