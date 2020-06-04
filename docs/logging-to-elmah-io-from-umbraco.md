@@ -66,6 +66,10 @@ All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are 
 
 If you are running on the default Umbraco template, all nessecary configuration is added during installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason aren't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configure the elmah.io sink for Serilog in your `config\serilog.user.config` file.
 
+### Different environments
+
+You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://our.umbraco.com/documentation/Umbraco-Cloud/set-up/Config-Transforms/). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
+
 ## Umbraco 7
 
 We still support Umbraco 7 through the `Elmah.Io.Umbraco` package version `3.2.35`:
