@@ -89,3 +89,19 @@ Much like custom errors, the `HandleError` attribute can swallow exceptions from
     Your error page content goes here 
 </div> 
 ```
+
+### Errors are not logged when using update panels
+
+ASP.NET Update Panels are great at many things. Unfortunately, one of those things is causing problems when trying to log server-side errors. If errors aren't logged as part of a call made from an update panel, you can try to add the following code to `Global.asax.cs`:
+
+```csharp
+protected void Application_Error(object sender, EventArgs e)
+{
+    var ex = Server.GetLastError();
+    var error = new Elmah.Error(ex);
+    error.ServerVariables.Add("URL", HttpContext.Current?.Request?.Url?.AbsolutePath);
+    error.ServerVariables.Add("HTTP_USER_AGENT", HttpContext.Current?.Request?.UserAgent);
+    error.ServerVariables.Add("REMOTE_ADDR", HttpContext.Current?.Request?.UserHostAddress);
+    Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(error);
+}
+```
