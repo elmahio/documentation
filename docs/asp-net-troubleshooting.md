@@ -105,3 +105,11 @@ protected void Application_Error(object sender, EventArgs e)
     Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(error);
 }
 ```
+
+If you start experiencing errors logged multiple times, you can remove the ELMAH module from `web.config`:
+
+```xml
+<modules>
+    <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" preCondition="managedHandler" />
+</modules>
+```
