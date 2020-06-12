@@ -397,6 +397,26 @@ class ElmahIoErrorHandler implements ErrorHandler {
 
 All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.
 
+###### AngularJS/Angular 1
+
+For AngularJS you need to implement the `$exceptionHandler` instead:
+
+```javascript
+(function () {
+  'use strict';
+  angular.module('app').factory('$exceptionHandler', ['$log', function controller($log) {
+    var logger = new Elmahio({
+      apiKey: 'API_KEY',
+      logId: 'LOG_ID'
+    });
+    return function elmahExceptionHandler(exception, cause) {
+      $log.error(exception, cause);
+      logger.error(exception.message, exception);
+    };
+  }]);
+})();
+```
+
 ##### React
 
 To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `App.js` file:
