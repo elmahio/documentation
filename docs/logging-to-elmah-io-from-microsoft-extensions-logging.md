@@ -327,3 +327,24 @@ logging.AddElmahIo(options =>
     options.BackgroundQueueSize = 5000;
 });
 ```
+
+**Uncaught errors are logged twice**
+
+If you have both `Elmah.Io.Extensions.Logging` and `Elmah.Io.AspNetCore` installed, you may see a pattern of uncaught errors being logged twice. This is because a range of middleware from Microsoft (and others) log uncaught exceptions through `ILogger`. When you have `Elmah.Io.AspNetCore` installed you typically don't want other pieces of middleware to log the same error but with fewer details.
+
+To ignore duplicate errors you need to figure out which middleware class that trigger the logging and in which namespace it is located. One or more of the following ignore filters can be added to your `Program.cs` file:
+
+```csharp
+logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware", LogLevel.None);
+logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware", LogLevel.None);
+logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Server.IIS.Core", LogLevel.None);
+```
+
+Be aware that these lines will ignore all messages from the specified class or namespace. To ignore specific errors you can implement the `OnFilter` action as shown previously in this document. Ignoring uncaught errors from IIS would look like this:
+
+```csharp
+options.OnFilter = msg =>
+{
+    return msg.TitleTemplate == "Connection ID \"{ConnectionId}\", Request ID \"{TraceIdentifier}\": An unhandled exception was thrown by the application.";
+};
+```
