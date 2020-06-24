@@ -128,7 +128,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-It's important to call the `UseElmahIoExtensionsLogging` method **after** any calls to `UseElmahIo`, `UseAuthentication`, and other exception handling middleware but **before** `UseMvc` and `UseEndpoints`.
+It's important to call the `UseElmahIoExtensionsLogging` method **after** any calls to `UseElmahIo`, `UseAuthentication`, and other exception handling middleware but **before** `UseMvc` and `UseEndpoints`. If you experience logged errors without the HTTP context, try moving the `UseElmahIoExtensionsLogging` method as the first call in the `Configure` method.
 
 ## Logging custom properties
 
