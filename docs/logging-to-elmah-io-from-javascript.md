@@ -34,7 +34,7 @@ Unpack and copy `elmahio.min.js` to the `Scripts` folder or whatever folder you 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/Scripts/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/Scripts/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
 </div>
@@ -43,7 +43,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.1.3/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.1.3/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -58,7 +58,7 @@ npm install elmah.io.javascript
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -89,7 +89,7 @@ bower install npm:elmah.io.javascript --save
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/bower_components/elmah.io.javascript/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/bower_components/elmah.io.javascript/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -120,7 +120,7 @@ libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.1
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/lib/elmahio/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/lib/elmahio/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -144,7 +144,7 @@ paket add elmah.io.javascript
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="~/Scripts/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
+<script src="~/Scripts/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -190,7 +190,7 @@ That's it. All uncaught errors on your website, are now logged to elmah.io.
 
 ## Options
 
-If you prefer configuring in code (or need to access the options for something else), API key and log ID can be configured by referencing the `elmahio.min.js` script with parameters:
+If you prefer configuring in code (or need to access the options for something else), API key and log ID can be configured by referencing the `elmahio.min.js` script without parameters:
 
 ```html
 <script src="~/scripts/elmahio.min.js" type="text/javascript"></script>
@@ -200,8 +200,8 @@ Then initialize the logger in JavaScript:
 
 ```javascript
 new Elmahio({
-    apiKey: 'YOUR-API-KEY',
-    logId: 'YOUR-LOG-ID'
+    apiKey: 'API_KEY',
+    logId: 'LOG_ID'
 });
 ```
 
@@ -211,8 +211,8 @@ The `application` property on elmah.io, can be set on all log messages by settin
 
 ```javascript
 new Elmahio({
-    apiKey: 'YOUR-API-KEY',
-    logId: 'YOUR-LOG-ID',
+    apiKey: 'API_KEY',
+    logId: 'LOG_ID',
     application: 'My application name'
 });
 ```
@@ -223,8 +223,8 @@ For debug purposes, debug output from the logger to the console can be enabled u
 
 ```javascript
 new Elmahio({
-    apiKey: 'YOUR-API-KEY',
-    logId: 'YOUR-LOG-ID',
+    apiKey: 'API_KEY',
+    logId: 'LOG_ID',
     debug: true
 });
 ```
@@ -281,8 +281,8 @@ You may want to log errors manually or even log information messages from JavaSc
 
 ```javascript
 var logger = new Elmahio({
-    apiKey: 'YOUR-API-KEY',
-    logId: 'YOUR-LOG-ID'
+    apiKey: 'API_KEY',
+    logId: 'LOG_ID'
 });
 
 logger.verbose('This is verbose');
@@ -485,8 +485,8 @@ If errors aren't logged from JavaScript, here's a list of things to try out:
 
 ```javascript
 new Elmahio({
-    apiKey: 'YOUR-API-KEY',
-    logId: 'YOUR-LOG-ID',
+    apiKey: 'API_KEY',
+    logId: 'LOG_ID',
     debug: true
 });
 ```
