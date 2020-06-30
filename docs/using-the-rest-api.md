@@ -150,10 +150,26 @@ An option for deleting messages by date range is available as well. Check out th
 
 Depending on your use case, you may want to hide a message, rather than deleting it. Hidden messages are not shown as default through neither the UI, nor the REST API. But you will be able to search for them by enabling the `Hidden` checkbox on the UI.
 
-To hide a message, use the `_hide` endpoints like this:
+To hide a message, use the `_hide` endpoint like this:
 
 ```bash
 POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_hide
 ```
 
-If successful, the endpoint returns a HTTP status code of `200`.
+If successful, the endpoint returns an HTTP status code of `200`.
+
+### Fixing a message
+
+When you have fixed a bug in your code, it's a good idea to mark any instances of this error in elmah.io as fixed. This gives a better overview of what to fix and ensure that you are notified if the error happens again.
+
+To mark a message as fixed, use the `_fix` endpoint like this:
+
+```bash
+POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix
+```
+
+If successful, the endpoint returns an HTTP status code of `200`. This will mark a single message as fixed. In case you want to mark all instances of this message as fixe, include the `markAllAsFixed` parameter:
+
+```bash
+POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix?markAllAsFixed=true
+```
