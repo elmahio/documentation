@@ -118,3 +118,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         .CaptureStartupErrors(true)
         .UseStartup<Startup>();
 ```
+
+### URL missing when using Map
+
+When handling requests with the `Map` method, ASP.NET Core will remove the path from `HttpRequest.Path`. In this case, `Elmah.Io.AspNetCore` will look for an URL in the `HttpRequest.PathBase` property. This is not already enough and won't always return the right URL. Consider using the `MapWhen` method instead.
