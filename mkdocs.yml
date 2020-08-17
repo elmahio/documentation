@@ -57,6 +57,7 @@ nav:
     - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
     - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
     - Logging from Orchard: logging-to-elmah-io-from-orchard.md
+    - Logging from Piranha CMS: logging-to-elmah-io-from-piranha-cms.md
 - Logging from something else:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
