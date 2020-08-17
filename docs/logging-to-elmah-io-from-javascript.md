@@ -43,7 +43,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.2.0/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.3.0/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -104,7 +104,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
     // ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.2.0/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.3.0/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
@@ -114,7 +114,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
 or using the LibMan CLI:
 
 ```cmd
-libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.2.0/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.3.0/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -319,6 +319,30 @@ The `Error` object used, should be a <a href="https://developer.mozilla.org/en-U
 As for the `log`-function, check out [message reference](#message-reference).
 
 > Manual logging only works when initializing the elmah.io logger from code.
+
+### Logging from console
+
+If you don't like to share the `Elmahio` logger or you want to hook elmah.io logging up to existing code, you can capture log messages from `console`. To do so, set the `captureConsoleMinimumLevel` option:
+
+```javascript
+var log = new Elmahio({
+  apiKey: 'YOUR-API-KEY',
+  logId: 'YOUR-LOG-ID',
+  captureConsoleMinimumLevel: 'error'
+});
+
+console.error('This is an %s message.', 'error');
+```
+
+`captureConsoleMinimumLevel` can be set to one of the following values:
+
+- `none`: will disable logging from console (default).
+- `debug`: will capture logging from `console.debug`, `console.info`, `console.warn`, `console.error`.
+- `info`: will capture logging from `console.info`, `console.warn`, `console.error`.
+- `warn`: will capture logging from `console.warn`, `console.error`.
+- `error`: will capture logging from `console.error`.
+
+> Capturing the console only works when initializing the elmah.io logger from code. Also, `console.log` is not captured.
 
 ## IntelliSense
 
