@@ -72,6 +72,7 @@ nav:
     - Logging from Console: logging-to-elmah-io-from-console-application.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
+    - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - HipChat: elmah-io-apps-hipchat.md
