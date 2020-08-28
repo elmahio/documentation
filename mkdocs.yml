@@ -116,6 +116,11 @@ nav:
     - Create deployments from Umbraco Cloud: create-deployments-from-umbraco-cloud.md
     - Create deployments from Bitbucket Pipelines: create-deployments-from-bitbucket-pipelines.md
     - Create deployments from Atlassian Bamboo: create-deployments-from-atlassian-bamboo.md
+- CLI:
+    - CLI overview: cli-overview.md
+    - Export: cli-export.md
+    - Log: cli-log.md
+    - Tail: cli-tail.md
 - Everything Else:
     - Managing Organisations and Users: managing-organisations-and-users.md
     - Where is my log ID: where-is-my-log-id.md
