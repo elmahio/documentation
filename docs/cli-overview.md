@@ -1,6 +1,18 @@
 # CLI overview
 
-The elmah.io CLI lets you execute common tasks against elmah.io. The tool is currently in beta and something you need to clone from GitHub and build manually. We plan to release binaries for Windows, Linux, and Mac at some point.
+The elmah.io CLI lets you execute common tasks against elmah.io.
+
+## Installing the CLI
+
+The elmah.io CLI can be installed in a number of ways. To set up everything automatically, execute the following script from the command line:
+
+```cmd
+dotnet tool install --global Elmah.Io.Cli
+```
+
+If you prefer downloading the CLI as a zip you can [download the latest version from GitHub](https://github.com/elmahio/Elmah.Io.Cli/releases). To clone and build the CLI manually, check out instructions below.
+
+## Run the CLI
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
@@ -35,25 +47,7 @@ The elmah.io CLI lets you execute common tasks against elmah.io. The tool is cur
     </div>
 </div>
 
-## Cloning the CLI
-
-Create a new folder and `git clone` the repository:
-
-```cmd
-git clone https://github.com/elmahio/Elmah.Io.Cli.git
-```
-
-## Building the CLI
-
-Navigate to the root repository of the code and execute the following command:
-
-```cmd
-dotnet build
-```
-
-## Run the CLI
-
-Binaries are available in the `/src/Elmah.Io.Cli/bin/Debug/netcoreapp3.1` folder. Run the CLI to get help:
+Run the CLI to get help:
 
 ```cmd
 elmahio --help
@@ -75,4 +69,21 @@ Options:
 Commands:
   export    Export log messages from a specified log
   log       Log a message to the specified log
+  tail      Tail log messages from a specified log
+```
+
+## Cloning the CLI
+
+Create a new folder and `git clone` the repository:
+
+```cmd
+git clone https://github.com/elmahio/Elmah.Io.Cli.git
+```
+
+## Building the CLI
+
+Navigate to the root repository of the code and execute the following command:
+
+```cmd
+dotnet build
 ```

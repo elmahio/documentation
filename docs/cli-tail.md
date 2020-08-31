@@ -4,7 +4,7 @@ title: Tail log messages from the CLI
 
 # Tail log messages from the CLI
 
-The `tail` command is used to tail log messages in a specified log
+The `tail` command is used to tail log messages in a specified log.
 
 ## Usage
 

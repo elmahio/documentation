@@ -4,7 +4,7 @@ title: Log a message from the CLI
 
 # Log a message from the CLI
 
-The `log` command is used to store a log message in a specified log
+The `log` command is used to store a log message in a specified log.
 
 ## Usage
 
