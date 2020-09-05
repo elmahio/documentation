@@ -686,10 +686,12 @@ kbd {
 .tabbable-responsive .tabbable .nav-tabs .nav-item .nav-link {
 	display: inline-block;
 }
-.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link,
+.tabbable-responsive .tabbable .nav-tabs .nav-link {
 	border-top-width: 2px;
 }
-.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link,
+.tabbable-responsive .tabbable .nav-tabs .nav-link.active {
 	color: #212529;
 	border-color: #0da58e #dee2e6 #fff;
 }

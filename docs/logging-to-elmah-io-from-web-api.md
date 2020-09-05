@@ -23,12 +23,16 @@ paket add Elmah.Io.WebApi
 
 During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
+<div class="tabbable-responsive">
+<div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-toggle="tab">Web API 2.x</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-toggle="tab">Web API 1.x</a></li>
 </ul>
+</div>
+</div>
 
-  <div class="tab-content">
+  <div class="tab-content tab-content-tabbable">
     <div role="tabpanel" class="tab-pane active" id="setup2">
 
 Add the following code to your `WebApiConfig.cs` file:
