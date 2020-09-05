@@ -14,6 +14,8 @@ elmah.io doesn't only support server-side .NET logging. We also log JavaScript e
 
 Pick an installation method of your choice:
 
+<div class="tabbable-responsive">
+<div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="nav-item"><a class="nav-link active" href="#manually" aria-controls="home" role="tab" data-toggle="tab">Manually</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#cdn" aria-controls="home" role="tab" data-toggle="tab">CDN</a></li>
@@ -23,8 +25,10 @@ Pick an installation method of your choice:
     <li role="presentation" class="nav-item"><a class="nav-link" href="#aspnetcore" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core</a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#bower" aria-controls="profile" role="tab" data-toggle="tab">Bower</a></li>
 </ul>
+</div>
+</div>
 
-  <div class="tab-content">
+ <div class="tab-content tab-content-tabbable">
 <div role="tabpanel" class="tab-pane active" id="manually">
 
 Download the latest release as a zip: [https://github.com/elmahio/elmah.io.javascript/releases](https://github.com/elmahio/elmah.io.javascript/releases)

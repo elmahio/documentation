@@ -665,6 +665,43 @@ kbd {
     justify-content: center;
 }
 
+/* tabbable tabs */
+.tabbable-responsive {
+	display: block;
+	min-width: 100%;
+	overflow-x: auto;
+}
+.tabbable-responsive + p:empty {
+	display: none;
+}
+.tabbable-responsive .tabbable {
+	min-width: 100%;
+}
+.tabbable-responsive .tabbable .nav-tabs {
+	white-space: nowrap;
+	display: inline-block;
+	min-width: 100%;
+}
+.tabbable-responsive .tabbable .nav-tabs .nav-item,
+.tabbable-responsive .tabbable .nav-tabs .nav-item .nav-link {
+	display: inline-block;
+}
+.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+	border-top-width: 2px;
+}
+.tabbable-responsive .tabbable .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+	color: #212529;
+	border-color: #0da58e #dee2e6 #fff;
+}
+.tab-content-tabbable {
+	padding: 16px 16px 0px 16px;
+	border: 1px solid #dee2e6;
+	border-top: none;
+}
+.tab-content-tabbable .tab-pane p:empty {
+	display: none;
+}
+
 /* Codeblock tabs */
 .md-fenced-code-tabs {
 	background: #2e3440;
