@@ -75,21 +75,21 @@ nav:
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
-    - HipChat: elmah-io-apps-hipchat.md
+    - Microsoft Teams: elmah-io-apps-teams.md
     - GitHub: elmah-io-apps-github.md
     - Bitbucket: elmah-io-apps-bitbucket.md
     - Jira: elmah-io-apps-jira.md
-    - Microsoft Teams: elmah-io-apps-teams.md
     - Twilio: elmah-io-apps-twilio.md
-    - BotBuster: elmah-io-apps-botbuster.md
-    - IP Filter: elmah-io-apps-ipfilter.md
-    - Mailman: elmah-io-apps-mailman.md
-    - WebClient: elmah-io-apps-webclient.md
     - YouTrack: elmah-io-apps-youtrack.md
     - GitLab: elmah-io-apps-gitlab.md
     - Azure Boards: elmah-io-apps-azure-boards.md
     - Trello: elmah-io-apps-trello.md
+    - HipChat: elmah-io-apps-hipchat.md
     - Zapier: integrate-elmah-io-with-zapier.md
+    - BotBuster: elmah-io-apps-botbuster.md
+    - IP Filter: elmah-io-apps-ipfilter.md
+    - Mailman: elmah-io-apps-mailman.md
+    - WebClient: elmah-io-apps-webclient.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
