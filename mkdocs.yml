@@ -133,6 +133,7 @@ nav:
     - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
     - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
     - Adding version information: adding-version-information.md
+    - Bot detection: bot-detection.md
     - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
     - How prices are calculated: how-prices-are-calculated.md
     - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
