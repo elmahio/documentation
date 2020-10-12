@@ -91,6 +91,52 @@ All uncaught exceptions are automatically logged to elmah.io. Exceptions can be 
 }
 ```
 
+### Include details from the HTTP context
+
+`Microsoft.Extensions.Logging` doesn't know that it is running inside a web server. That is why `Elmah.Io.Extensions.Logging` doesn't include HTTP contextual information like URL and status code as default. To do so, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.ExtensionsLogging
+```
+
+And add the following code to the `Configure` method in the `Startup.cs` file:
+
+```csharp
+app.UseElmahIoExtensionsLogging();
+```
+
+Make sure to call this method just before the call to `UseEndpoints`. This will include some of the information you are looking for.
+
+There's a problem when running Blazor Server where you will see some of the URLs logged as part of errors on elmah.io having the value `/_blazor`. This is because Blazor doesn't work like traditional websites where the client requests the server and returns an HTML or JSON response. When navigating the UI, parts of the UI are loaded through SignalR, which causes the URL to be `/_blazor`. Unfortunately, we haven't found a good way to fix this globally. You can include the current URL on manual log statements by injecting a `NavigationManager` in the top of your `.razor` file:
+
+```csharp
+@inject NavigationManager navigationManager
+```
+
+Then wrap your logging code in a new scope:
+
+```csharp
+Uri.TryCreate(navigationManager.Uri, UriKind.Absolute, out Uri url);
+using (Logger.BeginScope(new Dictionary<string, object> 
+{
+    { "url", url.AbsolutePath }
+}))
+{
+    logger.LogError(exception, "An error happened");
+}
+```
+
+The code uses the current URL from the injected `NavigationManager` object.
+
 ## Blazor WebAssembly App (wasm)
 
 > Please notice that the code for Blazor WebAssembly App is highly experimental.
