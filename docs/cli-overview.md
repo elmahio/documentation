@@ -45,6 +45,16 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
             </div>
         </a>
     </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-dataloader/" title="Dataloader">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <div class="guide-title">Dataloader</div>
+            </div>
+        </a>
+    </div>
 </div>
 
 Run the CLI to get help:
@@ -67,9 +77,10 @@ Options:
   -?, -h, --help    Show help and usage information
 
 Commands:
-  export    Export log messages from a specified log
-  log       Log a message to the specified log
-  tail      Tail log messages from a specified log
+  export      Export log messages from a specified log
+  log         Log a message to the specified log
+  tail        Tail log messages from a specified log
+  dataloader  Load a configurable number of error messages into an elmah.io log
 ```
 
 ## Cloning the CLI
