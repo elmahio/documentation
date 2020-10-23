@@ -4,13 +4,13 @@ The elmah.io CLI lets you execute common tasks against elmah.io.
 
 ## Installing the CLI
 
-The elmah.io CLI can be installed in a number of ways. To set up everything automatically, execute the following script from the command line:
+The elmah.io CLI can be installed in several ways. To set up everything automatically, execute the following script from the command line:
 
 ```cmd
 dotnet tool install --global Elmah.Io.Cli
 ```
 
-If you prefer downloading the CLI as a zip you can [download the latest version from GitHub](https://github.com/elmahio/Elmah.Io.Cli/releases). To clone and build the CLI manually, check out instructions below.
+If you prefer downloading the CLI as a zip you can [download the latest version from GitHub](https://github.com/elmahio/Elmah.Io.Cli/releases). To clone and build the CLI manually, check out the instructions below.
 
 ## Run the CLI
 
@@ -45,6 +45,16 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
             </div>
         </a>
     </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-dataloader/" title="Dataloader">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-file-import"></i>
+                </div>
+                <div class="guide-title">Dataloader</div>
+            </div>
+        </a>
+    </div>
 </div>
 
 Run the CLI to get help:
@@ -67,9 +77,10 @@ Options:
   -?, -h, --help    Show help and usage information
 
 Commands:
-  export    Export log messages from a specified log
-  log       Log a message to the specified log
-  tail      Tail log messages from a specified log
+  export        Export log messages from a specified log
+  log           Log a message to the specified log
+  tail          Tail log messages from a specified log
+  dataloader    Load 50 log messages into the specified log
 ```
 
 ## Cloning the CLI
