@@ -347,6 +347,8 @@
                   
                   <li ><a href="../cli-tail/">Tail</a></li>
                   
+                  <li ><a href="../cli-dataloader/">Dataloader</a></li>
+                  
                 </ul>
               </li>
               
@@ -407,10 +409,10 @@
             <h1 id="cli-overview">CLI overview</h1>
 <p>The elmah.io CLI lets you execute common tasks against elmah.io.</p>
 <h2 id="installing-the-cli">Installing the CLI</h2>
-<p>The elmah.io CLI can be installed in a number of ways. To set up everything automatically, execute the following script from the command line:</p>
+<p>The elmah.io CLI can be installed in several ways. To set up everything automatically, execute the following script from the command line:</p>
 <p> <pre><code class=cmd>dotnet tool install --global Elmah.Io.Cli
 </code></pre></p>
-<p>If you prefer downloading the CLI as a zip you can <a href="https://github.com/elmahio/Elmah.Io.Cli/releases">download the latest version from GitHub</a>. To clone and build the CLI manually, check out instructions below.</p>
+<p>If you prefer downloading the CLI as a zip you can <a href="https://github.com/elmahio/Elmah.Io.Cli/releases">download the latest version from GitHub</a>. To clone and build the CLI manually, check out the instructions below.</p>
 <h2 id="run-the-cli">Run the CLI</h2>
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
@@ -443,6 +445,16 @@
             </div>
         </a>
     </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-dataloader/" title="Dataloader">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-file-import"></i>
+                </div>
+                <div class="guide-title">Dataloader</div>
+            </div>
+        </a>
+    </div>
 </div>
 
 <p>Run the CLI to get help:</p>
@@ -460,9 +472,10 @@ Options:
   -?, -h, --help    Show help and usage information
 
 Commands:
-  export    Export log messages from a specified log
-  log       Log a message to the specified log
-  tail      Tail log messages from a specified log
+  export        Export log messages from a specified log
+  log           Log a message to the specified log
+  tail          Tail log messages from a specified log
+  dataloader    Load 50 log messages into the specified log
 </code></pre></p>
 <h2 id="cloning-the-cli">Cloning the CLI</h2>
 <p>Create a new folder and <code>git clone</code> the repository:</p>

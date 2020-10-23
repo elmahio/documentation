@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Exporting log messages from the CLI | elmah.io">
+    <meta name="twitter:title" content="Dataloader loads data from the CLI | elmah.io">
     
     
-    <meta property="og:title" content="Exporting log messages from the CLI | elmah.io">
+    <meta property="og:title" content="Dataloader loads data from the CLI | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/cli-export/">
+    <meta property="og:url" content="https://docs.elmah.io/cli-dataloader/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Exporting log messages from the CLI | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/cli-export/">
+    <title>Dataloader loads data from the CLI | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/cli-dataloader/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -341,13 +341,13 @@
                   
                   <li ><a href="../cli-overview/">CLI overview</a></li>
                   
-                  <li class="active"><a href="./">Export</a></li>
+                  <li ><a href="../cli-export/">Export</a></li>
                   
                   <li ><a href="../cli-log/">Log</a></li>
                   
                   <li ><a href="../cli-tail/">Tail</a></li>
                   
-                  <li ><a href="../cli-dataloader/">Dataloader</a></li>
+                  <li class="active"><a href="./">Dataloader</a></li>
                   
                 </ul>
               </li>
@@ -406,28 +406,21 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="exporting-log-messages-from-the-cli">Exporting log messages from the CLI</h1>
-<p>The <code>export</code> command is used to export one or more log messages from a log to JSON. The command will eventually replace the <a href="/export-data-from-elmah-io-to-json/">Elmah.Io.Exporter</a> tool.</p>
+            <h1 id="dataloader-loads-data-from-the-cli">Dataloader loads data from the CLI</h1>
+<p>The <code>dataloader</code> command loads 50 log messages into a specified log.</p>
 <h2 id="usage">Usage</h2>
-<p> <pre><code class=cmd>&gt; elmahio export --help
+<p> <pre><code class=cmd>&gt; elmahio dataloader --help
 
-export:
-  Export log messages from a specified log
+dataloader:
+  Load 50 log messages into the specified log
 
 Usage:
-  elmahio export [options]
+  elmahio dataloader [options]
 
 Options:
-  --apiKey &lt;apikey&gt; (REQUIRED)        An API key with permission to execute the command
-  --logId &lt;logid&gt; (REQUIRED)          The ID of the log to export messages from
-  --dateFrom &lt;datefrom&gt; (REQUIRED)    Defines the Date from which the logs start. Ex. &quot; --dateFrom 2020-08-21&quot;
-  --dateTo &lt;dateto&gt; (REQUIRED)        Defines the Date from which the logs end. Ex. &quot; --dateTo 2020-08-28&quot;
-  --filename &lt;filename&gt;               Defines the path and filename of the file to export to. Ex. &quot; -Filename
-                                      C:\myDirectory\myFile.json&quot; [default: c:\elmah.io\client-libraries\Elmah.Io.Cli\
-                                      src\Elmah.Io.Cli\bin\Debug\netcoreapp3.1\Export-637342054498905430.json]
-  --query &lt;query&gt;                     Defines the query that is passed to the API [default: *]
-  --includeHeaders                    Include headers, cookies, etc. in output (will take longer to export)
-  -?, -h, --help                      Show help and usage information
+  --apiKey &lt;apikey&gt; (REQUIRED)    An API key with permission to execute the command
+  --logId &lt;logid&gt; (REQUIRED)      The log ID of the log to import messages into
+  -?, -h, --help                  Show help and usage information
 </code></pre></p>
 
             <br/>
