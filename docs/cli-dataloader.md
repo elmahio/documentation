@@ -4,7 +4,7 @@ title: Dataloader loads data from the CLI
 
 # Dataloader loads data from the CLI
 
-The `dataloader` command loads a configurable number of error messages into a specified log.
+The `dataloader` command loads 50 log messages into a specified log.
 
 ## Usage
 
@@ -12,7 +12,7 @@ The `dataloader` command loads a configurable number of error messages into a sp
 > elmahio dataloader --help
 
 dataloader:
-  Load a configurable number of error messages into an elmah.io log
+  Load 50 log messages into the specified log
 
 Usage:
   elmahio dataloader [options]
