@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/j57ekc2k9eon3u9u?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-aspnetcore)
+[![Build status](https://github.com/elmahio/Elmah.Io.AspNetCore/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.AspNetCore.svg)](https://www.nuget.org/packages/Elmah.Io.AspNetCore)
 [![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/master/samples)
 
