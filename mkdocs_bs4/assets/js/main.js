@@ -114,6 +114,7 @@ $(document).ready(function(){
 				distance: 100,
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
+                ignoreLocation: true,
 				keys: [
 			    	"title"
 				]
@@ -139,7 +140,9 @@ $(document).ready(function(){
 					filteredResults.forEach(function(value){
 						$("#searchList ul").append("<li><a href='../"+ value.item.location +"'>" + value.item.title + "</a></li>");
 					});
-				}
+				} else {
+                    $("#searchList").empty();
+                }
 			});
     	}
 	}
