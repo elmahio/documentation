@@ -1,4 +1,3 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/n90mht5w7nhrysg3?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io-trace)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Trace.svg)](https://www.nuget.org/packages/Elmah.Io.Trace)
 
 # Logging to elmah.io from System.Diagnostics
