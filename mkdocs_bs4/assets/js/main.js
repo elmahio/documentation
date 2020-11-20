@@ -121,23 +121,25 @@ $(document).ready(function(){
 
 			var fuse = new Fuse(data.docs, options);
 
-			$('#search').on('keyup', function(){
-				var result = fuse.search(this.value);
+			$('#search').on('keyup', function() {
+				if(this.value) {
+					var result = fuse.search(this.value);
 
-				// prevent displaying duplicates on search
-				var filteredResults = result.filter(function(res) {
-					return res.location.match(/(\/#)/g) === null;
-				});
+					// prevent displaying duplicates on search
+					var filteredResults = result.filter(function(res) {
+						return res.item.location.match(/(\/#)/g) === null;
+					});
 
-				if(filteredResults.length === 0) {
-					container.html('');
-				} else {
-					container.html('');
-	    			container.append("<ul><h3>Search results</h3></ul>");
-	    		}
-				filteredResults.forEach(function(value){
-					$("#searchList ul").append("<li><a href='../"+ value.location +"'>" + value.title + "</a></li>");
-				});
+					if(filteredResults.length === 0) {
+						container.html('');
+					} else {
+						container.html('');
+						container.append("<ul><h3>Search results</h3></ul>");
+					}
+					filteredResults.forEach(function(value){
+						$("#searchList ul").append("<li><a href='../"+ value.item.location +"'>" + value.item.title + "</a></li>");
+					});
+				}
 			});
     	}
 	}

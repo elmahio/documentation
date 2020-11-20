@@ -199,6 +199,12 @@ blockquote a, blockquote a:visited {
 .sidebar-body .input-group-text i {
     margin: 2px 0px 0px 2px;
 }
+.sidebar-body .input-group .form-control {
+	box-shadow: none !important;
+}
+.sidebar-body .input-group .form-control:focus {
+	border-color: #0da58e;
+}
 #searchList h3 {
 	position: relative;
     display: block;
