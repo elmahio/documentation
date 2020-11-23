@@ -141,101 +141,47 @@ The code uses the current URL from the injected `NavigationManager` object.
 
 > Please notice that the code for Blazor WebAssembly App is highly experimental.
 
-Logging to elmah.io from a Blazor WebAssembly App can be done by adding some code. While being "production-ready" according to Microsoft, Blazor WebAssembly Apps are still very limited in regards to using third-party libraries. All of our integrations log to elmah.io through the `Elmah.Io.Client` package. Neither `Elmah.Io.Client` or `Elmah.Io.Extensions.Logging` are allowed to run on the runtime provided by Blazor WebAssembly. For now, you can log to elmah.io by adding the following code to the `Program.cs` file:
+To start logging to elmah.io from a Blazor Wasm App, install the `Elmah.Io.Blazor.Wasm` NuGet package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Blazor.Wasm
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Blazor.Wasm
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Blazor.Wasm" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Blazor.Wasm
+```
+
+In the `Program.cs` file, add elmah.io logging configuration:
 
 ```csharp
-public class Program
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Elmah.Io.Blazor.Wasm;
+
+namespace MyBlazorApp
 {
-    public static async Task Main(string[] args)
+    public class Program
     {
-        // ...
-
-        // If not already there make sure to include a HttpClient like this:
-        builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-        // Set up logging
-        builder.Logging.SetMinimumLevel(LogLevel.Warning);
-        builder.Services.AddSingleton<ILoggerProvider, ElmahIoLoggerProvider>(services =>
+        public static async Task Main(string[] args)
         {
-            var httpClient = services.GetService<HttpClient>();
-            return new ElmahIoLoggerProvider(httpClient);
-        });
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#app");
 
-        // ...
-    }
+            // Your other services here
 
-    private class ElmahIoLoggerProvider : ILoggerProvider
-    {
-        private readonly HttpClient httpClient;
-
-        public ElmahIoLoggerProvider(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
-
-        public ILogger CreateLogger(string categoryName)
-        {
-            return new ElmahIoLogger(httpClient);
-        }
-
-        public void Dispose()
-        {
-        }
-    }
-
-    private class ElmahIoLogger : ILogger
-    {
-        private readonly HttpClient httpClient;
-
-        public ElmahIoLogger(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
-
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            return null;
-        }
-
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            return true;
-        }
-
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
-        {
-            httpClient.PostAsJsonAsync(
-                "https://api.elmah.io/v3/messages/LOG_ID?api_key=API_KEY",
-                new
-                {
-                    title = formatter(state, exception),
-                    dateTime = DateTime.UtcNow,
-                    severity = LogLevelToSeverity(logLevel),
-                    source = exception?.GetBaseException().Source,
-                    hostname = Environment.MachineName,
-                    type = exception?.GetBaseException().GetType().FullName,
-                });
-        }
-
-        private string LogLevelToSeverity(LogLevel logLevel)
-        {
-            switch (logLevel)
+            builder.Logging.AddElmahIo(options =>
             {
-                case LogLevel.Critical:
-                    return "Fatal";
-                case LogLevel.Debug:
-                    return "Debug";
-                case LogLevel.Error:
-                    return "Error";
-                case LogLevel.Information:
-                    return "Information";
-                case LogLevel.Trace:
-                    return "Verbose";
-                case LogLevel.Warning:
-                    return "Warning";
-                default:
-                    return "Information";
-            }
+                options.ApiKey = "API_KEY";
+                options.LogId = new Guid("LOG_ID");
+            });
+
+            await builder.Build().RunAsync();
         }
     }
 }
@@ -243,10 +189,8 @@ public class Program
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-The code uses `HttpClient` to call the elmah.io API directly. This implementation is provided as code to copy, to make it clear that this is not a polished package yet. When Blazor WebAssembly Apps mature, we will decide if we want to release an official package for Blazor or utilize some of the existing packages. There's a couple of disadvantages with the code above that you need to consider before copying:
+The package automatically logs all errors that you also see in the browser console. This package is still in a preview state and is therefore not as polished out as other packages. There's a couple of disadvantages with the package that you need to consider before you use it:
 
 - A lot of information about the HTTP context is missing (like cookies, URL, and user).
-- There's a lot of code lines compared to the usual elmah.io integration where you install a NuGet package.
-- The `Log` method calls an `async` method without `await`.
 - No internal message queue and/or batch processing like `Microsoft.Extensions.Logging`.
 - No support for logging scopes.
