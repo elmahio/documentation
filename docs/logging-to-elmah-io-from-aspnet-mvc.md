@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/j82k842uc26w2drg?svg=true)](https://ci.appveyor.com/project/ThomasArdal/elmah-io)
+[![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Mvc.svg)](https://www.nuget.org/packages/Elmah.Io.Mvc)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples/Elmah.Io.Mvc)
 
