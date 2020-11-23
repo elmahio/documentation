@@ -519,109 +519,45 @@ using (Logger.BeginScope(new Dictionary&lt;string, object&gt;
 <blockquote>
 <p>Please notice that the code for Blazor WebAssembly App is highly experimental.</p>
 </blockquote>
-<p>Logging to elmah.io from a Blazor WebAssembly App can be done by adding some code. While being "production-ready" according to Microsoft, Blazor WebAssembly Apps are still very limited in regards to using third-party libraries. All of our integrations log to elmah.io through the <code>Elmah.Io.Client</code> package. Neither <code>Elmah.Io.Client</code> or <code>Elmah.Io.Extensions.Logging</code> are allowed to run on the runtime provided by Blazor WebAssembly. For now, you can log to elmah.io by adding the following code to the <code>Program.cs</code> file:</p>
-<p> <pre><code class=csharp>public class Program
+<p>To start logging to elmah.io from a Blazor Wasm App, install the <code>Elmah.Io.Blazor.Wasm</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-8><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-8-0_powershell-panel role=tab id=tab-group-8-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-8-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-1_cmd-panel role=tab id=tab-group-8-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-8-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-2_xml-panel role=tab id=tab-group-8-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-3_xml-panel role=tab id=tab-group-8-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-8-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-8-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
+</code></pre></div><div id=tab-group-8-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Blazor.Wasm --prerelease
+</code></pre></div><div id=tab-group-8-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Blazor.Wasm&quot; Version=&quot;3.0.6-pre&quot; /&gt;
+</code></pre></div><div id=tab-group-8-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Blazor.Wasm
+</code></pre></div></div></div>
+
+<p>In the <code>Program.cs</code> file, add elmah.io logging configuration:</p>
+<p> <pre><code class=csharp>using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Elmah.Io.Blazor.Wasm;
+
+namespace MyBlazorApp
 {
-    public static async Task Main(string[] args)
+    public class Program
     {
-        // ...
-
-        // If not already there make sure to include a HttpClient like this:
-        builder.Services.AddTransient(sp =&gt; new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-        // Set up logging
-        builder.Logging.SetMinimumLevel(LogLevel.Warning);
-        builder.Services.AddSingleton&lt;ILoggerProvider, ElmahIoLoggerProvider&gt;(services =&gt;
+        public static async Task Main(string[] args)
         {
-            var httpClient = services.GetService&lt;HttpClient&gt;();
-            return new ElmahIoLoggerProvider(httpClient);
-        });
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add&lt;App&gt;(&quot;#app&quot;);
 
-        // ...
-    }
+            // Your other services here
 
-    private class ElmahIoLoggerProvider : ILoggerProvider
-    {
-        private readonly HttpClient httpClient;
-
-        public ElmahIoLoggerProvider(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
-
-        public ILogger CreateLogger(string categoryName)
-        {
-            return new ElmahIoLogger(httpClient);
-        }
-
-        public void Dispose()
-        {
-        }
-    }
-
-    private class ElmahIoLogger : ILogger
-    {
-        private readonly HttpClient httpClient;
-
-        public ElmahIoLogger(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
-
-        public IDisposable BeginScope&lt;TState&gt;(TState state)
-        {
-            return null;
-        }
-
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            return true;
-        }
-
-        public void Log&lt;TState&gt;(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func&lt;TState, Exception, string&gt; formatter)
-        {
-            httpClient.PostAsJsonAsync(
-                &quot;https://api.elmah.io/v3/messages/LOG_ID?api_key=API_KEY&quot;,
-                new
-                {
-                    title = formatter(state, exception),
-                    dateTime = DateTime.UtcNow,
-                    severity = LogLevelToSeverity(logLevel),
-                    source = exception?.GetBaseException().Source,
-                    hostname = Environment.MachineName,
-                    type = exception?.GetBaseException().GetType().FullName,
-                });
-        }
-
-        private string LogLevelToSeverity(LogLevel logLevel)
-        {
-            switch (logLevel)
+            builder.Logging.AddElmahIo(options =&gt;
             {
-                case LogLevel.Critical:
-                    return &quot;Fatal&quot;;
-                case LogLevel.Debug:
-                    return &quot;Debug&quot;;
-                case LogLevel.Error:
-                    return &quot;Error&quot;;
-                case LogLevel.Information:
-                    return &quot;Information&quot;;
-                case LogLevel.Trace:
-                    return &quot;Verbose&quot;;
-                case LogLevel.Warning:
-                    return &quot;Warning&quot;;
-                default:
-                    return &quot;Information&quot;;
-            }
+                options.ApiKey = &quot;API_KEY&quot;;
+                options.LogId = new Guid(&quot;LOG_ID&quot;);
+            });
+
+            await builder.Build().RunAsync();
         }
     }
 }
 </code></pre></p>
 <p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> with the ID of the log you want messages sent to (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>).</p>
-<p>The code uses <code>HttpClient</code> to call the elmah.io API directly. This implementation is provided as code to copy, to make it clear that this is not a polished package yet. When Blazor WebAssembly Apps mature, we will decide if we want to release an official package for Blazor or utilize some of the existing packages. There's a couple of disadvantages with the code above that you need to consider before copying:</p>
+<p>The package automatically logs all errors that you also see in the browser console. This package is still in a preview state and is therefore not as polished as our other packages. There's a couple of disadvantages with the package that you need to consider before you use it:</p>
 <ul>
 <li>A lot of information about the HTTP context is missing (like cookies, URL, and user).</li>
-<li>There's a lot of code lines compared to the usual elmah.io integration where you install a NuGet package.</li>
-<li>The <code>Log</code> method calls an <code>async</code> method without <code>await</code>.</li>
 <li>No internal message queue and/or batch processing like <code>Microsoft.Extensions.Logging</code>.</li>
 <li>No support for logging scopes.</li>
 </ul>
