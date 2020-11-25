@@ -10,6 +10,12 @@ The elmah.io CLI can be installed in several ways. To set up everything automati
 dotnet tool install --global Elmah.Io.Cli
 ```
 
+or make sure to run on the latest version if you already have the CLI installed:
+
+```cmd
+dotnet tool update --global Elmah.Io.Cli
+```
+
 If you prefer downloading the CLI as a zip you can [download the latest version from GitHub](https://github.com/elmahio/Elmah.Io.Cli/releases). To clone and build the CLI manually, check out the instructions below.
 
 ## Run the CLI
