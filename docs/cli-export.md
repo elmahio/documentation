@@ -4,7 +4,7 @@ title: Exporting log messages from the CLI
 
 # Exporting log messages from the CLI
 
-The `export` command is used to export one or more log messages from a log to JSON. The command will eventually replace the [Elmah.Io.Exporter](/export-data-from-elmah-io-to-json/) tool.
+The `export` command is used to export one or more log messages from a log to JSON.
 
 ## Usage
 
