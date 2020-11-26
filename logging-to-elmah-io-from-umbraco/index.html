@@ -420,6 +420,7 @@
 </ul>
 </li>
 <li><a href="#umbraco-7">Umbraco 7</a></li>
+<li><a href="#umbraco-unicore">Umbraco Unicore</a></li>
 </ul>
 </li>
 </ul>
@@ -474,7 +475,42 @@
 </code></pre></div><div id=tab-group-2-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-2-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Umbraco --version 3.2.35
 </code></pre></div></div></div>
 
-<p>New features will be added to the updated package for Umbraco 8 only.</p>
+<p>New features will be added to the updated package for Umbraco 8 and newer only.</p>
+<h2 id="umbraco-unicore">Umbraco Unicore</h2>
+<p>Playing with the alpha of the new version of Umbraco running on .NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco Unicore and elmah.io.</p>
+<p>Start by installing the <code>Elmah.Io.AspNetCore</code> package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-3><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-3-0_powershell-panel role=tab id=tab-group-3-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-3-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-3-1_cmd-panel role=tab id=tab-group-3-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-3-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-3-2_xml-panel role=tab id=tab-group-3-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-3-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-3-3_xml-panel role=tab id=tab-group-3-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-3-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-3-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-3-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.AspNetCore
+</code></pre></div><div id=tab-group-3-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-3-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.AspNetCore
+</code></pre></div><div id=tab-group-3-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-3-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.AspNetCore&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-3-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-3-3_xml-tab><pre><code class=xml>paket add Elmah.Io.AspNetCore
+</code></pre></div></div></div>
+
+<p>Then add the following code to the <code>ConfigureServices</code> method in the <code>Startup.cs</code> file:</p>
+<p> <pre><code class=csharp>services.AddElmahIo(o =&gt;
+{
+    o.ApiKey = &quot;API_KEY&quot;;
+    o.LogId = new Guid(&quot;LOG_ID&quot;);
+});
+</code></pre></p>
+<p>Finally, add the following code to the <code>Configure</code> method before the call to <code>UseUmbraco</code>:</p>
+<p> <pre><code class=csharp>app.UseElmahIo();
+</code></pre></p>
+<p>This will log all uncaught exceptions to elmah.io. If you want to hook into the internal logging of Umbraco, Install the <code>Elmah.Io.Extensions.Logging</code> package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-6><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-6-0_powershell-panel role=tab id=tab-group-6-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-6-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-1_cmd-panel role=tab id=tab-group-6-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-6-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-2_xml-panel role=tab id=tab-group-6-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-6-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-3_xml-panel role=tab id=tab-group-6-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-6-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-6-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-6-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Extensions.Logging
+</code></pre></div><div id=tab-group-6-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Extensions.Logging
+</code></pre></div><div id=tab-group-6-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Extensions.Logging&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-6-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Extensions.Logging
+</code></pre></div></div></div>
+
+<p>In the <code>ConfigureLogging</code> action in the <code>Program.cs</code> file add the following code after the call to <code>ClearProviders</code>:</p>
+<p> <pre><code class=csharp>x.AddElmahIo(options =&gt;
+{
+    options.ApiKey = &quot;API_KEY&quot;;
+    options.LogId = new Guid(&quot;LOG_ID&quot;);
+});
+x.AddFilter&lt;ElmahIoLoggerProvider&gt;(null, LogLevel.Warning);
+</code></pre></p>
+<p>This will log all warnings and above to elmah.io. You can adjust the <code>LogLevel</code> but be aware that Umbraco outputs a lot of log messages which will quickly fill up your monthly quota.</p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
