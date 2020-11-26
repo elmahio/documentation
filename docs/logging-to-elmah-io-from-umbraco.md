@@ -87,4 +87,67 @@ dotnet add package Elmah.Io.Umbraco --version 3.2.35
 paket add Elmah.Io.Umbraco --version 3.2.35
 ```
 
-New features will be added to the updated package for Umbraco 8 only.
+New features will be added to the updated package for Umbraco 8 and newer only.
+
+## Umbraco Unicore
+
+Playing with the alpha of the new version of Umbraco running on .NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco Unicore and elmah.io.
+
+Start by installing the `Elmah.Io.AspNetCore` package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore
+```
+
+Then add the following code to the `ConfigureServices` method in the `Startup.cs` file:
+
+```csharp
+services.AddElmahIo(o =>
+{
+    o.ApiKey = "API_KEY";
+    o.LogId = new Guid("LOG_ID");
+});
+```
+
+Finally, add the following code to the `Configure` method before the call to `UseUmbraco`:
+
+```csharp
+app.UseElmahIo();
+```
+
+This will log all uncaught exceptions to elmah.io. If you want to hook into the internal logging of Umbraco, Install the `Elmah.Io.Extensions.Logging` package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Extensions.Logging
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Extensions.Logging
+```
+
+In the `ConfigureLogging` action in the `Program.cs` file add the following code after the call to `ClearProviders`:
+
+```csharp
+x.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+x.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
+```
+
+This will log all warnings and above to elmah.io. You can adjust the `LogLevel` but be aware that Umbraco outputs a lot of log messages which will quickly fill up your monthly quota.
