@@ -20,7 +20,7 @@ In the root of your Function app create a new file named `Startup.cs`:
 ```csharp
 public class Startup : FunctionsStartup
 {
-    public override void ConfigureServices(WebHostBuilderContext context, IServiceCollection services)
+    public override void ConfigureServices(WebHostBuilderContext ctx, IServiceCollection services)
     {
         services.AddLogging(logging =>
         {
