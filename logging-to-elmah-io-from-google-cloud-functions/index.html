@@ -5,22 +5,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Time is better spend fixing bugs than maintaining issue trackers. With the elmah.io integration for GitLab we do the boring work of creating issues for you.">
+    
     <meta name="author" content="Thomas Ardal">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Integrate elmah.io with GitLab | elmah.io">
-    <meta name="twitter:description" content="Time is better spend fixing bugs than maintaining issue trackers. With the elmah.io integration for GitLab we do the boring work of creating issues for you.">
+    <meta name="twitter:title" content="Logging from Google Cloud Functions | elmah.io">
     
-    <meta property="og:title" content="Integrate elmah.io with GitLab | elmah.io">
-    <meta property="og:description" content="Time is better spend fixing bugs than maintaining issue trackers. With the elmah.io integration for GitLab we do the boring work of creating issues for you.">
+    
+    <meta property="og:title" content="Logging from Google Cloud Functions | elmah.io">
+    
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/elmah-io-apps-gitlab/">
+    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-google-cloud-functions/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Integrate elmah.io with GitLab | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/elmah-io-apps-gitlab/">
+    <title>Logging from Google Cloud Functions | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-google-cloud-functions/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -194,7 +194,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Logging from something else</a>
                 <ul>
                   
@@ -216,7 +216,7 @@
                   
                   <li ><a href="../logging-to-elmah-io-from-aws-lambdas/">Logging from AWS Lambdas</a></li>
                   
-                  <li ><a href="../logging-to-elmah-io-from-google-cloud-functions/">Logging from Google Cloud Functions</a></li>
+                  <li class="active"><a href="./">Logging from Google Cloud Functions</a></li>
                   
                   <li ><a href="../logging-to-elmah-io-from-entity-framework-core/">Logging from Entity Framework Core</a></li>
                   
@@ -231,7 +231,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Apps and Integrations</a>
                 <ul>
                   
@@ -249,7 +249,7 @@
                   
                   <li ><a href="../elmah-io-apps-youtrack/">YouTrack</a></li>
                   
-                  <li class="active"><a href="./">GitLab</a></li>
+                  <li ><a href="../elmah-io-apps-gitlab/">GitLab</a></li>
                   
                   <li ><a href="../elmah-io-apps-azure-boards/">Azure Boards</a></li>
                   
@@ -408,16 +408,57 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="install-gitlab-app-for-elmahio">Install GitLab App for elmah.io</h1>
-<h2 id="generate-personal-access-token">Generate Personal Access Token</h2>
-<p>In order to allow elmah.io to create issues on GitLab, you will need to generate a Personal Access Token. To do so, log into GitLab and go to the <a href="https://gitlab.com/profile/personal_access_tokens">Access Tokens</a> page.</p>
-<p><img alt="GitLab Tokens Page" src="../images/gitlab-access-token.png" /></p>
-<p>Input a token name. check the <em>api</em> checkbox, click the <em>Create personal access token</em> button and copy the generated token.</p>
-<h2 id="install-the-gitlab-app-on-elmahio">Install the GitLab App on elmah.io</h2>
-<p>Log into elmah.io and go to the log settings. Click the Apps tab. Locate the GitLab app and click the <em>Install</em> button:</p>
-<p><img alt="Install GitLab App" src="../images/gitlab-settings.png" /></p>
-<p>Paste the token copied in the previous step into the <em>Token</em> textbox. In the <em>Project</em> textbox, input the ID or name of the project you want issues created on. If you are self-hosting GitLab, input your custom URL in the <em>URL</em> textbox (example https://gitlab.hooli.com).</p>
-<p>Click the <em>Test</em> button and observe it turn green. When clicking <em>Save</em>, the app is added to your log. When new errors are logged, issues are automatically created in the configured GitLab project.</p>
+            <h1 id="logging-from-google-cloud-functions">Logging from Google Cloud Functions</h1>
+<p>Logging to elmah.io from Google Cloud Functions uses our integration with <em>Microsoft.Extensions.Logging</em>. To start logging, install the <code>Elmah.Io.Extensions.Logging</code> NuGet package through the Cloud Shell or locally:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Extensions.Logging
+</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Extensions.Logging
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Extensions.Logging&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Extensions.Logging
+</code></pre></div></div></div>
+
+<p>In the root of your Function app create a new file named <code>Startup.cs</code>:</p>
+<p> <pre><code class=csharp>public class Startup : FunctionsStartup
+{
+    public override void ConfigureServices(WebHostBuilderContext context, IServiceCollection services)
+    {
+        services.AddLogging(logging =&gt;
+        {
+            logging.AddElmahIo(o =&gt;
+            {
+                o.ApiKey = &quot;API_KEY&quot;;
+                o.LogId = new Guid(&quot;LOG_ID&quot;);
+            });
+            logging.AddFilter&lt;ElmahIoLoggerProvider&gt;(null, LogLevel.Warning);
+        });
+    }
+}
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> with the ID of the log to store messages in (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>).</p>
+<p>The filter tells Google Cloud Functions to log warnings and above to elmah.io only. If you want to log detailed information about what goes on inside Google Cloud Functions, you can lower the log level.</p>
+<p>Decorate your function with a <code>FunctionsStartup</code> attribute:</p>
+<p> <pre><code class=csharp>[FunctionsStartup(typeof(Startup))]    
+public class Function : IHttpFunction
+{
+    // ...
+}
+</code></pre></p>
+<p>All uncaught exceptions happening in your function as well as log messages sent from Google Cloud Functions are now stored in elmah.io.</p>
+<p>To log messages manually, you can inject an <code>ILogger</code> in your function:</p>
+<p> <pre><code class=csharp>public class Function : IHttpFunction
+{
+    private ILogger&lt;Function&gt; _logger;
+
+    public Function(ILogger&lt;Function&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    // ...
+}
+</code></pre></p>
+<p>Then log messages using the injected logger:</p>
+<p> <pre><code class=csharp>_logger.LogWarning(&quot;Your log message goes here&quot;);
+</code></pre></p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
