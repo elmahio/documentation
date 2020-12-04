@@ -68,6 +68,7 @@ nav:
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
     - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
+    - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from Console: logging-to-elmah-io-from-console-application.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
