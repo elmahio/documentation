@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Logging heartbeats from ASP.NET Core | elmah.io">
+    <meta name="twitter:title" content="How to rename a log | elmah.io">
     
     
-    <meta property="og:title" content="Logging heartbeats from ASP.NET Core | elmah.io">
+    <meta property="og:title" content="How to rename a log | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/logging-heartbeats-from-asp-net-core/">
+    <meta property="og:url" content="https://docs.elmah.io/how-to-rename-a-log/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Logging heartbeats from ASP.NET Core | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/logging-heartbeats-from-asp-net-core/">
+    <title>How to rename a log | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/how-to-rename-a-log/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -283,13 +283,13 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Heartbeats</a>
                 <ul>
                   
                   <li ><a href="../setup-heartbeats/">Set up Heartbeats</a></li>
                   
-                  <li class="active"><a href="./">Logging heartbeats from ASP.NET Core</a></li>
+                  <li ><a href="../logging-heartbeats-from-asp-net-core/">Logging heartbeats from ASP.NET Core</a></li>
                   
                   <li ><a href="../logging-heartbeats-from-azure-functions/">Logging heartbeats from Azure Functions</a></li>
                   
@@ -354,7 +354,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Everything Else</a>
                 <ul>
                   
@@ -370,7 +370,7 @@
                   
                   <li ><a href="../how-to-enable-two-factor-login/">How to enable two-factor login</a></li>
                   
-                  <li ><a href="../how-to-rename-a-log/">How to rename a log</a></li>
+                  <li class="active"><a href="./">How to rename a log</a></li>
                   
                   <li ><a href="../creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a></li>
                   
@@ -410,141 +410,10 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="logging-heartbeats-from-aspnet-core">Logging heartbeats from ASP.NET Core</h1>
-<div class="toc">
-<ul>
-<li><a href="#logging-heartbeats-from-aspnet-core">Logging heartbeats from ASP.NET Core</a><ul>
-<li><a href="#additional-options">Additional options</a><ul>
-<li><a href="#application-name">Application name</a></li>
-<li><a href="#callbacks">Callbacks</a></li>
-<li><a href="#period">Period</a></li>
-</ul>
-</li>
-<li><a href="#ignoring-heartbeats-on-localhost-staging-etc">Ignoring heartbeats on localhost, staging, etc.</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>ASP.NET Core offers a feature called Health Checks from version 2.2 and forward. For more information about health checks, check out our blog post: <a href="https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/">ASP.NET Core 2.2 Health Checks Explained</a>. The Heartbeats feature on elmah.io support health checks too, by publishing health check results as heartbeats.</p>
-<p>To publish health checks as elmah.io heartbeats, install the <code>Elmah.Io.AspNetCore.HealthChecks</code> NuGet package:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.AspNetCore.HealthChecks
-</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.AspNetCore.HealthChecks
-</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.AspNetCore.HealthChecks&quot; Version=&quot;3.*&quot; /&gt;
-</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.AspNetCore.HealthChecks
-</code></pre></div></div></div>
-
-<p>Then configure the elmah.io health check publisher:</p>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher(options =&gt;
-    {
-        options.ApiKey = &quot;API_KEY&quot;;
-        options.LogId = new Guid(&quot;LOG_ID&quot;);
-        options.HeartbeatId = &quot;HEARTBEAT_ID&quot;;
-    });
-</code></pre></p>
-<p>Replace the variables with the correct values as explained in <a href="/setup-heartbeats/">Set up Heartbeats</a>. Remember to use an API key that includes the <em>Heartbeats - Write</em> permission.</p>
-<h2 id="additional-options">Additional options</h2>
-<h3 id="application-name">Application name</h3>
-<p>Much like the error logging integration with ASP.NET Core, you can set an application name on log messages produced by Heartbeats. To do so, set the <code>Application</code> property when adding the publisher:</p>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher(options =&gt;
-    {
-        ...
-        options.Application = &quot;My app&quot;;
-    });
-</code></pre></p>
-<p>If <code>Application</code> is not set, log messages will receive a default value of <code>Heartbeats</code> to make the messages distinguable from other messages.</p>
-<h3 id="callbacks">Callbacks</h3>
-<p>The elmah.io publisher offer callbacks already known from <code>Elmah.Io.AspNetCore</code>.</p>
-<p><strong>OnHeartbeat</strong></p>
-<p>The <code>OnHeartbeat</code> callback can be used to set a version number on all log messages produced by a heartbeat and/or trigger your own code every time a heartbeat is logged to elmah.io:</p>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher(options =&gt;
-    {
-        ...
-        options.OnHeartbeat = hb =&gt;
-        {
-            hb.Version = &quot;1.0.0&quot;;
-        };
-    });
-</code></pre></p>
-<p><strong>OnFilter</strong></p>
-<p>The <code>OnFilter</code> callback can used to ignore one or more heartbeats:</p>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher(options =&gt;
-    {
-        ...
-        options.OnFilter = hb =&gt;
-        {
-            return hb.Result == &quot;Degraded&quot;;
-        };
-    });
-</code></pre></p>
-<p>The example ignores any <code>Degraded</code> heartbeats.</p>
-<p><strong>OnError</strong></p>
-<p>The <code>OnError</code> callback can be used to listen for errors communicating with the elmah.io API:</p>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher(options =&gt;
-    {
-        ...
-        options.OnError = (hb, ex) =&gt;
-        {
-            // Do something
-        };
-    });
-</code></pre></p>
-<p>The elmah.io publisher already logs any internal errors through Microsoft.Extensions.Logging, why you don't need to do that in the <code>OnError</code> handler. If you are using another logging framework and don't have that hooked up on Microsoft.Extensions.Logging, the <code>OnError</code> is a good place to add some additional logging.</p>
-<h3 id="period">Period</h3>
-<p>As default, ASP.NET Core runs health checks every 30 seconds when setting up a publisher. To change this interval, add the following code:</p>
-<p> <pre><code class=csharp>services.Configure&lt;HealthCheckPublisherOptions&gt;(options =&gt;
-{
-    options.Period = TimeSpan.FromMinutes(5);
-});
-</code></pre></p>
-<p>There's a bug in ASP.NET Core 2.2 that requires you to use reflection when setting <code>Period</code>:</p>
-<p> <pre><code class=csharp>services.Configure&lt;HealthCheckPublisherOptions&gt;(options =&gt;
-{
-    var prop = options.GetType().GetField(&quot;_period&quot;, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-    prop.SetValue(options, TimeSpan.FromMinutes(5));
-});
-</code></pre></p>
-<p>If setting <code>Period</code> to 5 minutes, you should set the heartbeat interval on elmah.io to 5 minutes and grace to 1 minute.</p>
-<h2 id="ignoring-heartbeats-on-localhost-staging-etc">Ignoring heartbeats on localhost, staging, etc.</h2>
-<p>Monitoring hearbeats is important in your production environment. When running locally or even on staging, you probably don't want to monitor heartbeats. ASP.NET Core health checks doesn't seem to support a great deal of configuration through <code>appsettings.json</code>, Azure app settings, etc. The easiest way to tell ASP.NET Core to log heartbeats to elmah.io, is to avoid setting up health checks unless a heartbeat id is configured:</p>
-<p> <pre><code class=csharp>if (!string.IsNullOrWhiteSpace(Configuration[&quot;ElmahIo:HeartbeatId&quot;]))
-{
-    services.AddHealthChecks().AddElmahIoPublisher();
-}
-</code></pre></p>
-<p>In this example, we only configure health checks and the elmah.io publisher if the <code>ElmahIo:HeartbeatId</code> setting is defined in config.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>Here's a list of things to check for if no heartbeats are registered:</p>
-<ul>
-<li>Did you include both <code>API_KEY</code>, <code>LOG_ID</code>, and <code>HEARTBEAT_ID</code>?</li>
-<li>The publisher needs to be called before the <code>AddElmahIo</code> call from <code>Elmah.Io.AspNetCore</code>:</li>
-</ul>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher();
-
-services.AddElmahIo();
-</code></pre></p>
-<ul>
-<li>If you are using Health Checks UI, it needs to be configured after the <code>AddElmahIoPublisher</code>-method:</li>
-</ul>
-<p> <pre><code class=csharp>services
-    .AddHealthChecks()
-    .AddElmahIoPublisher();
-
-service
-    .AddHealthChecksUI();
-</code></pre></p>
+            <h1 id="how-to-rename-a-log">How to rename a log</h1>
+<p>Logs can be renamed from the <a href="https://app.elmah.io/dashboard/">Dashboard</a> by anyone with Administrator access to the log. To rename a log, click the small <span class="fa fa-pencil"></span> icon in the lower right corner:</p>
+<p><img alt="Rename log" src="../images/rename-log.png" /></p>
+<p>When clicking the icon the log box will flip and you will be able to input a new name. The edit log box also let you assign the log to an environment, subscribe/unsubscribe from emails, as well as changing the color of the log. Be aware that changing the name, environment, or color will be visible for all users with access to the log.</p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
