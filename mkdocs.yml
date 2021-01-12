@@ -130,6 +130,7 @@ nav:
     - Where is my invoice / receipt: where-is-my-invoice-receipt.md
     - How to configure API key permissions: how-to-configure-api-key-permissions.md
     - How to enable two-factor login: how-to-enable-two-factor-login.md
+    - How to rename a log: how-to-rename-a-log.md
     - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
     - Query messages using full-text search: query-messages-using-full-text-search.md
     - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
