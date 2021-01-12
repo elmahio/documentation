@@ -1,6 +1,6 @@
 [![Build status](https://github.com/elmahio/elmah.io.log4net/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.log4net/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.log4net.svg)](https://www.nuget.org/packages/elmah.io.log4net)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.log4net/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.log4net/tree/main/samples)
 
 # Logging to elmah.io from Log4net
 
@@ -94,7 +94,7 @@ log.Logger.Log(new LoggingEvent(new LoggingEventData
 }));
 ```
 
-This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs).
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
 ## Message hooks
 
@@ -148,7 +148,7 @@ The `logId` and `apiKey` elements underneath the elmah.io appender have been ext
 
 ## ASP.NET Core
 
-Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/master/samples/Elmah.Io.Log4Net.AspNetCore22) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
+Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/main/samples/Elmah.Io.Log4Net.AspNetCore31) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
 
 To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet package:
 

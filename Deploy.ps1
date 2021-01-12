@@ -5,4 +5,4 @@ Remove-Item -Path .\site\ -Recurse -Force
 git add .
 git commit -m "Build newest version"
 git push
-git checkout master
+git checkout main

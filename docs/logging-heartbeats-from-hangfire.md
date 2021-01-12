@@ -1,6 +1,6 @@
 [![Build status](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Heartbeats.Hangfire.svg)](https://www.nuget.org/packages/Elmah.Io.Heartbeats.Hangfire)
-[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/tree/main/samples)
 
 # Logging heartbeats from Hangfire
 

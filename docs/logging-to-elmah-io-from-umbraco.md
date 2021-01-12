@@ -1,6 +1,6 @@
 [![Build status](https://github.com/elmahio/elmah.io.umbraco/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.umbraco/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.umbraco.svg)](https://www.nuget.org/packages/elmah.io.umbraco/)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.umbraco/tree/master/samples/)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.umbraco/tree/main/samples)
 
 # Logging to elmah.io from Umbraco
 

@@ -1,6 +1,6 @@
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples)
 
 # Logging to elmah.io from Entity Framework Core
 
@@ -28,7 +28,7 @@ var loggerFactory = new LoggerFactory()
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) that should receive errors from Entity Framework.
 
-> When using Entity Framework Core from ASP.NET Core, you never create your own `LoggerFactory`. Factories are provided through DI by ASP.NET Core. Check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples/Elmah.Io.Extensions.LoggingAspNetCore2WithEfCore2) for details.
+> When using Entity Framework Core from ASP.NET Core, you never create your own `LoggerFactory`. Factories are provided through DI by ASP.NET Core. Check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples/Elmah.Io.Extensions.Logging.EntityFrameworkCore31) for details.
 
 Finally, enable logging in Entity Framework Core:
 
