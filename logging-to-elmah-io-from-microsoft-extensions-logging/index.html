@@ -412,7 +412,7 @@
 
             <p><a href="https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg" /></a>
 <a href="https://www.nuget.org/packages/Elmah.Io.Extensions.Logging"><img alt="NuGet" src="https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg" /></a>
-<a href="https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/master/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-5-brightgreen.svg" /></a></p>
+<a href="https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-5-brightgreen.svg" /></a></p>
 <h1 id="logging-to-elmahio-from-microsoftextensionslogging">Logging to elmah.io from Microsoft.Extensions.Logging</h1>
 <div class="toc">
 <ul>
@@ -535,7 +535,7 @@
     _logger.LogError(&quot;Request to {url} caused an error&quot;, &quot;/profile&quot;);
 }
 </code></pre></p>
-<p>In this example, a log message with the template <code>Request to {url} caused an error</code> is logged. The use of the variable names <code>statuscode</code>, <code>method</code>, and <code>url</code> will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
+<p>In this example, a log message with the template <code>Request to {url} caused an error</code> is logged. The use of the variable names <code>statuscode</code>, <code>method</code>, and <code>url</code> will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
 <p>An alternative is to use the <code>OnMessage</code> action. As an example, we'll add a version number to all messages:</p>
 <p> <pre><code class=csharp>logging
     .AddElmahIo(options =&gt;

@@ -412,7 +412,7 @@
 
             <p><a href="https://github.com/elmahio/elmah.io.nlog/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/elmah.io.nlog/workflows/build/badge.svg" /></a>
 <a href="https://www.nuget.org/packages/elmah.io.nlog"><img alt="NuGet" src="https://img.shields.io/nuget/v/elmah.io.nlog.svg" /></a>
-<a href="https://github.com/elmahio/elmah.io.nlog/tree/master/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-3-brightgreen.svg" /></a></p>
+<a href="https://github.com/elmahio/elmah.io.nlog/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-3-brightgreen.svg" /></a></p>
 <h1 id="logging-to-elmahio-from-nlog">Logging to elmah.io from NLog</h1>
 <div class="toc">
 <ul>
@@ -609,7 +609,7 @@ log.Info(infoMessage);
 <p><code>Elmah.Io.NLog</code> provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the <code>User</code> field using structured logging only:</p>
 <p> <pre><code class=csharp>log.Info(&quot;{Quote} from {User}&quot;, &quot;Hasta la vista, baby&quot;, &quot;T-800&quot;);
 </code></pre></p>
-<p>This will fill in the value <code>T-800</code> in the <code>User</code> field, as well as add two key/value pairs (<code>Quote</code> and <code>User</code>) to the <em>Data</em> tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
+<p>This will fill in the value <code>T-800</code> in the <code>User</code> field, as well as add two key/value pairs (<code>Quote</code> and <code>User</code>) to the <em>Data</em> tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
 <p>NLog also provides a fluent API (available in the <code>NLog.Fluent</code> namespace) that some might find more readable:</p>
 <p> <pre><code class=csharp>logger.Info()
       .Message(&quot;I'll be back&quot;)

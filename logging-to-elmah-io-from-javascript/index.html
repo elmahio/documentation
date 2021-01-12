@@ -412,7 +412,7 @@
 
             <p><a href="https://www.nuget.org/packages/elmah.io.javascript"><img alt="NuGet" src="https://img.shields.io/nuget/v/elmah.io.javascript.svg" /></a>
 <a href="https://www.npmjs.com/package/elmah.io.javascript"><img alt="npm" src="https://img.shields.io/npm/v/elmah.io.javascript.svg" /></a>
-<a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-5-brightgreen.svg" /></a></p>
+<a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-5-brightgreen.svg" /></a></p>
 <h1 id="logging-to-elmahio-from-javascript">Logging to elmah.io from JavaScript</h1>
 <div class="toc">
 <ul>
@@ -737,7 +737,7 @@ class ElmahIoErrorHandler implements ErrorHandler {
   // ...
 })
 </code></pre></p>
-<p>All errors are shipped to the <code>handleError</code>-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.</p>
+<p>All errors are shipped to the <code>handleError</code>-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.</p>
 <h6 id="angularjsangular-1">AngularJS/Angular 1</h6>
 <p>For AngularJS you need to implement the <code>$exceptionHandler</code> instead:</p>
 <p> <pre><code class=javascript>(function () {
@@ -774,7 +774,7 @@ export default class App extends Component {
 }
 </code></pre></p>
 <p>When initializing your React app, elmah.io is configured and all errors happening in the application are logged.</p>
-<p>Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/master/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.</p>
+<p>Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.</p>
 <blockquote>
 <p>React have a known bug where errors are submitted twice. For better error handling in React, you should look into <a href="https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a>.</p>
 </blockquote>
@@ -800,7 +800,7 @@ export default class App extends Component {
   ]
 }
 </code></pre></p>
-<p>For a complete definition, check out the <code>Message</code> interface in the <a href="https://github.com/elmahio/elmah.io.javascript/blob/master/typescript/elmahio.d.ts">elmah.io.javascript TypeScript mappings</a>.</p>
+<p>For a complete definition, check out the <code>Message</code> interface in the <a href="https://github.com/elmahio/elmah.io.javascript/blob/main/typescript/elmahio.d.ts">elmah.io.javascript TypeScript mappings</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>If errors aren't logged from JavaScript, here's a list of things to try out:</p>
 <ul>

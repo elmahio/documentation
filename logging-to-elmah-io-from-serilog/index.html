@@ -480,7 +480,7 @@ using (LogContext.PushProperty(&quot;ThreadId&quot;, Thread.CurrentThread.Manage
 <p><code>Serilog.Sinks.ElmahIo</code> provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:</p>
 <p> <pre><code class=csharp>logger.Information(&quot;{Quote} from {User}&quot;, &quot;Hasta la vista, baby&quot;, &quot;Arnold Schwarzenegger&quot;);
 </code></pre></p>
-<p>This will fill in the value <code>Arnold Schwarzenegger</code> in the <code>User</code> field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
+<p>This will fill in the value <code>Arnold Schwarzenegger</code> in the <code>User</code> field, as well as add two key/value pairs (Quote and User) to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
 <h2 id="message-hooks">Message hooks</h2>
 <p><code>Serilog.Sinks.ElmahIo</code> provide message hooks similar to the integrations with ASP.NET and ASP.NET Core.</p>
 <blockquote>

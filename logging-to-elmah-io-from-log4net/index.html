@@ -412,7 +412,7 @@
 
             <p><a href="https://github.com/elmahio/elmah.io.log4net/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/elmah.io.log4net/workflows/build/badge.svg" /></a>
 <a href="https://www.nuget.org/packages/elmah.io.log4net"><img alt="NuGet" src="https://img.shields.io/nuget/v/elmah.io.log4net.svg" /></a>
-<a href="https://github.com/elmahio/elmah.io.log4net/tree/master/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-2-brightgreen.svg" /></a></p>
+<a href="https://github.com/elmahio/elmah.io.log4net/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-2-brightgreen.svg" /></a></p>
 <h1 id="logging-to-elmahio-from-log4net">Logging to elmah.io from Log4net</h1>
 <div class="toc">
 <ul>
@@ -486,7 +486,7 @@ log.Logger.Log(new LoggingEvent(new LoggingEventData
     Message = &quot;Hasta la vista, baby&quot;,
 }));
 </code></pre></p>
-<p>This will fill in the value <code>Arnold Schwarzenegger</code> in the <code>User</code> field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/master/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
+<p>This will fill in the value <code>Arnold Schwarzenegger</code> in the <code>User</code> field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on <a href="https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs">CreateMessage</a>.</p>
 <h2 id="message-hooks">Message hooks</h2>
 <h3 id="decorating-log-messages">Decorating log messages</h3>
 <p>In case you want to set one or more core properties on each elmah.io message logged, using message hooks may be a better solution. In that case you will need to add a bit of log4net magic. An example could be setting the <code>Version</code> property on all log messages. In the following code, we set a hard-coded version number on all log messages, but the value could come from assembly info, a text file, or similar:</p>
@@ -527,7 +527,7 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =&gt;
 </code></pre></p>
 <p>The <code>logId</code> and <code>apiKey</code> elements underneath the elmah.io appender have been extended to include <code>type="log4net.Util.PatternString"</code>. This allows for complex patterns in the <code>value</code> attribute. In this example, I reference an app setting from its name, by adding a value of <code>%appSetting{logId}</code> where <code>logId</code> is a reference to the app setting key specified above.</p>
 <h2 id="aspnet-core">ASP.NET Core</h2>
-<p>Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a <a href="https://github.com/elmahio/elmah.io.log4net/tree/master/samples/Elmah.Io.Log4Net.AspNetCore22">sample</a> to show you how to set it up. The required NuGet packages and configuration are documented in this section.</p>
+<p>Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a <a href="https://github.com/elmahio/elmah.io.log4net/tree/main/samples/Elmah.Io.Log4Net.AspNetCore31">sample</a> to show you how to set it up. The required NuGet packages and configuration are documented in this section.</p>
 <p>To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the <code>Microsoft.Extensions.Logging.Log4Net.AspNetCore</code> NuGet package:</p>
 <div class=md-fenced-code-tabs id=tab-tab-group-9><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-9-0_powershell-panel role=tab id=tab-group-9-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-9-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-9-1_cmd-panel role=tab id=tab-group-9-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-9-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-9-2_xml-panel role=tab id=tab-group-9-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-9-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-9-3_xml-panel role=tab id=tab-group-9-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-9-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-9-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-9-0_powershell-tab><pre><code class=powershell>Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 </code></pre></div><div id=tab-group-9-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-9-1_cmd-tab><pre><code class=cmd>dotnet add package Microsoft.Extensions.Logging.Log4Net.AspNetCore
