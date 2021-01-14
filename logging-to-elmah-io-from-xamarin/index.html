@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Logging from Google Cloud Functions | elmah.io">
+    <meta name="twitter:title" content="Logging from Xamarin | elmah.io">
     
     
-    <meta property="og:title" content="Logging from Google Cloud Functions | elmah.io">
+    <meta property="og:title" content="Logging from Xamarin | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-google-cloud-functions/">
+    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-xamarin/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Logging from Google Cloud Functions | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-google-cloud-functions/">
+    <title>Logging from Xamarin | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-xamarin/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -216,7 +216,7 @@
                   
                   <li ><a href="../logging-to-elmah-io-from-aws-lambdas/">Logging from AWS Lambdas</a></li>
                   
-                  <li class="active"><a href="./">Logging from Google Cloud Functions</a></li>
+                  <li ><a href="../logging-to-elmah-io-from-google-cloud-functions/">Logging from Google Cloud Functions</a></li>
                   
                   <li ><a href="../logging-to-elmah-io-from-entity-framework-core/">Logging from Entity Framework Core</a></li>
                   
@@ -228,7 +228,7 @@
                   
                   <li ><a href="../logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
                   
-                  <li ><a href="../logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
+                  <li class="active"><a href="./">Logging from Xamarin</a></li>
                   
                 </ul>
               </li>
@@ -412,56 +412,140 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="logging-to-elmahio-from-google-cloud-functions">Logging to elmah.io from Google Cloud Functions</h1>
-<p>Logging to elmah.io from Google Cloud Functions uses our integration with <em>Microsoft.Extensions.Logging</em>. To start logging, install the <code>Elmah.Io.Extensions.Logging</code> NuGet package through the Cloud Shell or locally:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Extensions.Logging
-</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Extensions.Logging
-</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Extensions.Logging&quot; Version=&quot;3.*&quot; /&gt;
-</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Extensions.Logging
+            <h1 id="logging-to-elmahio-from-xamarin">Logging to elmah.io from Xamarin</h1>
+<div class="toc">
+<ul>
+<li><a href="#logging-to-elmahio-from-xamarin">Logging to elmah.io from Xamarin</a><ul>
+<li><a href="#android">Android</a></li>
+<li><a href="#ios">iOS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>While we don't provide a package specific for Xamarin, logging uncaught exceptions can be accomplished using a bit of code. Start by installing the <code>Elmah.Io.Client</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Client
+</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Client
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Client&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Client
 </code></pre></div></div></div>
 
-<p>In the root of your Function app create a new file named <code>Startup.cs</code>:</p>
-<p> <pre><code class=csharp>public class Startup : FunctionsStartup
+<p>If you are targeting a single platform, you can install the package directly in the startup project. If you are targeting multiple platforms, you can either install the package in all platform-specific projects or a shared project.</p>
+<p>Additional steps will vary from platform to platform.</p>
+<h2 id="android">Android</h2>
+<p>Locate your main activity class and look for the <code>OnCreate</code> method. Here, you'd want to set up event handlers for when uncaught exceptions happen:</p>
+<p> <pre><code class=csharp>protected override void OnCreate(Bundle savedInstanceState)
 {
-    public override void ConfigureServices(WebHostBuilderContext ctx, IServiceCollection services)
+    // ...
+
+    AndroidEnvironment.UnhandledExceptionRaiser += AndroidEnvironment_UnhandledExceptionRaiser;
+    AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+    TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+
+    // ... LoadApplication(new App()); etc.
+}
+</code></pre></p>
+<p>Next, implement a method that can log an exception to elmah.io:</p>
+<p> <pre><code class=csharp>private void LogExceptionToElmahIo(Exception exception)
+{
+    if (exception == null) return;
+
+    if (elmahIoClient == null)
     {
-        services.AddLogging(logging =&gt;
+        elmahIoClient = ElmahioAPI.Create(&quot;API_KEY&quot;);
+    }
+
+    var packageInfo = PackageManager.GetPackageInfo(PackageName, PackageInfoFlags.MetaData);
+
+    var baseException = exception?.GetBaseException();
+    var errorMessage = baseException?.Message ?? &quot;Unhandled exception&quot;;
+    try
+    {
+        elmahIoClient.Messages.Create(&quot;LOG_ID&quot;, new CreateMessage
         {
-            logging.AddElmahIo(o =&gt;
-            {
-                o.ApiKey = &quot;API_KEY&quot;;
-                o.LogId = new Guid(&quot;LOG_ID&quot;);
-            });
-            logging.AddFilter&lt;ElmahIoLoggerProvider&gt;(null, LogLevel.Warning);
+            Data = exception?.ToDataList(),
+            DateTime = DateTime.UtcNow,
+            Detail = exception?.ToString(),
+            Severity = &quot;Error&quot;,
+            Source = baseException?.Source,
+            Title = errorMessage,
+            Type = baseException?.GetType().FullName,
+            Version = packageInfo.VersionName,
+            Application = packageInfo.PackageName,
         });
     }
-}
-</code></pre></p>
-<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> with the ID of the log to store messages in (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>).</p>
-<p>The filter tells Google Cloud Functions to log warnings and above to elmah.io only. If you want to log detailed information about what goes on inside Google Cloud Functions, you can lower the log level.</p>
-<p>Decorate your function with a <code>FunctionsStartup</code> attribute:</p>
-<p> <pre><code class=csharp>[FunctionsStartup(typeof(Startup))]    
-public class Function : IHttpFunction
-{
-    // ...
-}
-</code></pre></p>
-<p>All uncaught exceptions happening in your function as well as log messages sent from Google Cloud Functions are now stored in elmah.io.</p>
-<p>To log messages manually, you can inject an <code>ILogger</code> in your function:</p>
-<p> <pre><code class=csharp>public class Function : IHttpFunction
-{
-    private ILogger&lt;Function&gt; _logger;
-
-    public Function(ILogger&lt;Function&gt; logger)
+    catch (Exception inner)
     {
-        _logger = logger;
+        Android.Util.Log.Error(&quot;elmahio&quot;, inner.Message);
     }
 
-    // ...
+    // Log to Android Device Logging.
+    Android.Util.Log.Error(&quot;crash&quot;, errorMessage);
 }
 </code></pre></p>
-<p>Then log messages using the injected logger:</p>
-<p> <pre><code class=csharp>_logger.LogWarning(&quot;Your log message goes here&quot;);
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Finally, implement the three event handlers that we added in the first step:</p>
+<p> <pre><code class=csharp>private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+{
+    LogExceptionToElmahIo(e.Exception);
+    e.SetObserved();
+}
+
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+{
+    LogExceptionToElmahIo(e.ExceptionObject as Exception);
+}
+
+private void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThrowableEventArgs e)
+{
+    LogExceptionToElmahIo(e.Exception);
+    e.Handled = true;
+}
+</code></pre></p>
+<h2 id="ios">iOS</h2>
+<p>Locate your main application class and look for the <code>Main</code> method. Here, you'd want to set up event handlers for when uncaught exceptions happen:</p>
+<p> <pre><code class=csharp>static void Main(string[] args)
+{
+    // ...
+
+    AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+    TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+}
+</code></pre></p>
+<p>Next, implement a method that can log an exception to elmah.io:</p>
+<p> <pre><code class=csharp>private static void LogExceptionToElmahIo(Exception exception)
+{
+    if (exception == null) return;
+
+    if (elmahIoClient == null)
+    {
+        elmahIoClient = ElmahioAPI.Create(&quot;API_KEY&quot;);
+    }
+
+    var baseException = exception?.GetBaseException();
+    elmahIoClient.Messages.Create(&quot;LOG_ID&quot;, new CreateMessage
+    {
+        Data = exception?.ToDataList(),
+        DateTime = DateTime.UtcNow,
+        Detail = exception?.ToString(),
+        Severity = &quot;Error&quot;,
+        Source = baseException?.Source,
+        Title = baseException?.Message ?? &quot;Unhandled exception&quot;,
+        Type = baseException?.GetType().FullName,
+    });
+}
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Finally, implement the two event handlers that we added in the first step:</p>
+<p> <pre><code class=csharp>private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+{
+    LogExceptionToElmahIo(e.Exception);
+    e.SetObserved();
+}
+
+private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+{
+    LogExceptionToElmahIo(e.ExceptionObject as Exception);
+}
 </code></pre></p>
 
             <br/>
