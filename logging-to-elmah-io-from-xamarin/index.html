@@ -536,7 +536,8 @@ private void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThr
 </code></pre></p>
 <p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
 <p>Finally, implement the two event handlers that we added in the first step:</p>
-<p> <pre><code class=csharp>private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+<p> <pre><code class=csharp>private static void TaskScheduler_UnobservedTaskException(
+    object sender, UnobservedTaskExceptionEventArgs e)
 {
     LogExceptionToElmahIo(e.Exception);
     e.SetObserved();
