@@ -74,6 +74,7 @@ nav:
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
+    - Logging from Xamarin: logging-to-elmah-io-from-xamarin.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - Microsoft Teams: elmah-io-apps-teams.md
