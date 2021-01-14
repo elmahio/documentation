@@ -147,7 +147,8 @@ Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.i
 Finally, implement the two event handlers that we added in the first step:
 
 ```csharp
-private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+private static void TaskScheduler_UnobservedTaskException(
+    object sender, UnobservedTaskExceptionEventArgs e)
 {
     LogExceptionToElmahIo(e.Exception);
     e.SetObserved();
