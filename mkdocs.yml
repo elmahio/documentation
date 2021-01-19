@@ -139,6 +139,7 @@ nav:
     - Adding version information: adding-version-information.md
     - Bot detection: bot-detection.md
     - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
+    - How to correlate messages across services: how-to-correlate-messages-across-services.md
     - How prices are calculated: how-prices-are-calculated.md
     - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
