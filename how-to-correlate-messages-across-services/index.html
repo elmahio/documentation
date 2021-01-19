@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Log a message from the CLI | elmah.io">
+    <meta name="twitter:title" content="How to correlate messages across services | elmah.io">
     
     
-    <meta property="og:title" content="Log a message from the CLI | elmah.io">
+    <meta property="og:title" content="How to correlate messages across services | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/cli-log/">
+    <meta property="og:url" content="https://docs.elmah.io/how-to-correlate-messages-across-services/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Log a message from the CLI | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/cli-log/">
+    <title>How to correlate messages across services | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/how-to-correlate-messages-across-services/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -339,7 +339,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">CLI</a>
                 <ul>
                   
@@ -347,7 +347,7 @@
                   
                   <li ><a href="../cli-export/">Export</a></li>
                   
-                  <li class="active"><a href="./">Log</a></li>
+                  <li ><a href="../cli-log/">Log</a></li>
                   
                   <li ><a href="../cli-tail/">Tail</a></li>
                   
@@ -356,7 +356,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Everything Else</a>
                 <ul>
                   
@@ -388,7 +388,7 @@
                   
                   <li ><a href="../include-filename-and-line-number-in-stacktraces/">Include filename and line number in stack traces</a></li>
                   
-                  <li ><a href="../how-to-correlate-messages-across-services/">How to correlate messages across services</a></li>
+                  <li class="active"><a href="./">How to correlate messages across services</a></li>
                   
                   <li ><a href="../how-prices-are-calculated/">How prices are calculated</a></li>
                   
@@ -414,53 +414,168 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="log-a-message-from-the-cli">Log a message from the CLI</h1>
-<p>The <code>log</code> command is used to store a log message in a specified log.</p>
-<h2 id="usage">Usage</h2>
-<p> <pre><code class=cmd>&gt; elmahio log --help
-
-log:
-  Log a message to the specified log
-
-Usage:
-  elmahio log [options]
-
-Options:
-  --apiKey &lt;apikey&gt; (REQUIRED)       An API key with permission to execute the command
-  --logId &lt;logid&gt; (REQUIRED)         The ID of the log to send the log message to
-  --application &lt;application&gt;        Used to identify which application logged this message. You can use this if you
-                                     have multiple applications and services logging to the same log
-  --detail &lt;detail&gt;                  A longer description of the message. For errors this could be a stacktrace, but
-                                     it's really up to you what to log in there.
-  --hostname &lt;hostname&gt;              The hostname of the server logging the message.
-  --title &lt;title&gt; (REQUIRED)         The textual title or headline of the message to log.
-  --titleTemplate &lt;titletemplate&gt;    The title template of the message to log. This property can be used from logging
-                                     frameworks that supports structured logging like: &quot;{user} says {quote}&quot;. In the
-                                     example, titleTemplate will be this string and title will be &quot;Gilfoyle says It's
-                                     not magic. It's talent and sweat&quot;.
-  --source &lt;source&gt;                  The source of the code logging the message. This could be the assembly name.
-  --statusCode &lt;statuscode&gt;          If the message logged relates to a HTTP status code, you can put the code in this
-                                     property. This would probably only be relevant for errors, but could be used for
-                                     logging successful status codes as well.
-  --dateTime &lt;datetime&gt;              The date and time in UTC of the message. If you don't provide us with a value in
-                                     dateTime, we will set the current date and time in UTC.
-  --type &lt;type&gt;                      The type of message. If logging an error, the type of the exception would go into
-                                     type but you can put anything in there, that makes sense for your domain.
-  --user &lt;user&gt;                      An identification of the user triggering this message. You can put the users
-                                     email address or your user key into this property.
-  --severity &lt;severity&gt;              An enum value representing the severity of this message. The following values are
-                                     allowed: Verbose, Debug, Information, Warning, Error, Fatal
-  --url &lt;url&gt;                        If message relates to a HTTP request, you may send the URL of that request. If
-                                     you don't provide us with an URL, we will try to find a key named URL in
-                                     serverVariables.
-  --method &lt;method&gt;                  If message relates to a HTTP request, you may send the HTTP method of that
-                                     request. If you don't provide us with a method, we will try to find a key named
-                                     REQUEST_METHOD in serverVariables.
-  --version &lt;version&gt;                Versions can be used to distinguish messages from different versions of your
-                                     software. The value of version can be a SemVer compliant string or any other
-                                     syntax that you are using as your version numbering scheme.
-  -?, -h, --help                     Show help and usage information
+            <h1 id="how-to-correlate-messages-across-services">How to correlate messages across services</h1>
+<div class="toc">
+<ul>
+<li><a href="#how-to-correlate-messages-across-services">How to correlate messages across services</a><ul>
+<li><a href="#correlationid-explained">CorrelationId explained</a></li>
+<li><a href="#setting-correlationid">Setting CorrelationId</a><ul>
+<li><a href="#aspnet-core">ASP.NET Core</a></li>
+<li><a href="#microsoftextensionslogging">Microsoft.Extensions.Logging</a></li>
+<li><a href="#serilog">Serilog</a></li>
+<li><a href="#nlog">NLog</a></li>
+<li><a href="#log4net">log4net</a></li>
+</ul>
+</li>
+<li><a href="#w3c-trace-context">W3C Trace Context</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>A common architecture is to spread out code across multiple services. Some developers like to split up their code into microservices. Others have requirements for running code asynchronous behind a queue. The common theme here is that code often runs in multiple processes spread across multiple servers. While logging can be easily set up in different projects and services, being able to correlate log messages across multiple services isn't normally available when logging to individual log outputs.</p>
+<p>Imagine a console application making an HTTP request to your public API. The API calls an internal API, which again puts a message on a queue. A service consumes messages from the queue and ends up logging an error in the error log. Seeing the entire log trace from receiving the request on the API straight down the chain resulting in the error, highly increases the chance of figuring out what went wrong. With the Correlation feature on elmah.io, we want to help you achieve just that. In this article, you will learn how to set up Correlations.</p>
+<blockquote>
+<p>Correlation currently requires all of your applications to log to the same log on elmah.io. For you to separate log messages from each service, we recommend setting the <code>Application</code> property on all log messages. Filtering on log messages is available through the elmah.io UI. We may want to explore ways to use Correlation across multiple error logs in the future.</p>
+</blockquote>
+<h2 id="correlationid-explained">CorrelationId explained</h2>
+<p>The way log messages are correlated on elmah.io is based on a property on all log messages named <code>correlationId</code>. The field is available both when creating log messages through our API as well as in the <code>Elmah.Io.Client</code> NuGet package. The property is a string which means that you can use whatever schema you want for the correlation ID.</p>
+<p>To set the correlation ID using the client, use the following code:</p>
+<p> <pre><code class=csharp>var myCorrelationId = &quot;42&quot;;
+var client = ElmahioAPI.Create(&quot;API_KEY&quot;);
+await client.Messages.CreateAndNotifyAsync(new Guid(&quot;LOG_ID&quot;), new CreateMessage
+{
+    Title = &quot;Hello World&quot;,
+    // ...
+    CorrelationId = myCorrelationId
+});
 </code></pre></p>
+<p>In a real-world scenario, <code>myCorrelationId</code> wouldn't be hardcoded but pulled from a shared header, message ID, or similar. As long as all services set <code>CorrelationId</code> to the same ID, log messages within a correlation can be searched on the elmah.io UI:</p>
+<p><img alt="Correlation filter" src="../images/correlation-id-filter.png" /></p>
+<h2 id="setting-correlationid">Setting CorrelationId</h2>
+<p>How you set the correlation ID depend on which integration you are using. In some cases, a correlation ID is set automatically while others will require a few lines of code.</p>
+<h3 id="aspnet-core">ASP.NET Core</h3>
+<p>When logging uncaught errors using the <code>Elmah.Io.AspNetCore</code> package, we automatically pick up any active activity and put the trace ID as part of the error logged to elmah.io. For an overview of wrapping calls to your ASP.NET Core API in an <code>Activity</code> check out the section about W3C Trace Context.</p>
+<p>If you want to set the correlation ID manually, you can use the <code>OnMessage</code> action:</p>
+<p> <pre><code class=csharp>public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    services.Configure&lt;ElmahIoOptions&gt;(o =&gt;
+    {
+        o.OnMessage = msg =&gt;
+        {
+            msg.CorrelationId = &quot;42&quot;;
+        };
+    });
+    // ...
+}
+</code></pre></p>
+<h3 id="microsoftextensionslogging">Microsoft.Extensions.Logging</h3>
+<p>To store a correlation ID when logging through Microsoft.Extensions.Logging you can either set the <code>CorrelationId</code> property manually or rely on the automatic behavior built into Microsoft.Extensions.Logging.</p>
+<p>To manually set the correlation you can either include <code>correlationId</code> as part of the log message:</p>
+<p> <pre><code class=csharp>logger.LogInformation(&quot;A log message with {correlationId}&quot;, &quot;42&quot;);
+</code></pre></p>
+<p>Or you can put the correlation ID as part of a logging scope:</p>
+<p> <pre><code class=csharp>using (logger.BeginScope(new { CorrelationId = &quot;42&quot; }))
+{
+    logger.LogInformation(&quot;A log message&quot;);
+}
+</code></pre></p>
+<p>In some cases, a correlation ID will be set automatically. If there is a current active <code>Activity</code> (see later), Microsoft.Extensions.Logging automatically decorates all log messages with a custom property name <code>TraceId</code>. The elmah.io backend will pick up any value in the <code>TraceId</code> and use that as the correlation ID.</p>
+<h3 id="serilog">Serilog</h3>
+<p>When logging through Serilog a correlation ID can be added to one or more log messages in multiple ways. The most obvious being on the log message itself:</p>
+<p> <pre><code class=csharp>Log.Information(&quot;A log message with {correlationId}&quot;, &quot;42&quot;);
+</code></pre></p>
+<p>If you don't want correlation ID as part of the log message, you can push the property using <code>LogContext</code>:</p>
+<p> <pre><code class=csharp>using (LogContext.PushProperty(&quot;correlationId&quot;, &quot;42&quot;))
+{
+    Log.Information(&quot;A log message&quot;);
+}
+</code></pre></p>
+<p>You will need to install the <code>LogContext</code> enricher for this to work:</p>
+<p> <pre><code class=csharp>Log.Logger =
+    new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        // ...
+        .CreateLogger();
+</code></pre></p>
+<h3 id="nlog">NLog</h3>
+<p>Correlation ID can set on log messages logged through NLog in multiple ways. The first approach is to include the ID directly in the log message:</p>
+<p> <pre><code class=csharp>logger.Info(&quot;A log message with {correlationId}&quot;, &quot;42&quot;);
+</code></pre></p>
+<p>If you don't want the ID as part of the log message you can use either NLog's two context objects:</p>
+<p> <pre><code class=csharp>using (MappedDiagnosticsLogicalContext.SetScoped(&quot;correlationId&quot;, &quot;42&quot;))
+{
+    logger.Info(&quot;A log message&quot;);
+}
+GlobalDiagnosticsContext.Set(&quot;correlationId&quot;, &quot;42&quot;);
+</code></pre></p>
+<p>You can also add the property manually to the log message using the log event builder API available in NLog:</p>
+<p> <pre><code class=csharp>var infoMessage = new LogEventInfo(LogLevel.Info, &quot;&quot;, &quot;A log message&quot;);
+infoMessage.Properties.Add(&quot;correlationid&quot;, &quot;42&quot;);
+logger.Info(infoMessage);
+</code></pre></p>
+<h3 id="log4net">log4net</h3>
+<p>Correlation ID can be set on log messages logged through log4net in multiple ways. You can include it directly on the <code>LoggingEvent</code>:</p>
+<p> <pre><code class=csharp>var properties = new PropertiesDictionary();
+properties[&quot;correlationid&quot;] = &quot;42&quot;;
+log.Logger.Log(new LoggingEvent(new LoggingEventData
+{
+    Level = Level.Info,
+    TimeStampUtc = DateTime.UtcNow,
+    Properties = properties,
+    Message = &quot;A log message&quot;,
+}));
+</code></pre></p>
+<p>You most likely use the <code>Info</code>, <code>Warn</code>, and similar helper methods to store log messages. In this case you can set the correlation ID on the <code>ThreadContext</code>:</p>
+<p> <pre><code class=csharp>ThreadContext.Properties[&quot;correlationid&quot;] = &quot;42&quot;;
+log.Info(&quot;A log message&quot;);
+</code></pre></p>
+<p>Please notice that <code>correlationid</code> in both examples must be in all lowercase.</p>
+<h2 id="w3c-trace-context">W3C Trace Context</h2>
+<p>The class <code>Activity</code> has been mentioned a couple of times already. Let's take a look at what that is and how it relates to W3C Trace Context. Trace Context is a specification by W3C for implementing distributed tracing across multiple processes which is already widely adopted. If you generate a trace identifier in a client initiating a chain of events, different Microsoft technologies like ASP.NET Core already pick up the extended set of headers and include those as part of log messages logged through Microsoft.Extensions.Logging.</p>
+<p>Let's say we have a console application calling an API and we want to log messages in both the console app and in the API and correlate them in elmah.io. In both the console app and in the ASP.NET Core application, you would set up <code>Elmah.Io.Extensions.Logging</code> using the default configuration. Then in the console application, you will wrap the call to the API in an <code>Activity</code>:</p>
+<p> <pre><code class=csharp>var httpClient = new HttpClient();
+var activity = new Activity(&quot;ApiCall&quot;).Start();
+try
+{
+    using (logger.BeginScope(new
+    {
+        TraceId = activity.TraceId,
+        ParentId = activity.ParentSpanId,
+        SpanId = activity.SpanId }))
+    {
+        logger.LogInformation(&quot;Fetching data from the API&quot;);
+        var result = await httpClient.GetStreamAsync(&quot;https://localhost:44396/ping&quot;);
+        // ...
+    }
+}
+finally
+{
+    activity.Stop();
+}
+</code></pre></p>
+<p>By creating and starting a new <code>Activity</code> before we call the API, log messages in the console app can be decorated with three additional properties: <code>TraceId</code>, <code>ParentId</code>, and <code>SpanId</code>. This will make sure that all log messages logged within this scope will get the correlation ID set on elmah.io. <code>HttpClient</code> automatically picks up the activity and decorates the request with additional headers.</p>
+<p>On the API we simply log as normal:</p>
+<p> <pre><code class=csharp>[ApiController]
+[Route(&quot;[controller]&quot;)]
+public class PingController : ControllerBase
+{
+    private readonly ILogger&lt;PingController&gt; _logger;
+
+    public PingController(ILogger&lt;PingController&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    [HttpGet]
+    public string Get()
+    {
+        _logger.LogInformation(&quot;Received a ping&quot;);
+        return &quot;pong&quot;;
+    }
+}
+</code></pre></p>
+<p>Notice that we didn't have to decorate log messages with additional properties. ASP.NET Core automatically picks up the new headers and decorate all log messages with the correct trace ID.</p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
