@@ -518,3 +518,5 @@ new Elmahio({
     debug: true
 });
 ```
+
+- If your webserver include the `Content-Security-Policy` header make sure to include `api.elmah.io` as an allowed domain.
