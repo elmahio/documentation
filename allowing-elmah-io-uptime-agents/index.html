@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Include filename and line number in stack traces | elmah.io">
+    <meta name="twitter:title" content="Allowing elmah.io uptime agents | elmah.io">
     
     
-    <meta property="og:title" content="Include filename and line number in stack traces | elmah.io">
+    <meta property="og:title" content="Allowing elmah.io uptime agents | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/include-filename-and-line-number-in-stacktraces/">
+    <meta property="og:url" content="https://docs.elmah.io/allowing-elmah-io-uptime-agents/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Include filename and line number in stack traces | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/include-filename-and-line-number-in-stacktraces/">
+    <title>Allowing elmah.io uptime agents | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/allowing-elmah-io-uptime-agents/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Bootstrap CSS -->
@@ -274,7 +274,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Uptime Monitoring</a>
                 <ul>
                   
@@ -282,7 +282,7 @@
                   
                   <li ><a href="../missing-server-side-information-on-uptime-errors/">Missing server side information on uptime errors</a></li>
                   
-                  <li ><a href="../allowing-elmah-io-uptime-agents/">Allowing elmah.io uptime agents</a></li>
+                  <li class="active"><a href="./">Allowing elmah.io uptime agents</a></li>
                   
                 </ul>
               </li>
@@ -358,7 +358,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Everything Else</a>
                 <ul>
                   
@@ -388,7 +388,7 @@
                   
                   <li ><a href="../bot-detection/">Bot detection</a></li>
                   
-                  <li class="active"><a href="./">Include filename and line number in stack traces</a></li>
+                  <li ><a href="../include-filename-and-line-number-in-stacktraces/">Include filename and line number in stack traces</a></li>
                   
                   <li ><a href="../how-to-correlate-messages-across-services/">How to correlate messages across services</a></li>
                   
@@ -416,17 +416,39 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="include-filename-and-line-number-in-stack-traces">Include filename and line number in stack traces</h1>
-<p>When deploying your application to the test and production environment, you normally want to use the <em>Release</em> configuration. When doing so, your code is optimized, web.config transformation is running and a few additional things. But, part of running on a Release build is, that you lose the ability to see filenames and line numbers in the stack traces produced by your system.</p>
-<p>.NET offer the concept of PDB files, which is automatically generated when building your code. The PDB file contains information for the debugger to work, like which file to look up when a breakpoint is reached in your code. Unless you have changed the default settings inside Visual Studio, both the Debug and Release configuration generates a PDB file.</p>
-<p>So, if both Debug and Release produces a PDB file, why does Debug builds include file name and line number in stack traces, while the Release build doesn't? The reason is most often caused by the fact that PDB files aren't published as part of the deployment. To do so, right click your project in Visual Studio and Select <em>Properties</em>. Click the <em>Package/Publish Web</em> tab and make sure that the <em>Release</em> configuration is selected in the dropdown. Next, remove the check in <em>Exclude generated debug symbols</em>:</p>
-<p><img alt="Exclude generated debug symbols" src="../images/exclude_generated_debug_symbols.png" /></p>
-<p>Also, make sure that the PDB file is generated as part of Release builds. Select the <em>Build</em> tab and click <em>Advanced...</em>. In <em>Debug Info</em> you want to make sure that either <em>pdb-only</em> or <em>full</em> is selected (<em>pdb-only</em> being the default):</p>
-<p><img alt="Advanced build settings" src="../images/advanced_build_settings.png" /></p>
-<p>On your next deployment, PDB files are published as part of the build.</p>
-<blockquote>
-<p>Depending on who you talk to, deploying PDB files as part of your build may be considered a hack. Since PDB file can contain sensitive information about your implementation, publishing these files should only be done, if you have full control of the environment you are deploying to. When releasing software to external users/customers, you don't want to include your PDB files. In this case, you should store the PDB files internally, in a symbol server or similar.</p>
-</blockquote>
+            <h1 id="allowing-elmahio-uptime-agents">Allowing elmah.io uptime agents</h1>
+<p>elmah.io Uptime Monitoring runs in 9 different regions. Depending on which regions you enabled on each uptime check, your network infrastructure/firewall, or security settings, you may need to allow requests from elmah.io uptime agents.</p>
+<p>You can allow requests by allowing all requests with the following user-agent:</p>
+<p> <pre><code class>User-Agent: elmahio-uptimebot/2.0
+</code></pre></p>
+<p>Or you can allow requests based on an IP. Here's an overview of possible inbound IP addresses by region.</p>
+<p><strong>United States West</strong></p>
+<p> <pre><code class>23.100.40.244,23.100.40.246,23.100.40.2,23.100.32.186,40.83.253.229,138.91.92.9,138.91.172.82,138.91.230.36,138.91.228.104,23.100.46.198,40.112.243.45
+</code></pre></p>
+<p><strong>United States Central</strong></p>
+<p> <pre><code class>13.86.38.119,13.89.106.62,40.89.243.166,52.143.244.58,52.154.168.87,52.154.169.9,52.154.169.57,52.154.169.86,52.154.169.106,52.154.169.204,52.154.170.25,52.154.170.83,52.154.170.158,52.154.171.81,52.154.171.88,52.154.173.21,40.89.244.137,52.154.173.79,52.154.173.101,52.154.173.180,52.154.174.243,52.154.175.58,52.154.240.147,52.154.240.170,52.154.241.97,52.154.241.132,52.154.241.246,52.154.43.251,52.154.44.21,52.154.44.95
+</code></pre></p>
+<p><strong>United States East</strong></p>
+<p> <pre><code class>13.92.137.62,13.92.138.72,13.92.137.49,13.92.143.167,13.68.182.254,13.82.23.172,13.82.23.182,13.82.18.16,13.82.18.62,13.92.139.214,40.71.11.179
+</code></pre></p>
+<p><strong>United Kingdom South</strong></p>
+<p> <pre><code class>51.140.180.76,51.140.191.115,51.140.176.159,51.140.176.11,51.140.185.39,51.140.177.87,51.140.185.119,51.140.188.39,51.140.188.241,51.140.183.68,51.140.184.173
+</code></pre></p>
+<p><strong>United Kingdom West</strong></p>
+<p> <pre><code class>51.140.210.96,51.140.252.30,51.140.251.198,51.141.123.138,51.140.248.129,51.140.252.164,51.140.248.213,52.142.164.59,51.140.248.195,51.140.250.153
+</code></pre></p>
+<p><strong>Australia South East</strong></p>
+<p> <pre><code class>191.239.187.197,191.239.187.149,191.239.184.74,191.239.188.25,52.189.210.149,52.189.209.158,52.189.215.220,52.189.208.40,40.127.95.32,40.115.76.80,40.115.76.83,40.115.76.93,40.115.76.94,40.115.76.101,40.115.76.109,40.115.76.129,40.115.76.143,191.239.188.11,13.77.50.103
+</code></pre></p>
+<p><strong>Europe North</strong></p>
+<p> <pre><code class>40.127.186.114,40.127.183.46,40.127.189.87,40.127.183.64,40.115.126.151,137.135.216.255,40.85.101.214,40.85.101.216,40.85.101.219,40.127.139.252,13.69.228.38
+</code></pre></p>
+<p><strong>Europe West</strong></p>
+<p> <pre><code class>20.71.75.100,20.71.75.133,20.71.75.198,20.71.75.237,20.71.76.1,20.71.76.23,20.71.76.57,20.71.76.171,20.71.76.196,20.71.77.10,20.71.77.83,20.71.77.134,20.71.77.205,20.71.78.20,20.71.78.208,20.71.78.243,20.71.79.77,20.71.79.165,20.71.79.228,20.73.232.14,20.73.232.51,20.73.232.121,20.73.232.130,20.73.232.163,20.73.232.186,20.73.232.217,20.73.232.241,20.73.132.133,20.73.132.167,20.73.133.173
+</code></pre></p>
+<p><strong>Brazil South</strong></p>
+<p> <pre><code class>191.232.176.16,191.232.180.88,191.232.177.130,191.232.180.187,191.232.179.236,191.232.177.40,191.232.180.122
+</code></pre></p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
