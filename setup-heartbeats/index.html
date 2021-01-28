@@ -423,6 +423,7 @@
 <li><a href="#additional-properties">Additional properties</a><ul>
 <li><a href="#reason">Reason</a></li>
 <li><a href="#application-and-version">Application and Version</a></li>
+<li><a href="#took">Took</a></li>
 </ul>
 </li>
 </ul>
@@ -565,6 +566,18 @@ public class Program
 <p> <pre><code class=csharp>api.Heartbeats.Unhealthy(logId, &quot;HEARTBEAT_ID&quot;, application: &quot;MyApp&quot;, version: &quot;1.0.0&quot;);
 </code></pre></p>
 <p>If application name is not configured, all messages logged from Heartbeats will get a default value of <code>Heartbeats</code>. If no version number is configured, log messages from Heartbeats will be assigned the latest version created through <a href="https://elmah.io/features/deploymenttracking/">Deployment Tracking</a>.</p>
+<h3 id="took">Took</h3>
+<p>A single performance metric named <code>Took</code> can be logged alongside a heartbeat. The value should be the elapsed time in milliseconds for the job, scheduled task, or whatever code resulting in the heartbeat. For a scheduled task, the <code>Took</code> value would be the time from the scheduled task start until the task ends:</p>
+<p> <pre><code class=csharp>var stopwatch = new Stopwatch();
+stopwatch.Start();
+// run job
+stopwatch.Stop();
+heartbeats.Healthy(
+    logId,
+    heartbeatId,
+    took: stopwatch.ElapsedMilliseconds);
+</code></pre></p>
+<p>The value of the <code>Took</code> property is shown in the <em>History</em> modal on the <em>Heartbeats</em> page on elmah.io.</p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
