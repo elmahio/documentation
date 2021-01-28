@@ -171,3 +171,20 @@ api.Heartbeats.Unhealthy(logId, "HEARTBEAT_ID", application: "MyApp", version: "
 ```
 
 If application name is not configured, all messages logged from Heartbeats will get a default value of `Heartbeats`. If no version number is configured, log messages from Heartbeats will be assigned the latest version created through [Deployment Tracking](https://elmah.io/features/deploymenttracking/).
+
+### Took
+
+A single performance metric named `Took` can be logged alongside a heartbeat. The value should be the elapsed time in milliseconds for the job, scheduled task, or whatever code resulting in the heartbeat. For a scheduled task, the `Took` value would be the time from the scheduled task start until the task ends:
+
+```csharp
+var stopwatch = new Stopwatch();
+stopwatch.Start();
+// run job
+stopwatch.Stop();
+heartbeats.Healthy(
+    logId,
+    heartbeatId,
+    took: stopwatch.ElapsedMilliseconds);
+```
+
+The value of the `Took` property is shown in the *History* modal on the *Heartbeats* page on elmah.io.
