@@ -345,6 +345,12 @@ blockquote a, blockquote a:visited {
     max-width: 100%;
     box-shadow: 1px 5px 12px rgba(0, 0, 0, 0.2);
 }
+.main-content-body img.emojione {
+	display: inline-block;
+    height: 1.125em;
+	vertical-align: text-top;
+	box-shadow: none;
+}
 .main-content-body pre {
 	padding: 0;
 	margin: 20px 0 20px 0;

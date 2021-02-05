@@ -12,6 +12,8 @@ extra_css:
 markdown_extensions:
     - markdown_fenced_code_tabs:
         template: "bootstrap4"
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
 nav:
 - Getting Started:
     - Quick start: index.md
