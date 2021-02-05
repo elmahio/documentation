@@ -197,6 +197,8 @@ $(document).ready(function(){
     });
     navbarScroll();
 
+    // Footer copyright year
+    $('#currentYear').text(new Date().getFullYear());
 });
 
 window.intercomSettings = {

@@ -152,7 +152,7 @@ During the installation, you will be asked for your API key and log ID.
 For more information, check out the installation guides for [WebForms](/logging-to-elmah-io-from-elmah/), [MVC](/logging-to-elmah-io-from-aspnet-mvc/) and [Web API](/logging-to-elmah-io-from-web-api/). There is a short video tutorial available here:
 
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" allowfullscreen></iframe>
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" title="elmah.io Introduction - Installation" allowfullscreen></iframe>
 </div><br/>
 
 ## ASP.NET Core
