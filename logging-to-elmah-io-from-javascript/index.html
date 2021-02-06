@@ -453,7 +453,11 @@
 </ul>
 </li>
 <li><a href="#message-reference">Message reference</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a><ul>
+<li><a href="#errors-arent-logged">Errors aren't logged</a></li>
+<li><a href="#missing-information-on-log-messages">Missing information on log messages</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -811,6 +815,7 @@ export default class App extends Component {
 </code></pre></p>
 <p>For a complete definition, check out the <code>Message</code> interface in the <a href="https://github.com/elmahio/elmah.io.javascript/blob/main/typescript/elmahio.d.ts">elmah.io.javascript TypeScript mappings</a>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="errors-arent-logged">Errors aren't logged</h3>
 <p>If errors aren't logged from JavaScript, here's a list of things to try out:</p>
 <ul>
 <li>Make sure that the log with the specified ID exists.</li>
@@ -827,6 +832,19 @@ export default class App extends Component {
 <ul>
 <li>If your webserver include the <code>Content-Security-Policy</code> header make sure to include <code>api.elmah.io</code> as an allowed domain.</li>
 </ul>
+<h3 id="missing-information-on-log-messages">Missing information on log messages</h3>
+<p>When logging uncaught errors with <code>elmah.io.javascript</code> you get a lot of additional information stored as part of the log messages. Like the client IP and browser details. If you don't see this information on the messages logged from your application, it's probably because you are using the <code>log</code> function:</p>
+<p> <pre><code class=javascript>logger.log({
+  title: 'This is a custom log message',
+  severity: 'Error'
+});
+</code></pre></p>
+<p>The <code>log</code> function only logs what you tell it to log. To include the additional information, switch to use the <code>message</code> builder:</p>
+<p> <pre><code class=javascript>var msg = logger.message(); // Get a prefilled message
+msg.title = 'This is a custom log message';
+msg.severity = 'Error';
+logger.log(msg);
+</code></pre></p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
