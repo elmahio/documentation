@@ -504,6 +504,8 @@ For a complete definition, check out the `Message` interface in the [elmah.io.ja
 
 ## Troubleshooting
 
+### Errors aren't logged
+
 If errors aren't logged from JavaScript, here's a list of things to try out:
 
 - Make sure that the log with the specified ID exists.
@@ -520,3 +522,23 @@ new Elmahio({
 ```
 
 - If your webserver include the `Content-Security-Policy` header make sure to include `api.elmah.io` as an allowed domain.
+
+### Missing information on log messages
+
+When logging uncaught errors with `elmah.io.javascript` you get a lot of additional information stored as part of the log messages. Like the client IP and browser details. If you don't see this information on the messages logged from your application, it's probably because you are using the `log` function:
+
+```javascript
+logger.log({
+  title: 'This is a custom log message',
+  severity: 'Error'
+});
+```
+
+The `log` function only logs what you tell it to log. To include the additional information, switch to use the `message` builder:
+
+```javascript
+var msg = logger.message(); // Get a prefilled message
+msg.title = 'This is a custom log message';
+msg.severity = 'Error';
+logger.log(msg);
+```
