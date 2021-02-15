@@ -682,7 +682,22 @@ log.Info(infoMessage);
 <li>Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.</li>
 <li>Always make sure to call <code>LogManager.Shutdown()</code> before exiting the application to make sure that all log messages are flushed.</li>
 <li>Extend the <code>nlog</code> element with <code>internalLogLevel="Warn" internalLogFile="c:\temp\nlog-internal.log</code> and inspect that log file for any internal NLog errors.</li>
+<li>The new way to fully quality target names in NLog 5 is not yet supported since we have a dot (.) in the target name. This example shows both the wrong and the correct way to reference the target in NLog 5:</li>
 </ul>
+<p> <pre><code class=xml>&lt;!-- Wrong way --&gt;
+&lt;targets&gt;
+  &lt;target name=&quot;elmahio&quot; type=&quot;Elmah.Io.NLog.elmah.io&quot; ... /&gt;
+&lt;/targets&gt;
+
+&lt;!-- Correct way --&gt;
+&lt;extensions&gt;
+  &lt;add assembly=&quot;Elmah.Io.NLog&quot; /&gt;
+&lt;/extensions&gt; 
+
+&lt;targets&gt;
+  &lt;target name=&quot;elmahio&quot; type=&quot;elmah.io&quot; ... /&gt;
+&lt;/targets&gt;
+</code></pre></p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
