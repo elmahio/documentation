@@ -75,22 +75,6 @@ By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for
 
 > The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
 
-### Setting application name
-
-The application field on elmah.io can be set globally using NLog's global context:
-
-```csharp
-GlobalDiagnosticsContext.Set("Application", "My application name");
-```
-
-### Setting version number
-
-The version field on elmah.io can be set globally using NLog's global context:
-
-```csharp
-GlobalDiagnosticsContext.Set("Version", "1.2.3");
-```
-
 ### IntelliSense
 
 There is support for adding IntelliSense in Visual Studio for the `NLog.config` file. Extend the `nlog` root element like this:
@@ -281,6 +265,22 @@ using (MappedDiagnosticsLogicalContext.SetScoped("User", "T-800"))
 ```
 
 This will create the same result as the example above.
+
+### Setting application name
+
+The application field on elmah.io can be set globally using NLog's global context:
+
+```csharp
+GlobalDiagnosticsContext.Set("Application", "My application name");
+```
+
+### Setting version number
+
+The version field on elmah.io can be set globally using NLog's global context:
+
+```csharp
+GlobalDiagnosticsContext.Set("Version", "1.2.3");
+```
 
 ## Message hooks
 
