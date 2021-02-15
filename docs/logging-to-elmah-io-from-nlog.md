@@ -77,15 +77,19 @@ By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for
 
 ### Setting application name
 
-The application field on elmah.io can be set globally through NLog config:
+The application field on elmah.io can be set globally using NLog's global context:
 
-```xml
-<targets>
-  <target name="elmahio" xsi:type="elmahio:elmah.io" apiKey="API_KEY" logId="LOG_ID" application="APP_NAME" />
-</targets>
+```csharp
+GlobalDiagnosticsContext.Set("Application", "My application name");
 ```
 
-Replace `APP_NAME` with the application you want logged to elmah.io
+### Setting version number
+
+The version field on elmah.io can be set globally using NLog's global context:
+
+```csharp
+GlobalDiagnosticsContext.Set("Version", "1.2.3");
+```
 
 ### IntelliSense
 
