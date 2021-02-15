@@ -428,8 +428,6 @@
 <li><a href="#logging-to-elmahio-from-nlog">Logging to elmah.io from NLog</a><ul>
 <li><a href="#configuration-in-net">Configuration in .NET</a><ul>
 <li><a href="#specify-api-key-and-log-id-in-appsettings">Specify API key and log ID in appSettings</a></li>
-<li><a href="#setting-application-name">Setting application name</a></li>
-<li><a href="#setting-version-number">Setting version number</a></li>
 <li><a href="#intellisense">IntelliSense</a></li>
 </ul>
 </li>
@@ -439,7 +437,11 @@
 </ul>
 </li>
 <li><a href="#configuration-in-code">Configuration in code</a></li>
-<li><a href="#logging-custom-properties">Logging custom properties</a></li>
+<li><a href="#logging-custom-properties">Logging custom properties</a><ul>
+<li><a href="#setting-application-name">Setting application name</a></li>
+<li><a href="#setting-version-number">Setting version number</a></li>
+</ul>
+</li>
 <li><a href="#message-hooks">Message hooks</a><ul>
 <li><a href="#decorating-log-messages">Decorating log messages</a></li>
 <li><a href="#handle-errors">Handle errors</a></li>
@@ -498,14 +500,6 @@ log.Error(new Exception(), &quot;This is an error message&quot;);
 <blockquote>
 <p>The <code>appSettings</code> layout formatter only works when targeting .NET Full Framework and requires <code>Elmah.Io.NLog</code> version 3.3.x or above and <code>NLog</code> version 4.6.x or above.</p>
 </blockquote>
-<h3 id="setting-application-name">Setting application name</h3>
-<p>The application field on elmah.io can be set globally using NLog's global context:</p>
-<p> <pre><code class=csharp>GlobalDiagnosticsContext.Set(&quot;Application&quot;, &quot;My application name&quot;);
-</code></pre></p>
-<h3 id="setting-version-number">Setting version number</h3>
-<p>The version field on elmah.io can be set globally using NLog's global context:</p>
-<p> <pre><code class=csharp>GlobalDiagnosticsContext.Set(&quot;Version&quot;, &quot;1.2.3&quot;);
-</code></pre></p>
 <h3 id="intellisense">IntelliSense</h3>
 <p>There is support for adding IntelliSense in Visual Studio for the <code>NLog.config</code> file. Extend the <code>nlog</code> root element like this:</p>
 <p> <pre><code class=xml>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
@@ -518,10 +512,10 @@ log.Error(new Exception(), &quot;This is an error message&quot;);
 </code></pre></p>
 <h2 id="configuration-in-net-core">Configuration in .NET Core</h2>
 <p>.NET Core switched from declaring XML configuration in <code>app/web/nlog.config</code> files to JSON configuration in an <code>appsettings.json</code> file. To configure elmah.io in JSON, install the <code>NLog.Extensions.Logging</code> NuGet package:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-8><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-8-0_powershell-panel role=tab id=tab-group-8-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-8-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-1_cmd-panel role=tab id=tab-group-8-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-8-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-2_xml-panel role=tab id=tab-group-8-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-3_xml-panel role=tab id=tab-group-8-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-8-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-8-0_powershell-tab><pre><code class=powershell>Install-Package NLog.Extensions.Logging
-</code></pre></div><div id=tab-group-8-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-1_cmd-tab><pre><code class=cmd>dotnet add package NLog.Extensions.Logging
-</code></pre></div><div id=tab-group-8-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;NLog.Extensions.Logging&quot; Version=&quot;1.*&quot; /&gt;
-</code></pre></div><div id=tab-group-8-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-3_xml-tab><pre><code class=xml>paket add NLog.Extensions.Logging
+<div class=md-fenced-code-tabs id=tab-tab-group-6><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-6-0_powershell-panel role=tab id=tab-group-6-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-6-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-1_cmd-panel role=tab id=tab-group-6-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-6-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-2_xml-panel role=tab id=tab-group-6-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-6-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-6-3_xml-panel role=tab id=tab-group-6-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-6-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-6-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-6-0_powershell-tab><pre><code class=powershell>Install-Package NLog.Extensions.Logging
+</code></pre></div><div id=tab-group-6-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-1_cmd-tab><pre><code class=cmd>dotnet add package NLog.Extensions.Logging
+</code></pre></div><div id=tab-group-6-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;NLog.Extensions.Logging&quot; Version=&quot;1.*&quot; /&gt;
+</code></pre></div><div id=tab-group-6-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-6-3_xml-tab><pre><code class=xml>paket add NLog.Extensions.Logging
 </code></pre></div></div></div>
 
 <p>Extend the <code>appsettings.json</code> file with a new <code>NLog</code> section:</p>
@@ -634,6 +628,14 @@ log.Info(infoMessage);
 }
 </code></pre></p>
 <p>This will create the same result as the example above.</p>
+<h3 id="setting-application-name">Setting application name</h3>
+<p>The application field on elmah.io can be set globally using NLog's global context:</p>
+<p> <pre><code class=csharp>GlobalDiagnosticsContext.Set(&quot;Application&quot;, &quot;My application name&quot;);
+</code></pre></p>
+<h3 id="setting-version-number">Setting version number</h3>
+<p>The version field on elmah.io can be set globally using NLog's global context:</p>
+<p> <pre><code class=csharp>GlobalDiagnosticsContext.Set(&quot;Version&quot;, &quot;1.2.3&quot;);
+</code></pre></p>
 <h2 id="message-hooks">Message hooks</h2>
 <p><code>Elmah.Io.NLog</code> provides message hooks similar to the integrations with ASP.NET and ASP.NET Core. Message hooks need to be implemented in C#. Either <a href="#configuration-in-code">configure the elmah.io target in C#</a> or fetch the target already configured in XML:</p>
 <p> <pre><code class=csharp>var elmahIoTarget = (ElmahIoTarget)LogManager.Configuration.FindTargetByName(&quot;elmahio&quot;);
