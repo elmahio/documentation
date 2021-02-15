@@ -355,3 +355,20 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
 - Always make sure to call `LogManager.Shutdown()` before exiting the application to make sure that all log messages are flushed.
 - Extend the `nlog` element with `internalLogLevel="Warn" internalLogFile="c:\temp\nlog-internal.log` and inspect that log file for any internal NLog errors.
+- The new way to fully quality target names in NLog 5 is not yet supported since we have a dot (.) in the target name. This example shows both the wrong and the correct way to reference the target in NLog 5:
+
+```xml
+<!-- Wrong way -->
+<targets>
+  <target name="elmahio" type="Elmah.Io.NLog.elmah.io" ... />
+</targets>
+
+<!-- Correct way -->
+<extensions>
+  <add assembly="Elmah.Io.NLog" />
+</extensions> 
+
+<targets>
+  <target name="elmahio" type="elmah.io" ... />
+</targets>
+```
