@@ -75,6 +75,7 @@ nav:
     - Logging from Console: logging-to-elmah-io-from-console-application.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
+    - Logging from WPF: logging-to-elmah-io-from-wpf.md
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
     - Logging from Xamarin: logging-to-elmah-io-from-xamarin.md
 - Apps and Integrations:

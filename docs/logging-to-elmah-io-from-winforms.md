@@ -17,7 +17,7 @@ dotnet add package Elmah.Io.Client
 paket add Elmah.Io.Client
 ```
 
-Add the following usings to the `Startup.cs` file:
+Add the following usings to the `Program.cs` file:
 
 ```csharp
 using Elmah.Io.Client;
