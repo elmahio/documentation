@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Managing Organisations and Users | elmah.io">
+    <meta name="twitter:title" content="Logging from WPF | elmah.io">
     
     
-    <meta property="og:title" content="Managing Organisations and Users | elmah.io">
+    <meta property="og:title" content="Logging from WPF | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/managing-organisations-and-users/">
+    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-wpf/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Managing Organisations and Users | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/managing-organisations-and-users/">
+    <title>Logging from WPF | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-wpf/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
@@ -197,7 +197,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Logging from something else</a>
                 <ul>
                   
@@ -229,7 +229,7 @@
                   
                   <li ><a href="../logging-to-elmah-io-from-powershell/">Logging from PowerShell</a></li>
                   
-                  <li ><a href="../logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
+                  <li class="active"><a href="./">Logging from WPF</a></li>
                   
                   <li ><a href="../logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
                   
@@ -363,11 +363,11 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Everything Else</a>
                 <ul>
                   
-                  <li class="active"><a href="./">Managing Organisations and Users</a></li>
+                  <li ><a href="../managing-organisations-and-users/">Managing Organisations and Users</a></li>
                   
                   <li ><a href="../where-is-my-log-id/">Where is my log ID</a></li>
                   
@@ -421,53 +421,59 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="managing-organizations-and-users">Managing Organizations and Users</h1>
-<div class="toc">
-<ul>
-<li><a href="#managing-organizations-and-users">Managing Organizations and Users</a><ul>
-<li><a href="#adding-existing-users-to-an-organization">Adding existing users to an organization</a></li>
-<li><a href="#invite-new-users-to-an-organization">Invite new users to an organization</a></li>
-<li><a href="#control-security">Control security</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>Chances are that you are not the only one needing to access your logs. Luckily, elmah.io offers great features to manage the users in your organization and to specify who should be allowed access to what.</p>
-<p>This guide is also available as a short video tutorial here:</p>
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7O43XBy4Kfg?rel=0" allowfullscreen></iframe>
-</div>
+            <h1 id="logging-to-elmahio-from-wpf">Logging to elmah.io from WPF</h1>
+<p>elmah.io logging can be easily added to WPF applications. We don't provide a package specific for WPF, but the <code>Elmah.Io.Client</code> package, combined with a bit of code, will achieve just the same.</p>
+<p>To start logging to elmah.io, install the <code>Elmah.Io.Client</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Client
+</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Client
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Client&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Client
+</code></pre></div></div></div>
 
-<p><br/></p>
-<p>To manage access, you will need to know about the concepts of <strong>users</strong> and <strong>organizations</strong>.</p>
-<p>A <strong>user</strong> represents a person wanting to access one or more logs. Each user has its login using username/password or a social provider of choice. A user can be added to one or more organizations. Each user has an access level within the organization as well as an access level on each log. The access level on the organization and the logs doesn't need to be the same.</p>
-<p>An <strong>organization</strong> is a collection of users and their role inside the organization. You will typically only need a single organization, representing all of the users in your company needing to access one or more logs on elmah.io. Your elmah.io subscription is attached your organization and everyone with administrator access to the organization, will be able to manage the subscription.</p>
-<h2 id="adding-existing-users-to-an-organization">Adding existing users to an organization</h2>
-<p>To assign users to a log, you will need to add them to the organization first. When hovering the organization name in either the left menu or on the dashboard, you will see a small gear icon. When clicking the icon, you will be taken to the organization settings page:</p>
-<p><img alt="Organization Settings" src="../images/organisation_settings.png" /></p>
-<p>At first, the user creating the organization will be the only one in the list. To add a new user to the list, click the <em>Add user</em> button and input the user's email or name in the textbox. The dropdown will show a list of users on elmah.io matching your query.</p>
-<blockquote>
-<p>Each user needs to sign up on elmah.io before being visible through <em>Add user</em>. Read on to learn how to invite new users.</p>
-</blockquote>
-<p>When the new user is visible in the dropdown, click the user and select an access level. The chosen access level decides what the new user is allowed to do inside the organization. <em>Read</em> users are only allowed to view the organization, while <em>Administrator</em> users are allowed to add new users and delete the entire organization and all logs beneath it. The access level set for the user in the organization, will become the user's access level on all new logs inside that organization as well. Let's add a new user to the organization:</p>
-<p><img alt="Add User to Organization" src="../images/add_user_to_org.png" /></p>
-<p>To change the access level on an already added user, click one of the grouped buttons to the right of the user's name. Changing a user's access level on the organization won't change the users access level on each log. To delete a user from the organization, click the red delete button to the far right.</p>
-<p>When a user is added to an organization, the user will automatically have access to all new logs created in that organization. For security reasons, a new user added to the organization, will not have access to existing logs in the organization. To assign the new user to existing logs, assign an access level on each log shown beneath the user. The list of logs can be opened by clicking the dropdown button to the right of the user.</p>
-<blockquote>
-<p>Awarding a user <em>Administrator</em> on a log, doesn't give them <em>Administrator</em> rights on the organization.</p>
-</blockquote>
-<p>To assign a user to all logs, click the <em>None</em>, <em>Read</em>, <em>Write</em> or <em>Administrator</em> buttons in the table header above the list of logs.</p>
-<h2 id="invite-new-users-to-an-organization">Invite new users to an organization</h2>
-<p>If someone not already created as a user on elmah.io needs access to your organization, you can use the <em>Invite</em> feature. Inviting users will send them an email telling them to sign up for elmah.io and automatically add them to your organization.</p>
-<p>To invite a user click the <em>Invite user</em> button and input the new users email. Select an organization access level and click the green <em>Invite user</em> button. This will add the new user to the organization and display it as "Invited" until the user sign up.</p>
-<h2 id="control-security">Control security</h2>
-<p>You may have requirements of using two-factor authentication or against using social logins in your company. These requirements can be configured on elmah.io as well. Click the <em>Security</em> button above the users list to set it up:</p>
-<p><img alt="Users security" src="../images/users-security.png" /></p>
-<p>The toggles are documented through the UI. Here's an explanation for reference:</p>
-<p><strong>Enforce two-factor authentication</strong></p>
-<p>When enabling this toggle, all users in your organization will be required to set up two-factor authentication. Requiring two-factor authentication will also disallow social accounts since we have no way of knowing if a user signing up with a social account has enabled two-factor authentication or not.</p>
-<p><strong>Disallow social login</strong></p>
-<p>When enabling this toggle, all users in your organization will need to be signed up with a username and password. The icon next to each user's name on the list of users shows the bug icon if the user signed up with a username and password.</p>
+<p>Add the following usings to the <code>App.xaml.cs</code> file:</p>
+<p> <pre><code class=csharp>using Elmah.Io.Client;
+using Elmah.Io.Client.Models;
+using System.Diagnostics;
+using System.Security.Principal;
+using System.Threading.Tasks;
+</code></pre></p>
+<p>Add the following code:</p>
+<p> <pre><code class=csharp>private IElmahioAPI logger;
+
+public App()
+{
+    logger = ElmahioAPI.Create(&quot;API_KEY&quot;);
+
+    AppDomain.CurrentDomain.UnhandledException += (sender, args) =&gt;
+        LogException(args.ExceptionObject as Exception);
+
+    TaskScheduler.UnobservedTaskException += (sender, args) =&gt;
+        LogException(args.Exception);
+
+    Dispatcher.UnhandledException += (sender, args) =&gt;
+    {
+        if (!Debugger.IsAttached)
+            LogException(args.Exception);
+    };
+}
+
+private void LogException(Exception exception)
+{
+    var baseException = exception.GetBaseException();
+    logger.Messages.Create(&quot;LOG_ID&quot;, new CreateMessage
+    {
+        DateTime = DateTime.UtcNow,
+        Detail = exception?.ToString(),
+        Type = baseException?.GetType().FullName,
+        Title = baseException?.Message ?? &quot;An error occurred&quot;,
+        Data = exception.ToDataList(),
+        Severity = &quot;Error&quot;,
+        Source = baseException?.Source,
+        User = WindowsIdentity.GetCurrent().Name,
+    });
+}
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> with the id of the log (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) where you want errors logged.</p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
