@@ -119,6 +119,8 @@
                   
                   <li ><a href="../remove-sensitive-form-data/">Remove sensitive form data</a></li>
                   
+                  <li ><a href="../setting-application-name/">Setting application name</a></li>
+                  
                   <li ><a href="../configure-elmah-io-manually/">Configure elmah.io manually</a></li>
                   
                   <li ><a href="../configure-elmah-io-from-code/">Configure elmah.io from code</a></li>
@@ -431,6 +433,7 @@
 <li><a href="#configuring-api-key-and-log-id-in-options">Configuring API key and log ID in options</a></li>
 <li><a href="#logging-exceptions-manually">Logging exceptions manually</a></li>
 <li><a href="#additional-options">Additional options</a><ul>
+<li><a href="#setting-application-name">Setting application name</a></li>
 <li><a href="#events">Events</a></li>
 <li><a href="#remove-sensitive-form-data">Remove sensitive form data</a></li>
 <li><a href="#formatting-exceptions">Formatting exceptions</a></li>
@@ -529,12 +532,28 @@ catch (DivideByZeroException e)
 </code></pre></p>
 <p>When catching an exception, you simply call the <code>Ship</code> extension method with the current HTTP context as parameter.</p>
 <h2 id="additional-options">Additional options</h2>
+<h3 id="setting-application-name">Setting application name</h3>
+<p>If logging to the same log from multiple web apps it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:</p>
+<p> <pre><code class=csharp>services.AddElmahIo(o =&gt;
+{
+    // ...
+    o.Application = &quot;MyApp&quot;;
+});
+</code></pre></p>
+<p>The application name can also be configured through <code>appsettings.json</code>:</p>
+<p> <pre><code class=json>{
+  // ...
+  &quot;ElmahIo&quot;: {
+    // ...
+    &quot;Application&quot;: &quot;MyApp&quot;
+  }
+}
+</code></pre></p>
 <h3 id="events">Events</h3>
 <p>elmah.io for ASP.NET Core supports a range of events for hooking into the process of logging messages. Events are registered as actions when installing the elmah.io middleware:</p>
 <p> <pre><code class=csharp>services.AddElmahIo(o =&gt;
 {
-    o.ApiKey = &quot;API_KEY&quot;;
-    o.LogId = new Guid(&quot;LOG_ID&quot;);
+    // ...
     o.OnMessage = message =&gt;
     {
         message.Version = &quot;42&quot;;
@@ -564,9 +583,7 @@ catch (DivideByZeroException e)
 <p>The <code>OnMessage</code> event can be used to filter sensitive form data as well. In the following example, we remove the server variable named <code>Secret-Key</code> from all messages, before sending them to elmah.io.</p>
 <p> <pre><code class=csharp>services.AddElmahIo(options =&gt;
 {
-    options.ApiKey = &quot;API_KEY&quot;;
-    options.LogId = new Guid(&quot;LOG_ID&quot;);
-
+    // ...
     options.OnMessage = msg =&gt;
     {
         var item = msg.ServerVariables.FirstOrDefault(x =&gt; x.Key == &quot;Secret-Key&quot;); 

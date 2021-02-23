@@ -119,6 +119,8 @@
                   
                   <li ><a href="../remove-sensitive-form-data/">Remove sensitive form data</a></li>
                   
+                  <li ><a href="../setting-application-name/">Setting application name</a></li>
+                  
                   <li ><a href="../configure-elmah-io-manually/">Configure elmah.io manually</a></li>
                   
                   <li ><a href="../configure-elmah-io-from-code/">Configure elmah.io from code</a></li>
@@ -434,6 +436,7 @@
 </li>
 <li><a href="#logging-custom-properties">Logging custom properties</a></li>
 <li><a href="#options">Options</a><ul>
+<li><a href="#setting-application-name">Setting application name</a></li>
 <li><a href="#appsettingsjson-configuration">appsettings.json configuration</a></li>
 <li><a href="#filtering-log-messages">Filtering log messages</a></li>
 <li><a href="#logging-through-a-proxy">Logging through a proxy</a></li>
@@ -588,8 +591,25 @@
 }
 </code></pre></p>
 <h2 id="options">Options</h2>
+<h3 id="setting-application-name">Setting application name</h3>
+<p>If logging to the same log from multiple applications it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:</p>
+<p> <pre><code class=csharp>logging.AddElmahIo(options =&gt;
+{
+    // ...
+    options.Application = &quot;MyApp&quot;;
+});
+</code></pre></p>
+<p>The application name can also be configured through <code>appsettings.json</code>:</p>
+<p> <pre><code class=json>{
+  // ...
+  &quot;ElmahIo&quot;: {
+    // ...
+    &quot;Application&quot;: &quot;MyApp&quot;
+  }
+}
+</code></pre></p>
 <h3 id="appsettingsjson-configuration">appsettings.json configuration</h3>
-<p>Some of the configuration for Elmah.Io.Extensions.Logging can be done through the <code>appsettings.json</code> file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named <code>ElmahIo</code> to the settings file:</p>
+<p>Some of the configuration for Elmah.Io.Extensions.Logging can be done through the <code>appsettings.json</code> file when using ASP.NET Core 2.x or above. To configure the minimum log level, add a new logger named <code>ElmahIo</code> to the settings file:</p>
 <p> <pre><code class=json>{
   &quot;Logging&quot;: {
     // ...

@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Logging from JSNLog | elmah.io">
+    <meta name="twitter:title" content="Setting application name | elmah.io">
     
     
-    <meta property="og:title" content="Logging from JSNLog | elmah.io">
+    <meta property="og:title" content="Setting application name | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-jsnlog/">
+    <meta property="og:url" content="https://docs.elmah.io/setting-application-name/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Logging from JSNLog | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-jsnlog/">
+    <title>Setting application name | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/setting-application-name/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
@@ -95,7 +95,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">ASP.NET / MVC / Web API</a>
                 <ul>
                   
@@ -119,7 +119,7 @@
                   
                   <li ><a href="../remove-sensitive-form-data/">Remove sensitive form data</a></li>
                   
-                  <li ><a href="../setting-application-name/">Setting application name</a></li>
+                  <li class="active"><a href="./">Setting application name</a></li>
                   
                   <li ><a href="../configure-elmah-io-manually/">Configure elmah.io manually</a></li>
                   
@@ -163,7 +163,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Logging Frameworks</a>
                 <ul>
                   
@@ -177,7 +177,7 @@
                   
                   <li ><a href="../logging-to-elmah-io-from-logary/">Logging from Logary</a></li>
                   
-                  <li class="active"><a href="./">Logging from JSNLog</a></li>
+                  <li ><a href="../logging-to-elmah-io-from-jsnlog/">Logging from JSNLog</a></li>
                   
                 </ul>
               </li>
@@ -423,48 +423,29 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="logging-to-elmahio-from-jsnlog">Logging to elmah.io from JSNLog</h1>
-<blockquote>
-<p>While logging through JSNLog still works, we recommend to use our native integration with JavaScript: <a href="https://docs.elmah.io/logging-to-elmah-io-from-javascript/">Logging to elmah.io from JavaScript</a></p>
-</blockquote>
-<p>Using JSNLog you will be able to log JavaScript errors to elmah.io. In this sample, we will focus about logging JavaScript errors from a ASP.NET MVC web application, but you can use JSNLog to log anything to elmah.io, so please check out their documentation.</p>
-<p>Start by installing the <code>JSNLog.Elmah</code> package:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package JSNLog.Elmah
-</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package JSNLog.Elmah
-</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;JSNLog.Elmah&quot; Version=&quot;2.*&quot; /&gt;
-</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add JSNLog.Elmah
-</code></pre></div></div></div>
-
-<p>This installs and setup JSNLog into your project, using ELMAH as an appender. Then, install <code>Elmah.Io</code>:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-1><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-1-0_powershell-panel role=tab id=tab-group-1-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-1-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-1-1_cmd-panel role=tab id=tab-group-1-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-1-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-1-2_xml-panel role=tab id=tab-group-1-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-1-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-1-3_xml-panel role=tab id=tab-group-1-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-1-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-1-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-1-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io
-</code></pre></div><div id=tab-group-1-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-1-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io
-</code></pre></div><div id=tab-group-1-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-1-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io&quot; Version=&quot;3.*&quot; /&gt;
-</code></pre></div><div id=tab-group-1-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-1-3_xml-tab><pre><code class=xml>paket add Elmah.Io
-</code></pre></div></div></div>
-
-<p>During the installation, you will be asked for your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and log ID (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>).</p>
-<p>Add the JSNLog code before any script imports in your _Layout.cshtml file:</p>
-<p> <pre><code class=csharp>@Html.Raw(JSNLog.JavascriptLogging.Configure())
+            <h1 id="setting-application-name">Setting application name</h1>
+<p>If logging to the same log from multiple applications, it might be a good idea to set an application name on all log messages. This will let you search for errors generated by a specific application through the elmah.io UI. Also, ELMAH automatically sets the application name to the Guid of the application inside IIS, why it often looks better to either clear this or set something meaningful.</p>
+<p>The application name can be easily set from the <code>web.config</code> file as part of the elmah.io configuration:</p>
+<p> <pre><code class=xml>&lt;errorLog type=&quot;Elmah.Io.ErrorLog, Elmah.Io&quot; apiKey=&quot;API_KEY&quot; logId=&quot;LOG_ID&quot; applicationName=&quot;MyApp&quot; /&gt;
 </code></pre></p>
-<p>You are ready to log errors from JavaScript til elmah.io. To test that everything is installed correctly, launch your web application and execute the following JavaScript using Chrome Developer Tools or similar:</p>
-<p> <pre><code class=javascript>JL().fatal(&quot;log message&quot;);
-</code></pre></p>
-<p>Navigate to you log at elmah.io and observe the new error. As you can see, logging JavaScript errors is now extremely simple and can be built into any try-catch, jQuery fail handlers and pretty much anywhere else. To log every JavaScript error, add the following to the bottom of the _Layout.cshtml file:</p>
-<p> <pre><code class=javascript>&lt;script&gt;
-window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+<p>This will decorate all errors logged to elmah.io with the application name <code>MyApp</code>.</p>
+<p>A common use of Web.config Transformations is to have a transformation per environment, customer, application, etc. If this is the case, you can replace the application name as part of the config transformation. Check out <a href="/use-multiple-logs-for-different-environments/">Use multiple logs for different environments</a> for more information about how to update the <code>errorLog</code> element.</p>
+<div class="alert alert-primary">
+    <div class="row">
+        <div class="col-auto align-self-start">
+            <div class="fa fa-lightbulb"></div>
+        </div>
+        <div class="col">Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.</div>
+    </div>
+</div>
 
-    // Send object with all data to server side log, using severity fatal,
-    // from logger &quot;onerrorLogger&quot;
-    JL(&quot;onerrorLogger&quot;).fatalException({
-        &quot;msg&quot;: &quot;Exception!&quot;,
-        &quot;errorMsg&quot;: errorMsg, &quot;url&quot;: url,
-        &quot;line number&quot;: lineNumber, &quot;column&quot;: column
-    }, errorObj);
-
-    // Tell browser to run its own error handler as well  
-    return false;
-}
-&lt;/script&gt;
+<p>If you, for some reason, cannot set the application name in the <code>web.config</code> file, it can be specified from C# by including the following code in the <code>Application_Start</code> method in the <code>global.asax.cs</code> file:</p>
+<p> <pre><code class=csharp>Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
+var logger = Elmah.Io.ErrorLog.Client;
+logger.OnMessage += (sender, args) =&gt;
+{
+    args.Message.Application = &quot;MyApp&quot;;
+};
 </code></pre></p>
 
             <br/>
