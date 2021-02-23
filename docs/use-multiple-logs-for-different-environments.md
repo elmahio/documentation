@@ -21,6 +21,15 @@ paket add Elmah.Io
 
 Then choose one of the two paths below.
 
+<div class="alert alert-primary">
+    <div class="row">
+        <div class="col-auto align-self-start">
+            <div class="fa fa-lightbulb"></div>
+        </div>
+        <div class="col">Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.</div>
+    </div>
+</div>
+
 ## Logging to elmah.io from both localhost and production
 
 Create two new logs at the elmah.io website called something like “My website” and “My website development”. The naming isn’t really important, so pick something telling.

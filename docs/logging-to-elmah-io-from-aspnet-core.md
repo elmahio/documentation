@@ -128,6 +128,30 @@ When catching an exception, you simply call the `Ship` extension method with the
 
 ## Additional options
 
+### Setting application name
+
+If logging to the same log from multiple web apps it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:
+
+```csharp
+services.AddElmahIo(o =>
+{
+    // ...
+    o.Application = "MyApp";
+});
+```
+
+The application name can also be configured through `appsettings.json`:
+
+```json
+{
+  // ...
+  "ElmahIo": {
+    // ...
+    "Application": "MyApp"
+  }
+}
+```
+
 ### Events
 
 elmah.io for ASP.NET Core supports a range of events for hooking into the process of logging messages. Events are registered as actions when installing the elmah.io middleware:
@@ -135,8 +159,7 @@ elmah.io for ASP.NET Core supports a range of events for hooking into the proces
 ```csharp
 services.AddElmahIo(o =>
 {
-    o.ApiKey = "API_KEY";
-    o.LogId = new Guid("LOG_ID");
+    // ...
     o.OnMessage = message =>
     {
         message.Version = "42";
@@ -174,9 +197,7 @@ The `OnMessage` event can be used to filter sensitive form data as well. In the 
 ```csharp
 services.AddElmahIo(options =>
 {
-    options.ApiKey = "API_KEY";
-    options.LogId = new Guid("LOG_ID");
-    
+    // ...
     options.OnMessage = msg =>
     {
         var item = msg.ServerVariables.FirstOrDefault(x => x.Key == "Secret-Key"); 

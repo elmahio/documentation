@@ -208,9 +208,33 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Options
 
+### Setting application name
+
+If logging to the same log from multiple applications it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:
+
+```csharp
+logging.AddElmahIo(options =>
+{
+    // ...
+    options.Application = "MyApp";
+});
+```
+
+The application name can also be configured through `appsettings.json`:
+
+```json
+{
+  // ...
+  "ElmahIo": {
+    // ...
+    "Application": "MyApp"
+  }
+}
+```
+
 ### appsettings.json configuration
 
-Some of the configuration for Elmah.Io.Extensions.Logging can be done through the `appsettings.json` file when using ASP.NET Core 2.x. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
+Some of the configuration for Elmah.Io.Extensions.Logging can be done through the `appsettings.json` file when using ASP.NET Core 2.x or above. To configure the minimum log level, add a new logger named `ElmahIo` to the settings file:
 
 ```json
 {
