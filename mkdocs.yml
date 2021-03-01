@@ -61,6 +61,8 @@ nav:
     - Logging from BlogEngine.NET: logging-to-elmah-io-from-blogengine-net.md
     - Logging from Orchard: logging-to-elmah-io-from-orchard.md
     - Logging from Piranha CMS: logging-to-elmah-io-from-piranha-cms.md
+- Mobile:
+    - Logging from Xamarin: logging-to-elmah-io-from-xamarin.md
 - Logging from something else:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
@@ -78,7 +80,6 @@ nav:
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from WPF: logging-to-elmah-io-from-wpf.md
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
-    - Logging from Xamarin: logging-to-elmah-io-from-xamarin.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - Microsoft Teams: elmah-io-apps-teams.md
