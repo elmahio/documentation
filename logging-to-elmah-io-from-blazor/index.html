@@ -200,6 +200,15 @@
               </li>
               
               <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Mobile</a>
+                <ul>
+                  
+                  <li ><a href="../logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Logging from something else</a>
                 <ul>
                   
@@ -234,8 +243,6 @@
                   <li ><a href="../logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
                   
                   <li ><a href="../logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
-                  
-                  <li ><a href="../logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
                   
                 </ul>
               </li>
@@ -539,7 +546,7 @@ using (Logger.BeginScope(new Dictionary&lt;string, object&gt;
 <p>To start logging to elmah.io from a Blazor Wasm App, install the <code>Elmah.Io.Blazor.Wasm</code> NuGet package:</p>
 <div class=md-fenced-code-tabs id=tab-tab-group-8><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-8-0_powershell-panel role=tab id=tab-group-8-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-8-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-1_cmd-panel role=tab id=tab-group-8-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-8-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-2_xml-panel role=tab id=tab-group-8-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-8-3_xml-panel role=tab id=tab-group-8-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-8-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-8-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-8-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
 </code></pre></div><div id=tab-group-8-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Blazor.Wasm --prerelease
-</code></pre></div><div id=tab-group-8-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Blazor.Wasm&quot; Version=&quot;3.0.6-pre&quot; /&gt;
+</code></pre></div><div id=tab-group-8-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Blazor.Wasm&quot; Version=&quot;3.0.8-pre&quot; /&gt;
 </code></pre></div><div id=tab-group-8-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-8-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Blazor.Wasm
 </code></pre></div></div></div>
 

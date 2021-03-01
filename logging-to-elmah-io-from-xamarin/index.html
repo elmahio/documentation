@@ -200,6 +200,15 @@
               </li>
               
               <li class="li_dropdown active">
+                <a class="li_parent" href="javascript:;">Mobile</a>
+                <ul>
+                  
+                  <li class="active"><a href="./">Logging from Xamarin</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Logging from something else</a>
                 <ul>
                   
@@ -234,8 +243,6 @@
                   <li ><a href="../logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
                   
                   <li ><a href="../logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
-                  
-                  <li class="active"><a href="./">Logging from Xamarin</a></li>
                   
                 </ul>
               </li>
@@ -423,26 +430,164 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="logging-to-elmahio-from-xamarin">Logging to elmah.io from Xamarin</h1>
+            <p><a href="https://github.com/elmahio/elmah.io.xamarin/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/elmah.io.xamarin/workflows/build/badge.svg" /></a>
+<a href="https://www.nuget.org/packages/elmah.io.xamarin"><img alt="NuGet" src="https://img.shields.io/nuget/v/elmah.io.xamarin.svg" /></a>
+<a href="https://github.com/elmahio/elmah.io.xamarin/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-3-brightgreen.svg" /></a></p>
+<h1 id="logging-to-elmahio-from-xamarin">Logging to elmah.io from Xamarin</h1>
 <div class="toc">
 <ul>
 <li><a href="#logging-to-elmahio-from-xamarin">Logging to elmah.io from Xamarin</a><ul>
 <li><a href="#android">Android</a></li>
 <li><a href="#ios">iOS</a></li>
+<li><a href="#log-exceptions-manually">Log exceptions manually</a></li>
+<li><a href="#additional-configuration">Additional configuration</a><ul>
+<li><a href="#application">Application</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#decorating-all-messages">Decorating all messages</a></li>
+<li><a href="#filtering-log-messages">Filtering log messages</a></li>
+<li><a href="#handling-errors">Handling errors</a></li>
+</ul>
+</li>
+<li><a href="#legacy-integration">Legacy integration</a><ul>
+<li><a href="#android_1">Android</a></li>
+<li><a href="#ios_1">iOS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<p>While we don't provide a package specific for Xamarin, logging uncaught exceptions can be accomplished using a bit of code. Start by installing the <code>Elmah.Io.Client</code> NuGet package:</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Client
-</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Client
-</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Client&quot; Version=&quot;3.*&quot; /&gt;
-</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Client
+<blockquote>
+<p>The Xamarin integration for elmah.io is currently in prerelease.</p>
+</blockquote>
+<p>Integrating Xamarin with elmah.io is done by installing the <code>Elmah.Io.Xamarin</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Xamarin -IncludePrerelease
+</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Xamarin --prerelease
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Xamarin&quot; Version=&quot;3.0.7-pre&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Xamarin
+</code></pre></div></div></div>
+
+<p>For each platform (Android and iOS) you will need to set up elmah.io as illustrated in the following sections. The code is the same for both Xamarin and Xamarin.Forms.</p>
+<h2 id="android">Android</h2>
+<p>Open the <code>MainActivity.cs</code> file and add the following <code>using</code> statements:</p>
+<p> <pre><code class=csharp>using Elmah.Io.Xamarin;
+using System.Threading.Tasks;
+</code></pre></p>
+<p>Locate the <code>OnCreate</code> method and add the following code before all other lines:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    ApiKey = &quot;API_KEY&quot;,
+    LogId = new Guid(&quot;LOG_ID&quot;),
+});
+AndroidEnvironment.UnhandledExceptionRaiser += (sender, e) =&gt;
+{
+    e.Exception.Log();
+    e.Handled = true;
+};
+TaskScheduler.UnobservedTaskException += (sender, e) =&gt;
+{
+    e.Exception.Log();
+    e.SetObserved();
+};
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section. The code then subscribes to the <code>UnhandledExceptionRaiser</code> and <code>UnobservedTaskException</code> events which will log any exceptions to elmah.io using the <code>Log</code> method.</p>
+<h2 id="ios">iOS</h2>
+<p>Open the <code>Main.cs</code> file and add the following <code>using</code> statements:</p>
+<p> <pre><code class=csharp>using System;
+using System.Threading.Tasks;
+using Elmah.Io.Xamarin;
+</code></pre></p>
+<p>Locate the <code>Main</code> method and add the following code after the call to <code>UIApplication.Main</code>:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    ApiKey = &quot;API_KEY&quot;,
+    LogId = new Guid(&quot;LOG_ID&quot;),
+});
+AppDomain.CurrentDomain.UnhandledException += (sender, e) =&gt;
+{
+    (e.ExceptionObject as Exception).Log();
+};
+TaskScheduler.UnobservedTaskException += (sender, e) =&gt;
+{
+    e.Exception.Log();
+    e.SetObserved();
+};
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section. The code then subscribes to the <code>UnhandledException</code> and <code>UnobservedTaskException</code> events which will log any exceptions to elmah.io using the <code>Log</code> method.</p>
+<h2 id="log-exceptions-manually">Log exceptions manually</h2>
+<p>Once the <code>ElmahIoXamarin.Init</code> method has been configured during initialization of the app, any exception can be logged manually using the <code>Log</code> method available in the <code>Elmah.Io.Xamarin</code> namespace:</p>
+<p> <pre><code class=csharp>try
+{
+    // Code that may break
+}
+catch (Exception e)
+{
+    e.Log();
+}
+</code></pre></p>
+<h2 id="additional-configuration">Additional configuration</h2>
+<p>Besides the mandatory properties <code>ApiKey</code> and <code>LogId</code> the <code>ElmahIoXamarinOptions</code> provide a range of other configuration parameters.</p>
+<h3 id="application">Application</h3>
+<p>The elmah.io integration for Xamarin will automatically use the package name for the <code>Application</code> field. To override this you can set the application name in settings:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    // ...
+    Application = &quot;MyApp&quot;
+});
+</code></pre></p>
+<h3 id="version">Version</h3>
+<p>The elmah.io integration for Xamarin will automatically use the package version for the <code>Version</code> field. To override this you can set the version string in settings:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    // ...
+    Version = &quot;1.0.2&quot;
+});
+</code></pre></p>
+<h3 id="decorating-all-messages">Decorating all messages</h3>
+<p>All log messages logged through this integration can be decorated with the <code>OnMessage</code> action:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    // ...
+    OnMessage = msg =&gt;
+    {
+        msg.Source = &quot;Custom source&quot;;
+    }
+});
+</code></pre></p>
+<h3 id="filtering-log-messages">Filtering log messages</h3>
+<p>Log messages can be filtered directly on the device to avoid specific log messages from being sent to elmah.io with the <code>OnFilter</code> function:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    // ...
+    OnFilter = msg =&gt; msg.Title.Contains(&quot;foo&quot;)
+});
+</code></pre></p>
+<p>This code will automatically ignore all log messages with the text <code>foo</code> in the title.</p>
+<h3 id="handling-errors">Handling errors</h3>
+<p>You may want to handle the scenario where the device cannot communicate with the elmah.io API. You can use the <code>OnError</code> action:</p>
+<p> <pre><code class=csharp>ElmahIoXamarin.Init(new ElmahIoXamarinOptions
+{
+    // ...
+    OnError = (msg, ex) =&gt;
+    {
+        // Do something with ex
+    }
+});
+</code></pre></p>
+<h2 id="legacy-integration">Legacy integration</h2>
+<p>If you prefer you can configure elmah.io manually without the use of the <code>Elmah.Io.Xamarin</code> package. This is not the recommended way to integrate with elmah.io from Xamarin and this approach will be discontinued.</p>
+<p>Start by installing the <code>Elmah.Io.Client</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-11><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-11-0_powershell-panel role=tab id=tab-group-11-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-11-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-11-1_cmd-panel role=tab id=tab-group-11-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-11-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-11-2_xml-panel role=tab id=tab-group-11-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-11-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-11-3_xml-panel role=tab id=tab-group-11-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-11-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-11-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-11-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Client
+</code></pre></div><div id=tab-group-11-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-11-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Client
+</code></pre></div><div id=tab-group-11-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-11-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Client&quot; Version=&quot;3.*&quot; /&gt;
+</code></pre></div><div id=tab-group-11-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-11-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Client
 </code></pre></div></div></div>
 
 <p>If you are targeting a single platform, you can install the package directly in the startup project. If you are targeting multiple platforms, you can either install the package in all platform-specific projects or a shared project.</p>
 <p>Additional steps will vary from platform to platform.</p>
-<h2 id="android">Android</h2>
+<h3 id="android_1">Android</h3>
 <p>Locate your main activity class and look for the <code>OnCreate</code> method. Here, you'd want to set up event handlers for when uncaught exceptions happen:</p>
 <p> <pre><code class=csharp>protected override void OnCreate(Bundle savedInstanceState)
 {
@@ -512,7 +657,7 @@ private void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThr
     e.Handled = true;
 }
 </code></pre></p>
-<h2 id="ios">iOS</h2>
+<h3 id="ios_1">iOS</h3>
 <p>Locate your main application class and look for the <code>Main</code> method. Here, you'd want to set up event handlers for when uncaught exceptions happen:</p>
 <p> <pre><code class=csharp>static void Main(string[] args)
 {
