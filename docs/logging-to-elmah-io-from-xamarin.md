@@ -17,7 +17,7 @@ Install-Package Elmah.Io.Xamarin -IncludePrerelease
 dotnet add package Elmah.Io.Xamarin --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Xamarin" Version="3.0.7-pre" />
+<PackageReference Include="Elmah.Io.Xamarin" Version="3.0.8-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Xamarin
