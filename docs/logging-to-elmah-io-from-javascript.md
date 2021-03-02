@@ -546,3 +546,17 @@ msg.title = 'This is a custom log message';
 msg.severity = 'Error';
 logger.log(msg);
 ```
+
+### CORS problems when running on localhost
+
+When running with `elmah.io.javascript` on localhost you may see errors in the console like this:
+
+```bash
+Access to XMLHttpRequest at 'https://api.elmah.io/v3/messages/...' from origin 'http://localhost' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+Browsers like Chrome doesn't allow CORS when running locally. There are three ways to fix this:
+
+1. Run Chrome with the `--disable-web-security` switch.
+2. Run your website on a hostname like `https://mymachine`.
+3. Allow CORS on localhost with extensions like [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related?hl=en) for Chrome or [Allow CORS: Access-Control-Allow-Origin](https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/) for Firefox.
