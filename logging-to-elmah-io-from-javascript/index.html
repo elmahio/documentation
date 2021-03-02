@@ -467,6 +467,7 @@
 <li><a href="#troubleshooting">Troubleshooting</a><ul>
 <li><a href="#errors-arent-logged">Errors aren't logged</a></li>
 <li><a href="#missing-information-on-log-messages">Missing information on log messages</a></li>
+<li><a href="#cors-problems-when-running-on-localhost">CORS problems when running on localhost</a></li>
 </ul>
 </li>
 </ul>
@@ -860,6 +861,16 @@ msg.title = 'This is a custom log message';
 msg.severity = 'Error';
 logger.log(msg);
 </code></pre></p>
+<h3 id="cors-problems-when-running-on-localhost">CORS problems when running on localhost</h3>
+<p>When running with <code>elmah.io.javascript</code> on localhost you may see errors in the console like this:</p>
+<p> <pre><code class=bash>Access to XMLHttpRequest at 'https://api.elmah.io/v3/messages/...' from origin 'http://localhost' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+</code></pre></p>
+<p>Browsers like Chrome doesn't allow CORS when running locally. There are three ways to fix this:</p>
+<ol>
+<li>Run Chrome with the <code>--disable-web-security</code> switch.</li>
+<li>Run your website on a hostname like <code>https://mymachine</code>.</li>
+<li>Allow CORS on localhost with extensions like <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related?hl=en">CORS Unblock</a> for Chrome or <a href="https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/">Allow CORS: Access-Control-Allow-Origin</a> for Firefox.</li>
+</ol>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
