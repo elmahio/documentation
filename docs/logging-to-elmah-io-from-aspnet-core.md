@@ -1,3 +1,8 @@
+---
+title: Logging from ASP.NET Core
+description: "To log all warnings and errors from ASP.NET Core, install the following NuGet package: Install-Package Elmah.Io.AspNetCore. Call the AddElmahIo method."
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.AspNetCore/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.AspNetCore.svg)](https://www.nuget.org/packages/Elmah.Io.AspNetCore)
 [![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples)
