@@ -674,12 +674,54 @@ logger.LogInformation(&quot;This is an information message&quot;);
 </code></pre></p>
 <p>In this example, the elmah.io client routes all traffic through <code>http://localhost:8000</code>.</p>
 <h2 id="logging-from-a-console-application">Logging from a console application</h2>
-<p>Create a new <code>LoggerFactory</code>:</p>
-<p> <pre><code class=csharp>var factory = new LoggerFactory();
-</code></pre></p>
-<p>Configure Microsoft.Extensions.Logging to use elmah.io:</p>
-<p> <pre><code class=csharp>factory.AddElmahIo(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;));
-</code></pre></p>
+<p>Choose the right framework version:</p>
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore3" aria-controls="home" role="tab" data-toggle="tab">.NET Core 3 and newer</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore2" aria-controls="home" role="tab" data-toggle="tab">.NET Core 2</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable">
+<div role="tabpanel" class="tab-pane active" id="netcore3">
+Create a new <code>LoggerFactory</code> and configure it to use elmah.io:
+
+
+
+ <pre><code class=csharp>using var loggerFactory = LoggerFactory.Create(builder =&gt; builder
+    .AddElmahIo(options =&gt;
+    {
+        options.ApiKey = &quot;API_KEY&quot;;
+        options.LogId = new Guid(&quot;LOG_ID&quot;);
+    }));
+</code></pre>
+
+</div>
+<div role="tabpanel" class="tab-pane" id="netcore2">
+Create a new <code>LoggerFactory</code>:
+
+
+
+
+
+ <pre><code class=csharp>using var factory = new LoggerFactory();
+</code></pre>
+
+Configure Microsoft.Extensions.Logging to use elmah.io:
+
+
+
+
+ <pre><code class=csharp>factory.AddElmahIo(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;));
+</code></pre>
+
+  </div>
+</div>
+
+<p><br/></p>
+<p>Adding the <code>using</code> keyword is important to let elmah.io store messages before exiting the application.</p>
 <p>Finally, create a new logger and start logging exceptions:</p>
 <p> <pre><code class=csharp>var logger = factory.CreateLogger(&quot;MyLog&quot;);
 logger.LogError(1, ex, &quot;Unexpected error&quot;);
