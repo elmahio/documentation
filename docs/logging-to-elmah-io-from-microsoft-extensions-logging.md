@@ -312,10 +312,35 @@ In this example, the elmah.io client routes all traffic through `http://localhos
 
 ## Logging from a console application
 
-Create a new `LoggerFactory`:
+Choose the right framework version:
+
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore3" aria-controls="home" role="tab" data-toggle="tab">.NET Core 3 and newer</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore2" aria-controls="home" role="tab" data-toggle="tab">.NET Core 2</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable">
+<div role="tabpanel" class="tab-pane active" id="netcore3">
+Create a new <code>LoggerFactory</code> and configure it to use elmah.io:
 
 ```csharp
-var factory = new LoggerFactory();
+using var loggerFactory = LoggerFactory.Create(builder => builder
+    .AddElmahIo(options =>
+    {
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
+    }));
+```
+</div>
+<div role="tabpanel" class="tab-pane" id="netcore2">
+Create a new <code>LoggerFactory</code>:
+
+```csharp
+using var factory = new LoggerFactory();
 ```
 
 Configure Microsoft.Extensions.Logging to use elmah.io:
@@ -323,6 +348,10 @@ Configure Microsoft.Extensions.Logging to use elmah.io:
 ```csharp
 factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
 ```
+  </div>
+</div><br/>
+
+Adding the `using` keyword is important to let elmah.io store messages before exiting the application.
 
 Finally, create a new logger and start logging exceptions:
 
