@@ -10,17 +10,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@elmah_io">
     <meta name="twitter:creator" content="@elmah_io">
-    <meta name="twitter:title" content="Heartbeats Troubleshooting | elmah.io">
+    <meta name="twitter:title" content="Logging from Uno | elmah.io">
     
     
-    <meta property="og:title" content="Heartbeats Troubleshooting | elmah.io">
+    <meta property="og:title" content="Logging from Uno | elmah.io">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.elmah.io/heartbeats-troubleshooting/">
+    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-uno/">
     
     <meta property="fb:app_id" content="218008838347208" />
-    <title>Heartbeats Troubleshooting | elmah.io</title>
-    <link rel="canonical" href="https://docs.elmah.io/heartbeats-troubleshooting/">
+    <title>Logging from Uno | elmah.io</title>
+    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-uno/">
     <link rel="shortcut icon" href="../favicon.ico">
 
     <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
@@ -199,13 +199,13 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown">
+              <li class="li_dropdown active">
                 <a class="li_parent" href="javascript:;">Mobile</a>
                 <ul>
                   
                   <li ><a href="../logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
                   
-                  <li ><a href="../logging-to-elmah-io-from-uno/">Logging from Uno</a></li>
+                  <li class="active"><a href="./">Logging from Uno</a></li>
                   
                 </ul>
               </li>
@@ -303,7 +303,7 @@
                 </ul>
               </li>
               
-              <li class="li_dropdown active">
+              <li class="li_dropdown">
                 <a class="li_parent" href="javascript:;">Heartbeats</a>
                 <ul>
                   
@@ -325,7 +325,7 @@
                   
                   <li ><a href="../logging-heartbeats-from-aws-lambdas/">Logging heartbeats from AWS Lambdas</a></li>
                   
-                  <li class="active"><a href="./">Heartbeats Troubleshooting</a></li>
+                  <li ><a href="../heartbeats-troubleshooting/">Heartbeats Troubleshooting</a></li>
                   
                 </ul>
               </li>
@@ -432,16 +432,44 @@
         <article class="col main-content">
           <div class="main-content-body">
 
-            <h1 id="heartbeats-troubleshooting">Heartbeats Troubleshooting</h1>
-<h2 id="common-problems-and-how-to-fix-them">Common problems and how to fix them</h2>
-<p>Here you will a list of common problems and how to solve them.</p>
-<h3 id="timeout-when-creating-heartbeats-through-elmahioclient">Timeout when creating heartbeats through Elmah.Io.Client</h3>
-<p>If you experience a timeout when calling the <code>Healthy</code>, <code>Degraded</code>, or <code>Unhealthy</code> method, you may want to adjust the default HTTP timeout. <code>Elmah.Io.Client</code> has a default timeout of 5 seconds to make sure that logging to elmah.io from a web application won't slow down the web app too much in case of slow response time from the elmah.io API. While 99.9% of the requests to the elmah.io API finishes within this timeout, problems with Azure, the network connection, and a lot of other issues can happen.</p>
-<p>Since heartbeats typically run outside the scope of a web request, it's safe to increase the default HTTP timeout in this case:</p>
-<p> <pre><code class=csharp>var api = (ElmahioAPI)ElmahioAPI.Create(&quot;API_KEY&quot;);
-api.HttpClient.Timeout = new TimeSpan(0, 0, 30);
+            <p><a href="https://github.com/elmahio/elmah.io.uno/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/elmah.io.uno/workflows/build/badge.svg" /></a>
+<a href="https://www.nuget.org/packages/elmah.io.uno"><img alt="NuGet" src="https://img.shields.io/nuget/v/elmah.io.uno.svg" /></a>
+<a href="https://github.com/elmahio/elmah.io.uno/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-1-brightgreen.svg" /></a></p>
+<h1 id="logging-to-elmahio-from-uno">Logging to elmah.io from Uno</h1>
+<blockquote>
+<p>The Uno integration for elmah.io is currently in prerelease.</p>
+</blockquote>
+<p>Integrating Uno with elmah.io is done by installing the <code>Elmah.Io.Uno</code> NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_powershell-panel role=tab id=tab-group-0-0_powershell-tab data-toggle=tab data-lang=powershell aria-controls=tab-group-0-0_powershell-panel aria-selected=true>Package Manager</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_cmd-panel role=tab id=tab-group-0-1_cmd-tab data-toggle=tab data-lang=cmd aria-controls=tab-group-0-1_cmd-panel aria-selected=false>.NET CLI</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_xml-panel role=tab id=tab-group-0-2_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-3_xml-panel role=tab id=tab-group-0-3_xml-tab data-toggle=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_powershell-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.Uno -IncludePrerelease
+</code></pre></div><div id=tab-group-0-1_cmd-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.Uno --prerelease
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.Uno&quot; Version=&quot;3.0.0-pre&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.Uno
+</code></pre></div></div></div>
+
+<p>While configured in the shared project, the NuGet package will need to be installed in all platform projects.</p>
+<p><code>Elmah.Io.Uno</code> comes with a logger for Microsoft.Extensions.Logging. To configure the logger, open the <code>App.xaml.cs</code> file and locate the <code>ConfigureFilters</code> method. Here you will see the logging configuration for your application. Include logging to elmah.io by calling the <code>AddElmahIo</code> method:</p>
+<p> <pre><code class=csharp>factory
+    .WithFilter(new FilterLoggerSettings
+        {
+            { &quot;Uno&quot;, LogLevel.Warning },
+            { &quot;Windows&quot;, LogLevel.Warning },
+        }
+    )
+    .AddElmahIo(&quot;API_KEY&quot;, new Guid(&quot;LOG_ID&quot;))
+#if DEBUG
+    .AddConsole(LogLevel.Debug);
+#else
+    .AddConsole(LogLevel.Information);
+#endif
 </code></pre></p>
-<p>The example set a timeout of 30 seconds.</p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>elmah.io will now automatically log all warning, error, and fatal messages to elmah.io. Uno log messages internally, but you can also do manual logging like this:</p>
+<p> <pre><code class=csharp>this.Log().LogWarning(&quot;Oh no&quot;);
+</code></pre></p>
+<p>Logging with Uno's log helper will require you to add the following usings:</p>
+<p> <pre><code class=csharp>using Microsoft.Extensions.Logging;
+using Uno.Extensions;
+</code></pre></p>
 
             <br/>
             <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening and help you fix errors fast.</em></small></p>
