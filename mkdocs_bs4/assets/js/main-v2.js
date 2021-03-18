@@ -4,12 +4,15 @@ $(document).ready(function(){
 	function initHighlight(wrapperHighlight) {
 		hljs.initHighlighting();
 		wrapperHighlight(addClipboardJS);
+		$('body').append('<div class="fullscreen-code js-fullscreen-code"></div>');
 	}
 
 	// Wrap highlight
 	function wrapperHighlight(addClipboardJS) {
 		$('.hljs').parent().wrap('<div class="hljs-wrapper"></div>');
-		$('.hljs-wrapper').prepend('<button class="btn-clipboard" title="Copy to clipboard">Copy</button>');
+		$('.hljs-wrapper').append('<div class="hljs-actions-panel"></div>');
+		$('.hljs-wrapper .hljs-actions-panel').prepend('<button class="btn-fullscreen-mode" title="Enter fullscreen mode"><i class="fas fa-expand"></i></button>');
+		$('.hljs-wrapper .hljs-actions-panel').prepend('<button class="btn-clipboard" title="Copy to clipboard"><i class="fas fa-copy"></i></button>');
 		addClipboardJS();
 	}
 
@@ -17,13 +20,13 @@ $(document).ready(function(){
 	function addClipboardJS() {
 		var clipboard = new ClipboardJS(".btn-clipboard",{
             target: function(clipboard) {
-                return clipboard.nextElementSibling
+                return clipboard.parentNode.previousElementSibling
             }
         });
         clipboard.on("success", function(clipboard) {
         	$(clipboard.trigger).text('Copied!');
         	setTimeout(function () {
-            	$(clipboard.trigger).text('Copy');
+            	$(clipboard.trigger).html('<i class="fas fa-copy"></i>');
         	}, 1000);
             clipboard.clearSelection();
         });
@@ -34,7 +37,39 @@ $(document).ready(function(){
         });
 	}
 
+	// Add fullscreen mode functionality
+	function addFullscreenMode() {
+		var isFullScreenModeCodeOn = false;
+		var screenScroll = 0;
+		var fullScreenWindow = $('.js-fullscreen-code')[0];
+
+		$('body').on('click', '.btn-fullscreen-mode', function() {
+			if (isFullScreenModeCodeOn) {
+				$('body').css('overflow', '');
+				$(fullScreenWindow).removeClass('is-open').empty();
+				isFullScreenModeCodeOn = false;
+			} else {
+				var codeBlock = this.parentNode.parentNode.cloneNode(true);
+				$('body').css('overflow', 'hidden');
+				$(fullScreenWindow).append(codeBlock);
+				$(fullScreenWindow).find('.btn-fullscreen-mode').attr('title', 'Leave fullscreen mode');
+				$(fullScreenWindow).find('.btn-fullscreen-mode i').removeClass('fa-expand').addClass('fa-compress');
+				$(fullScreenWindow).addClass('is-open');
+				isFullScreenModeCodeOn = true;
+			}
+		});
+
+		$(document).keyup(function(e) {
+			if($(fullScreenWindow).hasClass('is-open') && e.key === "Escape") {
+				$('body').css('overflow', '');
+				$(fullScreenWindow).removeClass('is-open').empty();
+				isFullScreenModeCodeOn = false;
+			}
+	   });
+	}
+
 	initHighlight(wrapperHighlight);
+	addFullscreenMode();
 
 	// Style all tables - markdown fix
 	$('table').addClass('table');
