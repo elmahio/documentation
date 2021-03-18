@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
-[![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-6-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
 
 # Logging to elmah.io from JavaScript
 
@@ -47,7 +47,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.3.1/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.4.1/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
   </div>
@@ -108,7 +108,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
     // ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.3.1/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.4.1/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
@@ -118,7 +118,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
 or using the LibMan CLI:
 
 ```cmd
-libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.3.1/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.4.1/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -477,6 +477,33 @@ When initializing your React app, elmah.io is configured and all errors happenin
 Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.
 
 > React have a known bug where errors are submitted twice. For better error handling in React, you should look into [Error Boundaries](https://reactjs.org/docs/error-boundaries.html).
+
+##### Vue.js
+
+To log all errors from a Vue.js application, install the `elmah.io.javascript` npm package or include it with a direct `<script>` include:
+
+```javascript
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.4.1/dist/elmahio.min.js" type="text/javascript"></script>
+```
+
+Before initializing the application, include the following code:
+
+```javascript
+var logger = new Elmahio({
+  apiKey: "API_KEY",
+  logId: "LOG_ID"
+});
+Vue.config.errorHandler = function (err, vm, info) {
+  logger.error(err.message, err);
+};
+Vue.config.warnHandler = function (msg, vm, trace) {
+  logger.warning(msg);
+};
+```
+
+`elmah.io.javascript` will automatically log all errors raised through `window.onerror`and log additional errors and warnings from Vue.js through the `errorHandler` and `warnHandler` functions. If you want to exclude warnings, simply remove the `warnHandler` function.
+
+Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.VueJs" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.VueJs</a> sample for some real working code.
 
 ## Message reference
 
