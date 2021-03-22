@@ -49,9 +49,9 @@ You may have different environments like *Staging* and *Production*. At least yo
 
 When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco cloud, execute the following steps:
 
-* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Visual-Studio/" target="_blank">Visual Studio Setup</a>.
+* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Visual-Studio/" target="_blank">Visual Studio Setup</a>. Make sure to follow the instructions in that document and use `UaaS.cmd` to generate your local clone rather than cloning the project from Umbraco Cloud. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
 
-* Install `Elmah.Io.Umbraco` into your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+* Install `Elmah.Io.Umbraco` into the `*.Web` project on your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Umbraco
@@ -66,7 +66,7 @@ dotnet add package Elmah.Io.Umbraco
 paket add Elmah.Io.Umbraco
 ```
 
-* Commit and push all changes to the git respository. This will add elmah.io logging to your remote Umbraco Cloud project.
+* Commit and push all changes to the git respository (only commit and push inside the `*.Web` folder). This will add elmah.io logging to your remote Umbraco Cloud project.
 
 In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/" target="_blank">Config transforms</a>.
 
@@ -76,7 +76,7 @@ Installing elmah.io in Umbraco Uno follow the process of installing it onto Umbr
 
 ![](images/umbraco-uno-enable-custom-code.png)
 
-After enabling Custom Code you can create a *Development* environment and clone it to your local machine using `git`. Finally, follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.
+After enabling Custom Code you can create a *Development* environment and follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.
 
 ## Umbraco 7
 
