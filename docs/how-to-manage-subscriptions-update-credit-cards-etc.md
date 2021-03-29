@@ -8,7 +8,7 @@ To open organization settings, click the gears icon next to your organization na
 
 When on the organization settings page, click the _Subscription_ tab. Your subscription can be managed by scrolling to the bottom of the page and looking for the currently active subscription:
 
-![Manage subscription](images/manage-subscription.png)
+![Manage subscription](images/manage-subscription.png){: .d-block .mx-auto style="max-width: 400px;" }
 
 In the following sections, we will go through each button.
 
