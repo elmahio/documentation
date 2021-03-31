@@ -372,3 +372,18 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
   <target name="elmahio" type="elmah.io" ... />
 </targets>
 ```
+
+### System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json'
+
+If you see this error in the internal NLog file it means that there's a problem with multiple assemblies referencing different versions of `Newtonsoft.Json` (also known as *NuGet dependency hell*). This can be fixed by redirecting to the installed version in the `App.config` or `Web.config` file:
+
+```xml
+<runtime>
+  <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+    <dependentAssembly>
+      <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+      <bindingRedirect oldVersion="0.0.0.0-13.0.1.0" newVersion="13.0.1.0"/>
+    </dependentAssembly>
+  </assemblyBinding>
+</runtime>
+```
