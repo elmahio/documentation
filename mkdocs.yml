@@ -98,7 +98,6 @@ nav:
     - BotBuster: elmah-io-apps-botbuster.md
     - IP Filter: elmah-io-apps-ipfilter.md
     - Mailman: elmah-io-apps-mailman.md
-    - WebClient: elmah-io-apps-webclient.md
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
