@@ -28,7 +28,13 @@ dotnet add package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
-Call `AddElmahIo` in the `ConfigureServices`-method in the `Startup.cs` file:
+In the `Program.cs` file, add a new `using` statement:
+
+```csharp
+using Elmah.Io.AspNetCore;
+```
+
+Call `AddElmahIo` in the `ConfigureServices`-method:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -44,7 +50,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
 
-Call `UseElmahIo` in the `Configure`-method in the `Startup.cs` file:
+Call `UseElmahIo` in the `Configure`-method:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
@@ -55,7 +61,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseStaticFiles`, `UseMvc` and similar.
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc` and similar.
 
 That's it. Every uncaught exception will be logged to elmah.io.
 
@@ -73,7 +79,7 @@ If you have different environments (everyone have a least localhost and producti
 }
 ```
 
-Configuring elmah.io is done by calling the `Configure` method instead of `AddElmahIo`:
+Configuring elmah.io is done by calling the `Configure`-method before `AddElmahIo`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -83,7 +89,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Notice that you still need to call `AddElmahIo` in order to correctly register middleware dependencies.
+Notice that you still need to call `AddElmahIo` to correctly register middleware dependencies.
 
 Finally, call the `UseElmahIo`-method (as you would do with config in C# too):
 
@@ -258,27 +264,4 @@ In this example, the elmah.io client routes all traffic through `http://localhos
 
 ## Logging health check results
 
-> The current elmah.io health check publisher will be discontinued. In the future, ASP.NET Core Health Checks will be integrated with elmah.io Heartbeats. Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.
-
-ASP.NET Core 2.2 introduced a new feature named Health Checks. Health checks enable much more sofisticated uptime checks, by allowing you to verify not only uptime on your own website, but also on any dependency or precondition necessary for your website to work. For a general introduction to health checks, I recommend you to read [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/).
-
-Health checks have error reporting built-in. We provide a publisher in order to allow ASP.NET Core to ship health check errors directly to your log on elmah.io. Start by installing the `Elmah.Io.AspNetCore.HealthChecks` NuGet package:
-
-```ps
-Install-Package Elmah.Io.AspNetCore.HealthChecks -IncludePrerelease
-```
-
-Then configure the elmah.io publisher as part of initializing health checks:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // ...
-    services
-        .AddHealthChecks()
-        .AddElmahIoPublisher("API_KEY", new Guid("LOG_ID"));
-    // ...
-}
-```
-
-> If using `Elmah.Io.AspNetCore.HealthChecks` together with *Health Checks UI* make sure to call `AddHealthChecksUI` **after** calling `AddElmahIoPublisher`.
+Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.

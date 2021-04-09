@@ -36,18 +36,21 @@ using Elmah.Io.Extensions.Logging;
 Then call the `ConfigureLogging`-method and configure elmah.io like shown here:
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
-    {
-        logging.AddElmahIo(options =>
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
         {
-            options.ApiKey = "API_KEY";
-            options.LogId = new Guid("LOG_ID");
+            webBuilder.UseStartup<Startup>();
+            webBuilder.ConfigureLogging((ctx, logging) =>
+            {
+                logging.AddElmahIo(options =>
+                {
+                    options.ApiKey = "API_KEY";
+                    options.LogId = new Guid("LOG_ID");
+                });
+                logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
+            });
         });
-        logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
-    })
-    .Build();
 ```
 By calling, the `AddFilter`-method, you ensure that only warnings and up are logged to elmah.io.
 
@@ -66,14 +69,16 @@ The API key and log ID can also be configured in `appsettings.json`:
 Then configure the section and use the `AddElmahIo` overload (without any parameters):
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
     {
-        logging.Services.Configure<ElmahIoProviderOptions>(ctx.Configuration.GetSection("ElmahIo"));
-        logging.AddElmahIo();
-    })
-    .Build();
+        webBuilder.UseStartup<Startup>();
+        webBuilder.ConfigureLogging((ctx, logging) =>
+        {
+            logging.Services.Configure<ElmahIoProviderOptions>(ctx.Configuration.GetSection("ElmahIo"));
+            logging.AddElmahIo();
+        });
+    });
 ```
 
 Start logging messages by injecting an `ILogger` in your controllers:
@@ -252,14 +257,11 @@ Some of the configuration for Elmah.Io.Extensions.Logging can be done through th
 Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
-    {
-        logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-        // ...
-    })
-    .Build();
+webBuilder.ConfigureLogging((ctx, logging) =>
+{
+    logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
+    // ...
+});
 ```
 
 ### Filtering log messages
@@ -271,14 +273,11 @@ To log everything from log level `Information` and up, do the following:
 Inside the `ConfigureLogging`-method in `Startup.cs`, change the minimum level:
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
-    {
-        // ...
-        logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
-    })
-    .Build();
+webBuilder.ConfigureLogging((ctx, logging) =>
+{
+    // ...
+    logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
+});
 ```
 
 In the code sample, every log message with a log level of `Information` and up will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category, and call the `LogInformation` method:
@@ -295,17 +294,14 @@ logger.LogInformation("This is an information message");
 You can log through a proxy using options:
 
 ```csharp
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging((ctx, logging) =>
+webBuilder.ConfigureLogging((ctx, logging) =>
+{
+    logging.AddElmahIo(options =>
     {
-        logging.AddElmahIo(options =>
-        {
-            // ...
-            options.WebProxy = new WebProxy("localhost", 8000);
-        });
-    })
-    .Build();
+        // ...
+        options.WebProxy = new WebProxy("localhost", 8000);
+    });
+});
 ```
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
