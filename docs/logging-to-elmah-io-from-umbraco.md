@@ -8,6 +8,15 @@
 
 Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. All the log levels that you already know from log4net, NLog, and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on Serilog, [which elmah.io also support](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
 
+<div class="alert alert-primary">
+    <div class="row">
+        <div class="col-auto align-self-start">
+            <div class="fa fa-lightbulb"></div>
+        </div>
+        <div class="col">To learn more about the elmah.io integration with Umbraco and an overall introduction to the included features, make sure to check out the <a href="https://elmah.io/features/umbraco/">elmah.io and Umbraco</a> page.</div>
+    </div>
+</div>
+
 To start utilizing elmah.io from your Umbraco site, all you need to do is install the `Elmah.Io.Umbraco` package:
 
 ```powershell fct_label="Package Manager"
