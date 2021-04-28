@@ -171,6 +171,18 @@ services.AddElmahIo(options =>
 });
 ```
 
+The boolean can also be configured through `appsettings.json`:
+
+```json
+{
+  // ...
+  "ElmahIo": {
+    // ...
+    "TreatLoggingAsBreadcrumbs": true
+  }
+}
+```
+
 When enabling this automatic behavior, you may need to adjust the log level included as breadcrumbs. This is done in the `appsettings.json` file by including the following JSON:
 
 ```json
@@ -305,6 +317,20 @@ services.AddElmahIo(o =>
     o.HandledStatusCodesToLog = new List<int> { 400 };
 }
 ```
+
+The list can also be configured through `appsettings.json`:
+
+```json
+{
+  // ...
+  "ElmahIo": {
+    // ...
+    "HandledStatusCodesToLog": [ 400 ],
+  }
+}
+```
+
+When configuring status codes through the `appsettings.json` file, `404`s will always be logged. To avoid this, configure the list in C# as shown above.
 
 ### Logging through a proxy
 
