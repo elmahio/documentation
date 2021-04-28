@@ -63,6 +63,8 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
 });
 ```
 
+## Structured logging
+
 Like the integrations for Serilog, NLog and, Microsoft.Extensions.Logging, the elmah.io client supports structured logging:
 
 ```csharp
@@ -70,6 +72,50 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
 {
     Title = "Thomas says Hello",
     TitleTemplate = "{User} says Hello",
+});
+```
+
+## Breadcrumbs
+
+> Breadcrumbs is currently in prerelease and only supported on `Elmah.Io.Client` version `3.11.14-pre` or newer.
+
+You can log one or more breadcrumbs as part of a log message. Breadcrumbs indicate steps happening just before a log message (typically an error). Breadcrumbs are supported through the `Breadcrumbs` property on the `CreateMessage` class:
+
+```csharp
+logger.Messages.CreateAndNotify(logId, new CreateMessage
+{
+    Title = "Oh no, an error happened",
+    Severity = "Error",
+    Breadcrumbs = new List<Breadcrumb>
+    {
+        new Breadcrumb
+        {
+            DateTime = DateTime.UtcNow.AddSeconds(-10),
+            Action = "navigation",
+            Message = "Navigate from / to /signin",
+            Severity = "Information"
+        },
+        new Breadcrumb
+        {
+            DateTime = DateTime.UtcNow.AddSeconds(-2),
+            Action = "click",
+            Message = "#submit",
+            Severity = "Information"
+        },
+        new Breadcrumb
+        {
+            DateTime = DateTime.UtcNow.AddSeconds(-1),
+            Action = "submit",
+            Message = "#loginform",
+            Severity = "Information"
+        },
+        new Breadcrumb
+        {
+            Action = "error",
+            Message = "Oh no, an error happened",
+            Severity = "Error"
+        },
+    }
 });
 ```
 

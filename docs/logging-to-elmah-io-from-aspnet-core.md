@@ -137,6 +137,66 @@ catch (DivideByZeroException e)
 
 When catching an exception, you simply call the `Ship` extension method with the current HTTP context as parameter.
 
+From `Elmah.Io.AspNetCore` version `3.12.*` or newer, you can log manually using the `ElmahIoApi` class as well:
+
+```csharp
+ElmahIoApi.Log(e, HttpContext);
+```
+
+The `Ship`-method uses `ElmahIoApi` underneath why both methods will give the same end result.
+
+## Breadcrumbs
+
+> Breadcrumbs is currently in prerelease and only supported on `Elmah.Io.AspNetCore` version `3.12.21-pre` or newer.
+
+You can log one or more breadcrumbs as part of both automatic and manually logged errors. Breadcrumbs indicate steps happening just before a message logged by `Elmah.Io.AspNetCore`. Breadcrumbs are supported in two ways: manual and through Microsoft.Extensions.Logging.
+
+If you want to log a breadcrumb manually as part of an MVC controller action or similar, you can use the `ElmahIoApi` class:
+
+```csharp
+ElmahIoApi.AddBreadcrumb(
+    new Elmah.Io.Client.Models.Breadcrumb(DateTime.UtcNow, message: "Requesting the frontpage"),
+    HttpContext);
+```
+
+Notice that the `Breadcrumb` class is located in the `Elmah.Io.Client` that will be automatically installed when installing `Elmah.Io.AspNetCore`.
+
+We also provide an automatic generation of breadcrumbs using Microsoft.Extensions.Logging. This will pick up all log messages logged through the `ILogger` and include those as part of an error logged. This behavior is currently in opt-in mode, meaning that you will need to enable it in options:
+
+```csharp
+services.AddElmahIo(options =>
+{
+    // ...
+    options.TreatLoggingAsBreadcrumbs = true;
+});
+```
+
+When enabling this automatic behavior, you may need to adjust the log level included as breadcrumbs. This is done in the `appsettings.json` file by including the following JSON:
+
+```json
+{
+  "Logging": {
+    // ...
+    "ElmahIoBreadcrumbs": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+Breacrumbs can be filtered using one or more rules as well:
+
+```csharp
+services.AddElmahIo(options =>
+{
+    // ...
+    options.OnFilterBreadcrumb =
+        breadcrumb => breadcrumb.Message == "A message we don't want as a breadcrumb";
+});
+```
+
 ## Additional options
 
 ### Setting application name
