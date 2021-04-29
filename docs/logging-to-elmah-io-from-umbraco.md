@@ -106,9 +106,9 @@ paket add Elmah.Io.Umbraco --version 3.2.35
 
 New features will be added to the updated package for Umbraco 8 and newer only.
 
-## Umbraco Unicore
+## Umbraco 9
 
-Playing with the alpha of the new version of Umbraco running on .NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco Unicore and elmah.io.
+Playing with the alpha of the new version of Umbraco running on ASP.NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco 9 and elmah.io.
 
 Start by installing the `Elmah.Io.AspNetCore` package:
 
@@ -125,7 +125,13 @@ dotnet add package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
-Then add the following code to the `ConfigureServices` method in the `Startup.cs` file:
+Then add the following `using` to the `Startup.cs` file:
+
+```csharp
+using Elmah.Io.AspNetCore
+```
+
+Add this code to the `ConfigureServices` method:
 
 ```csharp
 services.AddElmahIo(o =>
@@ -156,13 +162,19 @@ dotnet add package Elmah.Io.Extensions.Logging
 paket add Elmah.Io.Extensions.Logging
 ```
 
-In the `ConfigureLogging` action in the `Program.cs` file add the following code after the call to `ClearProviders`:
+Add the following `using` to the `Program.cs` file:
+
+```csharp
+using Elmah.Io.Extensions.Logging;
+```
+
+In the `ConfigureLogging` action add the following code after the call to `ClearProviders`:
 
 ```csharp
 x.AddElmahIo(options =>
 {
     options.ApiKey = "API_KEY";
-    options.LogId = new Guid("LOG_ID");
+    options.LogId = new System.Guid("LOG_ID");
 });
 x.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 ```
