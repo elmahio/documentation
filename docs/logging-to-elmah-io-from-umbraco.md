@@ -108,7 +108,7 @@ New features will be added to the updated package for Umbraco 8 and newer only.
 
 ## Umbraco 9
 
-Playing with the alpha of the new version of Umbraco running on ASP.NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco 9 and elmah.io.
+Playing with the new version of Umbraco running on ASP.NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco 9 and elmah.io.
 
 Start by installing the `Elmah.Io.AspNetCore` package:
 
