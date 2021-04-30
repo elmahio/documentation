@@ -137,6 +137,7 @@ nav:
     - Where is my API key: where-is-my-api-key.md
     - Where is my invoice / receipt: where-is-my-invoice-receipt.md
     - How to manage subscriptions, update credit cards, etc.: how-to-manage-subscriptions-update-credit-cards-etc.md
+    - Managing Environments: managing-environments.md
     - How to configure API key permissions: how-to-configure-api-key-permissions.md
     - How to enable two-factor login: how-to-enable-two-factor-login.md
     - How to rename a log: how-to-rename-a-log.md
