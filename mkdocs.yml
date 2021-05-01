@@ -78,7 +78,7 @@ nav:
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
     - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
-    - Logging from Console: logging-to-elmah-io-from-console-application.md
+    - Logging from C#: logging-to-elmah-io-from-console-application.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from WPF: logging-to-elmah-io-from-wpf.md
