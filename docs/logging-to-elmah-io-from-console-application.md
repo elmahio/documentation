@@ -91,33 +91,38 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
         new Breadcrumb
         {
             DateTime = DateTime.UtcNow.AddSeconds(-10),
-            Action = "navigation",
+            Action = "Navigation",
             Message = "Navigate from / to /signin",
             Severity = "Information"
         },
         new Breadcrumb
         {
-            DateTime = DateTime.UtcNow.AddSeconds(-2),
-            Action = "click",
+            DateTime = DateTime.UtcNow.AddSeconds(-3),
+            Action = "Click",
             Message = "#submit",
             Severity = "Information"
         },
         new Breadcrumb
         {
-            DateTime = DateTime.UtcNow.AddSeconds(-1),
-            Action = "submit",
+            DateTime = DateTime.UtcNow.AddSeconds(-2),
+            Action = "Submit",
             Message = "#loginform",
             Severity = "Information"
         },
         new Breadcrumb
         {
-            Action = "error",
-            Message = "Oh no, an error happened",
-            Severity = "Error"
-        },
+            DateTime = DateTime.UtcNow.AddSeconds(-1),
+            Action = "Request",
+            Message = "/save",
+            Severity = "Information"
+        }
     }
 });
 ```
+
+Breadcrumbs will be ordered by the `DateTime` field on the elmah.io API why the order you add them the the `Breadcrumbs` property isn't that important. Be aware that only the 10 most recent breadcrumbs and breadcrumbs with a date less than or equal to the logged message are stored.
+
+In the example above, only `Information` breadcrumbs are added. The `Severity` property accept the same severities as on the log message itself.
 
 ## Events
 
