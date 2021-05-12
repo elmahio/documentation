@@ -28,7 +28,7 @@ dotnet add package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
-In the `Program.cs` file, add a new `using` statement:
+In the `Startup.cs` file, add a new `using` statement:
 
 ```csharp
 using Elmah.Io.AspNetCore;

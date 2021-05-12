@@ -46,6 +46,7 @@ nav:
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
     - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from Blazor: logging-to-elmah-io-from-blazor.md
+    - Logging from SignalR: logging-to-elmah-io-from-signalr.md
     - Using different logs per environment in ASP.NET Core: using-different-logs-per-environment-in-aspnet-core.md
     - Logging breadcrumbs from ASP.NET Core: logging-breadcrumbs-from-asp-net-core.md
     - Roslyn analyzers for elmah.io and ASP.NET Core: roslyn-analyzers-for-elmah-io-and-aspnet-core.md
