@@ -136,3 +136,21 @@ As default, all messages are decorated with the most recent deployment version. 
 Chances are that your software consists of multiple services released independently and with different version numbers. This is a common pattern when splitting up a software system in microservices. How you choose to split your elmah.io logs are entirely up to you, but we almost always recommend having a separate log for each service. When doing so, you only want deployment tracking to show the releases from the service you are currently looking at. The problem here is that deployments on elmah.io are shown on all logs as default.
 
 To make sure that only deployments related to the service you are looking at are shown, you need to decorate each deployment with the log ID where it belong. The `deployments` API support this through an optional `logId` property. If set, the new deployment is only shown on the specified log.
+
+## Enable/Disable logging while deploying
+
+Some websites and services are not built to work properly while deploying a new version. This may cause errors logged from Uptime Monitoring and similar while you deploy a new version of your software. In this case, you might consider disabling logging while deploying and enable logging once the new version is deployed. Disabling logging can be done in two ways:
+
+1. Through the elmah.io UI on the log settings page:
+
+    ![Enable/disable log](images/enabled_disable_log.png)
+
+2. By calling the [Disable](https://api.elmah.io/swagger/index.html#/Logs/Logs_Disable) and [Enable](https://api.elmah.io/swagger/index.html#/Logs/Logs_Enable) endpoints on the API (either manually or automatically). Powershell examples for reference:
+
+```powershell
+# Disable logging
+Invoke-RestMethod -Method Post -Uri 'https://api.elmah.io/v3/logs/LOG_ID/_disable?api_key=API_KEY'
+
+# Enable logging
+Invoke-RestMethod -Method Post -Uri 'https://api.elmah.io/v3/logs/LOG_ID/_enable?api_key=API_KEY'
+```
