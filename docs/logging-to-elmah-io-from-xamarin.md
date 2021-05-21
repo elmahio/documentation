@@ -17,7 +17,7 @@ Install-Package Elmah.Io.Xamarin -IncludePrerelease
 dotnet add package Elmah.Io.Xamarin --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Xamarin" Version="3.0.8-pre" />
+<PackageReference Include="Elmah.Io.Xamarin" Version="3.0.18-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Xamarin
@@ -25,13 +25,22 @@ paket add Elmah.Io.Xamarin
 
 For each platform (Android and iOS) you will need to set up elmah.io as illustrated in the following sections. The code is the same for both Xamarin and Xamarin.Forms.
 
-## Android
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#android" aria-controls="home" role="tab" data-toggle="tab">Android</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ios" aria-controls="home" role="tab" data-toggle="tab">iOS</a></li>
+</ul>
+</div>
+</div>
 
+ <div class="tab-content tab-content-tabbable">
+<div role="tabpanel" class="tab-pane active" id="android">
 Open the `MainActivity.cs` file and add the following `using` statements:
 
 ```csharp
+using System;
 using Elmah.Io.Xamarin;
-using System.Threading.Tasks;
 ```
 
 Locate the `OnCreate` method and add the following code before all other lines:
@@ -42,29 +51,17 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
     ApiKey = "API_KEY",
     LogId = new Guid("LOG_ID"),
 });
-AndroidEnvironment.UnhandledExceptionRaiser += (sender, e) =>
-{
-    e.Exception.Log();
-    e.Handled = true;
-};
-TaskScheduler.UnobservedTaskException += (sender, e) =>
-{
-    e.Exception.Log();
-    e.SetObserved();
-};
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
 
-Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section. The code then subscribes to the `UnhandledExceptionRaiser` and `UnobservedTaskException` events which will log any exceptions to elmah.io using the `Log` method.
-
-## iOS
-
+Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section.
+</div>
+<div role="tabpanel" class="tab-pane active" id="ios">
 Open the `Main.cs` file and add the following `using` statements:
 
 ```csharp
 using System;
-using System.Threading.Tasks;
 using Elmah.Io.Xamarin;
 ```
 
@@ -76,24 +73,17 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
     ApiKey = "API_KEY",
     LogId = new Guid("LOG_ID"),
 });
-AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
-{
-    (e.ExceptionObject as Exception).Log();
-};
-TaskScheduler.UnobservedTaskException += (sender, e) =>
-{
-    e.Exception.Log();
-    e.SetObserved();
-};
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
 
-Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section. The code then subscribes to the `UnhandledException` and `UnobservedTaskException` events which will log any exceptions to elmah.io using the `Log` method.
+Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section.
+</div>
+</div>
 
 ## Log exceptions manually
 
-Once the `ElmahIoXamarin.Init` method has been configured during initialization of the app, any exception can be logged manually using the `Log` method available in the `Elmah.Io.Xamarin` namespace:
+Once the `ElmahIoXamarin.Init` method has been configured during initialization of the app, any exception can be logged manually using the `Log` methods available in the `Elmah.Io.Xamarin` namespace:
 
 ```csharp
 try
@@ -102,7 +92,56 @@ try
 }
 catch (Exception e)
 {
+    // Log the exception with the Log extension-method:
+    
     e.Log();
+
+    // or use the Log method on ElmahIoXamarin:
+
+    ElmahIoXamarin.Log(e);
+}
+```
+
+## Breadcrumbs
+
+Breadcrumbs can be a great help when needing to figure out how a user ended up with an error. To log breadcrumbs you can use the `AddBreadcrumb` method on `ElmahIoXamarin`. The following is a sample for Android which will log breadcrumbs on interesting events:
+
+```csharp
+public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
+{
+    public override void OnBackPressed()
+    {
+        ElmahIoXamarin.AddBreadcrumb("OnBackPressed", DateTime.UtcNow, action: "Navigation");
+        base.OnBackPressed();
+    }
+
+    protected override void OnPause()
+    {
+        ElmahIoXamarin.AddBreadcrumb("OnPause", DateTime.UtcNow);
+        base.OnPause();
+    }
+
+    // ...
+
+    public bool OnNavigationItemSelected(IMenuItem item)
+    {
+        switch (item.ItemId)
+        {
+            case Resource.Id.navigation_home:
+                ElmahIoXamarin.AddBreadcrumb("Navigate to Home", DateTime.UtcNow, action: "Navigation");
+                textMessage.SetText(Resource.String.title_home);
+                return true;
+            case Resource.Id.navigation_dashboard:
+                ElmahIoXamarin.AddBreadcrumb("Navigate to Dashboard", DateTime.UtcNow, action: "Navigation");
+                textMessage.SetText(Resource.String.title_dashboard);
+                return true;
+            case Resource.Id.navigation_notifications:
+                ElmahIoXamarin.AddBreadcrumb("Navigate to Notifications", DateTime.UtcNow, action: "Navigation");
+                textMessage.SetText(Resource.String.title_notifications);
+                return true;
+        }
+        return false;
+    }
 }
 ```
 
@@ -201,8 +240,17 @@ If you are targeting a single platform, you can install the package directly in 
 
 Additional steps will vary from platform to platform.
 
-### Android
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#androidlegacy" aria-controls="home" role="tab" data-toggle="tab">Android</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ioslegacy" aria-controls="home" role="tab" data-toggle="tab">iOS</a></li>
+</ul>
+</div>
+</div>
 
+ <div class="tab-content tab-content-tabbable">
+<div role="tabpanel" class="tab-pane active" id="androidlegacy">
 Locate your main activity class and look for the `OnCreate` method. Here, you'd want to set up event handlers for when uncaught exceptions happen:
 
 ```csharp
@@ -281,9 +329,8 @@ private void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThr
     e.Handled = true;
 }
 ```
-
-### iOS
-
+</div>
+<div role="tabpanel" class="tab-pane active" id="ioslegacy">
 Locate your main application class and look for the `Main` method. Here, you'd want to set up event handlers for when uncaught exceptions happen:
 
 ```csharp
@@ -339,3 +386,5 @@ private static void CurrentDomain_UnhandledException(object sender, UnhandledExc
     LogExceptionToElmahIo(e.ExceptionObject as Exception);
 }
 ```
+</div>
+</div>
