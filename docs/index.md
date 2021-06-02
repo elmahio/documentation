@@ -5,7 +5,7 @@ description: Here you will find updated documentation on how to use elmah.io. Fr
 
 # elmah.io Installation Quick Start
 
-Welcome to the quick start installation guide. Here you will find a quick introduction to installing elmah.io. For the full overview, read through the individual guides by clicking a technology below:
+Welcome to the quick-start installation guide. Here you will find a quick introduction to installing elmah.io. For the full overview, read through the individual guides by clicking a technology below:
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
@@ -149,7 +149,7 @@ paket add Elmah.Io
 
 During the installation, you will be asked for your API key and log ID.
 
-For more information, check out the installation guides for [WebForms](/logging-to-elmah-io-from-elmah/), [MVC](/logging-to-elmah-io-from-aspnet-mvc/) and [Web API](/logging-to-elmah-io-from-web-api/). There is a short video tutorial available here:
+For more information, check out the installation guides for [WebForms](/logging-to-elmah-io-from-elmah/), [MVC](/logging-to-elmah-io-from-aspnet-mvc/), and [Web API](/logging-to-elmah-io-from-web-api/). There is a short video tutorial available here:
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" title="elmah.io Introduction - Installation" allowfullscreen></iframe>
