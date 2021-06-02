@@ -15,7 +15,7 @@ Install-Package Elmah.Io.Uno -IncludePrerelease
 dotnet add package Elmah.Io.Uno --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Uno" Version="3.0.1-pre" />
+<PackageReference Include="Elmah.Io.Uno" Version="3.0.16-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Uno
@@ -23,22 +23,15 @@ paket add Elmah.Io.Uno
 
 While configured in the shared project, the NuGet package will need to be installed in all platform projects.
 
-`Elmah.Io.Uno` comes with a logger for Microsoft.Extensions.Logging. To configure the logger, open the `App.xaml.cs` file and locate the `ConfigureFilters` method. Here you will see the logging configuration for your application. Include logging to elmah.io by calling the `AddElmahIo` method:
+`Elmah.Io.Uno` comes with a logger for Microsoft.Extensions.Logging. To configure the logger, open the `App.xaml.cs` file and locate the `InitializeLogging` method. Here you will see the logging configuration for your application. Include logging to elmah.io by calling the `AddElmahIo` method:
 
 ```csharp
-factory
-    .WithFilter(new FilterLoggerSettings
-        {
-            { "Uno", LogLevel.Warning },
-            { "Windows", LogLevel.Warning },
-        }
-    )
-    .AddElmahIo("API_KEY", new Guid("LOG_ID"))
-#if DEBUG
-    .AddConsole(LogLevel.Debug);
-#else
-    .AddConsole(LogLevel.Information);
-#endif
+var factory = LoggerFactory.Create(builder =>
+{
+    // ...
+    builder.AddElmahIo("API_KEY", new Guid("LOG_ID"));
+    // ...
+});
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
