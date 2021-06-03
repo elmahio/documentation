@@ -281,6 +281,29 @@ new Elmahio({
 
 In the example, all errors are written to the console.
 
+## Breadcrumbs
+
+Breadcrumbs can be used to decorate errors with events or actions happening just before logging the error. Breadcrumbs can be added manually:
+
+```javascript
+logger.addBreadcrumb('User clicked button x', 'Information', 'click');
+```
+
+You would want to enrich your code with a range of different breadcrumbs depending on important user actions in your application.
+
+`elmah.io.javascript` can also be configured to automatically generate breadcrumbs from important actions like click events and xhr:
+
+```javascript
+var logger = new Elmahio({
+    // ...
+    breadcrumbs: true
+});
+```
+
+We are planning to enable automatic breadcrumbs in the future but for now, it's an opt-in feature.
+
+> Breadcrumbs require `elmah.io.javascript` version `3.5.0` or newer.
+
 ## Logging manually
 
 You may want to log errors manually or even log information messages from JavaScript. To do so, `Elmahio` is actually a logging framework too:
