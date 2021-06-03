@@ -359,8 +359,8 @@ If you don't like to share the `Elmahio` logger or you want to hook elmah.io log
 
 ```javascript
 var log = new Elmahio({
-  apiKey: 'YOUR-API-KEY',
-  logId: 'YOUR-LOG-ID',
+  apiKey: 'API_KEY',
+  logId: 'LOG_ID',
   captureConsoleMinimumLevel: 'error'
 });
 
