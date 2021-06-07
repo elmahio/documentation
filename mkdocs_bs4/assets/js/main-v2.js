@@ -176,9 +176,7 @@ $(document).ready(function(){
 				maxPatternLength: 32,
 				minMatchCharLength: 1,
                 ignoreLocation: true,
-				keys: [
-			    	"title"
-				]
+				keys: ["title", "text"]
 			};
 
 			var fuse = new Fuse(data.docs, options);
