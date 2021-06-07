@@ -36,14 +36,14 @@ For each platform (Android and iOS) you will need to set up elmah.io as illustra
 
  <div class="tab-content tab-content-tabbable">
 <div role="tabpanel" class="tab-pane active" id="android">
-Open the `MainActivity.cs` file and add the following `using` statements:
+Open the <code>MainActivity.cs</code> file and add the following <code>using</code> statements:
 
 ```csharp
 using System;
 using Elmah.Io.Xamarin;
 ```
 
-Locate the `OnCreate` method and add the following code before all other lines:
+Locate the <code>OnCreate</code> method and add the following code before all other lines:
 
 ```csharp
 ElmahIoXamarin.Init(new ElmahIoXamarinOptions
@@ -53,19 +53,19 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
-Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section.
+Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
 <div role="tabpanel" class="tab-pane active" id="ios">
-Open the `Main.cs` file and add the following `using` statements:
+Open the <code>Main.cs</code> file and add the following <code>using</code> statements:
 
 ```csharp
 using System;
 using Elmah.Io.Xamarin;
 ```
 
-Locate the `Main` method and add the following code after the call to `UIApplication.Main`:
+Locate the <code>Main</code> method and add the following code after the call to <code>UIApplication.Main</code>:
 
 ```csharp
 ElmahIoXamarin.Init(new ElmahIoXamarinOptions
@@ -75,9 +75,9 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
-Calling the `Init` method will initialize elmah.io. For more configuration options see the [Additional configuration](#additional-configuration) section.
+Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
 </div>
 
