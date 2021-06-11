@@ -26,3 +26,4 @@ As mentioned, some code changes may be required from your part after upgrading. 
 - Replace any instances of `new ElmahioAPI(new ApiKeyCredentials(apiKey));` with `ElmahioAPI.Create(apiKey);`. The `ApiKeyCredentials` class was specific to AutoRest and have therefore been removed.
 - Collection types on messages like `Data`, `ServerVariables`, etc. are now of type `ICollection` and not `IList`. This means you can no longer use indexers on these properties.
 - Properties of type `DateTime` are replaced with `DateTimeOffset`. This shouldn't require any changes from your part since you can assign a value of type `DateTime` to a property of type `DateTimeOffset`.
+- You no longer need to make the following cast: `(ElmahioAPI)ElmahioAPI.Create(apiKey)`. The `IElmahioAPI` interface will have all the properties you need from the client.
