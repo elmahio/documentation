@@ -4,9 +4,9 @@
 
 Sometimes, being able to see the exact code causing an error, is much more helpful than looking at other details around the current HTTP context and similar. If you often find yourself opening Visual Studio or Code to inspect the failing line, embedding source code in errors and log messages will speed up the process. In this article, you will learn how to configure elmah.io to include source code when logging messages using the `Elmah.Io.Client.Extensions.SourceCode` NuGet package.
 
-> The `Elmah.Io.Client.Extensions.SourceCode` package is currently in prerelease.
+> The `Elmah.Io.Client.Extensions.SourceCode` package is currently in prerelease and require `Elmah.Io.Client` version `4.0` or newer.
 
-No matter what integration you are using (with a few exclusions) you are using the `Elmah.Io.Client` NuGet package to communicate with the elmah.io API. We have built a range of extensions for this package, to avoid including too many features not related to communicating with the API into the client package. One of them is for including source code when logging messages. Start by installing the `Elmah.Io.Client.Extensions.SourceCode` NuGet package:
+No matter what integration you are using (with a few exceptions) you are using the `Elmah.Io.Client` NuGet package to communicate with the elmah.io API. We have built a range of extensions for this package, to avoid including too many features not related to communicating with the API into the client package. One of them is for including source code when logging messages. Start by installing the `Elmah.Io.Client.Extensions.SourceCode` NuGet package:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client.Extensions.SourceCode -IncludePrerelease
