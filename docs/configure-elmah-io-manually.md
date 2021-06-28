@@ -46,6 +46,12 @@ Add the following to the `<modules>` element (inside `<system.webServer>`) in yo
 <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" preCondition="managedHandler" />
 ```
 
+Add the following to the `system.webServer` element in your `web.config`:
+
+```xml
+<validation validateIntegratedModeConfiguration="false" />
+```
+
 Add the following as a root element beneath the `<configuration>` element in your `web.config`:
 
 ```xml
@@ -58,6 +64,40 @@ Add the following as a root element beneath the `<configuration>` element in you
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
 That's it. You managed to install elmah.io manually and you should go to your LinkedIn profile and update with a new certification called "Certified elmah.io installer" :)
+
+Here's a full example of ELMAH configuration in a `web.config` file:
+
+```xml
+<configuration>
+  <configSections>
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+  </configSections>
+  <system.web>
+    <httpModules>
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah"/>
+    </httpModules>
+  </system.web>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules>
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" preCondition="managedHandler" />
+    </modules>
+  </system.webServer>
+  <elmah>
+    <security allowRemoteAccess="false" />
+    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKey="API_KEY" logId="LOG_ID" />
+  </elmah>
+</configuration>
+```
 
 In case you need to access your error log on `/elmah.axd`, you need to add the following to the `<configuration>` element in your `web.config`:
 
@@ -75,3 +115,5 @@ In case you need to access your error log on `/elmah.axd`, you need to add the f
     </system.webServer>
 </location>
 ```
+
+We don't recommend to browse your error logs through the `/elmah.axd` endpoint. The elmah.io UI will let you control different levels of access and more.
