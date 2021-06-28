@@ -91,7 +91,7 @@ elmahIoClient.Messages.OnMessage += (sender, e) =>
 
 You will need to implement the `FetchCode` method to return the source code to include. Only 21 lines of code are supported for now.
 
-In case you want elmah.io to show the correct line numbers, you will need to tell us how the first line number in the provided code matches your original source file. This is done by adding an `Item` to the `Data` dictionary on `CreateMessage`:
+In case you want elmah.io to show the correct line numbers, you will need to tell us how the first line number in the provided code matches your original source file as well as the line number causing the error. This is done by adding two `Item`s to the `Data` dictionary on `CreateMessage`:
 
 ```csharp
 var elmahIoClient = ElmahioAPI.Create("API_KEY");
@@ -99,8 +99,9 @@ elmahIoClient.Messages.OnMessage += (sender, e) =>
 {
     e.Message.Code = FetchCode();
     if (e.Message.Data == null) e.Message.Data = new List<Item>();
-    e.Message.Data.Add(new Item("X-ELMAHIO-CODESTARTLINE", 42.ToString()));
+    e.Message.Data.Add(new Item("X-ELMAHIO-CODESTARTLINE", "42"));
+    e.Message.Data.Add(new Item("X-ELMAHIO-CODELINE", "51"));
 }
 ```
 
-This will show line number `42` next to the first code line shown in the elmah.io UI.
+This will show line number `42` next to the first code line and highlight line number `51` in the elmah.io UI.
