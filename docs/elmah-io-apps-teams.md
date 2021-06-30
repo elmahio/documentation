@@ -5,17 +5,15 @@ description: Notify your team when new errors are introduced in production. With
 
 # Install Microsoft Teams App for elmah.io
 
-To install the integration with Microsoft Teams, go to teams and click the *Store* menu item. Search for "elmah.io" and click the app:
+To install the integration with Microsoft Teams, go to teams and click the *Apps* menu item. Search for "elmah.io" and click the app:
 
 ![Search for elmah.io](images/apps/teams/step1.png)
 
-Select your team and click the *Install* button:
+Click the *Add to a team* button. In the dropdown, search for your team and/or channel:
 
-![Add to a team](images/apps/teams/step2.png)
+![Search for elmah.io](images/apps/teams/step2.png)
 
-Select which channel you want elmah.io messages in and click the *Set up* button:
-
-![Select the channel](images/apps/teams/step3.png)
+Click the *Set up a connector* button.
 
 A new webhook URL is generated. Click the *Copy Text* button followed by the *Save* button:
 
