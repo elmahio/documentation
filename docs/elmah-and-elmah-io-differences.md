@@ -3,7 +3,7 @@
 We receive a lot of questions like these:
 
 - What is the difference between ELMAH and elmah.io?
-- I though ELMAH was free. Why do you suddenly charge?
+- I thought ELMAH was free. Why do you suddenly charge?
 - My ELMAH SQL Server configuration doesn't work. Why not?
 
 We totally understand the confusion. The purpose of this article is to give a bit of background of what the differences between ELMAH and elmah.io and why they share similar names.
