@@ -32,3 +32,13 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Mic
 Click *Save* and the app is added to your log. When new errors are logged, messages start appearing in the channel that you configured.
 
 > The Office 365 API used behind the scenes for this app uses throttling rather than a maximum of allowed requests. This means that you may start experiencing messages not being sent, if you start logging a large amount of messages. We have experienced a lot of weird error codes when communicating with the API. An example of this is an exception while posting data to the API, but the data is successfully shown on Teams. The result of this error is, that elmah.io retries the failing request multiple times, which causes the same message to be shown multiple times on Teams.
+
+## Troubleshooting
+
+Errors don't show up in Teams. Here are a few things to try out.
+
+* Make sure that the Teams app is installed on the log as described above.
+* Only new errors are sent to Teams. A new error has a severity of `Error` or `Fatal` and is marked with a yellow star on the search tab. We only send new errors to help you stay out of Teams' API limits. If sending all errors, you could quickly end up in a scenario where the same error is sent multiple times and more important errors get ignored by Teams.
+* Re-install the app on elmah.io with the webhook URL provided by Teams.
+* Remove the elmah.io configuration from Teams and re-install it. After re-installing the app, you will need to copy the new webhook URL provided by Teams and input it in the elmah.io Teams app as descrived above.
+* Go to the Apps page on Teams and search for 'elmah.io'. Remove the app entirely, click F5 to refresh the page, and install the app again. You may be stuck on an older version of our app, which can be fixed by simply removing and installing the app again.
