@@ -117,6 +117,23 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
 
 This rather ugly piece of code would go into an initalization block, depending on the project type. The code starts by getting the configured elmah.io appender (typically set up in `web/app.config` or `log4net.config`). With the appender, you can access the underlying elmah.io client and subscribe to the `OnMessage` event. This let you trigger a small piece of code, just before sending log messages to elmah.io. In this case, we set the `Version` property to `1.0.0`. Remember to call the `ActiveOptions` method, to make sure that the `Client` property is initialized.
 
+#### Include source code
+
+You can use the `OnMessage` event to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
+
+There are multiple ways of including source code to log messages. In short, you will need to install the `Elmah.Io.Client.Extensions.SourceCode` NuGet package and call the `WithSourceCodeFromPdb` method in the `OnMessage` event handler:
+
+```csharp
+elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
+{
+    a.Message.WithSourceCodeFromPdb();
+};
+```
+
+Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+
+> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+
 ## Specify API key and log ID in appSettings
 
 You may prefer storing the API key and log ID in the `appSettings` element over having the values embedded into the `appender` element. This can be the case for easy config transformation, overwriting values on Azure, or similar. log4net provides a feature named pattern strings to address just that:

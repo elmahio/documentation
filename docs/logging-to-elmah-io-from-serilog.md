@@ -107,6 +107,29 @@ Log.Logger =
 
 The example above includes a version number on all errors. Since the elmah.io sink also picks up encrichers specified with Serilog, this example could be implemented by enriching all log messages with a field named `version`.
 
+#### Include source code
+
+You can use the `OnMessage` action to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
+
+There are multiple ways of including source code to log messages. In short, you will need to install the `Elmah.Io.Client.Extensions.SourceCode` NuGet package and call the `WithSourceCodeFromPdb` method in the `OnMessage` action:
+
+```csharp
+Log.Logger =
+    new LoggerConfiguration()
+        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+        {
+            OnMessage = msg =>
+            {
+                msg.WithSourceCodeFromPdb();
+            }
+        })
+        .CreateLogger();
+```
+
+Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+
+> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+
 ### Handle errors
 
 To handle any errors happening while processing a log message, you can use the OnError event when initializing the elmah.io sink:

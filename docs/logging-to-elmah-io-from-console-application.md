@@ -139,6 +139,23 @@ logger.Messages.OnMessage += (sender, eventArgs) =>
 };
 ```
 
+#### Include source code
+
+You can use the `OnMessage` event to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
+
+There are multiple ways of including source code to log messages. In short, you will need to install the `Elmah.Io.Client.Extensions.SourceCode` NuGet package and call the `WithSourceCodeFromPdb` method in the `OnMessage` event handler:
+
+```csharp
+logger.Messages.OnMessage += (sender, eventArgs) =>
+{
+    eventArgs.Message.WithSourceCodeFromPdb();
+};
+```
+
+Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+
+> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+
 ### OnMessageFail
 
 Logging to elmah.io can fail if the network connection is down, if elmah.io experience downtime, or something third. To make sure you log an error elsewhere if this happen, you can implement the `OnMessageFail` event:

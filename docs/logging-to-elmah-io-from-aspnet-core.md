@@ -175,9 +175,9 @@ The application name can also be configured through `appsettings.json`:
 }
 ```
 
-### Events
+### Hooks
 
-elmah.io for ASP.NET Core supports a range of events for hooking into the process of logging messages. Events are registered as actions when installing the elmah.io middleware:
+elmah.io for ASP.NET Core supports a range of actions for hooking into the process of logging messages. Hooks are registered as actions when installing the elmah.io middleware:
 
 ```csharp
 services.AddElmahIo(o =>
@@ -213,7 +213,28 @@ services.AddElmahIo(o =>
 
 The example above, ignores all messages of type `System.NullReferenceException`.
 
-### Remove sensitive form data
+#### Include source code
+
+You can use the `OnMessage` action to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
+
+There are multiple ways of including source code to log messages. In short, you will need to install the `Elmah.Io.Client.Extensions.SourceCode` NuGet package and call the `WithSourceCodeFromPdb` method in the `OnMessage` action:
+
+```csharp
+services.AddElmahIo(options =>
+{
+    // ...
+    options.OnMessage = msg =>
+    {
+        msg.WithSourceCodeFromPdb();
+    };
+});
+```
+
+Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+
+> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+
+#### Remove sensitive form data
 
 The `OnMessage` event can be used to filter sensitive form data as well. In the following example, we remove the server variable named `Secret-Key` from all messages, before sending them to elmah.io.
 
