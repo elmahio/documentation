@@ -6,7 +6,7 @@ This guide is also available as a short video tutorial here:
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TLzQNX4MFkE?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 The rule engine is located beneath each log on the log settings page:
 

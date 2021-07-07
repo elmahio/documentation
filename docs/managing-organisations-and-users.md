@@ -8,7 +8,7 @@ This guide is also available as a short video tutorial here:
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7O43XBy4Kfg?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 To manage access, you will need to know about the concepts of **users** and **organizations**.
 

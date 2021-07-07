@@ -85,7 +85,7 @@ For a complete overview of the possibilities with deployment tracking, watch thi
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vVX_yaLi4f8?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 ## Generate a new API key
 

@@ -8,7 +8,7 @@ For a complete overview of the possibilities with uptime monitoring, watch this 
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EZ9iNfB9Blw?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 ## Uptime checks
 

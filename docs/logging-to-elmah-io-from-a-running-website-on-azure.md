@@ -8,7 +8,7 @@ Check out this video tutorial or keep reading for the text version:
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/R50FCpRtkjc?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 To start logging errors from your Azure web application, go to the Azure Portal and select the website you want to monitor. Click the *Extensions* tool:
 

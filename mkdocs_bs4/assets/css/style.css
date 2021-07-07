@@ -366,6 +366,9 @@ blockquote a, blockquote a:visited {
 	top: 0;
 	left: 0;
 }
+.main-content-body .embed-responsive {
+	margin-bottom: 30px;
+}
 /*.main-content-body pre code {
 	border: 1px solid #CFCFCF;
 	background-color: #fff;

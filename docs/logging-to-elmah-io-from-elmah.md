@@ -10,7 +10,7 @@ This guide is also available as a short video tutorial here:
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" allowfullscreen></iframe>
-</div><br/>
+</div>
 
 Create a new *ASP.NET Web Application* in Visual Studio :
 
