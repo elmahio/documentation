@@ -369,10 +369,57 @@ blockquote a, blockquote a:visited {
 .main-content-body .embed-responsive {
 	margin-bottom: 30px;
 }
+.main-content-body a[data-fancybox] img {
+    display: block;
+    margin: 0 auto;
+}
 /*.main-content-body pre code {
 	border: 1px solid #CFCFCF;
 	background-color: #fff;
 }*/
+
+.main-content-body img.image-50 {
+	max-width: 50px;
+}
+.main-content-body img.image-100 {
+	max-width: 100px;
+}
+.main-content-body img.image-150 {
+	max-width: 150px;
+}
+.main-content-body img.image-200 {
+	max-width: 200px;
+}
+.main-content-body img.image-250 {
+	max-width: 250px;
+}
+.main-content-body img.image-300 {
+	max-width: 300px;
+}
+.main-content-body img.image-350 {
+	max-width: 350px;
+}
+.main-content-body img.image-400 {
+	max-width: 400px;
+}
+.main-content-body img.image-450 {
+	max-width: 450px;
+}
+.main-content-body img.image-500 {
+	max-width: 500px;
+}
+.main-content-body img.image-550 {
+	max-width: 550px;
+}
+.main-content-body img.image-600 {
+	max-width: 600px;
+}
+.main-content-body img.image-650 {
+	max-width: 650px;
+}
+.main-content-body img.image-700 {
+	max-width: 700px;
+}
 
 .hljs-wrapper {
 	position: relative;

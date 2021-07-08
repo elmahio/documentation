@@ -4,7 +4,7 @@ Environments is a grouping feature on the elmah.io that will help you group simi
 
 When creating a new log from the [dashboard](https://app.elmah.io/dashboard/), you can pick an environment in the dropdown:
 
-![Pick environment](images/pick-environment.png){: .d-block .mx-auto style="max-width: 500px;" }
+![Pick environment](images/pick-environment.png){: .image-500 }
 
 Once logs are added to environments, they are nicely grouped in the left menu and on the list of log boxes on the dashboard:
 
@@ -14,7 +14,7 @@ Logs can be ordered using the drag and drop button at the top but only inside th
 
 If you want to show logs within one or more specific environments on the dashboard, you can use the *Environments* dropdown:
 
-![Environments dropdown](images/environments-dropdown.png){: .d-block .mx-auto style="max-width: 600px;" }
+![Environments dropdown](images/environments-dropdown.png){: .image-600 }
 
 The list of environments can be managed from your organization settings page. To open organization settings, click the gears icon next to your organization name on either the left menu or through the dashboard:
 
