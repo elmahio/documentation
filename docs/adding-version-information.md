@@ -7,11 +7,11 @@ Almost every piece of software has some sort of version. Whether it's a nice loo
 ## Version Numbers on the UI
 Let's start by looking at how version numbers are represented in the elmah.io UI. Every message contains a version property as illustrated below:
 
-![Error Details with Version Number](images/versiondetails.png)
+![Error Details with Version Number](images/versiondetails.png){: .image-400 }
 
 The error is logged by an application with version number 1.0.0. Looking at another error, the version number may look different:
 
-![Error Details with Other Version Number](images/versiondetails2.png)
+![Error Details with Other Version Number](images/versiondetails2.png){: .image-600 }
 
 This way, you will be able to see which version of your software that logged each message.
 

@@ -367,7 +367,7 @@ Configure Microsoft.Extensions.Logging to use elmah.io:
 factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
 ```
   </div>
-</div><br/>
+</div>
 
 Adding the `using` keyword is important to let elmah.io store messages before exiting the application.
 

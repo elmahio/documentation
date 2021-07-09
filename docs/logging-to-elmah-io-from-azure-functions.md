@@ -226,6 +226,7 @@ builder.Services.AddLogging(logging =>
 ```
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
+
   </div>
   <div role="tabpanel" class="tab-pane" id="setup5">
 Then extend your <code>Program.cs</code> file like this:
@@ -247,8 +248,9 @@ var host = new HostBuilder()
 ```
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
+
   </div>
-</div><br/>
+</div>
 
 Either pass an `ILogger` to your function method:
 
