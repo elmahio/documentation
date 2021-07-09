@@ -2,33 +2,22 @@
 
 Orchard CMS is a free, open source community-focused content management system built on the ASP.NET MVC and ASP.NET Core platforms. This tutorial is written for the ASP.NET Core version of Orchard. If you want to log to elmah.io from the MVC version, you should follow our [tutorial for MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/).
 
-To start logging to elmah.io, install the `Elmah.Io.Client` NuGet package:
+To start logging to elmah.io, install the `Elmah.Io.Client` and ? Elmah.Io.AspNetCore` NuGet packages:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
-```
-```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Client
-```
-```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client" Version="3.*" />
-```
-```xml fct_label="Paket CLI"
-paket add Elmah.Io.Client
-```
-
-Install the `Elmah.Io.AspNetCore` NuGet package:
-
-```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.AspNetCore
 ```
 ```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client
 dotnet add package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client" Version="3.*" />
 <PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
 ```
 ```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client
 paket add Elmah.Io.AspNetCore
 ```
 

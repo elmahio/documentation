@@ -35,7 +35,7 @@ To start logging, call the `Trace` API:
 ```csharp
 try
 {
-    System.DIagnostics.Trace.Write("Starting something dangerous");
+    System.Diagnostics.Trace.Write("Starting something dangerous");
     // ...
 }
 catch (Exception e)

@@ -21,11 +21,11 @@ Click *Continue* and you will be presented with the following screen:
 
 Click the *Sign in to elmah.io* button or select an existing account if you have already set up other zaps using elmah.io. Adding a new account will show a popup asking you to sign in to elmah.io:
 
-![Sign in to elmah.io popup](images/sign_into_elmah_io_zapier_popup.png)
+![Sign in to elmah.io popup](images/sign_into_elmah_io_zapier_popup.png){: .image-600 }
 
 Sign in with your elmah.io username/password or social provider. On the following screen you will be asked to authorize elmah.io to notify Zapier every time a new error is logged in a log selected on a later stage:
 
-![Authorize zapier and elmah.io](images/authorize_elmah_io_and_zapier.png)
+![Authorize zapier and elmah.io](images/authorize_elmah_io_and_zapier.png){: .image-600 }
 
 Click the *Authorize* button and your account will be added to the account list on Zapier:
 

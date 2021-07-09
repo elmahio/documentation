@@ -26,7 +26,7 @@ Navigate to elmah.io and login using username/password or your favorite social p
 
 When the log has been created, elmah.io shows you the install instructions. If you are currently on the dashboard, click the gears icon on the lower right corner of the log box. Don't pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Keep the page open in order to copy your API key and log ID at a later step:
 
-![Copy your log id](images/copy_log_id_dialog.png)
+![Copy your log id](images/copy_log_id_dialog.png){: .image-400 }
 
 Navigate back to your web project, right click _References_ and select _Manage NuGet Packages_:
 
