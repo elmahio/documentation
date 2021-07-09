@@ -373,11 +373,10 @@ blockquote a, blockquote a:visited {
     display: block;
     margin: 0 auto;
 }
-/*.main-content-body pre code {
-	border: 1px solid #CFCFCF;
-	background-color: #fff;
-}*/
-
+.main-content-body li a[data-fancybox] img {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 .main-content-body img.image-50 {
 	max-width: 50px;
 }
@@ -420,6 +419,11 @@ blockquote a, blockquote a:visited {
 .main-content-body img.image-700 {
 	max-width: 700px;
 }
+
+/*.main-content-body pre code {
+	border: 1px solid #CFCFCF;
+	background-color: #fff;
+}*/
 
 .hljs-wrapper {
 	position: relative;
