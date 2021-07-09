@@ -47,7 +47,7 @@ For an example of how to use the `WithSourceCodeFromFileSystem` method, check ou
 
 ## From the PDB file
 
-When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown below. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/).
+When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown below. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/). The *Debugging information* field needs a value of `Pdb-only` or `Portable` for this to work.
 
 To embed source code in the PDB file built alongside your DLL files, include the following property in your `csproj` file:
 
@@ -75,7 +75,7 @@ services.AddElmahIo(options =>
 
 All of our integrations support a message callback somehow.
 
-For an example of how to use the `WithSourceCodeFromPdb` method, check out the following sample: [Elmah.Io.Client.Extensions.SourceCode.PdbSample](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.PdbSample).
+For an example of how to use the `WithSourceCodeFromPdb` method, check out the following sample: [Elmah.Io.Client.Extensions.SourceCode.PdbSample](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.PdbSample) for .NET and [Elmah.Io.Client.Extensions.SourceCode.NetFrameworkPdb](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.NetFrameworkPdb) for .NET Framework.
 
 ## Manually
 
@@ -105,3 +105,15 @@ elmahIoClient.Messages.OnMessage += (sender, e) =>
 ```
 
 This will show line number `42` next to the first code line and highlight line number `51` in the elmah.io UI.
+
+## Troubleshooting
+
+If no source code shows up on elmah.io log messages, you can start by running through the following checks:
+
+- Make sure that the log message contains a stack trace in the details field.
+- Make sure that the stack trace contains absolute path filenames and line numbers for the code causing the stack trace.
+- Make sure that you are calling the `WithSourceCodeFromPdb` or `WithSourceCodeFromFileSystem` method.
+- Make sure that the `Elmah.Io.Client.Extensions.SourceCode.dll` file is in your deployed application.
+- Make sure that your project has either `Pdb-only` or `Portable` set in *Debugging information*.
+- For PDB files, make sure that you have included the `EmbedAllSources` element in your `csproj` file.
+- Look inside the *Data* tab on the logged message. It may contain a key named `X-ELMAHIO-CODEERROR` with a value explaining what went wrong.
