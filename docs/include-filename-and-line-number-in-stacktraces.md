@@ -8,7 +8,7 @@ So, if both Debug and Release produces a PDB file, why does Debug builds include
 
 ![Exclude generated debug symbols](images/exclude_generated_debug_symbols.png)
 
-Also, make sure that the PDB file is generated as part of Release builds. Select the _Build_ tab and click _Advanced..._. In _Debug Info_ you want to make sure that either _pdb-only_ or _full_ is selected (_pdb-only_ being the default):
+Also, make sure that the PDB file is generated as part of Release builds. Select the _Build_ tab and click _Advanced..._. In _Debug Info_ you want to make sure that either `Pdb-only` or `Portable` is selected (`Pdb-only` being the default):
 
 ![Advanced build settings](images/advanced_build_settings.png){: .image-500 }
 
