@@ -30,8 +30,8 @@ Pick an installation method of your choice:
 </div>
 </div>
 
- <div class="tab-content tab-content-tabbable">
-<div role="tabpanel" class="tab-pane active" id="manually">
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="manually" markdown="1">
 
 Download the latest release as a zip: [https://github.com/elmahio/elmah.io.javascript/releases](https://github.com/elmahio/elmah.io.javascript/releases)
 
@@ -44,7 +44,8 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 ```
 
 </div>
-  <div role="tabpanel" class="tab-pane" id="cdn">
+
+<div role="tabpanel" class="tab-pane" id="cdn" markdown="1">
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
@@ -52,8 +53,9 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.4.1/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="npm">
+</div>
+
+<div role="tabpanel" class="tab-pane" id="npm" markdown="1">
 
 Install the elmah.io.javascript npm package:
 
@@ -67,8 +69,9 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 <script src="~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="bower">
+</div>
+
+<div role="tabpanel" class="tab-pane" id="bower" markdown="1">
 
 Since Bower is <a href="https://bower.io/blog/2017/how-to-migrate-away-from-bower/" target="_blank" rel="noopener noreferrer">no longer maintained</a>, installing `elmah.io.javascript` through Bower, is supported using `bower-npm-resolver`. Install the resolver:
 
@@ -98,8 +101,9 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 <script src="~/bower_components/elmah.io.javascript/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="libman">
+</div>
+
+<div role="tabpanel" class="tab-pane" id="libman" markdown="1">
 
 Add the `elmah.io.javascript` library in your `libman.json` file:
 
@@ -129,8 +133,9 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 <script src="~/lib/elmahio/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="nuget">
+</div>
+
+<div role="tabpanel" class="tab-pane" id="nuget" markdown="1">
 
 Install the `elmah.io.javascript` NuGet package:
 
@@ -153,8 +158,9 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 <script src="~/Scripts/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="aspnetcore">
+</div>
+
+<div role="tabpanel" class="tab-pane" id="aspnetcore" markdown="1">
 
 If not already configured, follow the guide [installing elmah.io in ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
 
@@ -189,7 +195,7 @@ If you want to log JavaScript errors from production only, make sure to move the
 
 elmah.io automatically pulls your API key and log ID from the options specified as part of the installation for logging serverside errors from ASP.NET Core.
 
-  </div>
+</div>
 </div>
 
 That's it. All uncaught errors on your website, are now logged to elmah.io.

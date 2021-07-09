@@ -15,6 +15,7 @@ markdown_extensions:
     - pymdownx.emoji:
         emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - attr_list
+    - md_in_html
 nav:
 - Getting Started:
     - Quick start: index.md

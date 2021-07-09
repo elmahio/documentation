@@ -32,9 +32,8 @@ During the installation, you will be asked for your API key ([Where is my API ke
 </div>
 </div>
 
-  <div class="tab-content tab-content-tabbable">
-    <div role="tabpanel" class="tab-pane active" id="setup2">
-
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="setup2" markdown="1">
 Add the following code to your `WebApiConfig.cs` file:
 
 ```csharp
@@ -50,9 +49,9 @@ public static class WebApiConfig
 ```
 
 The registered `IExceptionLogger` intercepts all thrown exceptions, even errors in controller contructors and routing errors.
+</div>
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="setup1">
+<div role="tabpanel" class="tab-pane" id="setup1" markdown="1">
 Add the following code to your `Global.asax.cs` file:
 
 ```csharp
@@ -65,7 +64,7 @@ protected void Application_Start()
 ```
 
 In this case you register a new global filter with Web API. The downside of this approach is, that only errors thrown in controller actions are logged.
-  </div>
+</div>
 </div>
 
 All uncaught exceptions in ASP.NET Web API are now logged to elmah.io

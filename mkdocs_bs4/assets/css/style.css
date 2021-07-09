@@ -810,6 +810,7 @@ kbd {
 	padding: 16px 16px 0px 16px;
 	border: 1px solid #dee2e6;
 	border-top: none;
+    margin-bottom: 20px;
 }
 .tab-content-tabbable .tab-pane p:empty {
 	display: none;

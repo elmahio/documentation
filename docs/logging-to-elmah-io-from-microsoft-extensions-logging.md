@@ -341,9 +341,9 @@ Choose the right framework version:
 </div>
 </div>
 
-<div class="tab-content tab-content-tabbable">
-<div role="tabpanel" class="tab-pane active" id="netcore3">
-Create a new <code>LoggerFactory</code> and configure it to use elmah.io:
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="netcore3" markdown="1">
+Create a new `LoggerFactory` and configure it to use elmah.io:
 
 ```csharp
 using var loggerFactory = LoggerFactory.Create(builder => builder
@@ -354,8 +354,9 @@ using var loggerFactory = LoggerFactory.Create(builder => builder
     }));
 ```
 </div>
-<div role="tabpanel" class="tab-pane" id="netcore2">
-Create a new <code>LoggerFactory</code>:
+
+<div role="tabpanel" class="tab-pane" id="netcore2" markdown="1">
+Create a new `LoggerFactory`:
 
 ```csharp
 using var factory = new LoggerFactory();
@@ -366,7 +367,7 @@ Configure Microsoft.Extensions.Logging to use elmah.io:
 ```csharp
 factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
 ```
-  </div>
+</div>
 </div>
 
 Adding the `using` keyword is important to let elmah.io store messages before exiting the application.

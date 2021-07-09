@@ -34,16 +34,16 @@ For each platform (Android and iOS) you will need to set up elmah.io as illustra
 </div>
 </div>
 
- <div class="tab-content tab-content-tabbable">
-<div role="tabpanel" class="tab-pane active" id="android">
-Open the <code>MainActivity.cs</code> file and add the following <code>using</code> statements:
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="android" markdown="1">
+Open the `MainActivity.cs` file and add the following `using` statements:
 
 ```csharp
 using System;
 using Elmah.Io.Xamarin;
 ```
 
-Locate the <code>OnCreate</code> method and add the following code before all other lines:
+Locate the `OnCreate` method and add the following code before all other lines:
 
 ```csharp
 ElmahIoXamarin.Init(new ElmahIoXamarinOptions
@@ -53,19 +53,20 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
-Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
+Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
-<div role="tabpanel" class="tab-pane active" id="ios">
-Open the <code>Main.cs</code> file and add the following <code>using</code> statements:
+
+<div role="tabpanel" class="tab-pane" id="ios" markdown="1">
+Open the `Main.cs` file and add the following `using` statements:
 
 ```csharp
 using System;
 using Elmah.Io.Xamarin;
 ```
 
-Locate the <code>Main</code> method and add the following code after the call to <code>UIApplication.Main</code>:
+Locate the `Main` method and add the following code after the call to `UIApplication.Main`:
 
 ```csharp
 ElmahIoXamarin.Init(new ElmahIoXamarinOptions
@@ -75,9 +76,9 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace <code>API_KEY</code> with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
-Calling the <code>Init</code> method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
+Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
 </div>
 
@@ -249,8 +250,8 @@ Additional steps will vary from platform to platform.
 </div>
 </div>
 
- <div class="tab-content tab-content-tabbable">
-<div role="tabpanel" class="tab-pane active" id="androidlegacy">
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="androidlegacy" markdown="1">
 Locate your main activity class and look for the `OnCreate` method. Here, you'd want to set up event handlers for when uncaught exceptions happen:
 
 ```csharp
@@ -330,7 +331,8 @@ private void AndroidEnvironment_UnhandledExceptionRaiser(object sender, RaiseThr
 }
 ```
 </div>
-<div role="tabpanel" class="tab-pane active" id="ioslegacy">
+
+<div role="tabpanel" class="tab-pane" id="ioslegacy" markdown="1">
 Locate your main application class and look for the `Main` method. Here, you'd want to set up event handlers for when uncaught exceptions happen:
 
 ```csharp

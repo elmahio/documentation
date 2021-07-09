@@ -209,9 +209,9 @@ paket add Elmah.Io.Extensions.Logging
 </div>
 </div>
 
-<div class="tab-content tab-content-tabbable">
-  <div role="tabpanel" class="tab-pane active" id="setup3">
-Then extend your <code>Startup.cs</code> file like this:
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="setup3" markdown="1">
+Then extend your `Startup.cs` file like this:
 
 ```csharp
 builder.Services.AddLogging(logging =>
@@ -226,10 +226,10 @@ builder.Services.AddLogging(logging =>
 ```
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
+</div>
 
-  </div>
-  <div role="tabpanel" class="tab-pane" id="setup5">
-Then extend your <code>Program.cs</code> file like this:
+<div role="tabpanel" class="tab-pane" id="setup5" markdown="1">
+Then extend your `Program.cs` file like this:
 
 ```csharp
 var host = new HostBuilder()
@@ -248,8 +248,7 @@ var host = new HostBuilder()
 ```
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
-
-  </div>
+</div>
 </div>
 
 Either pass an `ILogger` to your function method:
