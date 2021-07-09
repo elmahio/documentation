@@ -75,7 +75,7 @@ services.AddElmahIo(options =>
 
 All of our integrations support a message callback somehow.
 
-For an example of how to use the `WithSourceCodeFromPdb` method, check out the following sample: [Elmah.Io.Client.Extensions.SourceCode.PdbSample](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.PdbSample).
+For an example of how to use the `WithSourceCodeFromPdb` method, check out the following sample: [Elmah.Io.Client.Extensions.SourceCode.PdbSample](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.PdbSample) for .NET and [Elmah.Io.Client.Extensions.SourceCode.NetFrameworkPdb](https://github.com/elmahio/Elmah.Io.Client.Extensions.SourceCode/tree/main/samples/Elmah.Io.Client.Extensions.SourceCode.NetFrameworkPdb) for .NET Framework.
 
 ## Manually
 
