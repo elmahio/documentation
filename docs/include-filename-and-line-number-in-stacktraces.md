@@ -1,5 +1,7 @@
 # Include filename and line number in stack traces
 
+> If you are running .NET Core/.NET 5 you no longer need to enable filenames and line numbers manually.
+
 When deploying your application to the test and production environment, you normally want to use the _Release_ configuration. When doing so, your code is optimized, web.config transformation is running and a few additional things. But, part of running on a Release build is, that you lose the ability to see filenames and line numbers in the stack traces produced by your system.
 
 .NET offer the concept of PDB files, which is automatically generated when building your code. The PDB file contains information for the debugger to work, like which file to look up when a breakpoint is reached in your code. Unless you have changed the default settings inside Visual Studio, both the Debug and Release configuration generates a PDB file.
