@@ -605,6 +605,19 @@ msg.severity = 'Error';
 logger.log(msg);
 ```
 
+### Missing stack trace on errors
+
+If errors logged through `elmah.io.javascript` have a stack trace, it is logged as part of the error on elmah.io. If errors don't include a stack trace, the following actions may fix it:
+
+- Not all errors include a stack trace. Make sure that the thrown error does include a stack trace by inspecting:
+
+```javascript
+e.stack
+```
+
+- Move the `elmahio.js` script import to the top of the list of all referenced JavaScript files.
+- Remove any `defer` or `async` attributes from the `elmahio.js` script import.
+
 ### CORS problems when running on localhost
 
 When running with `elmah.io.javascript` on localhost you may see errors in the console like this:
