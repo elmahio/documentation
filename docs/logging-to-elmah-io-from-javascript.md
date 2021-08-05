@@ -1,6 +1,6 @@
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
-[![Samples](https://img.shields.io/badge/samples-6-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-7-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
 
 # Logging to elmah.io from JavaScript
 
@@ -50,7 +50,7 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.4.1/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.5.1/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID" type="text/javascript"></script>
 ```
 
 </div>
@@ -114,7 +114,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
     // ...
     {
       "provider": "filesystem",
-      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.4.1/dist/elmahio.min.js",
+      "library": "https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.5.1/dist/elmahio.min.js",
       "destination": "wwwroot/lib/elmahio"
     }
   ]
@@ -124,7 +124,7 @@ Add the `elmah.io.javascript` library in your `libman.json` file:
 or using the LibMan CLI:
 
 ```cmd
-libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.4.1/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
+libman install https://raw.githubusercontent.com/elmahio/elmah.io.javascript/3.5.1/dist/elmahio.min.js --provider filesystem --destination wwwroot\lib\elmahio
 ```
 
 Reference `elmahio.min.js` just before the `</body>` tag (but before all other JavaScripts) in your shared `_Layout.cshtml` or all HTML files, depending on how you've structured your site:
@@ -400,135 +400,6 @@ var v = 42;
 //# sourceMappingURL=/script.map
 ```
 
-## Samples
-
-##### Angular
-
-`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described above. Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
-
-```json
-{
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  // ...
-  "apps": [
-    {
-      // ...
-      "scripts": [
-        "../node_modules/elmah.io.javascript/dist/elmahio.min.js"
-      ],
-      // ...
-    }
-  ],
-  // ...
-}
-```
-
-In the `app.module.ts` file, add a new `ErrorHandler` and add it to the `providers` section:
-
-```typescript
-import { NgModule, ErrorHandler } from '@angular/core';
-// ...
-
-class ElmahIoErrorHandler implements ErrorHandler {
-  logger: any;
-  constructor() {
-    this.logger = new Elmahio({
-      apiKey: 'API_KEY',
-      logId: 'LOG_ID',
-    });
-  }
-  handleError(error) {
-    if (error && error.message) {
-      this.logger.error(error.message, error);
-    } else {
-      this.logger.error('Error in application', error);
-    }
-  }
-}
-
-@NgModule({
-  declarations: [
-    // ...
-  ],
-  imports: [
-    // ...
-  ],
-  providers: [{ provide: ErrorHandler, useClass: ElmahIoErrorHandler }],
-  // ...
-})
-```
-
-All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.
-
-###### AngularJS/Angular 1
-
-For AngularJS you need to implement the `$exceptionHandler` instead:
-
-```javascript
-(function () {
-  'use strict';
-  angular.module('app').factory('$exceptionHandler', ['$log', function controller($log) {
-    var logger = new Elmahio({
-      apiKey: 'API_KEY',
-      logId: 'LOG_ID'
-    });
-    return function elmahExceptionHandler(exception, cause) {
-      $log.error(exception, cause);
-      logger.error(exception.message, exception);
-    };
-  }]);
-})();
-```
-
-##### React
-
-To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `index.js` or `index.tsx` file:
-
-```javascript
-// ...
-import Elmahio from 'elmah.io.javascript'; 
-
-new Elmahio({
-  apiKey: 'API_KEY',
-  logId: 'LOG_ID'
-});
-
-// After this the ReactDOM.render etc. will be included
-```
-
-When launching your React app, elmah.io is configured and all errors happening in the application are logged.
-
-Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react" target="_blank" rel="noopener noreferrer">elmahio-react</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react-typescript" target="_blank" rel="noopener noreferrer">elmahio-react-typescript</a> samples for some real working code.
-
-> React have a known bug/feature in DEV mode where errors are submitted twice. For better error handling in React, you should look into <a href="https://reactjs.org/docs/error-boundaries.html" target="_blank" rel="noopener noreferrer">Error Boundaries</a>.
-
-##### Vue.js
-
-To log all errors from a Vue.js application, install the `elmah.io.javascript` npm package or include it with a direct `<script>` include:
-
-```javascript
-<script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.4.1/dist/elmahio.min.js" type="text/javascript"></script>
-```
-
-Before initializing the application, include the following code:
-
-```javascript
-var logger = new Elmahio({
-  apiKey: "API_KEY",
-  logId: "LOG_ID"
-});
-Vue.config.errorHandler = function (err, vm, info) {
-  logger.error(err.message, err);
-};
-Vue.config.warnHandler = function (msg, vm, trace) {
-  logger.warning(msg);
-};
-```
-
-`elmah.io.javascript` will automatically log all errors raised through `window.onerror`and log additional errors and warnings from Vue.js through the `errorHandler` and `warnHandler` functions. If you want to exclude warnings, simply remove the `warnHandler` function.
-
-Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.VueJs" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.VueJs</a> sample for some real working code.
-
 ## Message reference
 
 This is an example of the elmah.io.javascript `Message` object that is used in various callbacks, etc.:
@@ -556,71 +427,3 @@ This is an example of the elmah.io.javascript `Message` object that is used in v
 ```
 
 For a complete definition, check out the `Message` interface in the [elmah.io.javascript TypeScript mappings](https://github.com/elmahio/elmah.io.javascript/blob/main/typescript/elmahio.d.ts).
-
-## Troubleshooting
-
-### Errors aren't logged
-
-If errors aren't logged from JavaScript, here's a list of things to try out:
-
-- Make sure that the log with the specified ID exists.
-- Make sure that the log isn't disabled and/or contain any ignore filters that could ignore client-side errors.
-- Make sure that the API key is valid and contain the *Messages* | *Write* permission.
-- Enable debugging when initializing `elmah.io.javascript` to get additional debug and error messages from within the script printed to the browser console:
-
-```javascript
-new Elmahio({
-    apiKey: 'API_KEY',
-    logId: 'LOG_ID',
-    debug: true
-});
-```
-
-- If your webserver include the `Content-Security-Policy` header make sure to include `api.elmah.io` as an allowed domain.
-
-### Missing information on log messages
-
-When logging uncaught errors with `elmah.io.javascript` you get a lot of additional information stored as part of the log messages. Like the client IP and browser details. If you don't see this information on the messages logged from your application, it's probably because you are using the `log` function:
-
-```javascript
-logger.log({
-  title: 'This is a custom log message',
-  severity: 'Error'
-});
-```
-
-The `log` function only logs what you tell it to log. To include the additional information, switch to use the `message` builder:
-
-```javascript
-var msg = logger.message(); // Get a prefilled message
-msg.title = 'This is a custom log message';
-msg.severity = 'Error';
-logger.log(msg);
-```
-
-### Missing stack trace on errors
-
-If errors logged through `elmah.io.javascript` have a stack trace, it is logged as part of the error on elmah.io. If errors don't include a stack trace, the following actions may fix it:
-
-- Not all errors include a stack trace. Make sure that the thrown error does include a stack trace by inspecting:
-
-```javascript
-e.stack
-```
-
-- Move the `elmahio.js` script import to the top of the list of all referenced JavaScript files.
-- Remove any `defer` or `async` attributes from the `elmahio.js` script import.
-
-### CORS problems when running on localhost
-
-When running with `elmah.io.javascript` on localhost you may see errors in the console like this:
-
-```bash
-Access to XMLHttpRequest at 'https://api.elmah.io/v3/messages/...' from origin 'http://localhost' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-```
-
-Browsers like Chrome doesn't allow CORS when running locally. There are three ways to fix this:
-
-1. Run Chrome with the `--disable-web-security` switch.
-2. Run your website on a hostname like `https://mymachine`.
-3. Allow CORS on localhost with extensions like [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related?hl=en) for Chrome or [Allow CORS: Access-Control-Allow-Origin](https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/) for Firefox.

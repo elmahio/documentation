@@ -25,7 +25,6 @@ nav:
     - Logging from WebForms: logging-to-elmah-io-from-elmah.md
     - Logging from ASP.NET MVC: logging-to-elmah-io-from-aspnet-mvc.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
-    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from a running website on IIS: logging-to-elmah-io-from-a-running-website-on-iis.md
     - Logging from a running website on Azure: logging-to-elmah-io-from-a-running-website-on-azure.md
     - Logging custom data: logging-custom-data.md
@@ -45,7 +44,6 @@ nav:
 - ASP.NET Core:
     - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
-    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
     - Logging from Blazor: logging-to-elmah-io-from-blazor.md
     - Logging from SignalR: logging-to-elmah-io-from-signalr.md
     - Using different logs per environment in ASP.NET Core: using-different-logs-per-environment-in-aspnet-core.md
@@ -59,6 +57,12 @@ nav:
     - Logging from Microsoft.Extensions.Logging: logging-to-elmah-io-from-microsoft-extensions-logging.md
     - Logging from Logary: logging-to-elmah-io-from-logary.md
     - Logging from JSNLog: logging-to-elmah-io-from-jsnlog.md
+- JavaScript:
+    - Logging from JavaScript: logging-to-elmah-io-from-javascript.md
+    - Logging from Angular: logging-to-elmah-io-from-angular.md
+    - Logging from React: logging-to-elmah-io-from-react.md
+    - Logging from Vue: logging-to-elmah-io-from-vue.md
+    - JavaScript troubleshooting: javascript-troubleshooting.md
 - CMS/Blogs:
     - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md
     - Logging from Sitefinity: logging-to-elmah-io-from-sitefinity.md
