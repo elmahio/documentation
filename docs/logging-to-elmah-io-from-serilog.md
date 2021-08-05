@@ -40,10 +40,12 @@ First, we create a new LoggerConfiguration and tell it to write to elmah.io. The
 To log log exceptions to elmah.io through Serilog, is the `Log` class provided by Serilog:
 
 ```csharp
-try {
+try
+{
     // Do some stuff which may cause an exception
 }
-catch (Exception e) {
+catch (Exception e)
+{
     Log.Error(e, "The actual error message");
 }
 ```
