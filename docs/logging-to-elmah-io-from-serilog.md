@@ -267,6 +267,24 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 ```
 
+There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and installing the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
+
+```csharp
+.WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+{
+    // ...
+    OnFilter = msg =>
+    {
+        return
+            msg != null
+            && msg.TitleTemplate != null
+            && msg.TitleTemplate.Equals(
+                "An unhandled exception has occurred while executing the request.",
+                StringComparison.InvariantCultureIgnoreCase);
+    }
+})
+```
+
 ## Config using appsettings.json
 
 While Serilog provides a great fluent C# API, some prefer to configure Serilog using an `appsettings.json` file. To configure the elmah.io sink this way, you will need to install the `Serilog.Settings.Configuration` NuGet package. Then configure elmah.io in your `appsettings.json` file:
