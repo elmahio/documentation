@@ -482,32 +482,25 @@ For AngularJS you need to implement the `$exceptionHandler` instead:
 
 ##### React
 
-To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `App.js` file:
+To log all errors from a React application, install the `elmah.io.javascript` npm package as described above. Then modify the `index.js` or `index.tsx` file:
 
 ```javascript
 // ...
-import Elmahio from '../node_modules/elmah.io.javascript/dist/elmahio';
+import Elmahio from 'elmah.io.javascript'; 
 
-export default class App extends Component {
-  // ...
+new Elmahio({
+  apiKey: 'API_KEY',
+  logId: 'LOG_ID'
+});
 
-  constructor() {
-    super();
-    var log = new Elmahio({
-      apiKey: 'API_KEY',
-      logId: 'LOG_ID'
-    });
-  }
-
-  // ...
-}
+// After this the ReactDOM.render etc. will be included
 ```
 
-When initializing your React app, elmah.io is configured and all errors happening in the application are logged.
+When launching your React app, elmah.io is configured and all errors happening in the application are logged.
 
-Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.React" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.React</a> sample for some real working code.
+Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react" target="_blank" rel="noopener noreferrer">elmahio-react</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react-typescript" target="_blank" rel="noopener noreferrer">elmahio-react-typescript</a> samples for some real working code.
 
-> React have a known bug where errors are submitted twice. For better error handling in React, you should look into [Error Boundaries](https://reactjs.org/docs/error-boundaries.html).
+> React have a known bug/feature in DEV mode where errors are submitted twice. For better error handling in React, you should look into <a href="https://reactjs.org/docs/error-boundaries.html" target="_blank" rel="noopener noreferrer">Error Boundaries</a>.
 
 ##### Vue.js
 
