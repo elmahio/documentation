@@ -62,6 +62,7 @@ nav:
     - Logging from Angular: logging-to-elmah-io-from-angular.md
     - Logging from React: logging-to-elmah-io-from-react.md
     - Logging from Vue: logging-to-elmah-io-from-vue.md
+    - Source maps: sourcemaps.md
     - JavaScript troubleshooting: javascript-troubleshooting.md
 - CMS/Blogs:
     - Logging from Umbraco: logging-to-elmah-io-from-umbraco.md

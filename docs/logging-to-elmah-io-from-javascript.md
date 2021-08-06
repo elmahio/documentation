@@ -391,15 +391,6 @@ If installing through npm or similar, Visual Studio should pick up the TypeScrip
 /// <reference path="/path/to/elmahio.d.ts" />
 ```
 
-## Source maps
-
-`elmah.io.javascript` automatically tries to translate stack traces from minified code into developer friendly traces using JavaScript source maps. In order for this to work, you will need to publish a valid `.map` source map file to your production environment and reference it in the end of your JavaScript:
-
-```javascript
-var v = 42;
-//# sourceMappingURL=/script.map
-```
-
 ## Message reference
 
 This is an example of the elmah.io.javascript `Message` object that is used in various callbacks, etc.:
