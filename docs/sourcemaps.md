@@ -77,3 +77,18 @@ $bodyLines = (
 
 Invoke-RestMethod 'https://api.elmah.io/v3/sourcemaps/LOG_ID?api_key=API_KEY' -Method POST -ContentType "multipart/form-data; boundary=`"$boundary`"" -Body $bodyLines
 ```
+
+And another example in C# using the `Elmah.Io.Client` NuGet package:
+
+```csharp
+var api = ElmahioAPI.Create("API_KEY");
+
+using var sourceMapStream = File.OpenRead("c:\\path\\to\\sharedbundle.map");
+using var scriptStream = File.OpenRead("c:\\path\\to\\sharedbundle.min.js");
+
+api.SourceMaps.CreateOrUpdate(
+    "LOG_ID",
+    new Uri("/bundles/sharedbundle.min.js", UriKind.Relative),
+    new FileParameter(sourceMapStream, "sharedbundle.map", "application/json"),
+    new FileParameter(scriptStream, "sharedbundle.min.js", "text/javascript"));
+```
