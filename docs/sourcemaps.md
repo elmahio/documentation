@@ -17,7 +17,7 @@ var v = 42;
 
 This will require you to serve a source map file named `script.map` together with the minified/bundled file. The `.map` file doesn't need to be publicly available over the internet, but the `elmah.io.javascript` package will need to have access to it.
 
-> De-minification from a `.map` file doesn't work in older browsers (like < IE9).
+> De-minification from a `.map` file doesn't work in older browsers (like < IE10).
 
 ## Upload on the elmah.io API
 
