@@ -8,7 +8,7 @@ GitHub Actions is a great platform for building and releasing software. To notif
 
 3. Click the *Secrets* navigation item.
 
-4. Click *Add a new secret*.
+4. Click *New repository secret*.
 
 5. Name the secret `ELMAH_IO_API_KEY`.
 
@@ -21,20 +21,14 @@ GitHub Actions is a great platform for building and releasing software. To notif
 9. Insert the following step as the last one in your YAML build specification:
 
 ```yaml
-- name: Notify elmah.io
-      shell: powershell
-      run: |
-        $ProgressPreference = "SilentlyContinue"
-        
-        $url = "https://api.elmah.io/v3/deployments?api_key=${{ secrets.ELMAH_IO_API_KEY }}"
-        $body = @{
-          version = "${{ github.run_number }}"
-          userName = "${{ github.actor }}"
-          logId = "${{ secrets.ELMAH_IO_LOG_ID }}"
-        }
-        [Net.ServicePointManager]::SecurityProtocol = `
-          [Net.SecurityProtocolType]::Tls12,
-          [Net.SecurityProtocolType]::Tls11,
-          [Net.SecurityProtocolType]::Tls
-        Invoke-RestMethod -Method Post -Uri $url -Body $body
+- name: Create Deployment on elmah.io
+  uses: elmahio/github-create-deployment-action@v1
+  with:
+    apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
+    version: ${{ github.run_number }}
+    description: ${{ github.event.head_commit.message }}
+    userName: ${{ github.actor }}
+    logId: ${{ secrets.ELMAH_IO_LOG_ID }}
 ```
+
+The configuration will automatically notify elmah.io every time the build script is running. The build number (`github.run_number`) is used as the version for this sample, but you can modify this if you prefer another scheme. The description will contain the last commit message (`github.event.head_commit.message`). The user responsible for triggering the build (`github.actor`) will be used as the user name on the elmah.io deployment.
