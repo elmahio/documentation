@@ -15,3 +15,11 @@ jobs:
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs
       - run: mkdocs gh-deploy --force --clean --verbose
+      - name: Create Deployment on elmah.io
+        uses: elmahio/github-create-deployment-action@v1
+        with:
+          apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
+          version: ${{ github.run_number }}
+          description: ${{ github.event.head_commit.message }}
+          userName: ${{ github.actor }}
+          logId: ${{ secrets.ELMAH_IO_LOG_ID }}
