@@ -50,7 +50,7 @@ e.stack
 ```
 
 - Move the `elmahio.js` script import to the top of the list of all referenced JavaScript files.
-- Remove any `defer` or `async` attributes from the `elmahio.js` script import.
+- Remove any `defer` or `async` attributes from the `elmahio.js` script import. The `elmahio.js` script import *can* include those attributes, but errors during initialization may not include stack trace or even be omitted if `elmah.io.javascript` hasn't been loaded yet.
 
 ## CORS problems when running on localhost
 
