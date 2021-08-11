@@ -108,7 +108,7 @@ Uploading one or more source maps from GitHub Actions is available using our int
 To upload a generated source map from GitHub Actions, include the following in your build YAML file:
 
 ```yml
-uses: elmahio/github-upload-sourcemap-action@v1
+uses: elmahio/github-upload-source-map-action@v1
 with:
   apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
   logId: ${{ secrets.ELMAH_IO_LOG_ID }}

@@ -17,7 +17,7 @@ jobs:
       - run: npm install
       - run: gulp min
       - name: Upload source map to elmah.io
-        uses: elmahio/github-upload-sourcemap-action@v1
+        uses: elmahio/github-upload-source-map-action@v1
         with:
           apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
           logId: ${{ secrets.ELMAH_IO_LOG_ID }}
