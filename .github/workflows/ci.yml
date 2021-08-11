@@ -18,13 +18,13 @@ jobs:
       - run: gulp min
       # here we need to upload the .map file to elmah.io API
       - name: Remove the .map file
-        uses: JesseTG/rm@v1.0.2
-        with:
-          path: ./mkdocs_bs4/assets/js/main.min.js.map
+        run: rm ./mkdocs_bs4/assets/js/main.min.js.map
       - run: pip install mkdocs
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs
-      - run: mkdocs gh-deploy -f ./mkdocs.production.yml --force --clean --verbose
+      - name: Update mkdocs.yml
+        run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
+      - run: mkdocs gh-deploy --force --clean --verbose
       - name: Create Deployment on elmah.io
         uses: elmahio/github-create-deployment-action@v1
         with:
