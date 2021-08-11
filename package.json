@@ -1,0 +1,21 @@
+{
+  "name": "docs.elmah.io",
+  "version": "1.0.0",
+  "description": "elmah.io documentation website",
+  "repository": "https://github.com/elmahio/documentation",
+  "license": "Apache-2.0",
+  "homepage": "https://docs.elmah.io/",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "merge-stream": "^2.0.0",
+    "clean-css": ">=4.1.11",
+    "lodash.template": ">=4.5.0",
+    "glob-parent": ">=5.1.2",
+    "trim-newlines": ">=3.0.1"
+  }
+}
