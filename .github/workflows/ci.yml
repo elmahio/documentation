@@ -16,7 +16,14 @@ jobs:
           node-version: 12.16.0
       - run: npm install
       - run: gulp min
-      # here we need to upload the .map file to elmah.io API
+      - name: Upload source map to elmah.io
+        uses: elmahio/github-upload-sourcemap-action@v1
+        with:
+          apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
+          logId: ${{ secrets.ELMAH_IO_LOG_ID }}
+          path: '/assets/js/main.min.js'
+          sourceMap: './mkdocs_bs4/assets/js/main.min.js.map'
+          minifiedJavaScript: './mkdocs_bs4/assets/js/main.min.js'
       - name: Remove the .map file
         run: rm ./mkdocs_bs4/assets/js/main.min.js.map
       - run: pip install mkdocs
