@@ -1032,3 +1032,16 @@ kbd {
 		max-width: 70px;
 	}
 }
+
+/* Error added on company logo - bug head */
+.company-logo {
+	position: relative;
+}
+.company-logo .bug-head {
+	position: absolute;
+    top: 27px;
+    left: 48px;
+    width: 27px;
+    height: 13px;
+    transform: rotate(-30deg);
+}

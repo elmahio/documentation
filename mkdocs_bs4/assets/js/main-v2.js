@@ -232,6 +232,11 @@ $(document).ready(function(){
 
     // Footer copyright year
     $('#currentYear').text(new Date().getFullYear());
+
+	// Error added on company logo - bug head
+	$('.bug-head').on('click', function(){
+		throw new Error('Headshot');
+	});
 });
 
 window.intercomSettings = {
