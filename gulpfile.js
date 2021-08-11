@@ -26,7 +26,7 @@ var gulp = require("gulp"),
                 .pipe(sourcemaps.init())
                 .pipe(concat(bundle.outputFileName))
                 .pipe(uglify())
-                .pipe(sourcemaps.write("."))
+                .pipe(sourcemaps.write(".", {addComment: false}))
                 .pipe(gulp.dest("."));
         });
         return merge(tasks);
