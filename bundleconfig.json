@@ -12,10 +12,10 @@
   {
     "outputFileName": "mkdocs_bs4/assets/js/main.min.js",
     "inputFiles": [
+      "mkdocs_bs4/assets/js/highlight.min.js",
       "mkdocs_bs4/assets/js/jquery-3.5.1.min.js",
       "mkdocs_bs4/assets/js/popper.min.js",
       "mkdocs_bs4/assets/js/bootstrap.min.js",
-      "mkdocs_bs4/assets/js/highlight.pack.js",
       "mkdocs_bs4/assets/js/fuse.min.js",
       "mkdocs_bs4/assets/js/jquery.fancybox.min.js",
       "mkdocs_bs4/assets/js/clipboard.min.js",

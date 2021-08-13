@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	// Highlight init
 	function initHighlight(wrapperHighlight) {
-		hljs.initHighlighting();
+		hljs.highlightAll();
 		wrapperHighlight(addClipboardJS);
 		$('body').append('<div class="fullscreen-code js-fullscreen-code"></div>');
 	}
