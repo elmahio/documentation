@@ -28,7 +28,7 @@ You may not use ELMAH’s ErrorSignal feature, but rely on ELMAH to log uncaught
 
 ```csharp
 Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
+var logger = Elmah.Io.ErrorLog.Client;
 logger.OnMessage += (sender, args) =>
 {
     if (args.Message.Data == null) args.Message.Data = new List<Item>();
@@ -54,7 +54,7 @@ Example:
 
 ```csharp
 Elmah.ErrorLog.GetDefault(null);
-var logger = ErrorLog.Client;
+var logger = Elmah.Io.ErrorLog.Client;
 logger.OnMessage += (sender, args) =>
 {
     if (args.Message.Data == null) args.Message.Data = new List<Item>();

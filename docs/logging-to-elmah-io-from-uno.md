@@ -15,7 +15,7 @@ Install-Package Elmah.Io.Uno -IncludePrerelease
 dotnet add package Elmah.Io.Uno --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Uno" Version="3.0.16-pre" />
+<PackageReference Include="Elmah.Io.Uno" Version="4.0.19-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Uno

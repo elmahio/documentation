@@ -91,7 +91,6 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models
 
 [assembly: FunctionsStartup(typeof(My.FunctionApp.Startup))]
 
@@ -120,7 +119,7 @@ Inside your function, wrap all of the code in `try/catch` and add code to create
 using System;
 using System.Threading.Tasks;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models;
+using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 
@@ -176,7 +175,6 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models
 
 [assembly: FunctionsStartup(typeof(My.FunctionApp.Startup))]
 
@@ -205,7 +203,7 @@ Then create a new timed function with the following code:
 using System;
 using System.Threading.Tasks;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models;
+using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 
@@ -213,13 +211,13 @@ namespace My.FunctionApp
 {
     public class Heartbeat
     {
-        private readonly IConfiguration configuration;
+        private readonly IConfiguration config;
         private readonly IHeartbeats heartbeats;
 
-        public Heartbeat(IHeartbeats heartbeats, IConfiguration configuration)
+        public Heartbeat(IHeartbeats heartbeats, IConfiguration config)
         {
             this.heartbeats = heartbeats;
-            this.configuration = configuration;
+            this.config = config;
         }
 
         [FunctionName("Heartbeat")]
@@ -237,7 +235,7 @@ namespace My.FunctionApp
                 reason = e.ToString();
             }
 
-            await heartbeats.CreateAsync(configuration["heartbeatId"], configuration["logId"], new CreateHeartbeat
+            await heartbeats.CreateAsync(config["heartbeatId"], config["logId"], new CreateHeartbeat
             {
                 Result = result,
                 Reason = reason,

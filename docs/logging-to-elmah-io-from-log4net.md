@@ -103,7 +103,7 @@ This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well
 In case you want to set one or more core properties on each elmah.io message logged, using message hooks may be a better solution. In that case you will need to add a bit of log4net magic. An example could be setting the `Version` property on all log messages. In the following code, we set a hard-coded version number on all log messages, but the value could come from assembly info, a text file, or similar:
 
 ```csharp
-Hierarchy hier = log4net.LogManager.GetRepository() as Hierarchy;
+Hierarchy hier = log4net.LogManager.GetRepository(Assembly.GetEntryAssembly()) as Hierarchy;
 var elmahIoAppender = (ElmahIoAppender)(hier?.GetAppenders())
     .FirstOrDefault(appender => appender.Name
         .Equals("ElmahIoAppender", StringComparison.InvariantCultureIgnoreCase));
@@ -132,7 +132,7 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
 
 Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ## Specify API key and log ID in appSettings
 
@@ -212,16 +212,19 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        CreateWebHostBuilder(args).Build().Run();
+        CreateHostBuilder(args).Build().Run();
     }
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureLogging((hostingContext, logging) =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
             {
-                logging.AddLog4Net();
-            })
-            .UseStartup<Startup>();
+                webBuilder.UseStartup<Startup>();
+                webBuilder.ConfigureLogging((ctx, logging) =>
+                {
+                    logging.AddLog4Net();
+                });
+            });
 }
 ```
 

@@ -320,7 +320,7 @@ elmahIoTarget.OnMessage = msg =>
 
 Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ### Handle errors
 

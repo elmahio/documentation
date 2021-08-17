@@ -112,11 +112,14 @@ public void ConfigureServices(IServiceCollection services)
 If you see the error `An error occurred while starting the application` and the exception isn't logged to elmah.io, the error probably happens before hitting the elmah.io middleware. To help find out what is going on, add the following lines to your `Program.cs` file:
 
 ```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
-        .CaptureStartupErrors(true)
-        .UseStartup<Startup>();
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseSetting(WebHostDefaults.DetailedErrorsKey, "true");
+            webBuilder.CaptureStartupErrors(true);
+            webBuilder.UseStartup<Startup>();
+        });
 ```
 
 ### URL missing when using Map

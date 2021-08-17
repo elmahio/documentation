@@ -126,7 +126,6 @@ Extend your C# with the following code:
 
 ```csharp
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models;
 
 public class Program
 {

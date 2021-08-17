@@ -1,8 +1,8 @@
-# Logging to elmah.io from C\#
+# Logging to elmah.io from C\# and console applications
 
 [TOC]
 
-If you need to log to elmah.io and you cannot use one of the integration we provide, logging through the [Elmah.Io.Client](https://www.nuget.org/packages/Elmah.Io.Client/) NuGet package is dead simple.
+If you need to log to elmah.io and you cannot use one of the integrations we provide, logging through the [Elmah.Io.Client](https://www.nuget.org/packages/Elmah.Io.Client/) NuGet package is dead simple.
 
 To start logging, install the `Elmah.Io.Client` package:
 
@@ -120,13 +120,13 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
 });
 ```
 
-Breadcrumbs will be ordered by the `DateTime` field on the elmah.io API why the order you add them the the `Breadcrumbs` property isn't that important. Be aware that only the 10 most recent breadcrumbs and breadcrumbs with a date less than or equal to the logged message are stored.
+Breadcrumbs will be ordered by the `DateTime` field on the elmah.io API why the order you add them to the `Breadcrumbs` property isn't that important. Be aware that only the 10 most recent breadcrumbs and breadcrumbs with a date less than or equal to the logged message are stored.
 
-In the example above, only `Information` breadcrumbs are added. The `Severity` property accept the same severities as on the log message itself.
+In the example above, only `Information` breadcrumbs are added. The `Severity` property accepts the same severities as on the log message itself.
 
 ## Events
 
-The elmah.io client supports to different events: `OnMessage` and `OnMessageFail`.
+The elmah.io client supports two different events: `OnMessage` and `OnMessageFail`.
 
 ### OnMessage
 
@@ -154,11 +154,11 @@ logger.Messages.OnMessage += (sender, eventArgs) =>
 
 Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is currently available in the `Elmah.Io.Client` v4 prerelease only.
+> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ### OnMessageFail
 
-Logging to elmah.io can fail if the network connection is down, if elmah.io experience downtime, or something third. To make sure you log an error elsewhere if this happen, you can implement the `OnMessageFail` event:
+Logging to elmah.io can fail if the network connection is down, if elmah.io experiences downtime, or something third. To make sure you log an error elsewhere if this happens, you can implement the `OnMessageFail` event:
 
 ```csharp
 logger.Messages.OnMessageFail += (sender, eventArgs) =>
@@ -188,13 +188,17 @@ The elmah.io client contains a set of default options that you can override.
 To log through a HTTP proxy, set the `WebProxy` property:
 
 ```csharp
-var logger = ElmahioAPI.Create("API_KEY");
-logger.Options.WebProxy = new WebProxy("localhost", 8888);
+var logger = ElmahioAPI.Create("API_KEY", new ElmahIoOptions
+{
+    WebProxy = new WebProxy("localhost", 8888)
+});
 ```
 
-### Opfuscate form values
+A proxy needs to be specified as part of the options sent to the `ElmahioAPI.Create` method to make sure that the underlying `HttpClient` is properly initialized.
 
-When logging POSTs with form values, you don't want users password and similar logged to elmah.io. The elmah.io client automatically filter form keys named `password` and `pwd`. Using the `FormKeysToObfuscate` you can tell the client to opfuscate additional form entries:
+### Obfuscate form values
+
+When logging POSTs with form values, you don't want users' passwords and similar logged to elmah.io. The elmah.io client automatically filters form keys named `password` and `pwd`. Using the `FormKeysToObfuscate` you can tell the client to obfuscate additional form entries:
 
 ```csharp
 var logger = ElmahioAPI.Create("API_KEY");

@@ -40,7 +40,6 @@ nav:
     - Specify API key and log ID through appSettings: specify-api-key-and-log-id-through-appsettings.md
     - ELMAH and custom errors: elmah-and-custom-errors.md
     - Logging from a custom HTTP module: logging-from-a-custom-http-module.md
-    - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
     - ASP.NET troubleshooting: asp-net-troubleshooting.md
 - ASP.NET Core:
     - Logging from ASP.NET Core: logging-to-elmah-io-from-aspnet-core.md
@@ -78,7 +77,6 @@ nav:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
-    - Logging from Express: logging-to-elmah-io-from-express.md
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
@@ -86,7 +84,7 @@ nav:
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
     - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
-    - Logging from C#: logging-to-elmah-io-from-console-application.md
+    - Logging from C# and console applications: logging-to-elmah-io-from-console-application.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from WPF: logging-to-elmah-io-from-wpf.md
@@ -166,5 +164,6 @@ nav:
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
     - Upgrade elmah.io from v3 to v4: upgrade-elmah-io-from-v3-to-v4.md
+    - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
     - Email troubleshooting: email-troubleshooting.md
     - ELMAH and elmah.io differences: elmah-and-elmah-io-differences.md

@@ -13,7 +13,7 @@ You may experience problems where NuGet refuses to upgrade an `Elmah.Io.*` packa
 
 If you are using the `Elmah.Io.Client` package directly, you can simply upgrade that package through NuGet:
 
-```ps
+```powershell
 Update-Package Elmah.Io.Client
 ```
 
@@ -26,7 +26,7 @@ As mentioned, some code changes may be required from your part after upgrading. 
 - Remove any references to `Elmah.Io.Client.Models`. All generated classes are now in the `Elmah.Io.Client` namespace.
 - Replace any reference to `IMessages`, `IHeartbeats`, and similar to `IMessagesClient`, `IHeartbeatsClient`, and similar.
 - Replace any instances of `new ElmahioAPI(new ApiKeyCredentials(apiKey));` with `ElmahioAPI.Create(apiKey);`. The `ApiKeyCredentials` class was specific to AutoRest and has therefore been removed.
-- Collection types on messages like `Data`, `ServerVariables`, etc. are now of type `ICollection` and not `IList`. This means you can no longer use indexers on these properties.
+- Collection types on messages like `Data`, `ServerVariables`, etc. are now of type `ICollection` and not `IList`. This means you can no longer use indexers on these properties. To use indexer you can call `ToList()` on each collection.
 - Properties of type `DateTime` are replaced with `DateTimeOffset`. This shouldn't require any changes on your part since you can assign a value of type `DateTime` to a property of type `DateTimeOffset`.
 - You no longer need to make the following cast: `(ElmahioAPI)ElmahioAPI.Create(apiKey)`. The `IElmahioAPI` interface will have all the properties you need from the client.
 - If you for some reason manually installed the `Microsoft.Rest.ClientRuntime` package you can remove that after upgrading `Elmah.Io.Client` to v4. Unless you have other dependencies on `Microsoft.Rest.ClientRuntime`.

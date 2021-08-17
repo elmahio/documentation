@@ -26,13 +26,14 @@ elmah.io is a cloud-based error management system originally developed on top of
 | Search | ❌ | ✅ |
 | New error detection | ❌ | ✅ |
 | [Error grouping](https://blog.elmah.io/improved-message-grouping/) | ❌ | ✅ |
-| [Issue tracking](https://blog.elmah.io/mark-errors-as-fixed-dashboards-and-more/) | ❌ | ✅ |
+| [Issue tracking](https://elmah.io/features/issue-tracking/) | ❌ | ✅ |
 | [log4net](https://elmah.io/features/log4net/)/[NLog](https://elmah.io/features/nlog/)/[Serilog](https://elmah.io/features/serilog/) | ❌ | ✅ |
 | [Clientside error logging](https://elmah.io/features/clientside-logging/) | ❌ | ✅ |
 | [Slack/Teams/HipChat/etc.](https://elmah.io/features/appstore/) | ❌ | ✅ |
 | [Deployment tracking](https://elmah.io/features/deploymenttracking/) | ❌ | ✅ |
 | [Uptime monitoring](https://elmah.io/features/uptimemonitoring/) | ❌ | ✅ |
 | [Heartbeats](https://elmah.io/features/heartbeats/) | ❌ | ✅ |
+| [Machine learning](https://elmah.io/features/machine-learning/) | ❌ | ✅ |
 | [Discount on popular software](https://elmah.io/goodiebag/) | ❌ | ✅ |
 
 ## History

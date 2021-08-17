@@ -21,7 +21,7 @@ Add the following usings to the `Program.cs` file:
 
 ```csharp
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models;
+using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
 using System.Security.Principal;
 using System.Threading;
 ```
@@ -40,7 +40,7 @@ static void Application_ThreadException(object sender, ThreadExceptionEventArgs 
     var logger = ElmahioAPI.Create("API_KEY");
     var exception = e.Exception;
     var baseException = exception.GetBaseException();
-    logger.Messages.Create("LOG_ID", new Elmah.Io.Client.Models.CreateMessage
+    logger.Messages.Create("LOG_ID", new CreateMessage
     {
         DateTime = DateTime.UtcNow,
         Detail = exception?.ToString(),

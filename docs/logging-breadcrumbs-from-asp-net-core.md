@@ -2,7 +2,7 @@
 
 [TOC]
 
-> Breadcrumbs are currently in prerelease and only supported on `Elmah.Io.AspNetCore` version `3.12.22-pre` or newer.
+> Breadcrumbs are currently in prerelease and only supported on `Elmah.Io.AspNetCore` version `3.12.24` or newer.
 
 You can log one or more breadcrumbs as part of both automatic and manually logged errors. Breadcrumbs indicate steps happening just before a message logged by `Elmah.Io.AspNetCore`. Breadcrumbs with elmah.io and ASP.NET Core are supported in two ways: manual and through Microsoft.Extensions.Logging.
 
@@ -12,11 +12,11 @@ If you want to log a breadcrumb manually as part of an MVC controller action or 
 
 ```csharp
 ElmahIoApi.AddBreadcrumb(
-    new Elmah.Io.Client.Models.Breadcrumb(DateTime.UtcNow, message: "Requesting the front page"),
+    new Breadcrumb(DateTime.UtcNow, message: "Requesting the front page"),
     HttpContext);
 ```
 
-Notice that the `Breadcrumb` class is located in the `Elmah.Io.Client` that will be automatically installed when installing `Elmah.Io.AspNetCore`.
+Notice that the `Breadcrumb` class is located in the `Elmah.Io.Client` package that will be automatically installed when installing `Elmah.Io.AspNetCore`. The `Breadcrumb` class is either in the `Elmah.Io.Client` or `Elmah.Io.Client.Models` namespace, depending on which version of `Elmah.Io.Client` you have installed.
 
 The best example of a helpful breadcrumb is logging the input model to all endpoints as a breadcrumb. This will show you exactly which parameters the user sends to your website. The following example is created for ASP.NET Core MVC, but similar solutions can be built for other MVC features as well.
 
@@ -31,7 +31,7 @@ public class BreadcrumbFilterAttribute : ActionFilterAttribute
         if (arguments.Count == 0) return;
 
         ElmahIoApi.AddBreadcrumb(
-            new Client.Models.Breadcrumb(
+            new Breadcrumb(
                 DateTime.UtcNow,
                 "Information",
                 "Request",
