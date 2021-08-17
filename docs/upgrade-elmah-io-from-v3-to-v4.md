@@ -45,3 +45,9 @@ Update-Package Elmah.Io.AspNetCore
 Besides the changes mentioned in the section about the `Elmah.Io.Client` package, there's a single change in the `Elmah.Io.AspNetCore` v4 package as well:
 
 - The `ElmahIoExtensions` class has been moved from the `Elmah.Io.AspNetCore` namespace to the `Microsoft.Extensions.DependencyInjection` namespace. The `ElmahIoExtensions` class contains the `UseElmahIo` and `AddElmahIo` methods that you call in your `Startup.cs` file. This change should not cause any compile errors. For simple installations without custom options, you can most likely remove the `using Elmah.Io.AspNetCore;` line from the `Startup.cs` file. Visual Studio will tell if that line is no longer needed.
+
+## Troubleshooting
+
+**Could not load file or assembly 'Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed'**
+
+`Elmah.Io.Client` requires `Newtonsoft.Json` version `10.0.3` or newer. Please upgrade to fix this error.
