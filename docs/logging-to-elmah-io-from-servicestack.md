@@ -12,7 +12,7 @@ dotnet add package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="ServiceStack.Logging.Elmah" Version="5.*" />
-<PackageReference Include="Elmah.Io" Version="3.*" />
+<PackageReference Include="Elmah.Io" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add ServiceStack.Logging.Elmah

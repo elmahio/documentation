@@ -11,7 +11,7 @@ Install-Package Elmah.Io
 dotnet add package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io" Version="3.*" />
+<PackageReference Include="Elmah.Io" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io
