@@ -11,7 +11,7 @@ Install-Package Elmah.Io.Umbraco
 dotnet add package Elmah.Io.Umbraco
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Umbraco

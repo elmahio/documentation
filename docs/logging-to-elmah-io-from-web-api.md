@@ -15,7 +15,7 @@ Install-Package Elmah.Io.WebApi
 dotnet add package Elmah.Io.WebApi
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.WebApi" Version="3.*" />
+<PackageReference Include="Elmah.Io.WebApi" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.WebApi

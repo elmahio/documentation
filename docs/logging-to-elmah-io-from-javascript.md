@@ -173,7 +173,7 @@ Install-Package Elmah.Io.AspNetCore.TagHelpers
 dotnet add package Elmah.Io.AspNetCore.TagHelpers
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="3.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.TagHelpers

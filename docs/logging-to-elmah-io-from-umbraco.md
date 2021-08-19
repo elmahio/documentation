@@ -26,7 +26,7 @@ Install-Package Elmah.Io.Umbraco
 dotnet add package Elmah.Io.Umbraco
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Umbraco
@@ -69,7 +69,7 @@ Install-Package Elmah.Io.Umbraco
 dotnet add package Elmah.Io.Umbraco
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="3.*" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Umbraco
@@ -119,7 +119,7 @@ Install-Package Elmah.Io.AspNetCore
 dotnet add package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+<PackageReference Include="Elmah.Io.AspNetCore" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore
@@ -156,7 +156,7 @@ Install-Package Elmah.Io.Extensions.Logging
 dotnet add package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.*" />
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Extensions.Logging
