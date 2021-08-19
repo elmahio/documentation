@@ -15,7 +15,7 @@ Install-Package Elmah.Io.Heartbeats.Hangfire
 dotnet add package Elmah.Io.Heartbeats.Hangfire
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Heartbeats.Hangfire" Version="3.*" />
+<PackageReference Include="Elmah.Io.Heartbeats.Hangfire" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Heartbeats.Hangfire

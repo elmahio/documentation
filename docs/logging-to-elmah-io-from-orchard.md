@@ -13,8 +13,8 @@ dotnet add package Elmah.Io.Client
 dotnet add package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client" Version="3.*" />
-<PackageReference Include="Elmah.Io.AspNetCore" Version="3.*" />
+<PackageReference Include="Elmah.Io.Client" Version="4.*" />
+<PackageReference Include="Elmah.Io.AspNetCore" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client
@@ -60,7 +60,7 @@ Install-Package Elmah.Io.NLog
 dotnet add package Elmah.Io.NLog
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.NLog" Version="3.*" />
+<PackageReference Include="Elmah.Io.NLog" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.NLog

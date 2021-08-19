@@ -17,7 +17,7 @@ Install-Package Serilog.Sinks.ElmahIo
 dotnet add package Serilog.Sinks.ElmahIo
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Serilog.Sinks.ElmahIo" Version="3.*" />
+<PackageReference Include="Serilog.Sinks.ElmahIo" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Serilog.Sinks.ElmahIo
@@ -186,7 +186,7 @@ dotnet add package Serilog.Sinks.ElmahIo
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Serilog.AspNetCore" Version="3.*" />
-<PackageReference Include="Serilog.Sinks.ElmahIo" Version="3.*" />
+<PackageReference Include="Serilog.Sinks.ElmahIo" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Serilog.AspNetCore
@@ -245,7 +245,7 @@ Install-Package Elmah.Io.AspNetCore.Serilog
 dotnet add package Elmah.Io.AspNetCore.Serilog
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.Serilog" Version="3.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.Serilog" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.Serilog

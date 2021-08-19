@@ -17,7 +17,7 @@ Install-Package Elmah.Io.NLog
 dotnet add package Elmah.Io.NLog
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.NLog" Version="3.*" />
+<PackageReference Include="Elmah.Io.NLog" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.NLog

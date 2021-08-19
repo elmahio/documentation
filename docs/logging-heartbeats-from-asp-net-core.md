@@ -13,7 +13,7 @@ Install-Package Elmah.Io.AspNetCore.HealthChecks
 dotnet add package Elmah.Io.AspNetCore.HealthChecks
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.HealthChecks" Version="3.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.HealthChecks" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.HealthChecks
