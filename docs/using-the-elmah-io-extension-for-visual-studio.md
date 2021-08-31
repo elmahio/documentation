@@ -8,7 +8,7 @@ Being able to focus on .NET developers makes it possible to do all kinds of cool
 
 > Don't use the Extensions and Updates feature inside Visual Studio, since Visual Studio causes a problem with installing extensions in previous versions.
 
-Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2015, 2017 and 2019.
+Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2015, 2017, and 2019. If you like living on the edge, there's a preview for Visual Studio 2022 [here](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahiobrowser2022).
 
 ## Usage
 
@@ -30,10 +30,10 @@ Once logged in, the list of logs is populated with all of your logs defined at e
 
 ![Browse a log inside Visual Studio](/images/visualstudio-browse.png)
 
-Log messages can be filtered by date range, full-text search and using Lucene query language as already known from the elmah.io UI. 
+Log messages can be filtered by date range, full-text search, and using Lucene query language as already known from the elmah.io UI. 
 
 To inspect a single message, double-click it and the message details window will open:
 
 ![Message details](/images/visualstudio-details.png)
 
-The toolbar in the top provides a couple of options: View the message on elmah.io, hide the message and delete the message.
+The toolbar at the top provides a couple of options: View the message on elmah.io, hide the message and delete the message.
