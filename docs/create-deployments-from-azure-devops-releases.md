@@ -2,19 +2,18 @@
 
 If you are using Releases in Azure DevOps, you should use our extension to notify elmah.io about new deployments. To install and configure the extension, follow the simple steps below:
 
-1. Go to the [elmah.io Deployment Tasks extension](https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks) on the Visual Studio Marketplace and click _Install_ (log in if not already).
-![elmah.io Azure DevOps extension](images/vsts_extension.png)
+1. Go to the [elmah.io Deployment Tasks](https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks) extension on the Azure DevOps Marketplace and click the _Get it free_ button:
 
-2. Select the account to install the extension into and click _Confirm_:
-![elmah.io Azure DevOps account](images/vsts_select_account.png)
+![Install the extension](images/deploy-notification/marketplace_get_it_free.png)
 
-3. Go to your Azure DevOps project and edit your Release definition.
-![Azure DevOps release definition](images/vsts_release_definition.png)
+2. Select your organization and click the *Install* button:
 
-4. Click _Add tasks_ and locate the elmah.io Deployment Notification task. Click _Add_.
-![Add Azure DevOps task](images/vsts_add_task.png)
+![Select organization](images/deploy-notification/marketplace_select_organization.png)
 
-5. Copy an API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) with the *Deployments* | *Write* permission ([How to configure API key permissions](https://docs.elmah.io/how-to-configure-api-key-permissions/)) from your organization settings page and paste it into the _API Key_ field. In most cases, you want to input the ID of the log new deployments belong to. As default, we use the release name on Azure DevOps as the version number string on elmah.io. If you require a custom naming scheme, change the value in the _Version_ field. All [default and custom release variables](https://docs.microsoft.com/en-us/vsts/build-release/concepts/definitions/release/variables?view=vsts&tabs=batch) are available through PowerShell variables. Finally, click _Save_.
-![Azure DevOps task added](images/vsts_task_added.png)
+3. Go to your Azure DevOps project and add the *elmah.io Deployment Notification* task. Fill in all fields as shown here:
 
-That's it! Azure DevOps will now notify elmah.io every time the release definition is executed. Remember to input a specific log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) as well, if you want to support [versioning different services](/setup-deployment-tracking/#decorate-your-messages-with-a-version-number).
+![Add the task](images/deploy-notification/release_pipeline_task.png)
+
+You will need to replace `API_KEY` with an API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) with permission ([How to configure API key permissions](https://docs.elmah.io/how-to-configure-api-key-permissions/)) to create deployments. If the deployment is specific to a single log, insert a log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the ID of the log instead of `LOG_ID`. Deployments without a log ID, will show on all logs in the organization.
+
+That's it! Azure DevOps will now notify elmah.io every time the release pipeline is executed.
