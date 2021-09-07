@@ -132,3 +132,17 @@ with:
   sourceMap: 'path/to/sharedbundle.map'
   minifiedJavaScript: 'path/to/sharedbundle.min.js'
 ```
+
+### Upload from Octopus Deploy
+
+Uploading one or more source from Octopus Deploy is available using our step template for Octopus. The step template can be installed in multiple ways as explained on <a href="https://octopus.com/docs/projects/community-step-templates" target="_blank" rel="noopener noreferrer">Community step templates</a>. In this document, the step template will be installed directly from the *Process Editor*:
+
+1. Go to the *Process Editor* and click the **ADD STEP** button. In the *Choose Step Template* section search for 'elmah.io':
+![Search step template](images/deploy-notification/octopus_search_step_template.png)
+
+2. Hover over the 'elmah.io - Upload Source Map' community template and click the **INSTALL AND ADD** button.
+
+3. In the *Install and add* modal click the **SAVE** button.
+
+4. The step template is now added to the process. Fill in all fields as shown here:
+![Fill in step template](images/octopus_upload_source_map.png)

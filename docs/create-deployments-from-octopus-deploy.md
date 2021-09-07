@@ -5,7 +5,7 @@ Notifying elmah.io of a new deployment from Octopus Deploy is supported through 
 1. Go to the *Process Editor* and click the **ADD STEP** button. In the *Choose Step Template* section search for 'elmah.io':
 ![Search step template](images/deploy-notification/octopus_search_step_template.png)
 
-2. Hover over the 'elmah.io Register Deployment' community template and click the **INSTALL AND ADD** button.
+2. Hover over the 'elmah.io - Register Deployment' community template and click the **INSTALL AND ADD** button.
 
 3. In the *Install and add* modal click the **SAVE** button.
 
