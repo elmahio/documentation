@@ -14,7 +14,7 @@ ELMAH is an error logging framework originally developed by Atif Aziz able to lo
 
 ## What is elmah.io?
 
-elmah.io is a cloud-based error management system originally developed on top of ELMAH (see history for details). Besides supporting ELMAH, elmah.io also integrates with popular logging frameworks like [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/) and web frameworks like [ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/). elmah.io offers a superior [notification](https://elmah.io/features/notifications/) model to ELMAH, with integrations to mail, Slack, HipChat and many others. elmah.io also built a lot of features outside the scope of ELMAH, like a complete [uptime monitoring](https://elmah.io/features/uptimemonitoring/) system.
+elmah.io is a cloud-based error management system originally developed on top of ELMAH (see history for details). Besides supporting ELMAH, elmah.io also integrates with popular logging frameworks like [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/) and web frameworks like [ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/). elmah.io offers a superior [notification](https://elmah.io/features/notifications/) model to ELMAH, with integrations to mail, Slack, HipChat and many others. elmah.io also built a lot of features outside the scope of ELMAH, like a complete [uptime monitoring](https://elmah.io/features/uptime-monitoring/) system.
 
 ## Comparison
 
@@ -30,8 +30,8 @@ elmah.io is a cloud-based error management system originally developed on top of
 | [log4net](https://elmah.io/features/log4net/)/[NLog](https://elmah.io/features/nlog/)/[Serilog](https://elmah.io/features/serilog/) | ❌ | ✅ |
 | [Clientside error logging](https://elmah.io/features/clientside-logging/) | ❌ | ✅ |
 | [Slack/Teams/HipChat/etc.](https://elmah.io/features/appstore/) | ❌ | ✅ |
-| [Deployment tracking](https://elmah.io/features/deploymenttracking/) | ❌ | ✅ |
-| [Uptime monitoring](https://elmah.io/features/uptimemonitoring/) | ❌ | ✅ |
+| [Deployment tracking](https://elmah.io/features/deployment-tracking/) | ❌ | ✅ |
+| [Uptime monitoring](https://elmah.io/features/uptime-monitoring/) | ❌ | ✅ |
 | [Heartbeats](https://elmah.io/features/heartbeats/) | ❌ | ✅ |
 | [Machine learning](https://elmah.io/features/machine-learning/) | ❌ | ✅ |
 | [Discount on popular software](https://elmah.io/goodiebag/) | ❌ | ✅ |
