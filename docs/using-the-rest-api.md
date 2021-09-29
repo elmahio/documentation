@@ -2,7 +2,7 @@
 
 [TOC]
 
-Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities using the API in a use case driven approach. For a details reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/ui/index).
+Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities using the API in a use case driven approach. For a details reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/index.html).
 
 ## Security
 
