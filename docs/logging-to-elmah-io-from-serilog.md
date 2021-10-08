@@ -1,6 +1,6 @@
-﻿[![Build status](https://ci.appveyor.com/api/projects/status/j4rsru1m0lhkfwc4/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-elmahio/branch/master)
+﻿[![Build status](https://github.com/elmahio/serilog-sinks-elmahio/workflows/build/badge.svg)](https://github.com/elmahio/serilog-sinks-elmahio/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/serilog/serilog-sinks-elmahio/tree/master/examples)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/serilog-sinks-elmahio/tree/main/examples)
 
 # Logging to elmah.io from Serilog
 
