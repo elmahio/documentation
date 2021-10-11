@@ -92,3 +92,32 @@ public void Test()
     // ...
 }
 ```
+
+As an alternative you can register the `ElmahIoHeartbeatAttribute` as a global attribute. In this example we use `IConfiguration` in ASP.NET Core to fetch configuration from the `appsettings.json` file:
+
+```csharp
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddHangfire(config => config
+            // ...
+            .UseFilter(new ElmahIoHeartbeatAttribute(
+                Configuration["ElmahIo:ApiKey"],
+                Configuration["ElmahIo:LogId"],
+                Configuration["ElmahIo:HeartbeatId"])));
+    }
+
+    // ...
+}
+```
+
+This will execute the `ElmahIoHeartbeat` filter for every Hangfire job which isn't ideal if running multiple jobs within the same project.
