@@ -8,15 +8,6 @@
 
 Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure Functions.
 
-<div class="alert alert-primary">
-    <div class="row">
-        <div class="col-auto align-self-start">
-            <div class="fa fa-lightbulb"></div>
-        </div>
-        <div class="col">The <code>Elmah.Io.Functions</code> package have not yet been ported to Azure Functions v5. If you are using v5, check out how to configure logging using the <code>Elmah.Io.Extensions.Logging</code> package <a href="#logging-through-ilogger">here</a>.</div>
-    </div>
-</div>
-
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
 ```powershell fct_label="Package Manager"
@@ -281,6 +272,38 @@ public class MyFunction
     }
 }
 ```
+
+## Isolated Azure Functions on .NET 5
+
+We have a prerelease of an integration package for isolated Azure Functions running on .NET 5. Install the `Elmah.Io.Functions.Isolated` package in your project to get started:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions.Isolated -IncludePrerelease
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Functions.Isolated --prerelease
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Functions.Isolated" Version="4.0.3-pre" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Functions.Isolated
+```
+
+Next, call the `AddElmahIo` method inside `ConfigureFunctionsWorkerDefaults`:
+
+```csharp
+.ConfigureFunctionsWorkerDefaults((context, app) =>
+{
+    app.AddElmahIo(options =>
+    {
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
+    });
+})
+```
+
+Also, include a `using` of the `Elmah.Io.Functions.Isolated` namespace. elmah.io now automatically identifies any uncaught exceptions and logs them to the specified log. Check out the [samples](https://github.com/elmahio/Elmah.Io.Functions.Isolated/tree/main/samples) for more ways to configure elmah.io.
 
 ## Azure Functions v1
 
