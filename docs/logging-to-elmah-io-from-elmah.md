@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from ASP.NET / WebForms
-description: This article will explain the steps necessary to log errors from an ASP.NET / WebForms application into elmah.io. Requires nothing more than a NuGet package.
+description: This article will explain the steps necessary to log errors from ASP.NET WebForms applications to elmah.io. Requires only a single NuGet package.
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)
