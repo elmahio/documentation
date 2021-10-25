@@ -1,3 +1,8 @@
+---
+title: Where is my API key?
+description: Learn about how to locate your elmah.io API key. An API key is a security measure that will authenticate one or more applications on elmah.io.
+---
+
 # Where is my API key?
 
 API keys are a new concept introduced with version 3.x of our [API](https://elmah.io/api/). API keys are located on the organization settings page.
@@ -10,4 +15,4 @@ When on the organization settings page, click the _API Keys_ tab and copy your A
 
 ![API keys on organization settings](images/api-key-on-organization-settings.png)
 
-This view also lets you generate new API keys and revoke an existing key, if you believe that the key is compromised.
+This view also lets you generate new API keys and revoke an existing key if you believe that the key is compromised.

@@ -1,16 +1,21 @@
+---
+title: Using the REST API
+description: Utilize the elmah.io REST API to log messages to elmah.io from any framework. We provide a range of options but creating on yourself is easy.
+---
+
 # Using the REST API
 
 [TOC]
 
-Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities using the API in a use case driven approach. For a details reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/index.html).
+Under the hood, everything related to communicating with elmah.io happens through our REST API. In this article, we will present the possibilities of using the API in a use case-driven approach. For a detailed reference of the various endpoints, visit the [API V3 documentation](https://api.elmah.io/swagger/index.html).
 
 ## Security
 
 Security is implemented using API keys ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). When creating a new organization, a default API key is automatically created.
 
-You can create new keys and revoke an existing key, if you suspect that the key has been compromised. The API key acts as a secret and should not be available to people outside your team/organization.
+You can create new keys and revoke an existing key if you suspect that the key has been compromised. The API key acts as a secret and should not be available to people outside your team/organization.
 
-All requests to the elmah.io API needs the API key as either a HTTP header or query string parameter named `api_key` like this:
+All requests to the elmah.io API needs the API key as either an HTTP header or query string parameter named `api_key` like this:
 
 ```bash
 GET https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY
@@ -36,9 +41,9 @@ with a JSON body:
 
 (replace `LOG_ID` with your log ID):
 
-The `title` field is the only required field on a message, but fields for specifying severity, timestamp etc. are there. For more information, check out the [documentation](https://api.elmah.io/swagger/ui/index).
+The `title` field is the only required field on a message, but fields for specifying severity, timestamp, etc. are there. For more information, check out the [documentation](https://api.elmah.io/swagger/ui/index).
 
-If everything where successful, the API returns a HTTP status code of `201` and a location to where to fetch the new message. If the endpoint fails, the response will contain a description of what went wrong. Forgetting to set `Content-Length`, `Content-Type` and similar, will result in an invalid request.
+If everything where successful, the API returns an HTTP status code of `201` and a location to where to fetch the new message. If the endpoint fails, the response will contain a description of what went wrong. Forgetting to set `Content-Length`, `Content-Type` and similar, will result in an invalid request.
 
 ### Getting a message
 
@@ -59,11 +64,11 @@ By making a GET request to this URL, we get back the message details:
 }
 ```
 
-As shown in the returned body, elmah.io automatically inserted some missing fields like a timestamp and a severity. If no severity is specified during creating, a message is threated as information.
+As shown in the returned body, elmah.io automatically inserted some missing fields like a timestamp and a severity. If no severity is specified during creating, a message is treated as information.
 
 ### Searching messages
 
-For the demo, we have inserted a couple of additional messages, which leads us to the next endpoint: searching messages. The search endpoint shares the root path with the get message endpoint, but only take a log ID. The simplest possible configuration, queries the API for a list of the 15 most recent messages by calling:
+For the demo, we have inserted a couple of additional messages, which leads us to the next endpoint: searching messages. The search endpoint shares the root path with the get message endpoint but only takes a log ID. The simplest possible configuration queries the API for a list of the 15 most recent messages by calling:
 
 ```bash
 GET https://api.elmah.io/v3/messages/LOG_ID
@@ -92,9 +97,9 @@ The response body looks like this:
 }
 ```
 
-For simplicity, the response has been simplified by not showing all of the results. The important thing to notice here, is the list of `messages` and the `total` count. `messages` contain 15 messages, which is the default page size in the search endpoint. To increase the number of returned messages, set the `pagesize` parameter in the URL (max 100 messages per request). The `total` count tells you, if there are more messages matching your search. To select messages from the next page, use the `pageindex` parameter.
+For simplicity, the response has been simplified by not showing all of the results. The important thing to notice here is the list of `messages` and the `total` count. `messages` contain 15 messages, which is the default page size in the search endpoint. To increase the number of returned messages, set the `pagesize` parameter in the URL (max 100 messages per request). The `total` count tells you if more messages are matchinging your search. To select messages from the next page, use the `pageindex` parameter.
 
-Returning all messages may be fine, but being able to search by terms is even more fun. To search, use the `query`, `from` and `to` parameters as shown here:
+Returning all messages may be fine, but being able to search by terms is even more fun. To search, use the `query`, `from`, and `to` parameters as shown here:
 
 ```bash
 GET https://api.elmah.io/v3/messages/LOG_ID?query=another
@@ -116,7 +121,7 @@ Searching for `another` will return the following response:
 }
 ```
 
-Now only `81C7C282C9FDAEA3` shows up, since that message contains the text `another` in the `title` field. Like specifying the `query` parameter, you can limit the number of messages using the `from`, `to` and `pagesize` parameters.
+Now only `81C7C282C9FDAEA3` shows up since that message contains the text `another` in the `title` field. Like specifying the `query` parameter, you can limit the number of messages using the `from`, `to`, and `pagesize` parameters.
 
 ### Deleting a message
 
@@ -126,7 +131,7 @@ When fixing the bug causing an error logged at elmah.io, you may want to delete 
 DELETE https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3
 ```
 
-When successfully deleted, the delete endpoint returns a HTTP status code of `200`.
+When successfully deleted, the delete endpoint returns an HTTP status code of `200`.
 
 ### Deleting messages
 
@@ -148,7 +153,7 @@ An option for deleting messages by date range is available as well. Check out th
 
 ### Hiding a message
 
-Depending on your use case, you may want to hide a message, rather than deleting it. Hidden messages are not shown as default through neither the UI, nor the REST API. But you will be able to search for them by enabling the `Hidden` checkbox on the UI.
+Depending on your use case, you may want to hide a message, rather than delete it. Hidden messages are shown as default through neither the UI nor the REST API. But you will be able to search for them by enabling the `Hidden` checkbox on the UI.
 
 To hide a message, use the `_hide` endpoint like this:
 
@@ -160,7 +165,7 @@ If successful, the endpoint returns an HTTP status code of `200`.
 
 ### Fixing a message
 
-When you have fixed a bug in your code, it's a good idea to mark any instances of this error in elmah.io as fixed. This gives a better overview of what to fix and ensure that you are notified if the error happens again.
+When you have fixed a bug in your code, it's a good idea to mark any instances of this error in elmah.io as fixed. This gives a better overview of what to fix and ensures that you are notified if the error happens again.
 
 To mark a message as fixed, use the `_fix` endpoint like this:
 

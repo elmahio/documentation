@@ -1,3 +1,8 @@
+---
+title: Where is my invoice/receipt?
+description: Learn about where to find your elmah.io invoice/receipt. Invoices are available on all plans and can be customized with your company name, etc.
+---
+
 # Where is my invoice/receipt?
 
 Invoices are located on the organization settings page.

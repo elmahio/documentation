@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Uno
+description: Learn about how to set up error monitoring and log uncaught exceptions from Uno applications to elmah.io. Get crash reports from your users.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io.uno/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.uno/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.uno.svg)](https://www.nuget.org/packages/elmah.io.uno)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.uno/tree/main/samples)

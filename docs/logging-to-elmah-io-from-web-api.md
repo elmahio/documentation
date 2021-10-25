@@ -1,10 +1,15 @@
+---
+title: Logging to elmah.io from ASP.NET Web API
+description: Learn about how to set up logging of all uncaught exceptions in ASP.NET Web API to elmah.io. Monitor your APIs with a single NuGet install only.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.WebApi.svg)](https://www.nuget.org/packages/Elmah.Io.WebApi)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples/Elmah.Io.WebApi)
 
 # Logging to elmah.io from Web API
 
-Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers doesn’t work there. Luckily, Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this. We've built a package for ASP.NET Web API exclusively, which installs all the necessary packages.
+Web API provides its own mechanism for handling errors, why ELMAH’s modules and handlers don't work there. Luckily, Richard Dingwall created the [Elmah.Contrib.WebApi](https://www.nuget.org/packages/Elmah.Contrib.WebApi/) NuGet package to fix this. We've built a package for ASP.NET Web API exclusively, which installs all the necessary packages.
 
 To start logging exceptions from Web API, install the `Elmah.Io.WebApi` NuGet package:
 
@@ -48,7 +53,7 @@ public static class WebApiConfig
 }
 ```
 
-The registered `IExceptionLogger` intercepts all thrown exceptions, even errors in controller contructors and routing errors.
+The registered `IExceptionLogger` intercepts all thrown exceptions, even errors in controller constructors and routing errors.
 </div>
 
 <div role="tabpanel" class="tab-pane" id="setup1" markdown="1">
