@@ -47,7 +47,7 @@ For an example of how to use the `WithSourceCodeFromFileSystem` method, check ou
 
 ## From the PDB file
 
-When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown below. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/). The *Debugging information* field needs a value of `Pdb-only` or `Portable` for this to work.
+When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown above. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/). The *Debugging information* field needs a value of `Pdb-only` or `Portable` for this to work.
 
 To embed source code in the PDB file built alongside your DLL files, include the following property in your `csproj` file:
 
