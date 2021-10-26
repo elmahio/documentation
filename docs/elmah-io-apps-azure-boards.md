@@ -9,7 +9,7 @@ description: What would you say if I told you that elmah.io can create bugs for 
 
 To create bugs on Azure Boards, you will need to generate a personal access token. Go to Azure DevOps and click the *User settings* icon in the top right corner. Select the *Personal access tokens* menu item in the dropdown. Finally, click the *New Token* button and fill in the details as shown below:
 
-![Create personal access token](images/apps/azureboards/personal-access-token.png){: .image-600 }
+![Create personal access token](images/apps/azureboards/personal-access-token.png)
 
 For this example, we have picked 90 days expiration period, but you can decide on a shorter or longer period if you'd like. Remember to enable the *Read & write* scope under **Work Items**. Next, click the *Create* button and copy the generated token.
 
