@@ -1,8 +1,13 @@
+---
+title: Use multiple logs for different environments
+description: Learn about how to log to individual elmah.io logs per environment. Let you set up notifications, apps, and more for production only.
+---
+
 # Use multiple logs for different environments
 
 We bet that you use at least two environments for hosting your website: localhost and a production environment. You probably need to log website errors on all your environments, but you don’t want to mix errors from different environments in the same error log. Lucky for you, Microsoft provides a great way of differentiating configuration for different environments called [Web Config transformation](https://msdn.microsoft.com/en-us/library/dd465326(v=vs.110).aspx).
 
-> To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild or third for the transformations to replace the right ELMAH config.
+> To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild, or third for the transformations to replace the right ELMAH config.
 
 Whether or not you want errors from localhost logged on elmah.io, start by installing the `Elmah.Io` NuGet package:
 
@@ -49,7 +54,7 @@ That’s it! You can now build and deploy your website using different configura
 
 ## Logging to elmah.io from production only
 
-During the installation, NuGet will ask you for your elmah.io log id. You don't need to write anything in this dialog, since we will remove the default elmah.io config in a moment. When installed open the `web.config` file and locate the `<elmah>` element. Remove the `<errorLog>` element and set the `allowRemoveAccess` attribute to `true`. Your configuration should look like this now:
+During the installation, NuGet will ask you for your elmah.io log id. You don't need to write anything in this dialog since we will remove the default elmah.io config in a moment. When installed open the `web.config` file and locate the `<elmah>` element. Remove the `<errorLog>` element and set the `allowRemoveAccess` attribute to `true`. Your configuration should look like this now:
 
 ```xml
 <elmah>

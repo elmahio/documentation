@@ -1,3 +1,8 @@
+---
+title: Using the elmah.io extension for Visual Studio
+description: Learn about the elmah.io extension for Visual Studio and how it can help you be more productive. Browse your error log directly in Visual Studio.
+---
+
 # Using the elmah.io extension for Visual Studio
 
 Being able to focus on .NET developers makes it possible to do all kinds of cool things. Like building an elmah.io extension for Visual Studio. That's exactly what we've done and here's how to use it.

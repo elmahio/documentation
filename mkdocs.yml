@@ -152,7 +152,7 @@ nav:
     - Creating Rules to Perform Actions on Messages: creating-rules-to-perform-actions-on-messages.md
     - Query messages using full-text search: query-messages-using-full-text-search.md
     - Tips and tricks to stay below your message limit: tips-and-tricks-to-stay-below-your-message-limit.md
-    - Use Extended User Details without Email as Id: use-extended-user-details-without-email-as-id.md
+    - Use extended user details without email as ID: use-extended-user-details-without-email-as-id.md
     - Adding version information: adding-version-information.md
     - Bot detection: bot-detection.md
     - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md

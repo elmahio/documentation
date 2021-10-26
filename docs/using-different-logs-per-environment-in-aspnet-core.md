@@ -1,3 +1,8 @@
+---
+title: Using different logs per environment in ASP.NET Core
+description: Learn about how to log to individual elmah.io logs per ASP.NET Core environment. Let you set up notifications, apps and more for production only.
+---
+
 # Using different logs per environment in ASP.NET Core
 
 We are often asked the question: Should I create a log per environment and how do I set it up with ASP.NET Core.
