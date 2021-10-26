@@ -83,7 +83,7 @@ In case you want logging to different elmah.io logs from each Umbraco Cloud envi
 
 Installing elmah.io in Umbraco Uno follow the process of installing it onto Umbraco Cloud. To modify code and configuration in Uno you will need an Umbraco Uno Standard plan or higher. Also, you need to enable *Custom Code* to clone the code locally. This can be done from Uno by clicking the *Enable custom code* button:
 
-![](images/umbraco-uno-enable-custom-code.png)
+![Enable custom code](images/umbraco-uno-enable-custom-code.png)
 
 After enabling Custom Code you can create a *Development* environment and follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.
 
