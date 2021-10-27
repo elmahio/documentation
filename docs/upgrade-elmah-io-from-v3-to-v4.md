@@ -1,3 +1,8 @@
+---
+title: Upgrade elmah.io from v3 to v4
+description: Details about upgrading elmah.io clients from major version 3 to 4. Minor changes may be required to utilize some of the new features in v4.
+---
+
 # Upgrade elmah.io from v3 to v4
 
 [TOC]
@@ -21,7 +26,7 @@ This installs the latest 4.x client. Most people are using one of the integratio
 
 ### Code changes
 
-As mentioned, some code changes may be required from your part after upgrading. Most of the API stayed the same, but NSwag generates output differently from AutoRest in some cases. Here's a list of changes needed:
+As mentioned, some code changes may be required on your part after upgrading. Most of the API stayed the same, but NSwag generates output differently from AutoRest in some cases. Here's a list of changes needed:
 
 - Remove any references to `Elmah.Io.Client.Models`. All generated classes are now in the `Elmah.Io.Client` namespace.
 - Replace any reference to `IMessages`, `IHeartbeats`, and similar to `IMessagesClient`, `IHeartbeatsClient`, and similar.
