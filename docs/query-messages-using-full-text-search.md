@@ -1,16 +1,22 @@
+---
+title: Query messages using full-text search
+description: Learn about how to use the various search features available on elmah.io to search log messages using full-text search, filters, and much more.
+---
+
 # Query messages using full-text search
-All messages sent to elmah.io, are indexed in Elasticsearch. Storing messages in a database like Elasticsearch, opens up a world of possibilities. This article explains how to query your log messages using full-text search, Search Filters and Lucene Query Syntax.
+
+All messages sent to elmah.io, are indexed in Elasticsearch. Storing messages in a database like Elasticsearch opens up a world of possibilities. This article explains how to query your log messages using full-text search, Search Filters, and Lucene Query Syntax.
 
 [TOC]
 
 ## Full-text search
-The easiest approach to start searching your log messages, is by inputting search terms in the _Search_ field on elmah.io:
+The easiest approach to start searching your log messages is by inputting search terms in the _Search_ field on elmah.io:
 
 ![Full-text query](images/full-text-search.png)
 
-We don't want to get into too much details on how full-text work in Elasticsearch. In short, Elasticsearch breaks the query into the terms **implement** and **icontroller** and tries to match all log messages including those terms. Full-text search work on _analyzed_ fields in Elasticsearch, which means that wildcards and other constructs are fully supported.
+We don't want to get into too much detail on how full-text works in Elasticsearch. In short, Elasticsearch breaks the query into the terms **implement** and **icontroller** and tries to match all log messages including those terms. Full-text search work on _analyzed_ fields in Elasticsearch, which means that wildcards and other constructs are fully supported.
 
-Full-text queries work great. when you want to do a quick search for some keywords like part of an exception message or stacktrace. Remember that the entire log message is search, why a search for _500_ would hit both log messages with status code 500 and the term _500_ in the stacktrace.
+Full-text queries work great. when you want to do a quick search for some keywords like part of an exception message or stack trace. Remember that the entire log message is search, why a search for _500_ would hit both log messages with status code 500 and the term _500_ in the stack trace.
 
 ## Search Filters
 
@@ -22,7 +28,7 @@ Let's say we want to find all errors with a status code of 500:
 
 Adding the two filters is possible using a few clicks.
 
-As mentioned previously, search filters are available througout the UI too. In this example, a filter is used to find messages not matching a specified URL:
+As mentioned previously, search filters are available throughout the UI too. In this example, a filter is used to find messages not matching a specified URL:
 
 ![Search filter by URL](images/search-filters-error-details.gif)
 
@@ -30,9 +36,9 @@ Search filters can be used in combination with full-text queries for greater fle
 
 ## Lucene Query Syntax
 
-Elasticsearch is implemented on top of Lucene; a high-performance search engine, written entirely in Java. While Elasticsearch supports a lot of nice abstractions on top of Lucene, sometime you just want close to the metal. This is when we need to introduce you to Lucene Query Syntax. The query syntax is a query language similar to the _WHERE_ part of a SQL statement. Unlike SQL, the query syntax supports both filters (similar to SQL) and full-text queries.
+Elasticsearch is implemented on top of Lucene; a high-performance search engine, written entirely in Java. While Elasticsearch supports a lot of nice abstractions on top of Lucene, sometimes you just want close to the metal. This is when we need to introduce you to Lucene Query Syntax. The query syntax is a query language similar to the _WHERE_ part of a SQL statement. Unlike SQL, the query syntax supports both filters (similar to SQL) and full-text queries.
 
-Basically all Lucene queries are made up of strings containing one or more terms and operators:
+All Lucene queries are made up of strings containing one or more terms and operators:
 
 ```
 term AND term OR (term AND NOT term)
@@ -44,13 +50,13 @@ Instead of `AND`, `OR`, and `NOT` you can use operators known from C#:
 term && term || (term && !term)
 ```
 
-While `AND`, `OR`, and `NOT` speaks for itself, terms needs a bit of explanation. A term can be a single term or a phrase. We've already seen two single terms in the full-text search example. The query in the example corresponds to this Lucene query:
+While `AND`, `OR`, and `NOT` speak for themselves, terms need a bit of explanation. A term can be a single term or a phrase. We've already seen two single terms in the full-text search example. The query in the example corresponds to this Lucene query:
 
 ```
 implement AND IController
 ```
 
-Looking at term phrases, things get really interesting. With phrases, you can query on specific fields, perform range queries and much more. Examples are worth a thousand words, why the rest of this document is examples of frequently used queries. If you think that examples are missing or have a problem with a custom queries, let us know. We will extend this tutorial with the examples you need.
+Looking at term phrases, things get interesting. With phrases, you can query on specific fields, perform range queries, and much more. Examples are worth a thousand words, why the rest of this document is examples of frequently used queries. If you think that examples are missing or have a problem with custom queries, let us know. We will extend this tutorial with the examples you need.
 
 **Find messages with type**
 
@@ -76,7 +82,7 @@ url:"/tester/" AND method:get
 url:\/.well-known*
 ```
 
-Forward slash in the beginning needs to be escaped, since Lucene will understand it as the start of a regex otherwise.
+The forward slash, in the beginning, needs to be escaped, since Lucene will understand it as the start of a regex otherwise.
 
 **Find messages by IP**
 
@@ -90,7 +96,7 @@ remoteAddr:192.168.0.1
 remoteAddr:192.68.0.*
 ```
 
-The examples above can be achieved using Search Filters as well. We recommend using Search Filters where possible and fall back to Lucene Query Syntax when something isn't supported through filters. An example is using _OR_ which currently isn't possible using filters.
+The examples above can be achieved using Search Filters as well. We recommend using Search Filters where possible and falling back to Lucene Query Syntax when something isn't supported through filters. An example is using _OR_ which currently isn't possible using filters.
 
 ## Field specification
 
@@ -111,7 +117,7 @@ Here is the full set of fields:
 | Name | Type | .raw | Description |
 | --- | --- | --- | --- |
 | `applicationName` | string | ✅ | Used to identify which application logged this message. You can use this if you have multiple applications and services logging into the same log. |
-| `assignedTo` | string | | The id of the user assigned to the log message. elmah.io user IDs is not something that are published on the UI anywhere why this field is intended for the *My errors* dashboard only.
+| `assignedTo` | string | | The id of the user assigned to the log message. elmah.io user IDs are not something that is published on the UI anywhere why this field is intended for the *My errors* dashboard only.
 | `browser` | string | ✅ | A short string classifying each log message to a browser. The value can be one of the following: chrome, safari, edge, firefox, opera, ie, other.
 | `correlationId` | string | | CorrelationId can be used to group similar log messages into a single discoverable batch. A correlation ID could be a session ID from ASP.NET Core, a unique string spanning multiple microservices handling the same request, or similar. |
 | `country` | string | | An ISO 3166 two-letter country case in case we could resolve a country from the log message. |
@@ -141,4 +147,4 @@ Here is the full set of fields:
 | `url` | string | | If the log message relates to an HTTP request, you may send the URL of that request. If you don't provide us with an URL, we will try to find a key named URL in serverVariables. |
 | `user` | string | ✅ | An identification of the user triggering this message. You can put the user's email address or your user key into this property. |
 | `userAgent` | string | ✅ | The user agent of the user causing the log message if it can be resolved from server variables. |
-| `version` | string | ✅ | Versions can be used to distinguish messages from different versions of your software. The value of version can be a SemVer compliant string or any other syntax that you are using as your version numbering scheme. |
+| `version` | string | ✅ | Versions can be used to distinguish messages from different versions of your software. The value of the version can be a SemVer compliant string or any other syntax that you are using as your version numbering scheme. |

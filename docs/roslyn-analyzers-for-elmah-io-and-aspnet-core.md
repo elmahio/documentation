@@ -1,3 +1,8 @@
+---
+title: Roslyn analyzers for elmah.io and ASP.NET Core
+description: Learn about how to catch common errors when configuring elmah.io in ASP.NET Core using our custom Roslyn Analyzers for Visual Studio.
+---
+
 # Roslyn analyzers for elmah.io and ASP.NET Core
 
 [TOC]
@@ -8,7 +13,7 @@ To help to install elmah.io in ASP.NET Core (by using the `Elmah.Io.AspNetCore` 
 
 To install the analyzers, navigate to *Extensions* | *Manage extensions* | *Online* and search for `Elmah.Io.AspNetCore.Analyzers`. Then click the *Download* button and restart Visual Studio. As an alternative, you can [download the extension](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahioaspnetcoreanalyzers) directly from the Visual Studio Marketplace.
 
-Once installed, analyzers will help you add or move elmah.io-related set up code:
+Once installed, analyzers will help you add or move elmah.io-related setup code:
 
 ![Roslyn analyzers](images/roslyn-analyzers.png)
 
