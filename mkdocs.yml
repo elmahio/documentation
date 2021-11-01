@@ -108,7 +108,7 @@ nav:
     - Creating apps for elmah.io: creating-apps-for-elmah-io.md
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
-    - Missing server side information on uptime errors: missing-server-side-information-on-uptime-errors.md
+    - Missing server-side information on uptime errors: missing-server-side-information-on-uptime-errors.md
     - Allowing elmah.io uptime agents: allowing-elmah-io-uptime-agents.md
 - Heartbeats:
     - Set up Heartbeats: setup-heartbeats.md

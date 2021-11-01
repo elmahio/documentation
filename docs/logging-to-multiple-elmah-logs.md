@@ -1,6 +1,11 @@
+---
+title: Logging to multiple ELMAH logs
+description: Logging to multiple destinations with ELMAH is a good way to keep an existing log while trialing elmah.io. Learn about how to set it up here.
+---
+
 # Logging to multiple ELMAH logs
 
-Unfortunately, ELMAH (the open source project) doesn’t support multiple log targets like other logging frameworks like Serilog. This makes logging to multiple logs a bit tricky, but no way impossible. Let’s say that you’re using ELMAH in your web application and configured it to log everything in SQL Server. If you look through your `web.config` file, you will have code looking like this somewhere:
+Unfortunately, ELMAH (the open source project) doesn't support multiple log targets like other logging frameworks like Serilog. This makes logging to multiple logs a bit tricky but in no way impossible. Let's say that you're using ELMAH in your web application and configured it to log everything in SQL Server. If you look through your `web.config` file, you will have code looking like this somewhere:
 
 ```xml
 <elmah>
@@ -8,7 +13,7 @@ Unfortunately, ELMAH (the open source project) doesn’t support multiple log ta
 </elmah>
 ```
 
-As you probably know, this tells ELMAH to log all unhandled errors in SQL Server with the connection string “elmah”. You cannot add more `<errorLog>` elements, why logging to a second log seems impossible. Meet ELMAH’s `Logged` event, which is a great hook to log to multiple targets. Install the [Elmah.Io](http://www.nuget.org/packages/elmah.io/) NuGet package and add the following code to your `global.asax.cs` file:
+As you probably know, this tells ELMAH to log all unhandled errors in SQL Server with the connection string “elmah”. You cannot add more `<errorLog>` elements, why logging into a second log seems impossible. Meet ELMAH's `Logged` event, which is a great hook to log to multiple targets. Install the [Elmah.Io](http://www.nuget.org/packages/elmah.io/) NuGet package and add the following code to your `global.asax.cs` file:
 
 ```csharp
 void ErrorLog_Logged(object sender, Elmah.ErrorLoggedEventArgs args)

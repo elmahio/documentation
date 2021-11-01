@@ -1,6 +1,11 @@
+---
+title: Managing Environments
+description: Environments is a grouping feature on elmah.io that will help you group similar logs together. Learn how to create custom ones and assign logs.
+---
+
 # Managing Environments
 
-Environments is a grouping feature on the elmah.io that will help you group similar logs together. By default you will have four environments in your organization: Development, Test, Staging, and Production. While this is the default view, additional environments can be added or environments named differently. The names doesn't need to match environments if you prefer a different naming scheme. Other ways to use environments would be to group logs by customers, departments, or servers.
+Environments is a grouping feature on elmah.io that will help you group similar logs together. By default you will have four environments in your organization: Development, Test, Staging, and Production. While this is the default view, additional environments can be added or environments named differently. The names don't need to match environments if you prefer a different naming scheme. Other ways to use environments would be to group logs by customers, departments, or servers.
 
 When creating a new log from the [dashboard](https://app.elmah.io/dashboard/), you can pick an environment in the dropdown:
 
