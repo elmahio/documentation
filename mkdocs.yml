@@ -16,6 +16,11 @@ markdown_extensions:
         emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - attr_list
     - md_in_html
+plugins:
+    - search
+    - redirects:
+        redirect_maps:
+            'test-redirect-plugin.md': 'elmah-io-apps-hipchat.md'
 production: false
 nav:
 - Getting Started:

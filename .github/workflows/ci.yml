@@ -29,6 +29,7 @@ jobs:
       - run: pip install mkdocs
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs
+      - run: pip install mkdocs-redirects
       - name: Update mkdocs.yml
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
       - run: mkdocs gh-deploy --force --clean --verbose
