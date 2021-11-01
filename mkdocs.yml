@@ -20,7 +20,9 @@ plugins:
     - search
     - redirects:
         redirect_maps:
-            'test-redirect-plugin.md': 'elmah-io-apps-hipchat.md'
+            'integrate-elmah-io-with-hipchat.md': 'elmah-io-apps-hipchat.md'
+            'integrate-elmah-io-with-slack.md': 'elmah-io-apps-slack.md'
+            'IntegrateWith/Slack.md': 'elmah-io-apps-slack.md'
 production: false
 nav:
 - Getting Started:
