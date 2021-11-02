@@ -234,10 +234,6 @@ $(document).ready(function(){
     $('#currentYear').text(new Date().getFullYear());
 
 	// Error added on company logo - bug head
-	// $('.bug-head').on('click', function(){
-	// 	throw new Error('Headshot');
-	// });
-
 	document.querySelector('.bug-head').addEventListener('click', function(){
 		throw new Error('Headshot');
 	});
