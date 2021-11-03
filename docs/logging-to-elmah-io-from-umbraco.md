@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Umbraco
+description: Monitoring Umbraco is easy with elmah.io's custom integration. Log errors automatically, detect 404s, report health check results, and much more.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io.umbraco/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.umbraco/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.umbraco.svg)](https://www.nuget.org/packages/elmah.io.umbraco/)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.umbraco/tree/main/samples)
@@ -6,7 +11,7 @@
 
 [TOC]
 
-Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. All the log levels that you already know from log4net, NLog, and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on Serilog, [which elmah.io also support](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
+Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. All the log levels that you already know from log4net, NLog, and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on Serilog, [which elmah.io also supports](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
 
 <div class="alert alert-primary">
     <div class="row">
@@ -44,11 +49,11 @@ The Elmah.Io.Umbraco package installs and configures three things:
 * An Umbraco content finder for logging 404's
 * ELMAH with elmah.io as error log
 
-All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors and fatal messages logged through Serilog are send to elmah.io as well.
+All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors, and fatal messages logged through Serilog are sent to elmah.io as well.
 
 ## Configuration
 
-If you are running on the default Umbraco template, all nessecary configuration is added during installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason aren't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configure the elmah.io sink for Serilog in your `config\serilog.user.config` file.
+If you are running on the default Umbraco template, all necessary configuration is added during installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason isn't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configures the elmah.io sink for Serilog in your `config\serilog.user.config` file.
 
 ### Different environments
 
@@ -75,7 +80,7 @@ dotnet add package Elmah.Io.Umbraco
 paket add Elmah.Io.Umbraco
 ```
 
-* Commit and push all changes to the git respository (only commit and push inside the `*.Web` folder). This will add elmah.io logging to your remote Umbraco Cloud project.
+* Commit and push all changes to the git repository (only commit and push inside the `*.Web` folder). This will add elmah.io logging to your remote Umbraco Cloud project.
 
 In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/" target="_blank">Config transforms</a>.
 

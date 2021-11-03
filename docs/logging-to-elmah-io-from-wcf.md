@@ -1,6 +1,11 @@
+---
+title: Logging to elmah.io from WCF
+description: Learn about how to set up cloud-logging on Windows Communication Foundation (WCF). Log and visualize all exceptions happening in your WCF APIs.
+---
+
 # Logging to elmah.io from WCF
 
-ELMAH and WCF isn't exactly known to go hand in hand. But, with a bit of custom code, logging exceptions from WCF to elmah.io is possible.
+ELMAH (the open-source project) and WCF aren't exactly known to go hand in hand. But, with a bit of custom code, logging exceptions from WCF to elmah.io is possible.
 
 Let's get started. Install elmah.io into your WCF project using NuGet:
 

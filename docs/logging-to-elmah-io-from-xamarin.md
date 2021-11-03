@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Xamarin
+description: Logging to multiple destinations with ELMAH is a good way to keep an existing log while trialing elmah.io. Learn about how to set it up here.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io.xamarin/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.xamarin/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.xamarin.svg)](https://www.nuget.org/packages/elmah.io.xamarin)
 [![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.xamarin/tree/main/samples)
@@ -93,7 +98,7 @@ try
 }
 catch (Exception e)
 {
-    // Log the exception with the Log extension-method:
+    // Log the exception with the Log extension method:
     
     e.Log();
 
@@ -105,7 +110,7 @@ catch (Exception e)
 
 ## Breadcrumbs
 
-Breadcrumbs can be a great help when needing to figure out how a user ended up with an error. To log breadcrumbs you can use the `AddBreadcrumb` method on `ElmahIoXamarin`. The following is a sample for Android which will log breadcrumbs on interesting events:
+Breadcrumbs can be a great help when needing to figure out how a user ended up with an error. To log breadcrumbs, you can use the `AddBreadcrumb` method on `ElmahIoXamarin`. The following is a sample for Android which will log breadcrumbs on interesting events:
 
 ```csharp
 public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener

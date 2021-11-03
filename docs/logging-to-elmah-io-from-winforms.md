@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Windows Forms
+description: Learn about how to set up cloud-logging on Windows Forms applications using elmah.io. Log all errors happening on installations of your client.
+---
+
 # Logging to elmah.io from Windows Forms
 
 elmah.io logging can be easily added to Windows Forms applications. We don't provide a package specific for WinForms, but the `Elmah.Io.Client` package, combined with a bit of code, will achieve just the same.

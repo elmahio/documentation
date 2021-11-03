@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Vue
+description: Monitoring and logging errors happening in Vue.js applications is easy with elmah.io. Learn about how to set up client-side logging in Vue.js.
+---
+
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.VueJs)
