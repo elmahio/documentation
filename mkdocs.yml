@@ -22,7 +22,10 @@ plugins:
         redirect_maps:
             'integrate-elmah-io-with-hipchat.md': 'elmah-io-apps-hipchat.md'
             'integrate-elmah-io-with-slack.md': 'elmah-io-apps-slack.md'
+            'elmah-io-apps-webclient.md': 'creating-rules-to-perform-actions-on-messages.md'
             'IntegrateWith/Slack.md': 'elmah-io-apps-slack.md'
+            'IntegrateWith/Zapier.md': 'integrate-elmah-io-with-zapier.md'
+            'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
 production: false
 nav:
 - Getting Started:
