@@ -26,5 +26,3 @@ Paste the token copied in the previous step into the Token textbox. In the Room 
 Click *Save* and the app is added to your log. When new errors are logged, messages start appearing in the chat room that you configured.
 
 > HipChat doesn't allow more than 500 requests per 5 minutes. If you generate more messages to elmah.io, not all of them will show up in HipChat because of this.
-
-Finally, if you need more control over what to log, you should read our guide on [Integrating elmah.io with HipChat manually](https://docs.elmah.io/integrate-elmah-io-with-hipchat/).
