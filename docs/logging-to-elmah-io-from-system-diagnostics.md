@@ -1,10 +1,15 @@
+---
+title: Logging to elmah.io from System.Diagnostics
+description: Log trace and debug message from System.Diagnostics directly to elmah.io. Add cloud monitoring of internal .NET logging using Elmah.Io.Trace.
+---
+
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Trace.svg)](https://www.nuget.org/packages/Elmah.Io.Trace)
 
 # Logging to elmah.io from System.Diagnostics
 
-> Logging through `System.Diagnostics` has been deprecated. Please use the `Elmah.Io.Client` package to log trace messages to elmah.io.
+> Logging through `System.Diagnostics` have been deprecated. Please use the `Elmah.Io.Client` package to log trace messages to elmah.io.
 
-.NET comes with its own tracing/logging feature located in the [System.Diagnostics namespaces](https://msdn.microsoft.com/en-us/library/gg145030(v=vs.110).aspx). A core part of `System.Diagnostics` is the `Trace` class, but that namespace contains utilities for performance counters, working with the event log and a lot of other features. In this article, we will focus on logging to elmah.io from `System.Diagnostics.Trace`.
+.NET comes with its own tracing/logging feature located in the `System.Diagnostics` namespaces. A core part of `System.Diagnostics` is the `Trace` class, but that namespace contains utilities for performance counters, working with the event log, and a lot of other features. In this article, we will focus on logging to elmah.io from `System.Diagnostics.Trace`.
 
 To start logging, install the `Elmah.Io.Trace` package:
 
@@ -44,4 +49,4 @@ catch (Exception e)
 }
 ```
 
-In the example, we write an information message with the message `Starting something dangerous` and logs any thrown exception to elmah.io.
+In the example, we write an information message with the message `Starting something dangerous` and log any thrown exception to elmah.io.

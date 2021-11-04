@@ -1,10 +1,15 @@
+---
+title: Logging to elmah.io from SignalR
+description: Easy logging and error monitoring in SignalR using elmah.io and Microsoft.Extensions.Logging. Get instant notifications when errors happen.
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples/Elmah.Io.Extensions.Logging.AspNetCore31.SignalR)
 
 # Logging to elmah.io from SignalR
 
-Logging from SignalR is supported through our `Elmah.Io.Extensions.Logging package`. For details not included in this article, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
+Logging from SignalR is supported through our `Elmah.Io.Extensions.Logging` package. For details not included in this article, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
