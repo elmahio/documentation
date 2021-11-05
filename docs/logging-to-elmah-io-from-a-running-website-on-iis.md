@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from a running website on IIS
+description: Publishing a new version of your website may not always be an option when wanting to monitor errors. Learn about how to add elmah.io at runtime.
+---
+
 # Logging to elmah.io from a running website on IIS
 
 > Adding elmah.io on a running website isn't the recommended way to install. It should be used if you are unable to deploy a new version only.
@@ -16,7 +21,6 @@ From the folder where you ran the command, copy the following files to the `bin`
 elmah.corelibrary.x.y.z\lib\Elmah.dll
 elmah.io.x.y.z\lib\net45\Elmah.Io.dll
 Elmah.Io.Client.x.y.z\lib\<.net version your website is using>\Elmah.Io.Client.dll
-Microsoft.Rest.ClientRuntime.x.y.z\lib\net452\Microsoft.Rest.ClientRuntime.dll
 Newtonsoft.Json.x.y.z\lib\<.net version your website is using>\Newtonsoft.Json.dll
 ```
 
