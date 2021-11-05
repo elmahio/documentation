@@ -1,4 +1,9 @@
-﻿[![Build status](https://github.com/elmahio/serilog-sinks-elmahio/workflows/build/badge.svg)](https://github.com/elmahio/serilog-sinks-elmahio/actions?query=workflow%3Abuild)
+﻿---
+title: Logging to elmah.io from Serilog
+description: Add cloud logging of structured log messages from Serilog directly to elmah.io. Search, analyze, and instant notifications on new errors logged.
+---
+
+[![Build status](https://github.com/elmahio/serilog-sinks-elmahio/workflows/build/badge.svg)](https://github.com/elmahio/serilog-sinks-elmahio/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/serilog-sinks-elmahio/tree/main/examples)
 
@@ -6,9 +11,9 @@
 
 [TOC]
 
-Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog, but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders, because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
+Serilog is a great addition to the flowering .NET logging community, described as “A no-nonsense logging library for the NoSQL era” on their project page. Serilog works just like other logging frameworks such as log4net and NLog but offers a great fluent API and the concept of sinks (a bit like appenders in log4net). Sinks are superior to appenders because they threat errors as objects rather than strings, a perfect fit for elmah.io which itself is built on NoSQL. Serilog already comes with native support for elmah.io, which makes it easy to integrate with any application using Serilog.
 
-In this example we’ll use a ASP.NET MVC project as an example. Neither Serilog nor elmah.io are bound to log errors from web applications. Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
+Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
 
 ```powershell fct_label="Package Manager"
 Install-Package Serilog.Sinks.ElmahIo
@@ -35,14 +40,14 @@ Log.Logger = log;
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don’t use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
+First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don't use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
 
-To log log exceptions to elmah.io through Serilog, is the `Log` class provided by Serilog:
+To log exceptions to elmah.io through Serilog use the `Log` class provided by Serilog:
 
 ```csharp
 try
 {
-    // Do some stuff which may cause an exception
+    // Do some stuff that may cause an exception
 }
 catch (Exception e)
 {
@@ -56,7 +61,7 @@ The Error method tells Serilog to log the error in the configured sinks, which i
 
 ## Logging custom properties
 
-Serilog support logging custom properties in three ways: As part of the log message, through enrichers and using `LogContext`. All three types of properties are implemented in the elmah.io sink as part of the Data dictionary to elmah.io.
+Serilog supports logging custom properties in three ways: As part of the log message, through enrichers, and using `LogContext`. All three types of properties are implemented in the elmah.io sink as part of the Data dictionary to elmah.io.
 
 The following example shows how to log all three types of properties:
 
@@ -74,7 +79,7 @@ using (LogContext.PushProperty("ThreadId", Thread.CurrentThread.ManagedThreadId)
 }
 ```
 
-Beneath the Data tab on the logged message details, the `ApplicationIdentifier`, `ThreadId` and `Type` properties can be found.
+Beneath the Data tab on the logged message details, the `ApplicationIdentifier`, `ThreadId`, and `Type` properties can be found.
 
 `Serilog.Sinks.ElmahIo` provides a range of reserved property names, that can be used to fill in data in the correct fields on the elmah.io UI. Let's say you want to fill the User field using structured logging only:
 
@@ -86,7 +91,7 @@ This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well
 
 ## Message hooks
 
-`Serilog.Sinks.ElmahIo` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core.
+`Serilog.Sinks.ElmahIo` provides message hooks similar to the integrations with ASP.NET and ASP.NET Core.
 
 > Message hooks require `Serilog.Sinks.ElmahIo` version `3.3.0` or newer.
 
@@ -107,7 +112,7 @@ Log.Logger =
         .CreateLogger();
 ```
 
-The example above includes a version number on all errors. Since the elmah.io sink also picks up encrichers specified with Serilog, this example could be implemented by enriching all log messages with a field named `version`.
+The example above includes a version number on all errors. Since the elmah.io sink also picks up enrichers specified with Serilog, this example could be implemented by enriching all log messages with a field named `version`.
 
 #### Include source code
 
@@ -172,7 +177,7 @@ The example above ignores any log message with the word `trace` in the title.
 
 ## ASP.NET Core
 
-Serilog provides a package for ASP.NET Core, that routes log messages from inside core through Serilog. We recommend to use this package together with the elmah.io sink, in order to capture warnings and errors happening inside ASP.NET Core.
+Serilog provides a package for ASP.NET Core, that routes log messages from inside the framework through Serilog. We recommend using this package together with the elmah.io sink, in order to capture warnings and errors happening inside ASP.NET Core.
 
 To use this, install the following packages:
 
@@ -234,7 +239,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-Now, all warnings, errors and fatals happening inside ASP.NET Core are logged to elmah.io.
+Now, all warnings, errors, and fatals happening inside ASP.NET Core are logged to elmah.io.
 
 A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through Serilog from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Serilog` NuGet package:
 
@@ -271,7 +276,7 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 ```
 
-There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and installing the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
+There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and install the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
 
 ```csharp
 .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
@@ -358,7 +363,7 @@ The elmah.io sink will automatically pick up the additional information and show
 
 ## Remove sensitive data
 
-Structured logging with Serilog is a great way to store a lot of contextual information about a log message. In some cases, it may result in sensitive data being stored in your log, though. We recommend you to remove any sensitive data from your log messages before storing them on elmah.io and anywhere else. To implement this, you can use the `OnMessage` event as already shown previously in the document:
+Structured logging with Serilog is a great way to store a lot of contextual information about a log message. In some cases, it may result in sensitive data being stored in your log, though. We recommend you remove any sensitive data from your log messages before storing them on elmah.io and anywhere else. To implement this, you can use the `OnMessage` event as already shown previously in the document:
 
 ```csharp
 OnMessage = msg =>

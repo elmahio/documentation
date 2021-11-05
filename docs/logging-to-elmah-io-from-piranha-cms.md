@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Piranha CMS
+description: Learn how to set up error logging to elmah.io from the headless CMS Piranha. Install a NuGet package and a few lines of code and you're done.
+---
+
 # Logging to elmah.io from Piranha CMS
 
 Piranha CMS is a popular headless CMS written in ASP.NET Core. elmah.io works with Piranha CMS out of the box. This document contains a quick installation guide for setting up elmah.io logging in Piranha CMS. For the full overview of logging from ASP.NET Core, check out [Logging to elmah.io from ASP.NET Core](/logging-to-elmah-io-from-aspnet-core/).

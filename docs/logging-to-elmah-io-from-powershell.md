@@ -1,6 +1,11 @@
+---
+title: Logging to elmah.io from PowerShell
+description: Learn how to set up error logging from a PowerShell script to elmah.io. Log errors during a build, a scheduled task, and similar with elmah.io.
+---
+
 # Logging to elmah.io from PowerShell
 
-In order for you to be able to log to elmah.io from PowerShell, you will need the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package. This package contains the raw client libraries for communicating with the [elmah.io API](https://api.elmah.io/swagger/index.html).
+For you to be able to log to elmah.io from PowerShell, you will need the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package. This package contains the raw client libraries for communicating with the [elmah.io API](https://api.elmah.io/swagger/index.html).
 
 First of all, you will need to include `elmah.io.client.dll` in your PowerShell script. How you do this is entirely up to you of course. You can place this assembly with your script or you can download it through NuGet on every execution. To download the elmah.io.client package through NuGet, you will need `nuget.exe`:
 
@@ -11,7 +16,7 @@ Invoke-WebRequest $source -OutFile $target
 Set-Alias nuget $target -Scope Global
 ```
 
-This script will download the latest version of the NuGet command line tool and make it available through the command `nuget`.
+This script will download the latest version of the NuGet command-line tool and make it available through the command `nuget`.
 
 To install elmah.io.client, run `nuget.exe`:
 
@@ -19,7 +24,7 @@ To install elmah.io.client, run `nuget.exe`:
 nuget install Elmah.Io.Client
 ```
 
-This will create a `Elmah.Io.Client-version` folder containing the latest stable version of the elmah.io.client package. Since you probably don't want to hardcode the path to the current version number, reference `Elmah.Io.Client.dll` and its dependencies using `Get-ChildItem` and a bit of recursive magic:
+This will create an `Elmah.Io.Client-version` folder containing the latest stable version of the elmah.io.client package. Since you probably don't want to hardcode the path to the current version number, reference `Elmah.Io.Client.dll` and its dependencies using `Get-ChildItem` and a bit of recursive magic:
 
 ```powershell
 $elmahIoClientPath = Get-ChildItem -Path . -Filter Elmah.Io.Client.dll -Recurse `
@@ -35,7 +40,7 @@ $jsonNetPath = Get-ChildItem -Path . -Filter Newtonsoft.Json.dll -Recurse `
 [Reflection.Assembly]::LoadFile($jsonNetPath.FullName)
 ```
 
-You now have `Elmah.Io.Client.dll` loaded into your shell and everything is set up in order to log to elmah.io. To do so, add try-catch around critical code:
+You now have `Elmah.Io.Client.dll` loaded into your shell and everything is set up to log to elmah.io. To do so, add try-catch around critical code:
 
 ```powershell
 $logger = [Elmah.Io.Client.ElmahioAPI]::Create("API_KEY")
