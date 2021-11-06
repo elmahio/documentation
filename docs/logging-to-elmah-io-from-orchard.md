@@ -1,8 +1,13 @@
+---
+title: Logging to elmah.io from Orchard CMS
+description: Learn how to set up error logging to elmah.io from Orchard CMS. Integration from either ASP.NET Core or MVC to start monitoring your website.
+---
+
 # Logging to elmah.io from Orchard CMS
 
-Orchard CMS is a free, open source community-focused content management system built on the ASP.NET MVC and ASP.NET Core platforms. This tutorial is written for the ASP.NET Core version of Orchard. If you want to log to elmah.io from the MVC version, you should follow our [tutorial for MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/).
+Orchard CMS is a free, open-source community-focused content management system built on the ASP.NET MVC and ASP.NET Core platforms. This tutorial is written for the ASP.NET Core version of Orchard. If you want to log to elmah.io from the MVC version, you should follow our [tutorial for MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/).
 
-To start logging to elmah.io, install the `Elmah.Io.Client` and ? Elmah.Io.AspNetCore` NuGet packages:
+To start logging to elmah.io, install the `Elmah.Io.Client` and `Elmah.Io.AspNetCore` NuGet packages:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Client
