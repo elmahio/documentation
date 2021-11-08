@@ -1,12 +1,17 @@
+---
+title: Logging to elmah.io from Logary
+description: Learn about how to set up logging to elmah.io from Logary. Add cloud logging and error monitoring to F# in a breeze with Logary and elmah.io.
+---
+
 [![Build status](https://ci.appveyor.com/api/projects/status/uf2n4l6a0tp7jq4p?svg=true)](https://ci.appveyor.com/project/haf/logary)
 [![NuGet](https://img.shields.io/nuget/v/Logary.Targets.Elmah.Io.svg)](https://www.nuget.org/packages/Logary.Targets.Elmah.Io/)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/logary/logary/tree/master/examples)
 
 # Logging to elmah.io from Logary
 
-Logary is a semantic logging framework like Serilog and Microsoft Semantic Logging. Combining semantic logs with elmah.io are a perfect fit, since elmah.io has been designed with semantics from the ground up.
+Logary is a semantic logging framework like Serilog and Microsoft Semantic Logging. Combining semantic logs with elmah.io is a perfect fit since elmah.io has been designed with semantics from the ground up.
 
-In this tutorial, we’ll add Logary to a Console application, but the process is almost identical with other project types. Create a new console application and add the elmah.io target for Logary:
+In this tutorial, we’ll add Logary to a Console application, but the process is almost identical to other project types. Create a new console application and add the elmah.io target for Logary:
 
 ```powershell fct_label="Package Manager"
 Install-Package Logary.Targets.Elmah.Io

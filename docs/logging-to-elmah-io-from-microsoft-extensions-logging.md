@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Microsoft.Extensions.Logging
+description: Learn about how to send structured logs from Microsoft.Extensions.Logging and ASP.NET Core to elmah.io. Add cloud logging with a NuGet package.
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
 [![Samples](https://img.shields.io/badge/samples-6-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples)
@@ -103,7 +108,7 @@ public class HomeController : Controller
 
 ### Include HTTP context
 
-A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET Core project. When combining the two, you would expect the log messages to contain relevant information from the HTTP context (like URL, status code, cookies, etc.). This is not the case out of the box, since Microsoft.Extensions.Logging doesn't know which project type that includes it.
+A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET Core project. When combining the two, you would expect the log messages to contain relevant information from the HTTP context (like URL, status code, cookies, etc.). This is not the case out of the box, since Microsoft.Extensions.Logging doesn't know which project type includes it.
 
 > Logging HTTP context requires `Elmah.Io.Extensions.Logging` version `3.6.x` or newer.
 
@@ -137,7 +142,7 @@ It's important to call the `UseElmahIoExtensionsLogging` method **after** any ca
 
 ## Logging custom properties
 
-`Elmah.Io.Extensions.Logging` support Microsoft.Extensions.Logging scopes from version `3.6.x`. In short, scopes are a way to decorate your log messages like enrichers in Serilog and context in NLog and log4net. By including properties to a scope, these properties automatically go into the *Data* tab on elmah.io.
+`Elmah.Io.Extensions.Logging` support Microsoft.Extensions.Logging scopes from version `3.6.x`. In short, scopes are a way to decorate your log messages like enrichers in Serilog and context in NLog and log4net. By including properties in a scope, these properties automatically go into the *Data* tab on elmah.io.
 
 To define a new scope, wrap your logging code in a `using`:
 
@@ -160,7 +165,7 @@ using (_logger.BeginScope(new Dictionary<string, object>
 }
 ```
 
-In this example, a log message with the template `Request to {url} caused an error` is logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
+In this example, a log message with the template `Request to {url} caused an error` to be logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
 
 An alternative is to use the `OnMessage` action. As an example, we'll add a version number to all messages:
 

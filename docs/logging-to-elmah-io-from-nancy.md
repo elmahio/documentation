@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Nancy
+description: Learn about how to add error monitoring and cloud logging to any Nancy website with elmah.io. Simply install two NuGet packages and you are done.
+---
+
 # Logging to elmah.io from Nancy
 
 As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the `Elmah.Io` NuGet package:
@@ -32,9 +37,9 @@ dotnet add package Nancy.Elmah
 paket add Nancy.Elmah
 ```
 
-It’s important that you install the elmah.io package before Nancy.Elmah, because both packages like to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.
+You must install the `Elmah.Io` package before `Nancy.Elmah`, because both packages like to add the ELMAH configuration to the web.config file. If you install it the other way around, you will need to add the elmah.io ErrorLog element manually.
 
-In order for Nancy to know how to log errors to Elmah, you need to add an override of the DefaultNancyBootstrapper. Create a new class in the root named Bootstrapper:
+For Nancy to know how to log errors to Elmah, you need to add an override of the DefaultNancyBootstrapper. Create a new class in the root named Bootstrapper:
 
 ```csharp
 using Nancy;
@@ -55,4 +60,4 @@ namespace Elmah.Io.NancyExample
 }
 ```
 
-The important thing in the code sample is line 13, where we tell Nancy.Elmah to hook into the pipeline of Nancy in order for it to catch and log HTTP errors. The second parameter for the Enable-method, lets us define a URL for the ELMAH error page, which can be used as an alternative to elmah.io for quick viewing of errors.
+The important thing in the code sample is line 13, where we tell Nancy.Elmah to hook into the pipeline of Nancy for it to catch and log HTTP errors. The second parameter for the Enable-method, lets us define a URL for the ELMAH error page, which can be used as an alternative to elmah.io for quick viewing of errors.

@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from NLog
+description: Set up cloud logging on NLog to start monitoring errors with elmah.io. Learn about our custom target that logs structured properties and more.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io.nlog/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.nlog/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
 [![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/main/samples)
@@ -45,7 +50,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-In the example we specify the level minimum as Info. This tells NLog to log only information, warning, error and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
+In the example, we specify the level minimum as Info. This tells NLog to log only information, warning, error, and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
 Log messages to elmah.io, just as with every other target and NLog:
 
@@ -174,7 +179,7 @@ You might not want the elmah.io API key and log Id inside the `NLog` section or 
 }
 ```
 
-Notice how the value of the `apiKey` and `logId` parameters have been replaced with `${configsetting:item=ElmahIo.*}`. In the bottom the `ElmahIo` section wrap the API key and log Id.
+Notice how the value of the `apiKey` and `logId` parameters have been replaced with `${configsetting:item=ElmahIo.*}`. At the bottom, the `ElmahIo` section wraps the API key and log Id.
 
 To make this work, you will need an additional line of C# when setting up NLog logging:
 
@@ -215,7 +220,7 @@ The example will log all log levels to elmah.io. For more information about how 
 
 ## Logging custom properties
 
-NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) to all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
+NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) in all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
 
 With custom properties, you can log additional key/value pairs with every log message. The elmah.io target for NLog supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
 
@@ -359,7 +364,7 @@ When logging through NLog from a web application, you may want to include HTTP c
 </system.webServer>
 ```
 
-For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fill in all possible fields on messages sent to elmah.io.
+For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fills in all possible fields on messages sent to elmah.io.
 
 ## Troubleshooting
 
