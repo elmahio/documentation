@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Google Cloud Functions
+description: Configure error monitoring and log management on Google Cloud Functions with elmah.io. Simple install of the integration and you're flying.
+---
+
 # Logging to elmah.io from Google Cloud Functions
 
 Logging to elmah.io from Google Cloud Functions uses our integration with *Microsoft.Extensions.Logging*. To start logging, install the `Elmah.Io.Extensions.Logging` NuGet package through the Cloud Shell or locally:

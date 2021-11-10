@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from JavaScript
+description: Set up error monitoring of single-page applications using elmah.io's integration with JavaScript. Works with React, Angular, Vue, and more.
+---
+
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
 [![Samples](https://img.shields.io/badge/samples-7-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
@@ -6,11 +11,11 @@
 
 [TOC]
 
-elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors, requires nothing more than installing the `elmahio.js` script on your website.
+elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors require nothing more than installing the `elmahio.js` script on your website.
 
 > Remember to [generate a new API key](https://docs.elmah.io/how-to-configure-api-key-permissions/) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
 
-`elmahio.js` support all modern browsers like Chrome, Edge, Firefox, and Safari. Internet Explorer 10 and 11 are supported too, but because of internal dependencies on the `stacktrace-gps` library, nothing older than IE10 is supported.
+`elmahio.js` supports all modern browsers like Chrome, Edge, Firefox, and Safari. Internet Explorer 10 and 11 are supported too, but because of internal dependencies on the `stacktrace-gps` library, nothing older than IE10 is supported.
 
 ## Installation
 
@@ -219,7 +224,7 @@ new Elmahio({
 
 ##### Application name
 
-The `application` property on elmah.io, can be set on all log messages by setting the `application` option:
+The `application` property on elmah.io can be set on all log messages by setting the `application` option:
 
 ```javascript
 new Elmahio({
@@ -243,7 +248,7 @@ new Elmahio({
 
 ##### Message filtering
 
-Log messages can be filtered, by adding an `filter` handler in options:
+Log messages can be filtered, by adding a `filter` handler in options:
 
 ```javascript
 new Elmahio({
@@ -271,11 +276,11 @@ new Elmahio({
 });
 ```
 
-In the example, all log [messages](#message-reference) are enriched with a data variable with they key `MyCustomKey` and value `MyCustomValue`.
+In the example, all log [messages](#message-reference) are enriched with a data variable with the key `MyCustomKey` and value `MyCustomValue`.
 
 ##### Handling errors
 
-To react on errors happening in elmah.io.javascript, subscribe to the `error` event:
+To react to errors happening in elmah.io.javascript, subscribe to the `error` event:
 
 ```javascript
 new Elmahio({
@@ -312,7 +317,7 @@ We are planning to enable automatic breadcrumbs in the future but for now, it's 
 
 ## Logging manually
 
-You may want to log errors manually or even log information messages from JavaScript. To do so, `Elmahio` is actually a logging framework too:
+You may want to log errors manually or even log information messages from JavaScript. To do so, `Elmahio` is a logging framework too:
 
 ```javascript
 var logger = new Elmahio({
@@ -385,7 +390,7 @@ console.error('This is an %s message.', 'error');
 
 ## IntelliSense
 
-If installing through npm or similar, Visual Studio should pick up the TypeScript mappings from the elmah.io.javascript package. If not, add the following line in the top of the JavaScript file where you wan't elmah.io.javascript IntelliSense:
+If installing through npm or similar, Visual Studio should pick up the TypeScript mappings from the elmah.io.javascript package. If not, add the following line at the top of the JavaScript file where you want elmah.io.javascript IntelliSense:
 
 ```xml
 /// <reference path="/path/to/elmahio.d.ts" />

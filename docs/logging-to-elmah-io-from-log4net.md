@@ -1,8 +1,13 @@
+---
+title: Logging to elmah.io from log4net
+description: Learn about how to add error monitoring and storing log4net messages in the cloud with elmah.io. Simple setup using a single NuGet package.
+---
+
 [![Build status](https://github.com/elmahio/elmah.io.log4net/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.log4net/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.log4net.svg)](https://www.nuget.org/packages/elmah.io.log4net)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.log4net/tree/main/samples)
 
-# Logging to elmah.io from Log4net
+# Logging to elmah.io from log4net
 
 [TOC]
 
