@@ -26,6 +26,9 @@ plugins:
             'IntegrateWith/Slack.md': 'elmah-io-apps-slack.md'
             'IntegrateWith/Zapier.md': 'integrate-elmah-io-with-zapier.md'
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
+    - git-revision-date-localized:
+        type: iso_date
+        enable_creation_date: true
 production: false
 nav:
 - Getting Started:
