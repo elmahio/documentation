@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Blazor
+description: Easy monitoring of Blazor web applications with elmah.io. Support for both Blazor server apps and Blazor WebAssembly.
+---
+
 # Logging to elmah.io from Blazor
 
 [TOC]

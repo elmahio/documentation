@@ -1,6 +1,11 @@
+---
+title: Logging to elmah.io from DevExpress (eXpressApp Framework)
+description: Learn about how to set up error monitoring in DevExpress (eXpressApp Framework). Add cloud logging by installing a single NuGet package only.
+---
+
 # Logging to elmah.io from DevExpress (eXpressApp Framework)
 
-eXpressApp Framework (XAF) is built on top of ASP.NET. Installing elmah.io corresponds any other ASP.NET site:
+eXpressApp Framework (XAF) is built on top of ASP.NET. Installing elmah.io corresponds to any other ASP.NET site:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io

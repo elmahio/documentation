@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from C# and console applications
+description: Set up logging from any C# and/or console application with the elmah.io client. In case you don't want to include a logging framework, use this.
+---
+
 # Logging to elmah.io from C\# and console applications
 
 [TOC]
@@ -48,7 +53,7 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
 {
     Title = "Hello World",
     Application = "Elmah.Io.Client sample",
-    Detail = "This is a long description of the error. Maybe even a stacktrace",
+    Detail = "This is a long description of the error. Maybe even a stack trace",
     Severity = Severity.Error.ToString(),
     Data = new List<Item>
     {

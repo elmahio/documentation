@@ -1,6 +1,11 @@
+---
+title: Logging to elmah.io from BlogEngine.NET
+description: Set up error monitoring and cloud logging of any BlogEngine.NET blog. Instant notifications when your blog is down os starts failing.
+---
+
 # Logging to elmah.io from BlogEngine.NET
 
-Because BlogEngine.NET is written in ASP.NET, it doesn’t really need any custom code to use ELMAH and elmah.io. In fact, ELMAH works out of the box for most web frameworks by Microsoft. If you are building and deploying the code yourself, installing elmah.io is achieved using our NuGet package:
+Because BlogEngine.NET is written in ASP.NET, it doesn't need any custom code to use ELMAH and elmah.io. ELMAH works out of the box for most web frameworks by Microsoft. If you are building and deploying the code yourself, installing elmah.io is achieved using our NuGet package:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io
@@ -27,7 +32,7 @@ Some of you may use the BlogEngine.NET binaries or even installed it using a one
 
 Where `API_KEY` is your API key and `LOG_ID` is your log ID.
 
-To wrap this up, you may have noticed that there’s a [NuGet package](https://www.nuget.org/packages/Elmah.BlogEngine.Net/) to bring ELMAH support into BlogEngine.NET. This package adds the ELMAH assembly and config as well as adds a nice BlogEngine.NET compliant URL for browsing errors. Feel free to use this package, but remember to add it after the elmah.io package. Also, make sure to clean up the dual error log configuration:
+To wrap this up, you may have noticed that there's a [NuGet package](https://www.nuget.org/packages/Elmah.BlogEngine.Net/) to bring ELMAH support into BlogEngine.NET. This package adds the ELMAH assembly and config as well as adds a nice BlogEngine.NET compliant URL for browsing errors. Feel free to use this package, but remember to add it after the elmah.io package. Also, make sure to clean up the dual error log configuration:
 
 ```xml
 <elmah>
