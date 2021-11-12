@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Azure Functions
+description: Logging errors to elmah.io from Azure Functions requires only a few lines of code. We've created a client specifically for Azure Functions.
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.Functions/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Functions/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Functions.svg)](https://www.nuget.org/packages/Elmah.Io.Functions)
 [![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Functions/tree/main/samples)
@@ -6,7 +11,7 @@
 
 [TOC]
 
-Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure Functions.
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions.
 
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
@@ -68,7 +73,7 @@ builder.Services.AddSingleton<IFunctionFilter, ElmahIoExceptionFilter>();
 #pragma warning restore CS0618 // Type or member is obsolete
 ```
 
-In your settings, add the `apiKey`and `logId` variables:
+In your settings, add the `apiKey` and `logId` variables:
 
 ```json
 {

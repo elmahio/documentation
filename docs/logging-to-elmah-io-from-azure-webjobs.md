@@ -1,12 +1,17 @@
+---
+title: Logging to elmah.io from Azure WebJobs
+description: Logging errors to elmah.io from Azure WebJobs requires only a few lines of code. We've created a client specifically for Azure WebJobs.
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.Functions/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Functions/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Functions.svg)](https://www.nuget.org/packages/Elmah.Io.Functions)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Functions/tree/b17a45991a724f79fb2cb154bbdf9edd0e2a15ce/samples/Elmah.Io.Functions.WebJob)
 
 # Logging to elmah.io from Azure WebJobs
 
-Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/), requires only a few lines of code. We've created a client specifically for Azure WebJobs.
+Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure WebJobs.
 
-> Support for Azure WebJobs have been stopped on version `3.1.23` of the `Elmah.Io.Functions` package. The newer versions only work with Azure Functions.
+> Support for Azure WebJobs has been stopped on version `3.1.23` of the `Elmah.Io.Functions` package. The newer versions only work with Azure Functions.
 
 Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 

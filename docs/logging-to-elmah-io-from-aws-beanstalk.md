@@ -1,4 +1,9 @@
-# Logging from AWS Beanstalk
+---
+title: Logging to elmah.io from AWS Beanstalk
+description: Logging to elmah.io from .NET applications deployed on AWS Beanstalk is as easy as with other cloud hosting services. Learn how to set it up.
+---
+
+# Logging to elmah.io from AWS Beanstalk
 
 [TOC]
 
@@ -8,7 +13,7 @@ Logging to elmah.io from .NET applications deployed on AWS Beanstalk is as easy 
 
 To install elmah.io in [ASP.NET](https://docs.elmah.io/logging-to-elmah-io-from-elmah/), [MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/), and/or [Web API](https://docs.elmah.io/logging-to-elmah-io-from-web-api/), please follow the guidelines for each framework. You can specify one set of API key and log ID in the `Web.config` file and another set in the `Web.release.config` file as explained here: [Use multiple logs for different environments](https://docs.elmah.io/use-multiple-logs-for-different-environments/).
 
-If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. In the bottom, you will see a section named *Environment properties*. Input your API key and log ID there:
+If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. At the bottom, you will see a section named *Environment properties*. Input your API key and log ID there:
 
 ![AWS Environment Properties](images/aws-environment-properties.png)
 
