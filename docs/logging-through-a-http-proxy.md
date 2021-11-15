@@ -1,8 +1,13 @@
+---
+title: Logging through a HTTP proxy
+description: Set up logging to elmah.io through an HTTP proxy server like squid or Nginx. Using a bit of XML you can configure logging without public access.
+---
+
 # Logging through a HTTP proxy
 
-You may find yourself in a situation, where your production web servers aren't allowing HTTP requests towards the public Internet. This also impacts the elmah.io client, which requires access to the URL https://api.elmah.io. A popular choice of implementing this kind of restriction nowadays, is through a HTTP proxy like squid.
+You may find yourself in a situation, where your production web servers aren't allowing HTTP requests towards the public Internet. This also impacts the elmah.io client, which requires access to the URL https://api.elmah.io. A popular choice of implementing this kind of restriction nowadays is through a HTTP proxy like Squid or Nginx.
 
-Luckily the elmah.io client supports proxy configuration out of the box. Let’s look at how to configure a HTTP proxy through `web.config`:
+Luckily the elmah.io client supports proxy configuration out of the box. Let's look at how to configure a HTTP proxy through `web.config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

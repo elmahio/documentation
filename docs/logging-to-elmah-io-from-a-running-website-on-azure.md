@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from a running website on Azure
+description: Using the elmah.io Site Extension for Azure App Services, error logging can be added to an already running website on Azure. Learn how.
+---
+
 # Logging to elmah.io from a running website on Azure
 
 > Adding elmah.io on a running website isn't the recommended way to install. It should be used if you are unable to deploy a new version only.

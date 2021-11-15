@@ -1,3 +1,8 @@
+---
+title: Logging to elmah.io from Angular
+description: Learn how to utilize elmah.io.javascript to log uncaught errors from Angular apps to elmah.io. Get instant notifications when your SPA fails.
+---
+
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
 [![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
