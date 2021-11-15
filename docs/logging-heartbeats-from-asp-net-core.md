@@ -1,8 +1,13 @@
+---
+title: Logging heartbeats from ASP.NET Core
+description: ASP.NET Core offers a feature called Health Checks. Heartbeats on elmah.io support health checks too by publishing results as heartbeats.
+---
+
 # Logging heartbeats from ASP.NET Core
 
 [TOC]
 
-ASP.NET Core offers a feature called Health Checks from version 2.2 and forward. For more information about health checks, check out our blog post: [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/). The Heartbeats feature on elmah.io support health checks too, by publishing health check results as heartbeats.
+ASP.NET Core offers a feature called Health Checks from version 2.2 and forward. For more information about health checks, check out our blog post: [ASP.NET Core 2.2 Health Checks Explained](https://blog.elmah.io/asp-net-core-2-2-health-checks-explained/). The Heartbeats feature on elmah.io supports health checks too, by publishing health check results as heartbeats.
 
 To publish health checks as elmah.io heartbeats, install the `Elmah.Io.AspNetCore.HealthChecks` NuGet package:
 
@@ -50,7 +55,7 @@ services
     });
 ```
 
-If `Application` is not set, log messages will receive a default value of `Heartbeats` to make the messages distinguable from other messages.
+If `Application` is not set, log messages will receive a default value of `Heartbeats` to make the messages distinguishable from other messages.
 
 ### Callbacks
 
@@ -58,7 +63,7 @@ The elmah.io publisher offer callbacks already known from `Elmah.Io.AspNetCore`.
 
 **OnHeartbeat**
 
-The `OnHeartbeat` callback can be used to set a version number on all log messages produced by a heartbeat and/or trigger your own code every time a heartbeat is logged to elmah.io:
+The `OnHeartbeat` callback can be used to set a version number on all log messages produced by a heartbeat and/or trigger custom code every time a heartbeat is logged to elmah.io:
 
 ```csharp
 services
@@ -136,7 +141,7 @@ If setting `Period` to 5 minutes, you should set the heartbeat interval on elmah
 
 ## Ignoring heartbeats on localhost, staging, etc.
 
-Monitoring hearbeats is important in your production environment. When running locally or even on staging, you probably don't want to monitor heartbeats. ASP.NET Core health checks doesn't seem to support a great deal of configuration through `appsettings.json`, Azure app settings, etc. The easiest way to tell ASP.NET Core to log heartbeats to elmah.io, is to avoid setting up health checks unless a heartbeat id is configured:
+Monitoring heartbeats is important in your production environment. When running locally or even on staging, you probably don't want to monitor heartbeats. ASP.NET Core health checks doesn't seem to support a great deal of configuration through `appsettings.json`, Azure app settings, etc. The easiest way to tell ASP.NET Core to log heartbeats to elmah.io is to avoid setting up health checks unless a heartbeat id is configured:
 
 ```csharp
 if (!string.IsNullOrWhiteSpace(Configuration["ElmahIo:HeartbeatId"]))

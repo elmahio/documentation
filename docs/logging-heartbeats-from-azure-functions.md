@@ -1,12 +1,17 @@
+---
+title: Logging heartbeats from Azure Functions
+description: Monitor scheduled Azure Functions with elmah.io Heartbeats. Get instant notifications when someone accidentally stops or misconfigures functions.
+---
+
 # Logging heartbeats from Azure Functions
 
 [TOC]
 
-Azure Functions are great candidates for adding heartbeats. For web API's implemented with Azure Functions, you should create a `/health` endpoint and ping that using Uptime Monitoring. But for timer triggered, queue triggers, and similar function apps, heartbeats are a great way to verify that your function is successfully running. The rest of this document is split into different ways of adding heartbeats to one or more functions.
+Azure Functions are great candidates for adding heartbeats. For web APIs implemented with Azure Functions, you should create a `/health` endpoint and ping that using Uptime Monitoring. But for timer triggered, queue triggers, and similar function apps, heartbeats are a great way to verify that your function is successfully running. The rest of this document is split into different ways of adding heartbeats to one or more functions.
 
 ## Using a filter in Elmah.Io.Functions
 
-The easiest way of including a heartbeat is to include the `ElmahIoHeartbeatFilter` available in the `Elmah.Io.Functions` package. This will automatically publish a `Healthy` or `Unhealthy` heartbeat, depending on if your functions execute successfully. This option is great for timer triggered functions like nightly batch jobs.
+The easiest way of including a heartbeat is to include the `ElmahIoHeartbeatFilter` available in the `Elmah.Io.Functions` package. This will automatically publish a `Healthy` or `Unhealthy` heartbeat, depending on if your functions execute successfully. This option is great for timer-triggered functions like nightly batch jobs.
 
 Start by installing the `Elmah.Io.Functions` package:
 
@@ -167,7 +172,7 @@ If your function code executes successfully, a `Healthy` heartbeat is created. I
 
 ## Using a separate heartbeat function
 
-You may want a single heartbeat representing your entire function app consisting of multiple functions. This is a good option if you want to create heartbeats from queue triggered functions or similar. In these cases, you don't want to create a heartbeat every time a message from the queue is handled, but you will want to notify elmah.io if dependencies like database connection suddenly aren't available. We recommend creating a new heartbeat function for this kind of functions. Like in the previous example, make sure to extend your `Startup.cs` file like this:
+You may want a single heartbeat representing your entire function app consisting of multiple functions. This is a good option if you want to create heartbeats from queue-triggered functions or similar. In these cases, you don't want to create a heartbeat every time a message from the queue is handled, but you will want to notify elmah.io if dependencies like database connection suddenly aren't available. We recommend creating a new heartbeat function for this kind of Function. Like in the previous example, make sure to extend your `Startup.cs` file like this:
 
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;

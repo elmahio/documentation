@@ -1,6 +1,11 @@
+---
+title: Logging from a custom HTTP module
+description: Learn how to gather the configuration of multiple loggers to different destinations using a custom HTTP module in ASP.NET.
+---
+
 # Logging from a custom HTTP module
 
-Some developers like to gather all logging into a single module. An example of this would be to log to multiple log destinations and maybe even enrich log messages to multiple loggers with the same info. We always recommend using the modules and handlers that comes with ELMAH. But in case you want to log from a module manually, here's the recipe:
+Some developers like to gather all logging into a single module. An example of this would be to log to multiple log destinations and maybe even enrich log messages to multiple loggers with the same info. We always recommend using the modules and handlers that come with ELMAH. But in case you want to log from a module manually, here's the recipe:
 
 ```csharp
 public class CustomLoggingModule : IHttpModule

@@ -1,3 +1,8 @@
+---
+title: Logging heartbeats from AWS Lambdas
+description: AWS Lambdas running on a schedule are great candidates for logging heartbeats to elmah.io. Learn how to monitor that your lambdas run here.
+---
+
 # Logging heartbeats from AWS Lambdas
 
 AWS Lambdas running on a schedule are great candidates for logging heartbeats to elmah.io. To send a healthy heartbeat when the Lambda runs successfully and an unhealthy heartbeat when an error happens, start by installing the `Elmah.Io.Client` NuGet package:

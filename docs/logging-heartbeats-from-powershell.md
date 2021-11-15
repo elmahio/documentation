@@ -1,3 +1,8 @@
+---
+title: Logging heartbeats from PowerShell
+description: Monitor successful executions of PowerShell scheduled tasks and services with elmah.io Heartbeats. Get a notification when a job stops running.
+---
+
 # Logging heartbeats from PowerShell
 
 The Heartbeats feature is a great way to verify that scripts run successfully too. A lot of people have PowerShell scripts running on a schedule to clean up folders on the file system, make batch changes in a database, and more.

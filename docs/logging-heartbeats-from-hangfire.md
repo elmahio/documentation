@@ -1,10 +1,15 @@
+---
+title: Logging heartbeats from Hangfire
+description: Monitoring if Hangfire tasks are successfully executed or even run can be a challenge. With elmah.io Heartbeats, we provide native monitoring.
+---
+
 [![Build status](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Heartbeats.Hangfire.svg)](https://www.nuget.org/packages/Elmah.Io.Heartbeats.Hangfire)
 [![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/tree/main/samples)
 
 # Logging heartbeats from Hangfire
 
-Scheduling recurring tasks with Hangfire is easy. Monitoring if tasks successfully execute or even run can be a challenge. With elmah.io Heartbeats we provide native monitoring of Hangfire recurring taks.
+Scheduling recurring tasks with Hangfire is easy. Monitoring if tasks are successfully executed or even run can be a challenge. With elmah.io Heartbeats, we provide native monitoring of Hangfire recurring tasks.
 
 To publish heartbeats from Hangifre, install the `Elmah.Io.Heartbeats.Hangfire` NuGet package:
 
@@ -49,7 +54,7 @@ When the job successfully runs, a `Healthy` heartbeat is logged to elmah.io. If 
 
 ## Move configuration to config files
 
-You normally don't include your API key, log ID and heartbeat ID in C# code as shown in the example above. Unfortunately, Hangfire attributes doesn't support dependency injection or configuration from config files. There's a small "hack" that you can use to move configuration to a configuration file by creating a custom attribute:
+You normally don't include your API key, log ID, and heartbeat ID in C# code as shown in the example above. Unfortunately, Hangfire attributes doesn't support dependency injection or configuration from config files. There's a small "hack" that you can use to move the configuration to a configuration file by creating a custom attribute:
 
 ```csharp
 using Elmah.Io.Heartbeats.Hangfire;
@@ -93,7 +98,7 @@ public void Test()
 }
 ```
 
-As an alternative you can register the `ElmahIoHeartbeatAttribute` as a global attribute. In this example we use `IConfiguration` in ASP.NET Core to fetch configuration from the `appsettings.json` file:
+As an alternative, you can register the `ElmahIoHeartbeatAttribute` as a global attribute. In this example we use `IConfiguration` in ASP.NET Core to fetch configuration from the `appsettings.json` file:
 
 ```csharp
 public class Startup

@@ -1,3 +1,8 @@
+---
+title: Logging heartbeats from cURL
+description: Sometimes is just easier to use cURL when needing to call a REST API. Creating elmah.io heartbeats is easy using cURL and fits well into scripts.
+---
+
 # Logging heartbeats from cURL
 
 Sometimes is just easier to use cURL when needing to call a REST API. Creating elmah.io heartbeats is easy using cURL and fits well into scripts, scheduled tasks, and similar.
