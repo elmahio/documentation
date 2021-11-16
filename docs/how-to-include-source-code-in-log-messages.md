@@ -1,3 +1,8 @@
+---
+title: How to include source code in log messages
+description: SIn this article, you will learn how to include source code when logging messages using the Elmah.Io.Client.Extensions.SourceCode NuGet package.
+---
+
 # How to include source code in log messages
 
 [TOC]

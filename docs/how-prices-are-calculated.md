@@ -1,14 +1,19 @@
+---
+title: How prices are calculated
+description: When using elmah.io, you may experience the need to switch plans, update your credit card, or similar. This article explains the different paths.
+---
+
 # How prices are calculated
 
-When using elmah.io, you may experience the need to switch plan, update your credit card, and other tasks which will require changes to your subscription. This document explains the different upgrade/downgrade and payment paths.
+When using elmah.io, you may experience the need to switch plans, update your credit card, or do other tasks which will require changes to your subscription. This document explains the different upgrade/downgrade and payment paths.
 
 ## Switch to a higher plan
 
-You can switch to a larger plan at all times. If you purchased a Small Business ($29) on June 1 and want to upgrade to Business ($49) on June 15, we charge you ~ $35. You already paid $15 for half of June on the Small Business plan, why the remaining amount is deducted from the $49. Your next payment will be on July 15.
+You can switch to a larger plan at all times. If you purchased a Small Business ($29) on June 1 and want to upgrade to Business ($49) on June 15, we charge you ~ $35. You already paid $15 for half of June on the Small Business plan, so the remaining amount is deducted from the $49. Your next payment will be on July 15.
 
 ## Switch to a lower plan
 
-You can switch to a lower plan, when your current subscription is renewed. If you purchased a Business plan ($49) on June 15. and downgrade to a Small Business plan ($29) on July 1, you would be charged $49 on June 15, and $29 on July 15. You commit to either a month or a year in advance.
+You can switch to a lower plan when your current subscription is renewed. If you purchased a Business plan ($49) on June 15. and downgrade to a Small Business plan ($29) on July 1, you would be charged $49 on June 15, and $29 on July 15. You commit to either a month or a year in advance.
 
 ## Update your credit card
 

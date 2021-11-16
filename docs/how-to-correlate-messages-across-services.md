@@ -1,3 +1,8 @@
+---
+title: How to correlate messages across services
+description: A common architecture is to spread out code across multiple services. Learn how to use the correlation feature on elmah.io to batch log messages.
+---
+
 # How to correlate messages across services
 
 [TOC]
@@ -33,7 +38,7 @@ In a real-world scenario, `myCorrelationId` wouldn't be hardcoded but pulled fro
 
 ## Setting CorrelationId
 
-How you set the correlation ID depend on which integration you are using. In some cases, a correlation ID is set automatically while others will require a few lines of code.
+How you set the correlation ID depends on which integration you are using. In some cases, a correlation ID is set automatically while others will require a few lines of code.
 
 ### ASP.NET Core
 
@@ -106,7 +111,7 @@ Log.Logger =
 
 ### NLog
 
-Correlation ID can set on log messages logged through NLog in multiple ways. The first approach is to include the ID directly in the log message:
+Correlation ID can be set on log messages logged through NLog in multiple ways. The first approach is to include the ID directly in the log message:
 
 ```csharp
 logger.Info("A log message with {correlationId}", "42");
@@ -146,7 +151,7 @@ log.Logger.Log(new LoggingEvent(new LoggingEventData
 }));
 ```
 
-You most likely use the `Info`, `Warn`, and similar helper methods to store log messages. In this case you can set the correlation ID on the `ThreadContext`:
+You most likely use the `Info`, `Warn`, and similar helper methods to store log messages. In this case, you can set the correlation ID on the `ThreadContext`:
 
 ```csharp
 ThreadContext.Properties["correlationid"] = "42";
@@ -157,7 +162,7 @@ Please notice that `correlationid` in both examples must be in all lowercase.
 
 ## W3C Trace Context
 
-The class `Activity` has been mentioned a couple of times already. Let's take a look at what that is and how it relates to W3C Trace Context. Trace Context is a specification by W3C for implementing distributed tracing across multiple processes which is already widely adopted. If you generate a trace identifier in a client initiating a chain of events, different Microsoft technologies like ASP.NET Core already pick up the extended set of headers and include those as part of log messages logged through Microsoft.Extensions.Logging.
+The class `Activity` has been mentioned a couple of times already. Let's take a look at what that is and how it relates to W3C Trace Context. Trace Context is a specification by W3C for implementing distributed tracing across multiple processes which are already widely adopted. If you generate a trace identifier in a client initiating a chain of events, different Microsoft technologies like ASP.NET Core already pick up the extended set of headers and include those as part of log messages logged through Microsoft.Extensions.Logging.
 
 Let's say we have a console application calling an API and we want to log messages in both the console app and in the API and correlate them in elmah.io. In both the console app and in the ASP.NET Core application, you would set up `Elmah.Io.Extensions.Logging` using the default configuration. Then in the console application, you will wrap the call to the API in an `Activity`:
 
@@ -208,4 +213,4 @@ public class PingController : ControllerBase
 }
 ```
 
-Notice that we didn't have to decorate log messages with additional properties. ASP.NET Core automatically picks up the new headers and decorate all log messages with the correct trace ID.
+Notice that we didn't have to decorate log messages with additional properties. ASP.NET Core automatically picks up the new headers and decorates all log messages with the correct trace ID.

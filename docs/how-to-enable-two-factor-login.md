@@ -1,3 +1,8 @@
+---
+title: How to enable two-factor login
+description: elmah.io supports two-factor login through either one of the social providers or two-factor apps like Authenticator or Authy. Learn how it works.
+---
+
 # How to enable two-factor login
 
 [TOC]

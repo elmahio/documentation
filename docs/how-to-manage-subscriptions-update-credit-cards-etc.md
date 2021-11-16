@@ -1,3 +1,8 @@
+---
+title: How to manage subscriptions, update credit cards, etc.
+description: Learn about how subscriptions work on elmah.io. How to change plan, update credit card, purchase top-up, cancel the subscription, and more.
+---
+
 # How to manage subscriptions, update credit cards, etc.
 
 Your subscription is managed from the organization settings page.
@@ -22,4 +27,4 @@ If your recent payment failed or you received a new credit card from your bank, 
 
 ## Cancel Subscription
 
-To cancel your current subscription you can click the Cancel Subscription button. This will open the chat where we will guide you through the process. We don't use a manual offboarding process to try and convince your to stay or to make it hard for you to leave. When leaving a system like elmah.io, we need additional details from you like when you want to cancel (mostly geared towards annual subscriptions) and to make sure that you have backed-up all data from elmah.io before it is cleaned up.
+To cancel your current subscription you can click the Cancel Subscription button. This will open the chat where we will guide you through the process. We don't use a manual offboarding process to try and convince your to stay or to make it hard for you to leave. When leaving a system like elmah.io, we need additional details from you like when you want to cancel (mostly geared towards annual subscriptions) and to make sure that you have backed up all data from elmah.io before it is cleaned up.

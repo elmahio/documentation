@@ -1,3 +1,8 @@
+---
+title: Logging breadcrumbs from ASP.NET Core
+description: You can log one or more breadcrumbs as part of both automatic and manually logged errors. Learn how to set it up to understand why errors happen.
+---
+
 # Logging breadcrumbs from ASP.NET Core
 
 [TOC]
@@ -41,7 +46,7 @@ public class BreadcrumbFilterAttribute : ActionFilterAttribute
 }
 ```
 
-The action filter converts the action arguments to a comma-separated string at log it as a breadcrumb. You can either decorate each controller with the `BreadcrumbFilterAttribute` or add it globally:
+The action filter converts the action arguments to a comma-separated string and logs it as a breadcrumb. You can either decorate each controller with the `BreadcrumbFilterAttribute` or add it globally:
 
 ```csharp
 var mvcBuilder = services.AddControllersWithViews(options =>

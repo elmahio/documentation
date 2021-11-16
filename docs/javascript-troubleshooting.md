@@ -1,3 +1,8 @@
+---
+title: JavaScript Troubleshooting
+description: When JavaScript errors are not sent to elmah.io it can be caused by a range of issues. Learn how to troubleshoot problems like this in this doc.
+---
+
 # JavaScript Troubleshooting
 
 ## Errors aren't logged
@@ -5,8 +10,8 @@
 If errors aren't logged from JavaScript, here's a list of things to try out:
 
 - Make sure that the log with the specified ID exists.
-- Make sure that the log isn't disabled and/or contain any ignore filters that could ignore client-side errors.
-- Make sure that the API key is valid and contain the *Messages* | *Write* permission.
+- Make sure that the log isn't disabled and/or contains any ignore filters that could ignore client-side errors.
+- Make sure that the API key is valid and contains the *Messages* | *Write* permission.
 - Enable debugging when initializing `elmah.io.javascript` to get additional debug and error messages from within the script printed to the browser console:
 
 ```javascript
@@ -17,7 +22,7 @@ new Elmahio({
 });
 ```
 
-- If your webserver include the `Content-Security-Policy` header make sure to include `api.elmah.io` as an allowed domain.
+- If your webserver includes the `Content-Security-Policy` header make sure to include `api.elmah.io` as an allowed domain.
 
 ## Missing information on log messages
 
@@ -60,7 +65,7 @@ When running with `elmah.io.javascript` on localhost you may see errors in the c
 Access to XMLHttpRequest at 'https://api.elmah.io/v3/messages/...' from origin 'http://localhost' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 ```
 
-Browsers like Chrome doesn't allow CORS when running locally. There are three ways to fix this:
+Browsers like Chrome don't allow CORS when running locally. There are three ways to fix this:
 
 1. Run Chrome with the `--disable-web-security` switch.
 2. Run your website on a hostname like `https://mymachine`.
