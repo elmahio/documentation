@@ -26,6 +26,7 @@ plugins:
             'IntegrateWith/Slack.md': 'elmah-io-apps-slack.md'
             'IntegrateWith/Zapier.md': 'integrate-elmah-io-with-zapier.md'
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
+            'export-data-from-elmah-io-to-json.md': "cli-export.md"
     - git-revision-date-localized:
         type: iso_date
         enable_creation_date: true
@@ -172,7 +173,6 @@ nav:
     - How to correlate messages across services: how-to-correlate-messages-across-services.md
     - How to get elmah.io to resolve the correct client IP: how-to-get-elmah-io-to-resolve-the-correct-client-ip.md
     - How prices are calculated: how-prices-are-calculated.md
-    - Export data from elmah.io to JSON: export-data-from-elmah-io-to-json.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
