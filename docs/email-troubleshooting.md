@@ -1,3 +1,8 @@
+---
+title: Email troubleshooting
+description: So, you aren't receiving emails from elmah.io? Here is a collection of things to know/try out. Invalid address, bounced emails, and much more.
+---
+
 # Email troubleshooting
 
 [TOC]
@@ -24,7 +29,7 @@ As the error message says, get in contact for us to try and reach the email addr
 
 ## Invalid email
 
-Ok, this may seem obvious. But this happens more often than you would think. Typos are a common cause of invalid emails. Specifying a mailing list or group address doesn't always play nice with elmah.io either. For instance, Office 365 distribution groups block external emails as default. The easiest way to check your inputted email address is to send a new message to that address from an external email provider.
+Ok, this may seem obvious. But this happens more often than you would think. Typos are a common cause of invalid emails. Specifying a mailing list or group address doesn't always play nice with elmah.io either. For instance, Office 365 distribution groups block external emails as the default. The easiest way to check your inputted email address is to send a new message to that address from an external email provider.
 
 ## Check your promotional and/or spam folder
 
