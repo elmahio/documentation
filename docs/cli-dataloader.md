@@ -1,5 +1,6 @@
 ---
 title: Dataloader loads data from the CLI
+description: Learn about the dataloader CLI command and how you can use it to load log messages to elmah.io. Fill a log with test data to try out elmah.io.
 ---
 
 # Dataloader loads data from the CLI

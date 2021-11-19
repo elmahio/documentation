@@ -1,5 +1,6 @@
 ---
 title: Tail log messages from the CLI
+description: Learn about the tail CLI command and how you can use it to monitor your elmah.io logs from the command line. Inspect errors from the console.
 ---
 
 # Tail log messages from the CLI

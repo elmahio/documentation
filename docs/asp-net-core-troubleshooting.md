@@ -1,3 +1,8 @@
+---
+title: ASP.NET Core Troubleshooting
+description: In case your ASP.NET Core application isn't logging errors to elmah.io, there's a range of things you can try out. Get the checklist here.
+---
+
 # ASP.NET Core Troubleshooting
 
 So, your ASP.NET Core application doesn't log errors to elmah.io? Here is a list of things to try out:

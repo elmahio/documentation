@@ -1,5 +1,6 @@
 ---
 title: Log a message from the CLI
+description: Learn about the log CLI command and how you can use it to log messages to elmah.io. Log a message from a shell script, test API keys, and more.
 ---
 
 # Log a message from the CLI

@@ -1,5 +1,6 @@
 ---
 title: Exporting log messages from the CLI
+description: Learn about the export CLI command and how you can use it to export messages from elmah.io. Back up a log, import messages in another tool, etc.
 ---
 
 # Exporting log messages from the CLI

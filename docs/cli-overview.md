@@ -1,3 +1,8 @@
+---
+title: CLI overview
+description: Learn about the elmah.io CLI and how you can use it to automate common tasks from the command line. Export, tail, load test data, and more.
+---
+
 # CLI overview
 
 The elmah.io CLI lets you execute common tasks against elmah.io.
