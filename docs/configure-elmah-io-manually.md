@@ -1,6 +1,11 @@
+---
+title: Configure elmah.io manually
+description: When installing the elmah.io package, all config is automatically added. In case this doesn't work or you want to do it manually, here's a guide.
+---
+
 # Configure elmah.io manually
 
-The [Elmah.Io NuGet package](https://www.nuget.org/packages/elmah.io/) normally adds all of the necessary configuration, in order to get up and running with elmah.io. In fact, this is one of our killer features and our customers tell us, that we have the simplest installer on the market. In some cases, you may experience problems with the automatic configuration, though. Different reasons can cause the configuration not to be added automatically. The most common reason is restrictions to executing PowerShell inside Visual Studio.
+The [Elmah.Io NuGet package](https://www.nuget.org/packages/elmah.io/) normally adds all of the necessary configuration, to get up and running with elmah.io. This is one of our killer features and our customers tell us, that we have the simplest installer on the market. In some cases, you may experience problems with the automatic configuration, though. Different reasons can cause the configuration not to be added automatically. The most common reason is restrictions to executing PowerShell inside Visual Studio.
 
 Start by installing the `Elmah.Io` package:
 
@@ -116,4 +121,4 @@ In case you need to access your error log on `/elmah.axd`, you need to add the f
 </location>
 ```
 
-We don't recommend to browse your error logs through the `/elmah.axd` endpoint. The elmah.io UI will let you control different levels of access and more.
+We don't recommend browsing your error logs through the `/elmah.axd` endpoint. The elmah.io UI will let you control different levels of access and more.

@@ -1,6 +1,11 @@
+---
+title: Create deployments from Umbraco Cloud
+description: Umbraco Cloud uses Azure to host Umbraco websites, so supporting deployment tracking corresponds to the steps for Kudu. Learn more about it here.
+---
+
 # Create deployments from Umbraco Cloud
 
-Umbraco Cloud uses Azure to host Umbraco websites, why supporting deployment tracking pretty much corresponds the steps specified in [Using Kudu](#using-kudu). Navigate to `https://your-umbraco-site.scm.s1.umbraco.io` where `your-umbraco-site` is the name of your Umbraco site. Click the Debug console link and navigate to `site\deployments\tools\PostDeploymentActions\deploymenthooks` (create it if it doesn't exist). Notice the folder `deploymenthooks`, which is required in order for your scripts to run on Umbraco Cloud.
+Umbraco Cloud uses Azure to host Umbraco websites, so supporting deployment tracking pretty much corresponds to the steps specified in [Using Kudu](#using-kudu). Navigate to `https://your-umbraco-site.scm.s1.umbraco.io` where `your-umbraco-site` is the name of your Umbraco site. Click the Debug console link and navigate to `site\deployments\tools\PostDeploymentActions\deploymenthooks` (create it if it doesn't exist). Notice the folder `deploymenthooks`, which is required for your scripts to run on Umbraco Cloud.
 
 Unlike Kudu, Umbraco Cloud only executes `cmd` and `bat` files. Create a new `cmd` file:
 
@@ -59,6 +64,6 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-Replace `your-umbraco-site` with the name of your site, `MY_USERNAME` with your Umbraco Cloud username, `MY_PASSWORD` with your Umbraco Cloud password, `LOG_ID` with the id if the elmah.io log that should contain the deployments ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) and finally `API_KEY` with your elmah.io API key, found and your organization settings page.
+Replace `your-umbraco-site` with the name of your site, `MY_USERNAME` with your Umbraco Cloud username, `MY_PASSWORD` with your Umbraco Cloud password, `LOG_ID` with the id if the elmah.io log that should contain the deployments ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)), and finally `API_KEY` with your elmah.io API key, found and your organization settings page.
 
 There you go. When deploying changes to your Umbraco Cloud site, a new deployment is automatically created on elmah.io.

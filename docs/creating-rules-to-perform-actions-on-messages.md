@@ -1,3 +1,8 @@
+---
+title: Creating Rules to Perform Actions on Messages
+description: elmah.io comes with a great rule engine for performing various actions when messages are logged in your log. Learn about how to set them up here.
+---
+
 # Creating Rules to Perform Actions on Messages
 
 elmah.io comes with a great rule engine for performing various actions when messages are logged in your log.
@@ -12,17 +17,17 @@ The rule engine is located beneath each log on the log settings page:
 
 ![Rules Tab](images/rulestab.png)
 
-A rule consists of three parts: a title, a query and an action.
+A rule consists of three parts: a title, a query, and an action.
 
 The title should be a short text explaining what this rule does. We don't use the title for anything, so please write something that helps you identify rules and to keep them apart.
 
 The query should contain either a full-text search string or a Lucene query. When new messages are logged, the message is matched up against all queries registered on that log. If and only if a message matches a query, the action registered on the rule is performed.
 
-As mentioned above, the action part of a rule is executed when a message matches the query specified in the same rule. An action can be one of four types: Ignore, Hide, Mail and HTTP Request. In order to illustrate how to use each action type, here are four examples on useful rules.
+As mentioned above, the action part of a rule is executed when a message matches the query specified in the same rule. An action can be one of four types: Ignore, Hide, Mail, and HTTP Request. To illustrate how to use each action type, here are four examples of useful rules.
 
-## Ignore errors with a HTTP status code of 400
+## Ignore errors with an HTTP status code of 400
 
-To ignore all messages with a HTTP status code of 400, you would need to set-up the following:
+To ignore all messages with an HTTP status code of 400, you would need to set up the following:
 
 | Title | Query | Then |
 |---|---|---|
@@ -56,9 +61,9 @@ The rule would look like this in the UI:
 
 ![Then Email](images/thenemail.png)
 
-## Make a HTTP request on all new and fatal messages
+## Make an HTTP request on all new and fatal messages
 
-To make a HTTP request on every new message with a severity of `Fatal`, you would need to set up the following:
+To make an HTTP request on every new message with a severity of `Fatal`, you would need to set up the following:
 
 | Title | Query | Then |
 |---|---|---|

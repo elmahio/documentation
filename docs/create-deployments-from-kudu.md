@@ -1,6 +1,11 @@
+---
+title: Create deployments from Kudu
+description: Kudu is the engine behind Git deployments on Microsoft Azure. Learn how to create an elmah.io deployment when you deploy app services to Azure.
+---
+
 # Create deployments from Kudu
 
-Kudu is the engine behind Git deployments on Microsoft Azure. To create a new elmah.io deployment every time you deploy a new app service to Azure, add a new post deployment script by navigating your browser to `https://yoursite.scm.azurewebsites.net` where `yoursite` is the name of your Azure website. Click the Debug console and navigate to `site\deployments\tools\PostDeploymentActions` (create it if it doesn't exist).
+Kudu is the engine behind Git deployments on Microsoft Azure. To create a new elmah.io deployment every time you deploy a new app service to Azure, add a new post-deployment script by navigating your browser to `https://yoursite.scm.azurewebsites.net` where `yoursite` is the name of your Azure website. Click the Debug console and navigate to `site\deployments\tools\PostDeploymentActions` (create it if it doesn't exist).
 
 To create the new PowerShell file, write the following in the prompt:
 
@@ -8,7 +13,7 @@ To create the new PowerShell file, write the following in the prompt:
 touch CreateDeployment.ps1
 ``` 
 
-With a post deployment script running inside Kudu, we have the possibility to extract some more information about the current deployment. A full deployment PowerShell script for Kudu, would look like this:
+With a post-deployment script running inside Kudu, we can to extract some more information about the current deployment. A full deployment PowerShell script for Kudu would look like this:
 
 ```powershell
 $version = Get-Date -format u

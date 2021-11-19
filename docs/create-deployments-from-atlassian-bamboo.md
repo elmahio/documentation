@@ -1,6 +1,11 @@
+---
+title: Create deployments from Atlassian Bamboo
+description: Setting up elmah.io Deployment Tracking on Bamboo is easy using a bit of PowerShell. Learn how to monitor new deployments from Bamboo here.
+---
+
 # Create deployments from Atlassian Bamboo
 
-Setting up elmah.io Deployment Tracking on Bamboo, is easy using a bit of PowerShell.
+Setting up elmah.io Deployment Tracking on Bamboo is easy using a bit of PowerShell.
 
 1. Add a new Script Task and select *Windows PowerShell* in *Interpreter*.
 

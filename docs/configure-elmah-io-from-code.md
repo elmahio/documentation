@@ -1,3 +1,8 @@
+---
+title: Configure elmah.io from code
+description: ELMAH and elmah.io are normally configured in the web.config file when using ASP.NET. With a few lines of C#, you can configure it from code too.
+---
+
 # Configure elmah.io from code
 
 You typically configure elmah.io in your `web.config` file. With a little help from some custom code, you will be able to configure everything in code as well:
@@ -40,8 +45,8 @@ namespace ElmahFromCodeExample
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with a log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-Let’s look at the code. Our class `ElmahConfig` is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. Inside this method we set the `ServiceCenter.Current` property to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we actually created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the API key and log ID as explained earlier.
+Let's look at the code. Our class `ElmahConfig` is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. Inside this method, we set the `ServiceCenter.Current` property to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the API key and log ID as explained earlier.
 
-In the second line of the `Start`-method we call the `RegisterModule`-method with `ErrorLogModule` as parameter. This replaces the need for registering the module in `web.config` as part of the `system.webServer` element.
+In the second line of the `Start`-method, we call the `RegisterModule`-method with `ErrorLogModule` as parameter. This replaces the need for registering the module in `web.config` as part of the `system.webServer` element.
 
-That’s it! You no longer need the `<elmah>` element, config sections or anything else related to ELMAH and elmah.io in your `web.config` file.
+That's it! You no longer need the `<elmah>` element, config sections, or anything else related to ELMAH and elmah.io in your `web.config` file.

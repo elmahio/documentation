@@ -1,3 +1,8 @@
+---
+title: Create deployments from Azure DevOps Pipelines
+description: Notifying elmah.io about new deployments is possible as build steps in Azure DevOps, by adding some PowerShell. Learn how to monitor deployments.
+---
+
 # Create deployments from Azure DevOps Pipelines
 
 [TOC]

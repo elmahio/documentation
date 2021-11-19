@@ -1,3 +1,8 @@
+---
+title: Create deployments from GitHub Actions
+description: GitHub Actions is a great platform for releasing software too. Learn how to notify elmah.io when you deploy a new version of your project.
+---
+
 # Create deployments from GitHub Actions
 
 GitHub Actions is a great platform for building and releasing software. To notify elmah.io when you deploy a new version of your project, you will need an additional step in your build definition. Before you do that, start by creating new secrets:
@@ -37,7 +42,7 @@ Here's a full overview of properties:
 |---|---|---|
 | `apiKey` | ✔️ | An API key with permission to create deployments. |
 | `version` | ✔️ | The version number of this deployment. The value of version can be a SemVer compliant string or any other syntax that you are using as your version numbering scheme. You can use `${{ github.run_number }}` to use the build number as the version or you can pick another scheme or combine the two. |
-| `description` | | Optional description of this deployment. Can be markdown or clear text. The latest commit message can be used as the description by using `${{ github.event.head_commit.message }}`. |
+| `description` | | Optional description of this deployment. Can be markdown or cleartext. The latest commit message can be used as the description by using `${{ github.event.head_commit.message }}`. |
 | `userName` | | The name of the person responsible for creating this deployment. This can be set manually or dynamically using the `${{ github.actor }}` variable. |
 | `userEmail` | | The email of the person responsible for creating this deployment. There doesn't seem to be a way to pull the email responsible for triggering the build through variables, why this will need to be set manually. |
-| `logId` | | As default, deployments are attached all logs of the organization. If you want a deployment to attach to a single log only, set this to the ID of that log. |
+| `logId` | | As default, deployments are attached to all logs of the organization. If you want a deployment to attach to a single log only, set this to the ID of that log. |
