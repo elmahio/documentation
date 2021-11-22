@@ -33,6 +33,7 @@ jobs:
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
       - name: Update mkdocs.yml
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
+        run: sed -i 's/enabled:\ false/enabled:\ true/' mkdocs.yml
       - run: mkdocs gh-deploy --force --clean --verbose
       - name: Create Deployment on elmah.io
         uses: elmahio/github-create-deployment-action@v1

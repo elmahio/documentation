@@ -28,6 +28,7 @@ plugins:
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
             'export-data-from-elmah-io-to-json.md': "cli-export.md"
     - git-revision-date-localized:
+        enabled: false
         type: iso_date
         enable_creation_date: true
 production: false
