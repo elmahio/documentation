@@ -1,6 +1,6 @@
 ---
 title: Documentation for integrations and elmah.io features
-description: Here you will find updated documentation on how to use elmah.io. From our different integrations to all of the features available, this is the place to look for help.
+description: Here you will find updated documentation on how to use elmah.io. From our integrations to all of the features, this is the place to get help.
 ---
 
 # elmah.io Installation Quick Start
