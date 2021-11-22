@@ -31,8 +31,9 @@ jobs:
       - run: pip install markdown-fenced-code-tabs
       - run: pip install mkdocs-redirects
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
-      - name: Update mkdocs.yml
+      - name: Update mkdocs.yml - production TRUE
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
+      - name: Update mkdocs.yml - git-revision-date-localized ENABLED
         run: sed -i 's/enabled:\ false/enabled:\ true/' mkdocs.yml
       - run: mkdocs gh-deploy --force --clean --verbose
       - name: Create Deployment on elmah.io
