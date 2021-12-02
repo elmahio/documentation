@@ -155,7 +155,7 @@ Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
 dotnet add package Elmah.Io.Blazor.Wasm --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Blazor.Wasm" Version="3.0.8-pre" />
+<PackageReference Include="Elmah.Io.Blazor.Wasm" Version="3.0.14-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Blazor.Wasm
