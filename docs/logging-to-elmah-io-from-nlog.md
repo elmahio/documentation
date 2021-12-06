@@ -5,7 +5,7 @@ description: Set up cloud logging on NLog to start monitoring errors with elmah.
 
 [![Build status](https://github.com/elmahio/elmah.io.nlog/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.nlog/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.nlog.svg)](https://www.nuget.org/packages/elmah.io.nlog)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/elmah.io.nlog/tree/main/samples)
 
 # Logging to elmah.io from NLog
 

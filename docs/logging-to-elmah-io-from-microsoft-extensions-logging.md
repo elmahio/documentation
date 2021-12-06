@@ -5,7 +5,7 @@ description: Learn about how to send structured logs from Microsoft.Extensions.L
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Extensions.Logging.svg)](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging)
-[![Samples](https://img.shields.io/badge/samples-6-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-8-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples)
 
 # Logging to elmah.io from Microsoft.Extensions.Logging
 
