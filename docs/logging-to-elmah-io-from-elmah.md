@@ -5,7 +5,7 @@ description: This article will explain the steps necessary to log errors from AS
 
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.svg)](https://www.nuget.org/packages/Elmah.Io)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io/tree/master/samples)
 
 # Logging to elmah.io from ASP.NET / WebForms
 
