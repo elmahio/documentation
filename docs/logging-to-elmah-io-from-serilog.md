@@ -294,6 +294,54 @@ There's a problem with this approach when an endpoint throws an uncaught excepti
 })
 ```
 
+## ASP.NET
+
+Messages logged through Serilog in an ASP.NET WebForms, MVC, or Web API application can be enriched with a range of HTTP contextual information using the `SerilogWeb.Classic` NuGet package. Start by installing the package:
+
+```powershell fct_label="Package Manager"
+Install-Package SerilogWeb.Classic
+```
+```cmd fct_label=".NET CLI"
+dotnet add package SerilogWeb.Classic
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="SerilogWeb.Classic" Version="5.*" />
+```
+```xml fct_label="Paket CLI"
+paket add SerilogWeb.Classic
+```
+
+The package includes automatic HTTP request and response logging as well as some Serilog enrichers. Unless you are trying to debug a specific problem with your website, we recommend disabling HTTP logging since that will produce a lot of messages (depending on the traffic on your website). HTTP logging can be disabled by including the following code in the `Global.asax.cs` file:
+
+```csharp
+protected void Application_Start()
+{
+    SerilogWebClassic.Configure(cfg => cfg
+        .Disable()
+    );
+
+    // ...
+}
+```
+
+To enrich log messages with HTTP contextual information you can configure one or more enrichers in the same place as you configure the elmah.io sink:
+
+```csharp
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID")))
+    .Enrich.WithHttpRequestClientHostIP()
+    .Enrich.WithHttpRequestRawUrl()
+    .Enrich.WithHttpRequestType()
+    .Enrich.WithHttpRequestUrl()
+    .Enrich.WithHttpRequestUserAgent()
+    .Enrich.WithUserName(anonymousUsername:null)
+    .CreateLogger();
+```
+
+This will automatically fill in fields on elmah.io like URL, method, client IP, and UserAgent.
+
+Check out [this full sample](https://github.com/elmahio/serilog-sinks-elmahio/tree/main/examples/Serilog.Sinks.ElmahIo.AspNet) for more details.
+
 ## Config using appsettings.json
 
 While Serilog provides a great fluent C# API, some prefer to configure Serilog using an `appsettings.json` file. To configure the elmah.io sink this way, you will need to install the `Serilog.Settings.Configuration` NuGet package. Then configure elmah.io in your `appsettings.json` file:
