@@ -3,9 +3,7 @@ title: Logging to elmah.io from Logary
 description: Learn about how to set up logging to elmah.io from Logary. Add cloud logging and error monitoring to F# in a breeze with Logary and elmah.io.
 ---
 
-[![Build status](https://ci.appveyor.com/api/projects/status/uf2n4l6a0tp7jq4p?svg=true)](https://ci.appveyor.com/project/haf/logary)
-[![NuGet](https://img.shields.io/nuget/v/Logary.Targets.Elmah.Io.svg)](https://www.nuget.org/packages/Logary.Targets.Elmah.Io/)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/logary/logary/tree/master/examples)
+[![NuGet](https://img.shields.io/nuget/v/Logary.Targets.ElmahIO.svg)](https://www.nuget.org/packages/Logary.Targets.ElmahIO/)
 
 # Logging to elmah.io from Logary
 
@@ -14,16 +12,16 @@ Logary is a semantic logging framework like Serilog and Microsoft Semantic Loggi
 In this tutorial, we’ll add Logary to a Console application, but the process is almost identical to other project types. Create a new console application and add the elmah.io target for Logary:
 
 ```powershell fct_label="Package Manager"
-Install-Package Logary.Targets.Elmah.Io
+Install-Package Logary.Targets.ElmahIO
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Logary.Targets.Elmah.Io
+dotnet add package Logary.Targets.ElmahIO
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Logary.Targets.Elmah.Io" Version="4.*" />
+<PackageReference Include="Logary.Targets.ElmahIO" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
-paket add Logary.Targets.Elmah.Io
+paket add Logary.Targets.ElmahIO
 ```
 
 ## Configuration in F&#35;
@@ -33,7 +31,7 @@ Configure elmah.io just like you would any normal target:
 ```fsharp
 withTargets [
   // ...
-  ElmahIO.create { ElmahIO with logId = "LOG_ID" } "elmah.io"
+  ElmahIO.create { logId = Guid.Parse "LOG_ID"; apiKey = "API_KEY" } "elmah.io"
 ] >>
 withRules [
  // ...
@@ -50,10 +48,10 @@ Configuration in C# is just as easy:
 ```csharp
 .Target<ElmahIO.Builder>(
   "elmah.io",
-  conf => conf.Target.SendTo(apiKey: "LOG_ID"))
+  conf => conf.Target.SendTo(logId: "LOG_ID", apiKey: "API_KEY"))
 ```
 
-where `LOG_ID` is the id of your log.
+where `API_KEY` is your API key and `LOG_ID` is the ID of your log.
 
 ## Logging
 
