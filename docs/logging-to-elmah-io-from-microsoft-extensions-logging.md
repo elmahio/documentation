@@ -210,7 +210,7 @@ Then register `IHttpContextAccessor` and the new class in the `ConfigureServices
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    services.AddHttpContextAccessor();
     services.AddSingleton<IConfigureOptions<ElmahIoProviderOptions>, DecorateElmahIoMessages>();
     // ...
 }

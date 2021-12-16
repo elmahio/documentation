@@ -213,6 +213,44 @@ services.AddElmahIo(o =>
 
 The example above, ignores all messages of type `System.NullReferenceException`.
 
+#### Decorate from HTTP context
+
+When implementing the `OnMessage` action as shown above you don't have access to the current HTTP context. `Elmah.Io.AspNetCore` already tries to fill in as many fields as possible from the current context, but you may want to tweak something from time to time. In this case, you can implement a custom decorator like this:
+
+```csharp
+public class DecorateElmahIoMessages : IConfigureOptions<ElmahIoOptions>
+{
+    private readonly IHttpContextAccessor httpContextAccessor;
+
+    public DecorateElmahIoMessages(IHttpContextAccessor httpContextAccessor)
+    {
+        this.httpContextAccessor = httpContextAccessor;
+    }
+
+    public void Configure(ElmahIoOptions options)
+    {
+        options.OnMessage = msg =>
+        {
+            var context = httpContextAccessor.HttpContext;
+            msg.User = context?.User?.Identity?.Name;
+        };
+    }
+}
+```
+
+Then register `IHttpContextAccessor` and the new class in the `ConfigureServices` method in the `Startup.cs` file:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHttpContextAccessor();
+    services.AddSingleton<IConfigureOptions<ElmahIoOptions>, DecorateElmahIoMessages>();
+    // ...
+}
+```
+
+> Decorating messages using `IConfigureOptions` requires `Elmah.Io.AspNetCore` version `4.1.37` or newer.
+
 #### Include source code
 
 You can use the `OnMessage` action to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
