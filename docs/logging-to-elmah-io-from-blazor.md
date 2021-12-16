@@ -148,18 +148,16 @@ The code uses the current URL from the injected `NavigationManager` object.
 
 ## Blazor WebAssembly App (wasm)
 
-> Please notice that the code for Blazor WebAssembly App is highly experimental.
-
 To start logging to elmah.io from a Blazor Wasm App, install the `Elmah.Io.Blazor.Wasm` NuGet package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
+Install-Package Elmah.Io.Blazor.Wasm
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Blazor.Wasm --prerelease
+dotnet add package Elmah.Io.Blazor.Wasm
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Blazor.Wasm" Version="3.0.14-pre" />
+<PackageReference Include="Elmah.Io.Blazor.Wasm" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Blazor.Wasm
