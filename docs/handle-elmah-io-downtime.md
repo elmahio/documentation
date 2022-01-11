@@ -5,7 +5,7 @@ description: Learn how to use the elmah.io client to monitor if logging messages
 
 # Handle elmah.io downtime
 
-Like every other SaaS product out there, we cannot promise you 100% uptime on elmah.io. We understand, that your logging data is extremely important for your business and we do everything in our power to secure that elmah.io is running smoothly. To monitor our APIs and websites, check out [status.elmah.io](http://status.elmah.io/).
+Like every other SaaS product out there, we cannot promise you 100% uptime on elmah.io. We understand, that your logging data is extremely important for your business and we do everything in our power to secure that elmah.io is running smoothly. To monitor our APIs and websites, check out [status.elmah.io](https://status.elmah.io/).
 
 But how do you handle the time where you need to log a message in elmah.io and the service is down? You have a few options actually:
 

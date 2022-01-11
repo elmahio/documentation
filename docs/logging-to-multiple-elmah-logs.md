@@ -13,7 +13,7 @@ Unfortunately, ELMAH (the open source project) doesn't support multiple log targ
 </elmah>
 ```
 
-As you probably know, this tells ELMAH to log all unhandled errors in SQL Server with the connection string “elmah”. You cannot add more `<errorLog>` elements, why logging into a second log seems impossible. Meet ELMAH's `Logged` event, which is a great hook to log to multiple targets. Install the [Elmah.Io](http://www.nuget.org/packages/elmah.io/) NuGet package and add the following code to your `global.asax.cs` file:
+As you probably know, this tells ELMAH to log all unhandled errors in SQL Server with the connection string “elmah”. You cannot add more `<errorLog>` elements, why logging into a second log seems impossible. Meet ELMAH's `Logged` event, which is a great hook to log to multiple targets. Install the [Elmah.Io](https://www.nuget.org/packages/elmah.io/) NuGet package and add the following code to your `global.asax.cs` file:
 
 ```csharp
 void ErrorLog_Logged(object sender, Elmah.ErrorLoggedEventArgs args)
