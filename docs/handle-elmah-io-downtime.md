@@ -41,4 +41,4 @@ Here's an overview of the types of errors you can experience from the API:
 | Timeout | Something is very wrong with our API or Azure. You can be sure that we are working 24/7 to fix it. |
 | 500 | The API is reachable, but we have a problem communicating with Azure Service bus. Azure has great uptime and all of our resources are dedicated and replicated. Still, we experience short periods of downtime from time to time. |
 | 429 | We allow a maximum (per API key) of 500 requests per minute and 3600 per hour. 429 means that you have crossed that line. This status code doesn't indicate that the API is down. |
-| 4xx | Something is wrong with the request. Check out the [API documentation](http://api.elmah.io/swagger/ui/index) for details. This status code doesn't indicate that the API is down. |
+| 4xx | Something is wrong with the request. Check out the [API documentation](https://api.elmah.io/swagger/index.html) for details. This status code doesn't indicate that the API is down. |
