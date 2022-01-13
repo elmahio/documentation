@@ -23,3 +23,9 @@ Options:
   --logId <logid> (REQUIRED)      The log ID of the log to import messages into
   -?, -h, --help                  Show help and usage information
 ```
+
+## Example
+
+```cmd
+elmahio dataloader --apiKey API_KEY --logId LOG_ID
+```

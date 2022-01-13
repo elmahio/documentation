@@ -54,3 +54,17 @@ Options:
                                      syntax that you are using as your version numbering scheme.
   -?, -h, --help                     Show help and usage information
 ```
+
+## Examples
+
+**Simple:**
+
+```cmd
+elmahio log --apiKey API_KEY --logId LOG_ID --title "An error happened"
+```
+
+**Full:**
+
+```cmd
+elmahio log --apiKey API_KEY --logId LOG_ID --title "An error happened" --application "My app" --details "Some details" --hostname "localhost" --titleTemplate "An {severity} happened" --source "A source" --statusCode 500 --dateTime 2022-01-13 --type "The type" --user "A user" --severity "Error" --url "https://elmah.io" --method "GET" --version "1.0.0"
+```

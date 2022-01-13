@@ -23,3 +23,9 @@ Options:
   --logId <logid> (REQUIRED)      The ID of the log to send the log message to
   -?, -h, --help                  Show help and usage information
 ```
+
+## Example
+
+```cmd
+elmahio tail --apiKey API_KEY --logId LOG_ID
+```

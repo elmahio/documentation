@@ -30,3 +30,17 @@ Options:
   --includeHeaders                    Include headers, cookies, etc. in output (will take longer to export)
   -?, -h, --help                      Show help and usage information
 ```
+
+## Examples
+
+**Simple:**
+
+```cmd
+elmahio export --apiKey API_KEY --logId LOG_ID --dateFrom 2020-08-21 --dateTo 2020-08-28
+```
+
+**Full:**
+
+```cmd
+elmahio export --apiKey API_KEY --logId LOG_ID --dateFrom 2020-08-21 --dateTo 2020-08-28 --filename c:\temp\elmahio.json --query "statusCode: 404" --includeHeaders
+```
