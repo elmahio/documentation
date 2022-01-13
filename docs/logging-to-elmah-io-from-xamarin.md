@@ -58,7 +58,7 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
 Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
@@ -81,7 +81,7 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
 Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>

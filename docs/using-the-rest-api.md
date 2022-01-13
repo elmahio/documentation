@@ -41,7 +41,7 @@ with a JSON body:
 
 (replace `LOG_ID` with your log ID):
 
-The `title` field is the only required field on a message, but fields for specifying severity, timestamp, etc. are there. For more information, check out the [documentation](https://api.elmah.io/swagger/ui/index).
+The `title` field is the only required field on a message, but fields for specifying severity, timestamp, etc. are there. For more information, check out the [documentation](https://api.elmah.io/swagger/index.html).
 
 If everything where successful, the API returns an HTTP status code of `201` and a location to where to fetch the new message. If the endpoint fails, the response will contain a description of what went wrong. Forgetting to set `Content-Length`, `Content-Type` and similar, will result in an invalid request.
 

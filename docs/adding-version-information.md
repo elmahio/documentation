@@ -28,7 +28,7 @@ Having the version number on the message opens up some interesting search possib
 The example above finds every message logged from 1.0.0, 1.0.0-rc1, 1.0.1, etc.
 
 ## Adding Version Numbers
-How you choose to represent version numbers in your system is really up to you. elmah.io doesn't require SemVer, even though we strongly recommend you to use it. Version is a simple string in our [API](https://elmah.io/api), which means that you can send anything from SemVer to a stringified timestamp.
+How you choose to represent version numbers in your system is really up to you. elmah.io doesn't require SemVer, even though we strongly recommend you to use it. Version is a simple string in our [API](https://elmah.io/api/v3/), which means that you can send anything from SemVer to a stringified timestamp.
 
 Adding a version number to every message logged in elmah.io is easy as 1-2-3. If you're using our API, there's a property named `version` where you can put the version of your application. Chances are that you are using one of the integrations like ELMAH, log4net, or Serilog. There are multiple ways to send a version number to elmah.io.
 

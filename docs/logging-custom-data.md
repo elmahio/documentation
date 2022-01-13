@@ -11,7 +11,7 @@ Let's look at some code. You have two options for decorating your errors with cu
 
 ### Use the [Data](https://msdn.microsoft.com/en-us/library/system.exception.data%28v=vs.110%29.aspx) dictionary on .NET's Exception type
 
-All exceptions in .NET contain a property named `Data` and of type `IDictionary`. The `Data` dictionary is intended for user-defined information about the exception. The elmah.io client iterates through key/values in this dictionary and ships it off to [elmah.io's API](https://elmah.io/api). To log custom data using `Data`, just add a new key/value pair to the `Data` dictionary:
+All exceptions in .NET contain a property named `Data` and of type `IDictionary`. The `Data` dictionary is intended for user-defined information about the exception. The elmah.io client iterates through key/values in this dictionary and ships it off to [elmah.io's API](https://elmah.io/api/v3/). To log custom data using `Data`, just add a new key/value pair to the `Data` dictionary:
 
 ```csharp
 try
