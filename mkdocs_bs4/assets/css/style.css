@@ -843,6 +843,19 @@ kbd {
 	margin: 0;
 }
 
+.gifsee-wrapper {
+	text-align: center;
+	display: inline-block;
+	margin-bottom: 0px;
+}
+.gifsee-wrapper img.gif {
+    width: auto;
+	display: inline-block;
+}
+img.gif {
+    display: none;
+}
+
 @media (min-width: 1200px) {
 	.container {
 		max-width: 1200px;

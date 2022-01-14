@@ -24,13 +24,13 @@ Search filters are built exclusively for elmah.io. They are built on top of Luce
 
 Let's say we want to find all errors with a status code of 500:
 
-![Search filters](images/search-filters.gif)
+<img class="gif" src="../images/search-filters.png" data-gif="../images/search-filters.gif" alt="Search filters" />
 
 Adding the two filters is possible using a few clicks.
 
 As mentioned previously, search filters are available throughout the UI too. In this example, a filter is used to find messages not matching a specified URL:
 
-![Search filter by URL](images/search-filters-error-details.gif)
+<img class="gif" src="../images/search-filters-error-details.png" data-gif="../images/search-filters-error-details.gif" alt="Search filter by URL" />
 
 Search filters can be used in combination with full-text queries for greater flexibility.
 

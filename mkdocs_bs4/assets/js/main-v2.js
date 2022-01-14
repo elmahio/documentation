@@ -71,6 +71,11 @@ $(document).ready(function(){
 	initHighlight(wrapperHighlight);
 	addFullscreenMode();
 
+	// Gif Player
+	$('.gif').each(function(el){
+		new gifsee(this);
+	});
+
 	// Style all tables - markdown fix
 	$('table').addClass('table');
 	$('table thead').addClass('thead-light');
@@ -208,7 +213,7 @@ $(document).ready(function(){
 
 	// Lightbox integration
 	$(".main-content-body img").each(function () {
-		if(!($(this).hasClass('no-lightbox') || $(this).hasClass('emojione'))) {
+		if(!$(this).hasClass('no-lightbox') && !$(this).hasClass('gif') && !$(this).hasClass('emojione')) {
 			if(!$(this).parent("a").length) {
 				$(this).wrap(function () { return "<a href=" + this.src + " data-fancybox></a>"; });
 			}
