@@ -302,6 +302,17 @@ logger.addBreadcrumb('User clicked button x', 'Information', 'click');
 
 You would want to enrich your code with a range of different breadcrumbs depending on important user actions in your application.
 
+As default, a maximum of 10 breadcrumbs are stored in-memory at all times. The list acts as first in, first out where adding a new breadcrumb to a full list will automatically remove the oldest breadcrumb in the list. The allowed number of breadcrumbs in the list can be changed using the `breadcrumbsNumber` option:
+
+```javascript
+var logger = new Elmahio({
+    // ...
+    breadcrumbsNumber: 15
+});
+```
+
+This will store a maximum of 15 breadcrumbs. Currently, we allow `25` as the highest possible value.
+
 `elmah.io.javascript` can also be configured to automatically generate breadcrumbs from important actions like click events and xhr:
 
 ```javascript
@@ -311,7 +322,7 @@ var logger = new Elmahio({
 });
 ```
 
-We are planning to enable automatic breadcrumbs in the future but for now, it's an opt-in feature.
+We are planning to enable automatic breadcrumbs in the future but for now, it's an opt-in feature. Automatic breadcrumbs will be included in the same list as manually added breadcrumbs why the `breadcrumbsNumber` option is still valid.
 
 > Breadcrumbs require `elmah.io.javascript` version `3.5.0` or newer.
 
