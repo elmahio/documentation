@@ -6,6 +6,7 @@
       "mkdocs_bs4/assets/fonts/font-awesome/css/all.css",
       "mkdocs_bs4/assets/css/highlight.css",
       "mkdocs_bs4/assets/css/jquery.fancybox.min.css",
+      "mkdocs_bs4/assets/css/gifsee.min.css",
       "mkdocs_bs4/assets/css/style.css"
     ]
   },
@@ -19,6 +20,7 @@
       "mkdocs_bs4/assets/js/fuse.min.js",
       "mkdocs_bs4/assets/js/jquery.fancybox.min.js",
       "mkdocs_bs4/assets/js/clipboard.min.js",
+      "mkdocs_bs4/assets/js/gifsee.min.js",
       "mkdocs_bs4/assets/js/main-v2.js"
     ]
   }
