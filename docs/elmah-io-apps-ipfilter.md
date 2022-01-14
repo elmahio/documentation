@@ -1,6 +1,6 @@
 ---
 title: Ignore log messages from one or more IPs
-description: The IP Filter app for elmah.io automatically ignores messages from one or more IP addresses.
+description: The IP Filter app for elmah.io automatically ignores messages from one or more IP addresses. Learn how to ignore errors from IP ranges.
 ---
 
 # Install IP Filter App for elmah.io

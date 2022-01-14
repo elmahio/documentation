@@ -1,6 +1,6 @@
 ---
 title: Integrations high-level overview
-description: elmah.io offers a wide range og logging- and web-frameworks. Get the full overview here.
+description: elmah.io offers a wide range of logging- and web-frameworks. Get the full overview of all packages, samples, build status, and more here.
 ---
 
 # Integrations high-level overview
