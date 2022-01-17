@@ -11,9 +11,10 @@ elmah.io Uptime Monitoring is the perfect companion for error logging. When your
 
 For a complete overview of the possibilities with uptime monitoring, watch this video tutorial:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EZ9iNfB9Blw?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=EZ9iNfB9Blw&amp;autoplay=1&amp;rel=0" title="uptime-monitoring">
+  <img class="no-lightbox" src="../images/tour/uptime-monitoring.jpg" alt="uptime-monitoring" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 ## Uptime checks
 

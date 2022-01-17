@@ -856,6 +856,39 @@ img.gif {
     display: none;
 }
 
+/* youtube videos */
+.video-box {
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+.video-box img {
+	cursor: pointer !important;
+}
+.video-box > i {
+	position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    font-size: 90px;
+    text-align: center;
+}
+.video-box > i:before {
+	color: #fff;
+}
+.video-box > i:after {
+	color: #242939;
+    opacity: .7;
+    transition: opacity .15s ease-in;
+}
+.video-box:hover > i:after {
+	transition: all .15s ease-in;
+    color: #0da58e;
+    opacity: .9;
+}
+
+
+
 @media (min-width: 1200px) {
 	.container {
 		max-width: 1200px;
@@ -1044,6 +1077,9 @@ img.gif {
 	}
 	.guides-boxes .guide-box .guide-image img {
 		max-width: 70px;
+	}
+	.video-box > i {
+		font-size: 50px;
 	}
 }
 

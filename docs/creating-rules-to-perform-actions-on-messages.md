@@ -9,9 +9,10 @@ elmah.io comes with a great rule engine for performing various actions when mess
 
 This guide is also available as a short video tutorial here:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TLzQNX4MFkE?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=TLzQNX4MFkE&amp;autoplay=1&amp;rel=0" title="Ignore filters and rules">
+  <img class="no-lightbox" src="../images/tour/ignore-filters-and-rules.jpg" alt="Ignore filters and rules" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 The rule engine is located beneath each log on the log settings page:
 

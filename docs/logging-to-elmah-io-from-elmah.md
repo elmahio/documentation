@@ -13,9 +13,10 @@ This article will explain the steps necessary to log errors from your web applic
 
 This guide is also available as a short video tutorial here:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OeQG2PkSpSE?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=OeQG2PkSpSE&amp;autoplay=1&amp;rel=0" title="elmah.io Introduction - Installation">
+  <img class="no-lightbox" src="../images/tour/installation.jpg" alt="elmah.io Introduction - Installation" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 Create a new *ASP.NET Web Application* in Visual Studio :
 

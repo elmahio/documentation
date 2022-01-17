@@ -11,9 +11,10 @@ Chances are that you are not the only one needing to access your logs. Luckily, 
 
 This guide is also available as a short video tutorial here:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7O43XBy4Kfg?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=7O43XBy4Kfg&amp;autoplay=1&amp;rel=0" title="user-administration">
+  <img class="no-lightbox" src="../images/tour/user-administration.jpg" alt="user-administration" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 To manage access, you will need to know about the concepts of **users** and **organizations**.
 

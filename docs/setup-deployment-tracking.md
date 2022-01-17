@@ -88,9 +88,10 @@ Deployments are as default created on all of your logs, but this can be tweaked.
 
 For a complete overview of the possibilities with deployment tracking, watch this video tutorial:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vVX_yaLi4f8?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=vVX_yaLi4f8&amp;autoplay=1&amp;rel=0" title="deployment-tracking">
+  <img class="no-lightbox" src="../images/tour/deployment-tracking.jpg" alt="deployment-tracking" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 ## Generate a new API key
 

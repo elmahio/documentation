@@ -11,9 +11,10 @@ To enable error logging to elmah.io, you usually install one of our client integ
 
 Check out this video tutorial or keep reading for the text version:
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/R50FCpRtkjc?rel=0" allowfullscreen></iframe>
-</div>
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=R50FCpRtkjc&amp;autoplay=1&amp;rel=0" title="azure-apps-services">
+  <img class="no-lightbox" src="../images/tour/azure-apps-services.jpg" alt="azure-apps-services" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 To start logging errors from your Azure web application, go to the Azure Portal and select the website you want to monitor. Click the *Extensions* tool:
 
