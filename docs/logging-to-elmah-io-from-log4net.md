@@ -99,7 +99,7 @@ log.Logger.Log(new LoggingEvent(new LoggingEventData
 }));
 ```
 
-This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
+This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L3617).
 
 ## Message hooks
 

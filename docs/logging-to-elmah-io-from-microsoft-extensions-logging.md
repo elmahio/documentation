@@ -165,7 +165,7 @@ using (_logger.BeginScope(new Dictionary<string, object>
 }
 ```
 
-In this example, a log message with the template `Request to {url} caused an error` to be logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
+In this example, a log message with the template `Request to {url} caused an error` to be logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L3617).
 
 An alternative is to use the `OnMessage` action. As an example, we'll add a version number to all messages:
 

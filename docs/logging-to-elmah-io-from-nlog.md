@@ -248,7 +248,7 @@ In the example, NLog will log the message `Property named "Donald"`, but the key
 log.Info("{Quote} from {User}", "Hasta la vista, baby", "T-800");
 ```
 
-This will fill in the value `T-800` in the `User` field, as well as add two key/value pairs (`Quote` and `User`) to the *Data* tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/Models/CreateMessage.cs).
+This will fill in the value `T-800` in the `User` field, as well as add two key/value pairs (`Quote` and `User`) to the *Data* tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L3617).
 
 
 NLog also provides a fluent API (available in the `NLog.Fluent` namespace) that some might find more readable:
