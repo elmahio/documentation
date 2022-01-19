@@ -57,13 +57,13 @@ If you are running on the default Umbraco template, all necessary configuration 
 
 ### Different environments
 
-You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://our.umbraco.com/documentation/Umbraco-Cloud/set-up/Config-Transforms/). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
+You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
 
 ## Umbraco Cloud
 
 When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco cloud, execute the following steps:
 
-* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Visual-Studio/" target="_blank">Visual Studio Setup</a>. Make sure to follow the instructions in that document and use `UaaS.cmd` to generate your local clone rather than cloning the project from Umbraco Cloud. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
+* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Working-With-Visual-Studio/" target="_blank">Visual Studio Setup</a>. Make sure to follow the instructions in that document and use `UaaS.cmd` to generate your local clone rather than cloning the project from Umbraco Cloud. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
 
 * Install `Elmah.Io.Umbraco` into the `*.Web` project on your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
@@ -82,7 +82,7 @@ paket add Elmah.Io.Umbraco
 
 * Commit and push all changes to the git repository (only commit and push inside the `*.Web` folder). This will add elmah.io logging to your remote Umbraco Cloud project.
 
-In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://our.umbraco.org/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/" target="_blank">Config transforms</a>.
+In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/" target="_blank">Config transforms</a>.
 
 ## Umbraco Uno
 

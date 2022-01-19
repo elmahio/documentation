@@ -13,7 +13,7 @@ Input your site name, which is the first part of the URL you use to log into Jir
 
 To create issues on Jira, you will need to input the username and password of a user with permission to create issues in the project specified above. You can use your user credentials, but we recommend using a combination of your username and an API token.
 
-To generate a new token specific for elmah.io, go to [https://id.atlassian.com/manage/api-tokens](https://id.atlassian.com/manage/api-tokens). Then click the *Create API token* button and input a label of your choice. Finally, click the *Create* button and an API token is generated for you. Make sure to copy this token, since you won't be able to access it once the dialog is closed.
+To generate a new token specific for elmah.io, go to the API Tokens page on your Jira account. Then click the *Create API token* button and input a label of your choice. Finally, click the *Create* button and an API token is generated for you. Make sure to copy this token, since you won't be able to access it once the dialog is closed.
 
 Go back to elmah.io and input your email in the *Username* field and the API token from the previous step in the *Password* field. If you don't like to use an existing user account for the integration, you can create a new Atlassian account for elmah.io and generate the API token from that account instead.
 

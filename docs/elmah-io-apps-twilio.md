@@ -11,7 +11,7 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Twi
 
 ![Install the Twilio app](images/apps/twilio/install-twilio-app.png)
 
-Input your Twilio phone number (available [here](https://www.twilio.com/console/phone-numbers/incoming)) in the *From* field. Input the phone number you want receiving error reports from elmah.io in the *To* field. Remember to fully qualify the number with a plus and the language code (US example: +12025550170 - UK example: +441632960775). Copy your *Account SID* and *Auth Token* from the [Twilio Dashboard](https://www.twilio.com/console) and input them in the fields on elmah.io.
+Input your Twilio phone number (available on https://www.twilio.com/console/phone-numbers/incoming) in the *From* field. Input the phone number you want receiving error reports from elmah.io in the *To* field. Remember to fully qualify the number with a plus and the language code (US example: +12025550170 - UK example: +441632960775). Copy your *Account SID* and *Auth Token* from the Twilio Dashboard and input them in the fields on elmah.io.
 
 Click *Save* and the app is added to your log. When new errors are logged, an SMS/Text message is automatically sent to the configured phone number.
 

@@ -5,7 +5,7 @@ description: Learn about how to log to individual elmah.io logs per environment.
 
 # Use multiple logs for different environments
 
-We bet that you use at least two environments for hosting your website: localhost and a production environment. You probably need to log website errors on all your environments, but you don’t want to mix errors from different environments in the same error log. Lucky for you, Microsoft provides a great way of differentiating configuration for different environments called [Web Config transformation](https://msdn.microsoft.com/en-us/library/dd465326(v=vs.110).aspx).
+We bet that you use at least two environments for hosting your website: localhost and a production environment. You probably need to log website errors on all your environments, but you don’t want to mix errors from different environments in the same error log. Lucky for you, Microsoft provides a great way of differentiating configuration for different environments called [Web Config transformation](https://docs.microsoft.com/en-us/previous-versions/aspnet/dd465326(v=vs.110)).
 
 > To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild, or third for the transformations to replace the right ELMAH config.
 

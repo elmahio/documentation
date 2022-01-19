@@ -7,7 +7,7 @@ description: Integrate elmah.io with YouTrack to automatically create a list of 
 
 ## Get your token
 
-To allow elmah.io to create issues on YouTrack, you will need a permanent token. Go to your [profile](https://elmahio.myjetbrains.com/youtrack/users/me), click the _Update personal information and manage logins_ link and select the _Authentication_ tab. Here you can generate a new token:
+To allow elmah.io to create issues on YouTrack, you will need a permanent token. Go to your YouTrack profile, click the _Update personal information and manage logins_ link and select the _Authentication_ tab. Here you can generate a new token:
 
 ![Generate permanent token](images/apps/youtrack/generate_permanent_token.png)
 
