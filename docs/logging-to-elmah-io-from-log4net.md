@@ -260,3 +260,57 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     // ... UseMvc etc.
 }
 ```
+
+## Troubleshooting
+
+Here are some things to try out if logging from log4net to elmah.io doesn't work:
+
+- Make sure that you have the newest `Elmah.Io.Log4Net` and `Elmah.Io.Client` packages installed.
+- Make sure to include all of the configuration from the example above. That includes both the `<root>` and `<appender>` element.
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure to include a valid log ID.
+- Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
+- Enable and inspect log4net's internal debug log by including the following code in your `web/app.config` file to reveal any exceptions happening inside the log4net engine room or one of the appenders:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="log4net.Internal.Debug" value="true"/>
+  </appSettings>
+  <system.diagnostics>
+    <trace autoflush="true">
+      <listeners>
+        <add
+          name="textWriterTraceListener"
+          type="System.Diagnostics.TextWriterTraceListener"
+          initializeData="C:\temp\log4net-debug.log" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
+</configuration>
+```
+
+### System.IO.FileLoadException: Could not load file or assembly 'log4net ...
+
+In case you get the following exception while trying to log messages to elmah.io:
+
+```console
+System.IO.FileLoadException: Could not load file or assembly 'log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+```
+
+This indicates they either the `log4net.dll` file is missing or there's a problem with assembly bindings. You can include a binding redirect to the newest version of log4net by including the following code in your `web/app.config` file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="log4net" publicKeyToken="669e0ddf0bb1aa2a" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-2.0.12.0" newVersion="2.0.12.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
+```
