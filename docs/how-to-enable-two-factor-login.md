@@ -23,6 +23,8 @@ Once two-factor authentication has been successfully set up, the following scree
 
 Two-factor authentication can be disabled at any time by inputting a new code from the authenticator app in the text field and clicking the *Deactivate two-factor login* button.
 
+We recommend that you sign out after enabling two-factor authentication to invalidate the current session.
+
 ## Two-factor with a social provider
 
 When using one of the social providers to log in to elmah.io, two-factor authentication can be enabled through either Twitter, Facebook, Microsoft, or Google. Check out the documentation for each authentication mechanism for details on how to enable two-factor authentication.
