@@ -7,11 +7,11 @@ description: Why spend time navigating your error logs and creating issues in Gi
 
 ## Generate Personal Access Token
 
-In order to allow elmah.io to create issues on GitHub, you will need to generate a Personal Access Token. To do so, log into GitHub and go to the [New personal access token](https://github.com/settings/tokens/new) page.
+To allow elmah.io to create issues on GitHub, you need a Personal Access Token. Sign in to GitHub, click your profile photo in the top right corner, and click *Settings*. On the Settings page click *Developer settings* followed by *Personal access token*. Here you can create a new token by clicking the *Generate new token* button:
 
 ![OAuth Tokens Page](/images/apps/github/generate_token.png)
 
-Input a token description, click the *Generate token* button and copy the generated token (colored with a green background).
+Input a token note, select an expiration, click the *Generate token* button, and copy the generated token (colored with a green background). All of the scopes needed are already included in the token why you don't need to select any additional scopes when creating the token.
 
 ## Install the GitHub App on elmah.io
 
