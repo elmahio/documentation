@@ -153,6 +153,7 @@ nav:
     - Log: cli-log.md
     - Tail: cli-tail.md
     - Dataloader: cli-dataloader.md
+    - Deployment: cli-deployment.md
 - Everything Else:
     - Managing Organisations and Users: managing-organisations-and-users.md
     - Where is my log ID: where-is-my-log-id.md

@@ -12,7 +12,7 @@ The `export` command is used to export one or more log messages from a log to JS
 ```cmd
 > elmahio export --help
 
-export:
+export
   Export log messages from a specified log
 
 Usage:

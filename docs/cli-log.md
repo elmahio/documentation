@@ -12,7 +12,7 @@ The `log` command is used to store a log message in a specified log.
 ```cmd
 > elmahio log --help
 
-log:
+log
   Log a message to the specified log
 
 Usage:

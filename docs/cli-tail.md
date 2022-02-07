@@ -12,7 +12,7 @@ The `tail` command is used to tail log messages in a specified log.
 ```cmd
 > elmahio tail --help
 
-tail:
+tail
   Tail log messages from a specified log
 
 Usage:

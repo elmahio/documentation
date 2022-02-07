@@ -12,7 +12,7 @@ The `dataloader` command loads 50 log messages into a specified log.
 ```cmd
 > elmahio dataloader --help
 
-dataloader:
+dataloader
   Load 50 log messages into the specified log
 
 Usage:
