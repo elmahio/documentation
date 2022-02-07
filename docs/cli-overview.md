@@ -84,14 +84,15 @@ Usage:
   elmahio [options] [command]
 
 Options:
-  --version         Show version information
-  -?, -h, --help    Show help and usage information
+  --nologo        Doesn't display the startup banner or the copyright message
+  --version       Show version information
+  -?, -h, --help  Show help and usage information
 
 Commands:
-  export        Export log messages from a specified log
-  log           Log a message to the specified log
-  tail          Tail log messages from a specified log
-  dataloader    Load 50 log messages into the specified log
+  export      Export log messages from a specified log
+  log         Log a message to the specified log
+  tail        Tail log messages from a specified log
+  dataloader  Load 50 log messages into the specified log
 ```
 
 ## Cloning the CLI
