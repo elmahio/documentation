@@ -139,6 +139,7 @@ nav:
 - Deployment Tracking:
     - Set up Deployment Tracking: setup-deployment-tracking.md
     - Create deployments from PowerShell: create-deployments-from-powershell.md
+    - Create deployments from CLI: create-deployments-from-cli.md
     - Create deployments from Octopus Deploy: create-deployments-from-octopus-deploy.md
     - Create deployments from Kudu: create-deployments-from-kudu.md
     - Create deployments from Azure DevOps Pipelines: create-deployments-from-azure-devops-pipelines.md
