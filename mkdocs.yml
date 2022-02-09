@@ -27,6 +27,7 @@ plugins:
             'IntegrateWith/Zapier.md': 'integrate-elmah-io-with-zapier.md'
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
             'export-data-from-elmah-io-to-json.md': "cli-export.md"
+            'logging-to-elmah-io-from-express.md': 'logging-to-elmah-io-from-javascript.md'
     - git-revision-date-localized:
         enabled: false
         type: iso_date
