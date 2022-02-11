@@ -76,6 +76,16 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
             </div>
         </a>
     </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-sourcemap/" title="Sourcemap">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fab fa-js"></i>
+                </div>
+                <div class="guide-title">Sourcemap</div>
+            </div>
+        </a>
+    </div>
 </div>
 
 Run the CLI to get help:
@@ -104,6 +114,7 @@ Commands:
   tail        Tail log messages from a specified log
   dataloader  Load 50 log messages into the specified log
   deployment  Create a new deployment
+  sourcemap   Upload a source map and minified JavaScript
 ```
 
 ## Cloning the CLI

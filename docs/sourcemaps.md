@@ -56,6 +56,20 @@ For both bundled files, fill in the details as explained here:
 | SourceMap | The source map file representing the minified file in the `Path` specified above. |
 | MinifiedJavaScript | The bundled and minified JavaScript file. This will be the content of the `Path` specified above. |
 
+### Upload from the elmah.io CLI
+
+Source maps can be uploaded from the elmah.io CLI. Install the CLI if not already installed:
+
+```cmd
+dotnet tool install --global Elmah.Io.Cli
+```
+
+Then, upload a source map and minified JavaScript using the `sourcemap` command:
+
+```cmd
+sourcemap --apiKey API_KEY --logId LOG_ID --path "/bundles/sharedbundle.min.js" --sourceMap "c:\path\to\sharedbundle.map" --minifiedJavaScript "c:\path\to\sharedbundle.min.js"
+```
+
 ### Upload from PowerShell
 
 Uploading source maps can be built into your CI/CD pipeline using cURL, PowerShell, or similar. Here's an example written in PowerShell:
