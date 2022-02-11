@@ -26,8 +26,6 @@ This will require you to serve a source map file named `script.map` together wit
 
 ## Upload to elmah.io
 
-> Uploading source maps to elmah.io is currently in beta.
-
 Publishing source map files alongside your minified and bundled files is not always the preferred way of doing things. With both the minified JavaScript file and the source map, someone outside of your organization can reverse engineer your JavaScript. In cases where this would be critical or if you want to limit the size of the published files, you can choose to upload the minified/bundled file and the corresponding source map file on the elmah.io API. When elmah.io receives a stack trace from a minified JavaScript file, we try to de-minify it if a corresponding `.min.js` and `.map` file have been uploaded.
 
 The code in the following sections will use the following bundled and minified stack trace as an example:
