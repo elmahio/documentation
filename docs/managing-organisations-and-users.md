@@ -60,7 +60,7 @@ The toggles are documented through the UI. Here's an explanation for reference:
 
 **Enforce two-factor authentication**
 
-When enabling this toggle, all users in your organization will be required to set up two-factor authentication. Requiring two-factor authentication will also disallow social accounts since we have no way of knowing if a user signing up with a social account has enabled two-factor authentication or not.
+When enabling this toggle, all users in your organization will be required to set up two-factor authentication. Requiring two-factor authentication will also disallow social accounts since we have no way of knowing if a user signing up with a social account has enabled two-factor authentication or not. Most online security systems (like Azure) and on-premise systems (like Active Directory) will let you enforce 2FA on all users in the organization.
 
 **Disallow social login**
 
