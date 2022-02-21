@@ -17,6 +17,8 @@ elmah.io doesn't only support server-side .NET logging. We also log JavaScript e
 
 `elmahio.js` supports all modern browsers like Chrome, Edge, Firefox, and Safari. Internet Explorer 10 and 11 are supported too, but because of internal dependencies on the `stacktrace-gps` library, nothing older than IE10 is supported.
 
+If you want to see `elmahio.js` in action before installing it on your site, feel free to play on the [Playground](https://jsplayground.elmah.io/).
+
 ## Installation
 
 Pick an installation method of your choice:
@@ -302,7 +304,7 @@ logger.addBreadcrumb('User clicked button x', 'Information', 'click');
 
 You would want to enrich your code with a range of different breadcrumbs depending on important user actions in your application.
 
-As default, a maximum of 10 breadcrumbs are stored in-memory at all times. The list acts as first in, first out where adding a new breadcrumb to a full list will automatically remove the oldest breadcrumb in the list. The allowed number of breadcrumbs in the list can be changed using the `breadcrumbsNumber` option:
+As default, a maximum of 10 breadcrumbs are stored in memory at all times. The list acts as first in first out, where adding a new breadcrumb to a full list will automatically remove the oldest breadcrumb in the list. The allowed number of breadcrumbs in the list can be changed using the `breadcrumbsNumber` option:
 
 ```javascript
 var logger = new Elmahio({
