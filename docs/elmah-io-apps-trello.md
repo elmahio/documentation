@@ -5,7 +5,7 @@ description: Learn how to create Trello cards when new errors are logged in your
 
 # Install Trello App for elmah.io
 
-For elmah.io to communicate with the Trello API, we will need an API key and token. The API key is available here: https://trello.com/app-key.
+For elmah.io to communicate with the Trello API, we will need an API key and token. The API key is available here: `https://trello.com/app-key`.
 
 To get the token, visit the following URL in your browser: `https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Server%20Token&key=API_KEY`. Remember to replace `API_KEY` with your Trello API key located in the previous step. When clicking the *Allow* button, Trello will generate a new token for you and show it in the browser window.
 
