@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from Xamarin
-description: Logging to multiple destinations with ELMAH is a good way to keep an existing log while trialing elmah.io. Learn about how to set it up here.
+description: Learn about how to log all uncaught errors happening on your Xamarin apps to elmah.io.
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.xamarin/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.xamarin/actions?query=workflow%3Abuild)
