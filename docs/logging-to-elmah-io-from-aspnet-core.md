@@ -135,7 +135,7 @@ catch (DivideByZeroException e)
 }
 ```
 
-When catching an exception, you simply call the `Ship` extension method with the current HTTP context as parameter.
+When catching an exception (in this example an [DivideByZeroException](https://elmah.io/exceptions/System.DivideByZeroException/)), you call the `Ship` extension method with the current HTTP context as parameter.
 
 From `Elmah.Io.AspNetCore` version `3.12.*` or newer, you can log manually using the `ElmahIoApi` class as well:
 
@@ -211,7 +211,7 @@ services.AddElmahIo(o =>
 });
 ```
 
-The example above, ignores all messages of type `System.NullReferenceException`.
+The example above, ignores all messages of type [System.NullReferenceException](https://elmah.io/exceptions/System.NullReferenceException/).
 
 #### Decorate from HTTP context
 

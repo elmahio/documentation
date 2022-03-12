@@ -21,7 +21,7 @@ catch (DivideByZeroException e)
 }
 ```
 
-An exception is thrown when trying to divide by zero, but what if we want to catch (and log) that exception instead of throwing it back through the call stack? With ELMAH's `ErrorSignal` class we can log the error:
+In this example, a [System.DivideByZeroException](https://elmah.io/exceptions/System.DivideByZeroException/) is thrown when trying to divide by zero, but what if we want to catch (and log) that exception instead of throwing it back through the call stack? With ELMAH's `ErrorSignal` class we can log the error:
 
 ```csharp
 try
