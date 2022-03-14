@@ -62,6 +62,8 @@ The toggles are documented through the UI. Here's an explanation for reference:
 
 When enabling this toggle, all users in your organization will be required to set up two-factor authentication. Requiring two-factor authentication will also disallow social accounts since we have no way of knowing if a user signing up with a social account has enabled two-factor authentication or not. Most online security systems (like Azure) and on-premise systems (like Active Directory) will let you enforce 2FA on all users in the organization.
 
+Notice that enforcing 2FA on your organization will still allow users in your organization to sign into elmah.io without 2FA. As soon as a user without 2FA enabled is trying to access pages inside the organization and/or logs a page telling them to enable 2FA is shown.
+
 **Disallow social login**
 
 When enabling this toggle, all users in your organization will need to be signed up with a username and password. The icon next to each user's name on the list of users shows the bug icon if the user signed up with a username and password.
