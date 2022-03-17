@@ -9,11 +9,11 @@ Being able to focus on .NET developers makes it possible to do all kinds of cool
 
 ## Installation
 
-[Download the elmah.io extension](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahio) from the Visual Studio Marketplace.
+Download the elmah.io extension for [Visual Studio >= 2019](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahio) or [Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahiobrowser2022) from the Visual Studio Marketplace.
 
 > Don't use the Extensions and Updates feature inside Visual Studio, since Visual Studio causes a problem with installing extensions in previous versions.
 
-Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2015, 2017, and 2019. If you like living on the edge, there's a preview for Visual Studio 2022 [here](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahiobrowser2022).
+Double/click the downloaded VSIX and enable elmah.io in the versions of Visual Studio of your choice. The extension supports Visual Studio 2015, 2017, 2019, and 2022.
 
 ## Usage
 
