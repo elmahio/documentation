@@ -97,7 +97,7 @@ The response body looks like this:
 }
 ```
 
-For simplicity, the response has been simplified by not showing all of the results. The important thing to notice here is the list of `messages` and the `total` count. `messages` contain 15 messages, which is the default page size in the search endpoint. To increase the number of returned messages, set the `pagesize` parameter in the URL (max 100 messages per request). The `total` count tells you if more messages are matchinging your search. To select messages from the next page, use the `pageindex` parameter.
+For simplicity, the response has been simplified by not showing all of the results. The important thing to notice here is the list of `messages` and the `total` count. `messages` contain 15 messages, which is the default page size in the search endpoint. To increase the number of returned messages, set the `pagesize` parameter in the URL (max 100 messages per request). The `total` count tells you if more messages are matching your search. To select messages from the next page, use the `pageindex` parameter.
 
 Returning all messages may be fine, but being able to search by terms is even more fun. To search, use the `query`, `from`, and `to` parameters as shown here:
 
