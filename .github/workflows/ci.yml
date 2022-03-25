@@ -30,6 +30,7 @@ jobs:
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs
       - run: pip install mkdocs-redirects
+      - run: pip install jinja2==3.0.0
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
       - name: Update mkdocs.yml - production TRUE
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
