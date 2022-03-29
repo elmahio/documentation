@@ -1,3 +1,5 @@
-"ignoredFiles": [
-    "mkdocs_bs4/assets/fonts/font-awesome/webfonts/*"
-]
+{
+    "ignoredFiles": [
+        "mkdocs_bs4/assets/fonts/font-awesome/webfonts/*"
+    ]
+}
