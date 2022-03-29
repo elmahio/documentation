@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from Xamarin
-description: Learn about how to log all uncaught errors happening on your Xamarin apps to elmah.io.
+description: Learn about how to log all uncaught errors happening on your Xamarin apps to elmah.io. Log all crashes from both Android and iOS and fix bugs fast.
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.xamarin/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.xamarin/actions?query=workflow%3Abuild)

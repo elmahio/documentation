@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from MAUI
-description: Try out our alpha support for logging uncaught errors from .NET MAUI to elmah.io.
+description: Try out our alpha support for logging uncaught errors from .NET MAUI to elmah.io. Get crashes from real users logged instantly and react before your users.
 ---
 
 # Logging to elmah.io from MAUI
