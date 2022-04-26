@@ -1,6 +1,6 @@
 ---
 title: Integrate elmah.io with Trello
-description: Learn how to create Trello cards when new errors are logged in your elmah.io logs. By integrating Trello with elmah.io, you can handle all tasks in a single tool.
+description: Learn how to create Trello cards when new errors are logged in elmah.io. Integrate Trello with elmah.io and handle all tasks in a single tool.
 ---
 
 # Install Trello App for elmah.io

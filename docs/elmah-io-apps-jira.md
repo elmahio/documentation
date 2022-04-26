@@ -1,6 +1,6 @@
 ---
 title: Integrate elmah.io with Atlassian Jira
-description: Maintaining issues isn't exactly the highlight of anyone's day. With the elmah.io app for Jira we automatically create all new errors from your applications in Jira.
+description: Maintaining issues isn't the highlight of anyone's day. With elmah.io and Jira, we automatically create errors from your applications in Jira.
 ---
 
 # Install Jira App for elmah.io

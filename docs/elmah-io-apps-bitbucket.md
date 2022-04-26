@@ -1,6 +1,6 @@
 ---
 title: Integrate elmah.io with Atlassian Bitbucket
-description: Maintain a list of bugs automatically using our Bitbucket app. Let elmah.io do the work and use the extra time fixing bugs rather than navigating issue trackers.
+description: Maintain a list of bugs using our Bitbucket app. Let elmah.io do the work and use the extra time fixing bugs rather than navigating bug trackers.
 ---
 
 # Install Bitbucket App for elmah.io
