@@ -73,6 +73,20 @@ would make `myVariable` searchable using this query:
 data.myVariable:funky
 ```
 
-Observe how the `X-ELMAHIO-SEARCH-` prefix is replaced with the `data.` prefix when indexed in elmah.io.
+Observe how `X-ELMAHIO-SEARCH-` is replaced with the `data.` prefix when indexed in elmah.io.
 
-To avoid someone filling up our cluster with custom data, only the first three variables prefixed with `X-ELMAHIO-SEARCH-` are made searchable. Also, variables with a value containing more than 256 characters are not indexed.
+Adding searchable properties is available when logging exceptions too:
+
+```csharp
+try
+{
+
+}
+catch (NullReferenceException e)
+{
+    e.Data.Add("X-ELMAHIO-SEARCH-myVariable", "Some value");
+    // Log the exception somewhere
+}
+```
+
+To avoid someone filling up our cluster with custom data, only the first three variables containing `X-ELMAHIO-SEARCH-` are made searchable. Also, variables with a value containing more than 256 characters are not indexed.
