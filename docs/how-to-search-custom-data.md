@@ -1,11 +1,11 @@
 ---
 title: How to search custom data
-description: TODO
+description: Learn how to make properties searchable on elmah.io. By using a special naming convention you can run full-text searches on custom properties.
 ---
 
 # How to search custom data
 
-Custom data is not searchable by default. Sometimes it makes sense, that errors can be searched from values logged as part of custom data. For now, this feature is supported through the use of variable naming, but we may extend this to a configuration option through the API or UI as well.
+Custom data is not searchable by default. Sometimes it makes sense that errors can be searched from values logged as part of custom data. For now, this feature is supported through the use of variable naming, but we may extend this to a configuration option through the API or UI as well.
 
 To make a custom variable and its value searchable through the UI (as well as through the API), name the variable with the prefix `X-ELMAHIO-SEARCH-`. The variable will become searchable through the name added after the prefix.
 
