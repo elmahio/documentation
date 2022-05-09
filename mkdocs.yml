@@ -94,6 +94,7 @@ nav:
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
     - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
+    - Logging from CoreWCF: logging-to-elmah-io-from-corewcf.md
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
