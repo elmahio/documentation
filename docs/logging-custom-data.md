@@ -1,5 +1,5 @@
 ---
-title: Logging custom data
+title: Logging custom data to elmah.io
 description: Learn about attaching custom data to exceptions logged through ELMAH from ASP.NET, MVC, and Web API. Include additional debug data and much more.
 ---
 
