@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from CoreWCF
-description: TODO
+description: Learn how to set up logging to elmah.io from CoreWCF. Integrating cloud-logging from CoreWCF is easy with the Microsoft.Extensions.Logging integration.
 ---
 
 # Logging to elmah.io from CoreWCF
