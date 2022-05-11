@@ -235,7 +235,7 @@
     </script>
 
     {% if config.production %}
-    <script src="{{ 'assets/js/main.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/main.min.js?version=BUILD_NUMBER'|url }}"></script>
     {% else %}
     <script src="{{ 'assets/js/jquery-3.5.1.min.js'|url }}"></script>
     <script src="{{ 'assets/js/popper.min.js'|url }}"></script>

@@ -36,6 +36,8 @@ jobs:
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
       - name: Update mkdocs.yml - git-revision-date-localized ENABLED
         run: sed -i 's/enabled:\ false/enabled:\ true/' mkdocs.yml
+      - name: Replace BUILD_NUMBER main.html
+        run: sed -i 's/BUILD_NUMBER/${{github.run_number}}/g' main.html
       - run: mkdocs gh-deploy --force --clean --verbose
       - name: Create Deployment on elmah.io
         uses: elmahio/github-create-deployment-action@v1
