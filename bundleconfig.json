@@ -21,7 +21,8 @@
       "mkdocs_bs4/assets/js/jquery.fancybox.min.js",
       "mkdocs_bs4/assets/js/clipboard.min.js",
       "mkdocs_bs4/assets/js/gifsee.min.js",
-      "mkdocs_bs4/assets/js/main-v2.js"
+      "mkdocs_bs4/assets/js/main-v2.js",
+      "mkdocs_bs4/assets/js/intercom-facade.min.js"
     ]
   }
 ]
