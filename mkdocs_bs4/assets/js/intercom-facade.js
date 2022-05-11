@@ -5,14 +5,14 @@
 
     if(!appId) return;
 
-    var buildElement = function(classes, innerHTML = null) {
+    var buildElement = function(classes, id = null, innerHTML = null) {
         var element = document.createElement('div');
         Object.keys(classes).forEach(function(key) {
-            if(classes[key] === 2147483004) {
-                element.setAttribute('id', 'intercom-facade-btn');
-            }
             element.style[key] = classes[key];
         });
+        if(id) {
+            element.setAttribute('id', id);
+        }
         element.innerHTML = innerHTML;
         return element;
     }
@@ -94,7 +94,7 @@
         width: '100%',
         transform: 'rotate(0deg) scale(1)',
         transition: 'transform 0.16s linear 0s, opacity 0.08s linear 0s'
-    }, logoHtml);
+    }, null, logoHtml);
 
     var closeHtml = `
 <svg focusable="false" viewBox="0 0 16 14" width="28" height="25" style="width: 16px;">
@@ -119,7 +119,7 @@
         transition: 'transform 0.16s linear 0s, opacity 0.08s linear 0s',
         opacity: '0',
         transform: 'rotate(-30deg)',
-    }, closeHtml);
+    }, null, closeHtml);
 
     var launcher = buildElement({
         position: 'absolute',
@@ -174,7 +174,7 @@
         boxShadow:
         'rgba(0, 0, 0, 0.0588235) 0px 1px 6px 0px, rgba(0, 0, 0, 0.156863) 0px 2px 32px 0px',
         backgroundColor: backgroundColor
-    });
+    }, 'intercom-facade-btn');
 
     launcher.append(logo);
     launcher.append(close);

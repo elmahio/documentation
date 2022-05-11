@@ -217,7 +217,7 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@3.7.0/dist/elmahio.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       new Elmahio({
         apiKey: 'e8fe46913b034fcd8100b095d032bb6b',
         logId: '24c89075-e32a-4a79-9f7e-e78381e0d761',
@@ -232,7 +232,7 @@
           }
         }
       });
-    </script>
+    </script> -->
 
     {% if config.production %}
     <script src="{{ 'assets/js/main.min.js?version=BUILD_NUMBER'|url }}"></script>
@@ -246,7 +246,7 @@
     <script src="{{ 'assets/js/clipboard.min.js'|url }}"></script>
     <script src="{{ 'assets/js/gifsee.min.js'|url }}"></script>
     <script src="{{ 'assets/js/main-v2.js'|url }}"></script>
-    <script src="{{ 'assets/js/intercom-facade.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/intercom-facade.js'|url }}"></script>
     {% endif %}
   </body>
 </html>
