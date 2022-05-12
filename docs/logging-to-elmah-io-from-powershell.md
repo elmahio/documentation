@@ -5,9 +5,27 @@ description: Learn how to set up error logging from a PowerShell script to elmah
 
 # Logging to elmah.io from PowerShell
 
-For you to be able to log to elmah.io from PowerShell, you will need the [elmah.io.client](https://www.nuget.org/packages/elmah.io.client/) NuGet package. This package contains the raw client libraries for communicating with the [elmah.io API](https://api.elmah.io/swagger/index.html).
+Logging to elmah.io from PowerShell is easy using built-in cmdlets:
 
-First of all, you will need to include `elmah.io.client.dll` in your PowerShell script. How you do this is entirely up to you of course. You can place this assembly with your script or you can download it through NuGet on every execution. To download the elmah.io.client package through NuGet, you will need `nuget.exe`:
+```powershell
+$apiKey = "API_KEY"
+$logId = "LOG_ID"
+$url = "https://api.elmah.io/v3/messages/$logId/?api_key=$apiKey"
+
+$body = @{
+    title = "Error from PowerShell"
+    severity = "Error"
+    detail = "This is an error message logged from PowerShell"
+    hostname = hostname
+}
+Invoke-RestMethod -Method Post -Uri $url -Body ($body|ConvertTo-Json) -ContentType "application/json-patch+json"
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+## Log through `Elmah.Io.Client`
+
+If you prefer to use the `Elmah.Io.Client` NuGet package, you can do this in PowerShell too. First of all, you will need to include `elmah.io.client.dll`. How you do this is entirely up to you. You can include this assembly in your script location or you can download it through NuGet on every execution. To download the package through NuGet, you will need `nuget.exe`:
 
 ```powershell
 $source = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
@@ -38,7 +56,33 @@ Catch {
 }
 ```
 
-In the first line, we create a new logger object with the `API_KEY` of the subscription we want to use ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). Then, in the `Catch` block, the catched exception is shipped off to the elmah.io log specified in `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) together with a custom message.
+In the first line, we create a new logger object. Then, in the `Catch` block, the catched exception is shipped off to the elmah.io log specified in `LOG_ID` together with a custom message.
+
+## Examples
+
+For inspiration, here's a list of examples of common scenarios where you'd want to log to elmah.io from PowerShell.
+
+### Log error on low remaining disk
+
+You can monitor when a server is running low on disk space like this:
+
+```powershell
+$cdrive = Get-Volume -DriveLetter C
+$sizeremainingingb = $cdrive.SizeRemaining/1024/1024/1024
+if ($sizeremainingingb -lt 10) {
+    $apiKey = "API_KEY"
+    $logId = "LOG_ID"
+    $url = "https://api.elmah.io/v3/messages/$logId/?api_key=$apiKey"
+
+    $body = @{
+        title = "Disk storage less than 10 gb"
+        severity = "Error"
+        detail = "Remaining storage in gb: $sizeremainingingb"
+        hostname = hostname
+    }
+    Invoke-RestMethod -Method Post -Uri $url -Body ($body|ConvertTo-Json) -ContentType "application/json-patch+json"
+}
+```
 
 ## Troubleshooting
 
