@@ -5,6 +5,8 @@ description: Learn how to set up error logging from a PowerShell script to elmah
 
 # Logging to elmah.io from PowerShell
 
+[TOC]
+
 Logging to elmah.io from PowerShell is easy using built-in cmdlets:
 
 ```powershell
