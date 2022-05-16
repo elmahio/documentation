@@ -63,11 +63,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 > Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc` and similar.
 
-That's it. Every uncaught exception will be logged to elmah.io.
+That's it. Every uncaught exception will be logged to elmah.io. For an example of configuring elmah.io with ASP.NET Core minimal APIs, check out [this sample](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples/Elmah.Io.AspNetCore60.Example).
 
 ## Configuring API key and log ID in options
 
-If you have different environments (everyone have a least localhost and production), you should consider adding the API key and log ID in your `appsettings.json` file:
+If you have different environments (everyone has a least localhost and production), you should consider adding the API key and log ID in your `appsettings.json` file:
 
 ```json
 {
