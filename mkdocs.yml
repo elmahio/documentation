@@ -32,6 +32,18 @@ plugins:
         enabled: false
         type: iso_date
         enable_creation_date: true
+    - minify:
+        minify_html: false
+        minify_js: false
+        minify_css: false
+        htmlmin_opts:
+            remove_comments: true
+        js_files:
+            - assets/js/main-v2.js
+            - assets/js/intercom-facade.js
+        css_files:
+            - assets/css/style.css
+            - assets/css/highlight.css
 production: false
 nav:
 - Getting Started:
