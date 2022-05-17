@@ -31,16 +31,15 @@
     <link rel="preload" href="{{ 'assets/fonts/font-awesome/webfonts/fa-regular-400.woff2'|url }}" as="font" crossorigin />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome/css/all.min.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/jquery.fancybox.min.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/gifsee.min.css'|url }}">
     {% if config.production %}
-    <link rel="stylesheet" href="{{ 'assets/css/highlight.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/style.min.css'|url }}">
     {% else %}
+    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome/css/all.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/highlight.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/style.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/jquery.fancybox.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/gifsee.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css'|url }}">    
     {% endif %}
 
     <script type="application/ld+json">
@@ -235,6 +234,9 @@
       });
     </script>
 
+    {% if config.production %}
+    <script src="{{ 'assets/js/main.min.js?version=BUILD_NUMBER'|url }}"></script>
+    {% else %}
     <script src="{{ 'assets/js/jquery-3.5.1.min.js'|url }}"></script>
     <script src="{{ 'assets/js/popper.min.js'|url }}"></script>
     <script src="{{ 'assets/js/bootstrap.min.js'|url }}"></script>
@@ -243,10 +245,6 @@
     <script src="{{ 'assets/js/jquery.fancybox.min.js'|url }}"></script>
     <script src="{{ 'assets/js/clipboard.min.js'|url }}"></script>
     <script src="{{ 'assets/js/gifsee.min.js'|url }}"></script>
-    {% if config.production %}
-    <script src="{{ 'assets/js/main-v2.min.js?version=BUILD_NUMBER'|url }}"></script>
-    <script src="{{ 'assets/js/intercom-facade.min.js?version=BUILD_NUMBER'|url }}"></script>
-    {% else %}
     <script src="{{ 'assets/js/main-v2.js'|url }}"></script>
     <script src="{{ 'assets/js/intercom-facade.js'|url }}"></script>
     {% endif %}
