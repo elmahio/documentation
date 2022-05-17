@@ -1,5 +1,5 @@
 ---
-title: Source maps
+title: Source maps - De-minify JavaScript source maps with elmah.io
 description: Learn about how to elmah.io can help you de-minify JavaScript stack traces using either a public source map or by uploading one to elmah.io.
 ---
 
