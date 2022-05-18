@@ -27,32 +27,12 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-export/" title="Export">
+        <a href="/cli-clear/" title="Clear">
             <div class="guide-box">
                 <div class="guide-image">
-                  <i class="fas fa-file-export"></i>
+                  <i class="fas fa-trash"></i>
                 </div>
-                <div class="guide-title">Export</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-log/" title="Log">
-            <div class="guide-box">
-                <div class="guide-image">
-                  <i class="fas fa-file-plus"></i>
-                </div>
-                <div class="guide-title">Log</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-tail/" title="Tail">
-            <div class="guide-box">
-                <div class="guide-image">
-                  <i class="fas fa-eye"></i>
-                </div>
-                <div class="guide-title">Tail</div>
+                <div class="guide-title">Clear</div>
             </div>
         </a>
     </div>
@@ -77,12 +57,42 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-export/" title="Export">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-file-export"></i>
+                </div>
+                <div class="guide-title">Export</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-log/" title="Log">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-file-plus"></i>
+                </div>
+                <div class="guide-title">Log</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/cli-sourcemap/" title="Sourcemap">
             <div class="guide-box">
                 <div class="guide-image">
                   <i class="fab fa-js"></i>
                 </div>
                 <div class="guide-title">Sourcemap</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-tail/" title="Tail">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <div class="guide-title">Tail</div>
             </div>
         </a>
     </div>
@@ -109,12 +119,13 @@ Options:
   -?, -h, --help  Show help and usage information
 
 Commands:
-  export      Export log messages from a specified log
-  log         Log a message to the specified log
-  tail        Tail log messages from a specified log
+  clear       Delete one or more messages from a log
   dataloader  Load 50 log messages into the specified log
   deployment  Create a new deployment
+  export      Export log messages from a specified log
+  log         Log a message to the specified log
   sourcemap   Upload a source map and minified JavaScript
+  tail        Tail log messages from a specified log
 ```
 
 ## Cloning the CLI
