@@ -1,6 +1,6 @@
 ---
 title: Clearing log messages from the CLI
-description: Learn about the clear CLI command and how you can use it to clear on or more messages from a log.
+description: Learn about the clear CLI command and how you can use it to clear messages from a log. Set up a nightly batch job to enforce custom retention.
 ---
 
 # Clearing log messages from the CLI
