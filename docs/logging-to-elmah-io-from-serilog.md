@@ -1,4 +1,4 @@
-﻿---
+---
 title: Logging to elmah.io from Serilog
 description: Add cloud logging of structured log messages from Serilog directly to elmah.io. Search, analyze, and instant notifications on new errors logged.
 ---
@@ -461,3 +461,16 @@ public class LoginModel
     public string Password { get; set; }
 }
 ```
+
+## Troubleshooting
+
+Here are some things to try out if logging from Serilog to elmah.io doesn't work:
+
+- Make sure that you have the newest `Serilog.Sinks.ElmahIo` and `Elmah.Io.Client` packages installed.
+- Make sure to include all of the configuration from the example above.
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure to include a valid log ID.
+- Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
+- Always make sure to call `Log.CloseAndFlush()` before exiting the application to make sure that all log messages are flushed.
+- Set up Serilog's SelfLog to inspect any errors happening inside Serilog or the elmah.io sink: `Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));`.
+- Implement the [`OnError`](#handle-errors) action and put a breakpoint in the handler to inspect if any errors are thrown while logging to the elmah.io API.
