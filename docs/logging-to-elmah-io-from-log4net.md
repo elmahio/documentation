@@ -265,6 +265,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 Here are some things to try out if logging from log4net to elmah.io doesn't work:
 
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure that you have the newest `Elmah.Io.Log4Net` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above. That includes both the `<root>` and `<appender>` element.
 - Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).

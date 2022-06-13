@@ -7,6 +7,7 @@ description: In case your ASP.NET Core application isn't logging errors to elmah
 
 So, your ASP.NET Core application doesn't log errors to elmah.io? Here is a list of things to try out:
 
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure to reference the most recent version of the <a href="https://www.nuget.org/packages/elmah.io.aspnetcore/" target="_blank" rel="noopener noreferrer">Elmah.Io.AspNetCore</a> NuGet package.
 - Make sure that the <a href="https://www.nuget.org/packages/Elmah.Io.Client/" target="_blank" rel="noopener noreferrer">Elmah.Io.Client</a> NuGet package is installed and that the major version matches that of `Elmah.Io.AspNetCore`.
 - Make sure that you are calling both the `AddElmahIo`- and `UseElmahIo`-methods in the `Startup.cs` file, as described on [Logging to elmah.io from ASP.NET Core](/logging-to-elmah-io-from-aspnet-core/).

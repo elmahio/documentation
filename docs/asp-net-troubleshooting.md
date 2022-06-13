@@ -7,6 +7,7 @@ description: You probably see this because your ASP.NET application doesn't log 
 
 You are probably here because your application doesn't log errors to elmah.io, even though you installed the integration. Before contacting support, there are some things you can try out yourself.
 
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure that you are referencing one of the following NuGet packages: <a href="https://www.nuget.org/packages/elmah.io/" target="_blank" rel="noopener noreferrer">Elmah.Io</a>, <a href="https://www.nuget.org/packages/Elmah.Io.AspNet/" target="_blank" rel="noopener noreferrer">Elmah.Io.AspNet</a>, <a href="https://www.nuget.org/packages/Elmah.Io.Mvc/" target="_blank" rel="noopener noreferrer">Elmah.Io.Mvc</a> or <a href="https://www.nuget.org/packages/Elmah.Io.WebApi/" target="_blank" rel="noopener noreferrer">Elmah.Io.WebApi</a>.
 - Make sure that the <a href="https://www.nuget.org/packages/Elmah.Io.Client/" target="_blank" rel="noopener noreferrer">Elmah.Io.Client</a> NuGet package is installed and that the major version matches that of `Elmah.Io`, `Elmah.Io.AspNet`, `Elmah.Io.Mvc` or `Elmah.Io.WebApi`.
 - Make sure that your project reference the following assemblies: `Elmah`, `Elmah.Io`, and `Elmah.Io.Client`.

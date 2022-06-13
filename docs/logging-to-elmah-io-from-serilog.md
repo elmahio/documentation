@@ -466,6 +466,7 @@ public class LoginModel
 
 Here are some things to try out if logging from Serilog to elmah.io doesn't work:
 
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure that you have the newest `Serilog.Sinks.ElmahIo` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above.
 - Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).

@@ -388,6 +388,10 @@ logger.LogError(1, ex, "Unexpected error");
 
 ## Troubleshooting
 
+Here are some things to try out if logging from NLog to elmah.io doesn't work:
+
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+
 **`x` message(s) dropped because of queue size limit**
 
 If you see this message in your log, it means that you are logging a large number of messages to elmah.io through Microsoft.Extensions.Logging within a short period of time. Either turn down the volume using filters:

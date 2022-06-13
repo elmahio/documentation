@@ -370,6 +370,7 @@ For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When i
 
 Here are some things to try out if logging from NLog to elmah.io doesn't work:
 
+- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure that you have the newest `Elmah.Io.NLog` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above. That includes both the `<extensions>`, `<targets>`, and `<rules>` element.
 - Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
