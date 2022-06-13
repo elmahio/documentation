@@ -57,6 +57,16 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-diagnose/" title="Diagnose">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="guide-title">Diagnose</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/cli-export/" title="Export">
             <div class="guide-box">
                 <div class="guide-image">
@@ -122,6 +132,7 @@ Commands:
   clear       Delete one or more messages from a log
   dataloader  Load 50 log messages into the specified log
   deployment  Create a new deployment
+  diagnose    Diagnose potential problems with an elmah.io installation
   export      Export log messages from a specified log
   log         Log a message to the specified log
   sourcemap   Upload a source map and minified JavaScript

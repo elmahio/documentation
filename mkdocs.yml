@@ -156,6 +156,7 @@ nav:
     - Clear: cli-clear.md
     - Dataloader: cli-dataloader.md
     - Deployment: cli-deployment.md
+    - Diagnose: cli-diagnose.md
     - Export: cli-export.md
     - Log: cli-log.md
     - Sourcemap: cli-sourcemap.md
