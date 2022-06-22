@@ -40,7 +40,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </extensions>
  
 <targets>
-  <target name="elmahio" type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
+  <target name="elmahio" xsi:type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
 </targets>
  
 <rules>
@@ -65,7 +65,7 @@ If you are already using elmah.io, you may have your API key and log ID in the `
 
 ```xml
 <targets>
-  <target name="elmahio" type="elmah.io" apiKey="${appsetting:item=apiKey}" logId="${appsetting:item=logId}"/>
+  <target name="elmahio" xsi:type="elmah.io" apiKey="${appsetting:item=apiKey}" logId="${appsetting:item=logId}"/>
 </targets>
 ```
 
@@ -383,7 +383,7 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
 ```xml
 <!-- Wrong way -->
 <targets>
-  <target name="elmahio" type="Elmah.Io.NLog.elmah.io" ... />
+  <target name="elmahio" xsi:type="Elmah.Io.NLog.elmah.io" ... />
 </targets>
 
 <!-- Correct way -->
@@ -392,7 +392,7 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
 </extensions> 
 
 <targets>
-  <target name="elmahio" type="elmah.io" ... />
+  <target name="elmahio" xsi:type="elmah.io" ... />
 </targets>
 ```
 
