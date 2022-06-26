@@ -34,19 +34,44 @@ paket add Elmah.Io.NLog
 
 To configure the elmah.io target, add the following configuration to your app.config/web.config/nlog.config depending on what kind of project you’ve created:
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog 5</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="setup4" markdown="1">
 ```xml
 <extensions>
   <add assembly="Elmah.Io.NLog"/>
 </extensions>
  
 <targets>
-  <target name="elmahio" xsi:type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
+  <target name="elmahio" type="elmah.io" apiKey="API_KEY" logId="LOG_ID"/>
 </targets>
  
 <rules>
   <logger name="*" minlevel="Info" writeTo="elmahio" />
 </rules>
 ```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="setup5" markdown="1">
+```xml
+<targets>
+  <target name="elmahio" type="elmah.io, Elmah.Io.NLog" apiKey="API_KEY" logId="LOG_ID"/>
+</targets>
+ 
+<rules>
+  <logger name="*" minlevel="Info" writeTo="elmahio" />
+</rules>
+```
+</div>
+</div>
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
@@ -65,7 +90,7 @@ If you are already using elmah.io, you may have your API key and log ID in the `
 
 ```xml
 <targets>
-  <target name="elmahio" xsi:type="elmah.io" apiKey="${appsetting:item=apiKey}" logId="${appsetting:item=logId}"/>
+  <target name="elmahio" type="elmah.io" apiKey="${appsetting:item=apiKey}" logId="${appsetting:item=logId}"/>
 </targets>
 ```
 
@@ -94,6 +119,12 @@ There is support for adding IntelliSense in Visual Studio for the `NLog.config` 
 </nlog>
 ```
 
+Then change the `type` attribute in the target to `xsi:type`:
+
+```xml
+<target xsi:type="elmahio:elmah.io" />
+```
+
 ## Configuration in .NET Core
 
 .NET Core switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
@@ -113,6 +144,17 @@ paket add NLog.Extensions.Logging
 
 Extend the `appsettings.json` file with a new `NLog` section:
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setupcore4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setupcore5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog 5</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="setupcore4" markdown="1">
 ```json
 {
   "NLog": {
@@ -137,6 +179,32 @@ Extend the `appsettings.json` file with a new `NLog` section:
   }
 }
 ```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="setupcore5" markdown="1">
+```json
+{
+  "NLog": {
+    "throwConfigExceptions": true,
+    "targets": {
+      "elmahio": {
+        "type": "elmah.io, Elmah.Io.NLog",
+        "apiKey": "API_KEY",
+        "logId": "LOG_ID"
+      }
+    },
+    "rules": [
+      {
+        "logger": "*",
+        "minLevel": "Info",
+        "writeTo": "elmahio"
+      }
+    ]
+  }
+}
+```
+</div>
+</div>
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
@@ -197,7 +265,7 @@ LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"
 
 There is support for adding IntelliSense in Visual Studio for the `NLog` section in the `appsettings.json` file. Copy and paste the following link into the *Schema* textbox above the file content:
 
-```
+```cmd
 https://nlog-project.org/schemas/appsettings.schema.json
 ```
 
@@ -270,6 +338,15 @@ using (MappedDiagnosticsLogicalContext.SetScoped("User", "T-800"))
 ```
 
 This will create the same result as the example above.
+
+In NLog 5 `MappedDiagnosticsLogicalContext` has been deprecated in favor of a scope context:
+
+```csharp
+using (logger.PushScopeProperty("User", "T-800"))
+{
+   logger.Info("I'll be back");
+}
+```
 
 ### Setting application name
 
@@ -372,29 +449,12 @@ Here are some things to try out if logging from NLog to elmah.io doesn't work:
 
 - Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 - Make sure that you have the newest `Elmah.Io.NLog` and `Elmah.Io.Client` packages installed.
-- Make sure to include all of the configuration from the example above. That includes both the `<extensions>`, `<targets>`, and `<rules>` element.
+- Make sure to include all of the configuration from the example above. That includes both the `<extensions>` (Only needed in `Elmah.Io.NLog` 3 and 4), `<targets>`, and `<rules>` element.
 - Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
 - Make sure to include a valid log ID.
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
 - Always make sure to call `LogManager.Shutdown()` before exiting the application to make sure that all log messages are flushed.
 - Extend the `nlog` element with `internalLogLevel="Warn" internalLogFile="c:\temp\nlog-internal.log` and inspect that log file for any internal NLog errors.
-- The new way to fully quality target names in NLog 5 is not yet supported since we have a dot (.) in the target name. This example shows both the wrong and the correct way to reference the target in NLog 5:
-
-```xml
-<!-- Wrong way -->
-<targets>
-  <target name="elmahio" xsi:type="Elmah.Io.NLog.elmah.io" ... />
-</targets>
-
-<!-- Correct way -->
-<extensions>
-  <add assembly="Elmah.Io.NLog" />
-</extensions> 
-
-<targets>
-  <target name="elmahio" xsi:type="elmah.io" ... />
-</targets>
-```
 
 ### System.IO.FileLoadException: Could not load file or assembly 'Newtonsoft.Json'
 
