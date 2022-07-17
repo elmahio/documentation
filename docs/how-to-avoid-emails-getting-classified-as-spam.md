@@ -5,7 +5,7 @@ description: Learn how to make sure emails sent from email are never classified 
 
 # How to avoid emails getting classified as spam
 
-We do everything in our power to maintain a good email domain reputation. Sometimes emails sent from elmah.io may be classified in your email client. To avoid this, the easiest way is to inspect the sender in an email received from @elmah.io and add it to your contact list. We primarily send emails from `info@elmah.io` and `noreply@elmah.io`. How you do this depends on which email client you are using but all major clients have this option. In the sections below, there are alternatives to the contact list approach for various email clients.
+We do everything in our power to maintain a good email domain reputation. Sometimes emails sent from elmah.io may be classified as spam in your email client. The easiest way to avoid this is to inspect the sender in an email received from @elmah.io and add it to your contact list (we primarily send emails from `info@elmah.io` and `noreply@elmah.io`). How you do this depends on your email client but all major clients have this option. In the sections below, there are alternatives to the contact list approach for various email clients.
 
 ## Gmail
 
