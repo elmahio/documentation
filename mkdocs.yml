@@ -182,6 +182,7 @@ nav:
     - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
     - How to correlate messages across services: how-to-correlate-messages-across-services.md
     - How to get elmah.io to resolve the correct client IP: how-to-get-elmah-io-to-resolve-the-correct-client-ip.md
+    - How to avoid emails getting classified as spam: how-to-avoid-emails-getting-classified-as-spam.md
     - How prices are calculated: how-prices-are-calculated.md
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
