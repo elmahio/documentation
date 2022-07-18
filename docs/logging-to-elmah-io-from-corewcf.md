@@ -40,6 +40,18 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ```
 
+Or, if you are using `WebApplication.CreateBuilder` like this:
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+// ...
+builder.Logging.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+```
+
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the id of the log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) where you want messages logged.
 
 CoreWCF will now send all messages logged from your application to elmah.io. CoreWCF doesn't log uncaught exceptions happening in WCF services to `Microsoft.Extensions.Logging` as you'd expect if coming from ASP.NET Core. To do this, you will need to add a custom error logger by including the following class:
