@@ -63,7 +63,7 @@ You may have different environments like *Staging* and *Production*. At least yo
 
 When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco cloud, execute the following steps:
 
-* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Working-With-Visual-Studio/" target="_blank">Visual Studio Setup</a>. Make sure to follow the instructions in that document and use `UaaS.cmd` to generate your local clone rather than cloning the project from Umbraco Cloud. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
+* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Working-Locally/" target="_blank">Working with a Local Clone of a Umbraco Cloud Site</a>. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
 
 * Install `Elmah.Io.Umbraco` into the `*.Web` project on your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
