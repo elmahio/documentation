@@ -29,6 +29,7 @@ jobs:
       - run: pip install mkdocs
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs
+      - run: pip install markdown==3.3.4
       - run: pip install mkdocs-redirects
       - run: pip install jinja2==3.0.0
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
