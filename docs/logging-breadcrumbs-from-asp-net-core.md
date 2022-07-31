@@ -7,8 +7,6 @@ description: You can log one or more breadcrumbs as part of both automatic and m
 
 [TOC]
 
-> Breadcrumbs are currently in prerelease and only supported on `Elmah.Io.AspNetCore` version `3.12.24` or newer.
-
 You can log one or more breadcrumbs as part of both automatic and manually logged errors. Breadcrumbs indicate steps happening just before a message logged by `Elmah.Io.AspNetCore`. Breadcrumbs with elmah.io and ASP.NET Core are supported in two ways: manual and through Microsoft.Extensions.Logging.
 
 ## Manually logging breadcrumbs

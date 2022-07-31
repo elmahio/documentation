@@ -326,8 +326,6 @@ var logger = new Elmahio({
 
 We are planning to enable automatic breadcrumbs in the future but for now, it's an opt-in feature. Automatic breadcrumbs will be included in the same list as manually added breadcrumbs why the `breadcrumbsNumber` option is still valid.
 
-> Breadcrumbs require `elmah.io.javascript` version `3.5.0` or newer.
-
 ## Logging manually
 
 You may want to log errors manually or even log information messages from JavaScript. To do so, `Elmahio` is a logging framework too:

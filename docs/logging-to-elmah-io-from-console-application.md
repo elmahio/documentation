@@ -82,8 +82,6 @@ logger.Messages.CreateAndNotify(logId, new CreateMessage
 
 ## Breadcrumbs
 
-> Breadcrumbs is currently in prerelease and only supported on `Elmah.Io.Client` version `3.11.14-pre` or newer.
-
 You can log one or more breadcrumbs as part of a log message. Breadcrumbs indicate steps happening just before a log message (typically an error). Breadcrumbs are supported through the `Breadcrumbs` property on the `CreateMessage` class:
 
 ```csharp
