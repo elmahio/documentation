@@ -120,6 +120,7 @@ nav:
     - Trello: elmah-io-apps-trello.md
     - HipChat: elmah-io-apps-hipchat.md
     - Zapier: integrate-elmah-io-with-zapier.md
+    - Pipedream: integrate-elmah-io-with-pipedream.md
     - BotBuster: elmah-io-apps-botbuster.md
     - IP Filter: elmah-io-apps-ipfilter.md
     - Mailman: elmah-io-apps-mailman.md
