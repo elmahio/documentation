@@ -181,6 +181,7 @@ nav:
     - Adding version information: adding-version-information.md
     - Bot detection: bot-detection.md
     - Include filename and line number in stack traces: include-filename-and-line-number-in-stacktraces.md
+    - How does the new detection work: how-does-the-new-detection-work.md
     - How to correlate messages across services: how-to-correlate-messages-across-services.md
     - How to get elmah.io to resolve the correct client IP: how-to-get-elmah-io-to-resolve-the-correct-client-ip.md
     - How to avoid emails getting classified as spam: how-to-avoid-emails-getting-classified-as-spam.md
