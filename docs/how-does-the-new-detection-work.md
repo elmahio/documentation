@@ -1,6 +1,6 @@
 ---
 title: How does the new detection work
-description: Learn about the New Detection feature on elmah.io to help identify uniqueness across log messages.
+description: Learn about the New Detection feature on elmah.io to help identify uniqueness across log messages. Only get notifications when new errors are logged.
 ---
 
 # How does the new detection work
