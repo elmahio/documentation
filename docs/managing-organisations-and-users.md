@@ -26,7 +26,7 @@ An **organization** is a collection of users and their roles inside the organiza
 
 To assign users to a log, you will need to add them to the organization first. When hovering the organization name in either the left menu or on the dashboard, you will see a small gear icon. When clicking the icon, you will be taken to the organization settings page:
 
-![Organization Settings](images/organisation_settings.png)
+![Organization Settings](images/organisation_settings-v2.png)
 
 At first, the user creating the organization will be the only one on the list. To add a new user to the list, click the *Add user* button and input the user's email or name in the textbox. The dropdown will show a list of users on elmah.io matching your query.
 
@@ -38,11 +38,17 @@ To change the access level on an added user, click one of the grouped buttons to
 
 When a user is added to an organization, the user will automatically have access to all new logs created in that organization. For security reasons, a new user added to the organization, will not have access to existing logs in the organization. To assign the new user to existing logs, assign an access level on each log by clicking the settings button to the right of the user:
 
-![Manage log(s) access](images/manage-log-access.png)
+![Manage log(s) access](images/manage-log-access-v2.png)
 
 > Awarding a user *Administrator* on a log doesn't give them *Administrator* rights to the organization.
 
 To assign a user to all logs, click the _None_, _Read_, _Write_, or _Administrator_ buttons in the table header above the list of logs.
+
+Likewise, organization administrators can assign users to different emails for each log in the organization:
+
+![Manage email access](images/manage-email-access.png)
+
+This view is similar to the one the user has on the profile when signing into elmah.io. Make sure to notify users when you assign emails to them to avoid them marking emails as spam.
 
 ## Invite new users to an organization
 
