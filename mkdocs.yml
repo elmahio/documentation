@@ -110,21 +110,20 @@ nav:
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - Microsoft Teams: elmah-io-apps-teams.md
-    - GitHub: elmah-io-apps-github.md
-    - Bitbucket: elmah-io-apps-bitbucket.md
-    - Jira: elmah-io-apps-jira.md
     - Twilio: elmah-io-apps-twilio.md
-    - YouTrack: elmah-io-apps-youtrack.md
-    - GitLab: elmah-io-apps-gitlab.md
+    - Jira: elmah-io-apps-jira.md
     - Azure Boards: elmah-io-apps-azure-boards.md
-    - Trello: elmah-io-apps-trello.md
+    - Bitbucket: elmah-io-apps-bitbucket.md
+    - GitHub: elmah-io-apps-github.md
+    - GitLab: elmah-io-apps-gitlab.md
     - HipChat: elmah-io-apps-hipchat.md
-    - Zapier: integrate-elmah-io-with-zapier.md
     - Pipedream: integrate-elmah-io-with-pipedream.md
-    - BotBuster: elmah-io-apps-botbuster.md
-    - IP Filter: elmah-io-apps-ipfilter.md
-    - Mailman: elmah-io-apps-mailman.md
-    - Creating apps for elmah.io: creating-apps-for-elmah-io.md
+    - Trello: elmah-io-apps-trello.md
+    - YouTrack: elmah-io-apps-youtrack.md
+    - Zapier: integrate-elmah-io-with-zapier.md
+    - BotBuster (deprecated): elmah-io-apps-botbuster.md
+    - IP Filter (deprecated): elmah-io-apps-ipfilter.md
+    - Mailman (deprecated): elmah-io-apps-mailman.md
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
     - Missing server-side information on uptime errors: missing-server-side-information-on-uptime-errors.md
