@@ -5,6 +5,8 @@ description: Learn how to set up automatic error logging of all uncaught errors 
 
 # Logging to elmah.io from AWS Lambdas
 
+[TOC]
+
 Since AWS now supports .NET Core, logging to elmah.io from a lambda is easy.
 
 ## Logging to elmah.io from AWS Serverless Application
