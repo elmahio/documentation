@@ -9,7 +9,7 @@ ELMAH stores a lot of contextual information when an error occurs. Things like c
 
 Let's look at some code. You have two options for decorating your errors with custom variables.
 
-### Use the [Data](https://docs.microsoft.com/en-us/dotnet/api/system.exception.data?view=net-6.0) dictionary on .NET's Exception type
+### Use the [Data](https://learn.microsoft.com/en-us/dotnet/api/system.exception.data?view=net-6.0) dictionary on .NET's Exception type
 
 All exceptions in .NET contain a property named `Data` and of type `IDictionary`. The `Data` dictionary is intended for user-defined information about the exception. The elmah.io client iterates through key/values in this dictionary and ships it off to [elmah.io's API](https://elmah.io/api/v3/). To log custom data using `Data`, just add a new key/value pair to the `Data` dictionary:
 

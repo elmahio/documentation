@@ -30,6 +30,6 @@ public class CustomLoggingModule : IHttpModule
 }
 ```
 
-In the example, I've created a new module named `CustomLoggingModule`. The module needs to be configured in `web.config` as explained <a href="https://docs.microsoft.com/en-us/iis/configuration/system.webserver/modules/" target="_blank" rel="noopener noreferrer">here</a>. When starting up the application, ASP.NET calls the `Init`-method. In this method, an `Error` event handler is set. Every time a new error is happening in your web application, ASP.NET now calls the `Application_Error`-method. In this method, I wrap the last thrown error in ELMAH's `Error` object and log it through the `ErrorLog` class.
+In the example, I've created a new module named `CustomLoggingModule`. The module needs to be configured in `web.config` as explained <a href="https://learn.microsoft.com/en-us/iis/configuration/system.webserver/modules/" target="_blank" rel="noopener noreferrer">here</a>. When starting up the application, ASP.NET calls the `Init`-method. In this method, an `Error` event handler is set. Every time a new error is happening in your web application, ASP.NET now calls the `Application_Error`-method. In this method, I wrap the last thrown error in ELMAH's `Error` object and log it through the `ErrorLog` class.
 
 > Be aware that logging errors this way, disables ELMAH's built-in events like filtering.

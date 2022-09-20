@@ -15,7 +15,7 @@ Run the following command somewhere on your computer:
 nuget install elmah.io
 ```
 
-It is recommended to run this locally to avoid having to install `nuget.exe` on the machine running IIS (typically a production environment). If you don't have NuGet installed, there are a range of download options available <a href="https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools" target="_blank" rel="noopener noreferrer nofollow">here</a>.
+It is recommended to run this locally to avoid having to install `nuget.exe` on the machine running IIS (typically a production environment). If you don't have NuGet installed, there are a range of download options available <a href="https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools" target="_blank" rel="noopener noreferrer nofollow">here</a>.
 
 From the folder where you ran the command, copy the following files to the `bin` folder of your running website:
 
