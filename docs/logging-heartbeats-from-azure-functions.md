@@ -124,7 +124,7 @@ Inside your function, wrap all of the code in `try/catch` and add code to create
 using System;
 using System.Threading.Tasks;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
+//using Elmah.Io.Client.Models; 👈 Required for Elmah.Io.Client v3.x and lower only
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 
@@ -169,6 +169,8 @@ namespace My.FunctionApp
 ```
 
 If your function code executes successfully, a `Healthy` heartbeat is created. If an exception is thrown, an `Unhealthy` heartbeat with the thrown exception in `Reason` is created.
+
+Be aware that configuring a function to run in an internal (like every hour for the example above) does not ensure that the function is executed exactly on the hour. We recommend to set the grace period for these types of heartbeats to 15-30 minutes to avoid heartbeat errors when the timed function is past due.
 
 ## Using a separate heartbeat function
 
