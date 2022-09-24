@@ -124,6 +124,7 @@ nav:
     - BotBuster (deprecated): elmah-io-apps-botbuster.md
     - IP Filter (deprecated): elmah-io-apps-ipfilter.md
     - Mailman (deprecated): elmah-io-apps-mailman.md
+    - Request a new integration: elmah-io-apps-request-a-new-integration.md
 - Uptime Monitoring:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
     - Missing server-side information on uptime errors: missing-server-side-information-on-uptime-errors.md
