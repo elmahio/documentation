@@ -5,15 +5,11 @@ description: Automatically receive messages in Slack when new errors are logged 
 
 # Install Slack App for elmah.io
 
-Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Slack app and click the *Install* button. You will be asked to allow access from elmah.io:
+Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Slack app and click the *Install* button. You will be redirected to Slack where you need to log into your workspace if not already. Once logged in, select the channel to send messages to:
 
-![Allow Slack access](images/slack_allow_access.png)
+![Select channel](images/slack_select_channel-v2.png)
 
-Select your team and in the following screen, select the channel you want to show errors on Slack:
-
-![Select channel](images/slack_select_channel.png)
-
-Click the _Authorize_ button and you will be redirected to elmah.io. The integration to Slack is now installed.
+Click the _Allow_ button and you will be redirected back to elmah.io. The integration to Slack is now installed.
 
 > Slack doesn't allow more than a single request per second. If you generate more than one message to elmah.io per second, not all of them will show up in Slack because of this.
 
