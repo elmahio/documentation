@@ -42,6 +42,7 @@ nav:
     - Logging from WebForms: logging-to-elmah-io-from-elmah.md
     - Logging from ASP.NET MVC: logging-to-elmah-io-from-aspnet-mvc.md
     - Logging from Web API: logging-to-elmah-io-from-web-api.md
+    - Logging from Web Pages: logging-to-elmah-io-from-web-pages.md
     - Logging from a running website on IIS: logging-to-elmah-io-from-a-running-website-on-iis.md
     - Logging from a running website on Azure: logging-to-elmah-io-from-a-running-website-on-azure.md
     - Logging custom data: logging-custom-data.md
