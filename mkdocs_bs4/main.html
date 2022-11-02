@@ -33,7 +33,7 @@
 
     <!-- Bootstrap CSS -->
     {% if config.production %}
-    <link rel="stylesheet" href="{{ 'assets/css/style.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.min.css?version=BUILD_NUMBER'|url }}">
     {% else %}
     <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome/css/all.min.css'|url }}">
