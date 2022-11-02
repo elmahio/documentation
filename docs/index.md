@@ -54,7 +54,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
                 <div class="guide-image">
                     <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging" />
                 </div>
-                <div class="guide-title" style="font-size:10px;">Extensions.Logging</div>
+                <div class="guide-title fz10">Extensions.Logging</div>
             </div>
         </a>
     </div>

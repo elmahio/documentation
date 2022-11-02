@@ -33,6 +33,8 @@ plugins:
         type: iso_date
         enable_creation_date: true
 production: false
+watch:
+    - mkdocs_bs4
 nav:
 - Getting Started:
     - Quick start: index.md

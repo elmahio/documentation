@@ -21,6 +21,24 @@ body:before {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
+.fz10 {
+	font-size: 10px !important;
+}
+.fz11 {
+	font-size: 11px !important;
+}
+.fz12 {
+	font-size: 12px !important;
+}
+.fz13 {
+	font-size: 13px !important;
+}
+.fz14 {
+	font-size: 14px !important;
+}
+.fz15 {
+	font-size: 15px !important;
+}
 a {
     color: #0da58e;
     text-decoration: none;
