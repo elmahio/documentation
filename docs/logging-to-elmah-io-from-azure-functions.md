@@ -312,9 +312,9 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
 }
 ```
 
-## Isolated Azure Functions on .NET 5
+## Isolated Azure Functions
 
-We have a prerelease of an integration package for isolated Azure Functions running on .NET 5. Install the `Elmah.Io.Functions.Isolated` package in your project to get started:
+We have a prerelease of an integration package for isolated Azure Functions. Install the `Elmah.Io.Functions.Isolated` package in your project to get started:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Functions.Isolated -IncludePrerelease
