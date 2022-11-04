@@ -199,8 +199,8 @@ paket add Elmah.Io.Extensions.Logging
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup3" aria-controls="home" role="tab" data-toggle="tab">Azure Functions <= v3</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions v5</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup3" aria-controls="home" role="tab" data-toggle="tab">Azure Functions (in-process)</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions (isolated)</a></li>
 </ul>
 </div>
 </div>
@@ -221,7 +221,6 @@ builder.Services.AddLogging(logging =>
 });
 ```
 
-In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
 </div>
 
 <div role="tabpanel" class="tab-pane" id="setup5" markdown="1">
@@ -242,10 +241,10 @@ var host = new HostBuilder()
     // ...
     .Build();
 ```
+</div>
+</div>
 
-In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more.
-</div>
-</div>
+In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more. Jump to [Log filtering](#log-filtering) to learn how to configure filters from config.
 
 Either pass an `ILogger` to your function method:
 
@@ -275,6 +274,41 @@ public class MyFunction
     {
         log.LogWarning("This is a warning");
     }
+}
+```
+
+### Log filtering
+
+The code above filters out all log messages with a severity lower than `Warning`. You can use all of the log filtering capabilities of Microsoft.Extensions.Logging to enable and disable various log levels from multiple categories. A common requirement is to only log `Warning` and more severe originating from the Azure Functions runtime, but log `Information` messages from your function code. This can be enabled through a custom category:
+
+```csharp
+public class MyFunction
+{
+    private readonly ILogger log;
+
+    public Function1(ILoggerFactory loggerFactory)
+    {
+        this.log = loggerFactory.CreateLogger("MyFunction");
+    }
+
+    public void Run([TimerTrigger("...")]TimerInfo myTimer)
+    {
+        log.LogInformation("This is an information message");
+    }
+}
+```
+
+The `MyFunction` category will need configuration in either C# or in the `host.json` file:
+
+```json
+{
+  // ...
+  "logging": {
+    "logLevel": {
+      "default": "Warning",
+      "MyFunction": "Information"
+    }
+  }
 }
 ```
 
