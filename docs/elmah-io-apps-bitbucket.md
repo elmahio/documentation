@@ -19,8 +19,8 @@ After clicking the *Create* button, copy the generated app password.
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Bitbucket app and click the *Install* button:
 
-![Install Bitbucket App](images/apps/bitbucket/install_settings_v2.png)
+![Install Bitbucket App](images/apps/bitbucket/install_settings_v3.png)
 
-Paste the App password copied in the previous step into the *APP PASSWORD* textbox. In the _Team_ textbox, input the name of the team/workspace owning the repository you want to create issues in. In the *Repository* textbox input the name of the repository.
+Paste the App password copied in the previous step into the *APP PASSWORD* textbox. In the _TEAM_ textbox, input the name of the team/workspace owning the repository you want to create issues in. In the _REPOSITORY_ textbox input the name of the repository. In the _USERNAME_ textbox, input the name of the user generating the App password. In older installations, this can also contain the team/workspace name.
 
 Click *Save* and the app is added to your log. When new errors are logged, issues are automatically created in the configured Bitbucket repository.
