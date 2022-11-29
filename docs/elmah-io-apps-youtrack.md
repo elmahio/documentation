@@ -15,8 +15,8 @@ Copy the generated token.
 
 ## Install the YouTrack App on elmah.io
 
-Log into elmah.io and go to the log settings. Click the Apps tab. Locate the YouTrack app and click the *Install* button. Input your token and instance name. Next, click the _Login_ button to fetch the list of projects from YouTrack:
+Log into elmah.io and go to the log settings. Click the Apps tab. Locate the YouTrack app and click the *Install* button. Input your token and the base URL of your YouTrack Cloud installation. Next, click the _Login_ button to fetch the list of projects from YouTrack:
 
-![Install YouTrack App](images/apps/youtrack/install_youtrack_app_v2.png)
+![Install YouTrack App](images/apps/youtrack/install_youtrack_app_v3.png)
 
 Click *Save* and the app is added to your log. When new errors are logged, issues are automatically created in the configured YouTrack project.
