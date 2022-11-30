@@ -145,13 +145,15 @@ paket add Elmah.Io.Umbraco --version 3.2.35
 
 ## Umbraco Cloud
 
-When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco Cloud, execute the following steps:
+When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco Cloud, follow these steps:
 
-* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/working-locally" target="_blank">Working with a Local Clone</a>. All changes made in the following steps should be made in the `src\UmbracoProject` folder.
+- Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/working-locally" target="_blank">Working with a Local Clone</a>.
 
-* Follow the steps in [Umbraco >= 9](#umbraco-9).
+- Where you need to install and configure the `Elmah.Io.Umbraco` package depends on the Umbraco major version you are running on Umbraco Cloud. For Umbraco 7-8, all changes should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder. For Umbraco versions above 8, all changes should be made in the `src\UmbracoProject` folder.
 
-* Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
+- Follow the installation steps for your Umbraco version as specified in the beginning of this document.
+
+- Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
 In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms" target="_blank">Config transforms</a>.
 
