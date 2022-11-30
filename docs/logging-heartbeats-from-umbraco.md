@@ -5,9 +5,17 @@ description: Umbraco comes with a health check feature that can carry out a rang
 
 # Logging heartbeats from Umbraco
 
-Umbraco comes with a nice health check feature that can carry out a range of built-in health checks as well as custom checks you may want to add. Umbraco Health Checks fits perfectly with elmah.io Heartbeats.
+[TOC]
 
-To start publishing Umbraco Health Checks to elmah.io, create a new health check. Select *1 day* in *Interval* and *5 minutes* in *Grace*. Next, install the `Elmah.Io.Umbraco` NuGet package:
+Umbraco comes with a nice health check feature that can carry out a range of built-in health checks as well as custom checks you may want to add. Umbraco Health Checks fits perfectly with [elmah.io Heartbeats](https://elmah.io/features/heartbeats/).
+
+To start publishing Umbraco Health Checks to elmah.io, create a new health check. Select *1 day* in *Interval* and *5 minutes* in *Grace*. The next step depends on the major version of Umbraco. For both examples, replace `API_KEY`, `LOG_ID`, and `HEARTBEAT_ID` with the values found on the elmah.io UI.
+
+When launching the website Umbraco automatically executes the health checks once every 24 hours and sends the results to elmah.io.
+
+## Umbraco 8
+
+install the `Elmah.Io.Umbraco` v4 NuGet package:
 
 ```powershell fct_label="Package Manager"
 Install-Package Elmah.Io.Umbraco
@@ -33,7 +41,7 @@ For Umbraco to automatically execute health checks, you will need to set your ba
 </settings>
 ```
 
-(localhost used as an example and should be replaced with a real URL)
+(localhost is used as an example and should be replaced with a real URL)
 
 Umbraco comes with an email publisher already configured. To publish health check results to your newly created heartbeat, extend the `HealthChecks.config` file:
 
@@ -63,6 +71,50 @@ Umbraco comes with an email publisher already configured. To publish health chec
 </HealthChecks>
 ```
 
-For this example, I have disabled the email notification publisher but you can run with both if you'd like. Replace `API_KEY`, `LOG_ID`, and `HEARTBEAT_ID` with the values found on the elmah.io UI.
+For this example, I have disabled the email notification publisher but you can run with both if you'd like.
 
-When launching the website Umbraco automatically executes the health checks once every 24 hours and sends the results to elmah.io.
+## Umbraco >= 9
+
+Install the `Elmah.Io.Umbraco` v5 NuGet package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco -IncludePrerelease
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Umbraco --prerelease
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Umbraco" Version="5.0.19-pre" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Umbraco
+```
+
+To publish health check results to your newly created heartbeat, extend the `appsettings.json` file:
+
+```json
+{
+  ...
+  "Umbraco": {
+    "CMS": {
+      ...
+      "HealthChecks": {
+        "Notification": {
+          "Enabled": true,
+          "NotificationMethods": {
+            "elmah.io": {
+              "Enabled": true,
+              "Verbosity": "Summary",
+              "Settings": {
+                "apiKey": "API_KEY",
+                "logId": "LOG_ID",
+                "heartbeatId": "HEARTBEAT_ID"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```

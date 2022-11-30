@@ -11,7 +11,7 @@ description: Monitoring Umbraco is easy with elmah.io's custom integration. Log 
 
 [TOC]
 
-Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbraco. Besides logging uncaught errors, elmah.io also supports other types of messages like information and debug. All the log levels that you already know from log4net, NLog, and Serilog, are supported on elmah.io as well. Logging in Umbraco CMS is based on Serilog, [which elmah.io also supports](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). We have brought all these pieces together into a NuGet package that we call: [Elmah.Io.Umbraco](https://www.nuget.org/packages/elmah.io.umbraco/).
+elmah.io offer great support for all newer Umbraco versions. Umbraco has been in rapid development in the last few years, so the installation instructions are very different depending on which major version you are using. Make sure to select the right version below since newer versions of the `Elmah.Io.Umbraco` package don't work with older versions of Umbraco and vice versa.
 
 <div class="alert alert-primary">
     <div class="row">
@@ -22,75 +22,107 @@ Since Umbraco itself is written in ASP.NET, ELMAH works like a dream inside Umbr
     </div>
 </div>
 
-To start utilizing elmah.io from your Umbraco site, all you need to do is install the `Elmah.Io.Umbraco` package:
+During the installation steps described below, you will need your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+elmah.io integrates with Umbraco's Health Checks feature too. To learn more about how to set it up, visit [Logging heartbeats from Umbraco](/logging-heartbeats-from-umbraco/).
+
+## Umbraco >= 9
+
+Before digging down into the instructions, a quick note about Umbraco 9. Umbraco 9 is targeting .NET 5.0 which is no longer supported by Microsoft. This is why we have chosen to support Umbraco 10 and up only.
+
+To install elmah.io in your Umbraco >= v10 site, install the `Elmah.Io.Umbraco` v5.x package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco
+Install-Package Elmah.Io.Umbraco -IncludePrerelease
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Umbraco
+dotnet add package Elmah.Io.Umbraco --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="4.*" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="5.0.19-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Umbraco
 ```
 
-During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+After installing the NuGet package add the following to the `Startup.cs` file:
 
-Hit F5 and watch messages start flowing into elmah.io.
+```csharp
+public class Startup
+{
+    // ...
 
-## What's inside?
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddElmahIo(options =>
+        {
+            options.ApiKey = "API_KEY";
+            options.LogId = new Guid("LOG_ID");
+        });
+        // ...
+    }
 
-The Elmah.Io.Umbraco package installs and configures three things:
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        // ...
+        app.UseElmahIo();
+        // ...
+    }
+}
+```
 
-* The elmah.io Serilog sink (Warning and above)
-* An Umbraco content finder for logging 404's
-* ELMAH with elmah.io as error log
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** the call to `UseUmbraco`.
 
-All unhandled exceptions from both ASP.NET / MVC / Web API as well as 404's are logged automatically. Warnings, errors, and fatal messages logged through Serilog are sent to elmah.io as well.
+This will log all uncaught errors to elmah.io. If you want to hook into Umbraco's logging through Serilog, extend the configuration in the `appsettings.json` file with the following JSON:
 
-## Configuration
+```json
+{
+  "Serilog": {
+    ...
+    "WriteTo": [
+      {
+        "Name": "ElmahIo",
+        "Args": {
+          "apiKey": "API_KEY",
+          "logId": "LOG_ID"
+        }
+      }
+    ]
+  },
+  ...
+}
+```
 
-If you are running on the default Umbraco template, all necessary configuration is added during installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason isn't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configures the elmah.io sink for Serilog in your `config\serilog.user.config` file.
+This will configure elmah.io's Serilog sink in Umbraco. You may experience logging not coming through when running locally. In this case, it might help to remove the `WriteTo` action from the `appsettings.Development.json` file.
 
-### Different environments
+## Umbraco 8
 
-You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
-
-## Umbraco Cloud
-
-When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco cloud, execute the following steps:
-
-* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Working-Locally/" target="_blank">Working with a Local Clone of a Umbraco Cloud Site</a>. All changes made in the following steps should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder.
-
-* Install `Elmah.Io.Umbraco` into the `*.Web` project on your local clone. During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+To install elmah.io in your Umbraco v8 site, install the `Elmah.Io.Umbraco` v4.x package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco
+Install-Package Elmah.Io.Umbraco -Version 4.1.11
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Umbraco
+dotnet add package Elmah.Io.Umbraco --version 4.1.11
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="4.*" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="4.1.11" />
 ```
 ```xml fct_label="Paket CLI"
-paket add Elmah.Io.Umbraco
+paket add Elmah.Io.Umbraco --version 4.1.11
 ```
 
-* Commit and push all changes to the git repository (only commit and push inside the `*.Web` folder). This will add elmah.io logging to your remote Umbraco Cloud project.
+During the installation, you will be presented with a dialog asking for your API key and log ID. Hit F5 and watch messages start flowing into elmah.io.
 
-In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://our.umbraco.com/documentation/Umbraco-Cloud/Set-Up/Config-Transforms/" target="_blank">Config transforms</a>.
+> Unless serious security issues in the `Elmah.Io.Umbraco` v4 package are found, new features will be added to the v5 package only (supporting Umbraco 10 and newer).
 
-## Umbraco Uno
+### Configuration
 
-Installing elmah.io in Umbraco Uno follow the process of installing it onto Umbraco Cloud. To modify code and configuration in Uno you will need an Umbraco Uno Standard plan or higher. Also, you need to enable *Custom Code* to clone the code locally. This can be done from Uno by clicking the *Enable custom code* button:
+If you are running on the default Umbraco template, all necessary configuration is added during the installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason isn't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configures the elmah.io sink for Serilog in your `config\serilog.user.config` file.
 
-![Enable custom code](images/umbraco-uno-enable-custom-code.png)
+#### Different environments
 
-After enabling Custom Code you can create a *Development* environment and follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.
+You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
 
 ## Umbraco 7
 
@@ -109,79 +141,24 @@ dotnet add package Elmah.Io.Umbraco --version 3.2.35
 paket add Elmah.Io.Umbraco --version 3.2.35
 ```
 
-New features will be added to the updated package for Umbraco 8 and newer only.
+> New features will be added to the updated package for Umbraco 10 and newer only.
 
-## Umbraco 9
+## Umbraco Cloud
 
-Playing with the new version of Umbraco running on ASP.NET Core? We are too. Luckily, elmah.io already provides all of the bits and pieces needed to integrate Umbraco 9 and elmah.io.
+When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco Cloud, execute the following steps:
 
-Start by installing the `Elmah.Io.AspNetCore` package:
+* Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/working-locally" target="_blank">Working with a Local Clone</a>. All changes made in the following steps should be made in the `src\UmbracoProject` folder.
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore
-```
-```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.AspNetCore
-```
-```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore" Version="4.*" />
-```
-```xml fct_label="Paket CLI"
-paket add Elmah.Io.AspNetCore
-```
+* Follow the steps in [Umbraco >= 9](#umbraco-9).
 
-Then add the following `using` to the `Startup.cs` file:
+* Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
-```csharp
-using Elmah.Io.AspNetCore
-```
+In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms" target="_blank">Config transforms</a>.
 
-Add this code to the `ConfigureServices` method:
+## Umbraco Uno
 
-```csharp
-services.AddElmahIo(o =>
-{
-    o.ApiKey = "API_KEY";
-    o.LogId = new Guid("LOG_ID");
-});
-```
+Installing elmah.io in Umbraco Uno follows the process of installing it onto Umbraco Cloud. To modify code and configuration in Uno you will need a Umbraco Uno Standard plan or higher. Also, you need to enable *Custom Code* to clone the code locally. This can be done from Uno by clicking the *Enable custom code* button:
 
-Finally, add the following code to the `Configure` method before the call to `UseUmbraco`:
+![Enable custom code](images/umbraco-uno-enable-custom-code.png)
 
-```csharp
-app.UseElmahIo();
-```
-
-This will log all uncaught exceptions to elmah.io. If you want to hook into the internal logging of Umbraco, Install the `Elmah.Io.Extensions.Logging` package:
-
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
-```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Extensions.Logging
-```
-```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Extensions.Logging" Version="4.*" />
-```
-```xml fct_label="Paket CLI"
-paket add Elmah.Io.Extensions.Logging
-```
-
-Add the following `using` to the `Program.cs` file:
-
-```csharp
-using Elmah.Io.Extensions.Logging;
-```
-
-In the `ConfigureLogging` action add the following code after the call to `ClearProviders`:
-
-```csharp
-x.AddElmahIo(options =>
-{
-    options.ApiKey = "API_KEY";
-    options.LogId = new System.Guid("LOG_ID");
-});
-x.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
-```
-
-This will log all warnings and above to elmah.io. You can adjust the `LogLevel` but be aware that Umbraco outputs a lot of log messages which will quickly fill up your monthly quota.
+After enabling Custom Code you can create a *Development* environment and follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.
