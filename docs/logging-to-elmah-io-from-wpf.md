@@ -14,7 +14,7 @@ Install-Package Elmah.Io.Wpf -IncludePrerelease
 dotnet add package Elmah.Io.Wpf --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Wpf" Version="4.0.3-pre" />
+<PackageReference Include="Elmah.Io.Wpf" Version="4.0.4-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Wpf
