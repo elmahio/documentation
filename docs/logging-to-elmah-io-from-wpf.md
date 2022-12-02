@@ -3,7 +3,13 @@ title: Logging to elmah.io from WPF
 description: Learn about how to set up cloud-logging on WPF applications using elmah.io. Catch and log all errors happening on installations of your client.
 ---
 
+[![Build status](https://github.com/elmahio/Elmah.Io.Wpf/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Wpf/actions?query=workflow%3Abuild)
+[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Wpf.svg)](https://www.nuget.org/packages/Elmah.Io.Wpf)
+[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Wpf/tree/main/samples)
+
 # Logging to elmah.io from WPF
+
+[TOC]
 
 elmah.io logging can be easily added to WPF applications. To start logging to elmah.io, install the `Elmah.Io.Wpf` NuGet package:
 
