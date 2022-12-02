@@ -5,7 +5,60 @@ description: Learn about how to set up cloud-logging on WPF applications using e
 
 # Logging to elmah.io from WPF
 
-elmah.io logging can be easily added to WPF applications. We don't provide a package specific to WPF, but the `Elmah.Io.Client` package, combined with a bit of code, will achieve just the same.
+elmah.io logging can be easily added to WPF applications. To start logging to elmah.io, install the `Elmah.Io.Wpf` NuGet package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Wpf -IncludePrerelease
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Wpf --prerelease
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Wpf" Version="4.0.3-pre" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Wpf
+```
+
+Next, initialize elmah.io in the `App.xaml.cs` file:
+
+```csharp
+public partial class App : Application
+{
+    public App()
+    {
+        ElmahIoWpf.Init(new ElmahIoWpfOptions
+        {
+            ApiKey = "API_KEY",
+            LogId = new Guid("LOG_ID")
+        });
+    }
+}
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the id of the log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) where you want errors logged.
+
+That's it. All uncaught exceptions are now logged to elmah.io.
+
+## Logging exceptions manually
+
+Once initialized using the `Init` call, exceptions can be logged manually:
+
+```csharp
+ElmahIoWpf.Log(new Exception());
+```
+
+## Breadcrumbs
+
+The `Elmah.Io.Wpf` package automatically records breadcrumbs when clicking buttons and opening/closing windows. To manually include a breadcrumb you can include the following code:
+
+```csharp
+ElmahIoWpf.AddBreadcrumb(new Client.Breadcrumb(DateTime.UtcNow, severity:"Information", action:"Save", message:"Record save"));
+```
+
+`severity` can be set to `Verbose`, `Debug`, `Information`, `Warning`, `Error`, or `Fatal`. The value of `action` is a string of your choice. If using one of the following values, the action will get a special icon in the elmah.io UI: `click`, `submit`, `navigation`, `request`, `error`, `warning`, `fatal`. The `message` field can be used to describe the breadcrumb in more detail and/or include IDs or similar related to the breadcrumb.
+
+## Legacy
 
 To start logging to elmah.io, install the `Elmah.Io.Client` NuGet package:
 
