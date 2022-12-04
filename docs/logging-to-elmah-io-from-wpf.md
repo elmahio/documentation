@@ -66,7 +66,58 @@ ElmahIoWpf.AddBreadcrumb(new Client.Breadcrumb(DateTime.UtcNow, severity:"Inform
 
 `severity` can be set to `Verbose`, `Debug`, `Information`, `Warning`, `Error`, or `Fatal`. The value of `action` is a string of your choice. If using one of the following values, the action will get a special icon in the elmah.io UI: `click`, `submit`, `navigation`, `request`, `error`, `warning`, `fatal`. The `message` field can be used to describe the breadcrumb in more detail and/or include IDs or similar related to the breadcrumb.
 
+The number of breadcrumbs to store in memory is 10 as a default. If you want to lower or increase this number, set the `MaximumBreadcrumbs` property during initialization:
+
+```csharp
+ElmahIoWpf.Init(new ElmahIoWpfOptions
+{
+    // ...
+    MaximumBreadcrumbs = 20,
+});
+```
+
+## Additional options
+
+### Setting application name
+
+The application name can be set on all logged messages by setting the `Application` property on `ElmahIoWpfOptions` during initialization:
+
+```csharp
+ElmahIoWpf.Init(new ElmahIoWpfOptions
+{
+    // ...
+    Application = "WPF on .NET 6",    
+});
+```
+
+### Hooks
+
+The `ElmahIoWpfOptions` class also supports a range of actions to hook into various stages of logging errors. Hooks are registered as actions when installing `Elmah.Io.Wpf`:
+
+```csharp
+ElmahIoWpf.Init(new ElmahIoWpfOptions
+{
+    // ...
+    OnFilter = msg =>
+    {
+        return msg.Type.Equals("System.NullReferenceException");
+    },
+    OnMessage = msg =>
+    {
+        msg.Version = "42";
+    },
+    OnError = (msg, ex) =>
+    {
+        // Log somewhere else
+    }
+});
+```
+
+The `OnFilter` action can be used to ignore/filter specific errors. In this example, all errors of type `System.NullReferenceException` is ignored. The `OnMessage` action can be used to decorate/enrich all errors with different information. In this example, all errors get a version number of `42`. The `OnError` action can be used to handle if the elmah.io API is down. While this doesn't happen frequently, you might want to log errors elsewhere.
+
 ## Legacy
+
+Before the `Elmah.Io.Wpf` package was developed, this was the recommended way of installing elmah.io in WPF.
 
 To start logging to elmah.io, install the `Elmah.Io.Client` NuGet package:
 
