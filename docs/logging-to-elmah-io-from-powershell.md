@@ -7,6 +7,10 @@ description: Learn how to set up error logging from a PowerShell script to elmah
 
 [TOC]
 
+There are a couple of options for logging to elmah.io from PowerShell. If you need to log a few messages, using the API is the easiest.
+
+## Log through the API
+
 Logging to elmah.io from PowerShell is easy using built-in cmdlets:
 
 ```powershell
@@ -24,6 +28,31 @@ Invoke-RestMethod -Method Post -Uri $url -Body ($body|ConvertTo-Json) -ContentTy
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+
+## Log through PoShLog.Sinks.ElmahIo
+
+PoShLog is a PowerShell logging module built on top of Serilog. To log to elmah.io using PoShLog, install the following packages:
+
+```powershell
+Install-Module -Name PoShLog
+Install-Module -Name PoShLog.Sinks.ElmahIo
+```
+
+Logging messages can now be done using `Write-*Log`:
+
+```powershell
+Import-Module PoShLog
+Import-Module PoShLog.Sinks.ElmahIo
+
+New-Logger |
+    Add-SinkElmahIo -ApiKey 'API_KEY' -LogId 'LOG_ID' |
+    Start-Logger
+
+Write-ErrorLog 'Say My Name'
+
+# Don't forget to close the logger
+Close-Logger
+```
 
 ## Log through `Elmah.Io.Client`
 
