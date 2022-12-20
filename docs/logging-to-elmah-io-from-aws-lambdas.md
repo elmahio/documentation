@@ -60,7 +60,7 @@ builder.Services.AddLogging(logging =>
 
 Be aware that logging a large number of log messages synchronously, may slow down your application and/or cause thread exhaustion. We recommend only logging errors this way and not debug, information, and similar.
 
-> The `Synchronous` property is currently in prerelease and requires `Elmah.Io.Extensions.Logging` version `4.2.29-pre` or newer.
+> The `Synchronous` property is currently in prerelease and requires `Elmah.Io.Extensions.Logging` version `4.2.36` or newer.
 
 ## Logging from AWS Lambda Project
 
