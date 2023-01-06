@@ -138,7 +138,6 @@ Add the following usings to the `App.xaml.cs` file:
 
 ```csharp
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
 using System.Diagnostics;
 using System.Security.Principal;
 using System.Threading.Tasks;

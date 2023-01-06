@@ -124,7 +124,6 @@ Inside your function, wrap all of the code in `try/catch` and add code to create
 using System;
 using System.Threading.Tasks;
 using Elmah.Io.Client;
-//using Elmah.Io.Client.Models; 👈 Required for Elmah.Io.Client v3.x and lower only
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 
