@@ -100,16 +100,16 @@ This will configure elmah.io's Serilog sink in Umbraco. You may experience loggi
 To install elmah.io in your Umbraco v8 site, install the `Elmah.Io.Umbraco` v4.x package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco -Version 4.1.11
+Install-Package Elmah.Io.Umbraco -Version 4.2.21
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Umbraco --version 4.1.11
+dotnet add package Elmah.Io.Umbraco --version 4.2.21
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Umbraco" Version="4.1.11" />
+<PackageReference Include="Elmah.Io.Umbraco" Version="4.2.21" />
 ```
 ```xml fct_label="Paket CLI"
-paket add Elmah.Io.Umbraco --version 4.1.11
+paket add Elmah.Io.Umbraco --version 4.2.21
 ```
 
 During the installation, you will be presented with a dialog asking for your API key and log ID. Hit F5 and watch messages start flowing into elmah.io.
