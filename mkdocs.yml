@@ -124,6 +124,7 @@ nav:
     - Trello: elmah-io-apps-trello.md
     - YouTrack: elmah-io-apps-youtrack.md
     - Zapier: integrate-elmah-io-with-zapier.md
+    - PagerDuty: elmah-io-apps-pagerduty.md
     - BotBuster (deprecated): elmah-io-apps-botbuster.md
     - IP Filter (deprecated): elmah-io-apps-ipfilter.md
     - Mailman (deprecated): elmah-io-apps-mailman.md
