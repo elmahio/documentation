@@ -60,8 +60,6 @@ builder.Services.AddLogging(logging =>
 
 Be aware that logging a large number of log messages synchronously, may slow down your application and/or cause thread exhaustion. We recommend only logging errors this way and not debug, information, and similar.
 
-> The `Synchronous` property is currently in prerelease and requires `Elmah.Io.Extensions.Logging` version `4.2.36` or newer.
-
 ## Logging from AWS Lambda Project
 
 AWS Lambda Project comes with native support for CloudWatch too. In our experience, it's not possible to configure multiple destinations on `LambdaLogger`, why you would want to use another framework when logging to elmah.io from an AWS Lambda Project. We recommend using a logging framework like [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), [Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), or [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/).
