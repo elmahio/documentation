@@ -11,7 +11,24 @@ To help to install elmah.io in ASP.NET Core (by using the `Elmah.Io.AspNetCore` 
 
 ## Installation and usage
 
-To install the analyzers, navigate to *Extensions* | *Manage extensions* | *Online* and search for `Elmah.Io.AspNetCore.Analyzers`. Then click the *Download* button and restart Visual Studio. As an alternative, you can [download the extension](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahioaspnetcoreanalyzers) directly from the Visual Studio Marketplace.
+The analyzers can be installed in two ways. As a NuGet package or a Visual Studio extension. To install it from NuGet:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.Analyzers
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.AspNetCore.Analyzers
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.AspNetCore.Analyzers" Version="0.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.AspNetCore.Analyzers
+```
+
+The package is installed as a private asset, which means that it is not distributed as part of your build. You can keep the package installed after you have used it to inspect any warnings generated or uninstall it.
+
+To install it as a Visual Studio extension, navigate to *Extensions* | *Manage extensions* | *Online* and search for `Elmah.Io.AspNetCore.Analyzers`. Then click the *Download* button and restart Visual Studio. As an alternative, you can [download the extension](https://marketplace.visualstudio.com/items?itemName=elmahio.elmahioaspnetcoreanalyzers) directly from the Visual Studio Marketplace.
 
 Once installed, analyzers will help you add or move elmah.io-related setup code:
 
