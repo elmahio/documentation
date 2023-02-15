@@ -71,8 +71,8 @@
 
     var logoHtml = `
 <svg
-    height="32px"
-    width="28px"
+    height="21px"
+    width="24px"
     focusable="false"
     aria-hidden="true"
     viewBox="0 0 28 32">
@@ -125,8 +125,8 @@
         position: 'absolute',
         top: '0px',
         left: '0px',
-        width: '60px',
-        height: '60px',
+        width: '48px',
+        height: '48px',
         borderRadius: '50%',
         cursor: 'pointer',
         transformOrigin: 'center',
@@ -168,8 +168,8 @@
         bottom: '20px',
         display: 'block',
         right: '20px',
-        width: '60px',
-        height: '60px',
+        width: '48px',
+        height: '48px',
         borderRadius: '50%',
         boxShadow:
         'rgba(0, 0, 0, 0.0588235) 0px 1px 6px 0px, rgba(0, 0, 0, 0.156863) 0px 2px 32px 0px',
