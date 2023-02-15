@@ -71,8 +71,8 @@
 
     var logoHtml = `
 <svg
-    height="21px"
-    width="24px"
+    height="24px"
+    width="22px"
     focusable="false"
     aria-hidden="true"
     viewBox="0 0 28 32">
