@@ -122,7 +122,7 @@ If you are running on the default Umbraco template, all necessary configuration 
 
 #### Different environments
 
-You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
+You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://docs.umbraco.com/umbraco-cloud/setup/config-transforms). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
 
 ## Umbraco 7
 
@@ -147,7 +147,7 @@ paket add Elmah.Io.Umbraco --version 3.2.35
 
 When using Umbraco Cloud, you may not have a local clone of the source code. To install elmah.io on Umbraco Cloud, follow these steps:
 
-- Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/working-locally" target="_blank">Working with a Local Clone</a>.
+- Clone your Umbraco Cloud project to a local folder as explained here: <a href="https://docs.umbraco.com/umbraco-cloud/setup/working-locally" target="_blank">Working with a Local Clone</a>.
 
 - Where you need to install and configure the `Elmah.Io.Umbraco` package depends on the Umbraco major version you are running on Umbraco Cloud. For Umbraco 7-8, all changes should be made in the `*.Web` project only and all commits from within that folder as well. Don't commit and push anything in the root folder. For Umbraco versions above 8, all changes should be made in the `src\UmbracoProject` folder.
 
@@ -155,7 +155,7 @@ When using Umbraco Cloud, you may not have a local clone of the source code. To 
 
 - Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
-In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms" target="_blank">Config transforms</a>.
+In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/setup/config-transforms" target="_blank">Config transforms</a>.
 
 ## Umbraco Uno
 
