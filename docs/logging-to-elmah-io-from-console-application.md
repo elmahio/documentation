@@ -207,3 +207,50 @@ When logging POSTs with form values, you don't want users' passwords and similar
 var logger = ElmahioAPI.Create("API_KEY");
 logger.Options.FormKeysToObfuscate.Add("secret_key");
 ```
+
+## Full example
+
+Here's a full example of how to catch all exceptions in a console application and log as many information as possible to elmah.io:
+
+```csharp
+class Program
+{
+    private static IElmahioAPI elmahIo;
+
+    static void Main(string[] args)
+    {
+        try
+        {
+            AppDomain.CurrentDomain.UnhandledException +=
+                (sender, e) => LogException(e.ExceptionObject as Exception);
+
+            // Run some code
+        }
+        catch (Exception e)
+        {
+            LogException(e);
+        }
+    }
+
+    private static void LogException(Exception e)
+    {
+        if (elmahIo == null) elmahIo = ElmahioAPI.Create("API_KEY");
+
+        var baseException = e?.GetBaseException();
+
+        elmahIo.Messages.CreateAndNotify(new Guid("LOG_ID"), new CreateMessage
+        {
+            Data = e?.ToDataList(),
+            Detail = e?.ToString(),
+            Hostname = Environment.MachineName,
+            Severity = Severity.Error.ToString(),
+            Source = baseException?.Source,
+            Title = baseException?.Message ?? "An error happened",
+            Type = baseException?.GetType().FullName,
+            User = Environment.UserName,
+        });
+    }
+}
+```
+
+The code will catch all exceptions both from the `catch` block and exceptions reported through the `UnhandledException` event.
