@@ -475,3 +475,7 @@ Here are some things to try out if logging from Serilog to elmah.io doesn't work
 - Always make sure to call `Log.CloseAndFlush()` before exiting the application to make sure that all log messages are flushed.
 - Set up Serilog's SelfLog to inspect any errors happening inside Serilog or the elmah.io sink: `Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));`.
 - Implement the [`OnError`](#handle-errors) action and put a breakpoint in the handler to inspect if any errors are thrown while logging to the elmah.io API.
+
+### PeriodicBatchingSink is marked as sealed
+
+If you get a runtime error stating that the `PeriodicBatchingSink` class is sealed and cannot be extended, make sure to manually install version `3.1.0` or newer of the `Serilog.Sinks.PeriodicBatching` NuGet package. The bug has also been fixed in the `Serilog.Sinks.ElmahIo` NuGet package from version `4.3.28-pre` and forward.
