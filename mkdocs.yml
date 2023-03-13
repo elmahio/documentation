@@ -163,6 +163,7 @@ nav:
     - Deployment: cli-deployment.md
     - Diagnose: cli-diagnose.md
     - Export: cli-export.md
+    - Import: cli-import.md
     - Log: cli-log.md
     - Sourcemap: cli-sourcemap.md
     - Tail: cli-tail.md

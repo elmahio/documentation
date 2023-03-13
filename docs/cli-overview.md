@@ -77,6 +77,16 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/cli-import/" title="Import">
+            <div class="guide-box">
+                <div class="guide-image">
+                  <i class="fas fa-file-import"></i>
+                </div>
+                <div class="guide-title">Import</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/cli-log/" title="Log">
             <div class="guide-box">
                 <div class="guide-image">
@@ -134,6 +144,7 @@ Commands:
   deployment  Create a new deployment
   diagnose    Diagnose potential problems with an elmah.io installation
   export      Export log messages from a specified log
+  import      Import log messages to a specified log
   log         Log a message to the specified log
   sourcemap   Upload a source map and minified JavaScript
   tail        Tail log messages from a specified log
