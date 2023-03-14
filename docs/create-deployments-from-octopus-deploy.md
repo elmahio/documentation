@@ -5,7 +5,7 @@ description: Notifying elmah.io of a new deployment from Octopus Deploy is suppo
 
 # Create deployments from Octopus Deploy
 
-Notifying elmah.io of a new deployment from Octopus Deploy is supported through a custom step template. The step template can be installed in multiple ways as explained on <a href="https://www.octopus.com/docs/projects/community-step-templates" target="_blank" rel="noopener noreferrer">Community step templates</a>. In this document, the step template will be installed directly from the *Process Editor*:
+Notifying elmah.io of a new deployment from Octopus Deploy is supported through a custom step template. The step template can be installed in multiple ways as explained on <a href="https://octopus.com/docs/projects/community-step-templates" target="_blank" rel="noopener noreferrer">Community step templates</a>. In this document, the step template will be installed directly from the *Process Editor*:
 
 1. Go to the *Process Editor* and click the **ADD STEP** button. In the *Choose Step Template* section search for 'elmah.io':
 ![Search step template](images/deploy-notification/octopus_search_step_template.png)
