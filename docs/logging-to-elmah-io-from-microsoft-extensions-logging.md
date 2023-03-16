@@ -91,16 +91,16 @@ Start logging messages by injecting an `ILogger` in your controllers:
 ```csharp
 public class HomeController : Controller
 {
-    private readonly ILogger _logger;
+    private readonly ILogger logger;
 
     public HomeController(ILogger logger)
     {
-        _logger = logger;
+        this.logger = logger;
     }
 
     public IActionResult Index()
     {
-        _logger.LogWarning("Request to index");
+        logger.LogWarning("Request to index");
         return View();
     }
 }
@@ -149,9 +149,9 @@ It's important to call the `UseElmahIoExtensionsLogging` method **after** any ca
 To define a new scope, wrap your logging code in a `using`:
 
 ```csharp
-using (_logger.BeginScope(new Dictionary<string, object> { { "UserId", 42 } }))
+using (logger.BeginScope(new Dictionary<string, object> { { "UserId", 42 } }))
 {
-    _logger.LogInformation("Someone says hello");
+    logger.LogInformation("Someone says hello");
 }
 ```
 
@@ -160,10 +160,10 @@ In the example above, the `UserId` key will be added on the *Data* tab with the 
 Like the other logging framework integrations, `Elmah.Io.Extensions.Logging` supports a range of known keys that can be used to insert value in the correct fields on the elmah.io UI.
 
 ```csharp
-using (_logger.BeginScope(new Dictionary<string, object>
+using (logger.BeginScope(new Dictionary<string, object>
     { { "statuscode", 500 }, { "method", "GET" } }))
 {
-    _logger.LogError("Request to {url} caused an error", "/profile");
+    logger.LogError("Request to {url} caused an error", "/profile");
 }
 ```
 
