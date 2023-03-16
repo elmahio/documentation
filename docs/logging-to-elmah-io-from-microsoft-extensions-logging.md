@@ -388,7 +388,7 @@ logger.LogError(1, ex, "Unexpected error");
 
 ## Troubleshooting
 
-Here are some things to try out if logging from NLog to elmah.io doesn't work:
+Here are some things to try out if logging from Microsoft.Extensions.Logging to elmah.io doesn't work:
 
 - Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
 
