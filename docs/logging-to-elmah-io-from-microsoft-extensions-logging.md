@@ -91,9 +91,9 @@ Start logging messages by injecting an `ILogger` in your controllers:
 ```csharp
 public class HomeController : Controller
 {
-    private readonly ILogger logger;
+    private readonly ILogger<HomeController> logger;
 
-    public HomeController(ILogger logger)
+    public HomeController(ILogger<HomeController> logger)
     {
         this.logger = logger;
     }
