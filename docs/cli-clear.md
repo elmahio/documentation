@@ -14,11 +14,11 @@ The `clear` command is used to delete one or more messages from a log.
 ```cmd
 > elmahio clear --help
 
-clear
+Description:
   Delete one or more messages from a log
 
 Usage:
-  elmahio [options] clear
+  elmahio clear [options]
 
 Options:
   --apiKey <apiKey> (REQUIRED)  An API key with permission to execute the command

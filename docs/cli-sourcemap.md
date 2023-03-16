@@ -12,11 +12,11 @@ The `sourcemap` command is used to upload source maps and minified JavaScript fi
 ```cmd
 > elmahio sourcemap --help
 
-sourcemap
+Description:
   Upload a source map and minified JavaScript
 
 Usage:
-  elmahio [options] sourcemap
+  elmahio sourcemap [options]
 
 Options:
   --apiKey <apiKey> (REQUIRED)                          An API key with permission to execute the command

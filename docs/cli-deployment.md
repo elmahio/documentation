@@ -12,11 +12,11 @@ The `deployment` command is used to create new deployments on elmah.io.
 ```cmd
 > elmahio deployment --help
 
-deployment
+Description:
   Create a new deployment
 
 Usage:
-  elmahio [options] deployment
+  elmahio deployment [options]
 
 Options:
   --apiKey <apiKey> (REQUIRED)    An API key with permission to execute the command

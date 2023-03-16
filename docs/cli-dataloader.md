@@ -12,16 +12,16 @@ The `dataloader` command loads 50 log messages into a specified log.
 ```cmd
 > elmahio dataloader --help
 
-dataloader
+Description:
   Load 50 log messages into the specified log
 
 Usage:
   elmahio dataloader [options]
 
 Options:
-  --apiKey <apikey> (REQUIRED)    An API key with permission to execute the command
-  --logId <logid> (REQUIRED)      The log ID of the log to import messages into
-  -?, -h, --help                  Show help and usage information
+  --apiKey <apiKey> (REQUIRED)  An API key with permission to execute the command
+  --logId <logId> (REQUIRED)    The log ID of the log to import messages into
+  -?, -h, --help                Show help and usage information
 ```
 
 ## Example

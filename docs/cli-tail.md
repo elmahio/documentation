@@ -12,16 +12,16 @@ The `tail` command is used to tail log messages in a specified log.
 ```cmd
 > elmahio tail --help
 
-tail
+Description:
   Tail log messages from a specified log
 
 Usage:
   elmahio tail [options]
 
 Options:
-  --apiKey <apikey> (REQUIRED)    An API key with permission to execute the command
-  --logId <logid> (REQUIRED)      The ID of the log to send the log message to
-  -?, -h, --help                  Show help and usage information
+  --apiKey <apiKey> (REQUIRED)  An API key with permission to execute the command
+  --logId <logId> (REQUIRED)    The ID of the log to send the log message to
+  -?, -h, --help                Show help and usage information
 ```
 
 ## Example

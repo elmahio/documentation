@@ -12,14 +12,14 @@ The `diagnose` command can be run in the root folder of an elmah.io installation
 ```cmd
 > elmahio diagnose --help
 
-diagnose
+Description:
   Diagnose potential problems with an elmah.io installation
 
 Usage:
-  elmahio [options] diagnose
+  elmahio diagnose [options]
 
 Options:
-  --directory <directory>  The root directory to check [default: c:\test]
+  --directory <directory>  The root directory to check [default: C:\test]
   -?, -h, --help           Show help and usage information
 ```
 
