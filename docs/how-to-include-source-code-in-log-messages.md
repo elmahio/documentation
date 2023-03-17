@@ -52,7 +52,7 @@ For an example of how to use the `WithSourceCodeFromFileSystem` method, check ou
 
 ## From the PDB file
 
-When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown above. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/). The *Debugging information* field needs a value of `Pdb-only` or `Portable` for this to work.
+When deploying your code on another environment, you typically don't have the original code available. If you copy your source code to the same absolute path as when building, you can use the file-system approach shown above. If not, embedding the source code in the PDB file can be the option. Before doing so, make sure you include filename and line numbers in stack traces on all environments as shown here: [Include filename and line number in stack traces](/include-filename-and-line-number-in-stacktraces/). For the old project template the *Debugging information* field needs a value of `Portable`. For the new project template the *Debug symbols* field needs a value of `PDB file, portable across platforms`.
 
 To embed source code in the PDB file built alongside your DLL files, include the following property in your `csproj` file:
 
@@ -119,6 +119,6 @@ If no source code shows up on elmah.io log messages, you can start by running th
 - Make sure that the stack trace contains absolute path filenames and line numbers for the code causing the stack trace.
 - Make sure that you are calling the `WithSourceCodeFromPdb` or `WithSourceCodeFromFileSystem` method.
 - Make sure that the `Elmah.Io.Client.Extensions.SourceCode.dll` file is in your deployed application.
-- Make sure that your project has either `Pdb-only` or `Portable` set in *Debugging information*.
+- Make sure that your project has `Portable` set in *Debugging information* or `PDB File, portable across platforms` set in *Debug symbols*.
 - For PDB files, make sure that you have included the `EmbedAllSources` element in your `csproj` file.
 - Look inside the *Data* tab on the logged message. It may contain a key named `X-ELMAHIO-CODEERROR` with a value explaining what went wrong.
