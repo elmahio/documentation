@@ -40,7 +40,7 @@ How you set the correlation ID depends on which integration you are using. In so
 
 ### ASP.NET Core
 
-When logging uncaught errors using the `Elmah.Io.AspNetCore` package, we automatically pick up any active activity and put the trace ID as part of the error logged to elmah.io. For an overview of wrapping calls to your ASP.NET Core API in an `Activity` check out the section about W3C Trace Context.
+When logging uncaught errors using the `Elmah.Io.AspNetCore` package, we automatically pick up any `traceparent` header and put the trace ID as part of the error logged to elmah.io. For an overview of wrapping calls to your ASP.NET Core API in an `Activity` check out the section about W3C Trace Context.
 
 If you want to set the correlation ID manually, you can use the `OnMessage` action:
 
@@ -57,6 +57,15 @@ public void ConfigureServices(IServiceCollection services)
     });
     // ...
 }
+```
+
+When requested through the browser, a `traceparent` is not automatically added, unless you manually do so by using an extension as shown in the W3C section. In this case, you can set the `correlationId` manually by installing the `System.Diagnostics.DiagnosticSource` NuGet package and adding the following code to the `OnMessage` action:
+
+```csharp
+o.OnMessage = msg =>
+{
+    msg.CorrelationId = System.Diagnostics.Activity.Current?.TraceId.ToString();
+};
 ```
 
 ### Microsoft.Extensions.Logging
@@ -78,7 +87,7 @@ using (logger.BeginScope(new { CorrelationId = "42" }))
 }
 ```
 
-In some cases, a correlation ID will be set automatically. If there is a current active `Activity` (see later), Microsoft.Extensions.Logging automatically decorates all log messages with a custom property name `TraceId`. The elmah.io backend will pick up any value in the `TraceId` and use that as the correlation ID.
+In some cases, a correlation ID will be set automatically. If there is a current active `Activity` (see later), Microsoft.Extensions.Logging automatically decorates all log messages with a custom property named `TraceId`. The elmah.io backend will pick up any value in the `TraceId` and use that as the correlation ID.
 
 ### Serilog
 
