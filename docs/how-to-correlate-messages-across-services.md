@@ -212,3 +212,9 @@ public class PingController : ControllerBase
 ```
 
 Notice that we didn't have to decorate log messages with additional properties. ASP.NET Core automatically picks up the new headers and decorates all log messages with the correct trace ID.
+
+If you want to test this through a browser, you'll need to modify the request headers before the request is made to your web application. There is a range of extensions available to help with this. For the following example, we'll use *ModHeader*:
+
+![ModHeader](images/modheader.png)
+
+The extension will enrich all requests with a header named `traceparent` in the format `VERSION-TRACE_ID-SPAN_ID-TRACE_FLAGS`. elmah.io will automatically pick up this header and set `correlationId` to the value of `TRACE_ID`.
