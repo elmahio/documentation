@@ -34,15 +34,26 @@ In the `Startup.cs` file, add a new `using` statement:
 using Elmah.Io.AspNetCore;
 ```
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard" aria-controls="standard" role="tab" data-toggle="tab">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel" aria-controls="toplevel" role="tab" data-toggle="tab">Top-level statements</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="standard" markdown="1">
 Call `AddElmahIo` in the `ConfigureServices`-method:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddElmahIo(o =>
+    services.AddElmahIo(options =>
     {
-        o.ApiKey = "API_KEY";
-        o.LogId = new Guid("LOG_ID");
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
     });
     // ...
 }
@@ -60,8 +71,30 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     // ...
 }
 ```
+</div>
 
-> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc` and similar.
+<div role="tabpanel" class="tab-pane" id="toplevel" markdown="1">
+Call `AddElmahIo` in the `Program.cs` file:
+
+```csharp
+builder.Services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+
+Call `UseElmahIo` in the `Program.cs` file:
+
+```csharp
+app.UseElmahIo();
+```
+</div>
+</div>
+
+> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc`, `MapRazorPages`, and similar.
 
 That's it. Every uncaught exception will be logged to elmah.io. For an example of configuring elmah.io with ASP.NET Core minimal APIs, check out [this sample](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples/Elmah.Io.AspNetCore60.Example).
 
@@ -108,9 +141,9 @@ You can still configure additional options on the `ElmahIoOptions` object:
 public void ConfigureServices(IServiceCollection services)
 {
     services.Configure<ElmahIoOptions>(Configuration.GetSection("ElmahIo"));
-    services.Configure<ElmahIoOptions>(o =>
+    services.Configure<ElmahIoOptions>(options =>
     {
-        o.OnMessage = msg =>
+        options.OnMessage = msg =>
         {
             msg.Version = "1.0.0";
         };
@@ -180,14 +213,14 @@ The application name can also be configured through `appsettings.json`:
 elmah.io for ASP.NET Core supports a range of actions for hooking into the process of logging messages. Hooks are registered as actions when installing the elmah.io middleware:
 
 ```csharp
-services.AddElmahIo(o =>
+services.AddElmahIo(options =>
 {
     // ...
-    o.OnMessage = message =>
+    options.OnMessage = message =>
     {
         message.Version = "42";
     };
-    o.OnError = (message, exception) =>
+    options.OnError = (message, exception) =>
     {
         logger.LogError(1, exception, "Error during log to elmah.io");
     };
@@ -201,10 +234,10 @@ The actions provide a mechanism for hooking into the log process. The action reg
 While elmah.io supports [ignore rules](https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/#ignore-errors-with-a-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the options object, filtering is easy:
 
 ```csharp
-services.AddElmahIo(o =>
+services.AddElmahIo(options =>
 {
     // ...
-    o.OnFilter = message =>
+    options.OnFilter = message =>
     {
         return message.Type == "System.NullReferenceException";
     };
@@ -296,10 +329,10 @@ services.AddElmahIo(options =>
 A default exception formatter is used to format any exceptions, before sending them off to the elmah.io API. To override the format of the details field in elmah.io, set a new `IExceptionFormatter` in the `ExceptionFormatter` property on the `ElmahIoOptions` object:
 
 ```csharp
-services.AddElmahIo(o =>
+services.AddElmahIo(options =>
 {
     // ...
-    o.ExceptionFormatter = new DefaultExceptionFormatter();
+    options.ExceptionFormatter = new DefaultExceptionFormatter();
 }
 ```
 
@@ -310,10 +343,10 @@ Besides the default exception formatted (`DefaultExceptionFormatter`), Elmah.Io.
 As default, uncaught exceptions (500's) and 404's are logged automatically. Let's say you have a controller returning a Bad Request and want to log that as well. Since returning a 400 from a controller doesn't trigger an exception, you will need to configure this status code:
 
 ```csharp
-services.AddElmahIo(o =>
+services.AddElmahIo(options =>
 {
     // ...
-    o.HandledStatusCodesToLog = new List<int> { 400 };
+    options.HandledStatusCodesToLog = new List<int> { 400 };
 }
 ```
 
@@ -336,10 +369,10 @@ When configuring status codes through the `appsettings.json` file, `404`s will a
 Since ASP.NET Core no longer support proxy configuration through `web.config`, you can log to elmah.io by configuring a proxy manually:
 
 ```csharp
-services.AddElmahIo(o =>
+services.AddElmahIo(options =>
 {
     // ...
-    o.WebProxy = new System.Net.WebProxy("localhost", 8888);
+    options.WebProxy = new System.Net.WebProxy("localhost", 8888);
 }
 ```
 
