@@ -27,4 +27,4 @@ When launching your React app, elmah.io is configured and all errors happening i
 
 Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react" target="_blank" rel="noopener noreferrer">elmahio-react</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-react-typescript" target="_blank" rel="noopener noreferrer">elmahio-react-typescript</a> samples for some real working code.
 
-> React have a known bug/feature in DEV mode where errors are submitted twice. For better error handling in React, you should look into <a href="https://reactjs.org/docs/error-boundaries.html" target="_blank" rel="noopener noreferrer">Error Boundaries</a>.
+> React have a known bug/feature in DEV mode where errors are submitted twice. For better error handling in React, you should look into <a href="https://legacy.reactjs.org/docs/error-boundaries.html" target="_blank" rel="noopener noreferrer">Error Boundaries</a>.
