@@ -101,6 +101,15 @@ log.Logger.Log(new LoggingEvent(new LoggingEventData
 
 This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well as add a key/value pair to the Data tab on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L3617).
 
+### Setting category
+
+elmah.io provide a field named *Category* to better group log messages by class name, namespace, or similar. Category maps to log4net's *LoggerName* field automatically when using `Elmah.Io.Log4Net`. The category field can be overwritten using one of the context features available in log4net:
+
+```csharp
+log4net.ThreadContext.Properties["Category"] = "The category";
+log.Info("This is an information message with custom category");
+```
+
 ## Message hooks
 
 ### Decorating log messages

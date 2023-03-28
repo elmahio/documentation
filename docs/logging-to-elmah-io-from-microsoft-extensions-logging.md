@@ -218,6 +218,24 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+### Setting category
+
+elmah.io provide a field named *Category* to better group log messages by class name, namespace, or similar. Category maps to Microsoft.Extensions.Logging field of the same name. The category field is automatically set when using a typed logger:
+
+```csharp
+ILogger<MyType> logger = ...;
+logger.LogInformation("This is an information message with category");
+```
+
+The category can be overwritten using a property named `category` on either the log message or a new scope:
+
+```csharp
+using (logger.BeginScope(new Dictionary<string, object> { { "category", "The category" } }))
+{
+    logger.LogInformation("This is an information message with category");
+}
+```
+
 ## Include source code
 
 You can use the `OnMessage` action already described to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.

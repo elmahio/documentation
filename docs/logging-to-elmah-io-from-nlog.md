@@ -364,6 +364,17 @@ The version field on elmah.io can be set globally using NLog's global context:
 GlobalDiagnosticsContext.Set("Version", "1.2.3");
 ```
 
+### Setting category
+
+elmah.io provide a field named *Category* to better group log messages by class name, namespace, or similar. Category maps to NLog's *logger* field automatically when using `Elmah.Io.NLog`. The category field can be overwritten using a scoped property (NLog 5):
+
+```csharp
+using (logger.PushScopeProperty("category", "The category"))
+{
+    logger.Info("This is an information message with category");
+}
+```
+
 ## Message hooks
 
 `Elmah.Io.NLog` provides message hooks similar to the integrations with ASP.NET and ASP.NET Core. Message hooks need to be implemented in C#. Either [configure the elmah.io target in C#](#configuration-in-code) or fetch the target already configured in XML:

@@ -462,6 +462,27 @@ public class LoginModel
 }
 ```
 
+## Setting a category
+
+elmah.io provide a field named *Category* to better group log messages by class name, namespace, or similar. Category maps to Serilog's *SourceContext* automatically when using `Serilog.Sinks.ElmahIo`. To make sure that the category is correctly populated, either use the `Forcontext` method:
+
+```csharp
+Log.ForContext<Program>().Information("This is an information message with context");
+Log.ForContext("The context").Information("This is another information message with context");
+```
+
+Or set a `SourceContext` or `Category` property using `LogContext`:
+
+```csharp
+using (LogContext.PushProperty("SourceContext", "The context"))
+    Log.Information("This is an information message with context");
+
+using (LogContext.PushProperty("Category", "The context"))
+    Log.Information("This is another information message with context");
+```
+
+When using Serilog through Microsoft.Extensions.Logging's `ILogger<T>` interface, the source context will automatically be set by Serilog.
+
 ## Troubleshooting
 
 Here are some things to try out if logging from Serilog to elmah.io doesn't work:
