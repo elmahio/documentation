@@ -116,6 +116,31 @@ Log.Logger =
         .CreateLogger();
 ```
 
+The elmah.io sink for Serilog is an async batching sync. This means that log messages are not logged in the same millisecond as one of the logging methods on the `Log` class is called and the current activity is no longer set. When logging from a web application or other project types where the activity is short-lived, you either need to include the correlation ID as part of the message (as shown in the previous examples) or you need to store the correlation ID as part of the request. For ASP.NET Core this can be done using middleware:
+
+```csharp
+app.Use(async (ctx, next) =>
+{
+    IDisposable disposeMe = null;
+    var activity = Activity.Current;
+    if (activity != null)
+    {
+        disposeMe = LogContext.PushProperty("correlationid", activity.TraceId.ToString());
+    }
+
+    try
+    {
+        await next();
+    }
+    finally
+    {
+        disposeMe?.Dispose();
+    }
+});
+```
+
+All calls to Serilog within the web request will have the correlation ID set to the `TraceId` of the current activity. Other frameworks support similar features for enriching the current request or invocation with custom properties.
+
 ### NLog
 
 Correlation ID can be set on log messages logged through NLog in multiple ways. The first approach is to include the ID directly in the log message:
