@@ -38,6 +38,46 @@ In a real-world scenario, `myCorrelationId` wouldn't be hardcoded but pulled fro
 
 How you set the correlation ID depends on which integration you are using. In some cases, a correlation ID is set automatically while others will require a few lines of code.
 
+### Elmah.Io.Client.Extensions.Correlation
+
+We have developed a NuGet package dedicated to setting the correlation ID from the current activity in an easy way. The package can be used together with all of the various client integrations we offer (like `Elmah.Io.AspNetCore` and `Elmah.Io.NLog`). Start by installing the package:
+
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client.Extensions.Correlation
+```
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Client.Extensions.Correlation
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Client.Extensions.Correlation" Version="4.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Client.Extensions.Correlation
+```
+
+Next, call the `WithCorrelationIdFromActivity` method as part of the `OnMessage` action/event. How you do this depends on which of the client integrations you are using. For `Elmah.Io.Client` it can be done like this:
+
+```csharp
+var elmahIo = ElmahioAPI.Create("API_KEY");
+elmahIo.Messages.OnMessage += (sender, args) =>
+{
+    args.Message.WithCorrelationIdFromActivity();
+};
+```
+
+For `Elmah.Io.AspNetCore` it can be done like this:
+
+```csharp
+builder.Services.AddElmahIo(options =>
+{
+    // ...
+    options.OnMessage = msg =>
+    {
+        msg.WithCorrelationIdFromActivity();
+    };
+});
+```
+
 ### ASP.NET Core
 
 When logging uncaught errors using the `Elmah.Io.AspNetCore` package, we automatically pick up any `traceparent` header and put the trace ID as part of the error logged to elmah.io. For an overview of wrapping calls to your ASP.NET Core API in an `Activity` check out the section about W3C Trace Context.
@@ -59,7 +99,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-When requested through the browser, a `traceparent` is not automatically added, unless you manually do so by using an extension as shown in the W3C section. In this case, you can set the `correlationId` manually by installing the `System.Diagnostics.DiagnosticSource` NuGet package and adding the following code to the `OnMessage` action:
+When requested through the browser, a `traceparent` is not automatically added, unless you manually do so by using an extension as shown in the W3C section. In this case, you can either install the `Elmah.Io.Client.Extensions.Correlation` package as already explained, or set the `correlationId` manually by installing the `System.Diagnostics.DiagnosticSource` NuGet package and adding the following code to the `OnMessage` action:
 
 ```csharp
 o.OnMessage = msg =>
@@ -70,9 +110,9 @@ o.OnMessage = msg =>
 
 ### Microsoft.Extensions.Logging
 
-To store a correlation ID when logging through Microsoft.Extensions.Logging you can either set the `CorrelationId` property manually or rely on the automatic behavior built into Microsoft.Extensions.Logging.
+To store a correlation ID when logging through Microsoft.Extensions.Logging you can either set the `CorrelationId` property (manually or using the `Elmah.Io.Client.Extensions.Correlation` NuGet package) or rely on the automatic behavior built into Microsoft.Extensions.Logging.
 
-To manually set the correlation you can either include `correlationId` as part of the log message:
+To manually set the correlation you can include `correlationId` as part of the log message:
 
 ```csharp
 logger.LogInformation("A log message with {correlationId}", "42");
@@ -252,3 +292,9 @@ If you want to test this through a browser, you'll need to modify the request he
 ![ModHeader](images/modheader.png)
 
 The extension will enrich all requests with a header named `traceparent` in the format `VERSION-TRACE_ID-SPAN_ID-TRACE_FLAGS`. elmah.io will automatically pick up this header and set `correlationId` to the value of `TRACE_ID`.
+
+If you don't get a correlation ID set on your log messages, we recommend installing the `Elmah.Io.Client.Extensions.Correlation` NuGet package and calling the following method in the `OnMessage` event/action:
+
+```csharp
+msg.WithCorrelationIdFromActivity();
+```
