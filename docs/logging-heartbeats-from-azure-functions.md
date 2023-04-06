@@ -7,7 +7,7 @@ description: Monitor scheduled Azure Functions with elmah.io Heartbeats. Get ins
 
 [TOC]
 
-Azure Functions are great candidates for adding heartbeats. For web APIs implemented with Azure Functions, you should create a `/health` endpoint and ping that using Uptime Monitoring. But for timer triggered, queue triggers, and similar function apps, heartbeats are a great way to verify that your function is successfully running. The rest of this document is split into different ways of adding heartbeats to one or more functions.
+Azure Functions are great candidates for adding heartbeats. For web APIs implemented with Azure Functions, you should create a `/health` endpoint and ping that using [Uptime Monitoring](https://elmah.io/features/uptime-monitoring/). But for timer triggered, queue triggers, and similar function apps, heartbeats are a great way to verify that your function is successfully running. The rest of this document is split into different ways of adding heartbeats to one or more functions.
 
 ## Using a filter in Elmah.Io.Functions
 
@@ -209,7 +209,6 @@ Then create a new timed function with the following code:
 using System;
 using System.Threading.Tasks;
 using Elmah.Io.Client;
-using Elmah.Io.Client.Models; // 👈 Required for Elmah.Io.Client v3.x and lower only
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 

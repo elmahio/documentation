@@ -138,6 +138,7 @@ nav:
     - Set up Heartbeats: setup-heartbeats.md
     - Logging heartbeats from ASP.NET Core: logging-heartbeats-from-asp-net-core.md
     - Logging heartbeats from Azure Functions: logging-heartbeats-from-azure-functions.md
+    - Logging heartbeats from Isolated Azure Functions: logging-heartbeats-from-isolated-azure-functions.md
     - Logging heartbeats from PowerShell: logging-heartbeats-from-powershell.md
     - Logging heartbeats from cURL: logging-heartbeats-from-curl.md
     - Logging heartbeats from Umbraco: logging-heartbeats-from-umbraco.md
