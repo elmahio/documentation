@@ -11,7 +11,7 @@ description: Logging errors to elmah.io from Azure Functions requires only a few
 
 [TOC]
 
-Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions.
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions. If your are looking for logging from Isolated Azure Functions (out of process) check out [Logging to elmah.io from Isolated Azure Functions](/logging-to-elmah-io-from-isolated-azure-functions).
 
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
@@ -141,8 +141,6 @@ builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 
 Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
-
 ### Handle errors
 
 To handle any errors happening while processing a log message, you can use the `OnError` event when initializing `ElmahIoFunctionOptions`:
@@ -196,17 +194,6 @@ dotnet add package Elmah.Io.Extensions.Logging
 paket add Elmah.Io.Extensions.Logging
 ```
 
-<div class="tabbable-responsive">
-<div class="tabbable">
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup3" aria-controls="home" role="tab" data-toggle="tab">Azure Functions (in-process)</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Azure Functions (isolated)</a></li>
-</ul>
-</div>
-</div>
-
-<div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="setup3" markdown="1">
 Then extend your `Startup.cs` file like this:
 
 ```csharp
@@ -220,29 +207,6 @@ builder.Services.AddLogging(logging =>
     logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 });
 ```
-
-</div>
-
-<div role="tabpanel" class="tab-pane" id="setup5" markdown="1">
-Then extend your `Program.cs` file like this:
-
-```csharp
-var host = new HostBuilder()
-    // ...
-    .ConfigureLogging(logging =>
-    {
-        logging.AddElmahIo(options =>
-        {
-            options.ApiKey = "API_KEY";
-            options.LogId = new Guid("LOG_ID");
-        });
-        logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
-    })
-    // ...
-    .Build();
-```
-</div>
-</div>
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more. Jump to [Log filtering](#log-filtering) to learn how to configure filters from config.
 
@@ -311,38 +275,6 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
   }
 }
 ```
-
-## Isolated Azure Functions
-
-We have a prerelease of an integration package for isolated Azure Functions. Install the `Elmah.Io.Functions.Isolated` package in your project to get started:
-
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions.Isolated -IncludePrerelease
-```
-```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Functions.Isolated --prerelease
-```
-```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Functions.Isolated" Version="4.0.3-pre" />
-```
-```xml fct_label="Paket CLI"
-paket add Elmah.Io.Functions.Isolated
-```
-
-Next, call the `AddElmahIo` method inside `ConfigureFunctionsWorkerDefaults`:
-
-```csharp
-.ConfigureFunctionsWorkerDefaults((context, app) =>
-{
-    app.AddElmahIo(options =>
-    {
-        options.ApiKey = "API_KEY";
-        options.LogId = new Guid("LOG_ID");
-    });
-})
-```
-
-Also, include a `using` of the `Elmah.Io.Functions.Isolated` namespace. elmah.io now automatically identifies any uncaught exceptions and logs them to the specified log. Check out the [samples](https://github.com/elmahio/Elmah.Io.Functions.Isolated/tree/main/samples) for more ways to configure elmah.io.
 
 ## Azure Functions v1
 

@@ -99,8 +99,9 @@ nav:
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
     - Logging from CoreWCF: logging-to-elmah-io-from-corewcf.md
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
-    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
+    - Logging from Isolated Azure Functions: logging-to-elmah-io-from-isolated-azure-functions.md
+    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
     - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
