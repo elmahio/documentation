@@ -413,22 +413,33 @@ This is an example of the elmah.io.javascript `Message` object that is used in v
 
 ```javascript
 {
-  title: 'The title of the message',
-  detail: 'The error stack',
-  source: 'The source of the error (typically a filename)',
+  title: 'this.remove is not a function',
+  detail: 'TypeError: this.remove is not a function\n  at (undefined:12:14)',
+  source: 'index.js',
   severity: 'Error',
-  type: 'The type of the error',
-  url: 'http://url.of/current/page',
-  application: 'Application name set through options',
+  type: 'TypeError',
+  url: '/current/page',
+  method: 'GET',
+  application: 'MyApp',
+  hostname: 'WOPR',
+  statusCode: 400,
+  user: 'DavidLightman',
+  version: '1.0.0',
+  cookies: [
+    { key: '_ga', value: 'GA1.3.1580453215.1783132008' }
+  ],
   queryString: [
-    {key: 'id', value: '42'}
+    { key: 'id', value: '42' }
   ],
   data: [
-    {key: 'User-Language', value: 'en-US'},
-    {key: 'Color-Depth', value: '24'}
+    { key: 'User-Language', value: 'en-US' },
+    { key: 'Color-Depth', value: '24' }
   ],
   serverVariables: [
-    {key: 'User-Agent', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'}
+    { key: 'User-Agent', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36' }
+  ],
+  breadcrumbs: [
+    { severity: 'Information', event: 'click', message: 'A user clicked' }
   ]
 }
 ```
