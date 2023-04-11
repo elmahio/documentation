@@ -196,8 +196,32 @@ namespace MyBlazorApp
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
 
-The package automatically logs all errors that you also see in the browser console. This package is still in a preview state and is therefore not as polished as our other packages. There's a couple of disadvantages with the package that you need to consider before you use it:
+All uncaught exceptions are automatically logged to elmah.io after calling `AddElmahIo`. Errors and other severities can be logged manually, by injecting an `ILogger` into your view and adding `try/catch` or by implementing error boundaries:
 
-- A lot of information about the HTTP context is missing (like cookies, URL, and user).
-- No internal message queue and/or batch processing like `Microsoft.Extensions.Logging`.
-- No support for logging scopes.
+```csharp
+@page "/"
+@inject ILogger<Index> logger
+
+@code {
+    protected override void OnInitialized()
+    {
+        logger.LogInformation("Initializing index view");
+
+        try
+        {
+            object text = "Text";
+            var cast = (int)text;
+        }
+        catch (InvalidCastException e)
+        {
+            logger.LogError(e, "An error happened");
+        }
+    }
+}
+```
+
+The following may be implemented by the package later:
+
+- Additional information about the HTTP context (like cookies, URL, and user).
+- Internal message queue and/or batch processing like `Microsoft.Extensions.Logging`.
+- Support for logging scopes.
