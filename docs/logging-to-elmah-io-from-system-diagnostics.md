@@ -3,8 +3,6 @@ title: Logging to elmah.io from System.Diagnostics
 description: Log trace and debug message from System.Diagnostics directly to elmah.io. Add cloud monitoring of internal .NET logging using Elmah.Io.Trace.
 ---
 
-[![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Trace.svg)](https://www.nuget.org/packages/Elmah.Io.Trace)
-
 # Logging to elmah.io from System.Diagnostics
 
 > Logging through `System.Diagnostics` have been deprecated. Please use the `Elmah.Io.Client` package to log trace messages to elmah.io.
