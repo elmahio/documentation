@@ -18,17 +18,17 @@ Check out this video tutorial or keep reading for the text version:
 
 To start logging errors from your Azure web application, go to the Azure Portal and select the website you want to monitor. Click the *Extensions* tool:
 
-![Add Site Extension](https://docs.elmah.io/images/add-site-extension.png)
+![Add Site Extension](images/add-site-extension-v2.png)
 
 Click the *Add* button and select **.NET elmah.io for Azure**:
 
-![Select elmah.io](https://docs.elmah.io/images/select-elmah-io-site-extension.png)
+![Select elmah.io](images/select-elmah-io-site-extension-v2.png)
 
-Accept the terms and click the *OK* button. The elmah.io Site Extension is now added. Once added, restart the website for the new extension to load.
+Accept the terms and click the *Add* button. The elmah.io Site Extension is now added. Once added, restart the website for the new extension to load.
 
 Finally, you need to add your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) to *Application settings*:
 
-![Add API key and log ID to application settings](https://docs.elmah.io/images/add-api-key-and-log-id-to-application-settings.png)
+![Add API key and log ID to application settings](images/add-api-key-and-log-id-to-application-settings-v2.png)
 
 Make sure to use the app setting names `ELMAHIO_APIKEY` and `ELMAHIO_LOGID`.
 

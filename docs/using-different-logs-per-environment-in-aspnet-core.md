@@ -48,6 +48,6 @@ If you are hosting on Azure (other cloud hosting platforms have a similar featur
 
 To replace the values inside the `ApiKey` and `LogId` properties, use the colon syntax as shown here:
 
-![Azure Application settings](images/azure-application-settings.png)
+![Azure Application settings](images/azure-application-settings-v2.png)
 
 (replace `API_KEY` and `LOG_ID` with your staging or production values depending on which environment you are configuring)

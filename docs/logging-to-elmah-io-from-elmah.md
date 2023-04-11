@@ -28,8 +28,6 @@ Select a project template of your choice:
 
 Navigate to elmah.io and login using username/password or your favorite social provider. When logged in, elmah.io redirects you to the dashboard. If you just signed up, you will be guided through the process of creating an organization and a log.
 
-![Create New Log](images/create_new_log.png)
-
 When the log has been created, elmah.io shows you the install instructions. If you are currently on the dashboard, click the gears icon on the lower right corner of the log box. Don't pay too much attention to the install steps, because the rest of this tutorial will guide you through the installation. Keep the page open in order to copy your API key and log ID at a later step:
 
 ![Copy your log id](images/copy_log_id_dialog.png){: .image-400 }
@@ -46,8 +44,8 @@ Select the `elmah.io` package and click *Install*. Input your API key and log ID
 
 ![Insert your log id](images/input_log_id.png)
 
-You’re ready to rock and roll. Hit <kbd>F5</kbd> and input a URL you know doesn’t exist (like http://localhost:64987/notfound). You should see the standard 404 message displayed in the browser. To verify that the installation of elmah.io is successful, navigate back to the elmah.io dashboard and select the Search tab of your newly created log:
+You're ready to rock and roll. Either add `throw new Exception("Test");` somewhere or hit <kbd>F5</kbd> and input a URL you know doesn't exist (like http://localhost:64987/notfound). To verify that the installation of elmah.io is successful, navigate back to the elmah.io dashboard and select the Search tab of your newly created log:
 
-![Error Details](images/error_details.png)
+![Error Details](images/error-details-v2.png)
 
-See the notfound error? Congrats! Every error on your application is now logged to elmah.io.
+Congrats! Every error on your application is now logged to elmah.io.
