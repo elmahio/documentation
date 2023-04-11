@@ -11,7 +11,7 @@ description: Logging errors to elmah.io from Azure Functions requires only a few
 
 [TOC]
 
-Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions. If your are looking for logging from Isolated Azure Functions (out of process) check out [Logging to elmah.io from Isolated Azure Functions](/logging-to-elmah-io-from-isolated-azure-functions).
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions. If your are looking for logging from Isolated Azure Functions (out of process) check out [Logging to elmah.io from Isolated Azure Functions](/logging-to-elmah-io-from-isolated-azure-functions/).
 
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
