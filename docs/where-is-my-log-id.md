@@ -9,8 +9,8 @@ A log ID represents a log on elmah.io. A log is a container for log messages. Ho
 
 The log ID is located on the log settings page. To open log settings, click the gears icon next to the log name in the menu or in the log box on the dashboard:
 
-![Log settings](images/log-settings.png)
+![Log settings](images/log-settings-v2.png)
 
 When clicking on the icon, you are taken directly to the _Install_ tab:
 
-![Log ID on log settings](images/log-settings-page.png)
+![Log ID on log settings](images/log-settings-page-v2.png)
