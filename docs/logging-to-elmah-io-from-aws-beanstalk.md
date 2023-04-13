@@ -13,9 +13,9 @@ Logging to elmah.io from .NET applications deployed on AWS Beanstalk is as easy 
 
 To install elmah.io in [ASP.NET](https://docs.elmah.io/logging-to-elmah-io-from-elmah/), [MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/), and/or [Web API](https://docs.elmah.io/logging-to-elmah-io-from-web-api/), please follow the guidelines for each framework. You can specify one set of API key and log ID in the `Web.config` file and another set in the `Web.release.config` file as explained here: [Use multiple logs for different environments](https://docs.elmah.io/use-multiple-logs-for-different-environments/).
 
-If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. At the bottom, you will see a section named *Environment properties*. Input your API key and log ID there:
+If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. Click the *Edit* button beneath the *Software* category and scroll to the bottom. There you will see a section named *Environment properties*. Input your API key and log ID:
 
-![AWS Environment Properties](images/aws-environment-properties.png)
+![AWS Environment Properties](images/aws-environment-properties-v2.png)
 
 AWS inserts the properties as application settings in the `Web.config` file. To make sure that elmah.io uses API key and log ID from `appSettings`, change the `<elmah>` element to reference the keys specified on AWS:
 
@@ -38,8 +38,18 @@ Finally, if you have an API key and/or log ID specified as part of the `appSetti
 
 To install elmah.io in ASP.NET Core, follow this guide: [Logging to elmah.io from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
 
-Unfortunately, Beanstalk configuration doesn't play well with the configuration system in .NET Core. From the Beanstalk documentation:
+If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. Click the *Edit* button beneath the *Software* category and scroll to the bottom. There you will see a section named *Environment properties*. Input your API key and log ID:
 
-> Elastic Beanstalk doesn't support passing environment variables to .NET Core applications and multiple-application IIS deployments that use a deployment manifest.
+![AWS Environment Properties](images/aws-environment-properties-core.png)
 
-For now, you will need to hardcode your API key and log ID in the `Startup.cs` file or add it to your `appsettings.json` file. Both approaches are explained in the documentation for installing elmah.io in ASP.NET Core.
+This example uses the double underscore syntax to set the `ApiKey` and `LogId` properties in the `appsettings.json` file:
+
+```json
+{
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+
+```
