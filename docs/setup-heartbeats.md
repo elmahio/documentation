@@ -100,15 +100,15 @@ In this example, we will extend a C# console application, executed as a Windows 
 
 Open a log on elmah.io and navigate to the *Heartbeats* tab:
 
-![No heartbeats](images/no-heartbeats.png)
+![No heartbeats](images/no-heartbeats-v2.png)
 
 Click the *Add Heartbeat* button and fill in a name. For *Interval* we are selecting 30 minutes since the task is scheduled to run every 30 minutes. For *Grace*, we select 5 minutes to give the task a chance to complete. Selecting 30 and 5 minutes means that elmah.io will log an error if more than 35 minutes pass since we last heard from the task:
 
-![Create heartbeat](images/create-heartbeat.png)
+![Create heartbeat](images/create-heartbeat-v2.png)
 
 To create heartbeats from our task, we will need an API key, a log ID, and a heartbeat ID. Let's start with the API key. Go to the organization settings page and click the *API Keys* tab. Add a new API key and check the *Heartbeats - Write* permission only:
 
-![Create Heartbeats API key](images/create-heartbeats-api-key.png)
+![Create Heartbeats API key](images/create-heartbeats-api-key-v2.png)
 
 Copy and store the API key somewhere. Navigate back to your log and click the *Instructions* link on the newly created Heartbeat. This will reveal the log ID and heartbeat ID. Copy and store both values since we will need them in a minute.
 
