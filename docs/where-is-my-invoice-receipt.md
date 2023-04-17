@@ -9,11 +9,11 @@ Invoices are located on the organization settings page.
 
 To open organization settings, click the gears icon next to your organization name on either the left menu or through the dashboard:
 
-![Organization settings](images/organization-settings.png)
+![Organization settings](images/organization-settings-v2.png)
 
 When on the organization settings page, click the _Invoices_ tab:
 
-![Invoices on organization settings](images/invoices-tab.png)
+![Invoices on organization settings](images/invoices-tab-v2.png)
 
 There's a row per invoice in the table on this page. You can open or download the invoice using the links to the right.
 
