@@ -17,7 +17,7 @@ The easiest way to limit logged messages is by ignoring some of them. Ignored me
 
 Rules consist of a query and an action. The query can either be a full-text query or written using Lucene Query Syntax. To create a new ignore rule, input a query on the Rules tab:
 
-![Create Ignore Rule](/images/create_ignore_rule.png)
+![Create Ignore Rule](images/create_ignore_rule.png)
 
 All new rules are created with an ignore action as default, why you don't need to click the *Then* link for this type of rule. In the example above, ignore all messages with a status code of `404`.
 
@@ -27,7 +27,7 @@ For more information about the possibilities with rules, check out [Creating Rul
 
 Filters are Ignore Rules in disguise. With Filters, we have collected the most common ignore rules and made them available as a set of checkboxes. To ignore all messages matching a specific filter, enable one of the checkboxes on the Filters tab on Log Settings:
 
-![Filters](/images/filters.png)
+![Filters](images/filters.png)
 
 If your website is available for everyone to access, ignoring known crawlers, bots and spiders is a good idea in most cases. Filtering below warning can also be a good idea unless you are using elmah.io to log all log severities from a logging framework like NLog or Serilog.
 
@@ -37,7 +37,7 @@ If staying within the message limit is more important than getting the full pict
 
 Sometimes you may find yourself on the Search tab with a search result thinking: "I don't really care about these messages". By clicking the caret next to the query filters, an *Ignore future messages like this* option is revealed:
 
-![Ignore Like This](/images/ignore_like_this.png)
+![Ignore Like This](images/ignore-like-this-v2.png)
 
 Clicking this option automatically ignores any future messages matching your current search result.
 
@@ -45,7 +45,7 @@ Clicking this option automatically ignores any future messages matching your cur
 
 Each log can be disabled from Log Settings:
 
-![Enabled/Disable Log](/images/enabled_disable_log.png)
+![Enabled/Disable Log](images/enabled_disable_log.png)
 
 Disables logs are shown as semi-transparent on the dashboard, to help you remember that you disabled a log.
 
@@ -83,11 +83,11 @@ services.AddElmahIo(o =>
 
 We send you an email when you have used 90% of your limit and again when reaching the limit. Monitoring your usage is a good supplement to the emails since you can react early on (by upgrading, ignoring errors, or something else). There's a usage graph on the Organisation Settings view:
 
-![Usage Graph](/images/usage_graph.png)
+![Usage Graph](images/usage-graph-v2.png)
 
 By clicking the question mark next to the counter, you will be able to see which logs that are taking up space:
 
-![Detailed Usage Report](/images/detailed-usage-report.png)
+![Detailed Usage Report](images/detailed-usage-report-v2.png)
 
 ## Fix bugs
 
