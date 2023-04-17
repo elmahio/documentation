@@ -12,9 +12,9 @@ All messages sent to elmah.io, are indexed in Elasticsearch. Storing messages in
 ## Full-text search
 The easiest approach to start searching your log messages is by inputting search terms in the _Search_ field on elmah.io:
 
-![Full-text query](images/full-text-search.png)
+![Full-text query](images/full-text-search-v2.png)
 
-We don't want to get into too much detail on how full-text works in Elasticsearch. In short, Elasticsearch breaks the query into the terms **implement** and **icontroller** and tries to match all log messages including those terms. Full-text search work on _analyzed_ fields in Elasticsearch, which means that wildcards and other constructs are fully supported.
+We don't want to get into too much detail on how full-text works in Elasticsearch. In short, Elasticsearch breaks the query into the terms **nominavi** and **voluptatibus** and tries to match all log messages including those terms. Full-text search work on _analyzed_ fields in Elasticsearch, which means that wildcards and other constructs are fully supported.
 
 Full-text queries work great. when you want to do a quick search for some keywords like part of an exception message or stack trace. Remember that the entire log message is search, why a search for _500_ would hit both log messages with status code 500 and the term _500_ in the stack trace.
 
@@ -24,13 +24,13 @@ Search filters are built exclusively for elmah.io. They are built on top of Luce
 
 Let's say we want to find all errors with a status code of 500:
 
-<img class="gif" src="../images/search-filters.png" data-gif="../images/search-filters.gif" alt="Search filters" />
+<img class="gif" src="../images/search-filters-v2.png" data-gif="../images/search-filters-v2.gif" alt="Search filters" />
 
 Adding the two filters is possible using a few clicks.
 
 As mentioned previously, search filters are available throughout the UI too. In this example, a filter is used to find messages not matching a specified URL:
 
-<img class="gif" src="../images/search-filters-error-details.png" data-gif="../images/search-filters-error-details.gif" alt="Search filter by URL" />
+<img class="gif" src="../images/search-filters-error-details-v2.png" data-gif="../images/search-filters-error-details-v2.gif" alt="Search filter by URL" />
 
 Search filters can be used in combination with full-text queries for greater flexibility.
 
