@@ -155,7 +155,7 @@ When using Umbraco Cloud, you may not have a local clone of the source code. To 
 
 - Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
-In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/setup/config-transforms" target="_blank">Config transforms</a>.
+In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms" target="_blank">Config transforms</a>.
 
 ## Umbraco Uno
 
