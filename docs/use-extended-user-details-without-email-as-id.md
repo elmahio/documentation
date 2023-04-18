@@ -43,4 +43,4 @@ services.AddElmahIo(o =>
 
 That's it! A few lines of code and you can watch every little detail about the users experiencing problems on your website:
 
-![Extended User Details](images/extended_user_details.png)
+![Extended User Details](images/extended-user-details-v2.png){: .image-500 }
