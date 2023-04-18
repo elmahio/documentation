@@ -800,6 +800,7 @@ kbd {
 	display: block;
 	min-width: 100%;
 	overflow-x: auto;
+	overflow-y: hidden;
 }
 .tabbable-responsive + p:empty {
 	display: none;
