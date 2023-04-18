@@ -121,7 +121,7 @@ Here is the full set of fields:
 | `browser` | string | ✅ | A short string classifying each log message to a browser. The value can be one of the following: chrome, safari, edge, firefox, opera, ie, other.
 | `category` | string | ✅ | The log message category. Category can be a string of choice but typically contain a logging category set by a logging framework like NLog or Serilog. When logging through a logging framework, this field will be provided by the framework and not something that needs to be set manually. |
 | `correlationId` | string | | CorrelationId can be used to group similar log messages into a single discoverable batch. A correlation ID could be a session ID from ASP.NET Core, a unique string spanning multiple microservices handling the same request, or similar. |
-| `country` | string | | An ISO 3166 two-letter country case in case we could resolve a country from the log message. |
+| `country` | string | | An ISO 3166 two-letter country code in case we could resolve a country from the log message. |
 | `detail` | string | | A longer description of the message. For errors, this could be a stack trace, but it's really up to you what to log in there. |
 | `domain` | string | | The domain name if it could be resolved from the server variables. |
 | `hash` | string | | A unique hash for a log message. The hash is used for multiple things on elmah.io like the new detection. |
