@@ -7,30 +7,34 @@ description: Learn how to use the elmah.io client to monitor if logging messages
 
 Like every other SaaS product out there, we cannot promise you 100% uptime on elmah.io. We understand, that your logging data is extremely important for your business and we do everything in our power to secure that elmah.io is running smoothly. To monitor our APIs and websites, check out [status.elmah.io](https://status.elmah.io/).
 
-But how do you handle the time where you need to log a message in elmah.io and the service is down? You have a few options actually:
-
-**Subscribe to the `OnMessageFail` event**
-
-You can subscribe an event handler to listen for this situation (where communicating with the elmah.io API fails). To hook up an event handler, write this piece of code in your initialization code:
+It is our general recommendation to implement code that listens for communication errors with the elmah.io API and log errors elsewhere. How you do this depends on which elmah.io NuGet package you have installed. The documentation for each package will show how to subscribe to errors. For `Elmah.Io.Client` it would look similar to this:
 
 ```csharp
-Elmah.ErrorLog.GetDefault(null); // Forces creation of logger client
-var logger = ErrorLog.Client;
-logger.OnMessageFail += (sender, args) =>
+var elmahIo = ElmahioAPI.Create("API_KEY");
+elmahIo.Messages.OnMessageFail += (sender, args) =>
 {
     var message = args.Message;
     var exception = args.Error;
-    // TODO: log message and/or exception somewhere else.
+
+    // TODO: log it
 };
 ```
 
-The example is for ASP.NET and using the `Elmah.Io.Client` package. Similar options are available for other web and logging frameworks.
+For a logging framework like Serilog, it would look similar to this:
 
-**Log to multiple logs**
+```csharp
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+    {
+        OnError = (msg, ex) =>
+        {
+            // TODO: log it
+        }
+    })
+    .CreateLogger();
+```
 
-If you want to be able to roll back to another solution, in case elmah.io goes down, you can actually log to multiple error logs as described here: [Logging to multiple ELMAH logs](/logging-to-multiple-elmah-logs/). If you are using one of our integrations for other web and logging frameworks, various options are available too. This could be logging to a local file or database.
-
-We constantly work to improve the uptime of the entire solution.
+It is important not to log errors in `OnMessageFail` and `OnError` callbacks to elmah.io, since that could cause an infinite loop. Check out the documentation for the package you are using for additional details.
 
 ## Response explanation
 
