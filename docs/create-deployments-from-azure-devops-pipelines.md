@@ -48,10 +48,10 @@ Click the *Add* button and the new task will be added to your YAML definition. Y
 1. Edit the build definition currently building your project(s).
 
 2. Click the _Add task_ button and locate the _PowerShell_ task. Click _Add_.
-![Add PowerShell task](images/add_powershell_task.png)
+![Add PowerShell task](images/add-powershell-task-v2.png)
 
 3. Fill in the details as shown in the screenshot.
-![Fill in PowerShell content](images/fill_powershell_task.png)
+![Fill in PowerShell content](images/fill-powershell-task-v2.png)
 
 ... and here's the code from the screenshot above:
 

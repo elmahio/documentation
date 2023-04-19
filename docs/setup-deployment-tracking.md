@@ -97,7 +97,7 @@ For a complete overview of the possibilities with deployment tracking, watch thi
 
 While you can use the same API key for everything, we recommend you create an API key specific to deployment tracking. To do so, go to the organization settings page by clicking the gears icon next to the organization name on either the dashboard or in the left menu. Select the *API Keys* tabs and click *Add API Key*. Fill in a name of choice and enable the *Deployments* > *Write* permission only:
 
-![Deployment tracking API key](images/deployment-tracking-api-key.png)
+![Deployment tracking API key](images/deployment-tracking-api-key-v2.png)
 
 Click the save button and copy the API key for later use.
 

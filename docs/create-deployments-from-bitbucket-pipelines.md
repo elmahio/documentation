@@ -5,9 +5,9 @@ description: Learn how to set up automatic notifications to elmah.io of new depl
 
 # Create deployments from Bitbucket Pipelines
 
-Pipelines use scripts, embedded in YAML files, to configure the different steps required to build and deploy software. To notify elmah.io as part of a build/deployment, the first you will need to do is to add your API key as a secure environment variable. To do so, go to *Settings* | *Pipelines* | *Environment variables* and add a new variable:
+Pipelines use scripts, embedded in YAML files, to configure the different steps required to build and deploy software. To notify elmah.io as part of a build/deployment, the first you will need to do is to add your API key as a secure environment variable. To do so, go to *Settings* | *Workspace Settings* | *Workspace variables* and add a new variable:
 
-![Add environment variable](/images/pipelines_environment_variable.png)
+![Add environment variable](images/pipelines-environment-variable-v2.png)
 
 [Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)
 
