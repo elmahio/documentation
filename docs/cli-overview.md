@@ -9,6 +9,8 @@ The elmah.io CLI lets you execute common tasks against elmah.io.
 
 ## Installing the CLI
 
+> The elmah.io CLI requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" rel="noopener noreferrer">.NET 6 <span class="far fa-external-link"></span></a> or newer installed.
+
 The elmah.io CLI can be installed in several ways. To set up everything automatically, execute the following script from the command line:
 
 ```cmd
