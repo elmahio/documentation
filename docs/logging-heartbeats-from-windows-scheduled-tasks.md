@@ -20,14 +20,14 @@ When configuring a heartbeat through the elmah.io UI you set an expected interva
 * Click the *New Event Filter...* button.
 * Select the *XML* tab and check the *Edit query manually* checkbox.
 * Now input the XML from the following screenshot (source code later in this article). The custom query will trigger on all *Application Error* messages from an app named *ConsoleApp14.exe*. You will need to change the app name to the filename of the app running in the scheduled task.
-![New Event Filter](images/new-event-filter.png)
+![New Event Filter](images/new-event-filter.png){:style="width:100%;max-width:500px;margin-left:0;"}
 * Click the *OK* button.
 * In the *New Trigger* window click the *OK* button to save the trigger.
 * Select the *Actions* tab.
 * Click the *New...* button.
 * Select the *Start a program* option in the *Action* dropdown.
 * Input values like shown here:
-![Start a program](images/start-a-program-powershell.png)
+![Start a program](images/start-a-program-powershell.png){:style="width:100%;max-width:500px;margin-left:0;"}
 * Click the *OK* button to save the action.
 * Click the *OK* button to save the task.
 * The final step is to add the `c:\scripts\heartbeat.ps1` PowerShell script invoked by the task. For a better understanding of storing heartbeats through PowerShell check out [Logging heartbeats from PowerShell](/logging-heartbeats-from-powershell/). To log a failing heartbeat to elmah.io you can use the following PowerShell code:
