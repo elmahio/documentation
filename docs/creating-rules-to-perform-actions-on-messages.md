@@ -28,6 +28,8 @@ As mentioned above, the action part of a rule is executed when a message matches
 
 ## Ignore errors with an HTTP status code of 400
 
+> Be aware that Ignore rules are only meant as a temporary way of ignoring messages. In case you want to permanently ignore one or more log messages, use client-side filtering as explained in the documentation for each client integration. In addition, there's a client-side filtering help dialog available on the log message details toolbar. Ignoring a large number of messages with Ignore rules will slow down your application logging, use unnecessary network bandwidth, and risk hitting the elmah.io API request limit.
+
 To ignore all messages with an HTTP status code of 400, you would need to set up the following:
 
 | Title | Query | Then |

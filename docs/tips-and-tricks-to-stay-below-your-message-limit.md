@@ -13,6 +13,8 @@ With that said, we want to help you stay within your message limits. Luckily, th
 
 ## Ignore Rules
 
+> Be aware that Ignore rules and filters are only meant as a temporary way of ignoring messages. In case you want to permanently ignore one or more log messages, use [client-side filtering](#client-side-message-filtering).
+
 The easiest way to limit logged messages is by ignoring some of them. Ignored messages do not count toward the message limit. Message rules can be configured through the Rules tab on the Log Settings view.
 
 Rules consist of a query and an action. The query can either be a full-text query or written using Lucene Query Syntax. To create a new ignore rule, input a query on the Rules tab:
@@ -78,6 +80,8 @@ services.AddElmahIo(o =>
     };
 });
 ```
+
+To help you set up client-side filtering in commonly used logging frameworks, click the <kbd><span class="fa fa-filter"></span></kbd> button on the log message details toolbar. This will show a dialog containing extensive help on setting up client-side filtering.
 
 ## Monitor current usage
 
