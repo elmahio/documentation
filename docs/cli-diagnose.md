@@ -20,11 +20,20 @@ Usage:
 
 Options:
   --directory <directory>  The root directory to check [default: C:\test]
+  --verbose                Output verbose diagnostics to help debug problems [default: False]
   -?, -h, --help           Show help and usage information
 ```
 
-## Example
+## Examples
+
+**Simple:**
 
 ```cmd
 elmahio diagnose --directory c:\projects\my-project
+```
+
+**Full:**
+
+```cmd
+elmahio diagnose --directory c:\projects\my-project --verbose
 ```
