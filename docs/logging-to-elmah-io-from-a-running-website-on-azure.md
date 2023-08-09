@@ -50,3 +50,14 @@ To make sure that elmah.io is completely removed, follow these steps:
 2. Browse your website files through Kudu.
 3. Remove all files starting with `Elmah`.
 4. Start your website.
+
+**Error while uninstalling the site extension**
+
+While uninstalling the site extension you may see errors like this:
+
+```
+Failed to delete Site Extension: .NET elmah.io for Azure.{"Message":"An error has occurred.","ExceptionMessage":"The system cannot find the file specified.
+C:\home\SiteExtensions\Elmah.Io.Azure.SiteExtension\uninstall.cmd
+```
+
+In this case, the elmah.io for Azure site extension needs to be uninstalled manually. To do that, go to Kudu Services beneath the *Advanced Tools* section in the website on Azure. In the Debug console navigate to `site/wwwroot/bin` and delete all files prefixed with `Elmah` (up to four files).
