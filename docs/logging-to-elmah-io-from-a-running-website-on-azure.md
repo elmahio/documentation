@@ -32,7 +32,11 @@ Finally, you need to add your API key ([Where is my API key?](https://docs.elmah
 
 Make sure to use the app setting names `ELMAHIO_APIKEY` and `ELMAHIO_LOGID`.
 
-Your Azure web application now logs all uncaught exceptions to elmah.io. Please notice that this only works for ASP.NET, MVC, Web API, and similar. ASP.NET Core websites should be installed locally and re-deployed. Also, the elmah.io Site Extensions supports .NET Full Framework 4.6 and newer.
+Your Azure web application now logs all uncaught exceptions to elmah.io. The elmah.io Site Extension comes with a couple of limitations:
+
+- It only works for ASP.NET, MVC, Web API, and similar. ASP.NET Core websites should be installed locally and re-deployed.
+- .NET Full Framework 4.6 and newer is required.
+- Custom code or configuration may swallow exceptions. Like custom errors or when using the `HandleErrorAttribute` attribute in ASP.NET MVC. In this case, the correct NuGet package needs to be installed in your code and deployed to Azure (like the `Elmah.Io.Mvc` package for ASP.NET MVC).
 
 ## Troubleshooting
 
