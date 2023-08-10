@@ -38,7 +38,7 @@ logger.OnMessage += (sender, args) =>
 </div>
 <div role="tabpanel" class="tab-pane" id="aspnetcore" markdown="1">
 ```csharp
-services.AddElmahIo(o =>
+builder.Services.AddElmahIo(o =>
 {
     o.OnMessage = message =>
     {

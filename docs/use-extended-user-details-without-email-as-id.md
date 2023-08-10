@@ -26,7 +26,7 @@ logger.OnMessage += (sender, args) =>
 For ASP.NET Core the code could look like this:
 
 ```csharp
-services.AddElmahIo(o =>
+builder.Services.AddElmahIo(o =>
 {
     // ...
     o.OnMessage = message =>

@@ -85,18 +85,13 @@ When logging uncaught errors using the `Elmah.Io.AspNetCore` package, we automat
 If you want to set the correlation ID manually, you can use the `OnMessage` action:
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
+builder.Services.Configure<ElmahIoOptions>(o =>
 {
-    // ...
-    services.Configure<ElmahIoOptions>(o =>
+    o.OnMessage = msg =>
     {
-        o.OnMessage = msg =>
-        {
-            msg.CorrelationId = "42";
-        };
-    });
-    // ...
-}
+        msg.CorrelationId = "42";
+    };
+});
 ```
 
 When requested through the browser, a `traceparent` is not automatically added, unless you manually do so by using an extension as shown in the W3C section. In this case, you can either install the `Elmah.Io.Client.Extensions.Correlation` package as already explained, or set the `correlationId` manually by installing the `System.Diagnostics.DiagnosticSource` NuGet package and adding the following code to the `OnMessage` action:

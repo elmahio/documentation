@@ -71,7 +71,7 @@ void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
 If you're using ASP.NET Core, our client supports the `OnFilter` action:
 
 ```csharp
-services.AddElmahIo(o =>
+builder.Services.AddElmahIo(o =>
 {
     // ...
     o.OnFilter = message =>
