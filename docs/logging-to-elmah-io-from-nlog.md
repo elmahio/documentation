@@ -38,7 +38,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog 5</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog >= 5</a></li>
 </ul>
 </div>
 </div>
@@ -125,9 +125,9 @@ Then change the `type` attribute in the target to `xsi:type`:
 <target xsi:type="elmahio:elmah.io" />
 ```
 
-## Configuration in .NET Core
+## Configuration in appsettings.json
 
-.NET Core switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
+.NET 5 (previously Core) and newer switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
 
 ```powershell fct_label="Package Manager"
 Install-Package NLog.Extensions.Logging
@@ -148,7 +148,7 @@ Extend the `appsettings.json` file with a new `NLog` section:
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="nav-item"><a class="nav-link active" href="#setupcore4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setupcore5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog 5</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setupcore5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog >= 5</a></li>
 </ul>
 </div>
 </div>
@@ -214,7 +214,6 @@ If you haven't already loaded the configuration in your application, make sure t
 var config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .Build();
-
 ```
 
 Finally, tell NLog how to load the `NLog` configuration section:
