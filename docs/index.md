@@ -173,25 +173,22 @@ dotnet add package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
-Once installed, call `AddElmahIo` in the `ConfigureServices`-method and `UseElmahIo` in the `Configure`-method (both in the `Startup.cs` file):
+Once installed, call `AddElmahIo` and `UseElmahIo` in the `Program.cs` file:
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
+var builder = WebApplication.CreateBuilder(args);
+// ...
+builder.Services.AddElmahIo(options => // 👈
 {
-    services.AddElmahIo(o =>
-    {
-        o.ApiKey = "API_KEY";
-        o.LogId = new Guid("LOG_ID");
-    });
-    // ...
-}
-
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
-{
-    // ...
-    app.UseElmahIo();
-    // ...
-}
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+// ...
+var app = builder.Build();
+// ...
+app.UseElmahIo(); // 👈
+// ...
+app.Run();
 ```
 
 Make sure to insert your API key and log ID.
