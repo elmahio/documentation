@@ -32,33 +32,24 @@ In the `Program.cs` file, add a new `using` statement:
 using Elmah.Io.Extensions.Logging;
 ```
 
-Then call the `ConfigureLogging`-method and configure elmah.io like shown here:
+Then configure elmah.io like shown here:
 
 ```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-            webBuilder.ConfigureLogging((ctx, logging) =>
-            {
-                logging.AddElmahIo(options =>
-                {
-                    options.ApiKey = "API_KEY";
-                    options.LogId = new Guid("LOG_ID");
-                });
-                logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
-            });
-        });
+builder.Logging.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
 
-The code only logs `Warning`, `Error`, and `Fatal` messages. To change that you can change the `LogLevel` filter specified in the last line of the `ConfigureLogging` method. You may also need to change log levels for SignalR itself:
+The code only logs `Warning`, `Error`, and `Fatal` messages. To change that you can change the `LogLevel` filter specified in the line calling the `AddFilter` method. You may also need to change log levels for SignalR itself:
 
 ```csharp
 logging.AddFilter("Microsoft.AspNetCore.SignalR", LogLevel.Debug);
 logging.AddFilter("Microsoft.AspNetCore.Http.Connections", LogLevel.Debug);
 ```
 
-Be aware that changing log levels to `Debug` or lower will cause a lot of messages to be stored in elmah.io.
+Be aware that changing log levels to `Debug` or lower will cause a lot of messages to be stored in elmah.io. Log levels can be specified through the `appsettings.json` file as with any other ASP.NET Core application. Check out [appsettings.json configuration](/logging-to-elmah-io-from-microsoft-extensions-logging/#appsettingsjson-configuration) for more details.
