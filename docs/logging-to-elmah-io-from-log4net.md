@@ -179,7 +179,7 @@ The `logId` and `apiKey` elements underneath the elmah.io appender have been ext
 
 ## ASP.NET Core
 
-Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/main/samples/Elmah.Io.Log4Net.AspNetCore31) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
+Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/main/samples/Elmah.Io.Log4Net.AspNetCore70) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
 
 To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet package:
 
@@ -222,24 +222,7 @@ Include a log4net config file to the root of the project:
 In the `Program.cs` file, make sure to set up log4net:
 
 ```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        CreateHostBuilder(args).Build().Run();
-    }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-                webBuilder.ConfigureLogging((ctx, logging) =>
-                {
-                    logging.AddLog4Net();
-                });
-            });
-}
+builder.Logging.AddLog4Net();
 ```
 
 All internal logging from ASP.NET Core, as well as manual logging you create through the `ILogger` interface, now goes directly into elmah.io.
@@ -259,15 +242,12 @@ dotnet add package Elmah.Io.AspNetCore.Log4Net
 paket add Elmah.Io.AspNetCore.Log4Net
 ```
 
-Finally, make sure to call the `UseElmahIoLog4Net` method in the `Configure` method in the `Startup.cs` file:
+Finally, make sure to call the `UseElmahIoLog4Net` method in the `Program.cs` file:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    // ... Exception handling middleware
-    app.UseElmahIoLog4Net();
-    // ... UseMvc etc.
-}
+// ... Exception handling middleware
+app.UseElmahIoLog4Net();
+// ... UseMvc etc.
 ```
 
 ## Troubleshooting
