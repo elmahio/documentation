@@ -23,28 +23,6 @@ paket add Elmah.Io.Extensions.Logging
 Configure logging as part of the configuration (typically in the `Program.cs` file):
 
 ```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost
-        .CreateDefaultBuilder(args)
-        // ...
-        .ConfigureLogging(logging =>
-        {
-            logging.AddElmahIo(options =>
-            {
-                options.ApiKey = "API_KEY";
-                options.LogId = new Guid("LOG_ID");
-            });
-        })
-        // ...
-        .UseStartup<Startup>();
-
-```
-
-Or, if you are using `WebApplication.CreateBuilder` like this:
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-// ...
 builder.Logging.AddElmahIo(options =>
 {
     options.ApiKey = "API_KEY";
@@ -112,14 +90,10 @@ public class ElmahIoErrorBehavior : IServiceBehavior
 
 The service behavior will look up the `ElmahIoErrorHandler` and register it with CoreWCF. The code above is hardcoded to work with the elmah.io error handler only. If you have multiple error handlers, you will need to register all of them.
 
-Finally, register the service behavior in the `ConfigureServices` method in the `Startup.cs` file:
+Finally, register the service behavior in the `Program.cs` file:
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<IServiceBehavior, ElmahIoErrorBehavior>();
-    // ...
-}
+builder.Services.AddSingleton<IServiceBehavior, ElmahIoErrorBehavior>();
 ```
 
 Uncaught errors will now be logged to elmah.io.
