@@ -5,9 +5,11 @@ description: Learn about how to log to individual elmah.io logs per ASP.NET Core
 
 # Using different logs per environment in ASP.NET Core
 
-We are often asked the question: Should I create a log per environment and how do I set it up with ASP.NET Core.
+We are often asked the question: Should I create a log per environment and how do I set it up with ASP.NET Core?
 
-Creating a log per environment (staging, production, etc.) is a good idea since you probably want different notification rules and/or user access depending on the environment. We usually recommend a log per environment and disabling logging when running on localhost. There can be advantages in logging errors from developer machines, but every error counts against your monthly quota. This document provides a range of possibilities for setting up a log per environment.
+Creating a log per environment (staging, production, etc.) is a good idea since you probably want different notification rules and/or user access depending on the environment. This document provides a range of possibilities for setting up a log per environment.
+
+> This document is intended for the `Elmah.Io.AspNetCore` package only. You can use the same approach for `Elmah.Io.Extensions.Logging` but we recommend using log filtering in the `appsettings.json` file or through C# instead.
 
 ## Using appsettings.{Environment}.json
 
@@ -16,14 +18,9 @@ All ASP.NET Core websites read an environment variable named `ASPNETCORE_ENVIRON
 To only add elmah.io when on staging or production, you can add the following code when setting up the elmah.io middleware:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+if (builder.Environment.IsProduction() || builder.Environment.IsStaging())
 {
-    // ...
-    if (env.IsProduction() || env.IsStaging())
-    {
-        app.UseElmahIo();
-    }
-    // ...
+    app.UseElmahIo();
 }
 ```
 
