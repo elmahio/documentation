@@ -198,45 +198,15 @@ paket add Serilog.AspNetCore
 paket add Serilog.Sinks.ElmahIo
 ```
 
-Configure Serilog as usual:
+Configure Serilog using the `UseSerilog` method in the `Program.cs` file:
 
 ```csharp
-public static int Main(string[] args)
-{
-    Log.Logger = new LoggerConfiguration()
-        .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
-        {
-            MinimumLogEventLevel = Events.LogEventLevel.Warning
-        })
-        .CreateLogger();
-
-    try
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
     {
-        CreateWebHostBuilder(args).Build().Run();
-        return 0;
-    }
-    catch (Exception ex)
-    {
-        Log.Fatal(ex, "Host terminated unexpectedly");
-        return 1;
-    }
-    finally
-    {
-        Log.CloseAndFlush();
-    }
+        MinimumLogEventLevel = LogEventLevel.Information,
+    }));
 }
-```
-
-Finally, call the `UseSerilog`-method in `CreateHostBuilder`:
-
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-            webBuilder.UseSerilog();
-        });
 ```
 
 Now, all warnings, errors, and fatals happening inside ASP.NET Core are logged to elmah.io.
@@ -256,30 +226,27 @@ dotnet add package Elmah.Io.AspNetCore.Serilog
 paket add Elmah.Io.AspNetCore.Serilog
 ```
 
-Then, call the `UseElmahIoSerilog` method in the `Configure` method in the `Startup.cs` file:
+Then, call the `UseElmahIoSerilog` method in `Program.cs` file:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    // ... Exception handling middleware
-    app.UseElmahIoSerilog();
-    // ... UseMvc etc.
-}
+// ... Exception handling middleware
+app.UseElmahIoSerilog();
+// ... UseMvc etc.
 ```
 
 The middleware uses Serilog's `LogContext` feature to enrich each log message with additional properties. To turn on the log context, extend your Serilog config:
 
 ```csharp
-Log.Logger = new LoggerConfiguration()
+builder.Host.UseSerilog((ctx, lc) => lc
     .WriteTo.ElmahIo(/*...*/)
     .Enrich.FromLogContext() // <-- add this line
-    .CreateLogger();
+);
 ```
 
 There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and install the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
 
 ```csharp
-.WriteTo.ElmahIo(new ElmahIoSinkOptions("API_KEY", new Guid("LOG_ID"))
+.WriteTo.ElmahIo(/*...*/)
 {
     // ...
     OnFilter = msg =>
@@ -499,4 +466,4 @@ Here are some things to try out if logging from Serilog to elmah.io doesn't work
 
 ### PeriodicBatchingSink is marked as sealed
 
-If you get a runtime error stating that the `PeriodicBatchingSink` class is sealed and cannot be extended, make sure to manually install version `3.1.0` or newer of the `Serilog.Sinks.PeriodicBatching` NuGet package. The bug has also been fixed in the `Serilog.Sinks.ElmahIo` NuGet package from version `4.3.28-pre` and forward.
+If you get a runtime error stating that the `PeriodicBatchingSink` class is sealed and cannot be extended, make sure to manually install version `3.1.0` or newer of the `Serilog.Sinks.PeriodicBatching` NuGet package. The bug has also been fixed in the `Serilog.Sinks.ElmahIo` NuGet package from version `4.3.29` and forward.
