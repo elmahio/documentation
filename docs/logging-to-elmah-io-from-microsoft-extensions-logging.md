@@ -11,7 +11,7 @@ description: Learn about how to send structured logs from Microsoft.Extensions.L
 
 [TOC]
 
-Microsoft.Extensions.Logging is a common logging abstraction from Microsoft, much like log4net and Serilog. Microsoft.Extensions.Logging started as a new logging mechanism for ASP.NET Core but now acts as a logging framework for all sorts of project types.
+Microsoft.Extensions.Logging is both a logging framework itself and a logging abstraction on top of other logging frameworks like log4net and Serilog.
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
@@ -38,25 +38,17 @@ In the `Program.cs` file, add a new `using` statement:
 using Elmah.Io.Extensions.Logging;
 ```
 
-Then call the `ConfigureLogging`-method and configure elmah.io like shown here:
+Then call the `AddElmahIo`-method as shown here:
 
 ```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-            webBuilder.ConfigureLogging((ctx, logging) =>
-            {
-                logging.AddElmahIo(options =>
-                {
-                    options.ApiKey = "API_KEY";
-                    options.LogId = new Guid("LOG_ID");
-                });
-                logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
-            });
-        });
+builder.Logging.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 ```
+
 By calling, the `AddFilter`-method, you ensure that only warnings and up are logged to elmah.io.
 
 The API key and log ID can also be configured in `appsettings.json`:
@@ -71,20 +63,15 @@ The API key and log ID can also be configured in `appsettings.json`:
 }
 ```
 
-Then configure the section and use the `AddElmahIo` overload (without any parameters):
+To tell Microsoft.Extensions.Logging to use configuration from the `appsettings.json` file, include the following code in `Program.cs`:
 
 ```csharp
-Host.CreateDefaultBuilder(args)
-    .ConfigureWebHostDefaults(webBuilder =>
-    {
-        webBuilder.UseStartup<Startup>();
-        webBuilder.ConfigureLogging((ctx, logging) =>
-        {
-            logging.Services.Configure<ElmahIoProviderOptions>(ctx.Configuration.GetSection("ElmahIo"));
-            logging.AddElmahIo();
-        });
-    });
+builder.Services.Configure<ElmahIoProviderOptions>(builder.Configuration.GetSection("ElmahIo"));
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+builder.Logging.AddElmahIo();
 ```
+
+The first line fetches elmah.io configuration from the `ElmahIo` object in the `appsettings.json` file. The second line configures log levels in Microsoft.Extensions.Logging from the `Logging` object in `appsettings.json`. The third line adds the elmah.io logger to Microsoft.Extensions.Logging. Notice how the overload without any options object is called since options are already loaded from `appsettings.json`.
 
 Start logging messages by injecting an `ILogger` in your controllers:
 
@@ -106,7 +93,7 @@ public class HomeController : Controller
 }
 ```
 
-For an example of configuring elmah.io with ASP.NET Core minimal APIs, check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples/Elmah.Io.Extensions.Logging.AspNetCore60).
+For an example of configuring elmah.io with ASP.NET Core 3.1, check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples/Elmah.Io.Extensions.Logging.AspNetCore31).
 
 ### Include HTTP context
 
@@ -129,18 +116,71 @@ dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
 paket add Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 
-Then call the `UseElmahIoExtensionsLogging` method in the `Configure` method in the `Startup.cs` file:
+Then call the `UseElmahIoExtensionsLogging` method in the `Program.cs` file:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    // ... Exception handling middleware
-    app.UseElmahIoExtensionsLogging();
-    // ... UseMvc etc.
-}
+// ... Exception handling middleware
+app.UseElmahIoExtensionsLogging();
+// ... UseMvc etc.
 ```
 
 It's important to call the `UseElmahIoExtensionsLogging` method **after** any calls to `UseElmahIo`, `UseAuthentication`, and other exception handling middleware but **before** `UseMvc` and `UseEndpoints`. If you experience logged errors without the HTTP context, try moving the `UseElmahIoExtensionsLogging` method as the first call in the `Configure` method.
+
+## Logging from a console application
+
+Choose the right framework version:
+
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore6" aria-controls="home" role="tab" data-toggle="tab">.NET Core >= 6</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore3" aria-controls="home" role="tab" data-toggle="tab">.NET Core 3</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="netcore6" markdown="1">
+Configure logging to elmah.io using a new or existing `ServiceCollection`:
+
+```csharp
+var services = new ServiceCollection();
+services.AddLogging(logging => logging.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+}));
+```
+
+Get a reference to the `LoggerFactory`:
+
+```csharp
+using var serviceProvider = services.BuildServiceProvider();
+var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+```
+</div>
+<div role="tabpanel" class="tab-pane" id="netcore3" markdown="1">
+Create a new `LoggerFactory` and configure it to use elmah.io:
+
+```csharp
+using var loggerFactory = LoggerFactory.Create(builder => builder
+    .AddElmahIo(options =>
+    {
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
+    }));
+```
+</div>
+</div>
+
+Adding the `using` keyword is important to let elmah.io store messages before exiting the application.
+
+Finally, create a new logger and start logging exceptions:
+
+```csharp
+var logger = factory.CreateLogger("MyLog");
+logger.LogError(ex, "Unexpected error");
+```
 
 ## Logging custom properties
 
@@ -167,7 +207,7 @@ using (logger.BeginScope(new Dictionary<string, object>
 }
 ```
 
-In this example, a log message with the template `Request to {url} caused an error` to be logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L3617).
+In this example, a log message with the template `Request to {url} caused an error` to be logged. The use of the variable names `statuscode`, `method`, and `url` will fill in those values in the correct fields on elmah.io. For a reference of all possible property names, check out the property names on [CreateMessage](https://github.com/elmahio/Elmah.Io.Client/blob/main/src/Elmah.Io.Client/ElmahioClient.cs#L4371C26-L4371C39).
 
 An alternative is to use the `OnMessage` action. As an example, we'll add a version number to all messages:
 
@@ -207,15 +247,11 @@ public class DecorateElmahIoMessages : IConfigureOptions<ElmahIoProviderOptions>
 }
 ```
 
-Then register `IHttpContextAccessor` and the new class in the `ConfigureServices` method in the `Startup.cs` file:
+Then register `IHttpContextAccessor` and the new class in the `Program.cs` file:
 
 ```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddHttpContextAccessor();
-    services.AddSingleton<IConfigureOptions<ElmahIoProviderOptions>, DecorateElmahIoMessages>();
-    // ...
-}
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IConfigureOptions<ElmahIoProviderOptions>, DecorateElmahIoMessages>();
 ```
 
 ### Setting category
@@ -301,14 +337,10 @@ Some of the configuration for Elmah.Io.Extensions.Logging can be done through th
 }
 ```
 
-Finally, tell the logger to look for this information, by adding a bit of code to the `ConfigureLogging`-method:
+Finally, tell the logger to look for this information, by adding a bit of code to `Program.cs`:
 
 ```csharp
-webBuilder.ConfigureLogging((ctx, logging) =>
-{
-    logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
-    // ...
-});
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 ```
 
 ### Filtering log messages
@@ -317,22 +349,13 @@ As default, the elmah.io logger for Microsoft.Extensions.Logging only logs warni
 
 To log everything from log level `Information` and up, do the following:
 
-Inside the `ConfigureLogging`-method in `Startup.cs`, change the minimum level:
+Inside `Program.cs` change the minimum level:
 
 ```csharp
-webBuilder.ConfigureLogging((ctx, logging) =>
-{
-    // ...
-    logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
-});
+builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Information);
 ```
 
-In the code sample, every log message with a log level of `Information` and up will be logged to elmah.io. To log a new information message, create a logger with the `elmah.io` category, and call the `LogInformation` method:
-
-```csharp
-var logger = factory.CreateLogger("elmah.io");
-logger.LogInformation("This is an information message");
-```
+In the code sample, every log message with a log level of `Information` and up will be logged to elmah.io.
 
 ### Logging through a proxy
 
@@ -341,68 +364,14 @@ logger.LogInformation("This is an information message");
 You can log through a proxy using options:
 
 ```csharp
-webBuilder.ConfigureLogging((ctx, logging) =>
+logging.AddElmahIo(options =>
 {
-    logging.AddElmahIo(options =>
-    {
-        // ...
-        options.WebProxy = new WebProxy("localhost", 8000);
-    });
+    // ...
+    options.WebProxy = new WebProxy("localhost", 8000);
 });
 ```
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
-
-## Logging from a console application
-
-Choose the right framework version:
-
-<div class="tabbable-responsive">
-<div class="tabbable">
-<ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore3" aria-controls="home" role="tab" data-toggle="tab">.NET Core 3 and newer</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore2" aria-controls="home" role="tab" data-toggle="tab">.NET Core 2</a></li>
-</ul>
-</div>
-</div>
-
-<div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="netcore3" markdown="1">
-Create a new `LoggerFactory` and configure it to use elmah.io:
-
-```csharp
-using var loggerFactory = LoggerFactory.Create(builder => builder
-    .AddElmahIo(options =>
-    {
-        options.ApiKey = "API_KEY";
-        options.LogId = new Guid("LOG_ID");
-    }));
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="netcore2" markdown="1">
-Create a new `LoggerFactory`:
-
-```csharp
-using var factory = new LoggerFactory();
-```
-
-Configure Microsoft.Extensions.Logging to use elmah.io:
-
-```csharp
-factory.AddElmahIo("API_KEY", new Guid("LOG_ID"));
-```
-</div>
-</div>
-
-Adding the `using` keyword is important to let elmah.io store messages before exiting the application.
-
-Finally, create a new logger and start logging exceptions:
-
-```csharp
-var logger = factory.CreateLogger("MyLog");
-logger.LogError(1, ex, "Unexpected error");
-```
 
 ## Troubleshooting
 
@@ -436,9 +405,12 @@ If you have both `Elmah.Io.Extensions.Logging` and `Elmah.Io.AspNetCore` install
 To ignore duplicate errors you need to figure out which middleware class that trigger the logging and in which namespace it is located. One or more of the following ignore filters can be added to your `Program.cs` file:
 
 ```csharp
-logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware", LogLevel.None);
-logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware", LogLevel.None);
-logging.AddFilter<ElmahIoLoggerProvider>("Microsoft.AspNetCore.Server.IIS.Core", LogLevel.None);
+logging.AddFilter<ElmahIoLoggerProvider>(
+    "Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware", LogLevel.None);
+logging.AddFilter<ElmahIoLoggerProvider>(
+    "Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware", LogLevel.None);
+logging.AddFilter<ElmahIoLoggerProvider>(
+    "Microsoft.AspNetCore.Server.IIS.Core", LogLevel.None);
 ```
 
 Be aware that these lines will ignore all messages from the specified class or namespace. To ignore specific errors you can implement the `OnFilter` action as shown previously in this document. Ignoring uncaught errors from IIS would look like this:
