@@ -47,7 +47,7 @@ public class BreadcrumbFilterAttribute : ActionFilterAttribute
 The action filter converts the action arguments to a comma-separated string and logs it as a breadcrumb. You can either decorate each controller with the `BreadcrumbFilterAttribute` or add it globally:
 
 ```csharp
-var mvcBuilder = services.AddControllersWithViews(options =>
+builder.Services.AddControllersWithViews(options =>
 {
     options.Filters.Add(new BreadcrumbFilterAttribute());
 });
@@ -58,9 +58,9 @@ var mvcBuilder = services.AddControllersWithViews(options =>
 We also provide an automatic generation of breadcrumbs using Microsoft.Extensions.Logging. This will pick up all log messages logged through the `ILogger` and include those as part of an error logged. This behavior is currently in opt-in mode, meaning that you will need to enable it in options:
 
 ```csharp
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
-    // ...
+    // ...    
     options.TreatLoggingAsBreadcrumbs = true;
 });
 ```
@@ -97,7 +97,7 @@ When enabling this automatic behavior, you may need to adjust the log level incl
 Breadcrumbs can be filtered using one or more rules as well:
 
 ```csharp
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.OnFilterBreadcrumb =

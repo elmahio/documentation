@@ -231,8 +231,7 @@ See [Logging breadcrumbs from ASP.NET Core](/logging-breadcrumbs-from-asp-net-co
 If logging to the same log from multiple web apps it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(o =>
+builder.Services.AddElmahIo(o =>
 {
     // ...
     o.Application = "MyApp";
@@ -256,8 +255,7 @@ The application name can also be configured through `appsettings.json`:
 elmah.io for ASP.NET Core supports a range of actions for hooking into the process of logging messages. Hooks are registered as actions when installing the elmah.io middleware:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.OnMessage = message =>
@@ -278,8 +276,7 @@ The actions provide a mechanism for hooking into the log process. The action reg
 While elmah.io supports [ignore rules](https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/#ignore-errors-with-a-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the options object, filtering is easy:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.OnFilter = message =>
@@ -358,8 +355,7 @@ You can use the `OnMessage` action to include source code to log messages. This 
 There are multiple ways of including source code to log messages. In short, you will need to install the `Elmah.Io.Client.Extensions.SourceCode` NuGet package and call the `WithSourceCodeFromPdb` method in the `OnMessage` action:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.OnMessage = msg =>
@@ -378,8 +374,7 @@ Check out [How to include source code in log messages](/how-to-include-source-co
 The `OnMessage` event can be used to filter sensitive form data as well. In the following example, we remove the server variable named `Secret-Key` from all messages, before sending them to elmah.io.
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.OnMessage = msg =>
@@ -398,8 +393,7 @@ services.AddElmahIo(options =>
 A default exception formatter is used to format any exceptions, before sending them off to the elmah.io API. To override the format of the details field in elmah.io, set a new `IExceptionFormatter` in the `ExceptionFormatter` property on the `ElmahIoOptions` object:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.ExceptionFormatter = new DefaultExceptionFormatter();
@@ -413,8 +407,7 @@ Besides the default exception formatted (`DefaultExceptionFormatter`), Elmah.Io.
 As default, uncaught exceptions (500's) and 404's are logged automatically. Let's say you have a controller returning a Bad Request and want to log that as well. Since returning a 400 from a controller doesn't trigger an exception, you will need to configure this status code:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.HandledStatusCodesToLog = new List<int> { 400 };
@@ -440,8 +433,7 @@ When configuring status codes through the `appsettings.json` file, `404`s will a
 Since ASP.NET Core no longer support proxy configuration through `web.config`, you can log to elmah.io by configuring a proxy manually:
 
 ```csharp
-// ⬇️ Use 'services.' for standard and 'builder.Services.' for top-level statements
-services.AddElmahIo(options =>
+builder.Services.AddElmahIo(options =>
 {
     // ...
     options.WebProxy = new System.Net.WebProxy("localhost", 8888);
