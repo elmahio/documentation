@@ -28,30 +28,14 @@ dotnet add package Elmah.Io.Extensions.Logging
 paket add Elmah.Io.Extensions.Logging
 ```
 
-In the `Startup.cs` file, add elmah.io logging configuration:
+In the `Program.cs` file, add elmah.io logging configuration:
 
 ```csharp
-using Microsoft.Extensions.DependencyInjection;
-using Elmah.Io.Extensions.Logging;
-
-namespace MyBlazorApp
+builder.Logging.AddElmahIo(options =>
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddLogging(builder => builder
-                .AddElmahIo(options =>
-                {
-                    options.ApiKey = "API_KEY";
-                    options.LogId = new Guid("LOG_ID");
-                })
-            );
-        }
-
-        // ...
-    }
-}
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
@@ -71,7 +55,8 @@ All uncaught exceptions are automatically logged to elmah.io. Exceptions can be 
     {
         try
         {
-            forecasts = await Http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts-nonexisting");
+            forecasts = await Http
+                .GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts-nonexisting");
         }
         catch (Exception e)
         {
@@ -117,13 +102,13 @@ dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
 paket add Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 
-And add the following code to the `Configure` method in the `Startup.cs` file:
+And add the following code to the `Program.cs` file:
 
 ```csharp
 app.UseElmahIoExtensionsLogging();
 ```
 
-Make sure to call this method just before the call to `UseEndpoints`. This will include some of the information you are looking for.
+Make sure to call this method just before the call to `UseRouting` and `UseEndpoints`. This will include some of the information you are looking for.
 
 There's a problem when running Blazor Server where you will see some of the URLs logged as part of errors on elmah.io having the value `/_blazor`. This is because Blazor doesn't work like traditional websites where the client requests the server and returns an HTML or JSON response. When navigating the UI, parts of the UI are loaded through SignalR, which causes the URL to be `/_blazor`. Unfortunately, we haven't found a good way to fix this globally. You can include the current URL on manual log statements by injecting a `NavigationManager` in the top of your `.razor` file:
 
@@ -166,32 +151,11 @@ paket add Elmah.Io.Blazor.Wasm
 In the `Program.cs` file, add elmah.io logging configuration:
 
 ```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Elmah.Io.Blazor.Wasm;
-
-namespace MyBlazorApp
+builder.Logging.AddElmahIo(options =>
 {
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
-
-            // Your other services here
-
-            builder.Logging.AddElmahIo(options =>
-            {
-                options.ApiKey = "API_KEY";
-                options.LogId = new Guid("LOG_ID");
-            });
-
-            await builder.Build().RunAsync();
-        }
-    }
-}
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
