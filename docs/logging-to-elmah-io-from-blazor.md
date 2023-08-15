@@ -189,3 +189,7 @@ The following may be implemented by the package later:
 - Additional information about the HTTP context (like cookies, URL, and user).
 - Internal message queue and/or batch processing like `Microsoft.Extensions.Logging`.
 - Support for logging scopes.
+
+## Blazor (United) App
+
+.NET 8 introduces a new approach to developing Blazor applications, formerly known as Blazor United. We have started experimenting a bit with Blazor Apps which have the option of rendering both server-side and client-side from within the same Blazor application. As shown in the sections above, using server-side rendering needs `Elmah.Io.Extensions.Logging` while client-side rendering needs `Elmah.Io.Blazor.Wasm`. You cannot have both packages installed and configured in the same project so you need to stick to one of them for Blazor (United) Apps. Since the `Elmah.Io.Extensions.Logging` package doesn't work with Blazor WebAssembly, we recommend installing the `Elmah.Io.Blazor.Wasm` package if you want to log from both server-side and client-side. Once the new Blazor App framework matures, we will probably consolidate features from both packages into an `Elmah.Io.Blazor` package or similar.
