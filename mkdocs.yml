@@ -94,23 +94,23 @@ nav:
     - Logging from Uno: logging-to-elmah-io-from-uno.md
     - Logging from MAUI: logging-to-elmah-io-from-maui.md
 - Logging from something else:
-    - Logging from Nancy: logging-to-elmah-io-from-nancy.md
-    - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
     - Logging from WCF: logging-to-elmah-io-from-wcf.md
     - Logging from CoreWCF: logging-to-elmah-io-from-corewcf.md
-    - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Azure Functions: logging-to-elmah-io-from-azure-functions.md
     - Logging from Isolated Azure Functions: logging-to-elmah-io-from-isolated-azure-functions.md
-    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
-    - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
-    - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
-    - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
-    - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
-    - Logging from C# and console applications: logging-to-elmah-io-from-console-application.md
-    - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from WPF: logging-to-elmah-io-from-wpf.md
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
+    - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
+    - Logging from C# and console applications: logging-to-elmah-io-from-console-application.md
+    - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
+    - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
+    - Logging from ServiceStack: logging-to-elmah-io-from-servicestack.md
+    - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
+    - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
+    - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
+    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
+    - Logging from Nancy: logging-to-elmah-io-from-nancy.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md
     - Microsoft Teams: elmah-io-apps-teams.md
