@@ -251,7 +251,7 @@ $(document).ready(function(){
 				return $(tab).closest('ul.nav-tabs').not(tabParent)[0];
 			});
 
-		if (tabs.length > 1) {
+		if (tabs.length > 0) {
 			var currentOffset = $(event.currentTarget).offset().top - $(document).scrollTop();
 			$(tabs).tab('show');
 			$(document).scrollTop($(event.currentTarget).offset().top - currentOffset);
