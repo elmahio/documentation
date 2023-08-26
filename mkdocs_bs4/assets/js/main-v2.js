@@ -242,6 +242,21 @@ $(document).ready(function(){
 	document.querySelector('.bug-head').addEventListener('click', function(){
 		throw new Error('Headshot');
 	});
+
+	// Persistent tabs
+	$('a.nav-link[data-toggle="tab"]').on('click', function (event) {
+		var tabParent = $(event.currentTarget).closest('ul.nav-tabs');
+		var tabHash = (event.currentTarget.hash).replace(/[0-9]/g, '');
+		var tabs = $('a.nav-link[data-toggle="tab"][href^="'+ tabHash +'"]').filter(function(i, tab) {
+			return $(tab).closest('ul.nav-tabs').not(tabParent)[0];
+		});
+
+		if (tabs.length > 1) {
+			var currentOffset = $(event.currentTarget).offset().top - $(document).scrollTop();
+			$(tabs).tab('show');
+			$(document).scrollTop($(event.currentTarget).offset().top - currentOffset);
+		}
+	});
 });
 
 window.intercomSettings = {
