@@ -37,8 +37,8 @@ To configure the elmah.io target, add the following configuration to your app.co
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog >= 5</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup4" aria-controls="home" role="tab" data-toggle="tab" data-tab="nlog34">Elmah.Io.NLog 3.x/4.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup5" aria-controls="profile" role="tab" data-toggle="tab" data-tab="nlog5">Elmah.Io.NLog >= 5</a></li>
 </ul>
 </div>
 </div>
@@ -147,8 +147,8 @@ Extend the `appsettings.json` file with a new `NLog` section:
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setupcore4" aria-controls="home" role="tab" data-toggle="tab">Elmah.Io.NLog 3.x/4.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setupcore5" aria-controls="profile" role="tab" data-toggle="tab">Elmah.Io.NLog >= 5</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setupcore4" aria-controls="home" role="tab" data-toggle="tab" data-tab="nlog34">Elmah.Io.NLog 3.x/4.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setupcore5" aria-controls="profile" role="tab" data-toggle="tab" data-tab="nlog5">Elmah.Io.NLog >= 5</a></li>
 </ul>
 </div>
 </div>
