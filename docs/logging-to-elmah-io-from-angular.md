@@ -9,37 +9,21 @@ description: Learn how to utilize elmah.io.javascript to log uncaught errors fro
 
 # Logging to elmah.io from Angular
 
-`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/). Then add `elmahio.min.js` to the `scripts` section in the `.angular-cli.json` file (`angular.json` in Angular 6):
+`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/).
 
-```json
-{
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  // ...
-  "apps": [
-    {
-      // ...
-      "scripts": [
-        "../node_modules/elmah.io.javascript/dist/elmahio.min.js"
-      ],
-      // ...
-    }
-  ],
-  // ...
-}
-```
-
-In the `app.module.ts` file, add a new `ErrorHandler` and add it to the `providers` section:
+In the same folder as the `app.module.ts` file add a new file named `elmah-io-error-handler.ts` and include the following content:
 
 ```typescript
-import { NgModule, ErrorHandler } from '@angular/core';
-// ...
+import {ErrorHandler} from '@angular/core';
 
-class ElmahIoErrorHandler implements ErrorHandler {
-  logger: any;
+import * as Elmahio from 'elmah.io.javascript';
+
+export class ElmahIoErrorHandler implements ErrorHandler {
+  logger: Elmahio;
   constructor() {
     this.logger = new Elmahio({
       apiKey: 'API_KEY',
-      logId: 'LOG_ID',
+      logId: 'LOG_ID'
     });
   }
   handleError(error) {
@@ -50,20 +34,35 @@ class ElmahIoErrorHandler implements ErrorHandler {
     }
   }
 }
+```
+
+Reference both `ErrorHandler` and `ElmahIoErrorHandler` in the `app.module.ts` file:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core'; // ⬅️ Add ErrorHandler
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import {ElmahIoErrorHandler} from './elmah-io-error-handler'; // ⬅️ Reference ElmahIoErrorHandler
 
 @NgModule({
   declarations: [
-    // ...
+    AppComponent
   ],
   imports: [
-    // ...
+    BrowserModule,
+    AppRoutingModule
   ],
+  // ⬇️ Reference both handlers
   providers: [{ provide: ErrorHandler, useClass: ElmahIoErrorHandler }],
-  // ...
+  bootstrap: [AppComponent]
 })
+export class AppModule { }
 ```
 
-All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.Angular" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.Angular</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.
+All errors are shipped to the `handleError`-function by Angular and logged to elmah.io. Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.AngularAspNetCore" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularAspNetCore</a> and <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/Elmah.Io.JavaScript.AngularWebpack" target="_blank" rel="noopener noreferrer">Elmah.Io.JavaScript.AngularWebpack</a> samples for some real working code.
 
 ## AngularJS/Angular 1
 
