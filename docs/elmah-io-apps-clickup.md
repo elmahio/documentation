@@ -17,7 +17,7 @@ The list ID can be found by going to the list on the ClickUp app and clicking th
 
 When copying the link you will get a link similar to this:
 
-```
+```shell
 https://app.clickup.com/.../v/li/901200300647
 ```
 
