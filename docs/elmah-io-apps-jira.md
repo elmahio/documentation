@@ -25,7 +25,7 @@ If errors aren't showing up in Jira, please check that the following are all tru
 
 - When clicking the *Test* button on the Jira app settings screen, the button turns green.
 - There's a message logged in the log where you set up the Jira integration.
-- The message is marked as new (yellow start next to the title on the search result).
+- The message is marked as new (yellow star next to the title on the search result).
 - The message is either of severity `Error` or `Fatal`.
 
 To trigger an error manually, go to [https://api.elmah.io/swagger/index.html](https://api.elmah.io/swagger/index.html) and input an elmah.io API key with the *Messages* - *Write* permission enabled. Expand *Messages* and the *POST* node with the URL `/v3/messages/{logId}`. Input your log ID and the following JSON:
