@@ -25,6 +25,8 @@ Two-factor authentication can be disabled at any time by inputting a new code fr
 
 We recommend that you sign out after enabling two-factor authentication to invalidate the current session.
 
+> Popular authenticator apps like Google Authenticator and Microsoft Authenticator support cloud backup. Make sure to enable this in case you lose your phone. When cloud backup is enabled, you can sign in with your main account when you get a new phone and all of your stored accounts will be automatically restored.
+
 ## Two-factor with a social provider
 
 When using one of the social providers to log in to elmah.io, two-factor authentication can be enabled through either Twitter, Facebook, Microsoft, or Google. Check out the documentation for each authentication mechanism for details on how to enable two-factor authentication.
