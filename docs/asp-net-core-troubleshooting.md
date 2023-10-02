@@ -105,3 +105,7 @@ builder.WebHost.CaptureStartupErrors(true);
 ### URL missing when using Map
 
 When handling requests with the `Map` method, ASP.NET Core will remove the path from `HttpRequest.Path`. In this case, `Elmah.Io.AspNetCore` will look for an URL in the `HttpRequest.PathBase` property. This is not already enough and won't always return the right URL. Consider using the `MapWhen` method instead.
+
+### Thread pool thread or asynchronous tasks blocked on a synchronous call
+
+Azure and other systems with runtime diagnostics and validation may complain with the error *Thread pool thread or asynchronous tasks blocked on a synchronous call* in the `Elmah.Io.AspNetCore` package. This can be caused by our implementation of the package using a background worker for processing batches of messages. This background worker runs in a single thread and will never cause thread starvation as suggested by the error. We may want to move the internal implementation from `BlockCollection` to `Channel` at some point.
