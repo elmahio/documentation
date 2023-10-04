@@ -135,6 +135,7 @@ nav:
     - Set up Uptime Monitoring: setup-uptime-monitoring.md
     - Missing server-side information on uptime errors: missing-server-side-information-on-uptime-errors.md
     - Allowing elmah.io uptime agents: allowing-elmah-io-uptime-agents.md
+    - Uptime Monitoring Troubleshooting: uptime-monitoring-troubleshooting.md
 - Heartbeats:
     - Set up Heartbeats: setup-heartbeats.md
     - Logging heartbeats from ASP.NET Core: logging-heartbeats-from-asp-net-core.md

@@ -13,7 +13,7 @@ You can allow requests by allowing all requests with the following user-agent:
 User-Agent: elmahio-uptimebot/2.0
 ```
 
-Or you can allow requests based on an IP. Here's an overview of possible inbound IP addresses by region.
+Allowing requests by possible inbound IP addresses is also an option. Since we run on Azure these changes over time, but here's a list by region as of time of writing this article:
 
 :us: **United States West**
 
