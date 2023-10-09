@@ -17,7 +17,9 @@ You can create new keys and revoke an existing key if you suspect that the key h
 
 All requests to the elmah.io API needs the API key as either an HTTP header or query string parameter named `api_key` like this:
 
-<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY</span></code></pre>
+```bash
+GET https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY
+```
 
 ## Messages
 
