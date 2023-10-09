@@ -123,7 +123,7 @@ Searching for `another` will return the following response:
 
 Now only `81C7C282C9FDAEA3` shows up since that message contains the text `another` in the `title` field. Like specifying the `query` parameter, you can limit the number of messages using the `from`, `to`, and `pageSize` parameters.
 
-There is a limitation of using the `pageSize` and `pageIndex` parameters. The data is stored in Elasticsearch which doesn't allow pagination in more than 10,000 documents. If you need to fetch more than 10,000 documents from your log, we recommend to break this up in weekly, daily, or hourly jobs instead of changing your job to fetch more than 10,000 messages. In case this is not possible, you can switch from using the `pageIndex` parameter to `searchAfter`. Each search result will return a value in the `searchAfter` property:
+There is a limitation of using the `pageSize` and `pageIndex` parameters. The data is stored in Elasticsearch which doesn't allow pagination in more than 10,000 documents. If you need to fetch more than 10,000 documents from your log, we recommend breaking this up into weekly, daily, or hourly jobs instead of changing your job to fetch more than 10,000 messages. In case this is not possible, you can switch from using the `pageIndex` parameter to `searchAfter`. Each search result will return a value in the `searchAfter` property:
 
 ```json
 {
@@ -141,7 +141,7 @@ To fetch the next list of messages you can provide the search endpoint with the 
 GET https://api.elmah.io/v3/messages/LOG_ID?searchAfter=1694180633270
 ```
 
-You will need to use the exact same set of parameters in `query, `from`, and `to` as in the previous request for this to work.
+You will need to use the same set of parameters in `query`, `from`, and `to` as in the previous request for this to work.
 
 ### Deleting a message
 
