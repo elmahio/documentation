@@ -1,6 +1,6 @@
 ---
 title: Uptime Monitoring Troubleshooting
-description: Common problems and solutions than can happen when using elmah.io Uptime Monitoring.
+description: Common problems and solutions that can happen when using elmah.io Uptime Monitoring. Learn how to solve problems on Cloudflare and more in this article.
 ---
 
 # Uptime Monitoring Troubleshooting
