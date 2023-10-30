@@ -541,6 +541,25 @@ code {
     border-radius: 4px;
 }
 
+pre.request-method {
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #CFCFCF;
+}
+
+pre.request-method code {
+    border: none;
+    padding: 0;
+	background: transparent;
+}
+
+pre.request-method code .badge {
+    font-size: 13px;
+	padding: 0.3em 0.6em;
+}
+
 .pre-footer {
 	margin-top: 100px;
 	height: 93px;

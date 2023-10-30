@@ -17,9 +17,7 @@ You can create new keys and revoke an existing key if you suspect that the key h
 
 All requests to the elmah.io API needs the API key as either an HTTP header or query string parameter named `api_key` like this:
 
-```bash
-GET https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY</span></code></pre>
 
 ## Messages
 
@@ -27,9 +25,7 @@ GET https://api.elmah.io/v3/messages/LOG_ID?api_key=MY_API_KEY
 
 Before doing anything, we will need some messages to play with. The `Create Message` endpoint does just that. To create a simple message, POST to:
 
-```bash
-POST https://api.elmah.io/v3/messages/LOG_ID
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">POST</span><span>https://api.elmah.io/v3/messages/LOG_ID</span></code></pre>
 
 with a JSON body:
 
@@ -49,9 +45,7 @@ If everything where successful, the API returns an HTTP status code of `201` and
 
 In the example above, the API returned the URL for getting the newly created message:
 
-```bash
-GET https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3</span></code></pre>
 
 By making a GET request to this URL, we get back the message details:
 
@@ -70,9 +64,7 @@ As shown in the returned body, elmah.io automatically inserted some missing fiel
 
 For the demo, we have inserted a couple of additional messages, which leads us to the next endpoint: searching messages. The search endpoint shares the root path with the get message endpoint but only takes a log ID. The simplest possible configuration queries the API for a list of the 15 most recent messages by calling:
 
-```bash
-GET https://api.elmah.io/v3/messages/LOG_ID
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID</span></code></pre>
 
 The response body looks like this:
 
@@ -101,9 +93,7 @@ For simplicity, the response has been simplified by not showing all of the resul
 
 Returning all messages may be fine, but being able to search by terms is even more fun. To search, use the `query`, `from`, and `to` parameters as shown here:
 
-```bash
-GET https://api.elmah.io/v3/messages/LOG_ID?query=another
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID?query=another</span></code></pre>
 
 Searching for `another` will return the following response:
 
@@ -137,9 +127,7 @@ There is a limitation of using the `pageSize` and `pageIndex` parameters. The da
 
 To fetch the next list of messages you can provide the search endpoint with the value of `searchAfter`:
 
-```bash
-GET https://api.elmah.io/v3/messages/LOG_ID?searchAfter=1694180633270
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">GET</span><span>https://api.elmah.io/v3/messages/LOG_ID?searchAfter=1694180633270</span></code></pre>
 
 You will need to use the same set of parameters in `query`, `from`, and `to` as in the previous request for this to work.
 
@@ -147,9 +135,7 @@ You will need to use the same set of parameters in `query`, `from`, and `to` as 
 
 When fixing the bug causing an error logged at elmah.io, you may want to delete the error. Deleting a single error is as easy as fetching it. Create a DELETE request to the errors unique URL:
 
-```bash
-DELETE https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">DELETE</span><span>https://api.elmah.io/v3/messages/LOG_ID/81C7C282C9FDAEA3</span></code></pre>
 
 When successfully deleted, the delete endpoint returns an HTTP status code of `200`.
 
@@ -157,9 +143,7 @@ When successfully deleted, the delete endpoint returns an HTTP status code of `2
 
 Deleting messages one by one can be tedious work. To delete multiple errors, you can utilize the Delete Messages endpoint by creating a DELETE request to:
 
-```bash
-DELETE https://api.elmah.io/v3/messages/LOG_ID
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">DELETE</span><span>https://api.elmah.io/v3/messages/LOG_ID</span></code></pre>
 
 The request **must** contain a body with at least a query:
 
@@ -177,9 +161,7 @@ Depending on your use case, you may want to hide a message, rather than delete i
 
 To hide a message, use the `_hide` endpoint like this:
 
-```bash
-POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_hide
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">POST</span><span>https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_hide</span></code></pre>
 
 If successful, the endpoint returns an HTTP status code of `200`.
 
@@ -189,12 +171,8 @@ When you have fixed a bug in your code, it's a good idea to mark any instances o
 
 To mark a message as fixed, use the `_fix` endpoint like this:
 
-```bash
-POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">POST</span><span>https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix</span></code></pre>
 
 If successful, the endpoint returns an HTTP status code of `200`. This will mark a single message as fixed. In case you want to mark all instances of this message as fixe, include the `markAllAsFixed` parameter:
 
-```bash
-POST https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix?markAllAsFixed=true
-```
+<pre class="request-method"><code class="nohighlight"><span class="badge badge-secondary mr-2">POST</span><span>https://api.elmah.io/v3/messages/LOG_ID/99CDEA3D6A631F09/_fix?markAllAsFixed=true</span></code></pre>
