@@ -13,7 +13,7 @@ description: Set up error monitoring of single-page applications using elmah.io'
 
 elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors require nothing more than installing the `elmahio.js` script on your website.
 
-> Remember to [generate a new API key](https://docs.elmah.io/how-to-configure-api-key-permissions/) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
+> Organizations created end 2023 and forward will have an API key named *JavaScript* automatically generated. Remember to either use this or [generate a new API key](https://docs.elmah.io/how-to-configure-api-key-permissions/) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
 
 `elmahio.js` supports all modern browsers like Chrome, Edge, Firefox, and Safari. Internet Explorer 10 and 11 are supported too, but because of internal dependencies on the `stacktrace-gps` library, nothing older than IE10 is supported.
 
