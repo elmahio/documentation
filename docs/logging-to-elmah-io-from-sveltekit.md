@@ -5,7 +5,7 @@ description: Utilize elmah.io to log all errors from a single-page SvelteKit app
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
-[![Samples](https://img.shields.io/badge/samples-2-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-sveltekit)
 
 # Logging to elmah.io from SvelteKit
 
@@ -29,3 +29,5 @@ export function handleError({ error, event }) {
 ```
 
 When launching your SvelteKit app, elmah.io is configured and all errors happening in the application are logged. For now, `elmah.io.javascript` only supports SvelteKit apps running inside the browser, why implementing the `HandleServerError` is not supported.
+
+Check out the <a href="https://github.com/elmahio/elmah.io.javascript/tree/main/samples/elmahio-sveltekit" target="_blank" rel="noopener noreferrer">elmahio-sveltekit</a> sample for some real working code.

@@ -5,7 +5,7 @@ description: Set up error monitoring of single-page applications using elmah.io'
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)
 [![npm](https://img.shields.io/npm/v/elmah.io.javascript.svg)](https://www.npmjs.com/package/elmah.io.javascript)
-[![Samples](https://img.shields.io/badge/samples-7-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-8-brightgreen.svg)](https://github.com/elmahio/elmah.io.javascript/tree/main/samples)
 
 # Logging to elmah.io from JavaScript
 
