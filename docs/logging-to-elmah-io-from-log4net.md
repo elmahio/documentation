@@ -20,7 +20,7 @@ Install-Package Elmah.Io.Log4Net
 dotnet add package Elmah.Io.Log4Net
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Log4Net" Version="3.*" />
+<PackageReference Include="Elmah.Io.Log4Net" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Log4Net
@@ -181,20 +181,26 @@ The `logId` and `apiKey` elements underneath the elmah.io appender have been ext
 
 Like other logging frameworks, logging through log4net from ASP.NET Core is also supported. We have a [sample](https://github.com/elmahio/elmah.io.log4net/tree/main/samples/Elmah.Io.Log4Net.AspNetCore70) to show you how to set it up. The required NuGet packages and configuration are documented in this section.
 
-To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet package:
+To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Elmah.Io.Log4Net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet packages:
 
 ```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Log4Net
 Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
 ```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Log4Net
 dotnet add package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.*" />
+<PackageReference Include="Elmah.Io.Log4Net" Version="5.*" />
+<PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.*" />
 ```
 ```xml fct_label="Paket CLI"
+paket add Elmah.Io.Log4Net
 paket add Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
+
+The version of `Microsoft.Extensions.Logging.Log4Net.AspNetCore` should match the version of .NET you are targeting.
 
 Include a log4net config file to the root of the project:
 
@@ -236,7 +242,7 @@ Install-Package Elmah.Io.AspNetCore.Log4Net
 dotnet add package Elmah.Io.AspNetCore.Log4Net
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.Log4Net" Version="3.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.Log4Net" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.Log4Net
