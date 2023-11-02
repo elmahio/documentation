@@ -16,7 +16,7 @@ Install-Package Elmah.Io.Client
 dotnet add package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client" Version="4.*" />
+<PackageReference Include="Elmah.Io.Client" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client

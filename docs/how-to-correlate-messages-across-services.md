@@ -49,7 +49,7 @@ Install-Package Elmah.Io.Client.Extensions.Correlation
 dotnet add package Elmah.Io.Client.Extensions.Correlation
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client.Extensions.Correlation" Version="4.*" />
+<PackageReference Include="Elmah.Io.Client.Extensions.Correlation" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client.Extensions.Correlation

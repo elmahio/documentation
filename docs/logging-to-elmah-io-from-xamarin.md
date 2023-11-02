@@ -22,7 +22,7 @@ Install-Package Elmah.Io.Xamarin -IncludePrerelease
 dotnet add package Elmah.Io.Xamarin --prerelease
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Xamarin" Version="4.0.20-pre" />
+<PackageReference Include="Elmah.Io.Xamarin" Version="4.0.30-pre" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Xamarin
@@ -236,7 +236,7 @@ Install-Package Elmah.Io.Client
 dotnet add package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client" Version="4.*" />
+<PackageReference Include="Elmah.Io.Client" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client

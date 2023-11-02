@@ -141,7 +141,7 @@ Install-Package Elmah.Io
 dotnet add package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io" Version="4.*" />
+<PackageReference Include="Elmah.Io" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io
@@ -167,7 +167,7 @@ Install-Package Elmah.Io.AspNetCore
 dotnet add package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore" Version="4.*" />
+<PackageReference Include="Elmah.Io.AspNetCore" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore

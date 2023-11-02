@@ -153,7 +153,7 @@ Install-Package elmah.io.javascript
 dotnet add package elmah.io.javascript
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="elmah.io.javascript" Version="3.*" />
+<PackageReference Include="elmah.io.javascript" Version="4.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add elmah.io.javascript
@@ -180,7 +180,7 @@ Install-Package Elmah.Io.AspNetCore.TagHelpers
 dotnet add package Elmah.Io.AspNetCore.TagHelpers
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="4.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.TagHelpers

@@ -14,13 +14,13 @@ description: Learn about how to set up cloud-logging on WPF applications using e
 elmah.io logging can be easily added to WPF applications. To start logging to elmah.io, install the `Elmah.Io.Wpf` NuGet package:
 
 ```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Wpf -IncludePrerelease
+Install-Package Elmah.Io.Wpf
 ```
 ```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io.Wpf --prerelease
+dotnet add package Elmah.Io.Wpf
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Wpf" Version="4.0.11-pre" />
+<PackageReference Include="Elmah.Io.Wpf" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Wpf
@@ -128,7 +128,7 @@ Install-Package Elmah.Io.Client
 dotnet add package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client" Version="4.*" />
+<PackageReference Include="Elmah.Io.Client" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client

@@ -22,7 +22,7 @@ Install-Package Elmah.Io.Extensions.Logging
 dotnet add package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Extensions.Logging" Version="4.*" />
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Extensions.Logging
@@ -96,7 +96,7 @@ Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
 dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="4.*" />
+<PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.AspNetCore.ExtensionsLogging

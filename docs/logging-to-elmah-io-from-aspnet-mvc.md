@@ -20,7 +20,7 @@ Install-Package Elmah.Io.Mvc
 dotnet add package Elmah.Io.Mvc
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Mvc" Version="4.*" />
+<PackageReference Include="Elmah.Io.Mvc" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Mvc

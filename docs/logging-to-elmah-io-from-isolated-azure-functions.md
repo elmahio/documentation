@@ -22,7 +22,7 @@ Install-Package Elmah.Io.Functions.Isolated
 dotnet add package Elmah.Io.Functions.Isolated
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Functions.Isolated" Version="4.*" />
+<PackageReference Include="Elmah.Io.Functions.Isolated" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Functions.Isolated
@@ -140,7 +140,7 @@ Install-Package Elmah.Io.Extensions.Logging
 dotnet add package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Extensions.Logging" Version="4.*" />
+<PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Extensions.Logging

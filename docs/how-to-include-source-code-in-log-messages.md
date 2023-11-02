@@ -20,7 +20,7 @@ Install-Package Elmah.Io.Client.Extensions.SourceCode
 dotnet add package Elmah.Io.Client.Extensions.SourceCode
 ```
 ```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io.Client.Extensions.SourceCode" Version="4.*" />
+<PackageReference Include="Elmah.Io.Client.Extensions.SourceCode" Version="5.*" />
 ```
 ```xml fct_label="Paket CLI"
 paket add Elmah.Io.Client.Extensions.SourceCode
