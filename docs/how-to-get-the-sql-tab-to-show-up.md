@@ -1,6 +1,6 @@
 ---
 title: How to get the SQL tab to show up
-description: Learn how to include SQL as part of a log message and how to make it show up in the elmah.io UI.
+description: Learn how to include SQL as part of a log message and how to make it show up in the elmah.io UI. Get formatted SQL queries shown directly on errors.
 ---
 
 # How to get the SQL tab to show up
