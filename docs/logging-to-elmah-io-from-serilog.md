@@ -5,7 +5,7 @@ description: Add cloud logging of structured log messages from Serilog directly 
 
 [![Build status](https://github.com/elmahio/serilog-sinks-elmahio/workflows/build/badge.svg)](https://github.com/elmahio/serilog-sinks-elmahio/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Serilog.Sinks.ElmahIo.svg)](https://www.nuget.org/packages/Serilog.Sinks.ElmahIo)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/serilog-sinks-elmahio/tree/main/examples)
+[![Samples](https://img.shields.io/badge/samples-5-brightgreen.svg)](https://github.com/elmahio/serilog-sinks-elmahio/tree/main/examples)
 
 # Logging to elmah.io from Serilog
 
