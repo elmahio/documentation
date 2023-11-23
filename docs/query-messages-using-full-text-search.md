@@ -38,25 +38,47 @@ Search filters can be used in combination with full-text queries for greater fle
 
 Elasticsearch is implemented on top of Lucene; a high-performance search engine, written entirely in Java. While Elasticsearch supports a lot of nice abstractions on top of Lucene, sometimes you just want close to the metal. This is when we need to introduce you to Lucene Query Syntax. The query syntax is a query language similar to the _WHERE_ part of a SQL statement. Unlike SQL, the query syntax supports both filters (similar to SQL) and full-text queries.
 
-All Lucene queries are made up of strings containing one or more terms and operators:
+All Lucene queries are made up of strings containing full-text search strings and/or terms combined with operators. A simple full-text query simply looks like this:
 
 ```
-term AND term OR (term AND NOT term)
+values to search for
 ```
 
-Instead of `AND`, `OR`, and `NOT` you can use operators known from C#:
+This will search log messages for 'values', 'to', 'search', and 'for'. For exact searches you can use quotes:
+
+```
+"values to search for"
+```
+
+This will only find log messages where that exact string is present somewhere.
+
+Queries can also search inside specific fields:
+
+```
+field:value
+```
+
+This is similar to the _WHERE_ part in SQL and will, in this example, search for the term 'value' inside the field named 'field'.
+
+Both full-text queries and field-based queries can be combined with other queries using `AND`, `OR`, and `NOT`:
+
+```
+field1:value1 AND field2:value2 AND NOT field3:value3
+```
+
+You can use operators known from C# if you prefer that syntax:
+
+```
+field1:value1 && field2:value2 && !field3:value3
+```
+
+Full-text and field-based queries can be combined into complex queries:
 
 ```csharp
-term && term || (term && !term)
+field1:value1 && field2:"exact value" || (field1:value2 && "a full text query")
 ```
 
-While `AND`, `OR`, and `NOT` speak for themselves, terms need a bit of explanation. A term can be a single term or a phrase. We've already seen two single terms in the full-text search example. The query in the example corresponds to this Lucene query:
-
-```
-implement AND IController
-```
-
-Looking at term phrases, things get interesting. With phrases, you can query on specific fields, perform range queries, and much more. Examples are worth a thousand words, why the rest of this document is examples of frequently used queries. If you think that examples are missing or have a problem with custom queries, let us know. We will extend this tutorial with the examples you need.
+Examples are worth a thousand words, why the rest of this document is examples of frequently used queries. If you think that examples are missing or have a problem with custom queries, let us know. We will extend this tutorial with the examples you need.
 
 **Find messages with type**
 
