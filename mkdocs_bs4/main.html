@@ -90,7 +90,7 @@
                 <a class="li_parent" href="javascript:;">{{ nav_item.title }}</a>
                 <ul>
                   {% for nav_item in nav_item.children %}
-                  <li {% if nav_item.active %}class="active"{% endif %}><a href="{{ nav_item.url|url }}">{{ nav_item.title }}</a></li>
+                  <li {% if nav_item.active %}class="active"{% endif %}><a href="{{ nav_item.abs_url|url }}">{{ nav_item.title }}</a></li>
                   {% endfor %}
                 </ul>
               </li>
