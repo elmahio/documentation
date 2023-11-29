@@ -7,7 +7,7 @@ description: Utilize elmah.io's integration with ChatGPT to get help fixing erro
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the ChatGPT app and click the *Install* button:
 
-![Install Jira App](images/apps/chatgpt/chatgpt-install.png)
+![Install ChatGPT App](images/apps/chatgpt/chatgpt-install.png)
 
 Input your OpenAI API key (<a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key" target="_blank">Where do I find my OpenAI API Key?</a>). Next, select which language model to use. We currently support GPT-3.5-Turbo and GPT-4.
 
