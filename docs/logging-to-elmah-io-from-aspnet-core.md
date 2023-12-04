@@ -442,6 +442,48 @@ builder.Services.AddElmahIo(options =>
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
 
+## ASP.NET Core 8
+
+The `Elmah.Io.AspNetCore` package can be installed exactly how it is described above in ASP.NET Core 8. We still recommend doing that, so if you don't experience any problems with this approach, there's no need to read this section (unless you are just curious).
+
+ASP.NET Core 8 introduces a new way of logging and handling exceptions: `IExceptionHandler`. You have probably already seen a line similar to this in the `Program.cs` file:
+
+```csharp
+app.UseExceptionHandler("/Error");
+```
+
+This installs the exception-handling middleware bundled with ASP.NET Core. The new feature provides you with the possibility of registering custom exception handlers run as part of the built-in middleware. This is done by registering one or more classes that implement the `IExceptionHandler` interface. The `Elmah.Io.AspNetCore` package bundles such a class from version 5.1 and forward. To install it, include the following code in the `Program.cs` file:
+
+```csharp
+builder.Services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+builder.Services.AddExceptionHandler<ElmahIoExceptionHandler>();
+```
+
+The `AddElmahIo` method will set up the dependencies as usual and the `AddExceptionHandler` method will register an exception handler logging exceptions to elmah.io. You still need to call the `UseExceptionHandler` method with either a path or empty options:
+
+```csharp
+app.UseExceptionHandler("/Error");
+
+// or
+
+app.UseExceptionHandler(_ => {});
+```
+
+Calling the overload of `UseExceptionHandler` without any parameters will not work here.
+
+As already mentioned, we only recommend using this code if the normal approach doesn't work. We may switch over to using this approach later on but the code is currently experimental. One advantage of using the exception handler over the elmah.io middleware is to avoid the scenario where you want to use both the elmah.io and exception handler middleware. As an example, this code will not work:
+
+```csharp
+app.UseElmahIo();
+app.UseExceptionHandler("/Error");
+```
+
+This is because the exception handle "swallows" all exceptions before the elmah.io middleware is notified. Registering the `ElmahIoExceptionHandler` class and not calling `UseElmahIo` will fix this problem.
+
 ## Logging health check results
 
 Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.
