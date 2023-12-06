@@ -272,6 +272,38 @@ using (logger.BeginScope(new Dictionary<string, object> { { "category", "The cat
 }
 ```
 
+## Logging with LoggerMessage
+
+.NET 6 introduced the `LoggerMessage` attribute that uses source generators for highly usable and performant log statements. `Elmah.Io.Extensions.Logging` fully supports log messages sent through logger messages.
+
+```csharp
+[LoggerMessage(Level = LogLevel.Information, Message = "Created {UserId}")]
+private static partial void LogUserCreated(ILogger logger, int userId);
+
+// ...
+
+LogUserCreated(logger, 42);
+```
+
+This will log a message saying `Created 42` to elmah.io. Remember that the class including the `LogUserCreated` method needs to be declared as `partial` as well.
+
+.NET 8 extends this even further by offering a new `LogProperties` attribute:
+
+```csharp
+[LoggerMessage(Level = LogLevel.Information, Message = "Created user")]
+private static partial void LogUserCreated(ILogger logger, [LogProperties]User user);
+
+// ...
+
+LogUserCreated(logger, new User
+{
+    Firstname = "Tyrion",
+    Lastname = "Lannister"
+});
+```
+
+By adding the `LogProperties` attribute to the `User` parameter, a log message saying `Created user` will be sent to elmah.io. In addition, the *Data* tab on the extended log message details will show the keys `user.Firstname` and `user.Lastname` with the values from the `User` object provided for the `LogUserCreated` method.
+
 ## Include source code
 
 You can use the `OnMessage` action already described to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
