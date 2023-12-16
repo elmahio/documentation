@@ -5,7 +5,7 @@ description: elmah.io offers a wide range of logging- and web-frameworks. Get th
 
 # Integrations high-level overview
 
-elmah.io offers integration with an extensive list of logging- and web-frameworks. Get the full overview here. The table below shows all of the frameworks with official support. The *Async* column contains a checkmark if the integration is logging asynchronously. The *Bulk* column contains a checkmark if the integration is logging to elmah.io in bulk. In addition, elmah.io can be installed in a range of different products and services not mentioned (using the integrations below). Look through the menu to the left to see all of the possible integrations.
+elmah.io offers integration with an extensive list of logging and web frameworks. Get the full overview here. The table below shows all of the frameworks with official support. The *Async* column contains a checkmark if the integration is logging asynchronously. The *Bulk* column contains a checkmark if the integration is logging to elmah.io in bulk. In addition, elmah.io can be installed in a range of different products and services not mentioned (using the integrations below). Look through the menu to the left to see all of the possible integrations.
 
 | Framework | Stable | Build | Source | Samples | Async | Bulk |
 |---|---|---|---|---|---|---|
