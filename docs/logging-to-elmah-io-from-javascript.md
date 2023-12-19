@@ -144,6 +144,8 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 
 <div role="tabpanel" class="tab-pane" id="nuget" markdown="1">
 
+> NuGet is not a good distribution channel for JavaScript libraries so this package has been deprecated. The `elmah.io.javascript` package installs the JavaScript file in the `/Scripts/` folder. This no longer works with modern web frameworks like ASP.NET Core. We recommend installing the JavaScript through one of the other options instead.
+
 Install the `elmah.io.javascript` NuGet package:
 
 ```powershell fct_label="Package Manager"
