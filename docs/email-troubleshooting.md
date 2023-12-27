@@ -27,6 +27,8 @@ We use AWS to send out all transactional emails from elmah.io. We get a notifica
 
 As the error message says, get in contact for us to try and reach the email address again.
 
+An organization administrator can check the bounce status for all users in the organization by navigating to the *Users* tab on the Organization Settings page. Bounced emails will be marked with a yellow warning next to any bounced emails.
+
 ## Invalid email
 
 Ok, this may seem obvious. But this happens more often than you would think. Typos are a common cause of invalid emails. Specifying a mailing list or group address doesn't always play nice with elmah.io either. For instance, Office 365 distribution groups block external emails as the default. The easiest way to check your inputted email address is to send a new message to that address from an external email provider.
