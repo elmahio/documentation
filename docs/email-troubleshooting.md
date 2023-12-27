@@ -21,7 +21,7 @@ The new detection algorithm is implemented by looking at a range of fields like 
 
 ## Email bounced
 
-We use AWS to send out all transactional emails from elmah.io. We get a notification from AWS when an email bounces and we stop sending to that email address, even if any new emails wouldn't cause a bounce. Beneath your profile, you will be able to see if your email caused a bounce:
+We use AWS to send out all transactional emails from elmah.io. We get a notification from AWS when an email bounces and show an error message on your profile:
 
 ![Bounced email](images/bounced-email.png)
 
