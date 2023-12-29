@@ -53,7 +53,7 @@ public class HttpClientLogger : IHttpClientLogger
 }
 ```
 
-The `HttpClientLogger` class implements that `IHttpClientLogger` interface. Three hooks are provided as part of this interface: request starting, request stopping, request failed. In the code above, we create a single `Information` message when a response is received and a single `Error` message in case of an error. By using structured properties like `{method}` and `{statusCode}` we make sure that elmah.io show these pieces of data in the right fields. The format and wording of each log message can be tailored to your preference.
+The `HttpClientLogger` class implements the `IHttpClientLogger` interface. Three hooks are provided as part of this interface: request starting, request stopping, and request failing. In the code above, we create a single `Information` message when a response is received and a single `Error` message in case of an error. By using structured properties like `{method}` and `{statusCode}` we make sure that elmah.io shows these pieces of data in the right fields. The format and wording of each log message can be tailored to your preference.
 
 Registering the custom logger can be done like this:
 
