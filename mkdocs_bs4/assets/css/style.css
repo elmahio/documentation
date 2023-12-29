@@ -1133,3 +1133,12 @@ img.gif {
     height: 13px;
     transform: rotate(-30deg);
 }
+
+.x-twitter:before {
+	content: url(../img/x-twitter.svg);
+	position: relative;
+	display: block;
+	top: 2px;
+	width: 16px;
+	height: 16px;
+}
