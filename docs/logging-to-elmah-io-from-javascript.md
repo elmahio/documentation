@@ -202,7 +202,15 @@ In the bottom of the file (but before referencing other JavaScript files), add t
 
 If you want to log JavaScript errors from production only, make sure to move the `elmah-io` element inside the tag `<environment exclude="Development">`.
 
-elmah.io automatically pulls your API key and log ID from the options specified as part of the installation for logging serverside errors from ASP.NET Core.
+elmah.io automatically pulls your API key and log ID from the options specified as part of the installation for logging serverside errors from ASP.NET Core. If you haven't installed that code already, include the following lines in the `Program.cs` file:
+
+```csharp
+builder.Services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+```
 
 </div>
 </div>
