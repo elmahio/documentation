@@ -5,7 +5,7 @@ description: Monitoring if Coravel scheduled tasks are successfully executed or 
 
 # Logging heartbeats from Coravel
 
-Coravel support scheduled tasks similar to Quartz and Hangfire. With elmah.io Heartbeats, monitoring if and when Coraval tasks are running is easy.
+Coravel supports scheduled tasks similar to Quartz and Hangfire. With elmah.io Heartbeats, monitoring if and when Coraval tasks are running is easy.
 
 To publish heartbeats from Coravel, install the `Elmah.Io.Client` NuGet package:
 
@@ -48,7 +48,7 @@ builder.Services.AddSingleton(elmahIoClient.Heartbeats);
 
 Replace `API_KEY` ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/))` with your API key.
 
-In the `MyJob` class you can inject the `IHeartbeatsClient` and wrap the job code in a `try/catch` block:
+In the `MyJob` class, you can inject the `IHeartbeatsClient` and wrap the job code in a `try/catch` block:
 
 ```csharp
 public class MyJob : IInvocable
