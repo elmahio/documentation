@@ -46,7 +46,7 @@ var elmahIoClient = ElmahioAPI.Create("API_KEY", new ElmahIoOptions
 builder.Services.AddSingleton(elmahIoClient.Heartbeats);
 ```
 
-Replace `API_KEY` ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/))` with your API key.
+Replace `API_KEY` ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) with an API key containing permission to create heartbeats.
 
 In the `MyJob` class, you can inject the `IHeartbeatsClient` and wrap the job code in a `try/catch` block:
 
