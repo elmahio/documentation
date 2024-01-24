@@ -253,4 +253,4 @@ class Program
 }
 ```
 
-The code will catch all exceptions both from the `catch` block and exceptions reported through the `UnhandledException` event.
+The code will catch all exceptions both from the `catch` block and exceptions reported through the `UnhandledException` event. You'd normally create a shared instance of the elmah.io logger, but in this example, the program will exit just after logging the exception why it doesn't matter. The `UnhandledException` event is implemented as a last resort to log any errors not triggering the `catch` block. This can be exceptions in background threads, async code, and similar.
