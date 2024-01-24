@@ -83,6 +83,16 @@ Click one of the integrations below or continue reading to learn more about Hear
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-heartbeats-from-coravel/" title="Coravel">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/coravel.png" alt="Coravel" />
+                </div>
+                <div class="guide-title">Coravel</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/logging-heartbeats-from-net-core-worker-services/" title="Worker Services">
             <div class="guide-box">
                 <div class="guide-image">
