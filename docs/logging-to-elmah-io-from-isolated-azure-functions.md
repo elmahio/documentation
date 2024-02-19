@@ -224,3 +224,34 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
   }
 }
 ```
+
+## Troubleshooting
+
+### Exceptions in `Program.cs` are not logged
+
+Unfortunately, Azure Functions doesn't send exceptions happening in initialization code to the configured loggers. The only solution is to wrap your code in `try/catch`:
+
+```csharp
+try
+{
+    var host = new HostBuilder()
+        .ConfigureFunctionsWorkerDefaults((context, app) =>
+        {
+            app.AddElmahIo(options =>
+            {
+                options.ApiKey = "API_KEY";
+                options.LogId = new Guid("LOG_ID");
+            });
+        })
+        .Build();
+
+    host.Run();
+}
+catch (Exception e)
+{
+    Console.Error.WriteLine(e);
+    throw;
+}
+```
+
+Next, go to the *Log stream* page on the Azure portal and inspect any errors logged.
