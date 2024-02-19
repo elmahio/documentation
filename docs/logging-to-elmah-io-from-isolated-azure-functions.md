@@ -227,7 +227,7 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
 
 ## Troubleshooting
 
-### Exceptions in `Program.cs` are not logged
+### Exceptions in Program.cs are not logged
 
 Unfortunately, Azure Functions doesn't send exceptions happening in initialization code to the configured loggers. The only solution is to wrap your code in `try/catch`:
 
