@@ -12,7 +12,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-elmah/" title="ASP.NET">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET guide" />
                 </div>
                 <div class="guide-title">ASP.NET</div>
             </div>
@@ -22,7 +22,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-aspnet-mvc/" title="ASP.NET MVC">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET MVC" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET MVC guide" />
                 </div>
                 <div class="guide-title"><span>ASP.NET MVC</span></div>
             </div>
@@ -32,7 +32,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-web-api/" title="ASP.NET Web API">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET Web API" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET Web API guide" />
                 </div>
                 <div class="guide-title">ASP.NET Web API</div>
             </div>
@@ -42,7 +42,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-aspnet-core/" title="ASP.NET Core">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core" />
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core guide" />
                 </div>
                 <div class="guide-title">ASP.NET Core</div>
             </div>
@@ -52,7 +52,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging" />
+                    <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging guide" />
                 </div>
                 <div class="guide-title fz10">Extensions.Logging</div>
             </div>
@@ -62,7 +62,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-azure-functions/" title="Azure Functions">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/azure-functions.png" alt="Azure Functions" />
+                    <img class="no-lightbox" src="/./assets/img/guides/azure-functions.png" alt="Azure Functions guide" />
                 </div>
                 <div class="guide-title">Functions</div>
             </div>
@@ -72,7 +72,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-serilog/" title="Serilog">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/serilog.png" alt="Serilog" />
+                    <img class="no-lightbox" src="/./assets/img/guides/serilog.png" alt="Serilog guide" />
                 </div>
                 <div class="guide-title">Serilog</div>
             </div>
@@ -82,7 +82,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-log4net/" title="log4net">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/log4net.png" alt="log4net" />
+                    <img class="no-lightbox" src="/./assets/img/guides/log4net.png" alt="log4net guide" />
                 </div>
                 <div class="guide-title">log4net</div>
             </div>
@@ -92,7 +92,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-nlog/" title="NLog">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/nlog.png" alt="NLog" />
+                    <img class="no-lightbox" src="/./assets/img/guides/nlog.png" alt="NLog guide" />
                 </div>
                 <div class="guide-title">NLog</div>
             </div>
@@ -102,7 +102,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-logary/" title="Logary">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/logary.png" alt="Logary" />
+                    <img class="no-lightbox" src="/./assets/img/guides/logary.png" alt="Logary guide" />
                 </div>
                 <div class="guide-title">Logary</div>
             </div>
@@ -112,7 +112,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-umbraco/" title="Umbraco">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/umbraco.png" alt="Umbraco" />
+                    <img class="no-lightbox" src="/./assets/img/guides/umbraco.png" alt="Umbraco guide" />
                 </div>
                 <div class="guide-title">Umbraco</div>
             </div>
@@ -122,7 +122,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         <a href="/logging-to-elmah-io-from-javascript/" title="JavaScript">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/javascript.png" alt="JavaScript" />
+                    <img class="no-lightbox" src="/./assets/img/guides/javascript.png" alt="JavaScript guide" />
                 </div>
                 <div class="guide-title">JavaScript</div>
             </div>

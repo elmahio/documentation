@@ -1,0 +1,28 @@
+﻿{
+  "name": "elmah.io Documentation",
+  "description": "Here you will find updated documentation on how to use elmah.io. From our integrations to all of the features, this is the place to get help.",
+  "short_name": "elmah.io",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icons/AppIcon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/AppIconMaskable196x196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/AppIcon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0da58e",
+  "theme_color": "#0da58e"
+}
