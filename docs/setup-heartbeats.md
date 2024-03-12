@@ -215,10 +215,35 @@ var stopwatch = new Stopwatch();
 stopwatch.Start();
 // run job
 stopwatch.Stop();
-heartbeats.Healthy(
+api.Heartbeats.Healthy(
     logId,
     heartbeatId,
     took: stopwatch.ElapsedMilliseconds);
 ```
 
 The value of the `Took` property is shown in the *History* modal on the *Heartbeats* page on elmah.io.
+
+### Checks
+
+> Checks require `Elmah.Io.Client` version `5.1.*` or newer.
+
+Some sites and services implement a range of different checks to decide if the program is healthy or not. Consider an ASP.NET Core website that verifies that both a connection to a database and a service bus can be established. In this example, a failing heartbeat to elmah.io can be decorated with one or more `Checks`:
+
+```csharp
+api.Heartbeats.Unhealthy(logId, heartbeatId, checks: new List<Check>
+{
+    new Check
+    {
+        Name = "Database",
+        Result = "Unhealthy",
+        Reason = "Could not connect to database"
+    },
+    new Check
+    {
+        Name = "Service Bus",
+        Result = "Healthy"
+    },
+});
+```
+
+When logging checks in a heartbeat, the elmah.io UI will list each check on the *Root Cause* tab part of the unhealthy heartbeat error.
