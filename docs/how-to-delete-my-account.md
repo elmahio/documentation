@@ -16,4 +16,8 @@ If you want to delete your account immediately, go to your profile and click the
 
 ![Actions tab](images/actions-tab.png)
 
-When clicking the *Delete Account* button your user account will be deleted and you will be signed out of elmah.io. You can sign up for a new account using the same email if you want a new account. To delete a user account your user may not be part of any organization. Either delete any organizations shown in the left menu or ask an organization administrator to remove your user from the organization. Once the user is no longer part of any organization, it can be deleted.
+When clicking the *Delete Account* button your user account will be deleted and you will be signed out of elmah.io. You can sign up for a new account using the same email if you want a new account.
+
+> Deleted accounts cannot be restored. We hard delete to avoid keeping personal data longer than we have to.
+
+To delete a user account your user may not be part of any organization. Either delete any organizations shown in the left menu or ask an organization administrator to remove your user from the organization. Once the user is no longer part of any organization, it can be deleted.
