@@ -26,7 +26,7 @@ jobs:
           minifiedJavaScript: './mkdocs_bs4/assets/js/main.min.js'
       - name: Remove the .map file
         run: rm ./mkdocs_bs4/assets/js/main.min.js.map
-      - run: pip install mkdocs
+      - run: pip install mkdocs==1.5.3
       - run: pip install pymdown-extensions==10.7.1
       - run: pip install markdown-fenced-code-tabs
       - run: pip install markdown==3.3.4
