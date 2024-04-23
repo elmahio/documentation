@@ -36,3 +36,13 @@ protected void Page_Load(object sender, EventArgs e)
 ```
 
 Start the website and navigate to the ELMAH.aspx page. If everything works as intended, you will see the yellow screen of death, and a new error will pop up on elmah.io.
+
+## Troubleshooting
+
+**Config section 'system.webServer/validation' already defined**
+
+In case you see an Internal Server Error with the Config error above when launching the site, it means that changes to the `web.config` file are required. Open the `web.config` file and search for `validateIntegratedModeConfiguration`. This attribute may be found on multiple `<validation>` elements. The element should only be specified in the configuration once so go ahead and remove instances bringing the total number down to one. Also, make sure to set the value of the attribute to `false`:
+
+```xml
+<validation validateIntegratedModeConfiguration="false" />
+```
