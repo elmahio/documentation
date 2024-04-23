@@ -27,7 +27,7 @@ jobs:
       - name: Remove the .map file
         run: rm ./mkdocs_bs4/assets/js/main.min.js.map
       - run: pip install mkdocs
-      - run: pip install pymdown-extensions
+      - run: pip install pymdown-extensions==10.7.1
       - run: pip install markdown-fenced-code-tabs
       - run: pip install markdown==3.3.4
       - run: pip install mkdocs-redirects
