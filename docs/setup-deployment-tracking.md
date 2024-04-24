@@ -83,10 +83,10 @@ To set up deployment tracking, you will need to tell elmah.io when you release, 
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/create-deployments-from-cli/" title="elmah.io">
+        <a href="/create-deployments-from-cli/" title="elmah.io CLI">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="elmah.io" />
+                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="elmah.io CLI" />
                 </div>
                 <div class="guide-title">elmah.io CLI</div>
             </div>
