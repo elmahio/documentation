@@ -10,7 +10,7 @@ theme:
 extra_css:
     - style.css
 markdown_extensions:
-    - markdown_fenced_code_tabs:
+    - markdown_fenced_code_tabs_next:
         template: "bootstrap4"
     - pymdownx.emoji:
         emoji_generator: !!python/name:pymdownx.emoji.to_svg

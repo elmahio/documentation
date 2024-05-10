@@ -26,12 +26,12 @@ jobs:
           minifiedJavaScript: './mkdocs_bs4/assets/js/main.min.js'
       - name: Remove the .map file
         run: rm ./mkdocs_bs4/assets/js/main.min.js.map
-      - run: pip install mkdocs==1.5.3
-      - run: pip install pymdown-extensions==10.7.1
-      - run: pip install markdown-fenced-code-tabs
-      - run: pip install markdown==3.3.4
+      - run: pip install mkdocs
+      - run: pip install pymdown-extensions
+      - run: pip install markdown-fenced-code-tabs-next
+      - run: pip install markdown
       - run: pip install mkdocs-redirects
-      - run: pip install jinja2==3.0.0
+      - run: pip install jinja2
       - run: pip3 install mkdocs-git-revision-date-localized-plugin
       - name: Update mkdocs.yml - production TRUE
         run: sed -i 's/production:\ false/production:\ true/' mkdocs.yml
