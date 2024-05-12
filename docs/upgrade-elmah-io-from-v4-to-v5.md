@@ -134,4 +134,4 @@ Update-Package Elmah.Io.Umbraco
 
 ### Code changes
 
-v5 of the `Elmah.Io.Umbraco` package moves to Umbraco 10. For earlier versions of Umbraco, check out our documentation [here](https://docs.elmah.io/logging-to-elmah-io-from-umbraco/). Since Umbraco 10 is built on top of ASP.NET Core, pretty much everything in the v5 version of the `Elmah.Io.Umbraco` package is a breaking change. The package now relies on the `Elmah.Io.AspNetCore` package documented above. We recommend completely uninstalling any `Elmah.Io.*` NuGet packages and install the `Elmah.Io.Umbraco` package from scratch.
+v5 of the `Elmah.Io.Umbraco` package moves to Umbraco 10. For earlier versions of Umbraco, check out our documentation [here](logging-to-elmah-io-from-umbraco.md). Since Umbraco 10 is built on top of ASP.NET Core, pretty much everything in the v5 version of the `Elmah.Io.Umbraco` package is a breaking change. The package now relies on the `Elmah.Io.AspNetCore` package documented above. We recommend completely uninstalling any `Elmah.Io.*` NuGet packages and install the `Elmah.Io.Umbraco` package from scratch.

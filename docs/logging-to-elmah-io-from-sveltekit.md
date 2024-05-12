@@ -9,7 +9,7 @@ description: Utilize elmah.io to log all errors from a single-page SvelteKit app
 
 # Logging to elmah.io from SvelteKit
 
-To log all errors from a SvelteKit application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/). Then add the following code to the `hooks.client.js` file. If the file does not exist, make sure to create it in the `src` folder since SvelteKit will automatically load it from there.
+To log all errors from a SvelteKit application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](logging-to-elmah-io-from-javascript.md). Then add the following code to the `hooks.client.js` file. If the file does not exist, make sure to create it in the `src` folder since SvelteKit will automatically load it from there.
 
 ```javascript
 import Elmahio from 'elmah.io.javascript';

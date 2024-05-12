@@ -31,7 +31,7 @@ System.Diagnostics.Trace.Listeners.Add(
     new ElmahIoTraceListener("API_KEY", new Guid("LOG_ID")));
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log id ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with your log id ([Where is my log ID?](where-is-my-log-id.md)).
 
 To start logging, call the `Trace` API:
 

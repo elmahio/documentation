@@ -73,7 +73,7 @@ To configure the elmah.io target, add the following configuration to your app.co
 </div>
 </div>
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 In the example, we specify the level minimum as Info. This tells NLog to log only information, warning, error, and fatal messages. You may adjust this, but be aware that your elmah.io log may run full pretty fast, especially if you log thousands and thousands of trace and debug messages.
 
@@ -206,7 +206,7 @@ Extend the `appsettings.json` file with a new `NLog` section:
 </div>
 </div>
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 If you haven't already loaded the configuration in your application, make sure to do so:
 
@@ -289,7 +289,7 @@ The example will log all log levels to elmah.io. For more information about how 
 
 NLog supports logging custom properties in multiple ways. If you want to include a property (like a version number) in all log messages, you might want to look into the [`OnMessage`](#decorating-log-messages) feature on `Elmah.Io.NLog`.
 
-With custom properties, you can log additional key/value pairs with every log message. The elmah.io target for NLog supports [custom properties](https://docs.elmah.io/logging-custom-data/) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](https://docs.elmah.io/logging-custom-data/#searching-custom-data).
+With custom properties, you can log additional key/value pairs with every log message. The elmah.io target for NLog supports [custom properties](logging-custom-data.md) as well. Properties are persisted alongside every log message in elmah.io and searchable if [named correctly](logging-custom-data.md#looking-at-your-custom-data).
 
 One way to log custom properties with NLog and elmah.io is to use the overload of each logging-method that takes a `LogEventInfo` object as a parameter:
 
@@ -410,7 +410,7 @@ elmahIoTarget.OnMessage = msg =>
 };
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
@@ -457,10 +457,10 @@ For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When i
 
 Here are some things to try out if logging from NLog to elmah.io doesn't work:
 
-- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+- Run the `diagnose` command with the [elmah.io CLI](cli-overview.md) as shown here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 - Make sure that you have the newest `Elmah.Io.NLog` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above. That includes both the `<extensions>` (Only needed in `Elmah.Io.NLog` 3 and 4), `<targets>`, and `<rules>` element.
-- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](how-to-configure-api-key-permissions.md).
 - Make sure to include a valid log ID.
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
 - Always make sure to call `LogManager.Shutdown()` before exiting the application to make sure that all log messages are flushed. If you are re-using the logger but only want to shut down the thread that is logging messages or similar you can call `LogManager.Flush()` which will store all batched messages.

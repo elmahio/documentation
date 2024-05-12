@@ -60,7 +60,7 @@ static void Application_ThreadException(object sender, ThreadExceptionEventArgs 
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the id of the log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) where you want errors logged.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the id of the log ([Where is my log ID?](where-is-my-log-id.md)) where you want errors logged.
 
 This example closes the application when an error occurs. If you only want to log the error, make sure to re-use the `logger` object:
 

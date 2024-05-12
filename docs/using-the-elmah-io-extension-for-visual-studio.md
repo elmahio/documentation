@@ -21,11 +21,11 @@ Inside Visual Studio navigate to View | Other Windows | elmah.io or simply searc
 
 You'll see the elmah.io window somewhere. Click the *Sign In* button and sign in with a username/password or one of the social providers:
 
-![Sign in](/images/visualstudio-signin.png)
+![Sign in](images/visualstudio-signin.png)
 
 If you are part of multiple elmah.io organizations, select the one you want to access: 
 
-![Select organization](/images/visualstudio-selectorganization.png)
+![Select organization](images/visualstudio-selectorganization.png)
 
 If this is the first time someone is browsing the chosen organization from Visual Studio, authorize the creation of a new API key:
 
@@ -33,12 +33,12 @@ If this is the first time someone is browsing the chosen organization from Visua
 
 Once logged in, the list of logs is populated with all of your logs defined at elmah.io. Select a log and click the search icon:
 
-![Browse a log inside Visual Studio](/images/visualstudio-browse.png)
+![Browse a log inside Visual Studio](images/visualstudio-browse.png)
 
 Log messages can be filtered by date range, full-text search, and using Lucene query language as already known from the elmah.io UI. 
 
 To inspect a single message, double-click it and the message details window will open:
 
-![Message details](/images/visualstudio-details.png)
+![Message details](images/visualstudio-details.png)
 
 The toolbar at the top provides a couple of options: View the message on elmah.io, hide the message and delete the message.

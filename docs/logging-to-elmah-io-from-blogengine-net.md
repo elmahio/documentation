@@ -20,7 +20,7 @@ dotnet add package Elmah.Io
 paket add Elmah.Io
 ```
 
-During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+During the installation, you will be asked for your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
 When installed, BlogEngine.NET starts reporting errors to elmah.io. To check it out, force an internal server error or similar, and visit /elmah.axd or the search area of your log at elmah.io.
 

@@ -11,7 +11,7 @@ Under the hood, everything related to communicating with elmah.io happens throug
 
 ## Security
 
-Security is implemented using API keys ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). When creating a new organization, a default API key is automatically created.
+Security is implemented using API keys ([Where is my API key?](where-is-my-api-key.md)). When creating a new organization, a default API key is automatically created.
 
 You can create new keys and revoke an existing key if you suspect that the key has been compromised. The API key acts as a secret and should not be available to people outside your team/organization.
 

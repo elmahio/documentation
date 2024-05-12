@@ -17,11 +17,11 @@ GitHub Actions is a great platform for building and releasing software. To notif
 
 5. Name the secret `ELMAH_IO_API_KEY`.
 
-6. Insert your elmah.io API key in *Value* ([Where is my API key?](/where-is-my-api-key/)). Make sure to use an API key that includes the *Deployments* | *Write* permission ([How to configure API key permissions](/how-to-configure-api-key-permissions/)).
+6. Insert your elmah.io API key in *Value* ([Where is my API key?](where-is-my-api-key.md)). Make sure to use an API key that includes the *Deployments* | *Write* permission ([How to configure API key permissions](how-to-configure-api-key-permissions.md)).
 
 7. Click *Add secret*
 
-8. Do the same for your elmah.io log ID but name it `ELMAH_IO_LOG_ID` ([Where is my log ID?](/where-is-my-log-id/)).
+8. Do the same for your elmah.io log ID but name it `ELMAH_IO_LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)).
 
 9. Insert the following step as the last one in your YAML build specification:
 

@@ -39,7 +39,7 @@ var factory = LoggerFactory.Create(builder =>
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
 
 elmah.io will now automatically log all warning, error, and fatal messages to elmah.io. Uno log messages internally, but you can also do manual logging like this:
 

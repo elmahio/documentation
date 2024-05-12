@@ -26,7 +26,7 @@ dotnet add package Elmah.Io.Mvc
 paket add Elmah.Io.Mvc
 ```
 
-During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). That's it. Every unhandled exception in ASP.NET MVC is logged to elmah.io.
+During the installation, you will be asked for your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)). That's it. Every unhandled exception in ASP.NET MVC is logged to elmah.io.
 
 As part of the installation, we also installed `Elmah.MVC`, which adds some interesting logic around routing and authentication. Take a look in the `web.config` for application settings with the `elmah.mvc.` prefix. For documentation about these settings, check out the [Elmah.MVC project](https://github.com/alexbeletsky/elmah-mvc) on GitHub.
 

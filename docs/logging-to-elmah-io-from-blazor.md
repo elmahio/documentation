@@ -38,7 +38,7 @@ builder.Logging.AddElmahIo(options =>
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 All uncaught exceptions are automatically logged to elmah.io. Exceptions can be logged manually, by injecting an `ILogger` into your view and adding `try/catch`:
 
@@ -158,7 +158,7 @@ builder.Logging.AddElmahIo(options =>
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 All uncaught exceptions are automatically logged to elmah.io after calling `AddElmahIo`. Errors and other severities can be logged manually, by injecting an `ILogger` into your view and adding `try/catch` or by implementing error boundaries:
 

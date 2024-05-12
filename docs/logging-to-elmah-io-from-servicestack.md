@@ -24,7 +24,7 @@ paket add ServiceStack.Logging.Elmah
 paket add Elmah.Io
 ```
 
-During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+During the installation, you will be asked for your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
 Once installed, add the following line to your AppHost:
 

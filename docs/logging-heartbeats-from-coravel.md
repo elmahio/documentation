@@ -46,7 +46,7 @@ var elmahIoClient = ElmahioAPI.Create("API_KEY", new ElmahIoOptions
 builder.Services.AddSingleton(elmahIoClient.Heartbeats);
 ```
 
-Replace `API_KEY` ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) with an API key containing permission to create heartbeats.
+Replace `API_KEY` ([Where is my API key?](where-is-my-api-key.md)) with an API key containing permission to create heartbeats.
 
 In the `MyJob` class, you can inject the `IHeartbeatsClient` and wrap the job code in a `try/catch` block:
 
@@ -82,6 +82,6 @@ public class MyJob : IInvocable
 }
 ```
 
-Replace `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) and `HEARTBEAT_ID` with the correct values from elmah.io.
+Replace `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) and `HEARTBEAT_ID` with the correct values from elmah.io.
 
-When the job successfully runs, a `Healthy` heartbeat is logged to elmah.io. If an exception is thrown an `Unhealthy` heartbeat is logged. elmah.io will automatically create an error if a heartbeat is missing, as long as the heartbeat is correctly configured as explained in [Set up Heartbeats](https://docs.elmah.io/setup-heartbeats/).
+When the job successfully runs, a `Healthy` heartbeat is logged to elmah.io. If an exception is thrown an `Unhealthy` heartbeat is logged. elmah.io will automatically create an error if a heartbeat is missing, as long as the heartbeat is correctly configured as explained in [Set up Heartbeats](setup-heartbeats.md).

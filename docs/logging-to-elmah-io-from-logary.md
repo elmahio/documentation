@@ -39,7 +39,7 @@ withRules [
 ]
 ```
 
-where `LOG_ID` is the id of your log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+where `LOG_ID` is the id of your log ([Where is my log ID?](where-is-my-log-id.md)).
 
 ## Configuration in C&#35;
 

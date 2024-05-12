@@ -53,7 +53,7 @@ Finally, add the log4net configuration element to `web/app.config`:
 </log4net>
 ```
 
-That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with your actual log Id. To start logging, write your usual log4net log statements:
+That’s it! log4net is now configured and log messages to elmah.io. Remember to replace `API_KEY`([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with your actual log Id. To start logging, write your usual log4net log statements:
 
 ```csharp
 var log = log4net.LogManager.GetLogger(typeof(HomeController));
@@ -70,7 +70,7 @@ catch (ApplicationException ex)
 
 ## Logging custom properties
 
-log4net offers a feature called context properties. With context properties, you can log additional key/value pairs with every log message. The elmah.io appender for log4net, supports context properties as well. Context properties are handled like [custom properties](https://docs.elmah.io/logging-custom-data/) in the elmah.io UI.
+log4net offers a feature called context properties. With context properties, you can log additional key/value pairs with every log message. The elmah.io appender for log4net, supports context properties as well. Context properties are handled like [custom properties](logging-custom-data.md) in the elmah.io UI.
 
 Let's utilize two different hooks in log4net, to add context properties to elmah.io:
 
@@ -144,7 +144,7 @@ elmahIoAppender.Client.Messages.OnMessage += (sender, a) =>
 };
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
@@ -260,10 +260,10 @@ app.UseElmahIoLog4Net();
 
 Here are some things to try out if logging from log4net to elmah.io doesn't work:
 
-- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+- Run the `diagnose` command with the [elmah.io CLI](cli-overview.md) as shown here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 - Make sure that you have the newest `Elmah.Io.Log4Net` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above. That includes both the `<root>` and `<appender>` element.
-- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](how-to-configure-api-key-permissions.md).
 - Make sure to include a valid log ID.
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
 - Enable and inspect log4net's internal debug log by including the following code in your `web/app.config` file to reveal any exceptions happening inside the log4net engine room or one of the appenders:

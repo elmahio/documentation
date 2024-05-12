@@ -7,13 +7,13 @@ description: In case your ASP.NET Core application isn't logging errors to elmah
 
 So, your ASP.NET Core application doesn't log errors to elmah.io? Here is a list of things to try out:
 
-- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+- Run the `diagnose` command with the [elmah.io CLI](cli-overview.md) as shown here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 - Make sure to reference the most recent version of the <a href="https://www.nuget.org/packages/elmah.io.aspnetcore/" target="_blank" rel="noopener noreferrer">Elmah.Io.AspNetCore</a> NuGet package.
 - Make sure that the <a href="https://www.nuget.org/packages/Elmah.Io.Client/" target="_blank" rel="noopener noreferrer">Elmah.Io.Client</a> NuGet package is installed and that the major version matches that of `Elmah.Io.AspNetCore`.
-- Make sure that you are calling both the `AddElmahIo`- and `UseElmahIo`-methods in the `Program.cs` file (or `Startup.cs` for older applications), as described on [Logging to elmah.io from ASP.NET Core](/logging-to-elmah-io-from-aspnet-core/).
+- Make sure that you are calling both the `AddElmahIo`- and `UseElmahIo`-methods in the `Program.cs` file (or `Startup.cs` for older applications), as described on [Logging to elmah.io from ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md).
 - Make sure that you call the `UseElmahIo`-method after invoking other `Use*` methods that in any way inspect exceptions (like `UseDeveloperExceptionPage` and `UseExceptionHandler`).
 - Make sure that you call the `UseElmahIo`-method before invoking `UseMvc`, `UseEndpoints`, and similar.
-- Make sure that your server has an outgoing internet connection and that it can communicate with `api.elmah.io` on port `443`. The integration for ASP.NET Core support setting up an HTTP proxy if your server doesn't allow outgoing traffic. Check out [Logging through a proxy](/logging-to-elmah-io-from-aspnet-core/#logging-through-a-proxy) for details.
+- Make sure that your server has an outgoing internet connection and that it can communicate with `api.elmah.io` on port `443`. The integration for ASP.NET Core support setting up an HTTP proxy if your server doesn't allow outgoing traffic. Check out [Logging through a proxy](logging-to-elmah-io-from-aspnet-core.md#logging-through-a-proxy) for details.
 - Make sure that you didn't enable any Ignore filters or set up any Rules with an ignore action on the log in question.
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter, a piece of middleware, or similar).
 - Make sure that you haven't reached the message limit included in your current plan. Your current usage can be viewed on the *Subscription* tab on organization settings.

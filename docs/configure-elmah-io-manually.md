@@ -22,7 +22,7 @@ dotnet add package Elmah.Io
 paket add Elmah.Io
 ```
 
-If a dialog is shown during the installation, input your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). Don't worry if the configuration isn't added, since we will verify this later.
+If a dialog is shown during the installation, input your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)). Don't worry if the configuration isn't added, since we will verify this later.
 
 Add the following to the `<configSections>` element in your `web.config`:
 
@@ -66,7 +66,7 @@ Add the following as a root element beneath the `<configuration>` element in you
 </elmah>
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with your log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
 That's it. You managed to install elmah.io manually and you should go to your LinkedIn profile and update with a new certification called "Certified elmah.io installer" :)
 

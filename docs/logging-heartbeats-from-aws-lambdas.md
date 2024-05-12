@@ -28,7 +28,7 @@ private const string HeartbeatId = "HEARTBEAT_ID";
 private static Guid LogId = new Guid("LOG_ID");
 ```
 
-Replace `API_KEY` with an API key with the *Heartbeats | Write* permission ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)), `HEARTBEAT_ID` with the ID of the heartbeat available on the elmah.io UI, and `LOG_ID` with the ID of the log containing the heartbeat ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with an API key with the *Heartbeats | Write* permission ([Where is my API key?](where-is-my-api-key.md)), `HEARTBEAT_ID` with the ID of the heartbeat available on the elmah.io UI, and `LOG_ID` with the ID of the log containing the heartbeat ([Where is my log ID?](where-is-my-log-id.md)).
 
 Create the elmah.io client and store the `IHeartbeat` object somewhere. In the following example, it is initialized in the `Main` method and stored in a static field:
 

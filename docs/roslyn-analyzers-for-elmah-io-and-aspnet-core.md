@@ -7,7 +7,7 @@ description: Learn about how to catch common errors when configuring elmah.io in
 
 [TOC]
 
-> The Roslyn analyzers for elmah.io and ASP.NET Core has reached end of life. The analyzers are no longer updated and won't work for top-level statements or when configuring `Elmah.Io.AspNetCore` in the `Program.cs` file. To validate the installation we recommend running the `diagnose` command as explained here: [Diagnose potential problems with an elmah.io installation](/cli-diagnose/).
+> The Roslyn analyzers for elmah.io and ASP.NET Core has reached end of life. The analyzers are no longer updated and won't work for top-level statements or when configuring `Elmah.Io.AspNetCore` in the `Program.cs` file. To validate the installation we recommend running the `diagnose` command as explained here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 
 To help to install elmah.io in ASP.NET Core (by using the `Elmah.Io.AspNetCore` NuGet package) we have developed a range of Roslyn analyzers. Analyzers run inside Visual Studio and make it possible to validate your `Startup.cs` file during development.
 

@@ -19,7 +19,7 @@ ELMAH is an error logging framework originally developed by Atif Aziz able to lo
 
 ## What is elmah.io?
 
-elmah.io is a cloud-based error management system originally developed on top of ELMAH (see history for details). Besides supporting ELMAH, elmah.io also integrates with popular logging frameworks like [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), and web frameworks like [ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/). elmah.io offers a superior [notification](https://elmah.io/features/notifications/) model to ELMAH, with integrations to mail, Slack, Microsoft Teams, and many others. elmah.io also built a lot of features outside the scope of ELMAH, like a complete [uptime monitoring](https://elmah.io/features/uptime-monitoring/) system.
+elmah.io is a cloud-based error management system originally developed on top of ELMAH (see history for details). Besides supporting ELMAH, elmah.io also integrates with popular logging frameworks like [log4net](logging-to-elmah-io-from-log4net.md), [NLog](logging-to-elmah-io-from-nlog.md), [Serilog](logging-to-elmah-io-from-serilog.md), and web frameworks like [ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md). elmah.io offers a superior [notification](https://elmah.io/features/notifications/) model to ELMAH, with integrations to mail, Slack, Microsoft Teams, and many others. elmah.io also built a lot of features outside the scope of ELMAH, like a complete [uptime monitoring](https://elmah.io/features/uptime-monitoring/) system.
 
 ## Comparison
 

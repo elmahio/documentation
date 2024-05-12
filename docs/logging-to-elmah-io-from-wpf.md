@@ -42,9 +42,9 @@ public partial class App : Application
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the id of the log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) where you want errors logged.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the id of the log ([Where is my log ID?](where-is-my-log-id.md)) where you want errors logged.
 
-> Remember to [generate a new API key](https://docs.elmah.io/how-to-configure-api-key-permissions/) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
+> Remember to [generate a new API key](how-to-configure-api-key-permissions.md) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
 
 That's it. All uncaught exceptions are now logged to elmah.io.
 
@@ -182,4 +182,4 @@ private void LogException(Exception exception)
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the id of the log ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) where you want errors logged.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the id of the log ([Where is my log ID?](where-is-my-log-id.md)) where you want errors logged.

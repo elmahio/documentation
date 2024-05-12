@@ -43,7 +43,7 @@ namespace ElmahFromCodeExample
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with a log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with a log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
 Let's look at the code. Our class `ElmahConfig` is configured as a `PreApplicationStartMethod` which means, that ASP.NET (MVC) will execute the Start method when the web application starts up. Inside this method, we set the `ServiceCenter.Current` property to the return type of the `CreateServiceProviderQueryHandler` method. This method is where the magic happens. Besides creating the new `ServiceContainer`, we created the `Elmah.Io.ErrorLog` class normally configured through XML. The Dictionary should contain the API key and log ID as explained earlier.
 

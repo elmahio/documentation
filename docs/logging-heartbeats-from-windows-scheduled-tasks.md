@@ -5,7 +5,7 @@ description: Logging failing Windows Scheduled Tasks as elmah.io heartbeats will
 
 # Logging heartbeats from Windows Scheduled Tasks
 
-How you want to implement heartbeats from Windows Scheduled Tasks depends on how your task is implemented. For tasks written in C#, you typically want to persist heartbeats using the `Elmah.Io.Client` package as shown in [Set up Heartbeats](/setup-heartbeats/). For scheduled PowerShell or other scripts, you can trigger the elmah.io API as shown in [Logging heartbeats from PowerShell](/logging-heartbeats-from-powershell/) and [Logging heartbeats from cURL](/logging-heartbeats-from-curl/).
+How you want to implement heartbeats from Windows Scheduled Tasks depends on how your task is implemented. For tasks written in C#, you typically want to persist heartbeats using the `Elmah.Io.Client` package as shown in [Set up Heartbeats](setup-heartbeats.md). For scheduled PowerShell or other scripts, you can trigger the elmah.io API as shown in [Logging heartbeats from PowerShell](logging-heartbeats-from-powershell.md) and [Logging heartbeats from cURL](logging-heartbeats-from-curl.md).
 
 Invoking the API either through the elmah.io client or using a REST client is the optimal way since you have greater control over what to log. This manual approach is not available when you are not in control of the scheduled code. Examples of this could be custom tools you install as Scheduled Tasks using `schtasks.exe` or tasks automatically registered when installing third-party software on your server.
 
@@ -30,7 +30,7 @@ When configuring a heartbeat through the elmah.io UI you set an expected interva
 ![Start a program](images/start-a-program-powershell.png){:style="width:100%;max-width:500px;margin-left:0;"}
 * Click the *OK* button to save the action.
 * Click the *OK* button to save the task.
-* The final step is to add the `c:\scripts\heartbeat.ps1` PowerShell script invoked by the task. For a better understanding of storing heartbeats through PowerShell check out [Logging heartbeats from PowerShell](/logging-heartbeats-from-powershell/). To log a failing heartbeat to elmah.io you can use the following PowerShell code:
+* The final step is to add the `c:\scripts\heartbeat.ps1` PowerShell script invoked by the task. For a better understanding of storing heartbeats through PowerShell check out [Logging heartbeats from PowerShell](logging-heartbeats-from-powershell.md). To log a failing heartbeat to elmah.io you can use the following PowerShell code:
 ```powershell
 $apiKey = "API_KEY"
 $logId = "LOG_ID"

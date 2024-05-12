@@ -43,4 +43,4 @@ In the example above, I use the `FromCurrentContext` helper to create a new inst
 ErrorLog.GetDefault(null).Log(new Error(e));
 ```
 
-If you simply want to log text messages and don't need all of the HTTP context information, consider using one of our integrations for popular logging frameworks like [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), or [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/). Also, the [Elmah.Io.Client](https://www.nuget.org/packages/Elmah.Io.Client/) package contains a logging API [documented here](https://github.com/elmahio/Elmah.Io.Client).
+If you simply want to log text messages and don't need all of the HTTP context information, consider using one of our integrations for popular logging frameworks like [log4net](logging-to-elmah-io-from-log4net.md), [NLog](logging-to-elmah-io-from-nlog.md), or [Serilog](logging-to-elmah-io-from-serilog.md). Also, the [Elmah.Io.Client](https://www.nuget.org/packages/Elmah.Io.Client/) package contains a logging API [documented here](https://github.com/elmahio/Elmah.Io.Client).

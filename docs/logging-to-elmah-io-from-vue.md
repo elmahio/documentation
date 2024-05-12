@@ -9,7 +9,7 @@ description: Monitoring and logging errors happening in Vue.js applications is e
 
 # Logging to elmah.io from Vue
 
-To log all errors from a Vue.js application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/) or include it with a direct `<script>` include:
+To log all errors from a Vue.js application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](logging-to-elmah-io-from-javascript.md) or include it with a direct `<script>` include:
 
 ```javascript
 <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@latest/dist/elmahio.min.js" type="text/javascript"></script>

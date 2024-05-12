@@ -11,7 +11,7 @@ description: "To log all warnings and errors from ASP.NET Core, install the foll
 
 [TOC]
 
-If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
+If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out [Logging from Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md).
 
 To log all warnings and errors from ASP.NET Core, install the following NuGet package:
 
@@ -59,7 +59,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
 
 Call `UseElmahIo` in the `Configure`-method:
 
@@ -84,7 +84,7 @@ builder.Services.AddElmahIo(options =>
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
 
 Call `UseElmahIo` in the `Program.cs` file:
 
@@ -196,7 +196,7 @@ builder.Services.AddElmahIo();
 
 ## Logging exceptions manually
 
-While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
+While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md). If the context is important for the error, you can utilize the `Ship`-methods available in `Elmah.Io.AspNetCore`:
 
 ```csharp
 try
@@ -222,7 +222,7 @@ The `Ship`-method uses `ElmahIoApi` underneath why both methods will give the sa
 
 ## Breadcrumbs
 
-See [Logging breadcrumbs from ASP.NET Core](/logging-breadcrumbs-from-asp-net-core/).
+See [Logging breadcrumbs from ASP.NET Core](logging-breadcrumbs-from-asp-net-core.md).
 
 ## Additional options
 
@@ -273,7 +273,7 @@ The actions provide a mechanism for hooking into the log process. The action reg
 
 > Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
 
-While elmah.io supports [ignore rules](https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/#ignore-errors-with-a-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the options object, filtering is easy:
+While elmah.io supports [ignore rules](creating-rules-to-perform-actions-on-messages.md#ignore-errors-with-an-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the options object, filtering is easy:
 
 ```csharp
 builder.Services.AddElmahIo(options =>
@@ -365,7 +365,7 @@ builder.Services.AddElmahIo(options =>
 });
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
@@ -486,4 +486,4 @@ This is because the exception handle "swallows" all exceptions before the elmah.
 
 ## Logging health check results
 
-Check out [Logging heartbeats from ASP.NET Core](/logging-heartbeats-from-asp-net-core/) for details.
+Check out [Logging heartbeats from ASP.NET Core](logging-heartbeats-from-asp-net-core.md) for details.

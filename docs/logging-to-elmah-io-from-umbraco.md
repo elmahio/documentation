@@ -22,9 +22,9 @@ elmah.io offer great support for all newer Umbraco versions. Umbraco has been in
     </div>
 </div>
 
-During the installation steps described below, you will need your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+During the installation steps described below, you will need your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
-elmah.io integrates with Umbraco's Health Checks feature too. To learn more about how to set it up, visit [Logging heartbeats from Umbraco](/logging-heartbeats-from-umbraco/).
+elmah.io integrates with Umbraco's Health Checks feature too. To learn more about how to set it up, visit [Logging heartbeats from Umbraco](logging-heartbeats-from-umbraco.md).
 
 ## Umbraco >= 9
 
@@ -118,11 +118,11 @@ During the installation, you will be presented with a dialog asking for your API
 
 ### Configuration
 
-If you are running on the default Umbraco template, all necessary configuration is added during the installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason isn't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](https://docs.elmah.io/configure-elmah-io-manually/). Likewise, the installer configures the elmah.io sink for Serilog in your `config\serilog.user.config` file.
+If you are running on the default Umbraco template, all necessary configuration is added during the installation of the `Elmah.Io.Umbraco` NuGet package. If your `web.config` file for some reason isn't updated during installation, you can configure elmah.io manually: [Configure elmah.io manually](configure-elmah-io-manually.md). Likewise, the installer configures the elmah.io sink for Serilog in your `config\serilog.user.config` file.
 
 #### Different environments
 
-You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
+You may have different environments like *Staging* and *Production*. At least you have two: *Localhost* and *Production*. If you want to log to different error logs depending on the current environment, check out [Use multiple logs for different environments](use-multiple-logs-for-different-environments.md). Web.config transformations work on the `Web.config` file only but you may have other config files that need transformation as well. In terms of elmah.io, the `serilog.user.config` file also includes elmah.io configuration that you may want to disable on localhost and include on production. If you are running on Umbraco Cloud this is natively supported as explained here: [Config Transforms](https://docs.umbraco.com/umbraco-cloud/set-up/config-transforms). Even in self-hosted environments, you can achieve something similar using the SlowCheetah extension. Check out this question on Our for details: [Deploying different umbracoSettings.config for different environments](https://our.umbraco.com/forum/umbraco-7/using-umbraco-7/57392-Deploying-different-umbracoSettingsconfig-for-different-environments).
 
 ## Umbraco 7
 

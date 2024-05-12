@@ -38,7 +38,7 @@ var log =
 Log.Logger = log;
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 First, we create a new LoggerConfiguration and tell it to write to elmah.io. The log object can be used to log errors and you should register this in your IoC container. In this case, we don't use IoC, that is why the log object is set as the public static Logger property, which makes it accessible from everywhere.
 
@@ -133,7 +133,7 @@ Log.Logger =
         .CreateLogger();
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
@@ -243,7 +243,7 @@ builder.Host.UseSerilog((ctx, lc) => lc
 );
 ```
 
-There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and install the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
+There's a problem with this approach when an endpoint throws an uncaught exception. Microsoft.Extensions.Logging logs all uncaught exceptions as errors, but the `LogContext` is already popped when doing so. The recommended approach is to ignore these errors in the elmah.io sink and install the `Elmah.Io.AspNetCore` package to log uncaught errors to elmah.io (as explained in [Logging from ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md)). The specific error message can be ignored in the sink by providing the following filter during initialization of Serilog:
 
 ```csharp
 .WriteTo.ElmahIo(/*...*/)
@@ -454,10 +454,10 @@ When using Serilog through Microsoft.Extensions.Logging's `ILogger<T>` interface
 
 Here are some things to try out if logging from Serilog to elmah.io doesn't work:
 
-- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+- Run the `diagnose` command with the [elmah.io CLI](cli-overview.md) as shown here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 - Make sure that you have the newest `Serilog.Sinks.ElmahIo` and `Elmah.Io.Client` packages installed.
 - Make sure to include all of the configuration from the example above.
-- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+- Make sure that the API key is valid and allow the *Messages* | *Write* [permission](how-to-configure-api-key-permissions.md).
 - Make sure to include a valid log ID.
 - Make sure that you have sufficient log messages in your subscription and that you didn't disable logging to the log or include any ignore filters/rules.
 - Always make sure to call `Log.CloseAndFlush()` before exiting the application to make sure that all log messages are flushed.

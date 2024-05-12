@@ -149,7 +149,7 @@ paket add Elmah.Io
 
 During the installation, you will be asked for your API key and log ID.
 
-For more information, check out the installation guides for [WebForms](/logging-to-elmah-io-from-elmah/), [MVC](/logging-to-elmah-io-from-aspnet-mvc/), and [Web API](/logging-to-elmah-io-from-web-api/). There is a short video tutorial available here:
+For more information, check out the installation guides for [WebForms](logging-to-elmah-io-from-elmah.md), [MVC](logging-to-elmah-io-from-aspnet-mvc.md), and [Web API](logging-to-elmah-io-from-web-api.md). There is a short video tutorial available here:
 
 <a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=OeQG2PkSpSE&amp;autoplay=1&amp;rel=0" title="elmah.io Introduction - Installation">
   <img class="no-lightbox" src="../images/tour/installation.jpg" alt="elmah.io Introduction - Installation" />
@@ -193,7 +193,7 @@ app.Run();
 
 Make sure to insert your API key and log ID.
 
-For more information, check out the installation guides for [ASP.NET Core](/logging-to-elmah-io-from-aspnet-core/) and [Microsoft.Extensions.Logging](/logging-to-elmah-io-from-microsoft-extensions-logging/).
+For more information, check out the installation guides for [ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md) and [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md).
 
 ## JavaScript
 
@@ -209,4 +209,4 @@ Reference the installed script and include your API key and log ID as part of th
 <script src="~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=YOUR-API-KEY&logId=YOUR-LOG-ID" type="text/javascript"></script>
 ```
 
-For more information, check out the installation guide for [JavaScript](/logging-to-elmah-io-from-javascript/).
+For more information, check out the installation guide for [JavaScript](logging-to-elmah-io-from-javascript.md).

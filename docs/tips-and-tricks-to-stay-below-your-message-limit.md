@@ -23,7 +23,7 @@ Rules consist of a query and an action. The query can either be a full-text quer
 
 All new rules are created with an ignore action as default, why you don't need to click the *Then* link for this type of rule. In the example above, ignore all messages with a status code of `404`.
 
-For more information about the possibilities with rules, check out [Creating Rules to Perform Actions on Messages](https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/).
+For more information about the possibilities with rules, check out [Creating Rules to Perform Actions on Messages](creating-rules-to-perform-actions-on-messages.md).
 
 ## Filters
 

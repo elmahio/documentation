@@ -9,7 +9,7 @@ description: Learn how to utilize elmah.io.javascript to log uncaught errors fro
 
 # Logging to elmah.io from Angular
 
-`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/).
+`elmah.io.javascript` works great with Angular applications too. To log all errors happening in your Angular app, install `elmah.io.javascript` through npm as described in [Logging from JavaScript](logging-to-elmah-io-from-javascript.md).
 
 In the same folder as the `app.module.ts` file add a new file named `elmah-io-error-handler.ts` and include the following content:
 

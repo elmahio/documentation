@@ -40,7 +40,7 @@ public class Startup : FunctionsStartup
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log to store messages in ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log to store messages in ([Where is my log ID?](where-is-my-log-id.md)).
 
 The filter tells Google Cloud Functions to log warnings and above to elmah.io only. If you want to log detailed information about what goes on inside Google Cloud Functions, you can lower the log level.
 

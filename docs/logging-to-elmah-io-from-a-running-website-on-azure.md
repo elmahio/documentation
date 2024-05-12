@@ -26,7 +26,7 @@ Click the *Add* button and select **.NET elmah.io for Azure**:
 
 Accept the terms and click the *Add* button. The elmah.io Site Extension is now added. Once added, restart the website for the new extension to load.
 
-Finally, you need to add your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) to *Application settings*:
+Finally, you need to add your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)) to *Application settings*:
 
 ![Add API key and log ID to application settings](images/add-api-key-and-log-id-to-application-settings-v2.png)
 

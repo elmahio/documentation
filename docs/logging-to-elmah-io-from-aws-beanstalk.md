@@ -11,7 +11,7 @@ Logging to elmah.io from .NET applications deployed on AWS Beanstalk is as easy 
 
 ## ASP.NET / MVC / Web API
 
-To install elmah.io in [ASP.NET](https://docs.elmah.io/logging-to-elmah-io-from-elmah/), [MVC](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-mvc/), and/or [Web API](https://docs.elmah.io/logging-to-elmah-io-from-web-api/), please follow the guidelines for each framework. You can specify one set of API key and log ID in the `Web.config` file and another set in the `Web.release.config` file as explained here: [Use multiple logs for different environments](https://docs.elmah.io/use-multiple-logs-for-different-environments/).
+To install elmah.io in [ASP.NET](logging-to-elmah-io-from-elmah.md), [MVC](logging-to-elmah-io-from-aspnet-mvc.md), and/or [Web API](logging-to-elmah-io-from-web-api.md), please follow the guidelines for each framework. You can specify one set of API key and log ID in the `Web.config` file and another set in the `Web.release.config` file as explained here: [Use multiple logs for different environments](use-multiple-logs-for-different-environments.md).
 
 If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. Click the *Edit* button beneath the *Software* category and scroll to the bottom. There you will see a section named *Environment properties*. Input your API key and log ID:
 
@@ -36,7 +36,7 @@ Finally, if you have an API key and/or log ID specified as part of the `appSetti
 
 ## ASP.NET Core
 
-To install elmah.io in ASP.NET Core, follow this guide: [Logging to elmah.io from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/).
+To install elmah.io in ASP.NET Core, follow this guide: [Logging to elmah.io from ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md).
 
 If you want to include your production API key and log ID on AWS only (to avoid having sensitive information in source control), you can do this using *Environment properties* on AWS. Go to your environment on the AWS console and click the *Configuration* tab. Click the *Edit* button beneath the *Software* category and scroll to the bottom. There you will see a section named *Environment properties*. Input your API key and log ID:
 

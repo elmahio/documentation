@@ -39,7 +39,7 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the id of the log representing the application deployed by this build configuration.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the id of the log representing the application deployed by this build configuration.
 
 Click the *Add* button and the new task will be added to your YAML definition. You typically want to move the deployment task to the last placement in *tasks*.
 
@@ -73,4 +73,4 @@ $body = @{
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the id of the log representing the application deployed by this build configuration.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the id of the log representing the application deployed by this build configuration.

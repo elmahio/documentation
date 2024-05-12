@@ -5,7 +5,7 @@ description: Try out our alpha support for logging uncaught errors from .NET MAU
 
 # Logging to elmah.io from MAUI
 
-We just started looking into .NET MAUI. If you want to go for the stable choice, check out the [integration with Xamarin](/logging-to-elmah-io-from-xamarin/) (the NuGet package is also in prerelease but more stable than the integration described on this page).
+We just started looking into .NET MAUI. If you want to go for the stable choice, check out the [integration with Xamarin](logging-to-elmah-io-from-xamarin.md) (the NuGet package is also in prerelease but more stable than the integration described on this page).
 
 A quick way to get started with logging from MAUI to elmah.io is by installing the `Elmah.Io.Blazor.Wasm` NuGet package:
 
@@ -44,7 +44,7 @@ public static MauiApp CreateMauiApp()
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
 
 The logging initialization code will log all exceptions logged through `ILogger` both manually and by MAUI itself. MAUI supports dependency injection of the `ILogger` like most other web and mobile frameworks built on top of .NET.
 

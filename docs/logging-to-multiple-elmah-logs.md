@@ -23,7 +23,7 @@ void ErrorLog_Logged(object sender, Elmah.ErrorLoggedEventArgs args)
 }
 ```
 
-In the above code, we listen for the `Logged` event by simply declaring a method named `ErrorLog_Logged`. When called, we create a new `(Elmah.Io.)ErrorLog` instance with an `IElmahioAPI` object and the log ID. Remember to replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` with your log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)). You may want to share the `ElmahioAPI` object between requests by declaring it as a private member. Next, we simply call the `Log` method with a new `Error` object. Bam! The error is logged both in SQL Server and in elmah.io.
+In the above code, we listen for the `Logged` event by simply declaring a method named `ErrorLog_Logged`. When called, we create a new `(Elmah.Io.)ErrorLog` instance with an `IElmahioAPI` object and the log ID. Remember to replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with your log ID ([Where is my log ID?](where-is-my-log-id.md)). You may want to share the `ElmahioAPI` object between requests by declaring it as a private member. Next, we simply call the `Log` method with a new `Error` object. Bam! The error is logged both in SQL Server and in elmah.io.
 
 If you only want to log certain types of errors in elmah.io, but everything to your normal log, you can extend your code like this:
 

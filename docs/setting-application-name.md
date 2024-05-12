@@ -15,7 +15,7 @@ The application name can be easily set from the `web.config` file as part of the
 
 This will decorate all errors logged to elmah.io with the application name `MyApp`.
 
-A common use of Web.config Transformations is to have a transformation per environment, customer, application, etc. If this is the case, you can replace the application name as part of the config transformation. Check out [Use multiple logs for different environments](/use-multiple-logs-for-different-environments/) for more information about how to update the `errorLog` element.
+A common use of Web.config Transformations is to have a transformation per environment, customer, application, etc. If this is the case, you can replace the application name as part of the config transformation. Check out [Use multiple logs for different environments](use-multiple-logs-for-different-environments.md) for more information about how to update the `errorLog` element.
 
 <div class="alert alert-primary">
     <div class="row">

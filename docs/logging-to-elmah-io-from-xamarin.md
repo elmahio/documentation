@@ -58,7 +58,7 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="where-is-my-api-key.md">Where is my API key?</a>) and `LOG_ID` (<a href="where-is-my-log-id.md">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
 Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
@@ -81,7 +81,7 @@ ElmahIoXamarin.Init(new ElmahIoXamarinOptions
 });
 ```
 
-Replace `API_KEY` with your API key (<a href="https://docs.elmah.io/where-is-my-api-key/">Where is my API key?</a>) and `LOG_ID` (<a href="https://docs.elmah.io/where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key (<a href="where-is-my-api-key.md">Where is my API key?</a>) and `LOG_ID` (<a href="where-is-my-log-id.md">Where is my log ID?</a>) with the log Id of the log you want to log to.
 
 Calling the `Init` method will initialize elmah.io. For more configuration options see the <a href="#additional-configuration">Additional configuration</a> section.
 </div>
@@ -313,7 +313,7 @@ private void LogExceptionToElmahIo(Exception exception)
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
 
 Finally, implement the three event handlers that we added in the first step:
 
@@ -376,7 +376,7 @@ private static void LogExceptionToElmahIo(Exception exception)
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with the log Id of the log you want to log to.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
 
 Finally, implement the two event handlers that we added in the first step:
 

@@ -5,7 +5,7 @@ description: Deployments can be easily created from either the command line or a
 
 # Create deployments from the elmah.io CLI
 
-Deployments can be easily created from either the command-line or a build server using the elmah.io CLI. There's a help page dedicated to the [deployment](https://docs.elmah.io/cli-deployment/) command but here's a quick recap.
+Deployments can be easily created from either the command-line or a build server using the elmah.io CLI. There's a help page dedicated to the [deployment](cli-deployment.md) command but here's a quick recap.
 
 If not already installed, start by installing the elmah.io CLI:
 

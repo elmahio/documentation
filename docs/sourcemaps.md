@@ -37,7 +37,7 @@ Error: You cannot copy to the clipboard
     at HTMLButtonElement.<anonymous> (https://foo.bar/bundles/sharedbundle.min.js:55:109467)
 ```
 
-To upload a source map to elmah.io you will need an API key with the *Source Maps* | *Write* permission enabled. We recommend creating a new API key with this permission enabled only. For more information about API keys and permissions, check out [How to configure API key permissions](https://docs.elmah.io/how-to-configure-api-key-permissions/).
+To upload a source map to elmah.io you will need an API key with the *Source Maps* | *Write* permission enabled. We recommend creating a new API key with this permission enabled only. For more information about API keys and permissions, check out [How to configure API key permissions](how-to-configure-api-key-permissions.md).
 
 ### Upload through the API
 

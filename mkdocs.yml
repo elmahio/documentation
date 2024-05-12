@@ -35,6 +35,10 @@ plugins:
 production: false
 watch:
     - mkdocs_bs4
+validation:
+    absolute_links: relative_to_docs
+    anchors: warn
+    unrecognized_links: warn
 nav:
 - Getting Started:
     - Quick start: index.md

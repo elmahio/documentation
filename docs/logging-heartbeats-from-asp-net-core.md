@@ -38,7 +38,7 @@ builder
     });
 ```
 
-Replace the variables with the correct values as explained in [Set up Heartbeats](/setup-heartbeats/). Remember to use an API key that includes the *Heartbeats - Write* permission.
+Replace the variables with the correct values as explained in [Set up Heartbeats](setup-heartbeats.md). Remember to use an API key that includes the *Heartbeats - Write* permission.
 
 ## Additional options
 

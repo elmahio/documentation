@@ -30,7 +30,7 @@ Create a new `ElmahioAPI`:
 var logger = ElmahioAPI.Create("API_KEY");
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)).
 
 The elmah.io client supports logging in different log levels much like other logging frameworks for .NET:
 
@@ -44,7 +44,7 @@ logger.Messages.Debug(logId, "A debug message");
 logger.Messages.Verbose(logId, "A verbose message");
 ```
 
-Replace ```LOG_ID``` with your log ID from elmah.io ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+Replace ```LOG_ID``` with your log ID from elmah.io ([Where is my log ID?](where-is-my-log-id.md)).
 
 To have 100% control of how the message is logged to elmah.io, you can use the `CreateAndNotify`-method:
 
@@ -155,7 +155,7 @@ logger.Messages.OnMessage += (sender, eventArgs) =>
 };
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 

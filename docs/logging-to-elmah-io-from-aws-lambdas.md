@@ -11,9 +11,9 @@ Since AWS now supports .NET Core, logging to elmah.io from a lambda is easy.
 
 ## Logging to elmah.io from AWS Serverless Application
 
-AWS Serverless Applications are running on ASP.NET Core. The configuration matches our documentation for ASP.NET Core. Check out [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/) for details on how to log all uncaught exceptions from an AWS Serverless Application.
+AWS Serverless Applications are running on ASP.NET Core. The configuration matches our documentation for ASP.NET Core. Check out [Logging from ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md) for details on how to log all uncaught exceptions from an AWS Serverless Application.
 
-The .NET SDK for AWS comes with native support for logging to CloudWatch. We recommend using Microsoft.Extensions.Logging for logging everything to CloudWatch and warnings and errors to elmah.io. The configuration follows that of [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/).
+The .NET SDK for AWS comes with native support for logging to CloudWatch. We recommend using Microsoft.Extensions.Logging for logging everything to CloudWatch and warnings and errors to elmah.io. The configuration follows that of [Logging from Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md).
 
 AWS Serverless Applications doesn't have a `Program.cs` file. To configure logging, you will need to modify either `LambdaEntryPoint.cs`, `LocalEntryPoint.cs` or both:
 
@@ -62,4 +62,4 @@ Be aware that logging a large number of log messages synchronously, may slow dow
 
 ## Logging from AWS Lambda Project
 
-AWS Lambda Project comes with native support for CloudWatch too. In our experience, it's not possible to configure multiple destinations on `LambdaLogger`, why you would want to use another framework when logging to elmah.io from an AWS Lambda Project. We recommend using a logging framework like [Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/), [Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/), [NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/), or [log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/).
+AWS Lambda Project comes with native support for CloudWatch too. In our experience, it's not possible to configure multiple destinations on `LambdaLogger`, why you would want to use another framework when logging to elmah.io from an AWS Lambda Project. We recommend using a logging framework like [Serilog](logging-to-elmah-io-from-serilog.md), [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md), [NLog](logging-to-elmah-io-from-nlog.md), or [log4net](logging-to-elmah-io-from-log4net.md).

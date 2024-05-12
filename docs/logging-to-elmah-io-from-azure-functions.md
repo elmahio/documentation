@@ -11,7 +11,7 @@ description: Logging errors to elmah.io from Azure Functions requires only a few
 
 [TOC]
 
-Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions. If your are looking for logging from Isolated Azure Functions (out of process) check out [Logging to elmah.io from Isolated Azure Functions](/logging-to-elmah-io-from-isolated-azure-functions/).
+Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure Functions. If your are looking for logging from Isolated Azure Functions (out of process) check out [Logging to elmah.io from Isolated Azure Functions](logging-to-elmah-io-from-isolated-azure-functions.md).
 
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
@@ -86,7 +86,7 @@ In your settings, add the `apiKey` and `logId` variables:
 }
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) with your log ID. When running on Azure or similar, you can overwrite `apiKey` and `logId` with application settings or environment variables as already thoroughly documented on Microsoft's documentation.
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with your log ID. When running on Azure or similar, you can overwrite `apiKey` and `logId` with application settings or environment variables as already thoroughly documented on Microsoft's documentation.
 
 ## Application name
 
@@ -139,7 +139,7 @@ builder.Services.Configure<ElmahIoFunctionOptions>(o =>
 });
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 ### Handle errors
 
@@ -278,4 +278,4 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
 
 ## Azure Functions v1
 
-The recent `Elmah.Io.Functions` package no longer supports Azure Functions v1. You can still log from Functions v1 using an older version of the package. Check out [Logging to elmah.io from Azure WebJobs](/logging-to-elmah-io-from-azure-webjobs/) for details. The guide is for Azure WebJobs but installation for Functions v1 is identical.
+The recent `Elmah.Io.Functions` package no longer supports Azure Functions v1. You can still log from Functions v1 using an older version of the package. Check out [Logging to elmah.io from Azure WebJobs](logging-to-elmah-io-from-azure-webjobs.md) for details. The guide is for Azure WebJobs but installation for Functions v1 is identical.

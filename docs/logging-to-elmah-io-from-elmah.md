@@ -9,7 +9,7 @@ description: This article will explain the steps necessary to log errors from AS
 
 # Logging to elmah.io from ASP.NET / WebForms
 
-This article will explain the steps necessary to log errors from your web application into elmah.io. We also offer more specific guides on [ASP.NET MVC](/logging-to-elmah-io-from-aspnet-mvc/), [Web API](/logging-to-elmah-io-from-web-api/), and a lot of other web- and logging-frameworks. Read through this tutorial and head over to a tutorial specific for your choice of framework afterwards.
+This article will explain the steps necessary to log errors from your web application into elmah.io. We also offer more specific guides on [ASP.NET MVC](logging-to-elmah-io-from-aspnet-mvc.md), [Web API](logging-to-elmah-io-from-web-api.md), and a lot of other web- and logging-frameworks. Read through this tutorial and head over to a tutorial specific for your choice of framework afterwards.
 
 This guide is also available as a short video tutorial here:
 

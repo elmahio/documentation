@@ -149,7 +149,7 @@ If you release your software manually, creating the new release manually is easy
 
 ![Deployments POST](images/deployments_post.png)
 
-To create the release, input your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
+To create the release, input your API key ([Where is my API key?](where-is-my-api-key.md)) in the top right corner and click the JSON beneath _Model Schema_. This copies the example JSON to the deployment parameter. A minimal deployment would look like the following, but adding more information makes the experience within elmah.io even better:
 
 ```json
 {
@@ -163,19 +163,19 @@ Click the _Try it out!_ button and the deployment is created.
 
 We support a range of different integrations to avoid you manually having to use Swagger UI every time you release. Click one of the products below for instructions:
 
-- [PowerShell](/create-deployments-from-powershell/)
-- [Octopus Deploy](/create-deployments-from-octopus-deploy/)
-- [Kudu](/create-deployments-from-kudu/)
-- [Azure DevOps Pipelines](/create-deployments-from-azure-devops-pipelines/)
-- [Azure DevOps Releases](/create-deployments-from-azure-devops-releases/)
-- [GitHub Actions](/create-deployments-from-github-actions/)
-- [Umbraco Cloud](/create-deployments-from-umbraco-cloud/)
-- [Bitbucket Pipelines](/create-deployments-from-bitbucket-pipelines/)
-- [Atlassian Bamboo](/create-deployments-from-atlassian-bamboo/)
+- [PowerShell](create-deployments-from-powershell.md)
+- [Octopus Deploy](create-deployments-from-octopus-deploy.md)
+- [Kudu](create-deployments-from-kudu.md)
+- [Azure DevOps Pipelines](create-deployments-from-azure-devops-pipelines.md)
+- [Azure DevOps Releases](create-deployments-from-azure-devops-releases.md)
+- [GitHub Actions](create-deployments-from-github-actions.md)
+- [Umbraco Cloud](create-deployments-from-umbraco-cloud.md)
+- [Bitbucket Pipelines](create-deployments-from-bitbucket-pipelines.md)
+- [Atlassian Bamboo](create-deployments-from-atlassian-bamboo.md)
 
 ## Decorate your messages with a version number
 
-As default, all messages are decorated with the most recent deployment version. If you want to override this behavior, check out [Adding Version Information](https://docs.elmah.io/adding-version-information/) for details.
+As default, all messages are decorated with the most recent deployment version. If you want to override this behavior, check out [Adding Version Information](adding-version-information.md) for details.
 
 ## Versioning Different Services
 

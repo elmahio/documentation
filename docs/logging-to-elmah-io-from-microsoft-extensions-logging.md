@@ -28,7 +28,7 @@ dotnet add package Elmah.Io.Extensions.Logging
 paket add Elmah.Io.Extensions.Logging
 ```
 
-Locate your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)) in the following.
+Locate your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID. The two values will be referenced as `API_KEY` and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) in the following.
 
 ## Logging from ASP.NET Core
 
@@ -322,7 +322,7 @@ logging
     });
 ```
 
-Check out [How to include source code in log messages](/how-to-include-source-code-in-log-messages/) for additional requirements to make source code show up on elmah.io.
+Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
 > Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
@@ -409,7 +409,7 @@ In this example, the elmah.io client routes all traffic through `http://localhos
 
 Here are some things to try out if logging from Microsoft.Extensions.Logging to elmah.io doesn't work:
 
-- Run the `diagnose` command with the [elmah.io CLI](https://docs.elmah.io/cli-overview/) as shown here: [Diagnose potential problems with an elmah.io installation](https://docs.elmah.io/cli-diagnose/).
+- Run the `diagnose` command with the [elmah.io CLI](cli-overview.md) as shown here: [Diagnose potential problems with an elmah.io installation](cli-diagnose.md).
 
 **`x` message(s) dropped because of queue size limit**
 

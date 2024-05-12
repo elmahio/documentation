@@ -9,7 +9,7 @@ description: Utilize elmah.io to log all errors from a single-page React app. De
 
 # Logging to elmah.io from React
 
-To log all errors from a React application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/). Then modify the `index.js` or `index.tsx` file:
+To log all errors from a React application, install the `elmah.io.javascript` npm package as described in [Logging from JavaScript](logging-to-elmah-io-from-javascript.md). Then modify the `index.js` or `index.tsx` file:
 
 ```javascript
 // ...

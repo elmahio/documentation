@@ -5,7 +5,7 @@ description: Learn about how to add JavaScript logging to elmah.io using JSNLog.
 
 # Logging to elmah.io from JSNLog
 
-> While logging through JSNLog still works, we recommend using our native integration with JavaScript: [Logging to elmah.io from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/)
+> While logging through JSNLog still works, we recommend using our native integration with JavaScript: [Logging to elmah.io from JavaScript](logging-to-elmah-io-from-javascript.md)
 
 Using JSNLog you will be able to log JavaScript errors to elmah.io. In this sample, we will focus on logging JavaScript errors from an ASP.NET MVC web application, but you can use JSNLog to log anything to elmah.io, so please check out their documentation.
 
@@ -39,7 +39,7 @@ dotnet add package Elmah.Io
 paket add Elmah.Io
 ```
 
-During the installation, you will be asked for your API key ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)) and log ID ([Where is my log ID?](https://docs.elmah.io/where-is-my-log-id/)).
+During the installation, you will be asked for your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
 Add the JSNLog code before any script imports in your _Layout.cshtml file:
 

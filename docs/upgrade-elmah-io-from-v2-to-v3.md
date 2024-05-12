@@ -29,7 +29,7 @@ The elmah.io.core package is no longer needed and can be uninstalled:
 Uninstall-Package elmah.io.core
 ```
 
-Next, you will need to add your API key to your `web.config`. Where the 2.x client only required a log ID to log messages to elmah.io, the new API improves security by introducing API keys ([Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)). Copy your API key and extend the `errorLog`-element in `web.config`:
+Next, you will need to add your API key to your `web.config`. Where the 2.x client only required a log ID to log messages to elmah.io, the new API improves security by introducing API keys ([Where is my API key?](where-is-my-api-key.md)). Copy your API key and extend the `errorLog`-element in `web.config`:
 
 ```xml
 <elmah>
@@ -43,7 +43,7 @@ If you didn't utilize elmah.io's code from C#, you are ready to rock and roll.
 
 The 3.x client is auto-generated from our new Swagger endpoint. This means that the code doesn't work like previously. We have tried to create extension methods to make some of the API work like previously, but since the client now supports both Messages, Logs, and Deployments, code changes are needed.
 
-If you are using the `ErrorSignal` class from ELMAH (the open-source project) to log exceptions manually, everything works as previously. If you are using methods from the Elmah.Io.Client package, there's a new API documented here: [Logging from Console](https://docs.elmah.io/logging-to-elmah-io-from-console-application/).
+If you are using the `ErrorSignal` class from ELMAH (the open-source project) to log exceptions manually, everything works as previously. If you are using methods from the Elmah.Io.Client package, there's a new API documented here: [Logging from Console](logging-to-elmah-io-from-console-application.md).
 
 ## Elmah.Io.Mvc and Elmah.Io.WebApi
 

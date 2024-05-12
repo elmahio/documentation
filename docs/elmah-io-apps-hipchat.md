@@ -9,7 +9,7 @@ description: Learn about how to set up the HipChat app for elmah.io. Automatical
 
 To allow elmah.io to log messages to HipChat, you will need to generate an OAuth 2 token. To do so, log into HipChat and go to the [API Access](https://elmahio.hipchat.com/account/api) page (replace *elmahio* with your subdomain).
 
-![OAuth Tokens Page](/images/apps/hipchat/generate_token.png)
+![OAuth Tokens Page](images/apps/hipchat/generate_token.png)
 
 Input a label, click the *Create* button and copy the generated token.
 
@@ -19,7 +19,7 @@ Input a label, click the *Create* button and copy the generated token.
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the HipChat app and click the *Install* button:
 
-![Install HipChat App](/images/apps/hipchat/install_hipchat.png)
+![Install HipChat App](images/apps/hipchat/install_hipchat.png)
 
 Paste the token copied in the previous step into the Token textbox. In the Room textbox, input the name of the HipChat chat room you want messages from elmah.io to show up in.
 

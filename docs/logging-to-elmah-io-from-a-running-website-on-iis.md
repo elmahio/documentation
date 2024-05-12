@@ -26,6 +26,6 @@ Elmah.Io.Client.x.y.z\lib\<.net version your website is using>\Elmah.Io.Client.d
 Newtonsoft.Json.x.y.z\lib\<.net version your website is using>\Newtonsoft.Json.dll
 ```
 
-Configure elmah.io in `Web.config` as described here: [Configure elmah.io manually](/configure-elmah-io-manually/) (you don't need to call the `Install-Package` command). Notice that the AppDomain will restart when saving changes to the `Web.config` file.
+Configure elmah.io in `Web.config` as described here: [Configure elmah.io manually](configure-elmah-io-manually.md) (you don't need to call the `Install-Package` command). Notice that the AppDomain will restart when saving changes to the `Web.config` file.
 
 If the website doesn't start logging errors to elmah.io, you may need to restart it.

@@ -9,7 +9,7 @@ Pipelines use scripts, embedded in YAML files, to configure the different steps 
 
 ![Add environment variable](images/pipelines-environment-variable-v2.png)
 
-[Where is my API key?](https://docs.elmah.io/where-is-my-api-key/)
+[Where is my API key?](where-is-my-api-key.md)
 
 Then add a new script to your build YAML-file after building and deploying your software:
 
