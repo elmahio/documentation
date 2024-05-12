@@ -93,8 +93,6 @@ public class HomeController : Controller
 }
 ```
 
-For an example of configuring elmah.io with ASP.NET Core 3.1, check out [this sample](https://github.com/elmahio/Elmah.Io.Extensions.Logging/tree/main/samples/Elmah.Io.Extensions.Logging.AspNetCore31).
-
 ### Include HTTP context
 
 A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET Core project. When combining the two, you would expect the log messages to contain relevant information from the HTTP context (like URL, status code, cookies, etc.). This is not the case out of the box, since Microsoft.Extensions.Logging doesn't know which project type includes it.

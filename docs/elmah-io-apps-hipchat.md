@@ -5,9 +5,11 @@ description: Learn about how to set up the HipChat app for elmah.io. Automatical
 
 # Install HipChat App for elmah.io
 
+> The Hipchat application was discontinued by Atlassian in 2019. We no longer support this integration either.
+
 ## Generate OAuth 2 Token
 
-To allow elmah.io to log messages to HipChat, you will need to generate an OAuth 2 token. To do so, log into HipChat and go to the [API Access](https://elmahio.hipchat.com/account/api) page (replace *elmahio* with your subdomain).
+To allow elmah.io to log messages to HipChat, you will need to generate an OAuth 2 token. To do so, log into HipChat and go to the API Access page (like https://elmahio.hipchat.com/account/api and replace *elmahio* with your subdomain).
 
 ![OAuth Tokens Page](images/apps/hipchat/generate_token.png)
 
