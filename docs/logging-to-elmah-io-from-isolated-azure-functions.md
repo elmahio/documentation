@@ -211,18 +211,39 @@ public class MyFunction
 }
 ```
 
-The `MyFunction` category will need configuration in either C# or in the `host.json` file:
+The `MyFunction` category will need configuration in either C# or in the a config file. In previous versions of Azure Functions you would use the `host.json` file for log configuration. The `host.json` file is dedicated for configuration of the host and since Isolated Functions are running in a process separate from the host, you will need a new file. Create a file named `appsettings.json` and include the following content:
 
 ```json
 {
   // ...
-  "logging": {
-    "logLevel": {
-      "default": "Warning",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
       "MyFunction": "Information"
     }
   }
 }
+```
+
+Next, change the Build Action to *Content* and Copy to Output Directory to *Copy if newer* in the properties of the `appsettings.json` file. Finally, include the following code in the `Program.cs` file to have the `Logging` section loaded by the Isolated Function process:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults((context, app) =>
+    {
+        // ...
+    })
+    .ConfigureAppConfiguration((hostContext, config) =>
+    {
+        // This adds the appsettings.json file to the global configuration
+        config.AddJsonFile("appsettings.json", optional: true);
+    })
+    .ConfigureLogging((hostingContext, logging) =>
+    {
+        // This configured the logger to pull settings from the Logging part of appsettings.json
+        logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+    })
+    .Build();
 ```
 
 ## Troubleshooting
