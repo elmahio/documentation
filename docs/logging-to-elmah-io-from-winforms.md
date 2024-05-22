@@ -30,10 +30,11 @@ using System.Security.Principal;
 using System.Threading;
 ```
 
-Add an event handler to the `ThreadException` event in the `Main` method:
+Add an event handler to the `ThreadException` event in the `Main` method before calling `Application.Run`:
 
 ```csharp
 Application.ThreadException += Application_ThreadException;
+// ApplicationConfiguration.Initialize, Application.Run, and similar
 ```
 
 Finally, add the `Application_ThreadException` method:
@@ -44,16 +45,32 @@ static void Application_ThreadException(object sender, ThreadExceptionEventArgs 
     var logger = ElmahioAPI.Create("API_KEY");
     var exception = e.Exception;
     var baseException = exception.GetBaseException();
+
+    var data = exception.ToDataList() ?? new List<Item>();
+
+    // Include this to log screen size
+    if (Screen.PrimaryScreen != null)
+    {
+        data.Add(new Item("Screen-Width", Screen.PrimaryScreen.Bounds.Width.ToString()));
+        data.Add(new Item("Screen-Height", Screen.PrimaryScreen.Bounds.Height.ToString()));
+    }
+
     logger.Messages.Create("LOG_ID", new CreateMessage
     {
         DateTime = DateTime.UtcNow,
-        Detail = exception?.ToString(),
-        Type = baseException?.GetType().FullName,
-        Title = baseException?.Message ?? "An error occurred",
-        Data = exception.ToDataList(),
+        Detail = exception.ToString(),
+        Type = baseException.GetType().FullName,
+        Title = baseException.Message ?? "An error occurred",
+        Data = data,
         Severity = "Error",
-        Source = baseException?.Source,
+        Source = baseException.Source,
         User = WindowsIdentity.GetCurrent().Name,
+        Version = Application.ProductVersion,
+        Hostname = Environment.MachineName ?? Environment.GetEnvironmentVariable("COMPUTERNAME"),
+        ServerVariables = new List<Item>
+        {
+            new Item("User-Agent", $"X-ELMAHIO-APPLICATION; OS=Windows; OSVERSION={Environment.OSVersion.Version}; ENGINE=WinForms")
+        }
     });
 
     Application.Exit();
