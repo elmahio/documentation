@@ -105,6 +105,7 @@ nav:
     - Logging from Isolated Azure Functions: logging-to-elmah-io-from-isolated-azure-functions.md
     - Logging from PowerShell: logging-to-elmah-io-from-powershell.md
     - Logging from WPF: logging-to-elmah-io-from-wpf.md
+    - Logging from WinUI: logging-to-elmah-io-from-winui.md
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from C# and console applications: logging-to-elmah-io-from-console-application.md
