@@ -38,3 +38,9 @@ By using the `isBot` field in Hide and Ignore filters, you can let elmah.io auto
 To create a new filter, navigate to the *Rules* tab on log settings, and click the *Add a new rule* button. Input a query including the `isBot` field and select either the *Hide* or *Ignore* action:
 
 ![Is Bot rule](images/new-isbot-rule.png)
+
+## Mark log messages using rules
+
+It is possible to automatically mark log messages using rules. If you know that an IP range or a specific user agent is a bot, setting up a *Mark as bot* rule can be done from either log search or log settings:
+
+![Mark as bot rule](images/mark-as-bot-rule.png)

@@ -16,7 +16,7 @@ This guide is also available as a short video tutorial here:
 
 The rule engine is located beneath each log on the log settings page:
 
-![Rules Tab](images/rulestab.png)
+![Rules Tab](images/rulestab-v2.png)
 
 A rule consists of three parts: a title, a query, and an action.
 
@@ -24,7 +24,7 @@ The title should be a short text explaining what this rule does. We don't use th
 
 The query should contain either a full-text search string or a Lucene query. When new messages are logged, the message is matched up against all queries registered on that log. If and only if a message matches a query, the action registered on the rule is performed.
 
-As mentioned above, the action part of a rule is executed when a message matches the query specified in the same rule. An action can be one of four types: Ignore, Hide, Mail, and HTTP Request. To illustrate how to use each action type, here are four examples of useful rules.
+As mentioned above, the action part of a rule is executed when a message matches the query specified in the same rule. An action can be one of six types: Ignore, Hide, Mail, HTTP Request, Mark as bot, and Mark as fixed. To illustrate how to use each action type, here are six examples of useful rules.
 
 ## Ignore errors with an HTTP status code of 400
 
@@ -38,7 +38,7 @@ To ignore all messages with an HTTP status code of 400, you would need to set up
 
 The rule would look like this in the UI:
 
-![Then Ignore](images/thenignore.png)
+![Then Ignore](images/thenignore-v2.png)
 
 ## Hide warnings
 
@@ -50,7 +50,7 @@ To hide all messages with a severity of `Warning`, you would need to set up the 
 
 The rule would look like this in the UI:
 
-![Then Ignore](images/thenhide.png)
+![Then Ignore](images/thenhide-v2.png)
 
 ## Send an email on all messages containing a word
 
@@ -62,7 +62,7 @@ To send an email on all messages containing the word _billing_ somewhere, you wo
 
 The rule would look like this in the UI:
 
-![Then Email](images/thenemail.png)
+![Then Email](images/thenemail-v2.png)
 
 ## Make an HTTP request on all new and fatal messages
 
@@ -74,5 +74,28 @@ To make an HTTP request on every new message with a severity of `Fatal`, you wou
 
 The rule would look like this in the UI:
 
-![Then HTTP](images/thenhttp.png)
+![Then HTTP](images/thenhttp-v2.png)
 
+## Mark log messages from IP as bot
+
+To mark log messages generated from an IP range with the `isBot` flag, you would need to set up the following:
+
+| Title | Query | Then |
+|---|---|---|
+| Mark IP as bot | `remoteAddr:172.253.63.*` | Mark as bot |
+
+The rule would look like this in the UI:
+
+![Then Mark as bot](images/thenmarkasbot.png)
+
+## Mark Debug log messages as fixed
+
+To mark log messages with a severity of `Debug` as fixed, you would need to set up the following:
+
+| Title | Query | Then |
+|---|---|---|
+| Mark Debug as fixed | `severity:Debug` | Mark as fixed |
+
+The rule would look like this in the UI:
+
+![Then Mark as fixed](images/thenmarkasfixed.png)
