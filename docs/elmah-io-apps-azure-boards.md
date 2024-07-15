@@ -19,8 +19,12 @@ For this example, we have picked 90 days expiration period, but you can decide o
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Azure Boards app and click the *Install* button:
 
-![Install Azure Boards App](images/apps/azureboards/install-settings.png)
+![Install Azure Boards App](images/apps/azureboards/install-settings-v2.png)
 
-Paste the token copied in the previous step into the *Token* textbox. In the *Organization* textbox, input the name of your organization. For https://dev.azure.com/myorg/myproject, the organization name would be *myorg*. In the *Project* textbox, input the name of the project containing your board. For https://dev.azure.com/myorg/myproject, the project name would be *myproject*. If you want to embed all bugs created by the app beneath an overall work item, epic, or similar, fill in the optional ID in the *Parent* field.
+Paste the token copied in the previous step into the *Token* textbox. In the *Organization* textbox, input the name of your organization. For https://dev.azure.com/myorg/myproject, the organization name would be *myorg*. In the *Project* textbox, input the name of the project containing your board. For https://dev.azure.com/myorg/myproject, the project name would be *myproject*.
+
+The *Type* dropdown will allow you to select another work item template than *Bug*. This will decide how the created issues from elmah.io are shown inside the Azure Boards UI. *Bug* and *Task* are available in most processes. *User Story* is part of the *Agile* process while *Product Backlog Item* is part of the *Scrum* process. So, pick according to the process you have configured on the selected project.
+
+If you want to embed all bugs created by the app beneath an overall work item, epic, or similar, fill in the optional ID in the *Parent* field.
 
 Click *Save* and the app is added to your log. When new errors are logged, bugs are automatically created in the configured Azure Board.
