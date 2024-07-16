@@ -85,7 +85,7 @@ To help you set up client-side filtering in commonly used logging frameworks, cl
 
 ## Monitor current usage
 
-We send you an email when you have used 90% of your limit and again when reaching the limit. Monitoring your usage is a good supplement to the emails since you can react early on (by upgrading, ignoring errors, or something else). There's a usage graph on the Organisation Settings view:
+We send you an email when you have used 90% of your limit and again when reaching the limit. Monitoring your usage is a good supplement to the emails since you can react early on (by upgrading, ignoring errors, or something else). There's a usage graph on the *Organization Settings* view:
 
 ![Usage Graph](images/usage-graph-v2.png)
 
@@ -99,7 +99,7 @@ Seeing the same error over and over again? Maybe the best idea is to fix it :) I
 
 ## Purchase a top-up
 
-Sometimes, a spike in errors can be caused by unexpected events like a black hat bot deciding to bombard your site with requests or a junior dev on your team accidentally enabling verbose logging. In these cases, purchasing a top-up may be a better solution than permanently upgrading your plan. Top-ups can be purchased from your subscription when you reach 90% of your included messages. Top-ups are purchased in bundles of 25,000 messages, valid for the rest of the calendar month.
+Sometimes, a spike in errors can be caused by unexpected events like a black hat bot deciding to bombard your site with requests or a junior dev on your team accidentally enabling verbose logging. In these cases, purchasing a top-up may be a better solution than permanently upgrading your plan. Top-ups can be purchased from the *Subscription* tab on the *Organization Settings* page. Top-ups are purchased in bundles of 25,000 messages, valid for the rest of the calendar month.
 
 ## Upgrading to the next plan
 
