@@ -27,14 +27,14 @@ Notifying elmah.io about new deployments is possible as a build step in Azure De
 
 6. Click the *Add* button and the new task will be added to your YAML definition. You typically want to move the deployment task to the last placement in *tasks*:
 
-```yaml
-steps:
-# other steps
-- task: ElmahIoDeploymentNotification@4
-  inputs:
-    apiKey: 'API_KEY'
-    logId: 'LOG_ID'
-```
+    ```yaml
+    steps:
+    # other steps
+    - task: ElmahIoDeploymentNotification@4
+      inputs:
+        apiKey: 'API_KEY'
+        logId: 'LOG_ID'
+    ```
 
 ## Using Classic editor
 
