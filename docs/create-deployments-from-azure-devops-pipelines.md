@@ -23,6 +23,8 @@ Notifying elmah.io about new deployments is possible as a build step in Azure De
 
 5. Replace `API_KEY` with an API key ([Where is my API key?](where-is-my-api-key.md)) with permission ([How to configure API key permissions](how-to-configure-api-key-permissions.md)) to create deployments. If the deployment is specific to a single log, insert a log ID ([Where is my log ID?](where-is-my-log-id.md)) with the ID of the log instead of `LOG_ID`. Deployments without a log ID will show on all logs in the organization.
 
+The task uses the current build number (`BUILD_BUILDNUMBER`) as the version name on elmah.io. If you want to override this behavior, you can insert a value in the *Version* text box.
+
 6. Click the *Add* button and the new task will be added to your YAML definition. You typically want to move the deployment task to the last placement in *tasks*:
 
 ```yaml
