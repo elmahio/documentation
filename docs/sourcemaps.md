@@ -120,19 +120,41 @@ api.SourceMaps.CreateOrUpdate(
 
 ### Upload from Azure DevOps
 
-Uploading one or more source maps from Azure DevOps is available using our integration with Pipelines. Here is a guide to help you upload source maps from Azure DevOps. Before you can include the upload source map task, you will need to publish your generated source maps and minified JavaScript files from your build pipeline.
+Uploading one or more source maps from Azure DevOps is available using our integration with Pipelines and Releases. Here is a guide to help you upload source maps from Azure DevOps.
 
-1. Go to the [elmah.io Upload Source Map](https://marketplace.visualstudio.com/items?itemName=elmahio.elmah-io-upload-source-map) extension on the Azure DevOps Marketplace and click the _Get it free_ button:
+Go to the [elmah.io Upload Source Map](https://marketplace.visualstudio.com/items?itemName=elmahio.elmah-io-upload-source-map) extension on the Azure DevOps Marketplace and click the _Get it free_ button:
 
 ![Install the extension](images/marketplace_get_it_free.png)
 
-2. Select your organization and click the *Install* button:
+Select your organization and click the *Install* button:
 
 ![Select organization](images/marketplace_select_organization.png)
 
-3. Go to your Azure DevOps project and add the *elmah.io Upload Source Map* task. Fill in all fields as shown here:
+#### Pipelines
 
-![Add the task](images/release_pipeline_task.png)
+Go to your Azure DevOps Pipeline configuration and add the *elmah.io Upload Source Map* task. Fill in the fields as shown here:
+
+![Add the task](images/pipeline-task-v2.png)
+
+When clicking the *Add* button, YAML code will be added to your configuration looking similar to this:
+
+```yaml
+- task: ElmahIoUploadSourceMap@4
+  inputs:
+    apiKey: 'API_KEY'
+    logId: 'LOG_ID'
+    path: '/bundles/sharedbundle.min.js'
+    sourceMap: '$(System.DefaultWorkingDirectory)/myproject/bundles/sharedbundle.map'
+    minifiedJavaScript: '$(System.DefaultWorkingDirectory)/myproject/bundles/sharedbundle.min.js'
+```
+
+#### Releases
+
+Before you can include the upload source map task, you will need to publish your generated source maps and minified JavaScript files from your build pipeline.
+
+Go to your Azure DevOps project and add the *elmah.io Upload Source Map* task. Fill in all fields as shown here:
+
+![Add the task](images/release-pipeline-task-v2.png)
 
 ### Upload from GitHub Actions
 
