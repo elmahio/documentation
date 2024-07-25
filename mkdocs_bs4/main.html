@@ -102,6 +102,17 @@
               </li>
               {% endfor %}
             </ul>
+            <div class="bugster-banner">
+              <a role="button" data-toggle="modal" data-target="#bugsterModal">
+                <div class="content">
+                  <p class="mb-1 lead">Have a question ?</p>
+                  <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+                </div>
+                <div class="bugster-logo">
+                  <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+                </div>
+              </a>
+            </div>
           </div>
         </aside>
         <a id="show-sidebar" href="javascript:;" class="btn btn-light btn-block d-block d-md-none border"><span class="fal fa-bars"></span> <span>Documentation menu</span></a>
@@ -210,6 +221,58 @@
     		</div>
     	</div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="bugster-hero">
+              <div class="bugster-logo text-center">
+                <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+              </div>
+              <div class="content text-center">
+                <p class="lead mb-2">Introducing Bugster <span class="badge badge-danger">BETA</span></p>
+                <p>Your AI assistant for quick navigation through documentation, providing valuable answers and insights in no time!</p>
+                <div class="row">
+                  <div class="col-md-6"><a href="#" class="list-group-item-action mb-2">Quick link 1</a></div>
+                  <div class="col-md-6"><a href="#" class="list-group-item-action mb-2">Quick link 2</a></div>
+                  <div class="col-md-6"><a href="#" class="list-group-item-action mb-2">Quick link 3</a></div>
+                  <div class="col-md-6"><a href="#" class="list-group-item-action mb-2">Quick link 4</a></div>
+              </div>
+              </div>
+            </div>
+            <div class="bugster-chat d-none">
+              <div class="user-dialog d-none">
+                <div class="user-dialog-text"></div>
+              </div>
+              <div class="bugster-dialog d-none">
+                <div class="bugster-dialog-avatar">
+                  <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+                </div>
+                <div class="bugster-dialog-text">
+                  <div class="content"></div>
+                  <button id="ask-another-question" class="btn btn-primary d-none">Ask another question</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="input-group">
+              <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
