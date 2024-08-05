@@ -34,6 +34,8 @@ At first, the user creating the organization will be the only one on the list. T
 
 When the new user is visible in the dropdown, click the user and select an access level. The chosen access level decides what the new user is allowed to do inside the organization. *Read* users are only allowed to view the organization, while *Administrator* users are allowed to add new users and delete the entire organization and all logs beneath it. The access level set for the user in the organization will become the user's access level on all new logs inside that organization as well.
 
+When adding a user to your organization, the user will need to click *Accept* in an email sent to the address associated with their profile in elmah.io, before you can see their email address in the list of users.
+
 To change the access level on an added user, click one of the grouped buttons to the right of the user's name. Changing a user's access level on the organization won't change the user's access level on each log. To delete a user from the organization, click the red delete button to the far right.
 
 When a user is added to an organization, the user will automatically have access to all new logs created in that organization. For security reasons, a new user added to the organization, will not have access to existing logs in the organization. To assign the new user to existing logs, assign an access level on each log by clicking the settings button to the right of the user:
