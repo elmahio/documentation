@@ -286,8 +286,9 @@ $(document).ready(function(){
 					setTimeout(function() {
 						$.ajax({
 							type: "GET",
-							url: "https://httpbin.org/drip?duration=2&numbytes=50&code=200&delay=0",
+							url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
 							dataType: "text",
+							data: { q: question.value },
 							xhrFields: {
 								onprogress: (progressEvent) => {
 									if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
