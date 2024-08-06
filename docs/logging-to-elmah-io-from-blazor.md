@@ -212,7 +212,7 @@ builder.Logging.AddElmahIo();
 
 > The `AddElmahIo` mehtod without parameters was introduced in `Elmah.Io.Blazor.Wasm` v5 package. For earlier versions, provide empty options like this:
 >
-> ```csharp
+> ```
 > builder.Logging.AddElmahIo(options => {});
 > ```
 
