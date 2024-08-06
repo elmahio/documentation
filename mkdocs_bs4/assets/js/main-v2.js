@@ -296,7 +296,7 @@ $(document).ready(function(){
 									}
 									const { target } = progressEvent;
 									if (target.status === 200) {
-										bugsterText.innerHTML += target.response + " ";
+										bugsterText.innerHTML = target.response;
 									}
 								}
 							}
