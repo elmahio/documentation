@@ -210,11 +210,7 @@ builder.Services.Configure<ElmahIoBlazorOptions>(builder.Configuration.GetSectio
 builder.Logging.AddElmahIo();
 ```
 
-> The `AddElmahIo` mehtod without parameters was introduced in `Elmah.Io.Blazor.Wasm` v5 package. For earlier versions, provide empty options like this:
->
-> ```
-> builder.Logging.AddElmahIo(options => {});
-> ```
+> The `AddElmahIo` mehtod without parameters was introduced in `Elmah.Io.Blazor.Wasm` v5 package. For earlier versions, provide empty options like this: `builder.Logging.AddElmahIo(options => {});`
 
 ## Blazor (United) App
 
