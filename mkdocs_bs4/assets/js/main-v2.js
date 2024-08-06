@@ -269,58 +269,63 @@ $(document).ready(function(){
 	const md = new remarkable.Remarkable();
 
 	$('#bugsterModal button#send-message').on('click', function (event) {
-		userDialog.classList.add('d-none');
-		bugsterDialog.classList.add('d-none');
+		if (question.value === "") {
+			question.classList.add('is-invalid');
+		} else {
+			question.classList.remove('is-invalid');
+			userDialog.classList.add('d-none');
+			bugsterDialog.classList.add('d-none');
 
-		$('.bugster-hero').fadeOut("slow", function() {
-			$('#bugsterModal .modal-footer').slideUp("slow", function() {
-				setTimeout(function() {
-					bugsterChat.classList.remove('d-none');
-					userText.innerHTML = `<p>${ question.value }</p>`;
-					userDialog.classList.remove('d-none');
-
+			$('.bugster-hero').fadeOut("slow", function() {
+				$('#bugsterModal .modal-footer').slideUp("slow", function() {
 					setTimeout(function() {
-						bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
-						bugsterDialog.classList.remove('d-none');
-					}, 500);
+						bugsterChat.classList.remove('d-none');
+						userText.innerHTML = `<p>${ question.value }</p>`;
+						userDialog.classList.remove('d-none');
 
-					setTimeout(function() {
-						$.ajax({
-							type: "POST",
-							url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
-							dataType: "text",
-							data: { q: question.value },
-							xhrFields: {
-								onprogress: (progressEvent) => {
-									if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
-										bugsterText.innerHTML = '';
-									}
-									const { target } = progressEvent;
-									if (target.status === 200) {
-										bugsterText.innerHTML = md.render(target.response);
+						setTimeout(function() {
+							bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
+							bugsterDialog.classList.remove('d-none');
+						}, 500);
+
+						setTimeout(function() {
+							$.ajax({
+								type: "POST",
+								url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
+								dataType: "text",
+								data: { q: question.value },
+								xhrFields: {
+									onprogress: (progressEvent) => {
+										if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
+											bugsterText.innerHTML = '';
+										}
+										const { target } = progressEvent;
+										if (target.status === 200) {
+											bugsterText.innerHTML = md.render(target.response);
+										}
 									}
 								}
-							}
-						}).done(function (data) {
-							bugsterText.querySelectorAll('pre code').forEach(codeElement => {
-								codeElement.parentNode.style.padding = "0px";
-								hljs.highlightElement(codeElement);
-							});
-			
-							bugsterText.querySelectorAll('a').forEach(aElement => {
-								aElement.target = "_blank";
-								aElement.rel = "noopener noreferrer";
-							});
+							}).done(function (data) {
+								bugsterText.querySelectorAll('pre code').forEach(codeElement => {
+									codeElement.parentNode.style.padding = "0px";
+									hljs.highlightElement(codeElement);
+								});
+				
+								bugsterText.querySelectorAll('a').forEach(aElement => {
+									aElement.target = "_blank";
+									aElement.rel = "noopener noreferrer";
+								});
 
-							askAnotherQuestion.classList.remove('d-none');
-						}).fail(function (jqXHR, textStatus) {
-							// error handling
-						});
-					}, 1500);
+								askAnotherQuestion.classList.remove('d-none');
+							}).fail(function (jqXHR, textStatus) {
+								// error handling
+							});
+						}, 1500);
 
-				}, 500);
+					}, 500);
+				});
 			});
-		});
+		}
 	});
 
 	$('#ask-another-question').on('click', function (event) {
