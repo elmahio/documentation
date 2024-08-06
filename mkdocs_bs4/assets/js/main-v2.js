@@ -302,6 +302,16 @@ $(document).ready(function(){
 								}
 							}
 						}).done(function (data) {
+							bugsterText.querySelectorAll('pre code').forEach(codeElement => {
+								codeElement.parentNode.style.padding = "0px";
+								hljs.highlightElement(codeElement);
+							});
+			
+							bugsterText.querySelectorAll('a').forEach(aElement => {
+								aElement.target = "_blank";
+								aElement.rel = "noopener noreferrer";
+							});
+
 							askAnotherQuestion.classList.remove('d-none');
 						}).fail(function (jqXHR, textStatus) {
 							// error handling

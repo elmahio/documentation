@@ -444,7 +444,7 @@ blockquote a, blockquote a:visited {
 	border-radius: 10px;
 	border-top-right-radius: 0px;
 }
-.bugster-chat .user-dialog p {
+.bugster-chat .user-dialog-text p {
 	margin-bottom: 0;
 }
 .bugster-chat .bugster-dialog {
@@ -456,6 +456,9 @@ blockquote a, blockquote a:visited {
 	flex: 0 0 54px;
 	margin-right: 15px;
 }
+.bugster-chat .bugster-dialog-text {
+	width: calc(100% - 69px);
+}
 .bugster-chat .bugster-dialog-text .content {
 	background: #eee;
 	padding: 10px 15px;
@@ -465,8 +468,32 @@ blockquote a, blockquote a:visited {
 	margin-top: 5px;
 	min-height: 44px;
 }
-.bugster-chat .bugster-dialog p {
+
+.bugster-chat .bugster-dialog-text .content h3 {
+	font-size: 18px;
+}
+.bugster-chat .bugster-dialog-text .content h4 {
+	font-size: 16px;
+}
+.bugster-chat .bugster-dialog-text .content p:last-child {
 	margin-bottom: 0;
+}
+.bugster-chat .bugster-dialog-text .content pre {
+	position: relative;
+    white-space: pre;
+    overflow-x: auto;
+    background-color: #2E3440;
+    color: #fff;
+    z-index: 1;
+    font-family: monospace;
+    font-size: 13px;
+    padding: 15px;
+}
+.bugster-chat .bugster-dialog-text .content pre code {
+	background-color: #2E3440;
+}
+.bugster-chat .bugster-dialog-text .content pre code.hljs {
+	padding: 15px;
 }
 
 .main-content {
