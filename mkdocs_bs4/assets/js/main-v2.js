@@ -257,6 +257,77 @@ $(document).ready(function(){
 			$(document).scrollTop($(event.currentTarget).offset().top - currentOffset);
 		}
 	});
+
+	// Bugster
+	const question = document.querySelector('#bugsterModal input#question');
+	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat');
+	const userDialog = document.querySelector('.bugster-chat .user-dialog');
+	const userText = document.querySelector('.bugster-chat .user-dialog-text');
+	const bugsterDialog = document.querySelector('.bugster-chat .bugster-dialog');
+	const bugsterText = document.querySelector('.bugster-chat .bugster-dialog-text .content');
+	const askAnotherQuestion = document.querySelector('#ask-another-question');
+
+	$('#bugsterModal button#send-message').on('click', function (event) {
+		userDialog.classList.add('d-none');
+		bugsterDialog.classList.add('d-none');
+
+		$('.bugster-hero').fadeOut("slow", function() {
+			$('#bugsterModal .modal-footer').slideUp("slow", function() {
+				setTimeout(function() {
+					bugsterChat.classList.remove('d-none');
+					userText.innerHTML = `<p>${ question.value }</p>`;
+					userDialog.classList.remove('d-none');
+
+					setTimeout(function() {
+						bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
+						bugsterDialog.classList.remove('d-none');
+					}, 500);
+
+					setTimeout(function() {
+						$.ajax({
+							type: "GET",
+							url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
+							dataType: "text",
+							data: { q: question.value },
+							xhrFields: {
+								onprogress: (progressEvent) => {
+									if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
+										bugsterText.innerHTML = '';
+									}
+									const { target } = progressEvent;
+									if (target.status === 200) {
+										bugsterText.innerHTML += target.response + " ";
+									}
+								}
+							}
+						}).done(function (data) {
+							askAnotherQuestion.classList.remove('d-none');
+						}).fail(function (jqXHR, textStatus) {
+							// error handling
+						});
+					}, 1500);
+
+				}, 500);
+			});
+		});
+	});
+
+	$('#ask-another-question').on('click', function (event) {
+		askAnotherQuestion.classList.add('d-none');
+		question.value = "";
+		$('#bugsterModal .modal-footer').slideDown("slow");
+	});
+
+	$('#bugsterModal').on('hidden.bs.modal', function (event) {
+		$('.bugster-hero, #bugsterModal .modal-footer').removeAttr('style');
+		bugsterChat.classList.add('d-none');
+		askAnotherQuestion.classList.add('d-none');
+		question.value = "";
+		userDialog.classList.add('d-none');
+		userText.innerHTML = '';
+		bugsterDialog.classList.add('d-none');
+		bugsterText.innerHTML = '';
+	});
 });
 
 window.intercomSettings = {
