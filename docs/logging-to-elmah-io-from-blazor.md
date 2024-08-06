@@ -38,7 +38,7 @@ builder.Logging.AddElmahIo(options =>
 });
 ```
 
-Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)).
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the ID of the log you want messages sent to ([Where is my log ID?](where-is-my-log-id.md)). The package can be configured through settings if you prefer. Check out [appsettings.json configuration](logging-to-elmah-io-from-microsoft-extensions-logging.md#appsettingsjson-configuration) for details.
 
 All uncaught exceptions are automatically logged to elmah.io. Exceptions can be logged manually, by injecting an `ILogger` into your view and adding `try/catch`:
 
@@ -189,6 +189,32 @@ The following may be implemented by the package later:
 - Additional information about the HTTP context (like cookies, URL, and user).
 - Internal message queue and/or batch processing like `Microsoft.Extensions.Logging`.
 - Support for logging scopes.
+
+### Configuration in appsettings.json
+
+Blazor WebAssembly doesn't provide an `appsettings.json` file as part of the default template. To add one, create a new file named `appsettings.json` in the `wwwroot` directory. Make sure to set *Build Action* to *Content* and *Copy to Output Directory* to *Copy if Newer*. In the file, add the following content:
+
+```json
+{
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+```
+
+As before, `API_KEY` and `LOG_ID` should be replaced with real values. In the `Program.cs` file you can load the config and set up `Elmah.Io.Blazor.Wasm` using the overloaded `AddElmahIo` method:
+
+```csharp
+builder.Services.Configure<ElmahIoBlazorOptions>(builder.Configuration.GetSection("ElmahIo"));
+builder.Logging.AddElmahIo();
+```
+
+> The `AddElmahIo` mehtod without parameters was introduced in `Elmah.Io.Blazor.Wasm` v5 package. For earlier versions, provide empty options like this:
+>
+> ```csharp
+> builder.Logging.AddElmahIo(options => {});
+> ```
 
 ## Blazor (United) App
 
