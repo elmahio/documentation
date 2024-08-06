@@ -266,6 +266,7 @@ $(document).ready(function(){
 	const bugsterDialog = document.querySelector('.bugster-chat .bugster-dialog');
 	const bugsterText = document.querySelector('.bugster-chat .bugster-dialog-text .content');
 	const askAnotherQuestion = document.querySelector('#ask-another-question');
+	const md = new remarkable.Remarkable();
 
 	$('#bugsterModal button#send-message').on('click', function (event) {
 		userDialog.classList.add('d-none');
@@ -296,7 +297,7 @@ $(document).ready(function(){
 									}
 									const { target } = progressEvent;
 									if (target.status === 200) {
-										bugsterText.innerHTML = target.response;
+										bugsterText.innerHTML = md.render(target.response);
 									}
 								}
 							}
