@@ -285,7 +285,7 @@ $(document).ready(function(){
 
 					setTimeout(function() {
 						$.ajax({
-							type: "GET",
+							type: "POST",
 							url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
 							dataType: "text",
 							data: { q: question.value },
