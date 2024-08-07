@@ -336,6 +336,176 @@ blockquote a, blockquote a:visited {
     border-left: 2px solid #0da58e;
 }
 
+.bugster-banner {
+	margin-top: 10px;
+	background: #252b38;
+	border: 2px solid;
+	border-image: linear-gradient(to right, #0da58e, #065c85) 1;
+}
+.bugster-banner a {
+	display: flex;
+	align-items: center;
+	padding: 7px 14px;
+}
+.bugster-banner .content {
+	color: #fff;
+	font-size: 12px;
+	padding-right: 10px;
+}
+.bugster-banner .content p {
+	font-weight: 300;
+}
+.bugster-banner .content p.lead {
+	font-size: 15px;
+    font-weight: 700;
+}
+.bugster-banner .bugster-logo {
+	width: 100px;
+}
+
+#bugsterModal .modal-header {
+	padding-bottom: 0;
+	border-bottom: 0;
+	background: #fff;
+}
+#bugsterModal .close {
+	outline: none;
+}
+#bugsterModal .modal-body {
+	background: #fff;
+	height: 600px;
+}
+
+#bugsterModal .modal-body::-webkit-scrollbar {
+	width: 5px;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-thumb {
+	background: #888;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+#bugsterModal .form-control:focus {
+    border-color: #0da58e;
+	box-shadow: none;
+}
+#bugsterModal .modal-footer {
+	background: #f5f5f5;
+}
+.bugster-hero {
+	padding: 40px 0px;
+	max-width: 450px;
+	margin: 0 auto;
+	display: flex;
+    height: 100%;
+	min-height: 350px;
+    flex-direction: column;
+    justify-content: center;
+}
+.bugster-hero .bugster-logo {
+	max-width: 100px;
+	margin: 0 auto;
+}
+.bugster-hero .content {
+	margin-top: 10px;
+}
+.bugster-hero .content p {
+	font-weight: 400;
+}
+.bugster-hero .content .badge {
+	font-weight: 400;
+}
+.bugster-hero .col-md-6 {
+	padding: 0 5px;
+}
+.bugster-hero .list-group-item-action {
+	display: block;
+	padding: 5px 10px;
+	border: 1px solid #dee2e6;
+	border-radius: 4px;
+	background: #f5f5f5;
+	min-height: 54px;
+	align-content: center;
+	line-height: 20px;
+}
+.bugster-hero .list-group-item-action:hover {
+	border: 1px solid #0da58e;
+}
+.bugster-hero .list-group-item-action span {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.bugster-chat {
+	padding: 10px 20px;
+}
+.bugster-chat .user-dialog {
+	display: flex;
+    justify-content: end;
+}
+.bugster-chat .user-dialog-text {
+	background: #2E3440;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 10px;
+	border-top-right-radius: 0px;
+}
+.bugster-chat .user-dialog-text p {
+	margin-bottom: 0;
+}
+.bugster-chat .bugster-dialog {
+	display: flex;
+    justify-content: start;
+	margin-top: 25px;
+}
+.bugster-chat .bugster-dialog-avatar {
+	flex: 0 0 54px;
+	margin-right: 15px;
+}
+.bugster-chat .bugster-dialog-text {
+	width: calc(100% - 69px);
+}
+.bugster-chat .bugster-dialog-text .content {
+	background: #eee;
+	padding: 10px 15px;
+	border-radius: 10px;
+	border-top-left-radius: 0px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	min-height: 44px;
+}
+
+.bugster-chat .bugster-dialog-text .content h3 {
+	font-size: 18px;
+}
+.bugster-chat .bugster-dialog-text .content h4 {
+	font-size: 16px;
+}
+.bugster-chat .bugster-dialog-text .content p:last-child {
+	margin-bottom: 0;
+}
+.bugster-chat .bugster-dialog-text .content pre {
+	position: relative;
+    white-space: pre;
+    overflow-x: auto;
+    background-color: #2E3440;
+    color: #fff;
+    z-index: 1;
+    font-family: monospace;
+    font-size: 13px;
+    padding: 15px;
+}
+.bugster-chat .bugster-dialog-text .content pre code {
+	background-color: #2E3440;
+}
+.bugster-chat .bugster-dialog-text .content pre code.hljs {
+	padding: 15px;
+}
+
 .main-content {
 	max-width: calc(100% - 300px);
 }
@@ -1086,6 +1256,13 @@ img.gif {
 	}
 	.main-content-body {
 	    padding: 20px 0px 0px 0px;
+	}
+	.bugster-hero .col-md-6 {
+		padding: 0 10px;
+	}
+	.bugster-chat .bugster-dialog-avatar {
+		flex: 0 0 32px;
+		margin-right: 10px;
 	}
 }
 
