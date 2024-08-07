@@ -268,6 +268,11 @@ $(document).ready(function(){
 	const askAnotherQuestion = document.querySelector('#ask-another-question');
 	const md = new remarkable.Remarkable();
 
+	$('#bugsterModal a.list-group-item-action').on('click', function (event) {
+		question.value = event.currentTarget.dataset.question;
+		$('#bugsterModal button#send-message').trigger('click');
+	});
+
 	$('#bugsterModal button#send-message').on('click', function (event) {
 		if (question.value === "") {
 			question.classList.add('is-invalid');
@@ -292,8 +297,8 @@ $(document).ready(function(){
 							$.ajax({
 								type: "POST",
 								url: "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==",
-								dataType: "text",
-								data: { q: question.value },
+								contentType: "text/plain",
+								data: question.value,
 								xhrFields: {
 									onprogress: (progressEvent) => {
 										if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
