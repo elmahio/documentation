@@ -109,6 +109,7 @@ nav:
     - Logging from Windows Forms: logging-to-elmah-io-from-winforms.md
     - Logging from Entity Framework Core: logging-to-elmah-io-from-entity-framework-core.md
     - Logging from C# and console applications: logging-to-elmah-io-from-console-application.md
+    - Logging from OpenTelemetry: logging-to-elmah-io-from-opentelemetry.md
     - Logging from HttpClient: logging-to-elmah-io-from-httpclient.md
     - Logging from AWS Beanstalk: logging-to-elmah-io-from-aws-beanstalk.md
     - Logging from AWS Lambdas: logging-to-elmah-io-from-aws-lambdas.md
