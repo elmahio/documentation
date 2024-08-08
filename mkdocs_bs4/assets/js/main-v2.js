@@ -273,11 +273,13 @@ $(document).ready(function(){
 		$('#bugsterModal button#send-message').trigger('click');
 	});
 
-	$('#bugsterModal button#send-message').on('click', function (event) {
+
+
+	$('#bugster-form').on('submit', function (event) {
+		event.preventDefault();
 		if (question.value === "") {
-			question.classList.add('is-invalid');
+			// do nothing
 		} else {
-			question.classList.remove('is-invalid');
 			userDialog.classList.add('d-none');
 			bugsterDialog.classList.add('d-none');
 

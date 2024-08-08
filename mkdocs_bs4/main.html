@@ -286,12 +286,14 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div class="input-group">
-              <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required>
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+            <form id="bugster-form" class="form w-100">
+              <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required autocomplete="off">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
