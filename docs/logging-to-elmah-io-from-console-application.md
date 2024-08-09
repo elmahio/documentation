@@ -129,7 +129,7 @@ In the example above, only `Information` breadcrumbs are added. The `Severity` p
 
 ## Events
 
-The elmah.io client supports two different events: `OnMessage` and `OnMessageFail`.
+The elmah.io client supports a range of different events to help carry out common tasks.
 
 ### OnMessage
 
