@@ -170,6 +170,23 @@ logger.Messages.OnMessageFail += (sender, eventArgs) =>
 };
 ```
 
+### OnMessageFilter
+
+> The `OnMessageFilter` event require `Elmah.Io.Client` version `5.2.*` or newer.
+
+One or more filters can be set up to easily ignore messages based on their messages. To set up a filter, implement the `OnMessageFilter` event like this:
+
+```csharp
+logger.Messages.OnMessageFilter += (sender, eventArgs) =>
+{
+    eventArgs.Filter =
+        eventArgs.Message.Title.Contains(
+            "foo", StringComparison.InvariantCultureIgnoreCase);
+};
+```
+
+This example sets the `Filter` property to a boolean indicating if the message should be filtered/ignored or not. In case the log message contains the word 'foo', the message will be ignored.
+
 ## Bulk upload
 
 If logging many messages to elmah.io, bulk upload can be a way to optimize performance. The elmah.io client supports bulk upload using the `CreateBulkAndNotify`-method:
