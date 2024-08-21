@@ -14,12 +14,12 @@ Examples:
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#aspnet" aria-controls="home" role="tab" data-toggle="tab">ASP.NET</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#aspnetcore" aria-controls="profile" role="tab" data-toggle="tab">ASP.NET Core</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#serilog" aria-controls="profile" role="tab" data-toggle="tab">Serilog</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#nlog" aria-controls="profile" role="tab" data-toggle="tab">NLog</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#log4net" aria-controls="profile" role="tab" data-toggle="tab">log4net</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#mel" aria-controls="profile" role="tab" data-toggle="tab">Microsoft.Extensions.Logging</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#aspnet" aria-controls="home" role="tab" data-bs-toggle="tab">ASP.NET</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#aspnetcore" aria-controls="profile" role="tab" data-bs-toggle="tab">ASP.NET Core</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#serilog" aria-controls="profile" role="tab" data-bs-toggle="tab">Serilog</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#nlog" aria-controls="profile" role="tab" data-bs-toggle="tab">NLog</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#log4net" aria-controls="profile" role="tab" data-bs-toggle="tab">log4net</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#mel" aria-controls="profile" role="tab" data-bs-toggle="tab">Microsoft.Extensions.Logging</a></li>
 </ul>
 </div>
 </div>

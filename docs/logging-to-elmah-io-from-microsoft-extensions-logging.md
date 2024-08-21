@@ -131,8 +131,8 @@ Choose the right framework version:
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore6" aria-controls="home" role="tab" data-toggle="tab" data-tab="net6">.NET >= 6</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore3" aria-controls="home" role="tab" data-toggle="tab" data-tab="net3">.NET Core 3</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#netcore6" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="net6">.NET >= 6</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#netcore3" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="net3">.NET Core 3</a></li>
 </ul>
 </div>
 </div>

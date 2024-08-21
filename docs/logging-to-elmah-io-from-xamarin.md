@@ -33,8 +33,8 @@ For each platform (Android and iOS) you will need to set up elmah.io as illustra
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#android" aria-controls="home" role="tab" data-toggle="tab" data-tab="android">Android</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ios" aria-controls="home" role="tab" data-toggle="tab" data-tab="ios">iOS</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#android" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="android">Android</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ios" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="ios">iOS</a></li>
 </ul>
 </div>
 </div>
@@ -249,8 +249,8 @@ Additional steps will vary from platform to platform.
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#androidlegacy" aria-controls="home" role="tab" data-toggle="tab" data-tab="android">Android</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ioslegacy" aria-controls="home" role="tab" data-toggle="tab" data-tab="ios">iOS</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#androidlegacy" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="android">Android</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ioslegacy" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="ios">iOS</a></li>
 </ul>
 </div>
 </div>

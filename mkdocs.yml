@@ -4,14 +4,14 @@ site_url: https://docs.elmah.io/
 site_author: Thomas Ardal
 theme:
     name: null
-    custom_dir: "mkdocs_bs4/"
+    custom_dir: "mkdocs_bs5/"
     static_templates:
     - 404.html
 extra_css:
     - style.css
 markdown_extensions:
     - markdown_fenced_code_tabs_next:
-        template: "bootstrap4"
+        template: "bootstrap5"
     - pymdownx.emoji:
         emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - attr_list
@@ -34,7 +34,7 @@ plugins:
         enable_creation_date: true
 production: false
 watch:
-    - mkdocs_bs4
+    - mkdocs_bs5
 validation:
     absolute_links: relative_to_docs
     anchors: warn

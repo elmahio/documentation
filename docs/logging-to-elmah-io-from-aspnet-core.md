@@ -37,8 +37,8 @@ using Elmah.Io.AspNetCore;
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard" aria-controls="standard" role="tab" data-toggle="tab" data-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel" aria-controls="toplevel" role="tab" data-toggle="tab" data-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard" aria-controls="standard" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel" aria-controls="toplevel" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
 </ul>
 </div>
 </div>
@@ -117,8 +117,8 @@ Configuring elmah.io is done by calling the `Configure`-method before `AddElmahI
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard2" aria-controls="standard2" role="tab" data-toggle="tab" data-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel2" aria-controls="toplevel2" role="tab" data-toggle="tab" data-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard2" aria-controls="standard2" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel2" aria-controls="toplevel2" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
 </ul>
 </div>
 </div>
@@ -316,8 +316,8 @@ public class DecorateElmahIoMessages : IConfigureOptions<ElmahIoOptions>
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard3" aria-controls="standard3" role="tab" data-toggle="tab" data-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel3" aria-controls="toplevel3" role="tab" data-toggle="tab" data-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard3" aria-controls="standard3" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel3" aria-controls="toplevel3" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
 </ul>
 </div>
 </div>
