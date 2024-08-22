@@ -157,8 +157,13 @@
         color: #ddd;
     }
 
+    .fullscreen-code {
+        background: #1e1e1e;
+    }
+
     code:not(.hljs) {
         background-color: #1e1e1e;
+        color: #8FBCBB;
     }
 
     pre.request-method {

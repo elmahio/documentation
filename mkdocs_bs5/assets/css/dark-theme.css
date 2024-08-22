@@ -124,8 +124,12 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 0 rgba(0, 0, 0, 0.1) inset;
   color: #ddd;
 }
+[data-bs-theme=darkmode] .fullscreen-code {
+  background: #1e1e1e;
+}
 [data-bs-theme=darkmode] code:not(.hljs) {
   background-color: #1e1e1e;
+  color: #8FBCBB;
 }
 [data-bs-theme=darkmode] pre.request-method {
   background: none;
