@@ -354,6 +354,14 @@ function Bugster() {
 	const askAnotherQuestion = document.querySelector('#ask-another-question');
 	const md = new remarkable.Remarkable();
 
+	// Shortcut questions
+	document.querySelectorAll('#bugsterModal a.list-group-item-action').forEach(function(element) {
+		element.addEventListener('click', function(event) {
+			question.value = event.currentTarget.dataset.question;
+			document.querySelector('#bugsterModal button#send-message').click();
+		});
+	});
+
 	// Submit form
 	document.querySelector('#bugster-form').addEventListener('submit', function(event) {
 		event.preventDefault();

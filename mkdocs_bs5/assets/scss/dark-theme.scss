@@ -186,4 +186,44 @@
     .hljs {
         background: #1e1e1e;
     }
+
+    .modal {
+        --bs-modal-bg: var(--elmahio-dark-background);
+    }
+
+    .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);;
+    }
+
+    #bugsterModal {
+        .modal-header {
+            background: #333;
+        }
+        .modal-body {
+            background: #333;
+        }
+        .modal-footer {
+            background: #444;
+            border-top-color: #525252;
+        }
+    }
+
+    .bugster-hero .list-group-item-action {
+        border: 1px solid #525252;
+        background: #1e1e1e;
+    }
+
+    .bugster-chat {
+        .user-dialog-text {
+            background: #1e1e1e;
+        }
+
+        .bugster-dialog-text .content {
+            background: #444;
+
+            .hljs {
+                background: #1e1e1e;
+            }
+        }
+    }
 }

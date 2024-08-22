@@ -754,6 +754,10 @@ table .table-light th {
 				font-size: 13px;
 				padding: 15px;
 
+				&:last-child {
+					margin-bottom: 0;
+				}
+
 				code {
 					background-color: #2E3440;
 
