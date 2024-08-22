@@ -13,12 +13,23 @@
     <link rel="shortcut icon" href="{{ 'favicon.ico'|url }}">
 
     <!-- Bootstrap CSS -->
+    {% if config.production %}
+    <link rel="stylesheet" href="{{ 'assets/css/style.min.css?version=BUILD_NUMBER'|url }}">
+    {% else %}
     <link rel="stylesheet" href="{{ 'assets/css/bootstrap.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome/css/all.min.css'|url }}">
     <link rel="stylesheet" href="{{ 'assets/css/highlight.css'|url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/style.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/dark-theme.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css'|url }}">  
+    {% endif %}
   </head>
   <body>
+    <script>
+      const theme = localStorage.getItem("bs-theme") || "light";
+      localStorage.setItem("bs-theme", theme);
+      document.documentElement.setAttribute('data-bs-theme', theme === 'light' ? 'light' : 'darkmode');
+    </script>
+
     <!-- Navigation -->
     {% include "nav.html" %}
 
@@ -164,7 +175,7 @@
     <script src="{{ 'assets/js/fancybox.umd.js'|url }}"></script>
     <script src="{{ 'assets/js/clipboard.min.js'|url }}"></script>
     <script src="{{ 'assets/js/main-v2.js'|url }}"></script>
-    <script src="{{ 'assets/js/intercom-facade.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/intercom-facade.js'|url }}"></script>
     {% endif %}
   </body>
 </html>
