@@ -176,7 +176,7 @@ window.addEventListener('scroll', function() {
 function setTheme(mode) {
     if (mode) {
         localStorage.setItem('bs-theme', mode);
-        document.documentElement.setAttribute('data-bs-theme', mode === 'light' || 'darkmode');
+        document.documentElement.setAttribute('data-bs-theme', mode === 'light' ? 'light' : 'darkmode');
         document.querySelectorAll('button#toggle-theme i').forEach((i) => i.classList.add('d-none'));
     }
     const modeInverse = localStorage.getItem('bs-theme') === 'light' ? 'dark' : 'light';
