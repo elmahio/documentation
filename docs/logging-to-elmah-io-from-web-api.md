@@ -31,8 +31,8 @@ During the installation, you will be asked for your API key ([Where is my API ke
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-toggle="tab" data-tab="webapi2">Web API 2.x</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-toggle="tab" data-tab="webapi1">Web API 1.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#setup2" aria-controls="home" role="tab" data-bs-toggle="tab" data-bs-tab="webapi2">Web API 2.x</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#setup1" aria-controls="profile" role="tab" data-bs-toggle="tab" data-bs-tab="webapi1">Web API 1.x</a></li>
 </ul>
 </div>
 </div>

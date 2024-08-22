@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-title" content="elmah.io">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="../icons/mstile-144x144.png">
+    <meta name="theme-color" content="#0da58e">
+    {% if page.meta.description %}<meta name="description" content="{{ page.meta.description }}">{% endif %}
+    <meta name="author" content="{{ config.site_author }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@elmah_io">
+    <meta name="twitter:creator" content="@elmah_io">
+    <meta name="twitter:title" content="{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %} | elmah.io">
+    {% if page.meta.description %}<meta name="twitter:description" content="{{ page.meta.description }}">{% endif %}
+    <meta name="twitter:image" content="{{ config.site_url }}{{ 'assets/img/open-graph-elmahio.png' }}">
+    <meta property="og:site_name" content="elmah.io Documentation" />
+    <meta property="og:title" content="{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %}">
+    {% if page.meta.description %}<meta property="og:description" content="{{ page.meta.description }}">{% endif %}
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ page.canonical_url }}">
+    <meta property="og:image" content="{{ config.site_url }}{{ 'assets/img/open-graph-elmahio.png' }}">
+    {% if page.meta.git_creation_date_localized %}<meta property="article:published_time" content="{{ page.meta.git_creation_date_localized_raw_iso_date }}">{% endif %}
+    {% if page.meta.git_revision_date_localized %}<meta property="article:modified_time" content="{{ page.meta.git_revision_date_localized_raw_iso_date }}">{% endif %}
+    <meta property="article:publisher" content="https://www.facebook.com/elmahdotio/" />
+    <meta property="article:author" content="elmah.io" />
+    <meta property="fb:app_id" content="218008838347208" />
+    <title>{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %}</title>
+    <link rel="canonical" href="{{ page.canonical_url }}">
+    <link rel="shortcut icon" href="{{ 'favicon.ico'|url }}">
+
+    <link rel="preload" href="{{ 'assets/fonts/font-awesome/webfonts/fa-brands-400.woff2'|url }}" as="font" crossorigin />
+    <link rel="preload" href="{{ 'assets/fonts/font-awesome/webfonts/fa-regular-400.woff2'|url }}" as="font" crossorigin />
+
+    <!-- Bootstrap CSS -->
+    {% if config.production %}
+    <link rel="stylesheet" href="{{ 'assets/css/style.min.css?version=BUILD_NUMBER'|url }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ 'assets/css/bootstrap.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome/css/all.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/highlight.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/fancybox.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/gifsee.min.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/dark-theme.css'|url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css'|url }}">  
+    {% endif %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "publisher": {
+        "@type": "Organization",
+        "name": "elmah.io Documentation",
+        "url": "{{ config.site_url }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ config.site_url }}{{ 'assets/img/elmahio-publication-logo.png' }}",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "headline": "{{ page.title }}",
+      "url": "{{ page.canonical_url }}",
+      "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_date }}",
+      "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_date }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://docs.elmah.io/"
+      }
+    }
+    </script>
+
+  </head>
+  <body>
+    <script>
+      const theme = localStorage.getItem("bs-theme") || "light";
+      localStorage.setItem("bs-theme", theme);
+      document.documentElement.setAttribute('data-bs-theme', theme === 'light' || 'darkmode');
+    </script>
+
+    <!-- Navigation -->
+    {% include "nav.html" %}
+
+    <div class="container mb-5">
+      <div class="row-wrapper">
+        <aside class="sidebar">
+          <div class="sidebar-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text"><label class="mb-0" for="search"><i class="far fa-search"></i></label></span></div>
+              <input type="text" id="search" class="form-control" placeholder="Search ..." autocomplete="off" />
+            </div>
+            <div id="searchList"></div>
+            <hr>
+            <ul class="main-nav">
+              {% for nav_item in nav %}
+              <li {% if loop.index != 1 %}class="li_dropdown{% if nav_item.active %} active{% endif %}"{% endif %}>
+                <a class="li_parent" href="javascript:;">{{ nav_item.title }}</a>
+                <ul>
+                  {% for nav_item in nav_item.children %}
+                  <li {% if nav_item.active %}class="active"{% endif %}><a href="{{ nav_item.abs_url|url }}">{{ nav_item.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endfor %}
+            </ul>
+            <div class="bugster-banner">
+              <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+                <div class="content">
+                  <p class="mb-1 lead">Have a question ?</p>
+                  <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+                </div>
+                <div class="bugster-logo">
+                  <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+                </div>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="d-grid w-100 d-block d-md-none">
+          <a id="show-sidebar" href="javascript:;" class="btn btn-light border">
+            <span class="fal fa-bars me-2"></span><span>Documentation menu</span>
+          </a>
+        </div>
+
+        <article class="col main-content">
+          <div class="main-content-body">
+
+            {{ page.content }}
+
+            <br/>
+            <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening, and help you fix errors fast.</em></small></p>
+            <p class="text-center">
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-none d-sm-block" style="white-space: normal;">See how we can help you monitor your website for crashes</a>
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <footer>
+    	<div id="back-to-top" class="d-block d-sm-none"><span class="far fa-arrow-up"></span></div>
+    	<div class="pre-footer">
+	    	<div class="container">
+          <div class="company-logo">
+					  <img class="img-fluid" src="{{ 'assets/img/elmahio.png'|url }}" width="222" height="138" alt="elmah.io">
+            <div class="bug-head"></div>
+				  </div>
+				  <a href="https://app.elmah.io/signup/" class="btn btn-primary float-end"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+			  </div>
+	    </div>
+    	<div class="links">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col">
+    					<span>Product</span>
+    					<ul class="list-unstyled">
+							  <li><a href="https://elmah.io/features/">Features</a></li>
+							  <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                <li><a href="https://elmah.io/tour/">Tour</a></li>
+							  <li><a href="https://elmah.io/features/appstore/">App Store</a></li>
+						  </ul>
+            </div>
+    				<div class="col">
+    					<span>Company</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/about/">About</a></li>
+                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                <li><a href="https://docs.elmah.io/">Docs</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Learn</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+                <li><a href="https://elmah.io/alternatives/">Alternatives</a></li>
+                <li><a href="https://elmah.io/api/v3/">API</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Guides</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                <li><a href="https://elmah.io/features/asp-net-core/">ASP.NET Core Error Logging</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+              <span>Online Tools</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/tools/config-validator/">Web.config Validator</a></li>
+                <li><a href="https://elmah.io/tools/stack-trace-formatter/">Stack Trace Formatter</a></li>
+                <li><a href="https://elmah.io/tools/webconfig-transformation-tester/">Web.config Transform Tester</a></li>
+                <li><a href="https://elmah.io/tools/">More Free Tools</a></li>
+              </ul>
+            </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="copyright">
+    		<div class="container">
+    			<div class="row no-gutters">
+            <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+              <div class="text-center text-lg-start">
+                <p>2013 - <span id="currentYear"></span> @ elmah.io. All Rights Reserved.</p>
+                <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 order-3 order-lg-1">
+              <ul class="list-unstyled social mb-0">
+                <li class="list-inline-item"><a href="https://twitter.com/elmah_io" aria-label="Follow us on Twitter"><i class="fab x-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io/" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-12 order-1 order-lg-2">
+              <div class="footer-badges text-center text-lg-end">
+                <a href="https://elmah.io/security/"><img src="{{ 'assets/img/pcicompliant.png'|url }}" width="67" height="40" draggable="false" alt="PCI Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="{{ 'assets/img/gdpr.png'|url }}" width="106" height="40" draggable="false" alt="GDPR Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="{{ 'assets/img/shieldssl.png'|url }}" width="102" height="40" draggable="false" alt="Alpha SSL" /></a>
+              </div>
+            </div>
+          </div>
+    		</div>
+    	</div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="bugster-hero">
+              <div class="bugster-logo text-center">
+                <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+              </div>
+              <div class="content text-center">
+                <p class="lead mb-2">Introducing Bugster <span class="badge text-bg-danger ms-1">BETA</span></p>
+                <p>Your AI assistant for quick navigation through documentation, providing valuable answers and insights in no time!</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="Why is my ASP.NET Core application not logging errors to elmah.io?">
+                      <span>Exceptions are not logged from ASP.NET Core</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I log errors to elmah.io from Serilog?">
+                      <span>How to log from Serilog?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I include source code in log messages?">
+                      <span>How do I include source code?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="What is the difference between ELMAH and elmah.io?">
+                      <span>How are ELMAH and elmah.io different?</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="alert alert-danger mt-2" role="alert">
+                      Bugster is still highly experimental. It has not yet been trained why answers may be wrong. See it as a toy for now.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bugster-chat d-none">
+              <div class="user-dialog d-none">
+                <div class="user-dialog-text"></div>
+              </div>
+              <div class="bugster-dialog d-none">
+                <div class="bugster-dialog-avatar">
+                  <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+                </div>
+                <div class="bugster-dialog-text">
+                  <div class="content"></div>
+                  <button id="ask-another-question" class="btn btn-primary d-none">Ask another question</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer collapse show">
+            <form id="bugster-form" class="form w-100">
+              <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@latest/dist/elmahio.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      new Elmahio({
+        apiKey: 'e8fe46913b034fcd8100b095d032bb6b',
+        logId: '24c89075-e32a-4a79-9f7e-e78381e0d761',
+        filter: function(msg) {
+          try {
+            if(msg && msg.title) {
+              return (msg.title.toLowerCase().indexOf("ResizeObserver loop limit exceeded".toLowerCase()) >= 0 || msg.title.toLowerCase().indexOf("Identifier 'originalPrompt' has already been declared".toLowerCase()) >= 0);
+            }
+            return false;
+          } catch (e) {
+            return false;
+          }
+        }
+      });
+    </script>
+
+    {% if config.production %}
+    <script src="{{ 'assets/js/main.min.js?version=BUILD_NUMBER'|url }}"></script>
+    {% else %}
+    <script src="{{ 'assets/js/popper.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/bootstrap.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/highlight.pack.js'|url }}"></script>
+    <script src="{{ 'assets/js/fuse.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/fancybox.umd.js'|url }}"></script>
+    <script src="{{ 'assets/js/clipboard.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/gifsee.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/remarkable.min.js'|url }}"></script>
+    <script src="{{ 'assets/js/main-v2.js'|url }}"></script>
+    <script src="{{ 'assets/js/intercom-facade.js'|url }}"></script>
+    {% endif %}
+  </body>
+</html>
