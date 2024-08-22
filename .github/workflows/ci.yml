@@ -22,10 +22,10 @@ jobs:
           apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
           logId: ${{ secrets.ELMAH_IO_LOG_ID }}
           path: '/assets/js/main.min.js'
-          sourceMap: './mkdocs_bs4/assets/js/main.min.js.map'
-          minifiedJavaScript: './mkdocs_bs4/assets/js/main.min.js'
+          sourceMap: './mkdocs_bs5/assets/js/main.min.js.map'
+          minifiedJavaScript: './mkdocs_bs5/assets/js/main.min.js'
       - name: Remove the .map file
-        run: rm ./mkdocs_bs4/assets/js/main.min.js.map
+        run: rm ./mkdocs_bs5/assets/js/main.min.js.map
       - run: pip install mkdocs
       - run: pip install pymdown-extensions
       - run: pip install markdown-fenced-code-tabs-next
@@ -39,8 +39,8 @@ jobs:
         run: sed -i 's/enabled:\ false/enabled:\ true/' mkdocs.yml
       - name: Replace BUILD_NUMBER main.html & 404.html
         run: |
-          sed -i 's/BUILD_NUMBER/${{github.run_number}}/g' ./mkdocs_bs4/main.html
-          sed -i 's/BUILD_NUMBER/${{github.run_number}}/g' ./mkdocs_bs4/404.html
+          sed -i 's/BUILD_NUMBER/${{github.run_number}}/g' ./mkdocs_bs5/main.html
+          sed -i 's/BUILD_NUMBER/${{github.run_number}}/g' ./mkdocs_bs5/404.html
       - run: mkdocs gh-deploy --force --clean --verbose
       - name: Create Deployment on elmah.io
         uses: elmahio/github-create-deployment-action@v1
