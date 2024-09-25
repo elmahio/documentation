@@ -125,7 +125,7 @@
   color: #ddd;
 }
 [data-bs-theme=darkmode] .fullscreen-code {
-  background: #1e1e1e;
+  background: #444444;
 }
 [data-bs-theme=darkmode] code:not(.hljs) {
   background-color: #1e1e1e;
@@ -150,7 +150,7 @@
   background: #333;
 }
 [data-bs-theme=darkmode] .hljs {
-  background: #1e1e1e;
+  background: #444444;
 }
 [data-bs-theme=darkmode] .modal {
   --bs-modal-bg: var(--elmahio-dark-background);
