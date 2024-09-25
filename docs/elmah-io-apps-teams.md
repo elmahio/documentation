@@ -7,6 +7,8 @@ description: Notify your team when new errors are introduced in production. With
 
 [TOC]
 
+## Teams v2
+
 To install the integration with Microsoft Teams v2, go to teams and click the ⋯ menu item next to the channel you want elmah.io to post messages to. Then click the *Workflows* menu item:
 
 ![Workflows](images/apps/teams/v2-step1.png){:style="width:100%;max-width:500px;margin-left:0;"}
