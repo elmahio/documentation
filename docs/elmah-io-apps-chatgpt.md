@@ -9,7 +9,7 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Cha
 
 ![Install ChatGPT App](images/apps/chatgpt/chatgpt-install-v2.png)
 
-The app supports two hosting models for ChatGPT. You can either bring your own OpenAI API key or use a model hosted by us (available on the Enterprise plan). Both options currently support GPT-3.5-Turbo, GPT-4, and GPT-4o.
+The app supports two hosting models for ChatGPT. You can either bring your own OpenAI API key or use a model hosted by us (available on the Enterprise plan). Both options currently support GPT-3.5-Turbo, GPT-4, GPT-4o, and GPT-4o mini.
 
 To use OpenAI, select one of the models prefixed with 'OpenAI' and input your API key (<a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank">Where do I find my OpenAI API Key?</a>).
 
