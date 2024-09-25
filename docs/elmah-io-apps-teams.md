@@ -11,7 +11,7 @@ description: Notify your team when new errors are introduced in production. With
 
 To install the integration with Microsoft Teams v2, go to teams and click the ⋯ menu item next to the channel you want elmah.io to post messages to. Then click the *Workflows* menu item:
 
-![Workflows](images/apps/teams/v2-step1.png){:style="width:100%;max-width:500px;margin-left:0;"}
+![Workflows](images/apps/teams/v2-step1.png){:style="width:100%;max-width:300px;margin-left:0;"}
 
 In the *Workflows* dialog search for 'webhook' and select the *Post to a channel when a webhook request is received* template:
 
