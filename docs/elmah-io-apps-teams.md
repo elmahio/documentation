@@ -5,6 +5,38 @@ description: Notify your team when new errors are introduced in production. With
 
 # Install Microsoft Teams App for elmah.io
 
+[TOC]
+
+To install the integration with Microsoft Teams v2, go to teams and click the ⋯ menu item next to the channel you want elmah.io to post messages to. Then click the *Workflows* menu item:
+
+![Workflows](images/apps/teams/v2-step1.png){:style="width:100%;max-width:500px;margin-left:0;"}
+
+In the *Workflows* dialog search for 'webhook' and select the *Post to a channel when a webhook request is received* template:
+
+![Post to a channel when a webhook request is received](images/apps/teams/v2-step2.png)
+
+In the following step, Microsoft Teams will generate a name and validate the connection. You can input another name if you'd like but make sure that a green checkmark is shown. Click the *Next* button:
+
+![Validate connection](images/apps/teams/v2-step3.png)
+
+In the final step of setting up the webhook, make sure that the correct team and channel is selected. Then click the *Add workflow* button:
+
+![Select team and channel](images/apps/teams/v2-step4.png)
+
+The workflow is successfully added. Copy the generated webhook URL and click the *Done* button:
+
+![Copy webhook URL](images/apps/teams/v2-step5.png)
+
+The final step is to input the webhook URL that you just copied, into elmah.io.
+
+Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Microsoft Teams v2 app and click the *Install* button. In the overlay, paste the URL from the previous step:
+
+![Install Microsoft Teams app](images/apps/teams/v2-step6.png)
+
+Click *Save* and the app is added to your log. When new errors are logged, messages start appearing in the channel that you configured.
+
+## Teams v1
+
 To install the integration with Microsoft Teams, go to teams and click the *Apps* menu item. Search for "elmah.io" and click the app:
 
 ![Search for elmah.io](images/apps/teams/step1.png)
