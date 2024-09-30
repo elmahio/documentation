@@ -25,8 +25,10 @@ Options:
                                     'iis' for IIS Log File Format
   --filename <filename> (REQUIRED)  Defines the path and filename of the file to import from. Ex. " --filename
                                     C:\myDirectory\log.txt"
-  --dateFrom <dateFrom>             Defines the Date from which the logs start. Ex. " --dateFrom 2023-03-06"
-  --dateTo <dateTo>                 Defines the Date from which the logs end. Ex. " --dateTo 2023-03-13"
+  --dateFrom <dateFrom>             Defines the Date from which the logs start. Ex. " --dateFrom 2024-09-23"
+  --dateTo <dateTo>                 Defines the Date from which the logs end. Ex. " --dateTo 2024-09-30"
+  --proxyHost <proxyHost>           A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>           A port number for a proxy to use to call elmah.io
   -?, -h, --help                    Show help and usage information
 ```
 

@@ -21,6 +21,8 @@ Usage:
 Options:
   --apiKey <apiKey> (REQUIRED)  An API key with permission to execute the command
   --logId <logId> (REQUIRED)    The ID of the log to send the log message to
+  --proxyHost <proxyHost>       A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>       A port number for a proxy to use to call elmah.io
   -?, -h, --help                Show help and usage information
 ```
 

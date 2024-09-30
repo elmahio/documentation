@@ -26,6 +26,8 @@ Options:
   --query <query> (REQUIRED)    Clear messages matching this query (use * for all messages)
   --from <from>                 Optional date and time to clear messages from
   --to <to>                     Optional date and time to clear messages to
+  --proxyHost <proxyHost>       A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>       A port number for a proxy to use to call elmah.io
   -?, -h, --help                Show help and usage information
 ```
 

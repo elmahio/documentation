@@ -21,13 +21,15 @@ Usage:
 Options:
   --apiKey <apiKey> (REQUIRED)      An API key with permission to execute the command
   --logId <logId> (REQUIRED)        The ID of the log to export messages from
-  --dateFrom <dateFrom> (REQUIRED)  Defines the Date from which the logs start. Ex. " --dateFrom 2023-03-09"
-  --dateTo <dateTo> (REQUIRED)      Defines the Date from which the logs end. Ex. " --dateTo 2023-03-16"
+  --dateFrom <dateFrom> (REQUIRED)  Defines the Date from which the logs start. Ex. " --dateFrom 2024-09-23"
+  --dateTo <dateTo> (REQUIRED)      Defines the Date from which the logs end. Ex. " --dateTo 2024-09-30"
   --filename <filename>             Defines the path and filename of the file to export to. Ex. " --filename
                                     C:\myDirectory\myFile.json" [default:
-                                    C:\Users\thoma\Export-638145521994987555.json]
+                                    C:\elmah.io\client-libraries\Elmah.Io.Cli\Export-638633000163405527.json]
   --query <query>                   Defines the query that is passed to the API [default: *]
   --includeHeaders                  Include headers, cookies, etc. in output (will take longer to export)
+  --proxyHost <proxyHost>           A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>           A port number for a proxy to use to call elmah.io
   -?, -h, --help                    Show help and usage information
 ```
 

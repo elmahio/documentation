@@ -26,6 +26,8 @@ Options:
   --userName <userName>           The name of the person responsible for creating this deployment
   --userEmail <userEmail>         The email of the person responsible for creating this deployment
   --logId <logId>                 The ID of a log if this deployment is specific to a single log
+  --proxyHost <proxyHost>         A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>         A port number for a proxy to use to call elmah.io
   -?, -h, --help                  Show help and usage information
 ```
 

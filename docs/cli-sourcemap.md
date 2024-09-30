@@ -27,6 +27,8 @@ Options:
                                                         content type of application/json will be accepted
   --minifiedJavaScript <minifiedJavaScript> (REQUIRED)  The minified JavaScript file. Only files with an extension of
                                                         .js and content type of text/javascript will be accepted
+  --proxyHost <proxyHost>                               A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>                               A port number for a proxy to use to call elmah.io
   -?, -h, --help                                        Show help and usage information
 ```
 

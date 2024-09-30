@@ -58,6 +58,8 @@ Options:
                                    similar.
   --category <category>            The category to set on the message. Category can be used to emulate a logger name
                                    when created from a logging framework.
+  --proxyHost <proxyHost>          A hostname or IP for a proxy to use to call elmah.io
+  --proxyPort <proxyPort>          A port number for a proxy to use to call elmah.io
   -?, -h, --help                   Show help and usage information
 ```
 
