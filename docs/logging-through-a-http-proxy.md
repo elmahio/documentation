@@ -5,9 +5,32 @@ description: Set up logging to elmah.io through an HTTP proxy server like squid 
 
 # Logging through a HTTP proxy
 
-You may find yourself in a situation, where your production web servers aren't allowing HTTP requests towards the public Internet. This also impacts the elmah.io client, which requires access to the URL https://api.elmah.io. A popular choice of implementing this kind of restriction nowadays is through a HTTP proxy like Squid or Nginx.
+[TOC]
+
+You may find yourself in a situation, where your production web servers aren't allowing HTTP requests towards the public Internet. This also impacts the elmah.io client, which requires access to the URL `https://api.elmah.io`. A popular choice of implementing this kind of restriction nowadays is through a HTTP proxy like Squid or Nginx.
+
+> The proxy configuration shown in the following sample requires `Elmah.Io` version `5.2` or newer. For very old clients, check out [Legacy implementation](#legacy-implementation).
 
 Luckily the elmah.io client supports proxy configuration out of the box. Let's look at how to configure a HTTP proxy through `web.config`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <!-- ... -->
+  <elmah>
+    <security allowRemoteAccess="false" />
+    <errorLog type="Elmah.Io.ErrorLog, Elmah.Io"
+        proxyHost="192.168.0.1" proxyPort="3128"
+        apiKey="..." logId="..." />
+  </elmah>
+</configuration>
+```
+
+The host name and port number are configured by adding the `proxyHost` and `proxyPort` attributes on the `errorLog` element.
+
+## Legacy implementation
+
+To add a proxy, include a `defaultProxy` in the `web.config` file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -36,11 +59,11 @@ The above example is of course greatly simplified.
 
 The elmah.io client automatically picks up the `defaultProxy` configuration through the `system.net` element. `defaultProxy` tunnels every request from your server, including requests to elmah.io, through the proxy located on 192.18.0.1 port 3128 (or whatever IP/hostname and port you are using).
 
-## Proxies with username/password
+### Proxies with username/password
 
 Some proxies require a username/password. Unfortunately, the `defaultProxy` element doesn't support authentication. You have two ways to set this up:
 
-### Use default credentials
+#### Use default credentials
 
 Make sure to set the `useDefaultCredentials` attribute to `true`:
 
@@ -54,7 +77,7 @@ Make sure to set the `useDefaultCredentials` attribute to `true`:
 
 Run your web app (application pool) as a user with access to the proxy.
 
-### Implement your own proxy
+#### Implement your own proxy
 
 Add the following class:
 
