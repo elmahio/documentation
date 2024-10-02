@@ -43,7 +43,9 @@ Next, call the `AddElmahIo` method inside `ConfigureFunctionsWorkerDefaults`:
 
 Also, include a `using` of the `Elmah.Io.Functions.Isolated` namespace. elmah.io now automatically identifies any uncaught exceptions and logs them to the specified log. Check out the [samples](https://github.com/elmahio/Elmah.Io.Functions.Isolated/tree/main/samples) for more ways to configure elmah.io.
 
-## Application name
+## Configuration
+
+### Application name
 
 To set the application name on all errors, set the `Application` property:
 
@@ -55,11 +57,11 @@ app.AddElmahIo(options =>
 });
 ```
 
-## Message hooks
+### Message hooks
 
 `Elmah.Io.Functions.Isolated` provide message hooks similar to the integrations with ASP.NET and ASP.NET Core.
 
-### Decorating log messages
+#### Decorating log messages
 
 To include additional information on log messages, you can use the `OnMessage` action:
 
@@ -76,7 +78,7 @@ app.AddElmahIo(options =>
 
 The example above includes a version number on all errors.
 
-#### Include source code
+##### Include source code
 
 You can use the `OnMessage` action to include source code to log messages. This will require a stack trace in the `Detail` property with filenames and line numbers in it.
 
@@ -95,7 +97,7 @@ app.AddElmahIo(options =>
 
 Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
-### Handle errors
+#### Handle errors
 
 To handle any errors happening while processing a log message, you can use the `OnError` action:
 
@@ -112,7 +114,7 @@ app.AddElmahIo(options =>
 
 The example above logs any errors during communication with elmah.io to a local log.
 
-### Error filtering
+#### Error filtering
 
 To ignore specific errors based on their content, you can use the `OnFilter` action:
 
@@ -128,6 +130,82 @@ app.AddElmahIo(options =>
 ```
 
 The example above ignores any errors generated during an HTTP `GET` request.
+
+### API key and log ID in settings
+
+In the examples above, the API key and log ID are hardcoded in C#. You typically want to define these in a settings file, environment variable, Azure settings, or similar. The simplest way to do this is to load the values through `IConfiguration`:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults((context, app) =>
+    {
+        var config = context.Configuration;
+
+        var logId = new Guid(config["logId"]);
+        var apiKey = config["apiKey"];
+
+        app.AddElmahIo(options =>
+        {
+            options.ApiKey = apiKey;
+            options.LogId = logId;
+        });
+
+        // ...
+    })
+    .Build();
+```
+
+You need to specify the `logId` and `apiKey` variables in the `local.settings.json` file as well as the place you use to declare config variables on the environments you publish the function app to:
+
+```json
+{
+  "Values": {
+    "apiKey": "API_KEY",
+    "logId": "LOG_ID"
+  }
+}
+```
+
+As an alternative, you can define all elmah.io configuration in a separate object in the `local.settings.json` file you may already know from the `appsettings.json` file in ASP.NET Core:
+
+```json
+{
+  "Values": {
+  },
+  "ElmahIo": {
+    "ApiKey": "API_KEY",
+    "LogId": "LOG_ID"
+  }
+}
+```
+
+Loading values from a separate object like this requires custom code in the `Program.cs` file since only variables inside the `Values` object are automatically loaded by the runtime:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureAppConfiguration(c =>
+    {
+        c.SetBasePath(Directory.GetCurrentDirectory());
+#if DEBUG
+        c.AddJsonFile("local.settings.json");
+#endif
+        c.AddEnvironmentVariables();
+    })
+    .ConfigureFunctionsWorkerDefaults((context, app) =>
+    {
+        app.Services.Configure<ElmahIoFunctionOptions>(context.Configuration.GetSection("ElmahIo"));
+        app.AddElmahIo();
+    })
+    .Build();
+```
+
+In this example, configuration from the `local.settings.json` file is loaded. Rather than specifying options to the `AddElmahIo` method, we load the entire `ElmahIo` section from the config file. When published to a test or production environment, you will need to provide the `ElmahIo` object in the configuration system provided by the environment. For Azure, you would specify environment variables with a key looking like this:
+
+```nohighlight
+ElmahIo:ApiKey
+```
+
+Please note that specifying options like an application name or using hooks is still possible by providing options for the `AddElmahIo` method. When the API key and log ID are loaded from the config file, you don't need to specify them again.
 
 ## Logging through ILogger
 
