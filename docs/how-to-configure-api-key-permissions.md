@@ -8,7 +8,7 @@ Security on the elmah.io API is handled through the use of API keys. All request
 
 To configure permissions for a new or existing API key, either click the `Edit` or `Add API Key` button on the API Keys tab of your organization settings. This will show the API key editor view:
 
-![Edit API key](images/edit-api-key.png)
+![Edit API key](images/edit-api-key-v2.png)
 
 As mentioned previously, new keys have the `messages_write` permission enabled only. This permission will cover logging from your application to elmah.io. If your application needs to browse messages from elmah.io, create new logs/applications, etc. you will need to enable the corresponding permission. Notice that read permissions don't need to be enabled, for you to browse logs and log messages on the elmah.io UI. API keys are used by the range of client integrations only.
 
