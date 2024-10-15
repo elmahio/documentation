@@ -11,7 +11,9 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Cha
 
 The app supports two hosting models for ChatGPT. You can either bring your own OpenAI API key or use a model hosted by us (available on the Enterprise plan). Both options currently support GPT-3.5-Turbo, GPT-4, GPT-4o, and GPT-4o mini.
 
-To use OpenAI, select one of the models prefixed with 'OpenAI' and input your API key (<a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank">Where do I find my OpenAI API Key?</a>).
+To use OpenAI, select one of the models prefixed with 'OpenAI' and input your API key (<a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key" target="_blank">Where do I find my OpenAI API Key?</a>). If you prefer a restricted API key, make sure to enable the *Model capabilities* resource:
+
+![Enable permission](images/apps/chatgpt/permission.png)
 
 To use a model hosted by us, select one of the models prefixed with 'elmah.io'. When picking this option, your data will never leave our data center since the model is hosted directly on Azure.
 
