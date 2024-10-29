@@ -61,10 +61,7 @@ $body = @{
   userEmail = "$env:BUILD_REQUESTEDFOREMAIL"
   logId = "LOG_ID"
 }
-[Net.ServicePointManager]::SecurityProtocol = `
-    [Net.SecurityProtocolType]::Tls12,
-    [Net.SecurityProtocolType]::Tls11,
-    [Net.SecurityProtocolType]::Tls
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-RestMethod -Method Post -Uri $url -Body $body
 ```
 
