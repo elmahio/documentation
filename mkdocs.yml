@@ -215,6 +215,7 @@ nav:
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
+    - How to log to elmah.io from .NET 4.5: how-to-log-to-elmah-io-from-net-4-5.md
     - Upgrade elmah.io from v4 to v5: upgrade-elmah-io-from-v4-to-v5.md
     - Upgrade elmah.io from v3 to v4: upgrade-elmah-io-from-v3-to-v4.md
     - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
