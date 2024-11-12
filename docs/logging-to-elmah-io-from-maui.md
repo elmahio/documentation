@@ -61,3 +61,33 @@ MauiExceptions.UnhandledException += (sender, args) =>
 	logger.LogError(exception, exception.GetBaseException().Message);
 }
 ```
+
+In case `MauiExceptions` doesn't trigger the `UnhandledException` event you can implement the code yourself. The event you need to implements depends on the platform where the application is executed. Look through the code for `MauiExceptions` to get inspiration. For Windows the code will look like this:
+
+```csharp
+public class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+
+        // ...
+
+        builder.Logging.AddElmahIo(options =>
+        {
+            options.ApiKey = "API_KEY";
+            options.LogId = new Guid("LOG_ID");
+        });
+
+        var provider = builder.Build();
+
+        AppDomain.CurrentDomain.FirstChanceException += (_, args) =>
+        {
+            var logger = provider.Services.GetRequiredService<ILogger<MauiProgram>>();
+            logger.LogError(args.Exception, args.Exception.Message);
+        };
+
+        return provider;
+    }
+}
+```
