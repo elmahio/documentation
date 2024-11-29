@@ -18,18 +18,15 @@ variables:
   githubRepo: 'https://github.com/elmahio/documentation.git'
   azureRepo: 'https://elmahio.visualstudio.com/elmah.io/_git/elmah.io.devcli'
   toolFolder: 'tool' # Directory to clone the tool
-  outputFolder: 'output' # Directory to store vectorized files
 
 steps:
-  # Step 1: Checkout the documentation repository
-  - task: UseGitHubToken@0
-    displayName: 'Setup GitHub Token'
-  
-  - task: Checkout@1
-    displayName: 'Checkout Documentation Repository'
+  - task: GitClone@2
     inputs:
-      repository: $(githubRepo)
-      clean: true
+      RepositoryURL: 'https://github.com/elmahio/documentation.git'
+      Branch: 'main'
+      FallbackBranch: 'main'
+      BaseBranch: 'main'
+      Clean: true
 
   # Step 2: Identify updated Markdown files
   - script: |
