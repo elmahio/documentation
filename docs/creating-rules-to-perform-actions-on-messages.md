@@ -20,7 +20,7 @@ The rule engine is located beneath each log on the log settings page:
 
 A rule consists of three parts: a title, a query, and an action.
 
-The title should be a short text explaining what this rule does. We don't use the title for anything, so please write something that helps you identify rules and to keep them apart.
+The title should be a short text explaining what this rule does. We don't use the title for anything, so please write something that helps you identify rules and keep them apart.
 
 The query should contain either a full-text search string or a Lucene query. When new messages are logged, the message is matched up against all queries registered on that log. If and only if a message matches a query, the action registered on the rule is performed.
 
