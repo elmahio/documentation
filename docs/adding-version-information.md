@@ -60,7 +60,7 @@ logger.OnMessage += (sender, args) =>
 }
 ```
 
-In the example, the message send off to elmah.io is decorated with the version number `1.2.3` You will need to replace this with the value of an app setting, the assembly info, or whatever strategy you've used to make the version number available to your code.
+In the example, the message sent off to elmah.io is decorated with the version number `1.2.3` You will need to replace this with the value of an app setting, the assembly info, or whatever strategy you've used to make the version number available to your code.
 
 If you're logging errors to elmah.io in catch blocks, logging the version number can be done using a similar approach to the above:
 
