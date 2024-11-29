@@ -60,6 +60,9 @@ jobs:
         with:
           format: 'json'
 
+      - name: Debug Changed Files Output
+        run: echo "${{ steps.changed-files.outputs.all }}"
+
       - name: Re-vectorize changed files
         if: ${{ steps.changed-files.outputs.all != '[]' }}
         run: |
@@ -72,6 +75,3 @@ jobs:
                    ${{ secrets.FUNCTION_APP_URL }}
             fi
           done
-        env:
-          FUNCTION_URL: ${{ secrets.FUNCTION_URL }}
-          FUNCTION_KEY: ${{ secrets.FUNCTION_KEY }}
