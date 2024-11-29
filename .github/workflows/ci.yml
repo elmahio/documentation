@@ -65,13 +65,14 @@ jobs:
         if: ${{ steps.changed-files.outputs.all != '[]' }}
         run: |
           echo "Starting step"
-          for changed_file in ${{ fromJSON(steps.changed-files.outputs.all) }}; do
+          for changed_file in ${{ steps.changed-files.outputs.all }}; do
+            echo "Validating $changed_file..."
             if [[ "$changed_file" == *.md ]]; then
               echo "Processing $changed_file..."
-              base64_content=$(base64 -w 0 "$changed_file")
+              file_content=$(cat "$changed_file" | base64 -w 0)
               curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
-                    -H "Content-Type: application/json" \
-                    -d "{\"filePath\": \"$changed_file\", \"content\": \"$base64_content\"}" \
-                    ${{ secrets.FUNCTION_APP_URL }}
+                   -H "Content-Type: application/json" \
+                   -d "{\"filePath\": \"$changed_file\", \"content\": \"$file_content\"}" \
+                   ${{ secrets.FUNCTION_APP_URL }}
             fi
           done
