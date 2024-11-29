@@ -11,7 +11,7 @@ To create bugs on Azure Boards, you will need to generate a personal access toke
 
 ![Create personal access token](images/apps/azureboards/personal-access-token.png)
 
-For this example, we have picked 90 days expiration period, but you can decide on a shorter or longer period if you'd like. Remember to enable the *Read & write* scope under **Work Items**. Next, click the *Create* button and copy the generated token.
+For this example, we have picked a 90-day expiration period, but you can decide on a shorter or longer period if you'd like. Remember to enable the *Read & write* scope under **Work Items**. Next, click the *Create* button and copy the generated token.
 
 > Bugs created by elmah.io will have the *CreatedBy* set to the user generating the personal access token. If you want to identify bugs created by elmah.io, you should create the token from a new user (like elmahio@yourdomain.com).
 
