@@ -65,13 +65,16 @@ jobs:
         if: ${{ steps.changed-files.outputs.all != '[]' }}
         run: |
           echo "Starting step"
-          echo "${{ steps.changed-files.outputs.all }}" | jq -r '.[]' | while read -r file; do
-            echo "Found file"
-            if [[ "$file" == *.md ]]; then
-              echo "Processing $file..."
-              curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
-                   -H "Content-Type: application/json" \
-                   -d "{\"filePath\": \"$file\", \"content\": \"$(base64 -w 0 "$file")\"}" \
-                   ${{ secrets.FUNCTION_APP_URL }}
-            fi
+          for changed_file in ${{ steps.changed-files.outputs.all }}; do
+            echo $changed_file
           done
+          # echo "${{ steps.changed-files.outputs.all }}" | jq -r '.[]' | while read -r file; do
+          #   echo "Found file"
+          #   if [[ "$file" == *.md ]]; then
+          #     echo "Processing $file..."
+          #     curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
+          #          -H "Content-Type: application/json" \
+          #          -d "{\"filePath\": \"$file\", \"content\": \"$(base64 -w 0 "$file")\"}" \
+          #          ${{ secrets.FUNCTION_APP_URL }}
+          #   fi
+          # done
