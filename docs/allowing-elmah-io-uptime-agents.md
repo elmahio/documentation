@@ -1,6 +1,6 @@
 ---
 title: Allowing elmah.io uptime agents
-description: elmah.io Uptime Monitoring runs in 9 different regions. Depending on which regions you enabled, your security settings may need to some tweaks.
+description: elmah.io Uptime Monitoring runs in 9 different regions. Depending on which regions you enabled, your security settings may need some tweaks.
 ---
 
 # Allowing elmah.io uptime agents
