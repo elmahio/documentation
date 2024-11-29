@@ -55,7 +55,7 @@ public class ElmahIoErrorHandler : IErrorHandler
 }
 ```
 
-The `ElmahIoErrorHandler` class will be called by CoreWCF when exceptions are thrown and log the to the configure `ILogger`. To invoke the error handler, add the following service behavior:
+The `ElmahIoErrorHandler` class will be called by CoreWCF when exceptions are thrown and log to the configure `ILogger`. To invoke the error handler, add the following service behavior:
 
 ```csharp
 public class ElmahIoErrorBehavior : IServiceBehavior
