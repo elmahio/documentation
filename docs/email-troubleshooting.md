@@ -35,4 +35,4 @@ Ok, this may seem obvious. But this happens more often than you would think. Typ
 
 ## Check your promotional and/or spam folder
 
-We do a lot to keep our email reputation high. But some email clients may treat similar-looking emails as promotional or spam. Remember to check those folders and mark messages as important if spotting them in the wrong folder.
+We do a lot to keep our email reputation high. However, some email clients may treat similar-looking emails as promotional or spam. Remember to check those folders and mark messages as important if spotting them in the wrong folder.
