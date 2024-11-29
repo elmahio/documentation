@@ -12,7 +12,7 @@ trigger:
       - '**/*.md'
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 variables:
   githubRepo: 'https://github.com/elmahio/documentation.git'
