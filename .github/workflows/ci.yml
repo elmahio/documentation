@@ -57,8 +57,6 @@ jobs:
       - name: Get Added and Modified Files
         id: changed-files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
 
       - name: Debug Changed Files Output
         run: echo "${{ steps.changed-files.outputs.all }}"
