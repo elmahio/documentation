@@ -27,4 +27,4 @@ Invoke-RestMethod -Method Post -Uri $url -Body $body
 
 ![PowerShell task in Bamboo](images/bamboo.png)
 
-Replace `API_KEY` and `LOG_ID` and everything is configured. The script uses the build number of the current build as version number (`$Env:bamboo_buildNumber`). If you prefer another scheme, Bamboo offers a range of <a href="https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html" target="_blank" rel="noopener noreferrer">variables</a>.
+Replace `API_KEY` and `LOG_ID` and everything is configured. The script uses the build number of the current build as the version number (`$Env:bamboo_buildNumber`). If you prefer another scheme, Bamboo offers a range of <a href="https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html" target="_blank" rel="noopener noreferrer">variables</a>.
