@@ -70,7 +70,7 @@ jobs:
             if [[ "$changed_file" == *.md ]]; then
               echo "Processing $changed_file..."
               file_content=$(cat "$changed_file" | base64 -w 0)
-              curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
+              curl -X POST \
                    -H "Content-Type: application/json" \
                    -d "{\"filePath\": \"$changed_file\", \"content\": \"$file_content\"}" \
                    ${{ secrets.FUNCTION_APP_URL }}
