@@ -58,7 +58,7 @@ jobs:
         id: changes
         run: |
           echo "Finding changed Markdown files..."
-          git diff --name-only --diff-filter=AMR ${{ github.event.before }} ${{ github.sha }} | grep '\.md$' > changed-files.txt
+          git diff --name-only origin/main --diff-filter=AMR ${{ github.event.before }} ${{ github.sha }} | grep '\.md$' > changed-files.txt
           if [ -s changed-files.txt ]; then
             echo "::set-output name=changed::$(cat changed-files.txt | paste -sd ',' -)"
           else
