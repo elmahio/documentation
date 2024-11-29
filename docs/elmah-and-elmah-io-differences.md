@@ -11,11 +11,11 @@ We receive a lot of questions like these:
 - I thought ELMAH was free. Why do you suddenly charge?
 - My ELMAH SQL Server configuration doesn't work. Why not?
 
-We understand the confusion. The purpose of this article is to give a bit of background of the differences between ELMAH and elmah.io and why they share similar names.
+We understand the confusion. The purpose of this article is to give a bit of background on the differences between ELMAH and elmah.io and why they share similar names.
 
 ## What is ELMAH?
 
-ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch, and many more exists. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies, and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.
+ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch, and many more exist. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies, and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.
 
 ## What is elmah.io?
 
@@ -43,7 +43,7 @@ elmah.io is a cloud-based error management system originally developed on top of
 
 ## History
 
-So, why name a service elmah.io, when only a minor part of a client integration uses ELMAH? When elmah.io was introduced back in 2013, the intention was to create a cloud-based error logger for ELMAH. We had some simple search and graphing possibilities, but the platform was meant as an alternative to host your own errors logs in SQL Server or similar.
+So, why name a service elmah.io, when only a minor part of a client integration uses ELMAH? When elmah.io was introduced back in 2013, the intention was to create a cloud-based error logger for ELMAH. We had some simple search and graphing possibilities, but the platform was meant as an alternative to host your own error logs in SQL Server or similar.
 
 In time, elmah.io grew from being a hobby project to an actual company. During those years, we realized that the potential of the platform exceeded the possibilities with ELMAH in many ways. New features not available in ELMAH have been added constantly. A process that would have been nearly impossible with ELMAH's many storage integrations.
 
