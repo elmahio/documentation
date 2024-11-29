@@ -10,7 +10,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
           python-version: 3.10.8
@@ -54,29 +54,24 @@ jobs:
           userName: ${{ github.actor }}
           logId: ${{ secrets.ELMAH_IO_LOG_ID }}
 
-      - name: Identify changed files
-        id: changes
-        run: |
-          echo "Finding changed Markdown files..."
-          git diff --name-only origin/main --diff-filter=AMR ${{ github.event.before }} ${{ github.sha }} | grep '\.md$' > changed-files.txt
-          if [ -s changed-files.txt ]; then
-            echo "::set-output name=changed::$(cat changed-files.txt | paste -sd ',' -)"
-          else
-            echo "No Markdown files have changed."
-          fi  
+      - name: Get Added and Modified Files
+        id: changed-files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
 
       - name: Re-vectorize changed files
-        if: steps.changes.outputs.changed != ''
+        if: ${{ steps.changed-files.outputs.added_modified != '[]' }}
         run: |
-          echo "Re-vectorizing updated files..."
-          while IFS=',' read -r file; do
-            echo "Processing $file..."
-            curl -s -X POST \
-              -H "Authorization: Bearer ${{ secrets.FUNCTION_KEY }}" \
-              -H "Content-Type: application/json" \
-              -d "{\"filePath\": \"$file\", \"content\": \"$(cat $file | base64)\"}" \
-              ${{ secrets.FUNCTION_URL }}
-          done <<< "${{ steps.changes.outputs.changed }}"
+          echo "${{ steps.changed-files.outputs.added_modified }}" | jq -r '.[]' | while read -r file; do
+            if [[ "$file" == *.md ]]; then
+              echo "Processing $file..."
+              curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
+                   -H "Content-Type: application/json" \
+                   -d "{\"filePath\": \"$file\", \"content\": \"$(base64 -w 0 "$file")\"}" \
+                   ${{ secrets.FUNCTION_APP_URL }}
+            fi
+          done
         env:
           FUNCTION_URL: ${{ secrets.FUNCTION_URL }}
           FUNCTION_KEY: ${{ secrets.FUNCTION_KEY }}
