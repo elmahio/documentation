@@ -7,7 +7,7 @@ description: Being able to distinguish one version from the other is important. 
 
 [TOC]
 
-Almost every piece of software has some sort of version. Whether it's a nice-looking [SemVer](https://semver.org/) string or a simple timestamp, being able to distinguish one version from the other is important. elmah.io supports sending version information from your application in every message logged in two ways:
+Almost every piece of software has some sort of version. Whether it's a nice-looking [SemVer](https://semver.org/) string or a simple timestamp, distinguishing one version from the other is important. elmah.io supports sending version information from your application in every message logged in two ways:
 
 1. By adding the version manually (as explained in this document).
 2. By using the [Deployment Tracking](https://elmah.io/features/deployment-tracking/) feature (as explained in [Set Up Deployment Tracking](setup-deployment-tracking.md)).
