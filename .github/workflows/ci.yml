@@ -7,7 +7,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.10.8
@@ -55,9 +58,8 @@ jobs:
         id: changes
         run: |
           echo "Finding changed Markdown files..."
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.md$' > changed_files.txt
-          echo "Changed files:"
-          cat changed_files.txt
+          git diff --name-only --diff-filter=AMR HEAD~1 HEAD | grep '\.md$' > changed-files.txt
+          echo "::set-output name=changed::$(cat changed-files.txt | paste -sd ',' -)"
   
       - name: Re-vectorize changed files
         if: steps.changes.outputs.changed != ''
