@@ -66,7 +66,9 @@ jobs:
       - name: Re-vectorize changed files
         if: ${{ steps.changed-files.outputs.all != '[]' }}
         run: |
+          echo "Starting step"
           echo "${{ steps.changed-files.outputs.all }}" | jq -r '.[]' | while read -r file; do
+            echo "Found file"
             if [[ "$file" == *.md ]]; then
               echo "Processing $file..."
               curl -X POST -H "Authorization: Bearer ${{ secrets.FUNCTION_APP_KEY }}" \
