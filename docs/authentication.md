@@ -1,6 +1,6 @@
 ---
 title: Authentication on elmah.io
-description: Learn all about how authentication on elmah.io works. Using API keys and permissions you can control log, deployment and log message access.
+description: Learn all about how authentication on elmah.io works. Using API keys and permissions you can control log, deployment, and log message access.
 ---
 
 # Authentication
