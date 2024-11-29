@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
           python-version: 3.10.8
@@ -58,15 +56,11 @@ jobs:
         id: changed-files
         uses: jitterbit/get-changed-files@v1
 
-      - name: Debug Changed Files Output
-        run: echo "${{ steps.changed-files.outputs.all }}"
-
-      - name: Re-vectorize changed files
+      - name: Refresh files in Bugster
         if: ${{ steps.changed-files.outputs.all != '[]' }}
         run: |
           echo "Starting step"
           for changed_file in ${{ steps.changed-files.outputs.all }}; do
-            echo "Validating $changed_file..."
             if [[ "$changed_file" == *.md ]]; then
               echo "Processing $changed_file..."
               file_content=$(cat "$changed_file" | base64 -w 0)
