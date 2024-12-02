@@ -1269,6 +1269,92 @@ img.gif {
   width: 90%;
 }
 
+.admonition {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  background-color: #f8f9fa;
+  border-left: 0.25rem solid #dee2e6;
+}
+.admonition p:last-child {
+  margin-bottom: 0px;
+}
+.admonition .admonition-title {
+  position: relative;
+  padding-left: 2rem;
+}
+.admonition .admonition-title:before {
+  content: "";
+  height: 24px;
+  width: 24px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #448aff;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  text-align: center;
+  font-size: 12px;
+  line-height: 24px;
+}
+.admonition.note {
+  background-color: #cfe2ff;
+  border-left: 0.25rem solid #9ec5fe;
+  color: #052c65;
+}
+.admonition.note .admonition-title:before {
+  content: "\f303";
+  color: #052c65;
+  background-color: #9ec5fe;
+}
+.admonition.warning {
+  background-color: #fff3cd;
+  border-left: 0.25rem solid #ffda6a;
+  color: #664d03;
+}
+.admonition.warning .admonition-title:before {
+  content: "\f12a";
+  color: #664d03;
+  background-color: #ffda6a;
+}
+.admonition.danger {
+  background-color: #f8d7da;
+  border-left: 0.25rem solid #ea868f;
+  color: #58151c;
+}
+.admonition.danger .admonition-title:before {
+  content: "\f12a";
+  color: #58151c;
+  background-color: #ea868f;
+}
+.admonition.success {
+  background-color: #d1e7dd;
+  border-left: 0.25rem solid #75b798;
+  color: #0a3622;
+}
+.admonition.success .admonition-title:before {
+  content: "\f00c";
+  color: #0a3622;
+  background-color: #75b798;
+}
+.admonition.tip {
+  background-color: #e0cffc;
+  border-left: 0.25rem solid #a370f7;
+  color: #290661;
+}
+.admonition.tip .admonition-title:before {
+  content: "\f129";
+  color: #290661;
+  background-color: #a370f7;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
