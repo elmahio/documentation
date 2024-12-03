@@ -68,7 +68,7 @@ Click *Save* and the app is added to your log. When new errors are logged, messa
 !!! note
     The Office 365 API used behind the scenes for this app uses throttling rather than a maximum of allowed requests. This means that you may start experiencing messages not being sent, if you start logging a large amount of messages. We have experienced a lot of weird error codes when communicating with the API. An example of this is an exception while posting data to the API, but the data is successfully shown on Teams. The result of this error is, that elmah.io retries the failing request multiple times, which causes the same message to be shown multiple times on Teams.
 
-## Troubleshooting
+## Microsoft Teams Troubleshooting
 
 Errors don't show up in Teams. Here are a few things to try out.
 

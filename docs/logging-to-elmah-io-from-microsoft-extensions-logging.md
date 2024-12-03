@@ -406,7 +406,7 @@ logging.AddElmahIo(options =>
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
 
-## Troubleshooting
+## Microsoft.Extensions.Logging Troubleshooting
 
 Here are some things to try out if logging from Microsoft.Extensions.Logging to elmah.io doesn't work:
 

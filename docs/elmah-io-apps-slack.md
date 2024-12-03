@@ -14,7 +14,7 @@ Click the _Allow_ button and you will be redirected back to elmah.io. The integr
 !!! note
     Slack doesn't allow more than a single request per second. If you generate more than one message to elmah.io per second, not all of them will show up in Slack because of this.
 
-## Troubleshooting
+## Slack Troubleshooting
 
 Errors don't show up in Slack. Here are a few things to try out.
 

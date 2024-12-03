@@ -39,7 +39,7 @@ Your Azure web application now logs all uncaught exceptions to elmah.io. The elm
 - .NET Full Framework 4.6 and newer is required.
 - Custom code or configuration may swallow exceptions. Like custom errors or when using the `HandleErrorAttribute` attribute in ASP.NET MVC. In this case, the correct NuGet package needs to be installed in your code and deployed to Azure (like the `Elmah.Io.Mvc` package for ASP.NET MVC).
 
-## Troubleshooting
+## Azure Troubleshooting
 
 **ConfigurationErrorsException: Could not load file or assembly 'Elmah' or one of its dependencies. The system cannot find the file specified.**
 

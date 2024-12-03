@@ -37,7 +37,7 @@ protected void Page_Load(object sender, EventArgs e)
 
 Start the website and navigate to the ELMAH.aspx page. If everything works as intended, you will see the yellow screen of death, and a new error will pop up on elmah.io.
 
-## Troubleshooting
+## Sitefinity Troubleshooting
 
 **Config section 'system.webServer/validation' already defined**
 

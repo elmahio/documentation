@@ -145,7 +145,7 @@ if (!string.IsNullOrWhiteSpace(Configuration["ElmahIo:HeartbeatId"]))
 
 In this example, we only configure health checks and the elmah.io publisher if the `ElmahIo:HeartbeatId` setting is defined in config.
 
-## Troubleshooting
+## ASP.NET Core Troubleshooting
 
 Here's a list of things to check for if no heartbeats are registered:
 

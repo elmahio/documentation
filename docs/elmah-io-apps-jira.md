@@ -19,7 +19,7 @@ Go back to elmah.io and input your email in the *Username* field and the API tok
 
 Click *Save* and the app is added to your log. When new errors are logged, issues are automatically created in the configured Jira project.
 
-## Troubleshooting
+## Jira Troubleshooting
 
 If errors aren't showing up in Jira, please check that the following are all true:
 

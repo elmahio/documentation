@@ -25,7 +25,7 @@ The list ID is the last part of the URL (`901200300647` in the example above).
 
 When both the API token and list ID are inputted on elmah.io, click the *Test* button to test the values. When the *Test* button turns green, click the *Save* button, and the app is added to your log. When new errors are logged, tasks are automatically created in the configured ClickUp list.
 
-## Troubleshooting
+## ClickUp Troubleshooting
 
 If errors aren't showing up in ClickUp, please check that the following are all true:
 

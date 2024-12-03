@@ -454,7 +454,7 @@ using (LogContext.PushProperty("Category", "The context"))
 
 When using Serilog through Microsoft.Extensions.Logging's `ILogger<T>` interface, the source context will automatically be set by Serilog.
 
-## Troubleshooting
+## Serilog Troubleshooting
 
 Here are some things to try out if logging from Serilog to elmah.io doesn't work:
 

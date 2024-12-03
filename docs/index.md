@@ -130,7 +130,7 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
     </div>
 </div>
 
-## ASP.NET / MVC / Web API
+## ASP.NET / MVC / Web API quick start
 
 Install the `Elmah.Io` NuGet package:
 
@@ -156,7 +156,7 @@ For more information, check out the installation guides for [WebForms](logging-t
   <i class="fad fa-play-circle"></i>
 </a>
 
-## ASP.NET Core
+## ASP.NET Core quick start
 
 Install the `Elmah.Io.AspNetCore` NuGet package:
 
@@ -195,7 +195,7 @@ Make sure to insert your API key and log ID.
 
 For more information, check out the installation guides for [ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md) and [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md).
 
-## JavaScript
+## JavaScript quick start
 
 Install the `elmah.io.javascript` npm package:
 

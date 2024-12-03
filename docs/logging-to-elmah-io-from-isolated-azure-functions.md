@@ -454,7 +454,7 @@ builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 </div>
 </div>
 
-## Troubleshooting
+## Isolated Azure Functions Troubleshooting
 
 ### Exceptions in Program.cs are not logged
 

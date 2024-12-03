@@ -456,7 +456,7 @@ When logging through NLog from a web application, you may want to include HTTP c
 
 For ASP.NET Core you can install the `NLog.Web.AspNetCore` NuGet package. When installed, the elmah.io NLog target automatically picks up the HTTP context and fills in all possible fields on messages sent to elmah.io.
 
-## Troubleshooting
+## NLog Troubleshooting
 
 Here are some things to try out if logging from NLog to elmah.io doesn't work:
 

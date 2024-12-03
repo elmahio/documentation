@@ -15,7 +15,7 @@ Input your Twilio phone number (available on https://www.twilio.com/console/phon
 
 Click *Save* and the app is added to your log. When new errors are logged, an SMS/Text message is automatically sent to the configured phone number.
 
-## Troubleshooting
+## Twilio Troubleshooting
 
 If errors aren't being sent to your phone, verify that the configured variables work. To do so, replace the four variables in the top of this PowerShell script and execute it:
 

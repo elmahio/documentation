@@ -115,7 +115,7 @@ if ($sizeremainingingb -lt 10) {
 }
 ```
 
-## Troubleshooting
+## PowerShell Troubleshooting
 
 **Elmah.Io.Client.ElmahioAPI cannot be loaded**
 

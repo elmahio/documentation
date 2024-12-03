@@ -19,7 +19,7 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Tre
 
 Input the API key, token, and list ID, all located in the previous steps. Click the *Test* button to test that everything works and finally, click *Save*. New errors now trigger elmah.io to create a card with the details of the error in Trello.
 
-## Troubleshooting
+## Trello Troubleshooting
 
 If errors aren't showing up in Trello, please check that the following are all true:
 

@@ -112,7 +112,7 @@ elmahIoClient.Messages.OnMessage += (sender, e) =>
 
 This will show line number `42` next to the first code line and highlight line number `51` in the elmah.io UI.
 
-## Troubleshooting
+## Include source code Troubleshooting
 
 If no source code shows up on elmah.io log messages, you can start by running through the following checks:
 

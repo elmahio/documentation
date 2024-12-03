@@ -257,7 +257,7 @@ app.UseElmahIoLog4Net();
 // ... UseMvc etc.
 ```
 
-## Troubleshooting
+## log4net Troubleshooting
 
 Here are some things to try out if logging from log4net to elmah.io doesn't work:
 
