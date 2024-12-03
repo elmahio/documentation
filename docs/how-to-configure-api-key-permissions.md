@@ -12,4 +12,5 @@ To configure permissions for a new or existing API key, either click the `Edit` 
 
 As mentioned previously, new keys have the `messages_write` permission enabled only. This permission will cover logging from your application to elmah.io. If your application needs to browse messages from elmah.io, create new logs/applications, etc. you will need to enable the corresponding permission. Notice that read permissions don't need to be enabled, for you to browse logs and log messages on the elmah.io UI. API keys are used by the range of client integrations only.
 
-> Your API key shouldn't be shared outside your organization. In some situations, you will need to share your API key (like when logging from JavaScript). In these cases, it's essential that your API key only has the `messages_write` permission enabled. With all permissions enabled, everyone will be able to browse your logs.
+!!! warning
+    Your API key shouldn't be shared outside your organization. In some situations, you will need to share your API key (like when logging from JavaScript). In these cases, it's essential that your API key only has the `messages_write` permission enabled. With all permissions enabled, everyone will be able to browse your logs.

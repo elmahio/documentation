@@ -9,7 +9,8 @@ We are always on the lookout for creating new and useful integrations. We don't 
 
 To suggest a new integration feel free to reach out through the support widget in the lower right corner.
 
-> Not all integration requests are implemented. Don't feel bad if we decide not implement your suggestion.
+!!! note
+    Not all integration requests are implemented. Don't feel bad if we decide not implement your suggestion.
 
 When recommending a new integration we need the following information:
 

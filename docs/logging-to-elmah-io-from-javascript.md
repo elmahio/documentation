@@ -13,7 +13,8 @@ description: Set up error monitoring of single-page applications using elmah.io'
 
 elmah.io doesn't only support server-side .NET logging. We also log JavaScript errors happening on your website. Logging client-side errors require nothing more than installing the `elmahio.js` script on your website.
 
-> Organizations created end 2023 and forward will have an API key named *JavaScript* automatically generated. Remember to either use this or [generate a new API key](how-to-configure-api-key-permissions.md) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
+!!! note
+    Organizations created end 2023 and forward will have an API key named *JavaScript* automatically generated. Remember to either use this or [generate a new API key](how-to-configure-api-key-permissions.md) with `messages_write` permission only. This makes it easy to revoke the API key if someone starts sending messages to your log with your key.
 
 `elmahio.js` supports all modern browsers like Chrome, Edge, Firefox, and Safari. Internet Explorer 10 and 11 are supported too, but because of internal dependencies on the `stacktrace-gps` library, nothing older than IE10 is supported.
 
@@ -144,7 +145,8 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 
 <div role="tabpanel" class="tab-pane" id="nuget" markdown="1">
 
-> NuGet is not a good distribution channel for JavaScript libraries so this package has been deprecated. The `elmah.io.javascript` package installs the JavaScript file in the `/Scripts/` folder. This no longer works with modern web frameworks like ASP.NET Core. We recommend installing the JavaScript through one of the other options instead.
+!!! warning
+    NuGet is not a good distribution channel for JavaScript libraries so this package has been deprecated. The `elmah.io.javascript` package installs the JavaScript file in the `/Scripts/` folder. This no longer works with modern web frameworks like ASP.NET Core. We recommend installing the JavaScript through one of the other options instead.
 
 Install the `elmah.io.javascript` NuGet package:
 
@@ -383,7 +385,8 @@ The `Error` object used, should be a <a href="https://developer.mozilla.org/en-U
 
 As for the `log`-function, check out [message reference](#message-reference).
 
-> Manual logging only works when initializing the elmah.io logger from code.
+!!! note
+    Manual logging only works when initializing the elmah.io logger from code.
 
 ### Logging from console
 
@@ -407,7 +410,8 @@ console.error('This is an %s message.', 'error');
 - `warn`: will capture logging from `console.warn`, `console.error`.
 - `error`: will capture logging from `console.error`.
 
-> Capturing the console only works when initializing the elmah.io logger from code. Also, `console.log` is not captured.
+!!! note
+    Capturing the console only works when initializing the elmah.io logger from code. Also, `console.log` is not captured.
 
 ## IntelliSense
 

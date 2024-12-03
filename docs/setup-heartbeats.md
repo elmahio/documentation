@@ -225,7 +225,8 @@ The value of the `Took` property is shown in the *History* modal on the *Heartbe
 
 ### Checks
 
-> Checks require `Elmah.Io.Client` version `5.1.*` or newer.
+!!! note
+    Checks require `Elmah.Io.Client` version `5.1.*` or newer.
 
 Some sites and services implement a range of different checks to decide if the program is healthy or not. Consider an ASP.NET Core website that verifies that both a connection to a database and a service bus can be established. In this example, a failing heartbeat to elmah.io can be decorated with one or more `Checks`:
 

@@ -9,7 +9,8 @@ description: Learn about how to set up error monitoring and log uncaught excepti
 
 # Logging to elmah.io from Uno
 
-> The Uno integration for elmah.io is currently in prerelease.
+!!! warning
+    The Uno integration for elmah.io is currently in prerelease.
 
 Integrating Uno with elmah.io is done by installing the `Elmah.Io.Uno` NuGet package:
 

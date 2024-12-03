@@ -5,7 +5,8 @@ description: The Mailman app for elmah.io sends out an email to an address of yo
 
 # Install Mailman App for elmah.io
 
-> The Mailman app is deprecated. Use an email rule available on the *Rules* tab for a more advanced email integration.
+!!! warning
+    The Mailman app is deprecated. Use an email rule available on the *Rules* tab for a more advanced email integration.
 
 The Mailman app for elmah.io sends out an email to an address of your choice, every time a new error is logged.
 

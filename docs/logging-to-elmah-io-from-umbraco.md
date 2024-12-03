@@ -13,14 +13,8 @@ description: Monitoring Umbraco is easy with elmah.io's custom integration. Log 
 
 elmah.io offer great support for all newer Umbraco versions. Umbraco has been in rapid development in the last few years, so the installation instructions are very different depending on which major version you are using. Make sure to select the right version below since newer versions of the `Elmah.Io.Umbraco` package don't work with older versions of Umbraco and vice versa.
 
-<div class="alert alert-primary">
-    <div class="row">
-        <div class="col-auto align-self-start">
-            <div class="fa fa-lightbulb"></div>
-        </div>
-        <div class="col">To learn more about the elmah.io integration with Umbraco and an overall introduction to the included features, make sure to check out the <a href="https://elmah.io/features/umbraco/">elmah.io and Umbraco</a> page.</div>
-    </div>
-</div>
+!!! tip
+    To learn more about the elmah.io integration with Umbraco and an overall introduction to the included features, make sure to check out the <a href="https://elmah.io/features/umbraco/">elmah.io and Umbraco</a> page.
 
 During the installation steps described below, you will need your API key ([Where is my API key?](where-is-my-api-key.md)) and log ID ([Where is my log ID?](where-is-my-log-id.md)).
 
@@ -28,7 +22,8 @@ elmah.io integrates with Umbraco's Health Checks feature too. To learn more abou
 
 ## Umbraco >= 9
 
-> Umbraco 9 is targeting .NET 5.0 which is no longer supported by Microsoft. This is why we have chosen to support Umbraco 10 and up only.
+!!! note
+    Umbraco 9 is targeting .NET 5.0 which is no longer supported by Microsoft. This is why we have chosen to support Umbraco 10 and up only.
 
 To install elmah.io in your Umbraco >= v10 site, install the `Elmah.Io.Umbraco` NuGet package:
 
@@ -71,7 +66,8 @@ public class Startup
 }
 ```
 
-> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** the call to `UseUmbraco`.
+!!! note
+    Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** the call to `UseUmbraco`.
 
 This will log all uncaught errors to elmah.io. If you want to hook into Umbraco's logging through Serilog, extend the configuration in the `appsettings.json` file with the following JSON:
 
@@ -114,7 +110,8 @@ paket add Elmah.Io.Umbraco --version 4.2.21
 
 During the installation, you will be presented with a dialog asking for your API key and log ID. Hit F5 and watch messages start flowing into elmah.io.
 
-> Unless serious security issues in the `Elmah.Io.Umbraco` v4 package are found, new features will be added to the v5 package only (supporting Umbraco 10 and newer).
+!!! note
+    Unless serious security issues in the `Elmah.Io.Umbraco` v4 package are found, new features will be added to the v5 package only (supporting Umbraco 10 and newer).
 
 ### Configuration
 
@@ -141,7 +138,8 @@ dotnet add package Elmah.Io.Umbraco --version 3.2.35
 paket add Elmah.Io.Umbraco --version 3.2.35
 ```
 
-> New features will be added to the updated package for Umbraco 10 and newer only.
+!!! note
+    New features will be added to the updated package for Umbraco 10 and newer only.
 
 ## Umbraco Cloud
 
@@ -159,7 +157,8 @@ In case you want logging to different elmah.io logs from each Umbraco Cloud envi
 
 ## Umbraco Uno
 
-> Umbraco Uno has been discontinued.
+!!! warning
+    Umbraco Uno has been discontinued.
 
 Installing elmah.io in Umbraco Uno follows the process of installing it onto Umbraco Cloud. To modify code and configuration in Uno you will need a Umbraco Uno Standard plan or higher. Also, you need to enable *Custom Code* to clone the code locally. This can be done from Uno by clicking the *Enable custom code* button:
 

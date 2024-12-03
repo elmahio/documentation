@@ -7,7 +7,8 @@ description: Learn about how to log to individual elmah.io logs per environment.
 
 We bet that you use at least two environments for hosting your website: localhost and a production environment. You probably need to log website errors on all your environments, but you don’t want to mix errors from different environments in the same error log. Lucky for you, Microsoft provides a great way of differentiating configuration for different environments called [Web Config transformation](https://learn.microsoft.com/en-us/previous-versions/aspnet/dd465326(v=vs.110)).
 
-> To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild, or third for the transformations to replace the right ELMAH config.
+!!! tip
+    To avoid spending numerous hours of debugging, remember that Web Config transformations are only run on deploy and not on build. In other words, deploy your website using Visual Studio, MSBuild, or third for the transformations to replace the right ELMAH config.
 
 Whether or not you want errors from localhost logged on elmah.io, start by installing the `Elmah.Io` NuGet package:
 
@@ -26,14 +27,8 @@ paket add Elmah.Io
 
 Then choose one of the two paths below.
 
-<div class="alert alert-primary">
-    <div class="row">
-        <div class="col-auto align-self-start">
-            <div class="fa fa-lightbulb"></div>
-        </div>
-        <div class="col">Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.</div>
-    </div>
-</div>
+!!! tip
+    Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.
 
 ## Logging to elmah.io from both localhost and production
 

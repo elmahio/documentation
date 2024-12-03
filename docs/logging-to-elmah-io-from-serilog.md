@@ -57,7 +57,8 @@ catch (Exception e)
 
 The Error method tells Serilog to log the error in the configured sinks, which in our case logs to elmah.io. Simple and beautiful.
 
-> Always call `Log.CloseAndFlush();` before your program terminates.
+!!! note
+    Always call `Log.CloseAndFlush();` before your program terminates.
 
 ## Logging custom properties
 
@@ -93,7 +94,8 @@ This will fill in the value `Arnold Schwarzenegger` in the `User` field, as well
 
 `Serilog.Sinks.ElmahIo` provides message hooks similar to the integrations with ASP.NET and ASP.NET Core.
 
-> Message hooks require `Serilog.Sinks.ElmahIo` version `3.3.0` or newer.
+!!! note
+    Message hooks require `Serilog.Sinks.ElmahIo` version `3.3.0` or newer.
 
 ### Decorating log messages
 
@@ -135,7 +137,8 @@ Log.Logger =
 
 Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
+!!! note
+    Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ### Handle errors
 
@@ -334,7 +337,8 @@ While Serilog provides a great fluent C# API, some prefer to configure Serilog u
 }
 ```
 
-> Make sure to specify the `apiKey` and `logId` arguments with the first character in lowercase.
+!!! note
+    Make sure to specify the `apiKey` and `logId` arguments with the first character in lowercase.
 
 Finally, tell Serilog to read the configuration from the `appsettings.json` file:
 

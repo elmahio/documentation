@@ -94,7 +94,8 @@ app.UseElmahIo();
 </div>
 </div>
 
-> Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc`, `MapRazorPages`, and similar.
+!!! note
+    Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** any calls to `UseEndpoints`, `UseMvc`, `MapRazorPages`, and similar.
 
 That's it. Every uncaught exception will be logged to elmah.io. For an example of configuring elmah.io with ASP.NET Core minimal APIs, check out [this sample](https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples/Elmah.Io.AspNetCore60.Example).
 
@@ -271,7 +272,8 @@ builder.Services.AddElmahIo(options =>
 
 The actions provide a mechanism for hooking into the log process. The action registered in the `OnMessage` property is called by elmah.io just before logging a new message to the API. Use this action to decorate/enrich your log messages with additional data, like a version number. The `OnError` action is called if communication with the elmah.io API failed. If this happens, you should log the message to a local log (through Microsoft.Extensions.Logging, Serilog or similar). 
 
-> Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
+!!! warning
+    Do not log to elmah.io in your `OnError` action, since that could cause an infinite loop in your code.
 
 While elmah.io supports [ignore rules](creating-rules-to-perform-actions-on-messages.md#ignore-errors-with-an-http-status-code-of-400) serverside, you may want to filter out errors without even hitting the elmah.io API. Using the `OnFilter` function on the options object, filtering is easy:
 
@@ -346,7 +348,8 @@ builder.Services.AddSingleton<IConfigureOptions<ElmahIoOptions>, DecorateElmahIo
 </div>
 </div>
 
-> Decorating messages using `IConfigureOptions` requires `Elmah.Io.AspNetCore` version `4.1.37` or newer.
+!!! note
+    Decorating messages using `IConfigureOptions` requires `Elmah.Io.AspNetCore` version `4.1.37` or newer.
 
 #### Include source code
 
@@ -367,7 +370,8 @@ builder.Services.AddElmahIo(options =>
 
 Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
+!!! note
+    Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 #### Remove sensitive form data
 

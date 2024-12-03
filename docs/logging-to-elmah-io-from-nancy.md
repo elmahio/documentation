@@ -5,7 +5,8 @@ description: Learn about how to add error monitoring and cloud logging to any Na
 
 # Logging to elmah.io from Nancy
 
-> Nancy is no longer maintained. While the installation steps on this page (probably) still work, we no longer test the `Nancy.Elmah` package.
+!!! warning
+    Nancy is no longer maintained. While the installation steps on this page (probably) still work, we no longer test the `Nancy.Elmah` package.
 
 As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the `Elmah.Io` NuGet package:
 

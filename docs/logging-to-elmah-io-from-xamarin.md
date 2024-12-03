@@ -11,7 +11,8 @@ description: Learn about how to log all uncaught errors happening on your Xamari
 
 [TOC]
 
-> The Xamarin integration for elmah.io is currently in prerelease.
+!!! warning
+    The Xamarin integration for elmah.io is currently in prerelease.
 
 Integrating Xamarin with elmah.io is done by installing the `Elmah.Io.Xamarin` NuGet package:
 

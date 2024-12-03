@@ -28,7 +28,8 @@ dotnet add package Elmah.Io.NLog
 paket add Elmah.Io.NLog
 ```
 
-> Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11`, `4.6.1`, or newer.
+!!! warning
+    Please don't use NLog `4.6.0` since that version contains a bug that causes the elmah.io target to not load correctly. `4.5.11`, `4.6.1`, or newer.
 
 ## Configuration in .NET
 
@@ -103,7 +104,8 @@ By using the layout `${appsetting:item=apiKey}` you tell NLog that the value for
 </appSettings>
 ```
 
-> The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
+!!! note
+    The `appSettings` layout formatter only works when targeting .NET Full Framework and requires `Elmah.Io.NLog` version 3.3.x or above and `NLog` version 4.6.x or above.
 
 ### IntelliSense
 
@@ -412,7 +414,8 @@ elmahIoTarget.OnMessage = msg =>
 
 Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
+!!! note
+    Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ### Handle errors
 

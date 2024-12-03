@@ -11,7 +11,8 @@ description: Logging errors to elmah.io from Azure WebJobs requires only a few l
 
 Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/) requires only a few lines of code. We've created a client specifically for Azure WebJobs.
 
-> Support for Azure WebJobs has been stopped on version `3.1.23` of the `Elmah.Io.Functions` package. The newer versions only work with Azure Functions.
+!!! warning
+    Support for Azure WebJobs has been stopped on version `3.1.23` of the `Elmah.Io.Functions` package. The newer versions only work with Azure Functions.
 
 Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 
@@ -43,7 +44,8 @@ public class Functions
 
 Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with your log ID.
 
-> If your WebJob method is declared as async, remember to change the return type to `Task`. Without it, `ElmahIoExceptionFilter` is never invoked.
+!!! note
+    If your WebJob method is declared as async, remember to change the return type to `Task`. Without it, `ElmahIoExceptionFilter` is never invoked.
 
 The filter also supports config variables:
 

@@ -11,7 +11,8 @@ Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Sla
 
 Click the _Allow_ button and you will be redirected back to elmah.io. The integration to Slack is now installed.
 
-> Slack doesn't allow more than a single request per second. If you generate more than one message to elmah.io per second, not all of them will show up in Slack because of this.
+!!! note
+    Slack doesn't allow more than a single request per second. If you generate more than one message to elmah.io per second, not all of them will show up in Slack because of this.
 
 ## Troubleshooting
 

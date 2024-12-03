@@ -30,7 +30,8 @@ To assign users to a log, you will need to add them to the organization first. W
 
 At first, the user creating the organization will be the only one on the list. To add a new user to the list, click the *Add user* button and input the user's email or name in the textbox. The dropdown will show a list of users on elmah.io matching your query.
 
-> Each user needs to sign up on elmah.io before being visible through *Add user*. Jump to [Invite new users to an organization](#invite-new-users-to-an-organization) to learn how to invite new users.
+!!! note
+    Each user needs to sign up on elmah.io before being visible through *Add user*. Jump to [Invite new users to an organization](#invite-new-users-to-an-organization) to learn how to invite new users.
 
 When the new user is visible in the dropdown, click the user and select an access level. The chosen access level decides what the new user is allowed to do inside the organization. *Read* users are only allowed to view the organization, while *Administrator* users are allowed to add new users and delete the entire organization and all logs beneath it. The access level set for the user in the organization will become the user's access level on all new logs inside that organization as well.
 
@@ -42,7 +43,8 @@ When a user is added to an organization, the user will automatically have access
 
 ![Manage log(s) access](images/manage-log-access-v2.png)
 
-> Awarding a user *Administrator* on a log doesn't give them *Administrator* rights to the organization.
+!!! note
+    Awarding a user *Administrator* on a log doesn't give them *Administrator* rights to the organization.
 
 To assign a user to all logs, click the _None_, _Read_, _Write_, or _Administrator_ buttons in the table header above the list of logs.
 

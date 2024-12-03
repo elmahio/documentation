@@ -18,14 +18,8 @@ So, your ASP.NET Core application doesn't log errors to elmah.io? Here is a list
 - Make sure that you don't have any code catching all exceptions happening in your system and ignoring them (could be a logging filter, a piece of middleware, or similar).
 - Make sure that you haven't reached the message limit included in your current plan. Your current usage can be viewed on the *Subscription* tab on organization settings.
 
-<div class="alert alert-primary">
-    <div class="row">
-        <div class="col-auto align-self-start">
-            <div class="fa fa-lightbulb"></div>
-        </div>
-        <div class="col">Some of the bullets above have been implemented as Roslyn analyzers. Check out <a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a> for details.</div>
-    </div>
-</div>
+!!! tip
+    Some of the bullets above have been implemented as Roslyn analyzers. Check out <a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a> for details.
 
 ## Common problems and how to fix them
 

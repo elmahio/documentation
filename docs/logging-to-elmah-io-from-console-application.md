@@ -157,7 +157,8 @@ logger.Messages.OnMessage += (sender, eventArgs) =>
 
 Check out [How to include source code in log messages](how-to-include-source-code-in-log-messages.md) for additional requirements to make source code show up on elmah.io.
 
-> Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
+!!! note
+    Including source code on log messages is available in the `Elmah.Io.Client` v4 package and forward.
 
 ### OnMessageFail
 
@@ -172,7 +173,8 @@ logger.Messages.OnMessageFail += (sender, eventArgs) =>
 
 ### OnMessageFilter
 
-> The `OnMessageFilter` event require `Elmah.Io.Client` version `5.2.*` or newer.
+!!! note
+    The `OnMessageFilter` event require `Elmah.Io.Client` version `5.2.*` or newer.
 
 One or more filters can be set up to easily ignore messages based on their messages. To set up a filter, implement the `OnMessageFilter` event like this:
 

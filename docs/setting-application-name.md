@@ -17,14 +17,9 @@ This will decorate all errors logged to elmah.io with the application name `MyAp
 
 A common use of Web.config Transformations is to have a transformation per environment, customer, application, etc. If this is the case, you can replace the application name as part of the config transformation. Check out [Use multiple logs for different environments](use-multiple-logs-for-different-environments.md) for more information about how to update the `errorLog` element.
 
-<div class="alert alert-primary">
-    <div class="row">
-        <div class="col-auto align-self-start">
-            <div class="fa fa-lightbulb"></div>
-        </div>
-        <div class="col">Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.</div>
-    </div>
-</div>
+!!! tip
+
+    Our <a href="https://blog.elmah.io/web-config-transformations-the-definitive-syntax-guide/" target="_blank">Web.config transformations - The definitive syntax guide</a> contains general information about how transformations work and you can use the <a href="https://elmah.io/tools/webconfig-transformation-tester/" target="_blank">Web.config Transformation Tester</a> to validate transformation files.
 
 If you, for some reason, cannot set the application name in the `web.config` file, it can be specified from C# by including the following code in the `Application_Start` method in the `global.asax.cs` file:
 

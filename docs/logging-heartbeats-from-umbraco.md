@@ -15,7 +15,8 @@ When launching the website Umbraco automatically executes the health checks once
 
 ## Umbraco >= 9
 
-> Umbraco 9 is targeting .NET 5.0 which is no longer supported by Microsoft. This is why we have chosen to support Umbraco 10 and up only.
+!!! note
+    Umbraco 9 is targeting .NET 5.0 which is no longer supported by Microsoft. This is why we have chosen to support Umbraco 10 and up only.
 
 Install the `Elmah.Io.Umbraco` NuGet package:
 

@@ -5,7 +5,8 @@ description: Learn about how to set up the HipChat app for elmah.io. Automatical
 
 # Install HipChat App for elmah.io
 
-> The Hipchat application was discontinued by Atlassian in 2019. We no longer support this integration either.
+!!! warning
+    The Hipchat application was discontinued by Atlassian in 2019. We no longer support this integration either.
 
 ## Generate OAuth 2 Token
 
@@ -15,7 +16,8 @@ To allow elmah.io to log messages to HipChat, you will need to generate an OAuth
 
 Input a label, click the *Create* button and copy the generated token.
 
-> If you want to test your configuration using the _Test_ button on the elmah.io UI, you will need to select both _Send Notification_ and _View Room_ in _Scopes_.
+!!! note
+    If you want to test your configuration using the _Test_ button on the elmah.io UI, you will need to select both _Send Notification_ and _View Room_ in _Scopes_.
 
 ## Install the HipChat App on elmah.io
 
@@ -27,4 +29,5 @@ Paste the token copied in the previous step into the Token textbox. In the Room 
 
 Click *Save* and the app is added to your log. When new errors are logged, messages start appearing in the chat room that you configured.
 
-> HipChat doesn't allow more than 500 requests per 5 minutes. If you generate more messages to elmah.io, not all of them will show up in HipChat because of this.
+!!! note
+    HipChat doesn't allow more than 500 requests per 5 minutes. If you generate more messages to elmah.io, not all of them will show up in HipChat because of this.

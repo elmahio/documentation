@@ -7,7 +7,8 @@ description: Learn about the clear CLI command and how you can use it to clear m
 
 The `clear` command is used to delete one or more messages from a log.
 
-> Be aware that clearing a log does not reset the monthly counter towards log messages included in your current plan. The `clear` command is intended for cleanup in non-expired log messages you no longer need.
+!!! note
+    Be aware that clearing a log does not reset the monthly counter towards log messages included in your current plan. The `clear` command is intended for cleanup in non-expired log messages you no longer need.
 
 ## Usage
 

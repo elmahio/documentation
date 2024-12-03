@@ -9,7 +9,8 @@ We are often asked the question: Should I create a log per environment and how d
 
 Creating a log per environment (staging, production, etc.) is a good idea since you probably want different notification rules and/or user access depending on the environment. This document provides a range of possibilities for setting up a log per environment.
 
-> This document is intended for the `Elmah.Io.AspNetCore` package only. You can use the same approach for `Elmah.Io.Extensions.Logging` but we recommend using log filtering in the `appsettings.json` file or through C# instead.
+!!! note
+    This document is intended for the `Elmah.Io.AspNetCore` package only. You can use the same approach for `Elmah.Io.Extensions.Logging` but we recommend using log filtering in the `appsettings.json` file or through C# instead.
 
 ## Using appsettings.{Environment}.json
 

@@ -7,7 +7,8 @@ description: Details about upgrading elmah.io clients from major version 2 to 3.
 
 When we launched the new version of our API ([v3](https://api.elmah.io/swagger/index.html)), we used the jump in major version to fix some issues that would require major changes in our client. One of them is a move to netstandard, which makes the new client usable from .NET Core. With interface changes in the client, upgrading from 2.x to 3.x requires more than simply upgrading the NuGet package. This is a guide to upgrading the Elmah.Io package.
 
-> If you are logging to elmah.io from ASP.NET Core, you are already using the 3.x client.
+!!! note
+    If you are logging to elmah.io from ASP.NET Core, you are already using the 3.x client.
 
 ## Updating the NuGet package
 
