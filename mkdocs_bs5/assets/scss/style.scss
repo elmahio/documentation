@@ -707,12 +707,22 @@ table .table-light th {
 			margin-top: 5px;
 			min-height: 44px;
 
+			img {
+				width: 100%;
+				margin: 16px 0;
+			}
+
 			h3 {
 				font-size: 18px;
 			}
 
 			h4 {
 				font-size: 16px;
+			}
+
+			ol + p > img,
+			p + p > img {
+				margin-top: 0px;
 			}
 
 			p:last-child {

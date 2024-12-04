@@ -370,6 +370,24 @@ function Bugster() {
 			userDialog.classList.add('d-none');
 			bugsterDialog.classList.add('d-none');
 
+			if (document.querySelector('.bugster-hero').checkVisibility() === false) {
+				bugsterChatFooterCollapse.hide();
+				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
+					setTimeout(() => {
+						bugsterChat.classList.remove('d-none');
+						userText.innerHTML = `<p>${ question.value }</p>`;
+						userDialog.classList.remove('d-none');
+
+						setTimeout(function() {
+							bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
+							bugsterDialog.classList.remove('d-none');
+						}, 500);
+
+						setTimeout(() => bugsterXHR(), 1500);
+					}, 500);
+				});
+			}
+
 			fadeOut(document.querySelector('.bugster-hero'), function() {
 				bugsterChatFooterCollapse.hide();
 				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
@@ -383,47 +401,54 @@ function Bugster() {
 							bugsterDialog.classList.remove('d-none');
 						}, 500);
 
-						setTimeout(function() {
-							
-							const xhr = new XMLHttpRequest();
-							xhr.open("POST", "https://bugster.elmah.io/api/BugsterFunction?code=WdKw-h8pOZrzzohoJhhzLGxU3_8zQvBAdbt8uJ1vHkzjAzFuUODNTQ==", true);
-							xhr.setRequestHeader("Content-Type", "text/plain");
-
-							xhr.onprogress = function(progressEvent) {
-								const { target } = progressEvent;
-								if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
-									bugsterText.innerHTML = '';
-								}
-								if (target.status === 200) {
-									bugsterText.innerHTML = md.render(target.response);
-								}
-							};
-
-							xhr.onload = function() {
-								if (xhr.status === 200) {
-									// Same as in your `done` function in jQuery
-									bugsterText.querySelectorAll('pre code').forEach(codeElement => {
-										codeElement.parentNode.style.padding = "0px";
-										hljs.highlightElement(codeElement);
-									});
-
-									bugsterText.querySelectorAll('a').forEach(aElement => {
-										aElement.target = "_blank";
-										aElement.rel = "noopener noreferrer";
-									});
-
-									askAnotherQuestion.classList.remove('d-none');
-								}
-							};
-
-							xhr.send(question.value);
-
-						}, 1500);
+						setTimeout(() => bugsterXHR(), 1500);
 					}, 500);
 				});
 			});
 		}
 	});
+
+	let isRequestInProgress = false;
+
+	const bugsterXHR = () => {
+		if (isRequestInProgress) return;
+
+		isRequestInProgress = true;
+		const xhr = new XMLHttpRequest();
+		xhr.open("POST", "https://bugster2.elmah.io/api/BugsterFunction?code=BjsS-o0CJlpZBunhCFSZ_OqWhlEi9sG7G1cyRlyCOYi3AzFuvoyPPA%3D%3D", true);
+		xhr.setRequestHeader("Content-Type", "text/plain");
+
+		xhr.onprogress = function(progressEvent) {
+			const { target } = progressEvent;
+			if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
+				bugsterText.innerHTML = '';
+			}
+			if (target.status === 200) {
+				bugsterText.innerHTML = md.render(target.response);
+			}
+		};
+
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				// Same as in your `done` function in jQuery
+				bugsterText.querySelectorAll('pre code').forEach(codeElement => {
+					codeElement.parentNode.style.padding = "0px";
+					hljs.highlightElement(codeElement);
+				});
+
+				bugsterText.querySelectorAll('a').forEach(aElement => {
+					aElement.target = "_blank";
+					aElement.rel = "noopener noreferrer";
+				});
+
+				askAnotherQuestion.classList.remove('d-none');
+
+				isRequestInProgress = false;
+			}
+		};
+
+		xhr.send(question.value);
+	}
 
 	// Ask another question
 	askAnotherQuestion.addEventListener('click', function() {

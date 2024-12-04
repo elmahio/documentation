@@ -129,25 +129,6 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  border: 0;
-  border-left: 5px solid #eee;
-  background-color: #FFF6D5;
-  border-left-color: #F3E3AA;
-  text-align: left;
-}
-blockquote p:before, blockquote p:after {
-  display: none;
-}
-blockquote p:last-child {
-  margin: 0px;
-}
-blockquote a, blockquote a:visited {
-  color: #0da58e;
-}
-
 kbd {
   background-color: #eee;
   border-radius: 3px;
@@ -627,11 +608,19 @@ table .table-light th {
   margin-top: 5px;
   min-height: 44px;
 }
+.bugster-chat .bugster-dialog-text .content img {
+  width: 100%;
+  margin: 16px 0;
+}
 .bugster-chat .bugster-dialog-text .content h3 {
   font-size: 18px;
 }
 .bugster-chat .bugster-dialog-text .content h4 {
   font-size: 16px;
+}
+.bugster-chat .bugster-dialog-text .content ol + p > img,
+.bugster-chat .bugster-dialog-text .content p + p > img {
+  margin-top: 0px;
 }
 .bugster-chat .bugster-dialog-text .content p:last-child {
   margin-bottom: 0;
@@ -1270,7 +1259,7 @@ img.gif {
 }
 
 .admonition {
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   background-color: #f8f9fa;
