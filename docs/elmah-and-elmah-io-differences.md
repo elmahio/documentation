@@ -15,7 +15,7 @@ We understand the confusion. The purpose of this article is to give a bit of bac
 
 ## What is ELMAH?
 
-ELMAH is an error logging framework originally developed by Atif Aziz able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH’s plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch, and many more exist. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies, and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.
+ELMAH is an error logging framework originally developed by Atif Aziz in 2004 able to log all unhandled exceptions from .NET web applications. Errors can be logged to a variety of destinations through ELMAH's plugin model called error logs. Plugins for XML, SQL Server, MySQL, Elasticsearch, and many more exist. ELMAH automatically collects a lot of information from the HTTP context when logging the error, giving you the possibility to inspect request parameters, cookies, and much more for the failed request. Custom errors can be logged to ELMAH, by manually calling the error log.
 
 ## What is elmah.io?
 
