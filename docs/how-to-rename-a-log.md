@@ -9,4 +9,4 @@ Logs can be renamed from the [Dashboard](https://app.elmah.io/dashboard/) by any
 
 ![Rename log](images/rename-log-v2.png){: .image-500 }
 
-When clicking the icon the log box will flip and you will be able to input a new name. The edit log box also lets you assign the log to an environment, subscribe/unsubscribe from emails, as well as change the color of the log. Be aware that changing the name, environment, or color will be visible for all users with access to the log.
+When clicking the icon the log box will flip and you will be able to input a new name. The edit log box also lets you assign the log to an environment, subscribe/unsubscribe from emails, as well as change the color of the log. Be aware that changing the name, environment, or color will be visible to all users with access to the log.
