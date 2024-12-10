@@ -636,9 +636,6 @@ table .table-light th {
   font-size: 13px;
   padding: 15px;
 }
-.bugster-chat .bugster-dialog-text .content pre:last-child {
-  margin-bottom: 0;
-}
 .bugster-chat .bugster-dialog-text .content pre code {
   background-color: #2E3440;
 }
