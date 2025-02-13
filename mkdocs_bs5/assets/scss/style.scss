@@ -740,10 +740,6 @@ table .table-light th {
 				font-size: 13px;
 				padding: 15px;
 
-				&:last-child {
-					margin-bottom: 0;
-				}
-
 				code {
 					background-color: #2E3440;
 
@@ -1558,7 +1554,7 @@ img.gif {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	body {
 		&:before {
 			display: none;
@@ -1626,7 +1622,7 @@ img.gif {
 
 		.sidebar-body {
 			width: 100%;
-			padding: 15px;
+			padding: 85px 15px 15px 15px;
 
 			hr {
 				border-color: #4d4d4d;
@@ -1650,6 +1646,7 @@ img.gif {
 		}
 
 		ul {
+			background: #444444;
 			padding: 15px;
 			border-top: 1px solid #4d4d4d;
 

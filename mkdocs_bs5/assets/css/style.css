@@ -636,9 +636,6 @@ table .table-light th {
   font-size: 13px;
   padding: 15px;
 }
-.bugster-chat .bugster-dialog-text .content pre:last-child {
-  margin-bottom: 0;
-}
 .bugster-chat .bugster-dialog-text .content pre code {
   background-color: #2E3440;
 }
@@ -1374,7 +1371,7 @@ img.gif {
     margin-top: 15px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body:before {
     display: none;
   }
@@ -1431,7 +1428,7 @@ img.gif {
   }
   .sidebar .sidebar-body {
     width: 100%;
-    padding: 15px;
+    padding: 85px 15px 15px 15px;
   }
   .sidebar .sidebar-body hr {
     border-color: #4d4d4d;
@@ -1450,6 +1447,7 @@ img.gif {
     color: #ffffff;
   }
   #searchList ul {
+    background: #444444;
     padding: 15px;
     border-top: 1px solid #4d4d4d;
   }
