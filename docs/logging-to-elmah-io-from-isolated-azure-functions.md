@@ -395,21 +395,29 @@ public class MyFunction
 
 ### Log filtering
 
-The code above filters out all log messages with a severity lower than `Warning`. You can use all of the log filtering capabilities of Microsoft.Extensions.Logging to enable and disable various log levels from multiple categories. A common requirement is to only log `Warning` and more severe originating from the Azure Functions runtime, but log `Information` messages from your function code. This can be enabled through a custom category:
+The code above filters out all log messages with a severity lower than `Warning`. You can use all of the log filtering capabilities of Microsoft.Extensions.Logging to enable and disable various log levels from multiple categories. A common requirement is to only log `Warning` and more severe originating from the Azure Functions runtime, but log `Information` messages from your function code. This can be enabled by logging as normal in the function:
 
 ```csharp
-public class MyFunction
+namespace MyNamespace
 {
-    // ...
-
-    public void Run([TimerTrigger("...")]TimerInfo myTimer)
+    public class MyFunction
     {
-        logger.LogInformation("This is an information message");
+        private readonly ILogger<MyFunction> logger;
+
+        public Function1(ILogger<MyFunction> logger)
+        {
+            this.logger = logger;
+        }
+
+        public void Run([TimerTrigger("...")]TimerInfo myTimer)
+        {
+            logger.LogInformation("This is an information message");
+        }
     }
 }
 ```
 
-The `MyFunction` category will need configuration in either C# or in the a config file. In previous versions of Azure Functions you would use the `host.json` file for log configuration. The `host.json` file is dedicated for configuration of the host and since Isolated Functions are running in a process separate from the host, you will need a new file. Create a file named `appsettings.json` and include the following content:
+The generic `MyFunction` logger will create a logger with a category name of the function class including the namespace. You can configure this in the settings file:
 
 ```json
 {
@@ -417,11 +425,13 @@ The `MyFunction` category will need configuration in either C# or in the a confi
   "Logging": {
     "LogLevel": {
       "Default": "Warning",
-      "MyFunction": "Information"
+      "MyNamespace.MyFunction": "Information"
     }
   }
 }
 ```
+
+In previous versions of Azure Functions you would use the `host.json` file for log configuration. The `host.json` file is dedicated for configuration of the host and since Isolated Functions are running in a process separate from the host, you will need a new file. Create a file named `appsettings.json` and include the JSON configuration from the previous example.
 
 Next, change the Build Action to *Content* and Copy to Output Directory to *Copy if newer* in the properties of the `appsettings.json` file. Finally, include the following code in the `Program.cs` file to have the `Logging` section loaded by the Isolated Function process:
 
