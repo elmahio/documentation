@@ -355,19 +355,26 @@ builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 
 In the example, only warning messages and above are logged to elmah.io. You can remove the filter or set another log level if you want to log more. Jump to [Log filtering](#log-filtering) to learn how to configure filters from config.
 
-Either pass an `ILogger` to your function method:
+Either inject an `ILogger<>`:
 
 ```csharp
 public class MyFunction
 {
-    public static void Run([TimerTrigger("...")]TimerInfo myTimer, ILogger<MyFunction> logger)
+    private readonly ILogger<MyFunction> logger;
+
+    public MyFunction(ILogger<MyFunction> logger)
+    {
+        this.logger = logger;
+    }
+
+    public static void Run([TimerTrigger("...")]TimerInfo myTimer)
     {
         logger.LogWarning("This is a warning");
     }
 }
 ```
 
-Or inject an `ILoggerFactory` and create a logger as part of the constructor:
+Or inject an `ILoggerFactory` and create a logger:
 
 ```csharp
 public class MyFunction
@@ -393,7 +400,9 @@ The code above filters out all log messages with a severity lower than `Warning`
 ```csharp
 public class MyFunction
 {
-    public void Run([TimerTrigger("...")]TimerInfo myTimer, ILogger<MyFunction> logger)
+    // ...
+
+    public void Run([TimerTrigger("...")]TimerInfo myTimer)
     {
         logger.LogInformation("This is an information message");
     }
