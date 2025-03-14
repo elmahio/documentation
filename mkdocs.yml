@@ -137,6 +137,7 @@ nav:
     - PagerDuty: elmah-io-apps-pagerduty.md
     - ClickUp: elmah-io-apps-clickup.md
     - ChatGPT: elmah-io-apps-chatgpt.md
+    - Fixes: elmah-io-apps-fixes.md
     - BotBuster (deprecated): elmah-io-apps-botbuster.md
     - IP Filter (deprecated): elmah-io-apps-ipfilter.md
     - Mailman (deprecated): elmah-io-apps-mailman.md
