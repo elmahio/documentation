@@ -97,6 +97,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	const bsTabs = document.querySelectorAll('a.nav-link[data-bs-toggle="tab"]');
 	bsTabs.forEach((el) => {
 		el.addEventListener('click', function(e) {
+			// Keep the same scroll position when switching tabs
+			const offsetFromTop = e.target.getBoundingClientRect().top;
+			requestAnimationFrame(() => {
+				const newOffsetFromTop = e.target.getBoundingClientRect().top;
+				const scrollAdjustment = newOffsetFromTop - offsetFromTop;
+				window.scrollBy(0, scrollAdjustment);
+			});
+			// ---
+
 			const tabParent = e.currentTarget.closest('ul.nav-tabs');
 			const tabData = e.currentTarget.dataset.bsTab;
 			let tabs = Array.from(document.querySelectorAll('a.nav-link[data-bs-toggle="tab"][data-bs-tab="'+ tabData +'"]'));
