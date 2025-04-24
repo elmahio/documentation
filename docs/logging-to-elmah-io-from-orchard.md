@@ -9,13 +9,13 @@ Orchard CMS is a free, open-source community-focused content management system b
 
 To start logging to elmah.io, install the `Elmah.Io.Client` and `Elmah.Io.AspNetCore` NuGet packages:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-Install-Package Elmah.Io.AspNetCore
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
 dotnet add package Elmah.Io.AspNetCore
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
+Install-Package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />
@@ -58,11 +58,11 @@ Orchard uses NLog as the internal logging framework. Hooking into this pipeline 
 
 Install the `Elmah.Io.Nlog` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.NLog
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.NLog
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.NLog
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.NLog" Version="5.*" />

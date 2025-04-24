@@ -13,11 +13,11 @@ description: Learn about how to add error monitoring and storing log4net message
 
 In this tutorial we'll add logging to elmah.io from a .NET application with log4net. Install the elmah.io appender:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Log4Net
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Log4Net
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Log4Net
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Log4Net" Version="5.*" />
@@ -184,13 +184,13 @@ Like other logging frameworks, logging through log4net from ASP.NET Core is also
 
 To start logging to elmah.io from Microsoft.Extensions.Logging (through log4net), install the `Elmah.Io.Log4Net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore` NuGet packages:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Log4Net
-Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Log4Net
 dotnet add package Microsoft.Extensions.Logging.Log4Net.AspNetCore
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Log4Net
+Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Log4Net" Version="5.*" />
@@ -236,11 +236,11 @@ All internal logging from ASP.NET Core, as well as manual logging you create thr
 
 A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through log4net from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Log4Net` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.Log4Net
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.Log4Net
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.Log4Net
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.Log4Net" Version="5.*" />

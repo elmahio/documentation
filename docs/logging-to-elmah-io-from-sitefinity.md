@@ -11,11 +11,11 @@ To install elmah.io in a Sitefinity website, start by opening the website in Vis
 
 Right-click the website and install the `Elmah.Io` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

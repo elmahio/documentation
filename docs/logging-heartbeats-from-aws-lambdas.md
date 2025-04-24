@@ -7,11 +7,11 @@ description: AWS Lambdas running on a schedule are great candidates for logging 
 
 AWS Lambdas running on a schedule are great candidates for logging heartbeats to elmah.io. To send a healthy heartbeat when the Lambda runs successfully and an unhealthy heartbeat when an error happens, start by installing the `Elmah.Io.Client` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

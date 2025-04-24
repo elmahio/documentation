@@ -15,11 +15,11 @@ Logging errors from Isolated [Azure Functions](https://elmah.io/features/azure-f
 
 Install the `Elmah.Io.Functions.Isolated` package in your project to get started:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions.Isolated
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Functions.Isolated
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions.Isolated
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Functions.Isolated" Version="5.*" />
@@ -299,11 +299,11 @@ Please note that specifying options like an application name or using hooks is s
 
 Isolated Azure Functions can log through Microsoft.Extensions.Logging (MEL) too. When configuring your Function app to log through MEL, custom messages can be logged through the `ILogger` interface. Furthermore, you will get detailed log messages from within the Function host. To set this up, install the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

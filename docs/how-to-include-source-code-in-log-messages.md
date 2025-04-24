@@ -14,11 +14,11 @@ Sometimes, being able to see the exact code causing an error, is much more helpf
 
 No matter what integration you are using (with a few exceptions) you are using the `Elmah.Io.Client` NuGet package to communicate with the elmah.io API. We have built a range of extensions for this package, to avoid including too many features not related to communicating with the API into the client package. One of them is for including source code when logging messages. Start by installing the `Elmah.Io.Client.Extensions.SourceCode` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client.Extensions.SourceCode
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client.Extensions.SourceCode
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client.Extensions.SourceCode
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client.Extensions.SourceCode" Version="5.*" />

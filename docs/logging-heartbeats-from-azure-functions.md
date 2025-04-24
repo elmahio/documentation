@@ -15,11 +15,11 @@ The easiest way of including a heartbeat is to include the `ElmahIoHeartbeatFilt
 
 Start by installing the `Elmah.Io.Functions` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Functions
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Functions" Version="5.*" />
@@ -75,11 +75,11 @@ The example above installs the heartbeat filter for all functions. If you have m
 
 Start by installing the `Elmah.Io.Client` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

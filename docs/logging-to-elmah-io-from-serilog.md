@@ -15,11 +15,11 @@ Serilog is a great addition to the flowering .NET logging community, described a
 
 Adding this type of logging to your windows and console applications is just as easy. Add the `Serilog.Sinks.ElmahIo` NuGet package to your project:
 
-```powershell fct_label="Package Manager"
-Install-Package Serilog.Sinks.ElmahIo
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Serilog.Sinks.ElmahIo
+```
+```powershell fct_label="Package Manager"
+Install-Package Serilog.Sinks.ElmahIo
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Serilog.Sinks.ElmahIo" Version="5.*" />
@@ -184,13 +184,13 @@ Serilog provides a package for ASP.NET Core, that routes log messages from insid
 
 To use this, install the following packages:
 
-```powershell fct_label="Package Manager"
-Install-Package Serilog.AspNetCore
-Install-Package Serilog.Sinks.ElmahIo
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Serilog.AspNetCore
 dotnet add package Serilog.Sinks.ElmahIo
+```
+```powershell fct_label="Package Manager"
+Install-Package Serilog.AspNetCore
+Install-Package Serilog.Sinks.ElmahIo
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Serilog.AspNetCore" Version="6.*" />
@@ -216,11 +216,11 @@ Now, all warnings, errors, and fatals happening inside ASP.NET Core are logged t
 
 A common request is to include all of the HTTP contextual information you usually get logged when using a package like `Elmah.Io.AspNetCore`. We have developed a specialized NuGet package to include cookies, server variables, etc. when logging through Serilog from ASP.NET Core. To set it up, install the `Elmah.Io.AspNetCore.Serilog` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.Serilog
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.Serilog
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.Serilog
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.Serilog" Version="5.*" />
@@ -268,11 +268,11 @@ There's a problem with this approach when an endpoint throws an uncaught excepti
 
 Messages logged through Serilog in an ASP.NET WebForms, MVC, or Web API application can be enriched with a range of HTTP contextual information using the `SerilogWeb.Classic` NuGet package. Start by installing the package:
 
-```powershell fct_label="Package Manager"
-Install-Package SerilogWeb.Classic
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package SerilogWeb.Classic
+```
+```powershell fct_label="Package Manager"
+Install-Package SerilogWeb.Classic
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="SerilogWeb.Classic" Version="5.*" />
@@ -356,11 +356,11 @@ var logger = new LoggerConfiguration()
 
 The more information you have on an error, the easier it is to find out what went wrong. Muhammad Rehan Saeed made a nice enrichment package for Serilog named `Serilog.Exceptions`. The package uses reflection on a logged exception to log additional information depending on the concrete exception type. You can install the package through NuGet:
 
-```powershell fct_label="Package Manager"
-Install-Package Serilog.Exceptions
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Serilog.Exceptions
+```
+```powershell fct_label="Package Manager"
+Install-Package Serilog.Exceptions
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Serilog.Exceptions" Version="5.*" />
@@ -399,11 +399,11 @@ OnMessage = msg =>
 
 An alternative to replacing sensitive values manually is to use a custom destructuring package for Serilog. The following example shows how to achieve this using the `Destructurama.Attributed` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Destructurama.Attributed
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Destructurama.Attributed
+```
+```powershell fct_label="Package Manager"
+Install-Package Destructurama.Attributed
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Destructurama.Attributed" Version="2.*" />

@@ -13,11 +13,11 @@ Web API provides its own mechanism for handling errors, why ELMAH’s modules an
 
 To start logging exceptions from Web API, install the `Elmah.Io.WebApi` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.WebApi
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.WebApi
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.WebApi
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.WebApi" Version="5.*" />

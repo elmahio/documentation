@@ -12,11 +12,11 @@ Using JSNLog you will be able to log JavaScript errors to elmah.io. In this samp
 
 Start by installing the `JSNLog.Elmah` package:
 
-```powershell fct_label="Package Manager"
-Install-Package JSNLog.Elmah
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package JSNLog.Elmah
+```
+```powershell fct_label="Package Manager"
+Install-Package JSNLog.Elmah
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="JSNLog.Elmah" Version="2.*" />
@@ -27,11 +27,11 @@ paket add JSNLog.Elmah
 
 This installs and setup JSNLog into your project, using ELMAH as an appender. Then, install `Elmah.Io`:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

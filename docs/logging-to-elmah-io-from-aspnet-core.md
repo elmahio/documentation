@@ -15,11 +15,11 @@ If you are looking to log all uncaught errors from ASP.NET Core, you've come to 
 
 To log all warnings and errors from ASP.NET Core, install the following NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore" Version="5.*" />

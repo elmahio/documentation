@@ -9,11 +9,11 @@ The [Elmah.Io NuGet package](https://www.nuget.org/packages/elmah.io/) normally 
 
 Start by installing the `Elmah.Io` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

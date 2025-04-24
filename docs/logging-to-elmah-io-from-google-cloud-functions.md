@@ -7,11 +7,11 @@ description: Configure error monitoring and log management on Google Cloud Funct
 
 Logging to elmah.io from Google Cloud Functions uses our integration with *Microsoft.Extensions.Logging*. To start logging, install the `Elmah.Io.Extensions.Logging` NuGet package through the Cloud Shell or locally:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

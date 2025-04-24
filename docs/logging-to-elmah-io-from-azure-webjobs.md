@@ -16,11 +16,11 @@ Logging errors from [Azure WebJobs](https://elmah.io/features/azure-functions/) 
 
 Install the [Elmah.Io.Functions](https://www.nuget.org/packages/elmah.io.functions/) package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions -Version 3.1.23
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Functions --version 3.1.23
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions -Version 3.1.23
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Functions" Version="3.1.23" />

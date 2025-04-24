@@ -11,11 +11,11 @@ description: Log all errors inside Entity Framework Core with elmah.io. Get insi
 
 Both elmah.io and Entity Framework Core supports logging through Microsoft.Extensions.Logging. To log all errors happening inside Entity Framework Core, install the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

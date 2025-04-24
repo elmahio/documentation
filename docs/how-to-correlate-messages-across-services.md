@@ -43,11 +43,11 @@ How you set the correlation ID depends on which integration you are using. In so
 
 We have developed a NuGet package dedicated to setting the correlation ID from the current activity in an easy way. The package can be used together with all of the various client integrations we offer (like `Elmah.Io.AspNetCore` and `Elmah.Io.NLog`). Start by installing the package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client.Extensions.Correlation
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client.Extensions.Correlation
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client.Extensions.Correlation
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client.Extensions.Correlation" Version="5.*" />

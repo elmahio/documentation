@@ -7,11 +7,11 @@ description: Learn about how to set up error monitoring in DevExpress (eXpressAp
 
 eXpressApp Framework (XAF) is built on top of ASP.NET. Installing elmah.io corresponds to any other ASP.NET site:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

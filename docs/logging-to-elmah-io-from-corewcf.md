@@ -7,11 +7,11 @@ description: Learn how to set up logging to elmah.io from CoreWCF. Integrating c
 
 elmah.io supports CoreWCF using our integration with Microsoft.Extensions.Logging. Start by installing the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

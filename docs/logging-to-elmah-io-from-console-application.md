@@ -11,11 +11,11 @@ If you need to log to elmah.io and you cannot use one of the integrations we pro
 
 To start logging, install the `Elmah.Io.Client` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

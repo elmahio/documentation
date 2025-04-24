@@ -13,11 +13,11 @@ Logging from SignalR is supported through our `Elmah.Io.Extensions.Logging` pack
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

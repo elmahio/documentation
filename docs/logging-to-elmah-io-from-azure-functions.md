@@ -15,11 +15,11 @@ Logging errors from [Azure Functions](https://elmah.io/features/azure-functions/
 
 Install the newest `Elmah.Io.Functions` package in your Azure Functions project:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Functions
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Functions" Version="5.*" />
@@ -181,11 +181,11 @@ The example above ignores any errors generated during an HTTP `GET` request.
 
 Azure Functions can log through Microsoft.Extensions.Logging (MEL) too. By adding the filter, as shown above, all uncaught exceptions are automatically logged. But when configuring your Function app to log through MEL, custom messages can be logged through the `ILogger` interface. Furthermore, you will get detailed log messages from within the Function host. To set this up, install the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />

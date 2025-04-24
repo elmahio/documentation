@@ -16,11 +16,11 @@ To help to install elmah.io in ASP.NET Core (by using the `Elmah.Io.AspNetCore` 
 
 The analyzers can be installed in two ways. As a NuGet package or a Visual Studio extension. To install it from NuGet:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.Analyzers
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.Analyzers
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.Analyzers
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.Analyzers" Version="0.*" />

@@ -12,11 +12,11 @@ description: Log trace and debug message from System.Diagnostics directly to elm
 
 To start logging, install the `Elmah.Io.Trace` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Trace
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Trace
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Trace
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Trace" Version="3.*" />

@@ -10,11 +10,11 @@ description: Learn about how to add error monitoring and cloud logging to any Na
 
 As with MVC and WebAPI, Nancy already provides ELMAH support out of the box. Start by installing the `Elmah.Io` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />
@@ -27,11 +27,11 @@ During the installation, you will be asked for your API key ([Where is my API ke
 
 To integrate Nancy and ELMAH, Christian Westman already did a great job with his `Nancy.Elmah` package. Install it using NuGet:
 
-```powershell fct_label="Package Manager"
-Install-Package Nancy.Elmah
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Nancy.Elmah
+```
+```powershell fct_label="Package Manager"
+Install-Package Nancy.Elmah
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Nancy.Elmah" Version="0.*" />

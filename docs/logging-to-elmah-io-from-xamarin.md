@@ -16,11 +16,11 @@ description: Learn about how to log all uncaught errors happening on your Xamari
 
 Integrating Xamarin with elmah.io is done by installing the `Elmah.Io.Xamarin` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Xamarin -IncludePrerelease
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Xamarin --prerelease
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Xamarin -IncludePrerelease
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Xamarin" Version="4.0.30-pre" />
@@ -230,11 +230,11 @@ If you prefer you can configure elmah.io manually without the use of the `Elmah.
 
 Start by installing the `Elmah.Io.Client` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

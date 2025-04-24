@@ -9,11 +9,11 @@ Coravel supports scheduled tasks similar to Quartz and Hangfire. With elmah.io H
 
 To publish heartbeats from Coravel, install the `Elmah.Io.Client` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

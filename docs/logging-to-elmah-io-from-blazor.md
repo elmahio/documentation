@@ -15,11 +15,11 @@ description: Easy monitoring of Blazor web applications with elmah.io. Support f
 
 To start logging to elmah.io from a Blazor Server App, install the `Elmah.Io.Extensions.Logging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />
@@ -89,11 +89,11 @@ All uncaught exceptions are automatically logged to elmah.io. Exceptions can be 
 
 `Microsoft.Extensions.Logging` doesn't know that it is running inside a web server. That is why `Elmah.Io.Extensions.Logging` doesn't include HTTP contextual information like URL and status code as default. To do so, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="5.*" />
@@ -135,11 +135,11 @@ The code uses the current URL from the injected `NavigationManager` object.
 
 To start logging to elmah.io from a Blazor Wasm App, install the `Elmah.Io.Blazor.Wasm` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Blazor.Wasm
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Blazor.Wasm
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Blazor.Wasm
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Blazor.Wasm" Version="4.*" />

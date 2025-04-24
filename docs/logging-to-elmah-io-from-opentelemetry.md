@@ -15,11 +15,11 @@ elmah.io provides an exporter for OpenTelemetry that will store log entries sent
 
 Start by installing the [Elmah.Io.OpenTelemetry](https://www.nuget.org/packages/Elmah.Io.OpenTelemetry/) package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.OpenTelemetry -IncludePrerelease
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.OpenTelemetry --prerelease
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.OpenTelemetry -IncludePrerelease
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.OpenTelemetry" Version="5.*" />

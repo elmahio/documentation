@@ -150,11 +150,11 @@ Reference `elmahio.min.js` just before the `</body>` tag (but before all other J
 
 Install the `elmah.io.javascript` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package elmah.io.javascript
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package elmah.io.javascript
+```
+```powershell fct_label="Package Manager"
+Install-Package elmah.io.javascript
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="elmah.io.javascript" Version="4.*" />
@@ -177,11 +177,11 @@ If not already configured, follow the guide [installing elmah.io in ASP.NET Core
 
 Install the `Elmah.Io.AspNetCore.TagHelpers` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.TagHelpers
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.TagHelpers
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.TagHelpers
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.TagHelpers" Version="5.*" />

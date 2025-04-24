@@ -15,11 +15,11 @@ NLog is one of the most popular logging frameworks for .NET. With an active hist
 
 To start logging messages from NLog to elmah.io, you need to install the `Elmah.Io.NLog` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.NLog
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.NLog
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.NLog
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.NLog" Version="5.*" />
@@ -131,11 +131,11 @@ Then change the `type` attribute in the target to `xsi:type`:
 
 .NET 5 (previously Core) and newer switched from declaring XML configuration in `app/web/nlog.config` files to JSON configuration in an `appsettings.json` file. To configure elmah.io in JSON, install the `NLog.Extensions.Logging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package NLog.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package NLog.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package NLog.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="NLog.Extensions.Logging" Version="1.*" />

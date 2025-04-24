@@ -9,11 +9,11 @@ Piranha CMS is a popular headless CMS written in ASP.NET Core. elmah.io works wi
 
 To start logging to elmah.io, install the `Elmah.Io.AspNetCore` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore" Version="5.*" />

@@ -9,11 +9,11 @@ We just started looking into .NET MAUI. If you want to go for the stable choice,
 
 A quick way to get started with logging from MAUI to elmah.io is by installing the `Elmah.Io.Blazor.Wasm` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Blazor.Wasm --prerelease
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Blazor.Wasm -IncludePrerelease
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Blazor.Wasm" Version="4.*" />

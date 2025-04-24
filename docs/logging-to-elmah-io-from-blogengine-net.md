@@ -7,11 +7,11 @@ description: Set up error monitoring and cloud logging of any BlogEngine.NET blo
 
 Because BlogEngine.NET is written in ASP.NET, it doesn't need any custom code to use ELMAH and elmah.io. ELMAH works out of the box for most web frameworks by Microsoft. If you are building and deploying the code yourself, installing elmah.io is achieved using our NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

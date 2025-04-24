@@ -14,11 +14,11 @@ description: Learn about how to set up error monitoring and log uncaught excepti
 
 Integrating Uno with elmah.io is done by installing the `Elmah.Io.Uno` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Uno -IncludePrerelease
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Uno --prerelease
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Uno -IncludePrerelease
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Uno" Version="4.0.19-pre" />

@@ -15,11 +15,11 @@ Scheduled functions or functions not running often can use the heartbeat middlew
 
 Start by installing the `Elmah.Io.Functions.Isolated` package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Functions.Isolated
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Functions.Isolated
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions.Isolated
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Functions.Isolated" Version="5.*" />
@@ -50,11 +50,11 @@ The example above installs the heartbeat filter for all functions. If you have m
 
 Start by installing the `Elmah.Io.Client` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Client
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Client
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Client
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Client" Version="5.*" />

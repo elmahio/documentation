@@ -9,11 +9,11 @@ ELMAH (the open-source project) and WCF aren't exactly known to go hand in hand.
 
 Let's get started. Install elmah.io into your WCF project using NuGet:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />

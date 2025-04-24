@@ -7,13 +7,13 @@ description: Learn about how to set up error monitoring in ServiceStack projects
 
 Logging errors to elmah.io from ServiceStack is almost as easy as installing in MVC and Web API. The folks over at ServiceStack provide you with a NuGet package named ServiceStack.Logging.Elmah. Like Web API you need to tell ServiceStack to use ELMAH as the logging framework for errors, besides adding the standard ELMAH configuration in web.config. Start by installing both `ServiceStack.Logging.Elmah` and `Elmah.Io` into your ServiceStack web project:
 
-```powershell fct_label="Package Manager"
-Install-Package ServiceStack.Logging.Elmah
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package ServiceStack.Logging.Elmah
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package ServiceStack.Logging.Elmah
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="ServiceStack.Logging.Elmah" Version="5.*" />

@@ -27,11 +27,11 @@ elmah.io integrates with Umbraco's Health Checks feature too. To learn more abou
 
 To install elmah.io in your Umbraco >= v10 site, install the `Elmah.Io.Umbraco` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Umbraco
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Umbraco" Version="5.*" />
@@ -95,11 +95,11 @@ This will configure elmah.io's Serilog sink in Umbraco. You may experience loggi
 
 To install elmah.io in your Umbraco v8 site, install the `Elmah.Io.Umbraco` v4 package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco -Version 4.2.21
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Umbraco --version 4.2.21
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco -Version 4.2.21
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Umbraco" Version="4.2.21" />
@@ -125,11 +125,11 @@ You may have different environments like *Staging* and *Production*. At least yo
 
 We still support Umbraco 7 through the `Elmah.Io.Umbraco` package version `3.2.35`:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco -Version 3.2.35
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Umbraco --version 3.2.35
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco -Version 3.2.35
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Umbraco" Version="3.2.35" />

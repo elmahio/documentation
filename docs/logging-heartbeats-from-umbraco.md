@@ -20,11 +20,11 @@ When launching the website Umbraco automatically executes the health checks once
 
 Install the `Elmah.Io.Umbraco` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Umbraco
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Umbraco" Version="5.*" />
@@ -66,11 +66,11 @@ To publish health check results to your newly created heartbeat, extend the `app
 
 install the `Elmah.Io.Umbraco` v4 NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Umbraco -Version 4.2.21
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Umbraco --version 4.2.21
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Umbraco -Version 4.2.21
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Umbraco" Version="4.2.21" />

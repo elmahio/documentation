@@ -15,11 +15,11 @@ Microsoft.Extensions.Logging is both a logging framework itself and a logging ab
 
 Start by installing the [Elmah.Io.Extensions.Logging](https://www.nuget.org/packages/Elmah.Io.Extensions.Logging/) package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Extensions.Logging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Extensions.Logging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Extensions.Logging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Extensions.Logging" Version="5.*" />
@@ -102,11 +102,11 @@ A common use case for using Microsoft.Extensions.Logging is part of an ASP.NET C
 
 To add HTTP context properties to log messages when logging from ASP.NET Core, install the `Elmah.Io.AspNetCore.ExtensionsLogging` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore.ExtensionsLogging
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore.ExtensionsLogging
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore.ExtensionsLogging" Version="5.*" />

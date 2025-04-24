@@ -13,11 +13,11 @@ description: Learn about how to set up cloud-logging on WinUI applications using
 
 elmah.io logging can be easily added to WinUI applications. To start logging to elmah.io, install the `Elmah.Io.WinUI` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.WinUI -IncludePrerelease
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.WinUI --prerelease
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.WinUI -IncludePrerelease
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.WinUI" Version="5.*" />

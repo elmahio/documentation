@@ -13,11 +13,11 @@ Even though ELMAH works out of the box with ASP.NET MVC, ELMAH and MVC provide s
 
 To start logging exceptions from ASP.NET MVC, install the `Elmah.Io.Mvc` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.Mvc
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.Mvc
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Mvc
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.Mvc" Version="5.*" />

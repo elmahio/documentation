@@ -134,11 +134,11 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
 
 Install the `Elmah.Io` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io" Version="5.*" />
@@ -160,11 +160,11 @@ For more information, check out the installation guides for [WebForms](logging-t
 
 Install the `Elmah.Io.AspNetCore` NuGet package:
 
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io.AspNetCore
-```
 ```cmd fct_label=".NET CLI"
 dotnet add package Elmah.Io.AspNetCore
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.AspNetCore
 ```
 ```xml fct_label="PackageReference"
 <PackageReference Include="Elmah.Io.AspNetCore" Version="5.*" />
