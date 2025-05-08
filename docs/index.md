@@ -9,6 +9,26 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-to-elmah-io-from-aspnet-core/" title="ASP.NET Core">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core guide" />
+                </div>
+                <div class="guide-title">ASP.NET Core</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging guide" />
+                </div>
+                <div class="guide-title fz10">Extensions.Logging</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/logging-to-elmah-io-from-elmah/" title="ASP.NET">
             <div class="guide-box">
                 <div class="guide-image">
@@ -35,26 +55,6 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
                     <img class="no-lightbox" src="/./assets/img/guides/aspnet.png" alt="ASP.NET Web API guide" />
                 </div>
                 <div class="guide-title">ASP.NET Web API</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/logging-to-elmah-io-from-aspnet-core/" title="ASP.NET Core">
-            <div class="guide-box">
-                <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/aspnetcore.png" alt="ASP.NET Core guide" />
-                </div>
-                <div class="guide-title">ASP.NET Core</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/logging-to-elmah-io-from-microsoft-extensions-logging/" title="Microsoft.Extensions.Logging">
-            <div class="guide-box">
-                <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/microsoft.png" alt="Microsoft.Extensions.Logging guide" />
-                </div>
-                <div class="guide-title fz10">Extensions.Logging</div>
             </div>
         </a>
     </div>
@@ -130,32 +130,6 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
     </div>
 </div>
 
-## ASP.NET / MVC / Web API quick start
-
-Install the `Elmah.Io` NuGet package:
-
-```cmd fct_label=".NET CLI"
-dotnet add package Elmah.Io
-```
-```powershell fct_label="Package Manager"
-Install-Package Elmah.Io
-```
-```xml fct_label="PackageReference"
-<PackageReference Include="Elmah.Io" Version="5.*" />
-```
-```xml fct_label="Paket CLI"
-paket add Elmah.Io
-```
-
-During the installation, you will be asked for your API key and log ID.
-
-For more information, check out the installation guides for [WebForms](logging-to-elmah-io-from-elmah.md), [MVC](logging-to-elmah-io-from-aspnet-mvc.md), and [Web API](logging-to-elmah-io-from-web-api.md). There is a short video tutorial available here:
-
-<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=OeQG2PkSpSE&amp;autoplay=1&amp;rel=0" title="elmah.io Introduction - Installation">
-  <img class="no-lightbox" src="../images/tour/installation.jpg" alt="elmah.io Introduction - Installation" />
-  <i class="fad fa-play-circle"></i>
-</a>
-
 ## ASP.NET Core quick start
 
 Install the `Elmah.Io.AspNetCore` NuGet package:
@@ -194,6 +168,32 @@ app.Run();
 Make sure to insert your API key and log ID.
 
 For more information, check out the installation guides for [ASP.NET Core](logging-to-elmah-io-from-aspnet-core.md) and [Microsoft.Extensions.Logging](logging-to-elmah-io-from-microsoft-extensions-logging.md).
+
+## ASP.NET / MVC / Web API quick start
+
+Install the `Elmah.Io` NuGet package:
+
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io" Version="5.*" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io
+```
+
+During the installation, you will be asked for your API key and log ID.
+
+For more information, check out the installation guides for [WebForms](logging-to-elmah-io-from-elmah.md), [MVC](logging-to-elmah-io-from-aspnet-mvc.md), and [Web API](logging-to-elmah-io-from-web-api.md). There is a short video tutorial available here:
+
+<a class="video-box" data-fancybox="" href="https://www.youtube.com/watch?v=OeQG2PkSpSE&amp;autoplay=1&amp;rel=0" title="elmah.io Introduction - Installation">
+  <img class="no-lightbox" src="../images/tour/installation.jpg" alt="elmah.io Introduction - Installation" />
+  <i class="fad fa-play-circle"></i>
+</a>
 
 ## JavaScript quick start
 
