@@ -99,12 +99,12 @@ Welcome to the quick-start installation guide. Here you will find a quick introd
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/logging-to-elmah-io-from-logary/" title="Logary">
+        <a href="/logging-to-elmah-io-from-blazor/" title="Blazor">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/logary.png" alt="Logary guide" />
+                    <img class="no-lightbox" src="/./assets/img/guides/blazor.png" alt="Blazor guide" />
                 </div>
-                <div class="guide-title">Logary</div>
+                <div class="guide-title">Blazor</div>
             </div>
         </a>
     </div>
