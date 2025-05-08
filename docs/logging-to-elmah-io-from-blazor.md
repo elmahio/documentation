@@ -5,7 +5,7 @@ description: Easy monitoring of Blazor web applications with elmah.io. Support f
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Blazor.Wasm.svg)](https://www.nuget.org/packages/Elmah.Io.Blazor.Wasm)
-[![Samples](https://img.shields.io/badge/samples-1-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/tree/main/samples)
 
 # Logging to elmah.io from Blazor
 
