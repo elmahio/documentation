@@ -16,7 +16,7 @@ With that said, we want to help you stay within your message limits. Luckily, th
 !!! note
     Be aware that Ignore rules and filters are only meant as a temporary way of ignoring messages. In case you want to permanently ignore one or more log messages, use [client-side filtering](#client-side-message-filtering).
 
-The easiest way to limit logged messages is by ignoring some of them. Ignored messages do not count toward the message limit. Message rules can be configured through the Rules tab on the Log Settings view.
+The easiest way to limit logged messages is by ignoring some of them (preferable using client-side filtering). Ignored messages are discarded before they are stored and therefore do not count toward your monthly message quota. Message rules can be configured through the Rules tab on the Log Settings view.
 
 Rules consist of a query and an action. The query can either be a full-text query or written using Lucene Query Syntax. To create a new ignore rule, input a query on the Rules tab:
 
