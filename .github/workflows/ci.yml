@@ -55,7 +55,7 @@ jobs:
 
       - name: Get Added and Modified Files
         id: changed-files
-        uses: jitterbit/get-changed-files@v1
+        uses: masesgroup/retrieve-changed-files@v3
 
       - name: Refresh files in Bugster
         if: ${{ steps.changed-files.outputs.all != '[]' }}
