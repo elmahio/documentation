@@ -43,3 +43,15 @@ To inspect a single message, double-click it and the message details window will
 ![Message details](images/visualstudio-details.png)
 
 The toolbar at the top provides a couple of options: View the message on elmah.io, hide the message and delete the message.
+
+### Manually adding an API key
+
+If the login flow described above doesn’t work, or if you prefer to use your own elmah.io API key, you can enter it manually through the extension options. In Visual Studio, go to **Tools** > **Options** > **elmah.io** and paste your API key:
+
+![Extension options](images/visualstudio-options.png)
+
+Make sure to use an API key with the following permissions:
+
+- `logs read`
+- `messages read`
+- `messages delete`.
