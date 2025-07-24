@@ -450,6 +450,11 @@ function Bugster() {
 					aElement.rel = "noopener noreferrer";
 				});
 
+				bugsterText.querySelectorAll('table').forEach(tableElement => {
+					tableElement.classList.add('table');
+					tableElement.querySelector('thead').classList.add('table-dark');
+				});
+
 				askAnotherQuestion.classList.remove('d-none');
 
 				isRequestInProgress = false;

@@ -181,3 +181,9 @@
 [data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content .hljs {
   background: #1e1e1e;
 }
+[data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content .table {
+  --bs-table-bg: #333;
+}
+[data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content .table .table-dark {
+  --bs-table-bg: #2E3440;
+}

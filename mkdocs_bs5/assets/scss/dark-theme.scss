@@ -228,6 +228,14 @@
             .hljs {
                 background: #1e1e1e;
             }
+
+            .table {
+                --bs-table-bg: #333;
+
+                .table-dark {
+                    --bs-table-bg: #2E3440;
+                }
+            }
         }
     }
 }
