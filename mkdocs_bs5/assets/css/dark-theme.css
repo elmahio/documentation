@@ -185,5 +185,5 @@
   --bs-table-bg: #333;
 }
 [data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content .table .table-dark {
-  --bs-table-bg: #2E3440;
+  --bs-table-bg: #1e1e1e;
 }

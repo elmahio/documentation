@@ -95,7 +95,7 @@
               <div class="input-group-prepend"><span class="input-group-text"><label class="mb-0" for="search"><i class="far fa-search"></i></label></span></div>
               <input type="text" id="search" class="form-control" placeholder="Search ..." autocomplete="off" />
             </div>
-            <div class="bugster-banner">
+            <div class="bugster-banner d-block d-md-none">
               <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
                 <div class="content">
                   <p class="mb-1 lead">Have a question ?</p>
@@ -234,6 +234,18 @@
     		</div>
     	</div>
     </footer>
+
+    <div class="bugster-banner-floating">
+      <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+        <div class="content">
+          <p class="mb-1 lead">Have a question ?</p>
+          <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+        </div>
+        <div class="bugster-logo">
+          <img class="img-fluid" src="{{ 'assets/img/bugster.png'|url }}" width="383" height="374" alt="Bugster">
+        </div>
+      </a>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">

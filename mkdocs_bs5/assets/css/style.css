@@ -485,6 +485,49 @@ table .table-light th {
 }
 .bugster-banner .bugster-logo {
   width: 100px;
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
+.bugster-banner-floating {
+  position: fixed;
+  top: 78px;
+  right: 5px;
+  margin: 0px;
+}
+.bugster-banner-floating .content {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -268px;
+  background: #252b38;
+  color: #fff;
+  border: 2px solid;
+  -o-border-image: linear-gradient(to right, #0da58e, #065c85) 1;
+     border-image: linear-gradient(to right, #0da58e, #065c85) 1;
+  font-size: 12px;
+  padding: 7px 65px 7px 14px;
+  width: 268px;
+  transition: right 0.4s ease-out, opacity 1s ease;
+}
+.bugster-banner-floating .content p {
+  font-weight: 300;
+}
+.bugster-banner-floating .content p.lead {
+  font-size: 15px;
+  font-weight: 700;
+}
+.bugster-banner-floating .bugster-logo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 54px;
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+.bugster-banner-floating:hover .content {
+  right: 0;
+  opacity: 1;
 }
 
 #bugsterModal .modal-header {
@@ -1502,6 +1545,9 @@ img.gif {
   .bugster-chat .bugster-dialog-avatar {
     flex: 0 0 32px;
     margin-right: 10px;
+  }
+  .bugster-banner-floating {
+    display: none;
   }
 }
 @media screen and (max-width: 576px) {
