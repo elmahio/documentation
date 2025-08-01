@@ -502,9 +502,10 @@ table .table-light th {
   right: -268px;
   background: #252b38;
   color: #fff;
-  border: 2px solid;
-  -o-border-image: linear-gradient(to right, #0da58e, #065c85) 1;
-     border-image: linear-gradient(to right, #0da58e, #065c85) 1;
+  border-width: 2px;
+  border-style: solid;
+  border-image-source: linear-gradient(to right, #0da58e, #065c85);
+  border-image-slice: 1;
   font-size: 12px;
   padding: 7px 65px 7px 14px;
   width: 268px;
