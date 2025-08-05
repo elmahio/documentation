@@ -9,7 +9,8 @@ Bugster is the name of our friendly AI-powered bot. Bugster is currently availab
 
 In this help article, you will learn how to configure Bugster to be used on log data. This way, you can get help analyzing why errors are happening and how to fix them, directly in the elmah.io app.
 
-> We don't use your log data to train Bugster. Log data is currently only shared with Bugster when clicking the *Analyze with Bugster* button. In case you are using an OpenAI-hosted model, your log data may be used to train OpenAI's models, unless you manually disable this in settings. More about that later in this article.
+!!! note
+    We don't use your log data to train Bugster. Log data is currently only shared with Bugster when clicking the *Analyze with Bugster* button. In case you are using an OpenAI-hosted model, your log data may be used to train OpenAI's models, unless you manually disable this in settings. More about that later in this article.
 
 ## Configuration
 
