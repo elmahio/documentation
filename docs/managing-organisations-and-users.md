@@ -54,6 +54,12 @@ Likewise, organization administrators can assign users to different emails for e
 
 This view is similar to the one the user has on the profile when signing into elmah.io. Make sure to notify users when you assign emails to them to avoid them marking emails as spam.
 
+### Email validation
+
+A user must verify their email address when signing up for elmah.io. If the user joins through an invite, the email address will be automatically verified. Email verification hasn't always been required on elmah.io, which means you may have users in your organization who haven't verified their email yet. Unverified emails are marked in the *Users* list, where you can click *Resend verification email* to send a new verification email to the user's registered address.
+
+![Resend verification email](images/resend-verification-email.png)
+
 ## Invite new users to an organization
 
 If someone not already created as a user on elmah.io needs access to your organization, you can use the *Invite* feature. Inviting users will send them an email telling them to sign up for elmah.io and automatically add them to your organization.
