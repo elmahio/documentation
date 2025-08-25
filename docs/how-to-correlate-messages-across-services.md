@@ -228,6 +228,41 @@ log.Info("A log message");
 
 Please notice that `correlationid` in both examples must be in all lowercase.
 
+### Durable Azure Functions
+
+Both the in-process and out-of-process (Isolated) models for developing Azure Functions come with the option of Durable Functions. By default, each activity function (functions initiated by the orchestrator) starts its own `Activity` meaning that log messages sent across multiple functions will not be correlated. To make this work, Durable Functions support *Distributed Tracing*, which can be enabled in the `host.json` file:
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "tracing": {
+        "distributedTracingEnabled": true,
+        "version": "V2"
+      }
+    }
+  }
+}
+```
+
+Once enabled, you will need to install the `Elmah.Io.Client.Extensions.Correlation` NuGet package and call `WithCorrelationIdFromActivity` as shown previously:
+
+```csharp
+app.Services.AddLogging(logging =>
+{
+    logging.AddElmahIo(o =>
+    {
+        // ...
+        o.OnMessage = msg =>
+        {
+            msg.WithCorrelationIdFromActivity();
+        };
+    });
+});
+```
+
+Please note that when enabling Distributed Tracing without having configured Application Insights, the functions runtime will show a warning when launching the function app. We are trying to convince Microsoft to either remove this or change it to an information message, since *Distributed Tracing* doesn't require Application Insights.
+
 ## W3C Trace Context
 
 The class `Activity` has been mentioned a couple of times already. Let's take a look at what that is and how it relates to W3C Trace Context. Trace Context is a specification by W3C for implementing distributed tracing across multiple processes which are already widely adopted. If you generate a trace identifier in a client initiating a chain of events, different Microsoft technologies like ASP.NET Core already pick up the extended set of headers and include those as part of log messages logged through Microsoft.Extensions.Logging.
