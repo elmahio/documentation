@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Show sidebar on click
     const showSidebar = document.querySelector('#show-sidebar');
-    showSidebar.addEventListener('click', function (e) {
-		e.stopPropagation();
-		document.querySelector('body').classList.add('sidebar-open');
-		document.querySelector('.sidebar').classList.add('sidebar-active');
-	});
+	if (showSidebar) {
+		showSidebar.addEventListener('click', function (e) {
+			e.stopPropagation();
+			document.querySelector('body').classList.add('sidebar-open');
+			document.querySelector('.sidebar').classList.add('sidebar-active');
+		});
+	}
 
 	// Hide sidebar on click
 	document.addEventListener('click', function(e) {
@@ -363,6 +365,8 @@ const escapeHtml = (unsafe) => {
 
 // Bugster
 function Bugster() {
+	if (!document.querySelector('#bugsterModal')) return;
+
 	const question = document.querySelector('#bugsterModal input#question');
 	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat');
 	const bugsterChatFooter = document.querySelector('#bugsterModal .modal-footer');
