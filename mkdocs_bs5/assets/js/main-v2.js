@@ -350,6 +350,17 @@ function searchData(data) {
 	});
 }
 
+const escapeHtml = (unsafe) => {
+    if(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+}
+
 // Bugster
 function Bugster() {
 	const question = document.querySelector('#bugsterModal input#question');
@@ -384,7 +395,7 @@ function Bugster() {
 				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
 					setTimeout(() => {
 						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ question.value }</p>`;
+						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
 						userDialog.classList.remove('d-none');
 
 						setTimeout(function() {
@@ -402,7 +413,7 @@ function Bugster() {
 				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
 					setTimeout(() => {
 						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ question.value }</p>`;
+						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
 						userDialog.classList.remove('d-none');
 
 						setTimeout(function() {
