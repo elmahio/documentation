@@ -24,11 +24,7 @@
     {% endif %}
   </head>
   <body>
-    <script>
-      const theme = localStorage.getItem("bs-theme") || "light";
-      localStorage.setItem("bs-theme", theme);
-      document.documentElement.setAttribute('data-bs-theme', theme === 'light' ? 'light' : 'darkmode');
-    </script>
+    <script src="{{ 'assets/js/theme-selector.js'|url }}"></script>
 
     <!-- Navigation -->
     {% include "nav.html" %}
@@ -163,8 +159,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/gh/elmahio/elmah.io.javascript@latest/dist/elmahio.min.js?apiKey=e8fe46913b034fcd8100b095d032bb6b&logId=24c89075-e32a-4a79-9f7e-e78381e0d761" type="text/javascript"></script>
-
+    <script src="{{ 'vendor/elmahio/elmahio.min.js?apiKey=e8fe46913b034fcd8100b095d032bb6b&logId=24c89075-e32a-4a79-9f7e-e78381e0d761'|url }}"></script>
     {% if config.production %}
     <script src="{{ 'assets/js/main.min.js?version=BUILD_NUMBER'|url }}"></script>
     {% else %}

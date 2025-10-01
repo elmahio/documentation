@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Show sidebar on click
     const showSidebar = document.querySelector('#show-sidebar');
-    showSidebar.addEventListener('click', function (e) {
-		e.stopPropagation();
-		document.querySelector('body').classList.add('sidebar-open');
-		document.querySelector('.sidebar').classList.add('sidebar-active');
-	});
+	if (showSidebar) {
+		showSidebar.addEventListener('click', function (e) {
+			e.stopPropagation();
+			document.querySelector('body').classList.add('sidebar-open');
+			document.querySelector('.sidebar').classList.add('sidebar-active');
+		});
+	}
 
 	// Hide sidebar on click
 	document.addEventListener('click', function(e) {
@@ -350,8 +352,21 @@ function searchData(data) {
 	});
 }
 
+const escapeHtml = (unsafe) => {
+    if(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+}
+
 // Bugster
 function Bugster() {
+	if (!document.querySelector('#bugsterModal')) return;
+
 	const question = document.querySelector('#bugsterModal input#question');
 	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat');
 	const bugsterChatFooter = document.querySelector('#bugsterModal .modal-footer');
@@ -384,7 +399,7 @@ function Bugster() {
 				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
 					setTimeout(() => {
 						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ question.value }</p>`;
+						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
 						userDialog.classList.remove('d-none');
 
 						setTimeout(function() {
@@ -402,7 +417,7 @@ function Bugster() {
 				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
 					setTimeout(() => {
 						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ question.value }</p>`;
+						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
 						userDialog.classList.remove('d-none');
 
 						setTimeout(function() {
