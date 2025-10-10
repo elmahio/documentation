@@ -7,7 +7,7 @@ description: elmah.io supports two-factor login through either one of the social
 
 [TOC]
 
-elmah.io supports two-factor login through either one of the social providers or a two-factor app like Google 1Password, Authenticator or Authy.
+elmah.io supports two-factor login through either one of the social providers or a two-factor app like 1Password, Google Authenticator or Authy.
 
 ## Two-factor with an elmah.io username and password
 
