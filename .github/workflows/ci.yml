@@ -59,15 +59,8 @@ jobs:
 
       - name: Refresh files in Bugster
         if: ${{ steps.changed-files.outputs.all != '[]' }}
-        run: |
-          echo "Starting step"
-          for changed_file in ${{ steps.changed-files.outputs.all }}; do
-            if [[ "$changed_file" == *.md ]]; then
-              echo "Processing $changed_file..."
-              file_content=$(cat "$changed_file" | base64 -w 0)
-              curl --fail-with-body -X POST \
-                   -H "Content-Type: application/json" \
-                   -d "{\"filePath\": \"$changed_file\", \"content\": \"$file_content\"}" \
-                   ${{ secrets.FUNCTION_APP_URL }}
-            fi
-          done
+        uses: elmahio/actions/refresh-bugster-files@v1.1
+        with:
+          signing: ${{ secrets.BUGSTER_SIGNING }}
+          url: ${{ secrets.BUGSTER_URL }}
+          files: ${{ steps.changed-files.outputs.all }}
