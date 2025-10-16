@@ -59,7 +59,7 @@ jobs:
 
       - name: Refresh files in Bugster
         if: ${{ steps.changed-files.outputs.all != '[]' }}
-        uses: elmahio/actions/refresh-bugster-files@v1.1
+        uses: elmahio/actions/refresh-bugster-files@v1.2
         with:
           signing: ${{ secrets.BUGSTER_SIGNING }}
           url: ${{ secrets.BUGSTER_URL }}

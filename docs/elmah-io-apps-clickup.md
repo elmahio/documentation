@@ -5,7 +5,7 @@ description: Learn how to integrate elmah.io with ClickUp. Automatically create 
 
 # Install ClickUp for elmah.io
 
-Log into elmah.io and go to the log settings page. Click the Apps tab. Locate the ClickUp app and click the *Install* button:
+Log in to elmah.io and go to the log settings page. Click the Apps tab. Locate the ClickUp app and click the *Install* button:
 
 ![Install ClickUp App](images/apps/clickup/install-settings.png)
 
@@ -15,7 +15,7 @@ The list ID can be found by going to the list on the ClickUp app and clicking th
 
 ![Copy link](images/apps/clickup/copy-link.png)
 
-When copying the link you will get a link similar to this:
+When copying the link, you will get a link similar to this:
 
 ```shell
 https://app.clickup.com/.../v/li/901200300647
@@ -43,4 +43,4 @@ To trigger an error manually, go to [https://api.elmah.io/swagger/index.html](ht
 }
 ```
 
-Finally, click the *Try it out!* button and verify that the API returns a status code of *201*. The new error should show up in ClickUp. If testing this multiple times, you will need to make small adjustments to the title field inside the JSON, for additional errors to be marked as new.
+Finally, click the *Try it out!* button and verify that the API returns a status code of *201*. The new error should show up in ClickUp. If testing this multiple times, you will need to make small adjustments to the title field inside the JSON for additional errors to be marked as new.
