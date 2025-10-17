@@ -439,8 +439,9 @@ function Bugster() {
 
 		isRequestInProgress = true;
 		const xhr = new XMLHttpRequest();
-		xhr.open("POST", "https://bugster2.elmah.io/api/BugsterFunction?code=BjsS-o0CJlpZBunhCFSZ_OqWhlEi9sG7G1cyRlyCOYi3AzFuvoyPPA%3D%3D", true);
-		xhr.setRequestHeader("Content-Type", "text/plain");
+		xhr.open("POST", "https://bugster3.elmah.io/api/docs/ask", true);
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.setRequestHeader("Accept", "text/plain");
 
 		xhr.onprogress = function(progressEvent) {
 			const { target } = progressEvent;
@@ -476,7 +477,11 @@ function Bugster() {
 			}
 		};
 
-		xhr.send(question.value);
+		const payload = JSON.stringify({
+			question: question.value,
+			sessionId: "local"
+		});
+		xhr.send(payload);
 	}
 
 	// Ask another question
