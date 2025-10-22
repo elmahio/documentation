@@ -12,8 +12,6 @@ In this help article, you will learn how to configure Bugster to be used on log 
 !!! note
     We don't use your log data to train Bugster. Log data is currently only shared with Bugster when clicking the *Analyze with Bugster* button. In case you are using an OpenAI-hosted model, your log data may be used to train OpenAI's models, unless you manually disable this in settings. More about that later in this article.
 
-## Configuration
-
 Out of the box, Bugster is available in the top right corner of the elmah.io application. Here, you can ask general elmah.io questions, as known from this documentation site. To give Bugster access to your log data, navigate to the *Bugster* tab on the organization settings page. To open organization settings, click the gears icon next to your organization name on either the left menu or through the dashboard:
 
 ![Bugster disabled](images/bugster-disabled.png)
