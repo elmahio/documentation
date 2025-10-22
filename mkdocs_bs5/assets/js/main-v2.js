@@ -364,18 +364,19 @@ const escapeHtml = (unsafe) => {
 }
 
 // Bugster
+let bugsterSessionId = null;
+
 function Bugster() {
 	if (!document.querySelector('#bugsterModal')) return;
 
+	let theQuestion = null;
+	let chatMessages = [];
 	const question = document.querySelector('#bugsterModal input#question');
 	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat');
-	const bugsterChatFooter = document.querySelector('#bugsterModal .modal-footer');
-	const bugsterChatFooterCollapse = new bootstrap.Collapse('#bugsterModal .modal-footer', { toggle: false });
 	const userDialog = document.querySelector('.bugster-chat .user-dialog');
 	const userText = document.querySelector('.bugster-chat .user-dialog-text');
 	const bugsterDialog = document.querySelector('.bugster-chat .bugster-dialog');
 	const bugsterText = document.querySelector('.bugster-chat .bugster-dialog-text .content');
-	const askAnotherQuestion = document.querySelector('#ask-another-question');
 	const md = new remarkable.Remarkable();
 
 	// Shortcut questions
@@ -391,46 +392,33 @@ function Bugster() {
 		event.preventDefault();
 
 		if (question.value !== "") {
-			userDialog.classList.add('d-none');
-			bugsterDialog.classList.add('d-none');
+			bugsterChat.classList.remove('d-none');
+			theQuestion = question.value;
+			question.value = "";
 
 			if (document.querySelector('.bugster-hero').checkVisibility() === false) {
-				bugsterChatFooterCollapse.hide();
-				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
-					setTimeout(() => {
-						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
-						userDialog.classList.remove('d-none');
-
-						setTimeout(function() {
-							bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
-							bugsterDialog.classList.remove('d-none');
-						}, 500);
-
-						setTimeout(() => bugsterXHR(), 1500);
-					}, 500);
-				});
+				prepareXHR();
 			}
 
 			fadeOut(document.querySelector('.bugster-hero'), function() {
-				bugsterChatFooterCollapse.hide();
-				bugsterChatFooter.addEventListener('hidden.bs.collapse', event => {
-					setTimeout(() => {
-						bugsterChat.classList.remove('d-none');
-						userText.innerHTML = `<p>${ escapeHtml(question.value) }</p>`;
-						userDialog.classList.remove('d-none');
-
-						setTimeout(function() {
-							bugsterText.innerHTML = `<div class="spinner-grow spinner-grow-sm" role="status"></div>`;
-							bugsterDialog.classList.remove('d-none');
-						}, 500);
-
-						setTimeout(() => bugsterXHR(), 1500);
-					}, 500);
-				});
+				prepareXHR();
 			});
 		}
 	});
+
+	const prepareXHR = () => {
+		const userMsg = { sender: 'user', text: theQuestion };
+		chatMessages.push(userMsg);
+		renderMessage(userMsg);
+
+		const bugsterMsg = { sender: 'bugster', text: '', loading: true };
+		chatMessages.push(bugsterMsg);
+		renderMessage(bugsterMsg);
+
+		scrollBottom();
+
+		setTimeout(() => bugsterXHR(), 500);
+	}
 
 	let isRequestInProgress = false;
 
@@ -438,6 +426,7 @@ function Bugster() {
 		if (isRequestInProgress) return;
 
 		isRequestInProgress = true;
+
 		const xhr = new XMLHttpRequest();
 		xhr.open("POST", "https://bugster3.elmah.io/api/docs/ask", true);
 		xhr.setRequestHeader("Content-Type", "application/json");
@@ -445,64 +434,100 @@ function Bugster() {
 
 		xhr.onprogress = function(progressEvent) {
 			const { target } = progressEvent;
-			if (bugsterText.innerHTML === '<div class="spinner-grow spinner-grow-sm" role="status"></div>') {
-				bugsterText.innerHTML = '';
-			}
 			if (target.status === 200) {
-				bugsterText.innerHTML = md.render(target.response);
+				updateBugsterLastMessage(md.render(target.response));
 			}
 		};
 
 		xhr.onload = function() {
 			if (xhr.status === 200) {
-				// Same as in your `done` function in jQuery
-				bugsterText.querySelectorAll('pre code').forEach(codeElement => {
+				if (!bugsterSessionId) {
+					bugsterSessionId = xhr.getResponseHeader("X-Bugster-SessionId");
+				}
+
+				const lastBugsterMsg = bugsterChat.querySelectorAll('.bugster-dialog');
+				const el = lastBugsterMsg[lastBugsterMsg.length - 1];
+				
+				el.querySelectorAll('pre code').forEach(codeElement => {
 					codeElement.parentNode.style.padding = "0px";
 					hljs.highlightElement(codeElement);
 				});
 
-				bugsterText.querySelectorAll('a').forEach(aElement => {
+				el.querySelectorAll('a').forEach(aElement => {
 					aElement.target = "_blank";
 					aElement.rel = "noopener noreferrer";
 				});
 
-				bugsterText.querySelectorAll('table').forEach(tableElement => {
+				el.querySelectorAll('table').forEach(tableElement => {
 					tableElement.classList.add('table');
 					tableElement.querySelector('thead').classList.add('table-dark');
 				});
-
-				askAnotherQuestion.classList.remove('d-none');
 
 				isRequestInProgress = false;
 			}
 		};
 
 		const payload = JSON.stringify({
-			question: question.value,
-			sessionId: "local"
+			question: theQuestion,
+			...(bugsterSessionId ? { sessionId: bugsterSessionId } : {})
 		});
 		xhr.send(payload);
 	}
 
-	// Ask another question
-	askAnotherQuestion.addEventListener('click', function() {
-		askAnotherQuestion.classList.add('d-none');
-		question.value = "";
-		bugsterChatFooterCollapse.show();
-	});
+	const renderMessage = (msg) => {
+		const messageEl = document.createElement('div');
+
+		if (msg.sender === 'user') {
+			messageEl.className = 'user-dialog';
+			messageEl.innerHTML = `<div class="user-dialog-text"><p>${msg.text}</p></div>`;
+		} else {
+			messageEl.className = 'bugster-dialog';
+			messageEl.innerHTML = `<div class="bugster-dialog-avatar">
+				<img class="img-fluid" src="assets/img/bugster.png" width="383" height="374" alt="Bugster">
+			</div>
+			<div class="bugster-dialog-text">
+				<div class="content">
+					<div class="spinner-grow spinner-grow-sm" role="status"></div>
+				</div>
+			</div>`;
+		}
+
+		bugsterChat.appendChild(messageEl);
+	}
+
+	const updateBugsterLastMessage = (text) => {
+		const lastBugsterMsg = bugsterChat.querySelectorAll('.bugster-dialog');
+		const el = lastBugsterMsg[lastBugsterMsg.length - 1];
+		if (!el) return;
+
+		const msgText = el.querySelector('.bugster-dialog-text .content');
+		msgText.innerHTML = text;
+	}
 
 	// Reset modal when closed
 	document.querySelector('#bugsterModal').addEventListener('hidden.bs.modal', () => {
-		document.querySelector('.bugster-hero').removeAttribute('style');
-		bugsterChatFooterCollapse.show();
-		bugsterChat.classList.add('d-none');
-		askAnotherQuestion.classList.add('d-none');
+		theQuestion = null;
 		question.value = "";
-		userDialog.classList.add('d-none');
-		userText.innerHTML = '';
-		bugsterDialog.classList.add('d-none');
-		bugsterText.innerHTML = '';
+
+		if (!bugsterSessionId) {
+			document.querySelector('.bugster-hero').removeAttribute('style');
+			bugsterChat.classList.add('d-none');
+			userDialog.classList.add('d-none');
+			userText.innerHTML = '';
+			bugsterDialog.classList.add('d-none');
+			bugsterText.innerHTML = '';
+		}
 	});
+
+	document.querySelector('#bugsterModal').addEventListener('show.bs.modal', () => {
+		if (bugsterSessionId) {
+			setTimeout(() => scrollBottom(), 200);
+		}
+	});
+
+	const scrollBottom = () => {
+		document.querySelector('#bugsterModal .modal-body').scrollTop = bugsterChat.scrollHeight;
+	}
 }
 
 // FadeOut animation

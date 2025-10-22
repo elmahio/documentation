@@ -691,6 +691,11 @@ table .table-light th {
 			font-weight: 400;
 			padding: 5px;
 		}
+
+		.alert {
+			font-size: 14px;
+			padding: 10px;
+		}
 	}
 
 	.col-md-6,
@@ -725,6 +730,11 @@ table .table-light th {
 	.user-dialog {
 		display: flex;
 		justify-content: end;
+		margin-top: 25px;
+
+		&:first-child {
+			margin-top: 0px;
+		}
 	}
 
 	.user-dialog-text {
@@ -743,6 +753,10 @@ table .table-light th {
 		display: flex;
 		justify-content: start;
 		margin-top: 25px;
+
+		&:last-of-type {
+    		min-height: 300px;
+		}
 	}
 
 	.bugster-dialog-avatar {
