@@ -52,15 +52,3 @@ jobs:
           description: ${{ github.event.head_commit.message }}
           userName: ${{ github.actor }}
           logId: ${{ secrets.ELMAH_IO_LOG_ID }}
-
-      - name: Get Added and Modified Files
-        id: changed-files
-        uses: masesgroup/retrieve-changed-files@v3
-
-      - name: Refresh files in Bugster
-        if: ${{ steps.changed-files.outputs.all != '[]' }}
-        uses: elmahio/actions/refresh-bugster-files@v1.2
-        with:
-          signing: ${{ secrets.BUGSTER_SIGNING }}
-          url: ${{ secrets.BUGSTER_URL }}
-          files: ${{ steps.changed-files.outputs.all }}
