@@ -393,7 +393,7 @@ function Bugster() {
 
 		if (question.value !== "") {
 			bugsterChat.classList.remove('d-none');
-			theQuestion = question.value;
+			theQuestion = escapeHtml(question.value);
 			question.value = "";
 
 			if (document.querySelector('.bugster-hero').checkVisibility() === false) {
