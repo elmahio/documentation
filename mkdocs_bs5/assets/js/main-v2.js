@@ -483,7 +483,7 @@ function Bugster() {
 		} else {
 			messageEl.className = 'bugster-dialog';
 			messageEl.innerHTML = `<div class="bugster-dialog-avatar">
-				<img class="img-fluid" src="assets/img/bugster.png" width="383" height="374" alt="Bugster">
+				<img class="img-fluid" src="/assets/img/bugster.png" width="383" height="374" alt="Bugster">
 			</div>
 			<div class="bugster-dialog-text">
 				<div class="content">
