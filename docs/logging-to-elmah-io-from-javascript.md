@@ -439,6 +439,7 @@ This is an example of the elmah.io.javascript `Message` object that is used in v
   statusCode: 400,
   user: 'DavidLightman',
   version: '1.0.0',
+  category: 'MyLogger',
   cookies: [
     { key: '_ga', value: 'GA1.3.1580453215.1783132008' }
   ],
