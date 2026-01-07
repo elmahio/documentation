@@ -43,7 +43,7 @@ elmah.io is a cloud-based error management system originally developed on top of
 
 ## elmah.io History
 
-So, why name a service elmah.io, when only a minor part of a client integration uses ELMAH? When Thomas Ardal introduced elmah.io back in 2013, the intention was to create a cloud-based error logger for ELMAH. We had some simple search and graphing possibilities, but the platform was meant as an alternative to host your own error logs in SQL Server or similar.
+So, why name a service elmah.io, when only a minor part of a client integration uses ELMAH? When Thomas Ardal founded and introduced elmah.io back in 2013, the intention was to create a cloud-based error logger for ELMAH. We had some simple search and graphing possibilities, but the platform was meant as an alternative to host your own error logs in SQL Server or similar.
 
 In time, elmah.io grew from being a hobby project to an actual company. During those years, we realized that the potential of the platform exceeded the possibilities with ELMAH in many ways. New features not available in ELMAH have been added constantly. A process that would have been nearly impossible with ELMAH's many storage integrations.
 
