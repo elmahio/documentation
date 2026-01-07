@@ -661,6 +661,24 @@ table .table-light th {
 
 		form {
 			padding: 12px;
+
+			.form-text {
+				text-align: center;
+				margin-top: 16px;
+
+				a {
+					display: inline-block;
+					background: rgba(29 33 46);
+					padding: 3px 10px;
+					border-radius: 10px;
+					font-size: 12px;
+					color: #f5f5f5;
+					
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
 		}
 	}
 }
@@ -1586,6 +1604,28 @@ img.gif {
 			background-color: #a370f7;
 		}
 	}
+}
+
+.animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes zoomIn {
+    from {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    50% {
+      opacity: 1;
+    }
+}
+.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
 }
 
 

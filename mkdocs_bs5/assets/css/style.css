@@ -571,6 +571,21 @@ table .table-light th {
 #bugsterModal .modal-footer form {
   padding: 12px;
 }
+#bugsterModal .modal-footer form .form-text {
+  text-align: center;
+  margin-top: 16px;
+}
+#bugsterModal .modal-footer form .form-text a {
+  display: inline-block;
+  background: rgb(29, 33, 46);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #f5f5f5;
+}
+#bugsterModal .modal-footer form .form-text a:hover {
+  text-decoration: none;
+}
 
 .bugster-hero {
   padding: 40px 0px;
@@ -1398,6 +1413,24 @@ img.gif {
   content: "\f129";
   color: #290661;
   background-color: #a370f7;
+}
+
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.zoomIn {
+  animation-name: zoomIn;
 }
 
 @media (min-width: 1200px) {
