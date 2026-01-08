@@ -612,7 +612,18 @@ function fadeOut(element, callback) {
 
 // Init Fancybox library
 Fancybox.bind("[data-fancybox]", {
-    idle: false
+    idle: false,
+	on: {
+		reveal: (fancybox, slide) => {
+			const iframe = slide.el.querySelector('iframe');
+			if (iframe && slide.type === "youtube") {
+				const currentSrc = iframe.src;
+				iframe.src = '';
+				iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+				iframe.src = currentSrc;
+			}
+		}
+	}
 });
 
 // Intercom
