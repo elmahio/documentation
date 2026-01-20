@@ -152,6 +152,56 @@ document.addEventListener("DOMContentLoaded", function() {
 	const currentYear = document.querySelector('#currentYear');
 	currentYear.textContent = new Date().getFullYear();
 
+	// Intercom facade - boot intercom
+	document.querySelectorAll('.intercom-link').forEach(elem => {
+        elem.addEventListener('click', function(e) {
+            if (document.querySelector('#intercom-facade-btn')) {
+                e.preventDefault();
+                document.querySelector('#intercom-facade-btn > div').dispatchEvent(new Event('mouseenter'));
+                var counter = 0;
+                var interval = setInterval(function () {
+                    counter++;
+                    if (window.Intercom && window.Intercom.booted) {
+                        var params = null;
+                        if (e.target.href) {
+                            var regExp = /\(([^)]+)\)/;
+                            var matches = regExp.exec(e.target.href)[1];
+                            matches = matches.replaceAll('\'', '');
+                            params = matches.split(/(?:,|$)\s*/g);
+                        } else {
+                            params = [];
+                            var objData = { ...e.target.dataset };
+                            Object.keys(objData).forEach(key => {
+                                params.push(objData[key]);
+                            });
+                        }
+                        Intercom.apply(null, params);
+                        clearInterval(interval);
+                    } else if (counter > 10) {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            } else if (window.Intercom && window.Intercom.booted) {
+                var params = null;
+                if (e.target.href) {
+                    var regExp = /\(([^)]+)\)/;
+                    var matches = regExp.exec(e.target.href)[1];
+                    matches = matches.replaceAll('\'', '');
+                    params = matches.split(/(?:,|$)\s*/g);
+                } else {
+                    params = [];
+                    var objData = { ...e.target.dataset };
+                    Object.keys(objData).forEach(key => {
+                        params.push(objData[key]);
+                    });
+                }
+                Intercom.apply(null, params);
+            } else {
+                window.location.href = "/contact/";
+            }
+        });
+    });
+
 	navbarScroll();
 
 	// init Bugster
@@ -377,6 +427,7 @@ function Bugster() {
 	const userText = document.querySelector('.bugster-chat .user-dialog-text');
 	const bugsterDialog = document.querySelector('.bugster-chat .bugster-dialog');
 	const bugsterText = document.querySelector('.bugster-chat .bugster-dialog-text .content');
+	const humanSupport = document.querySelector('#bugsterModal .modal-footer .form-text');
 	const md = new remarkable.Remarkable();
 
 	// Shortcut questions
@@ -464,6 +515,8 @@ function Bugster() {
 				});
 
 				isRequestInProgress = false;
+				humanSupport.classList.remove('d-none');
+				humanSupport.classList.add('animated', 'zoomIn');
 			}
 		};
 
@@ -504,6 +557,10 @@ function Bugster() {
 		msgText.innerHTML = text;
 	}
 
+	document.querySelector('#bugsterModal .modal-footer .form-text a').addEventListener('click', () => {
+		Intercom('update', { bugster_session_id: bugsterSessionId });
+	});
+
 	// Reset modal when closed
 	document.querySelector('#bugsterModal').addEventListener('hidden.bs.modal', () => {
 		theQuestion = null;
@@ -516,6 +573,8 @@ function Bugster() {
 			userText.innerHTML = '';
 			bugsterDialog.classList.add('d-none');
 			bugsterText.innerHTML = '';
+			humanSupport.classList.add('d-none');
+			humanSupport.classList.remove('animated', 'zoomIn');
 		}
 	});
 
@@ -553,7 +612,18 @@ function fadeOut(element, callback) {
 
 // Init Fancybox library
 Fancybox.bind("[data-fancybox]", {
-    idle: false
+    idle: false,
+	on: {
+		reveal: (fancybox, slide) => {
+			const iframe = slide.el.querySelector('iframe');
+			if (iframe && slide.type === "youtube") {
+				const currentSrc = iframe.src;
+				iframe.src = '';
+				iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+				iframe.src = currentSrc;
+			}
+		}
+	}
 });
 
 // Intercom
