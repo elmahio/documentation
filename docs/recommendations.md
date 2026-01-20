@@ -29,7 +29,7 @@ The list provides a high-level overview of all recommendations categorized by:
 
 You can use the *State* filter (Open/Ignored/Fixed) and the *Impact* filter to change the result of the list.
 
-## Fixing an Issue
+## Fixing a recommendation
 
 Clicking on any recommendation in the list will expand the row to show a detailed breakdown of the problem and how to fix it.
 
@@ -56,7 +56,7 @@ Recommendations can originate from a range of different sources. This will be ex
 - Canonical checks
 - Domain expiration checks
 
-## Troubleshooting
+## Recommendation Troubleshooting
 
 **Why don't I see any recommendations?**
 
