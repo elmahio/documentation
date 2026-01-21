@@ -1,6 +1,6 @@
 ---
 title: Recommendations on elmah.io
-description: Learn about recommendations on elmah.io, how they work, and what they can do to help you.
+description: Documentation for elmah.io Recommendations. Learn how to identify security gaps, manage fix states, and use uptime data to improve web application health.
 ---
 
 # Recommendations on elmah.io
