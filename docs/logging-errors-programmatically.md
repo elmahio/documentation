@@ -35,7 +35,7 @@ catch (DivideByZeroException e)
 }
 ```
 
-We call the static method `FromCurrentContext` on the `ErrorSignal` class, which returns a new object for doing the actual logging. Logging happens through the Raise method, which logs the exception to the configured ELMAH storage endpoint.
+We call the static method `FromCurrentContext` on the `ErrorSignal` class, which returns a new object for doing the actual logging. Logging happens through the Raise method, which logs the exception to the configured ELMAH storage endpoint. Remember to include `using Elmah` in the top when using classes from the `Elmah` package, which is not the same as the `Elmah.Io` package.
 
 In the example above, I use the `FromCurrentContext` helper to create a new instance of `ErrorSignal`. ELMAH also works outside the context of a webserver and in this case, you would simply use the default logger with `null` as the HTTP context:
 
