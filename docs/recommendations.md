@@ -13,7 +13,7 @@ While elmah.io is primarily known for error monitoring, the Recommendations feat
 
 You can find the list of Recommendations for each log on the log search page and clicking the *Recommendations* tab in the top:
 
-![List of recommendations](images/recommendations-list.png)
+![List of recommendations](images/recommendations-list-v2.png)
 
 The list provides a high-level overview of all recommendations categorized by:
 
@@ -21,7 +21,7 @@ The list provides a high-level overview of all recommendations categorized by:
 
 - 🟥 High: Critical security issues or major configuration errors.
 - 🟨 Medium: Best practice improvements that should be addressed.
-- 🟩 Info: Helpful tips and minor optimizations.
+- 🟩 Low: Helpful tips and minor optimizations.
 
 **Modified**: Shows when the issue was last detected or updated.
 
