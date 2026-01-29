@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-title" content="elmah.io">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="../icons/mstile-144x144.png">
+    <meta name="theme-color" content="#0da58e">
+    <meta name="description" content="To log all warnings and errors from ASP.NET Core, install the following NuGet package: Install-Package Elmah.Io.AspNetCore. Call the AddElmahIo method.">
+    <meta name="author" content="Thomas Ardal">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@elmah_io">
+    <meta name="twitter:creator" content="@elmah_io">
+    <meta name="twitter:title" content="Logging from ASP.NET Core | elmah.io">
+    <meta name="twitter:description" content="To log all warnings and errors from ASP.NET Core, install the following NuGet package: Install-Package Elmah.Io.AspNetCore. Call the AddElmahIo method.">
+    <meta name="twitter:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="og:site_name" content="elmah.io Documentation" />
+    <meta property="og:title" content="Logging from ASP.NET Core">
+    <meta property="og:description" content="To log all warnings and errors from ASP.NET Core, install the following NuGet package: Install-Package Elmah.Io.AspNetCore. Call the AddElmahIo method.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">
+    <meta property="og:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="article:published_time" content="2026-01-29">
+    <meta property="article:modified_time" content="2026-01-29">
+    <meta property="article:publisher" content="https://www.facebook.com/elmahdotio/" />
+    <meta property="article:author" content="elmah.io" />
+    <meta property="fb:app_id" content="218008838347208" />
+    <title>Logging from ASP.NET Core</title>
+    <link rel="canonical" href="https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="../assets/css/style.min.css?version=619">
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "publisher": {
+        "@type": "Organization",
+        "name": "elmah.io Documentation",
+        "url": "https://docs.elmah.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.elmah.io/assets/img/elmahio-publication-logo.png",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "headline": "Logging from ASP.NET Core",
+      "url": "https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/",
+      "datePublished": "2026-01-29",
+      "dateModified": "2026-01-29",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://docs.elmah.io/"
+      }
+    }
+    </script>
+
+  </head>
+  <body>
+    <script src="../assets/js/theme-selector.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://elmah.io/">
+      <img src="../assets/img/logo.png" width="30" height="22" alt="elmah.io">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/tour/">Tour</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-btn justify-content-center">
+        <div class="mode-switch mb-2 mb-md-0 d-none">
+          <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block">
+            <i class="fas fa-moon d-none" id="dark"></i>
+            <i class="fas fa-sun d-none" id="light"></i>
+          </button>
+        </div>
+        <li class="nav-item mx-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
+        <li class="nav-item"><a class="btn btn-signup-trial" href="https://app.elmah.io/signup/">Free Trial</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container mb-5">
+      <div class="row-wrapper">
+        <aside class="sidebar">
+          <div class="sidebar-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text"><label class="mb-0" for="search"><i class="far fa-search"></i></label></span></div>
+              <input type="text" id="search" class="form-control" placeholder="Search ..." autocomplete="off" />
+            </div>
+            <div class="bugster-banner d-block d-md-none">
+              <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+                <div class="content">
+                  <p class="mb-1 lead">Have a question ?</p>
+                  <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+                </div>
+                <div class="bugster-logo">
+                  <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+                </div>
+              </a>
+            </div>
+            <div id="searchList" class="mt-3"></div>
+            <hr>
+            <ul class="main-nav">
+              
+              <li >
+                <a class="li_parent" href="javascript:;">Getting Started</a>
+                <ul>
+                  
+                  <li ><a href="/">Quick start</a></li>
+                  
+                  <li ><a href="/authentication/">Authentication</a></li>
+                  
+                  <li ><a href="/integrations-high-level-overview/">Integrations high level overview</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">ASP.NET</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-elmah/">Logging from WebForms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aspnet-mvc/">Logging from ASP.NET MVC</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-api/">Logging from Web API</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-pages/">Logging from Web Pages</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-iis/">Logging from a running website on IIS</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-azure/">Logging from a running website on Azure</a></li>
+                  
+                  <li ><a href="/logging-custom-data/">Logging custom data</a></li>
+                  
+                  <li ><a href="/logging-errors-programmatically/">Logging errors programmatically</a></li>
+                  
+                  <li ><a href="/logging-to-multiple-elmah-logs/">Logging to multiple logs</a></li>
+                  
+                  <li ><a href="/remove-sensitive-form-data/">Remove sensitive form data</a></li>
+                  
+                  <li ><a href="/setting-application-name/">Setting application name</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-manually/">Configure elmah.io manually</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-from-code/">Configure elmah.io from code</a></li>
+                  
+                  <li ><a href="/logging-through-a-http-proxy/">Logging through a HTTP proxy</a></li>
+                  
+                  <li ><a href="/use-multiple-logs-for-different-environments/">Use multiple logs for different environments</a></li>
+                  
+                  <li ><a href="/specify-api-key-and-log-id-through-appsettings/">Specify API key and log ID through appSettings</a></li>
+                  
+                  <li ><a href="/elmah-and-custom-errors/">ELMAH and custom errors</a></li>
+                  
+                  <li ><a href="/logging-from-a-custom-http-module/">Logging from a custom HTTP module</a></li>
+                  
+                  <li ><a href="/asp-net-troubleshooting/">ASP.NET troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown active">
+                <a class="li_parent" href="javascript:;">ASP.NET Core</a>
+                <ul>
+                  
+                  <li class="active"><a href="/logging-to-elmah-io-from-aspnet-core/">Logging from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blazor/">Logging from Blazor</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-signalr/">Logging from SignalR</a></li>
+                  
+                  <li ><a href="/using-different-logs-per-environment-in-aspnet-core/">Using different logs per environment in ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-breadcrumbs-from-asp-net-core/">Logging breadcrumbs from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a></li>
+                  
+                  <li ><a href="/asp-net-core-troubleshooting/">ASP.NET Core troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging Frameworks</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-serilog/">Logging from Serilog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-log4net/">Logging from log4net</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nlog/">Logging from NLog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-logary/">Logging from Logary</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-jsnlog/">Logging from JSNLog</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">JavaScript</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-javascript/">Logging from JavaScript</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-angular/">Logging from Angular</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-react/">Logging from React</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-vue/">Logging from Vue</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sveltekit/">Logging from SvelteKit</a></li>
+                  
+                  <li ><a href="/sourcemaps/">Source maps</a></li>
+                  
+                  <li ><a href="/javascript-troubleshooting/">JavaScript troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CMS/Blogs</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-umbraco/">Logging from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sitefinity/">Logging from Sitefinity</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blogengine-net/">Logging from BlogEngine.NET</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-orchard/">Logging from Orchard</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-piranha-cms/">Logging from Piranha CMS</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Mobile</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-uno/">Logging from Uno</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-maui/">Logging from MAUI</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging from something else</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wcf/">Logging from WCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-corewcf/">Logging from CoreWCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-azure-functions/">Logging from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-isolated-azure-functions/">Logging from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-powershell/">Logging from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winui/">Logging from WinUI</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-entity-framework-core/">Logging from Entity Framework Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-console-application/">Logging from C# and console applications</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-opentelemetry/">Logging from OpenTelemetry</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-httpclient/">Logging from HttpClient</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-beanstalk/">Logging from AWS Beanstalk</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-lambdas/">Logging from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-servicestack/">Logging from ServiceStack</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-devexpress/">Logging from DevExpress (eXpressApp Framework)</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-google-cloud-functions/">Logging from Google Cloud Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-system-diagnostics/">Logging from System.Diagnostics</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-azure-webjobs/">Logging from Azure WebJobs</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nancy/">Logging from Nancy</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Apps and Integrations</a>
+                <ul>
+                  
+                  <li ><a href="/elmah-io-apps-slack/">Slack</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-teams/">Microsoft Teams</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-twilio/">Twilio</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-jira/">Jira</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-azure-boards/">Azure Boards</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-bitbucket/">Bitbucket</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-github/">GitHub</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-gitlab/">GitLab</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-hipchat/">HipChat</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-pipedream/">Pipedream</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-trello/">Trello</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-youtrack/">YouTrack</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-zapier/">Zapier</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-pagerduty/">PagerDuty</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-clickup/">ClickUp</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-chatgpt/">ChatGPT</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-fixes/">Fixes</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-botbuster/">BotBuster (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-ipfilter/">IP Filter (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-mailman/">Mailman (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-request-a-new-integration/">Request a new integration</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Uptime Monitoring</a>
+                <ul>
+                  
+                  <li ><a href="/setup-uptime-monitoring/">Set up Uptime Monitoring</a></li>
+                  
+                  <li ><a href="/missing-server-side-information-on-uptime-errors/">Missing server-side information on uptime errors</a></li>
+                  
+                  <li ><a href="/allowing-elmah-io-uptime-agents/">Allowing elmah.io uptime agents</a></li>
+                  
+                  <li ><a href="/uptime-monitoring-troubleshooting/">Uptime Monitoring Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Heartbeats</a>
+                <ul>
+                  
+                  <li ><a href="/setup-heartbeats/">Set up Heartbeats</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-asp-net-core/">Logging heartbeats from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-azure-functions/">Logging heartbeats from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-isolated-azure-functions/">Logging heartbeats from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-powershell/">Logging heartbeats from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-curl/">Logging heartbeats from cURL</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-umbraco/">Logging heartbeats from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-hangfire/">Logging heartbeats from Hangfire</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-coravel/">Logging heartbeats from Coravel</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-net-core-worker-services/">Logging heartbeats from .NET Core Worker Services</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-aws-lambdas/">Logging heartbeats from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-windows-scheduled-tasks/">Logging heartbeats from Windows Scheduled Tasks</a></li>
+                  
+                  <li ><a href="/heartbeats-troubleshooting/">Heartbeats Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Deployment Tracking</a>
+                <ul>
+                  
+                  <li ><a href="/setup-deployment-tracking/">Set up Deployment Tracking</a></li>
+                  
+                  <li ><a href="/create-deployments-from-powershell/">Create deployments from PowerShell</a></li>
+                  
+                  <li ><a href="/create-deployments-from-cli/">Create deployments from CLI</a></li>
+                  
+                  <li ><a href="/create-deployments-from-octopus-deploy/">Create deployments from Octopus Deploy</a></li>
+                  
+                  <li ><a href="/create-deployments-from-kudu/">Create deployments from Kudu</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-pipelines/">Create deployments from Azure DevOps Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-releases/">Create deployments from Azure DevOps Releases</a></li>
+                  
+                  <li ><a href="/create-deployments-from-github-actions/">Create deployments from GitHub Actions</a></li>
+                  
+                  <li ><a href="/create-deployments-from-gitlab-pipelines/">Create deployments from GitLab Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-umbraco-cloud/">Create deployments from Umbraco Cloud</a></li>
+                  
+                  <li ><a href="/create-deployments-from-bitbucket-pipelines/">Create deployments from Bitbucket Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-atlassian-bamboo/">Create deployments from Atlassian Bamboo</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CLI</a>
+                <ul>
+                  
+                  <li ><a href="/cli-overview/">CLI overview</a></li>
+                  
+                  <li ><a href="/cli-clear/">Clear</a></li>
+                  
+                  <li ><a href="/cli-dataloader/">Dataloader</a></li>
+                  
+                  <li ><a href="/cli-deployment/">Deployment</a></li>
+                  
+                  <li ><a href="/cli-diagnose/">Diagnose</a></li>
+                  
+                  <li ><a href="/cli-export/">Export</a></li>
+                  
+                  <li ><a href="/cli-import/">Import</a></li>
+                  
+                  <li ><a href="/cli-log/">Log</a></li>
+                  
+                  <li ><a href="/cli-sourcemap/">Sourcemap</a></li>
+                  
+                  <li ><a href="/cli-tail/">Tail</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Everything Else</a>
+                <ul>
+                  
+                  <li ><a href="/managing-organisations-and-users/">Managing Organisations and Users</a></li>
+                  
+                  <li ><a href="/where-is-my-log-id/">Where is my log ID</a></li>
+                  
+                  <li ><a href="/where-is-my-api-key/">Where is my API key</a></li>
+                  
+                  <li ><a href="/where-is-the-permalink-button/">Where is the permalink button</a></li>
+                  
+                  <li ><a href="/where-is-my-invoice-receipt/">Where is my invoice / receipt</a></li>
+                  
+                  <li ><a href="/how-to-manage-subscriptions-update-credit-cards-etc/">How to manage subscriptions, update credit cards, etc.</a></li>
+                  
+                  <li ><a href="/managing-environments/">Managing Environments</a></li>
+                  
+                  <li ><a href="/recommendations/">Recommendations</a></li>
+                  
+                  <li ><a href="/how-to-delete-my-account/">How to delete my account</a></li>
+                  
+                  <li ><a href="/how-to-configure-api-key-permissions/">How to configure API key permissions</a></li>
+                  
+                  <li ><a href="/how-to-enable-two-factor-login/">How to enable two-factor login</a></li>
+                  
+                  <li ><a href="/how-to-rename-a-log/">How to rename a log</a></li>
+                  
+                  <li ><a href="/how-to-include-source-code-in-log-messages/">How to include source code in log messages</a></li>
+                  
+                  <li ><a href="/how-to-search-custom-data/">How to search custom data</a></li>
+                  
+                  <li ><a href="/how-to-get-the-sql-tab-to-show-up/">How to get the SQL tab to show up</a></li>
+                  
+                  <li ><a href="/how-to-configure-and-use-bugster/">How to configure and use Bugster</a></li>
+                  
+                  <li ><a href="/creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a></li>
+                  
+                  <li ><a href="/query-messages-using-full-text-search/">Query messages using full-text search</a></li>
+                  
+                  <li ><a href="/tips-and-tricks-to-stay-below-your-message-limit/">Tips and tricks to stay below your message limit</a></li>
+                  
+                  <li ><a href="/use-extended-user-details-without-email-as-id/">Use extended user details without email as ID</a></li>
+                  
+                  <li ><a href="/adding-version-information/">Adding version information</a></li>
+                  
+                  <li ><a href="/bot-detection/">Bot detection</a></li>
+                  
+                  <li ><a href="/include-filename-and-line-number-in-stacktraces/">Include filename and line number in stack traces</a></li>
+                  
+                  <li ><a href="/how-does-the-new-detection-work/">How does the new detection work</a></li>
+                  
+                  <li ><a href="/how-to-correlate-messages-across-services/">How to correlate messages across services</a></li>
+                  
+                  <li ><a href="/how-to-get-elmah-io-to-resolve-the-correct-client-ip/">How to get elmah.io to resolve the correct client IP</a></li>
+                  
+                  <li ><a href="/how-to-avoid-emails-getting-classified-as-spam/">How to avoid emails getting classified as spam</a></li>
+                  
+                  <li ><a href="/how-prices-are-calculated/">How prices are calculated</a></li>
+                  
+                  <li ><a href="/how-to-run-elmah-io-in-dark-mode/">How to run elmah.io in dark mode</a></li>
+                  
+                  <li ><a href="/how-to-show-elmah-io-dashboards-on-a-big-screen/">How to show elmah.io dashboards on a big screen</a></li>
+                  
+                  <li ><a href="/handle-elmah-io-downtime/">Handle elmah.io downtime</a></li>
+                  
+                  <li ><a href="/using-the-elmah-io-extension-for-visual-studio/">Using the elmah.io extension for Visual Studio</a></li>
+                  
+                  <li ><a href="/using-the-rest-api/">Using the REST API</a></li>
+                  
+                  <li ><a href="/how-to-log-to-elmah-io-from-net-4-5/">How to log to elmah.io from .NET 4.5</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v4-to-v5/">Upgrade elmah.io from v4 to v5</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v3-to-v4/">Upgrade elmah.io from v3 to v4</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v2-to-v3/">Upgrade elmah.io from v2 to v3</a></li>
+                  
+                  <li ><a href="/email-troubleshooting/">Email troubleshooting</a></li>
+                  
+                  <li ><a href="/elmah-and-elmah-io-differences/">ELMAH and elmah.io differences</a></li>
+                  
+                  <li ><a href="/vulnerability-disclosure-program/">Vulnerability Disclosure Program (VDP)</a></li>
+                  
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+        </aside>
+
+        <div class="d-grid w-100 d-block d-md-none">
+          <a id="show-sidebar" href="javascript:;" class="btn btn-light border">
+            <span class="fal fa-bars me-2"></span><span>Documentation menu</span>
+          </a>
+        </div>
+
+        <article class="col main-content">
+          <div class="main-content-body">
+
+            <p><a href="https://github.com/elmahio/Elmah.Io.AspNetCore/actions?query=workflow%3Abuild"><img alt="Build status" src="https://github.com/elmahio/Elmah.Io.AspNetCore/workflows/build/badge.svg" /></a>
+<a href="https://www.nuget.org/packages/Elmah.Io.AspNetCore"><img alt="NuGet" src="https://img.shields.io/nuget/v/Elmah.Io.AspNetCore.svg" /></a>
+<a href="https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples"><img alt="Samples" src="https://img.shields.io/badge/samples-4-brightgreen.svg" /></a></p>
+<h1 id="logging-to-elmahio-from-aspnet-core">Logging to elmah.io from ASP.NET Core</h1>
+<div class="toc">
+<ul>
+<li><a href="#logging-to-elmahio-from-aspnet-core">Logging to elmah.io from ASP.NET Core</a><ul>
+<li><a href="#configuring-api-key-and-log-id-in-options">Configuring API key and log ID in options</a></li>
+<li><a href="#logging-exceptions-manually">Logging exceptions manually</a></li>
+<li><a href="#breadcrumbs">Breadcrumbs</a></li>
+<li><a href="#additional-options">Additional options</a><ul>
+<li><a href="#setting-application-name">Setting application name</a></li>
+<li><a href="#hooks">Hooks</a><ul>
+<li><a href="#decorate-from-http-context">Decorate from HTTP context</a></li>
+<li><a href="#include-source-code">Include source code</a></li>
+<li><a href="#remove-sensitive-form-data">Remove sensitive form data</a></li>
+</ul>
+</li>
+<li><a href="#formatting-exceptions">Formatting exceptions</a></li>
+<li><a href="#logging-responses-not-throwing-an-exception">Logging responses not throwing an exception</a></li>
+<li><a href="#logging-through-a-proxy">Logging through a proxy</a></li>
+</ul>
+</li>
+<li><a href="#aspnet-core-8">ASP.NET Core 8</a></li>
+<li><a href="#logging-health-check-results">Logging health check results</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If you are looking to log all uncaught errors from ASP.NET Core, you've come to the right place. For help setting up general .NET Core logging similar to log4net, check out <a href="../logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a>.</p>
+<p>To log all warnings and errors from ASP.NET Core, install the following NuGet package:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" id=tab-group-0-0_cmd-tab data-bs-toggle=tab data-bs-target=#tab-group-0-0_cmd-panel type=button role=tab data-lang=cmd aria-controls=tab-group-0-0_cmd-panel aria-selected=true>.NET CLI</a></li><li class=nav-item><a class="nav-link " id=tab-group-0-1_powershell-tab data-bs-toggle=tab data-bs-target=#tab-group-0-1_powershell-panel type=button role=tab data-lang=powershell aria-controls=tab-group-0-1_powershell-panel aria-selected=false>Package Manager</a></li><li class=nav-item><a class="nav-link " id=tab-group-0-2_xml-tab data-bs-toggle=tab data-bs-target=#tab-group-0-2_xml-panel type=button role=tab data-lang=xml aria-controls=tab-group-0-2_xml-panel aria-selected=false>PackageReference</a></li><li class=nav-item><a class="nav-link " id=tab-group-0-3_xml-tab data-bs-toggle=tab data-bs-target=#tab-group-0-3_xml-panel type=button role=tab data-lang=xml aria-controls=tab-group-0-3_xml-panel aria-selected=false>Paket CLI</a></li></ul><div class=tab-content><div id=tab-group-0-0_cmd-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_cmd-tab><pre><code class=cmd>dotnet add package Elmah.Io.AspNetCore
+</code></pre></div><div id=tab-group-0-1_powershell-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_powershell-tab><pre><code class=powershell>Install-Package Elmah.Io.AspNetCore
+</code></pre></div><div id=tab-group-0-2_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_xml-tab><pre><code class=xml>&lt;PackageReference Include=&quot;Elmah.Io.AspNetCore&quot; Version=&quot;5.*&quot; /&gt;
+</code></pre></div><div id=tab-group-0-3_xml-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-3_xml-tab><pre><code class=xml>paket add Elmah.Io.AspNetCore
+</code></pre></div></div></div>
+<p>In the <code>Startup.cs</code> file, add a new <code>using</code> statement:</p>
+<p> <pre><code class=csharp>using Elmah.Io.AspNetCore;
+</code></pre></p>
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard" aria-controls="standard" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel" aria-controls="toplevel" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable">
+<div class="tab-pane active" id="standard" role="tabpanel">
+<p>Call <code>AddElmahIo</code> in the <code>ConfigureServices</code>-method:</p>
+<p> <pre><code class=csharp>public void ConfigureServices(IServiceCollection services)
+{
+    services.AddElmahIo(options =&gt;
+    {
+        options.ApiKey = &quot;API_KEY&quot;;
+        options.LogId = new Guid(&quot;LOG_ID&quot;);
+    });
+    // ...
+}
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="../where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="../where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Call <code>UseElmahIo</code> in the <code>Configure</code>-method:</p>
+<p> <pre><code class=csharp>public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory fac)
+{
+    // ...
+    app.UseElmahIo();
+    // ...
+}
+</code></pre></p>
+</div>
+<div class="tab-pane" id="toplevel" role="tabpanel">
+<p>Call <code>AddElmahIo</code> in the <code>Program.cs</code> file:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    options.ApiKey = &quot;API_KEY&quot;;
+    options.LogId = new Guid(&quot;LOG_ID&quot;);
+});
+</code></pre></p>
+<p>Replace <code>API_KEY</code> with your API key (<a href="../where-is-my-api-key/">Where is my API key?</a>) and <code>LOG_ID</code> (<a href="../where-is-my-log-id/">Where is my log ID?</a>) with the log Id of the log you want to log to.</p>
+<p>Call <code>UseElmahIo</code> in the <code>Program.cs</code> file:</p>
+<p> <pre><code class=csharp>app.UseElmahIo();
+</code></pre></p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to call the <code>UseElmahIo</code>-method <strong>after</strong> installation of other pieces of middleware handling exceptions and auth (like <code>UseDeveloperExceptionPage</code>, <code>UseExceptionHandler</code>, <code>UseAuthentication</code>, and <code>UseAuthorization</code>), but <strong>before</strong> any calls to <code>UseEndpoints</code>, <code>UseMvc</code>, <code>MapRazorPages</code>, and similar.</p>
+</div>
+<p>That's it. Every uncaught exception will be logged to elmah.io. For an example of configuring elmah.io with ASP.NET Core minimal APIs, check out <a href="https://github.com/elmahio/Elmah.Io.AspNetCore/tree/main/samples/Elmah.Io.AspNetCore60.Example">this sample</a>.</p>
+<h2 id="configuring-api-key-and-log-id-in-options">Configuring API key and log ID in options</h2>
+<p>If you have different environments (everyone has a least localhost and production), you should consider adding the API key and log ID in your <code>appsettings.json</code> file:</p>
+<p> <pre><code class=json>{
+  // ...
+  &quot;ElmahIo&quot;: {
+    &quot;ApiKey&quot;: &quot;API_KEY&quot;,
+    &quot;LogId&quot;: &quot;LOG_ID&quot;
+  }
+}
+</code></pre></p>
+<p>Configuring elmah.io is done by calling the <code>Configure</code>-method before <code>AddElmahIo</code>:</p>
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard2" aria-controls="standard2" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel2" aria-controls="toplevel2" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable">
+<div class="tab-pane active" id="standard2" role="tabpanel">
+<p> <pre><code class=csharp>public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure&lt;ElmahIoOptions&gt;(Configuration.GetSection(&quot;ElmahIo&quot;));
+    services.AddElmahIo();
+}
+</code></pre></p>
+<p>Notice that you still need to call <code>AddElmahIo</code> to correctly register middleware dependencies.</p>
+<p>Finally, call the <code>UseElmahIo</code>-method (as you would do with config in C# too):</p>
+<p> <pre><code class=csharp>public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    // ...
+    app.UseElmahIo();
+    // ...
+}
+</code></pre></p>
+<p>You can still configure additional options on the <code>ElmahIoOptions</code> object:</p>
+<p> <pre><code class=csharp>public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure&lt;ElmahIoOptions&gt;(Configuration.GetSection(&quot;ElmahIo&quot;));
+    services.Configure&lt;ElmahIoOptions&gt;(options =&gt;
+    {
+        options.OnMessage = msg =&gt;
+        {
+            msg.Version = &quot;1.0.0&quot;;
+        };
+    });
+    services.AddElmahIo();
+}
+</code></pre></p>
+</div>
+<div class="tab-pane" id="toplevel2" role="tabpanel">
+<p> <pre><code class=csharp>builder.Services.Configure&lt;ElmahIoOptions&gt;(builder.Configuration.GetSection(&quot;ElmahIo&quot;));
+builder.Services.AddElmahIo();
+</code></pre></p>
+<p>Notice that you still need to call <code>AddElmahIo</code> to correctly register middleware dependencies.</p>
+<p>Finally, call the <code>UseElmahIo</code>-method (as you would do with config in C# too):</p>
+<p> <pre><code class=csharp>app.UseElmahIo();
+</code></pre></p>
+<p>You can still configure additional options on the <code>ElmahIoOptions</code> object:</p>
+<p> <pre><code class=csharp>builder.Services.Configure&lt;ElmahIoOptions&gt;(builder.Configuration.GetSection(&quot;ElmahIo&quot;));
+builder.Services.Configure&lt;ElmahIoOptions&gt;(o =&gt;
+{
+    o.OnMessage = msg =&gt;
+    {
+        msg.Version = &quot;1.0.0&quot;;
+    };
+});
+builder.Services.AddElmahIo();
+</code></pre></p>
+</div>
+</div>
+<h2 id="logging-exceptions-manually">Logging exceptions manually</h2>
+<p>While automatically logging all uncaught exceptions is definitely a nice feature, sometimes you may want to catch exceptions and log them manually. If you just want to log the exception details, without all of the contextual information about the HTTP context (cookies, server variables, etc.), we recommend you to look at our integration for <a href="../logging-to-elmah-io-from-microsoft-extensions-logging/">Microsoft.Extensions.Logging</a>. If the context is important for the error, you can utilize the <code>Ship</code>-methods available in <code>Elmah.Io.AspNetCore</code>:</p>
+<p> <pre><code class=csharp>try
+{
+    var i = 0;
+    var result = 42/i;
+}
+catch (DivideByZeroException e)
+{
+    e.Ship(HttpContext);
+}
+</code></pre></p>
+<p>When catching an exception (in this example an <a href="https://elmah.io/exceptions/System.DivideByZeroException/">DivideByZeroException</a>), you call the <code>Ship</code> extension method with the current HTTP context as parameter.</p>
+<p>From <code>Elmah.Io.AspNetCore</code> version <code>3.12.*</code> or newer, you can log manually using the <code>ElmahIoApi</code> class as well:</p>
+<p> <pre><code class=csharp>ElmahIoApi.Log(e, HttpContext);
+</code></pre></p>
+<p>The <code>Ship</code>-method uses <code>ElmahIoApi</code> underneath why both methods will give the same end result.</p>
+<h2 id="breadcrumbs">Breadcrumbs</h2>
+<p>See <a href="../logging-breadcrumbs-from-asp-net-core/">Logging breadcrumbs from ASP.NET Core</a>.</p>
+<h2 id="additional-options">Additional options</h2>
+<h3 id="setting-application-name">Setting application name</h3>
+<p>If logging to the same log from multiple web apps it is a good idea to set unique application names from each app. This will let you search and filter errors on the elmah.io UI. To set an application name, add the following code to the options:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(o =&gt;
+{
+    // ...
+    o.Application = &quot;MyApp&quot;;
+});
+</code></pre></p>
+<p>The application name can also be configured through <code>appsettings.json</code>:</p>
+<p> <pre><code class=json>{
+  // ...
+  &quot;ElmahIo&quot;: {
+    // ...
+    &quot;Application&quot;: &quot;MyApp&quot;
+  }
+}
+</code></pre></p>
+<h3 id="hooks">Hooks</h3>
+<p>elmah.io for ASP.NET Core supports a range of actions for hooking into the process of logging messages. Hooks are registered as actions when installing the elmah.io middleware:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.OnMessage = message =&gt;
+    {
+        message.Version = &quot;42&quot;;
+    };
+    options.OnError = (message, exception) =&gt;
+    {
+        logger.LogError(1, exception, &quot;Error during log to elmah.io&quot;);
+    };
+});
+</code></pre></p>
+<p>The actions provide a mechanism for hooking into the log process. The action registered in the <code>OnMessage</code> property is called by elmah.io just before logging a new message to the API. Use this action to decorate/enrich your log messages with additional data, like a version number. The <code>OnError</code> action is called if communication with the elmah.io API failed. If this happens, you should log the message to a local log (through Microsoft.Extensions.Logging, Serilog or similar). </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not log to elmah.io in your <code>OnError</code> action, since that could cause an infinite loop in your code.</p>
+</div>
+<p>While elmah.io supports <a href="../creating-rules-to-perform-actions-on-messages/#ignore-errors-with-an-http-status-code-of-400">ignore rules</a> serverside, you may want to filter out errors without even hitting the elmah.io API. Using the <code>OnFilter</code> function on the options object, filtering is easy:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.OnFilter = message =&gt;
+    {
+        return message.Type == &quot;System.NullReferenceException&quot;;
+    };
+});
+</code></pre></p>
+<p>The example above, ignores all messages of type <a href="https://elmah.io/exceptions/System.NullReferenceException/">System.NullReferenceException</a>.</p>
+<h4 id="decorate-from-http-context">Decorate from HTTP context</h4>
+<p>When implementing the <code>OnMessage</code> action as shown above you don't have access to the current HTTP context. <code>Elmah.Io.AspNetCore</code> already tries to fill in as many fields as possible from the current context, but you may want to tweak something from time to time. In this case, you can implement a custom decorator like this:</p>
+<p> <pre><code class=csharp>public class DecorateElmahIoMessages : IConfigureOptions&lt;ElmahIoOptions&gt;
+{
+    private readonly IHttpContextAccessor httpContextAccessor;
+
+    public DecorateElmahIoMessages(IHttpContextAccessor httpContextAccessor)
+    {
+        this.httpContextAccessor = httpContextAccessor;
+    }
+
+    public void Configure(ElmahIoOptions options)
+    {
+        options.OnMessage = msg =&gt;
+        {
+            var context = httpContextAccessor.HttpContext;
+            msg.User = context?.User?.Identity?.Name;
+        };
+    }
+}
+</code></pre></p>
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard3" aria-controls="standard3" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel3" aria-controls="toplevel3" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable">
+<div class="tab-pane active" id="standard3" role="tabpanel">
+<p>Then register <code>IHttpContextAccessor</code> and the new class in the <code>ConfigureServices</code> method in the <code>Startup.cs</code> file:</p>
+<p> <pre><code class=csharp>public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHttpContextAccessor();
+    services.AddSingleton&lt;IConfigureOptions&lt;ElmahIoOptions&gt;, DecorateElmahIoMessages&gt;();
+    // ...
+}
+</code></pre></p>
+</div>
+<div class="tab-pane" id="toplevel3" role="tabpanel">
+<p>Then register <code>IHttpContextAccessor</code> and the new class in the in the <code>Program.cs</code> file:</p>
+<p> <pre><code class=csharp>builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton&lt;IConfigureOptions&lt;ElmahIoOptions&gt;, DecorateElmahIoMessages&gt;();
+</code></pre></p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Decorating messages using <code>IConfigureOptions</code> requires <code>Elmah.Io.AspNetCore</code> version <code>4.1.37</code> or newer.</p>
+</div>
+<h4 id="include-source-code">Include source code</h4>
+<p>You can use the <code>OnMessage</code> action to include source code to log messages. This will require a stack trace in the <code>Detail</code> property with filenames and line numbers in it.</p>
+<p>There are multiple ways of including source code to log messages. In short, you will need to install the <code>Elmah.Io.Client.Extensions.SourceCode</code> NuGet package and call the <code>WithSourceCodeFromPdb</code> method in the <code>OnMessage</code> action:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.OnMessage = msg =&gt;
+    {
+        msg.WithSourceCodeFromPdb();
+    };
+});
+</code></pre></p>
+<p>Check out <a href="../how-to-include-source-code-in-log-messages/">How to include source code in log messages</a> for additional requirements to make source code show up on elmah.io.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Including source code on log messages is available in the <code>Elmah.Io.Client</code> v4 package and forward.</p>
+</div>
+<h4 id="remove-sensitive-form-data">Remove sensitive form data</h4>
+<p>The <code>OnMessage</code> event can be used to filter sensitive form data as well. In the following example, we remove the server variable named <code>Secret-Key</code> from all messages, before sending them to elmah.io.</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.OnMessage = msg =&gt;
+    {
+        var item = msg.ServerVariables.FirstOrDefault(x =&gt; x.Key == &quot;Secret-Key&quot;); 
+        if (item != null)
+        {
+            msg.ServerVariables.Remove(item);
+        }
+    };
+});
+</code></pre></p>
+<h3 id="formatting-exceptions">Formatting exceptions</h3>
+<p>A default exception formatter is used to format any exceptions, before sending them off to the elmah.io API. To override the format of the details field in elmah.io, set a new <code>IExceptionFormatter</code> in the <code>ExceptionFormatter</code> property on the <code>ElmahIoOptions</code> object:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.ExceptionFormatter = new DefaultExceptionFormatter();
+}
+</code></pre></p>
+<p>Besides the default exception formatted (<code>DefaultExceptionFormatter</code>), Elmah.Io.AspNetCore comes with a formatter called <code>YellowScreenOfDeathExceptionFormatter</code>. This formatter, outputs an exception and its inner exceptions as a list of exceptions, much like on the ASP.NET yellow screen of death. If you want, implementing your own exception formatter, requires you to implement a single method.</p>
+<h3 id="logging-responses-not-throwing-an-exception">Logging responses not throwing an exception</h3>
+<p>As default, uncaught exceptions (500's) and 404's are logged automatically. Let's say you have a controller returning a Bad Request and want to log that as well. Since returning a 400 from a controller doesn't trigger an exception, you will need to configure this status code:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.HandledStatusCodesToLog = new List&lt;int&gt; { 400 };
+}
+</code></pre></p>
+<p>The list can also be configured through <code>appsettings.json</code>:</p>
+<p> <pre><code class=json>{
+  // ...
+  &quot;ElmahIo&quot;: {
+    // ...
+    &quot;HandledStatusCodesToLog&quot;: [ 400 ],
+  }
+}
+</code></pre></p>
+<p>When configuring status codes through the <code>appsettings.json</code> file, <code>404</code>s will always be logged. To avoid this, configure the list in C# as shown above.</p>
+<h3 id="logging-through-a-proxy">Logging through a proxy</h3>
+<p>Since ASP.NET Core no longer support proxy configuration through <code>web.config</code>, you can log to elmah.io by configuring a proxy manually:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    // ...
+    options.WebProxy = new System.Net.WebProxy(&quot;localhost&quot;, 8888);
+}
+</code></pre></p>
+<p>In this example, the elmah.io client routes all traffic through <code>http://localhost:8000</code>.</p>
+<h2 id="aspnet-core-8">ASP.NET Core 8</h2>
+<p>The <code>Elmah.Io.AspNetCore</code> package can be installed exactly how it is described above in ASP.NET Core 8. We still recommend doing that, so if you don't experience any problems with this approach, there's no need to read this section (unless you are just curious).</p>
+<p>ASP.NET Core 8 introduces a new way of logging and handling exceptions: <code>IExceptionHandler</code>. You have probably already seen a line similar to this in the <code>Program.cs</code> file:</p>
+<p> <pre><code class=csharp>app.UseExceptionHandler(&quot;/Error&quot;);
+</code></pre></p>
+<p>This installs the exception-handling middleware bundled with ASP.NET Core. The new feature provides you with the possibility of registering custom exception handlers run as part of the built-in middleware. This is done by registering one or more classes that implement the <code>IExceptionHandler</code> interface. The <code>Elmah.Io.AspNetCore</code> package bundles such a class from version 5.1 and forward. To install it, include the following code in the <code>Program.cs</code> file:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(options =&gt;
+{
+    options.ApiKey = &quot;API_KEY&quot;;
+    options.LogId = new Guid(&quot;LOG_ID&quot;);
+});
+builder.Services.AddExceptionHandler&lt;ElmahIoExceptionHandler&gt;();
+</code></pre></p>
+<p>The <code>AddElmahIo</code> method will set up the dependencies as usual and the <code>AddExceptionHandler</code> method will register an exception handler logging exceptions to elmah.io. You still need to call the <code>UseExceptionHandler</code> method with either a path or empty options:</p>
+<p> <pre><code class=csharp>app.UseExceptionHandler(&quot;/Error&quot;);
+
+// or
+
+app.UseExceptionHandler(_ =&gt; {});
+</code></pre></p>
+<p>Calling the overload of <code>UseExceptionHandler</code> without any parameters will not work here.</p>
+<p>As already mentioned, we only recommend using this code if the normal approach doesn't work. We may switch over to using this approach later on but the code is currently experimental. One advantage of using the exception handler over the elmah.io middleware is to avoid the scenario where you want to use both the elmah.io and exception handler middleware. As an example, this code will not work:</p>
+<p> <pre><code class=csharp>app.UseElmahIo();
+app.UseExceptionHandler(&quot;/Error&quot;);
+</code></pre></p>
+<p>This is because the exception handle "swallows" all exceptions before the elmah.io middleware is notified. Registering the <code>ElmahIoExceptionHandler</code> class and not calling <code>UseElmahIo</code> will fix this problem.</p>
+<h2 id="logging-health-check-results">Logging health check results</h2>
+<p>Check out <a href="../logging-heartbeats-from-asp-net-core/">Logging heartbeats from ASP.NET Core</a> for details.</p>
+
+            <br/>
+            <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening, and help you fix errors fast.</em></small></p>
+            <p class="text-center">
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-none d-sm-block white-space-normal">See how we can help you monitor your website for crashes</a>
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <footer>
+    	<div id="back-to-top" class="d-block d-sm-none"><span class="far fa-arrow-up"></span></div>
+    	<div class="pre-footer">
+	    	<div class="container">
+          <div class="company-logo">
+					  <img class="img-fluid" src="../assets/img/elmahio.png" width="222" height="138" alt="elmah.io">
+            <div class="bug-head"></div>
+				  </div>
+				  <a href="https://app.elmah.io/signup/" class="btn btn-primary float-end"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+			  </div>
+	    </div>
+    	<div class="links">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col">
+    					<span>Product</span>
+    					<ul class="list-unstyled">
+							  <li><a href="https://elmah.io/features/">Features</a></li>
+							  <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                <li><a href="https://elmah.io/tour/">Tour</a></li>
+							  <li><a href="https://elmah.io/features/appstore/">App Store</a></li>
+						  </ul>
+            </div>
+    				<div class="col">
+    					<span>Company</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/about/">About</a></li>
+                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                <li><a href="https://docs.elmah.io/">Docs</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Learn</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+                <li><a href="https://elmah.io/alternatives/">Alternatives</a></li>
+                <li><a href="https://elmah.io/api/v3/">API</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Guides</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                <li><a href="https://elmah.io/features/asp-net-core/">ASP.NET Core Error Logging</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+              <span>Online Tools</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/tools/config-validator/">Web.config Validator</a></li>
+                <li><a href="https://elmah.io/tools/stack-trace-formatter/">Stack Trace Formatter</a></li>
+                <li><a href="https://elmah.io/tools/webconfig-transformation-tester/">Web.config Transform Tester</a></li>
+                <li><a href="https://elmah.io/tools/">More Free Tools</a></li>
+              </ul>
+            </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="copyright">
+    		<div class="container">
+    			<div class="row no-gutters">
+            <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+              <div class="text-center text-lg-start">
+                <p>2013 - <span id="currentYear"></span> @ elmah.io. All Rights Reserved.</p>
+                <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 order-3 order-lg-1">
+              <ul class="list-unstyled social mb-0">
+                <li class="list-inline-item"><a href="https://x.com/elmah_io" aria-label="Follow us on X"><i class="fab x-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io/" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-12 order-1 order-lg-2">
+              <div class="footer-badges text-center text-lg-end">
+                <a href="https://elmah.io/security/"><img src="../assets/img/pcicompliant.png" width="67" height="40" draggable="false" alt="PCI Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/gdpr.png" width="106" height="40" draggable="false" alt="GDPR Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/shieldssl.png" width="102" height="40" draggable="false" alt="Alpha SSL" /></a>
+              </div>
+            </div>
+          </div>
+    		</div>
+    	</div>
+    </footer>
+
+    <div class="bugster-banner-floating">
+      <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+        <div class="content">
+          <p class="mb-1 lead">Have a question ?</p>
+          <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+        </div>
+        <div class="bugster-logo">
+          <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+        </div>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="bugster-hero">
+              <div class="bugster-logo text-center">
+                <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+              </div>
+              <div class="content text-center">
+                <p class="lead mb-2">Introducing Bugster <span class="badge text-bg-danger ms-1">BETA</span></p>
+                <p>Your AI assistant for quick navigation through documentation, providing valuable answers and insights in no time!</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="Why is my ASP.NET Core application not logging errors to elmah.io?">
+                      <span>Exceptions are not logged from ASP.NET Core</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I log errors to elmah.io from Serilog?">
+                      <span>How to log from Serilog?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I include source code in log messages?">
+                      <span>How do I include source code?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="What is the difference between ELMAH and elmah.io?">
+                      <span>How are ELMAH and elmah.io different?</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="alert alert-warning mt-2" role="alert">
+                      Bugster is experimental and still learning why answers may be wrong.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bugster-chat d-none"></div>
+          </div>
+          <div class="modal-footer collapse show">
+            <form id="bugster-form" class="form w-100">
+              <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+              </div>
+              <div class="form-text d-none">
+                <a role="button" class="intercom-link" data-event="showNewMessage" data-message="I need help from a human.">Transfer this conversation to a support request</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../vendor/elmahio/elmahio.min.js"></script>
+    <script src="../assets/js/initElmahio.js"></script>
+    
+    <script src="../assets/js/main.min.js?version=619"></script>
+    
+  </body>
+</html>

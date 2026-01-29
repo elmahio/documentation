@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-title" content="elmah.io">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="../icons/mstile-144x144.png">
+    <meta name="theme-color" content="#0da58e">
+    <meta name="description" content="Learn about how to stay below the monthly message limit on elmah.io. If you don't want to upgrade here's a list of tricks to help limit messages.">
+    <meta name="author" content="Thomas Ardal">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@elmah_io">
+    <meta name="twitter:creator" content="@elmah_io">
+    <meta name="twitter:title" content="Tips and tricks to stay below your message limit | elmah.io">
+    <meta name="twitter:description" content="Learn about how to stay below the monthly message limit on elmah.io. If you don't want to upgrade here's a list of tricks to help limit messages.">
+    <meta name="twitter:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="og:site_name" content="elmah.io Documentation" />
+    <meta property="og:title" content="Tips and tricks to stay below your message limit">
+    <meta property="og:description" content="Learn about how to stay below the monthly message limit on elmah.io. If you don't want to upgrade here's a list of tricks to help limit messages.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://docs.elmah.io/tips-and-tricks-to-stay-below-your-message-limit/">
+    <meta property="og:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="article:published_time" content="2026-01-29">
+    <meta property="article:modified_time" content="2026-01-29">
+    <meta property="article:publisher" content="https://www.facebook.com/elmahdotio/" />
+    <meta property="article:author" content="elmah.io" />
+    <meta property="fb:app_id" content="218008838347208" />
+    <title>Tips and tricks to stay below your message limit</title>
+    <link rel="canonical" href="https://docs.elmah.io/tips-and-tricks-to-stay-below-your-message-limit/">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="../assets/css/style.min.css?version=619">
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "publisher": {
+        "@type": "Organization",
+        "name": "elmah.io Documentation",
+        "url": "https://docs.elmah.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.elmah.io/assets/img/elmahio-publication-logo.png",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "headline": "Tips and tricks to stay below your message limit",
+      "url": "https://docs.elmah.io/tips-and-tricks-to-stay-below-your-message-limit/",
+      "datePublished": "2026-01-29",
+      "dateModified": "2026-01-29",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://docs.elmah.io/"
+      }
+    }
+    </script>
+
+  </head>
+  <body>
+    <script src="../assets/js/theme-selector.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://elmah.io/">
+      <img src="../assets/img/logo.png" width="30" height="22" alt="elmah.io">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/tour/">Tour</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-btn justify-content-center">
+        <div class="mode-switch mb-2 mb-md-0 d-none">
+          <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block">
+            <i class="fas fa-moon d-none" id="dark"></i>
+            <i class="fas fa-sun d-none" id="light"></i>
+          </button>
+        </div>
+        <li class="nav-item mx-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
+        <li class="nav-item"><a class="btn btn-signup-trial" href="https://app.elmah.io/signup/">Free Trial</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container mb-5">
+      <div class="row-wrapper">
+        <aside class="sidebar">
+          <div class="sidebar-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text"><label class="mb-0" for="search"><i class="far fa-search"></i></label></span></div>
+              <input type="text" id="search" class="form-control" placeholder="Search ..." autocomplete="off" />
+            </div>
+            <div class="bugster-banner d-block d-md-none">
+              <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+                <div class="content">
+                  <p class="mb-1 lead">Have a question ?</p>
+                  <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+                </div>
+                <div class="bugster-logo">
+                  <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+                </div>
+              </a>
+            </div>
+            <div id="searchList" class="mt-3"></div>
+            <hr>
+            <ul class="main-nav">
+              
+              <li >
+                <a class="li_parent" href="javascript:;">Getting Started</a>
+                <ul>
+                  
+                  <li ><a href="/">Quick start</a></li>
+                  
+                  <li ><a href="/authentication/">Authentication</a></li>
+                  
+                  <li ><a href="/integrations-high-level-overview/">Integrations high level overview</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">ASP.NET</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-elmah/">Logging from WebForms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aspnet-mvc/">Logging from ASP.NET MVC</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-api/">Logging from Web API</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-pages/">Logging from Web Pages</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-iis/">Logging from a running website on IIS</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-azure/">Logging from a running website on Azure</a></li>
+                  
+                  <li ><a href="/logging-custom-data/">Logging custom data</a></li>
+                  
+                  <li ><a href="/logging-errors-programmatically/">Logging errors programmatically</a></li>
+                  
+                  <li ><a href="/logging-to-multiple-elmah-logs/">Logging to multiple logs</a></li>
+                  
+                  <li ><a href="/remove-sensitive-form-data/">Remove sensitive form data</a></li>
+                  
+                  <li ><a href="/setting-application-name/">Setting application name</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-manually/">Configure elmah.io manually</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-from-code/">Configure elmah.io from code</a></li>
+                  
+                  <li ><a href="/logging-through-a-http-proxy/">Logging through a HTTP proxy</a></li>
+                  
+                  <li ><a href="/use-multiple-logs-for-different-environments/">Use multiple logs for different environments</a></li>
+                  
+                  <li ><a href="/specify-api-key-and-log-id-through-appsettings/">Specify API key and log ID through appSettings</a></li>
+                  
+                  <li ><a href="/elmah-and-custom-errors/">ELMAH and custom errors</a></li>
+                  
+                  <li ><a href="/logging-from-a-custom-http-module/">Logging from a custom HTTP module</a></li>
+                  
+                  <li ><a href="/asp-net-troubleshooting/">ASP.NET troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">ASP.NET Core</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aspnet-core/">Logging from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blazor/">Logging from Blazor</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-signalr/">Logging from SignalR</a></li>
+                  
+                  <li ><a href="/using-different-logs-per-environment-in-aspnet-core/">Using different logs per environment in ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-breadcrumbs-from-asp-net-core/">Logging breadcrumbs from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a></li>
+                  
+                  <li ><a href="/asp-net-core-troubleshooting/">ASP.NET Core troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging Frameworks</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-serilog/">Logging from Serilog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-log4net/">Logging from log4net</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nlog/">Logging from NLog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-logary/">Logging from Logary</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-jsnlog/">Logging from JSNLog</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">JavaScript</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-javascript/">Logging from JavaScript</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-angular/">Logging from Angular</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-react/">Logging from React</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-vue/">Logging from Vue</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sveltekit/">Logging from SvelteKit</a></li>
+                  
+                  <li ><a href="/sourcemaps/">Source maps</a></li>
+                  
+                  <li ><a href="/javascript-troubleshooting/">JavaScript troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CMS/Blogs</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-umbraco/">Logging from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sitefinity/">Logging from Sitefinity</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blogengine-net/">Logging from BlogEngine.NET</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-orchard/">Logging from Orchard</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-piranha-cms/">Logging from Piranha CMS</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Mobile</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-uno/">Logging from Uno</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-maui/">Logging from MAUI</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging from something else</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wcf/">Logging from WCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-corewcf/">Logging from CoreWCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-azure-functions/">Logging from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-isolated-azure-functions/">Logging from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-powershell/">Logging from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winui/">Logging from WinUI</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-entity-framework-core/">Logging from Entity Framework Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-console-application/">Logging from C# and console applications</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-opentelemetry/">Logging from OpenTelemetry</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-httpclient/">Logging from HttpClient</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-beanstalk/">Logging from AWS Beanstalk</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-lambdas/">Logging from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-servicestack/">Logging from ServiceStack</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-devexpress/">Logging from DevExpress (eXpressApp Framework)</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-google-cloud-functions/">Logging from Google Cloud Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-system-diagnostics/">Logging from System.Diagnostics</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-azure-webjobs/">Logging from Azure WebJobs</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nancy/">Logging from Nancy</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Apps and Integrations</a>
+                <ul>
+                  
+                  <li ><a href="/elmah-io-apps-slack/">Slack</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-teams/">Microsoft Teams</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-twilio/">Twilio</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-jira/">Jira</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-azure-boards/">Azure Boards</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-bitbucket/">Bitbucket</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-github/">GitHub</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-gitlab/">GitLab</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-hipchat/">HipChat</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-pipedream/">Pipedream</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-trello/">Trello</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-youtrack/">YouTrack</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-zapier/">Zapier</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-pagerduty/">PagerDuty</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-clickup/">ClickUp</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-chatgpt/">ChatGPT</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-fixes/">Fixes</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-botbuster/">BotBuster (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-ipfilter/">IP Filter (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-mailman/">Mailman (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-request-a-new-integration/">Request a new integration</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Uptime Monitoring</a>
+                <ul>
+                  
+                  <li ><a href="/setup-uptime-monitoring/">Set up Uptime Monitoring</a></li>
+                  
+                  <li ><a href="/missing-server-side-information-on-uptime-errors/">Missing server-side information on uptime errors</a></li>
+                  
+                  <li ><a href="/allowing-elmah-io-uptime-agents/">Allowing elmah.io uptime agents</a></li>
+                  
+                  <li ><a href="/uptime-monitoring-troubleshooting/">Uptime Monitoring Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Heartbeats</a>
+                <ul>
+                  
+                  <li ><a href="/setup-heartbeats/">Set up Heartbeats</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-asp-net-core/">Logging heartbeats from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-azure-functions/">Logging heartbeats from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-isolated-azure-functions/">Logging heartbeats from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-powershell/">Logging heartbeats from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-curl/">Logging heartbeats from cURL</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-umbraco/">Logging heartbeats from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-hangfire/">Logging heartbeats from Hangfire</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-coravel/">Logging heartbeats from Coravel</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-net-core-worker-services/">Logging heartbeats from .NET Core Worker Services</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-aws-lambdas/">Logging heartbeats from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-windows-scheduled-tasks/">Logging heartbeats from Windows Scheduled Tasks</a></li>
+                  
+                  <li ><a href="/heartbeats-troubleshooting/">Heartbeats Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Deployment Tracking</a>
+                <ul>
+                  
+                  <li ><a href="/setup-deployment-tracking/">Set up Deployment Tracking</a></li>
+                  
+                  <li ><a href="/create-deployments-from-powershell/">Create deployments from PowerShell</a></li>
+                  
+                  <li ><a href="/create-deployments-from-cli/">Create deployments from CLI</a></li>
+                  
+                  <li ><a href="/create-deployments-from-octopus-deploy/">Create deployments from Octopus Deploy</a></li>
+                  
+                  <li ><a href="/create-deployments-from-kudu/">Create deployments from Kudu</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-pipelines/">Create deployments from Azure DevOps Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-releases/">Create deployments from Azure DevOps Releases</a></li>
+                  
+                  <li ><a href="/create-deployments-from-github-actions/">Create deployments from GitHub Actions</a></li>
+                  
+                  <li ><a href="/create-deployments-from-gitlab-pipelines/">Create deployments from GitLab Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-umbraco-cloud/">Create deployments from Umbraco Cloud</a></li>
+                  
+                  <li ><a href="/create-deployments-from-bitbucket-pipelines/">Create deployments from Bitbucket Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-atlassian-bamboo/">Create deployments from Atlassian Bamboo</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CLI</a>
+                <ul>
+                  
+                  <li ><a href="/cli-overview/">CLI overview</a></li>
+                  
+                  <li ><a href="/cli-clear/">Clear</a></li>
+                  
+                  <li ><a href="/cli-dataloader/">Dataloader</a></li>
+                  
+                  <li ><a href="/cli-deployment/">Deployment</a></li>
+                  
+                  <li ><a href="/cli-diagnose/">Diagnose</a></li>
+                  
+                  <li ><a href="/cli-export/">Export</a></li>
+                  
+                  <li ><a href="/cli-import/">Import</a></li>
+                  
+                  <li ><a href="/cli-log/">Log</a></li>
+                  
+                  <li ><a href="/cli-sourcemap/">Sourcemap</a></li>
+                  
+                  <li ><a href="/cli-tail/">Tail</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown active">
+                <a class="li_parent" href="javascript:;">Everything Else</a>
+                <ul>
+                  
+                  <li ><a href="/managing-organisations-and-users/">Managing Organisations and Users</a></li>
+                  
+                  <li ><a href="/where-is-my-log-id/">Where is my log ID</a></li>
+                  
+                  <li ><a href="/where-is-my-api-key/">Where is my API key</a></li>
+                  
+                  <li ><a href="/where-is-the-permalink-button/">Where is the permalink button</a></li>
+                  
+                  <li ><a href="/where-is-my-invoice-receipt/">Where is my invoice / receipt</a></li>
+                  
+                  <li ><a href="/how-to-manage-subscriptions-update-credit-cards-etc/">How to manage subscriptions, update credit cards, etc.</a></li>
+                  
+                  <li ><a href="/managing-environments/">Managing Environments</a></li>
+                  
+                  <li ><a href="/recommendations/">Recommendations</a></li>
+                  
+                  <li ><a href="/how-to-delete-my-account/">How to delete my account</a></li>
+                  
+                  <li ><a href="/how-to-configure-api-key-permissions/">How to configure API key permissions</a></li>
+                  
+                  <li ><a href="/how-to-enable-two-factor-login/">How to enable two-factor login</a></li>
+                  
+                  <li ><a href="/how-to-rename-a-log/">How to rename a log</a></li>
+                  
+                  <li ><a href="/how-to-include-source-code-in-log-messages/">How to include source code in log messages</a></li>
+                  
+                  <li ><a href="/how-to-search-custom-data/">How to search custom data</a></li>
+                  
+                  <li ><a href="/how-to-get-the-sql-tab-to-show-up/">How to get the SQL tab to show up</a></li>
+                  
+                  <li ><a href="/how-to-configure-and-use-bugster/">How to configure and use Bugster</a></li>
+                  
+                  <li ><a href="/creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a></li>
+                  
+                  <li ><a href="/query-messages-using-full-text-search/">Query messages using full-text search</a></li>
+                  
+                  <li class="active"><a href="/tips-and-tricks-to-stay-below-your-message-limit/">Tips and tricks to stay below your message limit</a></li>
+                  
+                  <li ><a href="/use-extended-user-details-without-email-as-id/">Use extended user details without email as ID</a></li>
+                  
+                  <li ><a href="/adding-version-information/">Adding version information</a></li>
+                  
+                  <li ><a href="/bot-detection/">Bot detection</a></li>
+                  
+                  <li ><a href="/include-filename-and-line-number-in-stacktraces/">Include filename and line number in stack traces</a></li>
+                  
+                  <li ><a href="/how-does-the-new-detection-work/">How does the new detection work</a></li>
+                  
+                  <li ><a href="/how-to-correlate-messages-across-services/">How to correlate messages across services</a></li>
+                  
+                  <li ><a href="/how-to-get-elmah-io-to-resolve-the-correct-client-ip/">How to get elmah.io to resolve the correct client IP</a></li>
+                  
+                  <li ><a href="/how-to-avoid-emails-getting-classified-as-spam/">How to avoid emails getting classified as spam</a></li>
+                  
+                  <li ><a href="/how-prices-are-calculated/">How prices are calculated</a></li>
+                  
+                  <li ><a href="/how-to-run-elmah-io-in-dark-mode/">How to run elmah.io in dark mode</a></li>
+                  
+                  <li ><a href="/how-to-show-elmah-io-dashboards-on-a-big-screen/">How to show elmah.io dashboards on a big screen</a></li>
+                  
+                  <li ><a href="/handle-elmah-io-downtime/">Handle elmah.io downtime</a></li>
+                  
+                  <li ><a href="/using-the-elmah-io-extension-for-visual-studio/">Using the elmah.io extension for Visual Studio</a></li>
+                  
+                  <li ><a href="/using-the-rest-api/">Using the REST API</a></li>
+                  
+                  <li ><a href="/how-to-log-to-elmah-io-from-net-4-5/">How to log to elmah.io from .NET 4.5</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v4-to-v5/">Upgrade elmah.io from v4 to v5</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v3-to-v4/">Upgrade elmah.io from v3 to v4</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v2-to-v3/">Upgrade elmah.io from v2 to v3</a></li>
+                  
+                  <li ><a href="/email-troubleshooting/">Email troubleshooting</a></li>
+                  
+                  <li ><a href="/elmah-and-elmah-io-differences/">ELMAH and elmah.io differences</a></li>
+                  
+                  <li ><a href="/vulnerability-disclosure-program/">Vulnerability Disclosure Program (VDP)</a></li>
+                  
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+        </aside>
+
+        <div class="d-grid w-100 d-block d-md-none">
+          <a id="show-sidebar" href="javascript:;" class="btn btn-light border">
+            <span class="fal fa-bars me-2"></span><span>Documentation menu</span>
+          </a>
+        </div>
+
+        <article class="col main-content">
+          <div class="main-content-body">
+
+            <h1 id="tips-and-tricks-to-stay-below-your-message-limit">Tips and tricks to stay below your message limit</h1>
+<div class="toc">
+<ul>
+<li><a href="#tips-and-tricks-to-stay-below-your-message-limit">Tips and tricks to stay below your message limit</a><ul>
+<li><a href="#ignore-rules">Ignore Rules</a></li>
+<li><a href="#filters">Filters</a></li>
+<li><a href="#ignore-future-messages-like-this">Ignore future messages like this</a></li>
+<li><a href="#disable-logs">Disable logs</a></li>
+<li><a href="#client-side-message-filtering">Client-side message filtering</a></li>
+<li><a href="#monitor-current-usage">Monitor current usage</a></li>
+<li><a href="#fix-bugs">Fix bugs</a></li>
+<li><a href="#purchase-a-top-up">Purchase a top-up</a></li>
+<li><a href="#upgrading-to-the-next-plan">Upgrading to the next plan</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Each plan on elmah.io includes a maximum number of messages per month. The number of messages is calculated from how many times your applications have called our API and successfully stored a message (in most cases messages equal errors). Deleting messages either one by one or in batches is fully supported, but does not result in a decrease in the current message count. Our costs are primarily around receiving, indexing, and notifying about messages, why we cannot allow someone on a lower plan like the Small Business, to log millions and yet millions of messages and then just clean up regularly. We're sure that everyone understands the challenge here.</p>
+<p>With that said, we want to help you stay within your message limits. Luckily, there are a lot of ways to limit messages. This article contains a list of the most common tactics to stay below your message limit.</p>
+<h2 id="ignore-rules">Ignore Rules</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware that Ignore rules and filters are only meant as a temporary way of ignoring messages. In case you want to permanently ignore one or more log messages, use <a href="#client-side-message-filtering">client-side filtering</a>.</p>
+</div>
+<p>The easiest way to limit logged messages is by ignoring some of them (preferable using client-side filtering). Ignored messages are discarded before they are stored and therefore do not count toward your monthly message quota. Message rules can be configured through the Rules tab on the Log Settings view.</p>
+<p>Rules consist of a query and an action. The query can either be a full-text query or written using Lucene Query Syntax. To create a new ignore rule, input a query on the Rules tab:</p>
+<p><img alt="Create Ignore Rule" src="../images/create_ignore_rule.png" /></p>
+<p>All new rules are created with an ignore action as default, why you don't need to click the <em>Then</em> link for this type of rule. In the example above, ignore all messages with a status code of <code>404</code>.</p>
+<p>For more information about the possibilities with rules, check out <a href="../creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a>.</p>
+<h2 id="filters">Filters</h2>
+<p>Filters are Ignore Rules in disguise. With Filters, we have collected the most common ignore rules and made them available as a set of checkboxes. To ignore all messages matching a specific filter, enable one of the checkboxes on the Filters tab on Log Settings:</p>
+<p><img alt="Filters" src="../images/filters.png" /></p>
+<p>If your website is available for everyone to access, ignoring known crawlers, bots, and spiders is a good idea in most cases. Filtering below warning can also be a good idea unless you are using elmah.io to log all log severities from a logging framework like NLog or Serilog.</p>
+<p>If staying within the message limit is more important than getting the full picture of the errors generated by your website, there are a couple of filters that will help you with that.</p>
+<p>The <em>Filter Known</em> filter will make sure that only one instance of each error is logged. If you still want to log multiple instances but stop at some point, the <em>Filter Burst</em> filter will stop logging after 50 instances are logged. Be aware that all messages will have an <code>isBurst</code> set on them as soon as we have 50 instances of the message stored. This means that disabling and enabling this filter will not reset the burst limit. Also, if a message has <code>isBurst</code> set to true, it will only be ignored if the <em>Filter Burst</em> filter is enabled.</p>
+<p>Finally, you can set a limit on how many errors you want logged to a specific log each month, by inputting a number in the <em>Filter Limit</em> filter. Please notice that using any of these last three filters will cause inconsistent results in different graphs and features (like spike detection). They can solve the problem of logging too much, but it is a sign that you are logging more data than is included in your plan. A perfectly valid solution is to purchase a larger plan, get your logging under control (maybe even fix some errors?), and then downgrade when you are ready.</p>
+<h2 id="ignore-future-messages-like-this">Ignore future messages like this</h2>
+<p>Sometimes you may find yourself on the Search tab with a search result thinking: "I don't care about these messages". By clicking the caret next to the query filters, an <em>Ignore future messages like this</em> option is revealed:</p>
+<p><img alt="Ignore Like This" src="../images/ignore-like-this-v2.png" /></p>
+<p>Clicking this option automatically ignores any future messages matching your current search result.</p>
+<h2 id="disable-logs">Disable logs</h2>
+<p>Each log can be disabled from Log Settings:</p>
+<p><img alt="Enabled/Disable Log" src="../images/enabled_disable_log.png" /></p>
+<p>Disabled logs are shown as semi-transparent on the dashboard, to help you remember that you disabled a log.</p>
+<h2 id="client-side-message-filtering">Client-side message filtering</h2>
+<p>Most of our clients support client filtering. All of the filtering options described above filter messages server-side. This means that your application still communicates with elmah.io's API and needs to wait for that to answer (even for ignored messages).</p>
+<p>Filtering client-side from ASP.NET, MVC, Web API, and other frameworks built on top of ASP.NET, can be done using ELMAH's (the open-source project) <a href="https://code.google.com/p/elmah/wiki/ErrorFiltering">filtering</a> feature. To filter messages, create a method named <code>ErrorLog_Filtering</code> in the <code>Global.asax.cs</code> file:</p>
+<p> <pre><code class=csharp>void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
+{
+    var httpContext = args.Context as HttpContext;
+    if (httpContext.Response.StatusCode == 404)
+    {
+        args.Dismiss();
+    }
+}
+</code></pre></p>
+<p>If you're using ASP.NET Core, our client supports the <code>OnFilter</code> action:</p>
+<p> <pre><code class=csharp>builder.Services.AddElmahIo(o =&gt;
+{
+    // ...
+    o.OnFilter = message =&gt;
+    {
+        return message.StatusCode == 404;
+    };
+});
+</code></pre></p>
+<p>To help you set up client-side filtering in commonly used logging frameworks, click the <kbd><span class="fa fa-filter"></span></kbd> button on the log message details toolbar. This will show a dialog containing extensive help on setting up client-side filtering.</p>
+<h2 id="monitor-current-usage">Monitor current usage</h2>
+<p>We send you an email when you have used 90% of your limit and again when reaching the limit. Monitoring your usage is a good supplement to the emails since you can react early on (by upgrading, ignoring errors, or something else). There's a usage graph on the <em>Organization Settings</em> view:</p>
+<p><img alt="Usage Graph" src="../images/usage-graph-v2.png" /></p>
+<p>By clicking the information icon above the counter, you will be able to see which logs that are taking up space:</p>
+<p><img alt="Detailed Usage Report" src="../images/detailed-usage-report-v2.png" /></p>
+<h2 id="fix-bugs">Fix bugs</h2>
+<p>Seeing the same error over and over again? Maybe the best idea is to fix it :) I mean, that's the whole purpose of elmah.io: to help you fix bugs. And remember, the fewer bugs you have, the cheaper elmah.io gets. The ultimate motivation!</p>
+<h2 id="purchase-a-top-up">Purchase a top-up</h2>
+<p>Sometimes, a spike in errors can be caused by unexpected events like a black hat bot deciding to bombard your site with requests or a junior dev on your team accidentally enabling verbose logging. In these cases, purchasing a top-up may be a better solution than permanently upgrading your plan. Top-ups can be purchased from the <em>Subscription</em> tab on the <em>Organization Settings</em> page. Top-ups are purchased in bundles of 25,000 messages, valid for the rest of the calendar month.</p>
+<h2 id="upgrading-to-the-next-plan">Upgrading to the next plan</h2>
+<p>If you constantly go over the limit, you have probably reached a point where you will need to upgrade to a larger plan. You can upgrade and downgrade at any time, so upgrading for a few months (until you get errors under control) and then downgrading again, is perfectly fine.</p>
+
+            <br/>
+            <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening, and help you fix errors fast.</em></small></p>
+            <p class="text-center">
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-none d-sm-block white-space-normal">See how we can help you monitor your website for crashes</a>
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <footer>
+    	<div id="back-to-top" class="d-block d-sm-none"><span class="far fa-arrow-up"></span></div>
+    	<div class="pre-footer">
+	    	<div class="container">
+          <div class="company-logo">
+					  <img class="img-fluid" src="../assets/img/elmahio.png" width="222" height="138" alt="elmah.io">
+            <div class="bug-head"></div>
+				  </div>
+				  <a href="https://app.elmah.io/signup/" class="btn btn-primary float-end"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+			  </div>
+	    </div>
+    	<div class="links">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col">
+    					<span>Product</span>
+    					<ul class="list-unstyled">
+							  <li><a href="https://elmah.io/features/">Features</a></li>
+							  <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                <li><a href="https://elmah.io/tour/">Tour</a></li>
+							  <li><a href="https://elmah.io/features/appstore/">App Store</a></li>
+						  </ul>
+            </div>
+    				<div class="col">
+    					<span>Company</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/about/">About</a></li>
+                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                <li><a href="https://docs.elmah.io/">Docs</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Learn</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+                <li><a href="https://elmah.io/alternatives/">Alternatives</a></li>
+                <li><a href="https://elmah.io/api/v3/">API</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Guides</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                <li><a href="https://elmah.io/features/asp-net-core/">ASP.NET Core Error Logging</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+              <span>Online Tools</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/tools/config-validator/">Web.config Validator</a></li>
+                <li><a href="https://elmah.io/tools/stack-trace-formatter/">Stack Trace Formatter</a></li>
+                <li><a href="https://elmah.io/tools/webconfig-transformation-tester/">Web.config Transform Tester</a></li>
+                <li><a href="https://elmah.io/tools/">More Free Tools</a></li>
+              </ul>
+            </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="copyright">
+    		<div class="container">
+    			<div class="row no-gutters">
+            <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+              <div class="text-center text-lg-start">
+                <p>2013 - <span id="currentYear"></span> @ elmah.io. All Rights Reserved.</p>
+                <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 order-3 order-lg-1">
+              <ul class="list-unstyled social mb-0">
+                <li class="list-inline-item"><a href="https://x.com/elmah_io" aria-label="Follow us on X"><i class="fab x-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io/" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-12 order-1 order-lg-2">
+              <div class="footer-badges text-center text-lg-end">
+                <a href="https://elmah.io/security/"><img src="../assets/img/pcicompliant.png" width="67" height="40" draggable="false" alt="PCI Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/gdpr.png" width="106" height="40" draggable="false" alt="GDPR Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/shieldssl.png" width="102" height="40" draggable="false" alt="Alpha SSL" /></a>
+              </div>
+            </div>
+          </div>
+    		</div>
+    	</div>
+    </footer>
+
+    <div class="bugster-banner-floating">
+      <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+        <div class="content">
+          <p class="mb-1 lead">Have a question ?</p>
+          <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+        </div>
+        <div class="bugster-logo">
+          <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+        </div>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="bugster-hero">
+              <div class="bugster-logo text-center">
+                <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+              </div>
+              <div class="content text-center">
+                <p class="lead mb-2">Introducing Bugster <span class="badge text-bg-danger ms-1">BETA</span></p>
+                <p>Your AI assistant for quick navigation through documentation, providing valuable answers and insights in no time!</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="Why is my ASP.NET Core application not logging errors to elmah.io?">
+                      <span>Exceptions are not logged from ASP.NET Core</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I log errors to elmah.io from Serilog?">
+                      <span>How to log from Serilog?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I include source code in log messages?">
+                      <span>How do I include source code?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="What is the difference between ELMAH and elmah.io?">
+                      <span>How are ELMAH and elmah.io different?</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="alert alert-warning mt-2" role="alert">
+                      Bugster is experimental and still learning why answers may be wrong.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bugster-chat d-none"></div>
+          </div>
+          <div class="modal-footer collapse show">
+            <form id="bugster-form" class="form w-100">
+              <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+              </div>
+              <div class="form-text d-none">
+                <a role="button" class="intercom-link" data-event="showNewMessage" data-message="I need help from a human.">Transfer this conversation to a support request</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../vendor/elmahio/elmahio.min.js"></script>
+    <script src="../assets/js/initElmahio.js"></script>
+    
+    <script src="../assets/js/main.min.js?version=619"></script>
+    
+  </body>
+</html>
