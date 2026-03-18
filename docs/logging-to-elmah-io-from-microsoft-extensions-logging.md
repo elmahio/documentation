@@ -125,6 +125,20 @@ app.UseElmahIoExtensionsLogging();
 
 It's important to call the `UseElmahIoExtensionsLogging` method **after** any calls to `UseElmahIo`, `UseAuthentication`, and other exception handling middleware but **before** `UseMvc` and `UseEndpoints`. If you experience logged errors without the HTTP context, try moving the `UseElmahIoExtensionsLogging` method as the first call in the `Configure` method.
 
+The `Elmah.Io.AspNetCore.ExtensionsLogging` package logs form values from POST requests. By default, multipart content is ignored to avoid "stream already read" exceptions or performance issues with large file uploads.
+
+If you need to log form values from multipart requests (excluding actual file content), you must explicitly enable it:
+
+- Controllers: Add the `[EnableElmahIoMultipartBodyLogging]` attribute.
+- Minimal API: Use the `.EnableElmahIoMultipartBodyLogging()` extension.
+
+To protect sensitive data (like passwords), you can disable form logging entirely for specific endpoints:
+
+- Controllers: Add the `[DisableElmahIoFormLogging]` attribute.
+- Minimal API: Use the `.DisableElmahIoFormLogging()` extension.
+
+Important: For these attributes to work, `UseElmahIoExtensionsLogging` must be placed after `UseRouting` in your `Program.cs` file. Both the attribute and extension method require version `5.4.75` or newer of the `Elmah.Io.AspNetCore.ExtensionsLogging` package.
+
 ## Logging from a console application
 
 Choose the right framework version:
