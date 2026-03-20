@@ -300,7 +300,10 @@ var loadFakeIntercom = function () {
                 reverseButtons: true,
                 customClass: { popup: 'cookieBot', confirmButton: 'btn btn-primary', cancelButton: 'btn btn-secondary me-2' },
                 title: "Information",
-                text: "Preference cookies should be enabled to use Intercom. Would you like to enable them?"
+                text: "Preference cookies should be enabled to use Intercom. Would you like to enable them?",
+                didOpen: () => {
+                    Swal.getConfirmButton().blur();
+                }
             }).then((result) => {
                 if (result.isConfirmed === true) {
                     CookieConsent.show(true);
