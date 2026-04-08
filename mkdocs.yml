@@ -29,6 +29,14 @@ plugins:
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
             'export-data-from-elmah-io-to-json.md': "cli-export.md"
             'logging-to-elmah-io-from-express.md': 'logging-to-elmah-io-from-javascript.md'
+            'cli-clear.md': 'cli-logs.md#clear'
+            'cli-dataloader.md': 'cli-logs.md#dataloader'
+            'cli-deployment.md': 'cli-deployments.md#create'
+            'cli-export.md': 'cli-logs.md#export'
+            'cli-import.md': 'cli-logs.md#import'
+            'cli-log.md': 'cli-messages.md#create'
+            'cli-sourcemap.md': 'cli-logs.md#sourcemap'
+            'cli-tail.md': 'cli-logs.md#tail'
     - git-revision-date-localized:
         enabled: false
         type: iso_date
@@ -176,15 +184,12 @@ nav:
     - Create deployments from Atlassian Bamboo: create-deployments-from-atlassian-bamboo.md
 - CLI:
     - CLI overview: cli-overview.md
-    - Clear: cli-clear.md
-    - Dataloader: cli-dataloader.md
-    - Deployment: cli-deployment.md
+    - Login: cli-login.md
+    - Logout: cli-logout.md
+    - Deployments: cli-deployments.md
     - Diagnose: cli-diagnose.md
-    - Export: cli-export.md
-    - Import: cli-import.md
-    - Log: cli-log.md
-    - Sourcemap: cli-sourcemap.md
-    - Tail: cli-tail.md
+    - Logs: cli-logs.md
+    - Messages: cli-messages.md
 - Everything Else:
     - Managing Organisations and Users: managing-organisations-and-users.md
     - Where is my log ID: where-is-my-log-id.md

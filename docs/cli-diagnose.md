@@ -3,11 +3,11 @@ title: Diagnose potential problems with an elmah.io installation
 description: Learn about the diagnose CLI command and how you can use it to find potential problems with an elmah.io installation.
 ---
 
-# Diagnose potential problems with an elmah.io installation
+# Diagnose command
 
 The `diagnose` command can be run in the root folder of an elmah.io installation to find potential problems with the configuration.
 
-## Usage
+**Usage**
 
 ```cmd
 > elmahio diagnose --help
@@ -24,15 +24,13 @@ Options:
   -?, -h, --help           Show help and usage information
 ```
 
-## Examples
-
-**Simple:**
+**Simple example:**
 
 ```cmd
 elmahio diagnose --directory c:\projects\my-project
 ```
 
-**Full:**
+**Full example:**
 
 ```cmd
 elmahio diagnose --directory c:\projects\my-project --verbose

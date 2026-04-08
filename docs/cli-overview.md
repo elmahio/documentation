@@ -10,7 +10,7 @@ The elmah.io CLI lets you execute common tasks against elmah.io.
 ## Installing the CLI
 
 !!! note
-    The elmah.io CLI requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0" target="_blank" rel="noopener noreferrer">.NET 6 <span class="far fa-external-link"></span></a> or newer installed.
+    The elmah.io CLI requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0" target="_blank" rel="noopener noreferrer">.NET 10 <span class="far fa-external-link"></span></a> or newer installed.
 
 The elmah.io CLI can be installed in several ways. To set up everything automatically, execute the following script from the command line:
 
@@ -28,34 +28,36 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
 
 ## Run the CLI
 
+The CLI supports a range of root commands. Some commands execute an action directly while others open up for a range of sub-commands related to the root command.
+
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-clear/" title="Clear">
+        <a href="/cli-login/" title="Login">
             <div class="guide-box">
                 <div class="guide-image">
-                  <i class="fas fa-trash"></i>
+                  <i class="fas fa-sign-in"></i>
                 </div>
-                <div class="guide-title">Clear</div>
+                <div class="guide-title">Login</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-dataloader/" title="Dataloader">
+        <a href="/cli-logout/" title="Logout">
             <div class="guide-box">
                 <div class="guide-image">
-                  <i class="fas fa-file-import"></i>
+                  <i class="fas fa-sign-out"></i>
                 </div>
-                <div class="guide-title">Dataloader</div>
+                <div class="guide-title">Logout</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-deployment/" title="Deployment">
+        <a href="/cli-deployments/" title="Deployments">
             <div class="guide-box">
                 <div class="guide-image">
                   <i class="fas fa-rocket"></i>
                 </div>
-                <div class="guide-title">Deployment</div>
+                <div class="guide-title">Deployments</div>
             </div>
         </a>
     </div>
@@ -70,52 +72,22 @@ If you prefer downloading the CLI as a zip you can [download the latest version 
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-export/" title="Export">
+        <a href="/cli-logs/" title="Logs">
             <div class="guide-box">
                 <div class="guide-image">
-                  <i class="fas fa-file-export"></i>
+                  <i class="fas fa-trash"></i>
                 </div>
-                <div class="guide-title">Export</div>
+                <div class="guide-title">Logs</div>
             </div>
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-import/" title="Import">
+        <a href="/cli-messages/" title="Messages">
             <div class="guide-box">
                 <div class="guide-image">
-                  <i class="fas fa-file-import"></i>
+                  <i class="fas fa-copy"></i>
                 </div>
-                <div class="guide-title">Import</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-log/" title="Log">
-            <div class="guide-box">
-                <div class="guide-image">
-                  <i class="fas fa-file-plus"></i>
-                </div>
-                <div class="guide-title">Log</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-sourcemap/" title="Sourcemap">
-            <div class="guide-box">
-                <div class="guide-image">
-                  <i class="fab fa-js"></i>
-                </div>
-                <div class="guide-title">Sourcemap</div>
-            </div>
-        </a>
-    </div>
-    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
-        <a href="/cli-tail/" title="Tail">
-            <div class="guide-box">
-                <div class="guide-image">
-                  <i class="fas fa-eye"></i>
-                </div>
-                <div class="guide-title">Tail</div>
+                <div class="guide-title">Messages</div>
             </div>
         </a>
     </div>
@@ -130,28 +102,27 @@ elmahio --help
 Help similar to this is outputted to the console:
 
 ```cmd
-elmahio:
+Description:
   CLI for executing various actions against elmah.io
 
 Usage:
-  elmahio [options] [command]
+  elmahio [command] [options]
 
 Options:
   --nologo        Doesn't display the startup banner or the copyright message
-  --version       Show version information
   -?, -h, --help  Show help and usage information
+  --version       Show version information
 
 Commands:
-  clear       Delete one or more messages from a log
-  dataloader  Load 50 log messages into the specified log
-  deployment  Create a new deployment
-  diagnose    Diagnose potential problems with an elmah.io installation
-  export      Export log messages from a specified log
-  import      Import log messages to a specified log
-  log         Log a message to the specified log
-  sourcemap   Upload a source map and minified JavaScript
-  tail        Tail log messages from a specified log
+  login        Authenticate with elmah.io and store your API key locally
+  logout       Remove the locally stored elmah.io API key
+  deployments  Work with deployments
+  diagnose     Diagnose potential problems with an elmah.io installation
+  logs         Work with logs
+  messages     Work with log messages
 ```
+
+<small class="text-muted">(deprecated commands have been left out for better overview)</small>
 
 ## Cloning the CLI
 
