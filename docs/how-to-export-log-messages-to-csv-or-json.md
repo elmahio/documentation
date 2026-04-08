@@ -15,10 +15,10 @@ To export multiple messages, the easiest approach is to use the [elmah.io CLI](h
 dotnet tool install --global Elmah.Io.Cli
 ```
 
-Then call the `export` command:
+Then call the [`logs export`](cli-logs.md#export) command:
 
 ```console
-elmahio export --apiKey API_KEY --logId LOG_ID --dateFrom 2020-08-21 --dateTo 2020-08-28 --query "statusCode: 404"
+elmahio logs export --apiKey API_KEY --logId LOG_ID --dateFrom 2020-08-21 --dateTo 2020-08-28 --query "statusCode: 404"
 ```
 
 The command exports to JSON as a default, but you can export to CSV by including the `--format Csv` parameter.
@@ -35,4 +35,4 @@ This will return matching log messages as JSON that you can further parse and pr
 
 ## Exporting a single message
 
-If you want to export a single message, you can do it directly from the elmah.io UI. On the message details view, click the *Export message* icon in the toolbar on the right and then click *Copy message*. This will export the log message details in a key/value format that can be imported in various tools.
+If you want to export a single message, you can either do it using the [`messages get`](cli-messages.md#get) CLI command or directly from the elmah.io UI. On the message details view, click the *Export message* icon in the toolbar on the right and then click *Copy message*. This will export the log message details in a key/value format that can be imported in various tools.
