@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 Intercom.apply(null, params);
             } else {
-                window.location.href = "/contact/";
+                window.location.href = "https://elmah.io/contact/";
             }
         });
     });
