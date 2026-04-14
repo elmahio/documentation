@@ -5,7 +5,7 @@ description: Learn about how to use the logout command to remove the currently s
 
 # Logout command
 
-The `logout` command is used to remove any privately stored API key saved as part of the [`login`](/cli-login) command.
+The `logout` command is used to remove any privately stored API key saved as part of the [`login`](/cli-login/) command.
 
 **Usage**
 
