@@ -69,4 +69,4 @@ Browsers like Chrome don't allow CORS when running locally. There are three ways
 
 1. Run Chrome with the `--disable-web-security` switch.
 2. Run your website on a hostname like `https://mymachine`.
-3. Allow CORS on localhost with extensions like [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related?hl=en) for Chrome or [Allow CORS: Access-Control-Allow-Origin](https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/) for Firefox.
+3. Allow CORS on localhost with extensions like [CORS Unblock](https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino) for Chrome or [Allow CORS: Access-Control-Allow-Origin](https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/) for Firefox.

@@ -60,7 +60,7 @@ Disabled logs are shown as semi-transparent on the dashboard, to help you rememb
 
 Most of our clients support client filtering. All of the filtering options described above filter messages server-side. This means that your application still communicates with elmah.io's API and needs to wait for that to answer (even for ignored messages).
 
-Filtering client-side from ASP.NET, MVC, Web API, and other frameworks built on top of ASP.NET, can be done using ELMAH's (the open-source project) [filtering](https://code.google.com/p/elmah/wiki/ErrorFiltering) feature. To filter messages, create a method named `ErrorLog_Filtering` in the `Global.asax.cs` file:
+Filtering client-side from ASP.NET, MVC, Web API, and other frameworks built on top of ASP.NET, can be done using ELMAH's (the open-source project) [filtering](https://code.google.com/archive/p/elmah/wikis/ErrorFiltering.wiki) feature. To filter messages, create a method named `ErrorLog_Filtering` in the `Global.asax.cs` file:
 
 ```csharp
 void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs args)
