@@ -9,8 +9,8 @@
       "mkdocs_bs5/assets/css/gifsee.min.css",
       "mkdocs_bs5/assets/css/sweetalert2.min.css",
       "mkdocs_bs5/assets/css/cookieconsent.css",
-      "mkdocs_bs5/assets/css/dark-theme.css",
-      "mkdocs_bs5/assets/css/style.css"
+      "mkdocs_bs5/assets/css/style.css",
+      "mkdocs_bs5/assets/css/dark-theme.css"
     ]
   },
   {

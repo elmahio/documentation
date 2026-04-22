@@ -26,7 +26,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-claude-code/" title="Claude Code">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="Claude Code" />
+                    <img class="no-lightbox" src="/./assets/img/guides/claude.png" alt="Claude Code" />
                 </div>
                 <div class="guide-title">Claude Code</div>
             </div>
@@ -36,7 +36,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-claude-desktop/" title="Claude Desktop">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="Claude Desktop" />
+                    <img class="no-lightbox" src="/./assets/img/guides/claude.png" alt="Claude Desktop" />
                 </div>
                 <div class="guide-title">Claude Desktop</div>
             </div>
@@ -46,7 +46,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-chatgpt/" title="ChatGPT">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="ChatGPT" />
+                    <img class="no-lightbox" src="/./assets/img/guides/chatgpt.png" alt="ChatGPT" />
                 </div>
                 <div class="guide-title">ChatGPT</div>
             </div>
@@ -56,7 +56,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-cursor-ai/" title="Cursor AI">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="Cursor AI" />
+                    <img class="no-lightbox" src="/./assets/img/guides/cursor.png" alt="Cursor AI" />
                 </div>
                 <div class="guide-title">Cursor AI</div>
             </div>
@@ -66,7 +66,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-visual-studio/" title="Visual Studio">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="Visual Studio" />
+                    <img class="no-lightbox" src="/./assets/img/guides/visual-studio.png" alt="Visual Studio" />
                 </div>
                 <div class="guide-title">Visual Studio</div>
             </div>
@@ -76,7 +76,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-vs-code/" title="VS Code">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="VS Code" />
+                    <img class="no-lightbox" src="/./assets/img/guides/vs-code.png" alt="VS Code" />
                 </div>
                 <div class="guide-title">VS Code</div>
             </div>
