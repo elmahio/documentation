@@ -182,6 +182,14 @@ nav:
     - Create deployments from Umbraco Cloud: create-deployments-from-umbraco-cloud.md
     - Create deployments from Bitbucket Pipelines: create-deployments-from-bitbucket-pipelines.md
     - Create deployments from Atlassian Bamboo: create-deployments-from-atlassian-bamboo.md
+- MCP Server:
+    - Set Up MCP Server: setup-mcp-server.md
+    - Add MCP Server to Claude Code: add-mcp-server-to-claude-code.md
+    - Add MCP Server to Claude Desktop: add-mcp-server-to-claude-desktop.md
+    - Add MCP Server to ChatGPT: add-mcp-server-to-chatgpt.md
+    - Add MCP Server to Cursor AI: add-mcp-server-to-cursor-ai.md
+    - Add MCP Server to Visual Studio: add-mcp-server-to-visual-studio.md
+    - Add MCP Server to VS Code: add-mcp-server-to-vs-code.md
 - CLI:
     - CLI overview: cli-overview.md
     - Login: cli-login.md
