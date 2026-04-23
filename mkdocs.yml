@@ -188,6 +188,7 @@ nav:
     - Add MCP Server to Claude Desktop: add-mcp-server-to-claude-desktop.md
     - Add MCP Server to ChatGPT: add-mcp-server-to-chatgpt.md
     - Add MCP Server to Cursor AI: add-mcp-server-to-cursor-ai.md
+    - Add MCP Server to Perplexity AI: add-mcp-server-to-perplexity-ai.md
     - Add MCP Server to Visual Studio: add-mcp-server-to-visual-studio.md
     - Add MCP Server to VS Code: add-mcp-server-to-vs-code.md
 - CLI:
