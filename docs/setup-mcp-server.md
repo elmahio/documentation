@@ -66,7 +66,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-perplexity-ai/" title="Perplexity AI">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/elmahio.png" alt="Perplexity AI" />
+                    <img class="no-lightbox" src="/./assets/img/guides/perplexity.png" alt="Perplexity AI" />
                 </div>
                 <div class="guide-title">Perplexity AI</div>
             </div>
