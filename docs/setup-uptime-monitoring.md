@@ -26,11 +26,11 @@ Uptime checks are automatic HTTP requests that you may already know from Azure, 
 
 Expiring SSL certificates cause errors in your user's browser. If you ever tried forgetting to renew an SSL certificate, you know how many problems it can cause. With the SSL check option available when creating a new uptime check, elmah.io automatically validates your SSL certificates daily.
 
-When your SSL certificate is up for renewal, we start notifying you through the error logs.
+When your SSL certificate is up for renewal, we start notifying you through recommendations.
 
 ## Domain name expiration checks
 
-Much like SSL checks, Domain name expiration checks, will notify you through your log when your domain names are about to expire. To enable this feature, enable the *Domain Expiration* toggle when creating a new uptime check.
+Much like SSL checks, Domain name expiration checks, will notify you through recommendations when your domain names are about to expire. To enable this feature, enable the *Domain Expiration* toggle when creating a new uptime check.
 
 ## Lighthouse checks
 
@@ -39,3 +39,11 @@ When enabling Lighthouse on an uptime check, we will generate Lighthouse results
 ## Canonical checks
 
 Canonical checks are a range of checks implemented by us. It checks the URL of the uptime checks by running through a range of different best practices. Examples are HTTP to HTTPS redirect, correct use of redirect status code, and more checks.
+
+## Security headers check
+
+Security headers are HTTP response headers that instruct browsers how to behave when handling your site's content. Missing or misconfigured headers like `Content-Security-Policy`, `X-Frame-Options`, and `Strict-Transport-Security` can leave your site exposed to attacks such as XSS and clickjacking. elmah.io inspects the headers returned by your endpoint daily and logs any potential issues found.
+
+## ELMAH check
+
+A common misconfiguration is leaving the ELMAH log viewer publicly accessible, which can expose sensitive error details and stack traces to anyone who finds the URL. elmah.io checks your endpoint daily and logs a warning if a publicly reachable ELMAH page is detected.

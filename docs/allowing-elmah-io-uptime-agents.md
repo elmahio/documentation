@@ -13,6 +13,9 @@ You can allow requests by allowing all requests with the following user-agent:
 User-Agent: elmahio-uptimebot/2.0
 ```
 
+!!! note
+    The `User-Agent` header can be overwritten by adding a custom `User-Agent` header when creating or updating an uptime check. This is done through the *Custom headers* option available in the UI.
+
 Allowing requests by possible inbound IP addresses is also an option. Since we run on Azure these changes over time, but here's a list by region as of time of writing this article:
 
 :us: **United States West**
