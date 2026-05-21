@@ -27,7 +27,7 @@ plugins:
             'IntegrateWith/Slack.md': 'elmah-io-apps-slack.md'
             'IntegrateWith/Zapier.md': 'integrate-elmah-io-with-zapier.md'
             'IntegrateWith/HipChat.md': 'elmah-io-apps-hipchat.md'
-            'export-data-from-elmah-io-to-json.md': "cli-export.md"
+            'export-data-from-elmah-io-to-json.md': "cli-logs.md#export"
             'logging-to-elmah-io-from-express.md': 'logging-to-elmah-io-from-javascript.md'
             'cli-clear.md': 'cli-logs.md#clear'
             'cli-dataloader.md': 'cli-logs.md#dataloader'
@@ -37,6 +37,7 @@ plugins:
             'cli-log.md': 'cli-messages.md#create'
             'cli-sourcemap.md': 'cli-logs.md#sourcemap'
             'cli-tail.md': 'cli-logs.md#tail'
+            'how-to-log-to-elmah-io-from-net-4-5.md': 'tls-1-2-requirement-for-api-elmah-io.md'
     - git-revision-date-localized:
         enabled: false
         type: iso_date
@@ -233,7 +234,7 @@ nav:
     - Handle elmah.io downtime: handle-elmah-io-downtime.md
     - Using the elmah.io extension for Visual Studio: using-the-elmah-io-extension-for-visual-studio.md
     - Using the REST API: using-the-rest-api.md
-    - How to log to elmah.io from .NET 4.5: how-to-log-to-elmah-io-from-net-4-5.md
+    - TLS 1.2 Requirement for api.elmah.io: tls-1-2-requirement-for-api-elmah-io.md
     - Upgrade elmah.io from v4 to v5: upgrade-elmah-io-from-v4-to-v5.md
     - Upgrade elmah.io from v3 to v4: upgrade-elmah-io-from-v3-to-v4.md
     - Upgrade elmah.io from v2 to v3: upgrade-elmah-io-from-v2-to-v3.md
