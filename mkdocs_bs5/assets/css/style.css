@@ -151,6 +151,11 @@ table .table-light th {
   border-top-width: 1px;
 }
 
+.text-success {
+  --bs-text-opacity: 1;
+  color: #0da58e !important;
+}
+
 .white-space-normal {
   white-space: normal;
 }
@@ -536,29 +541,93 @@ table .table-light th {
 }
 
 #bugsterModal .modal-header {
-  padding-bottom: 0;
-  border-bottom: 0;
   background: #fff;
+  padding: 0px 16px;
+}
+#bugsterModal .modal-header .logo-wrapper img {
+  height: 40px;
+  width: auto;
+}
+#bugsterModal .modal-header .logo-wrapper img.img-small {
+  display: inline-block;
+}
+#bugsterModal .modal-header .logo-wrapper img.img-normal {
+  display: none;
+}
+@media (min-width: 1921px) {
+  #bugsterModal .modal-header .logo-wrapper img.img-small {
+    display: none;
+  }
+  #bugsterModal .modal-header .logo-wrapper img.img-normal {
+    display: inline-block;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  #bugsterModal .modal-header .logo-wrapper img.img-small {
+    display: none;
+  }
+  #bugsterModal .modal-header .logo-wrapper img.img-normal {
+    display: inline-block;
+  }
+}
+#bugsterModal .modal-header .modal-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 12px;
+  height: 70px;
+}
+#bugsterModal .modal-header .modal-title-wrapper .modal-title {
+  font-weight: normal;
+  --bs-modal-title-line-height: 1.25;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.25s ease, opacity 0.25s ease, margin-top 0.25s ease;
+  margin-top: 0;
+  overflow: hidden;
+  font-size: 12px;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container.active {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content {
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content.fade-out {
+  opacity: 0;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content .fade-enter-active,
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content .fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content .fade-enter-from,
+#bugsterModal .modal-header .modal-title-wrapper .status-container .status-content .fade-leave-to {
+  opacity: 0;
+}
+#bugsterModal .modal-header .modal-title-wrapper .status-container .spinner-border {
+  --bs-spinner-width: 0.75rem;
+  --bs-spinner-height: 0.75rem;
+  --bs-spinner-border-width: 0.2em;
 }
 #bugsterModal .btn-close {
   outline: none;
   box-shadow: none;
 }
 #bugsterModal .modal-body {
-  background: #fff;
-  height: 600px;
-}
-#bugsterModal .modal-body::-webkit-scrollbar {
-  width: 5px;
-}
-#bugsterModal .modal-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-#bugsterModal .modal-body::-webkit-scrollbar-thumb {
-  background: #888;
-}
-#bugsterModal .modal-body::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 70vh;
+  overflow: hidden;
 }
 #bugsterModal .form-control:focus {
   border-color: #0da58e;
@@ -638,12 +707,62 @@ table .table-light th {
 }
 
 .bugster-chat {
-  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+.bugster-chat .chat-history {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  padding: 25px 35px;
+  min-height: 0;
+  overflow-y: auto;
+}
+.bugster-chat .chat-history::-webkit-scrollbar {
+  width: 5px;
+}
+.bugster-chat .chat-history::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.bugster-chat .chat-history::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.bugster-chat .chat-history::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.bugster-chat .chat-round {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+.bugster-chat .chat-round.latest-round {
+  min-height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.bugster-chat .chat-round.latest-round .bugster-dialog {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bugster-chat .chat-round.latest-round .bugster-dialog-text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bugster-chat .chat-round.latest-round .bugster-dialog-text .content {
+  flex-grow: 1;
 }
 .bugster-chat .user-dialog {
   display: flex;
   justify-content: end;
   margin-top: 25px;
+  flex-shrink: 0;
 }
 .bugster-chat .user-dialog:first-child {
   margin-top: 0px;
@@ -660,25 +779,13 @@ table .table-light th {
   overflow-wrap: anywhere;
 }
 .bugster-chat .bugster-dialog {
-  display: flex;
-  justify-content: start;
-  margin-top: 25px;
-}
-.bugster-chat .bugster-dialog:last-of-type {
-  min-height: 300px;
-}
-.bugster-chat .bugster-dialog-avatar {
-  flex: 0 0 54px;
-  margin-right: 15px;
+  align-self: flex-start;
+  width: 100%;
 }
 .bugster-chat .bugster-dialog-text {
-  width: calc(100% - 69px);
+  width: 100%;
 }
 .bugster-chat .bugster-dialog-text .content {
-  background: #eee;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border-top-left-radius: 0px;
   margin-bottom: 15px;
   margin-top: 5px;
   min-height: 44px;
@@ -687,15 +794,49 @@ table .table-light th {
   width: 100%;
   margin: 16px 0;
 }
+.bugster-chat .bugster-dialog-text .content p {
+  margin-bottom: 0.5rem;
+}
+.bugster-chat .bugster-dialog-text .content h1, .bugster-chat .bugster-dialog-text .content h2, .bugster-chat .bugster-dialog-text .content h3, .bugster-chat .bugster-dialog-text .content h4, .bugster-chat .bugster-dialog-text .content h5, .bugster-chat .bugster-dialog-text .content h6 {
+  color: inherit;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.bugster-chat .bugster-dialog-text .content h1 {
+  font-size: 1.35rem;
+}
+.bugster-chat .bugster-dialog-text .content h2 {
+  font-size: 1.2rem;
+}
 .bugster-chat .bugster-dialog-text .content h3 {
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 .bugster-chat .bugster-dialog-text .content h4 {
-  font-size: 16px;
+  font-size: 1rem;
+}
+.bugster-chat .bugster-dialog-text .content h5 {
+  font-size: 0.9375rem;
+}
+.bugster-chat .bugster-dialog-text .content h6 {
+  font-size: 0.875rem;
 }
 .bugster-chat .bugster-dialog-text .content ol + p > img,
 .bugster-chat .bugster-dialog-text .content p + p > img {
   margin-top: 0px;
+}
+.bugster-chat .bugster-dialog-text .content ul {
+  margin-bottom: 1rem;
+}
+.bugster-chat .bugster-dialog-text .content ul li {
+  overflow-wrap: anywhere;
+}
+.bugster-chat .bugster-dialog-text .content ul li pre {
+  margin-top: 5px;
+}
+.bugster-chat .bugster-dialog-text .content ul, .bugster-chat .bugster-dialog-text .content ol {
+  padding-left: 1.25rem;
 }
 .bugster-chat .bugster-dialog-text .content p:last-child {
   margin-bottom: 0;
@@ -716,6 +857,22 @@ table .table-light th {
 }
 .bugster-chat .bugster-dialog-text .content pre code.hljs {
   padding: 15px;
+}
+.bugster-chat .bugster-dialog-text .content .table-responsive {
+  margin-bottom: 1rem;
+}
+.bugster-chat .bugster-dialog-text .content .table {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.bugster-chat .bugster-dialog-text .content .table:not(.table-sm) th {
+  padding: 0.5rem;
+}
+.bugster-chat .bugster-dialog-text .content .table .table-dark {
+  --bs-table-bg: #2E3440;
+}
+.bugster-chat .bugster-dialog-text .content .table thead {
+  vertical-align: middle;
 }
 
 .main-content {

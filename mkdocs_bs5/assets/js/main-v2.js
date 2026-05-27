@@ -421,8 +421,9 @@ function Bugster() {
 
 	let theQuestion = null;
 	let chatMessages = [];
+    let currentState = 'idle';
 	const question = document.querySelector('#bugsterModal input#question');
-	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat');
+	const bugsterChat = document.querySelector('#bugsterModal .bugster-chat .chat-history');
 	const userDialog = document.querySelector('.bugster-chat .user-dialog');
 	const userText = document.querySelector('.bugster-chat .user-dialog-text');
 	const bugsterDialog = document.querySelector('.bugster-chat .bugster-dialog');
@@ -443,7 +444,6 @@ function Bugster() {
 		event.preventDefault();
 
 		if (question.value !== "") {
-			bugsterChat.classList.remove('d-none');
 			theQuestion = escapeHtml(question.value);
 			question.value = "";
 
@@ -452,7 +452,10 @@ function Bugster() {
 			}
 
 			fadeOut(document.querySelector('.bugster-hero'), function() {
-				prepareXHR();
+                setTimeout(() => {
+                    bugsterChat.parentElement.classList.remove('d-none');
+				    prepareXHR();
+                }, 400); // fadeout transition
 			});
 		}
 	});
@@ -466,8 +469,8 @@ function Bugster() {
 		chatMessages.push(bugsterMsg);
 		renderMessage(bugsterMsg);
 
+        setStatus('thinking');
 		scrollBottom();
-
 		setTimeout(() => bugsterXHR(), 500);
 	}
 
@@ -487,6 +490,7 @@ function Bugster() {
 			const { target } = progressEvent;
 			if (target.status === 200) {
 				updateBugsterLastMessage(md.render(target.response));
+                setStatus('working');
 			}
 		};
 
@@ -509,14 +513,22 @@ function Bugster() {
 					aElement.rel = "noopener noreferrer";
 				});
 
-				el.querySelectorAll('table').forEach(tableElement => {
-					tableElement.classList.add('table');
-					tableElement.querySelector('thead').classList.add('table-dark');
-				});
+                el.querySelectorAll('table').forEach(tableElement => {
+                    tableElement.classList.add('table', 'table-striped');
+                    tableElement.querySelector('thead').classList.add('table-dark');
+
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('table-responsive');
+
+                    tableElement.parentNode.insertBefore(wrapper, tableElement);
+                    wrapper.appendChild(tableElement);
+                });
 
 				isRequestInProgress = false;
 				humanSupport.classList.remove('d-none');
 				humanSupport.classList.add('animated', 'zoomIn');
+
+                setStatus('idle');
 			}
 		};
 
@@ -527,26 +539,51 @@ function Bugster() {
 		xhr.send(payload);
 	}
 
-	const renderMessage = (msg) => {
-		const messageEl = document.createElement('div');
+    const renderMessage = (msg) => {
+        if (msg.sender === 'user') {
+            const previousRound = bugsterChat.querySelector('.chat-round.latest-round');
+            if (previousRound) {
+                previousRound.classList.remove('latest-round');
+            }
 
-		if (msg.sender === 'user') {
-			messageEl.className = 'user-dialog';
-			messageEl.innerHTML = `<div class="user-dialog-text"><p>${msg.text}</p></div>`;
-		} else {
-			messageEl.className = 'bugster-dialog';
-			messageEl.innerHTML = `<div class="bugster-dialog-avatar">
-				<img class="img-fluid" src="/assets/img/bugster.png" width="383" height="374" alt="Bugster">
-			</div>
-			<div class="bugster-dialog-text">
-				<div class="content">
-					<div class="spinner-grow spinner-grow-sm" role="status"></div>
-				</div>
-			</div>`;
-		}
+            const roundEl = document.createElement('div');
+            roundEl.className = 'chat-round latest-round';
+            roundEl.innerHTML = `
+                <div class="user-dialog">
+                    <div class="user-dialog-text">
+                        <p>${msg.text}</p>
+                    </div>
+                </div>
+            `;
 
-		bugsterChat.appendChild(messageEl);
-	}
+            bugsterChat.appendChild(roundEl);
+        } else {
+            const currentRound = bugsterChat.querySelector('.chat-round.latest-round');
+
+            if (currentRound) {
+                const botEl = document.createElement('div');
+                botEl.className = 'bugster-dialog';
+                botEl.innerHTML = `
+                    <div class="bugster-dialog-text">
+                        <div class="content">
+                            <div class="spinner-grow spinner-grow-sm" role="status"></div>
+                        </div>
+                    </div>
+                `;
+
+                currentRound.appendChild(botEl);
+            }
+        }
+        
+        scrollToLatestRound();
+    };
+
+    const scrollToLatestRound = () => {
+        const latestRound = bugsterChat.querySelector('.chat-round.latest-round');
+        if (latestRound) {
+            bugsterChat.scrollTop = latestRound.offsetTop - 15;
+        }
+    };
 
 	const updateBugsterLastMessage = (text) => {
 		const lastBugsterMsg = bugsterChat.querySelectorAll('.bugster-dialog');
@@ -587,6 +624,46 @@ function Bugster() {
 	const scrollBottom = () => {
 		document.querySelector('#bugsterModal .modal-body').scrollTop = bugsterChat.scrollHeight;
 	}
+
+    const setStatus = (state) => {
+        const container = document.querySelector('#bugsterModal .modal-header .status-container');
+        const content = document.querySelector('#bugsterModal .modal-header .status-content');
+        const textElement = document.querySelector('#statusText');
+
+        if (state === currentState) return;
+        if (state === 'idle') {
+            container.classList.remove('active');
+            setTimeout(() => {
+                if(!container.classList.contains('active')) {
+                    textElement.textContent = '';
+                }
+            }, 250);
+        } 
+        else if (currentState !== 'idle' && state !== 'idle') {
+            content.classList.add('fade-out');
+            
+            setTimeout(() => {
+                updateStatusText(state);
+                content.classList.remove('fade-out');
+            }, 150);
+        } 
+        else {
+            updateStatusText(state);
+            container.classList.add('active');
+        }
+
+        currentState = state;
+    }
+
+    const updateStatusText = (state) => {
+        const textElement = document.querySelector('#statusText');
+
+        if (state === 'thinking') {
+            textElement.textContent = 'Thinking...';
+        } else if (state === 'working') {
+            textElement.textContent = 'Answering your question...';
+        }
+    }
 }
 
 // FadeOut animation

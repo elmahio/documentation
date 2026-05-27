@@ -160,6 +160,7 @@
 }
 [data-bs-theme=darkmode] #bugsterModal .modal-header {
   background: #333;
+  border-color: #444;
 }
 [data-bs-theme=darkmode] #bugsterModal .modal-body {
   background: #333;
@@ -174,9 +175,6 @@
 }
 [data-bs-theme=darkmode] .bugster-chat .user-dialog-text {
   background: #1e1e1e;
-}
-[data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content {
-  background: #444;
 }
 [data-bs-theme=darkmode] .bugster-chat .bugster-dialog-text .content .hljs {
   background: #1e1e1e;

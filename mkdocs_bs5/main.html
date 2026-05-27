@@ -250,6 +250,19 @@
       <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
+            <div class="logo-wrapper">
+              <img class="img-fluid img-small" src="{{ 'assets/img/bugster_min.png'|url }}" alt="Bugster icon">
+              <img class="img-fluid img-normal" src="{{ 'assets/img/bugster.png'|url }}" alt="Bugster icon">
+            </div>
+            <div class="modal-title-wrapper">
+              <h5 class="modal-title" id="bugsterChatLabel">Bugster</h5>
+              <div class="status-container">
+                <div class="status-content text-muted">
+                  <div class="spinner-border text-success" role="status"></div>
+                  <span id="statusText" class="ms-1"></span>
+                </div>
+              </div>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -291,7 +304,9 @@
                 </div>
               </div>
             </div>
-            <div class="bugster-chat d-none"></div>
+            <div class="bugster-chat d-none">
+              <div class="chat-history"></div>
+            </div>
           </div>
           <div class="modal-footer collapse show">
             <form id="bugster-form" class="form w-100">

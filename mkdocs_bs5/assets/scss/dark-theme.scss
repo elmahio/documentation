@@ -202,6 +202,7 @@
     #bugsterModal {
         .modal-header {
             background: #333;
+            border-color: #444;
         }
         .modal-body {
             background: #333;
@@ -223,7 +224,6 @@
         }
 
         .bugster-dialog-text .content {
-            background: #444;
 
             .hljs {
                 background: #1e1e1e;
