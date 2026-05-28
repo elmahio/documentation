@@ -629,6 +629,21 @@ table .table-light th {
   height: 70vh;
   overflow: hidden;
 }
+#bugsterModal .modal-body::-webkit-scrollbar {
+  width: 5px;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-thumb {
+  background: #888;
+}
+#bugsterModal .modal-body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#bugsterModal .modal-body.scroll {
+  overflow-y: auto !important;
+}
 #bugsterModal .form-control:focus {
   border-color: #0da58e;
   box-shadow: none;
@@ -665,6 +680,9 @@ table .table-light th {
   min-height: 350px;
   flex-direction: column;
   justify-content: center;
+  flex-shrink: 0;
+  min-height: -moz-max-content;
+  min-height: max-content;
 }
 .bugster-hero .bugster-logo {
   max-width: 100px;

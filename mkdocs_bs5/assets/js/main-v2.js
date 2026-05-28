@@ -453,6 +453,7 @@ function Bugster() {
 
 			fadeOut(document.querySelector('.bugster-hero'), function() {
                 setTimeout(() => {
+                    document.querySelector('#bugsterModal .modal-body').classList.remove('scroll');
                     bugsterChat.parentElement.classList.remove('d-none');
 				    prepareXHR();
                 }, 400); // fadeout transition
