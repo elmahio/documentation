@@ -21,7 +21,19 @@ The MCP server uses the Streamable HTTP transport. Each request is a `POST` with
 
 ## Example
 
-The following PowerShell example lists your logs and fetches the most recent messages from the first log found. Replace `API_KEY` with your actual API key ([Where is my API key?](where-is-my-api-key.md)).
+The following examples list your logs and fetch the most recent messages from the first log found. Replace `API_KEY` with your actual API key ([Where is my API key?](where-is-my-api-key.md)).
+
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#powershell" role="tab" data-bs-toggle="tab">PowerShell</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#curl" role="tab" data-bs-toggle="tab">curl</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="powershell" markdown="1">
 
 ```powershell
 $mcpUrl  = "https://mcp.elmah.io/mcp"
@@ -55,4 +67,36 @@ $messages = Invoke-McpTool "messages_list_recent" @{ logId = $logId }
 Write-Output $messages
 ```
 
-The same pattern works for any MCP tool. Replace the tool name and arguments to call other tools such as `messages_count`, `deployments_list`, or `organizations_list`.
+</div>
+<div role="tabpanel" class="tab-pane" id="curl" markdown="1">
+
+List all logs in your organization:
+
+```bash
+curl -s -X POST https://mcp.elmah.io/mcp \
+  -H "Authorization: Bearer API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"logs_list","arguments":{}}}'
+```
+
+Fetch recent messages from a specific log (replace `LOG_ID` with a log ID from the previous response):
+
+```bash
+curl -s -X POST https://mcp.elmah.io/mcp \
+  -H "Authorization: Bearer API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"messages_list_recent","arguments":{"logId":"LOG_ID"}}}'
+```
+
+Responses are returned in SSE format. The result is contained in the `data:` line:
+
+```
+data: {"jsonrpc":"2.0","id":1,"result":{"content":[{"type":"text","text":"..."}]}}
+```
+
+</div>
+</div>
+
+The same pattern works for any MCP tool. Replace the tool name and arguments to call other tools such as `messages_count`, `deployments_list`, or `organizations_list`. See [all available tools](/setup-mcp-server/#available-tools) for the full list.
