@@ -192,6 +192,7 @@ nav:
     - Add MCP Server to Perplexity AI: add-mcp-server-to-perplexity-ai.md
     - Add MCP Server to Visual Studio: add-mcp-server-to-visual-studio.md
     - Add MCP Server to VS Code: add-mcp-server-to-vs-code.md
+    - Call MCP Server Using an API Key: call-mcp-server-using-api-key.md
 - CLI:
     - CLI overview: cli-overview.md
     - Login: cli-login.md
