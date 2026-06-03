@@ -24,7 +24,7 @@ When *Extended Access* is enabled, Bugster will have access to messages in your 
 
 These toggles are currently used when you click the *Analyze with Bugster* button on the log message details:
 
-![Analyze with Bugster](images/analyze-with-bugster.png)
+![Analyze with Bugster](images/analyze-with-bugster-v2.png)
 
 When clicking this button, the Bugster chat window will show up, with Bugster's analysis of why this error happened and what you can do to fix it. Depending on your choices in the *ACCESS* section of the configuration, more or fewer log message details will be shared, with the potential of improving the answer. You can also ask general questions about your log data by launching Bugster on the Log Search page.
 
