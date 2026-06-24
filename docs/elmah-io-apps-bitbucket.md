@@ -27,7 +27,7 @@ On the confirmation page, click the *Create token* button and copy the generated
 
 Log into elmah.io and go to the log settings. Click the Apps tab. Locate the Bitbucket app and click the *Install* button:
 
-![Install Bitbucket App](images/apps/bitbucket/install-settings-v4.png)
+![Install Bitbucket App](images/apps/bitbucket/install-settings-v5.png)
 
 Paste the API token copied in the previous step into the *API TOKEN* textbox. In the _TEAM_ textbox, input the name of the team/workspace owning the repository you want to create issues in. In the _REPOSITORY_ textbox input the name of the repository. In the _USERNAME_ textbox, input the email of the user generating the API token.
 
