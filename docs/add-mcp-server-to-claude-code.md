@@ -7,6 +7,9 @@ description: Learn how to integrate the elmah.io MCP server into Claude Code via
 
 The elmah.io MCP Server can be integrated in Claude Code using the console.
 
+!!! note
+    Prefer prebuilt skills over writing your own prompts? See the [elmah.io AI Plugin](/elmah-io-ai-plugin/) instead, which installs the MCP server together with ready-made skills and a background monitoring agent.
+
 - Open a terminal and run the following command to register the elmah.io MCP server in your local Claude Code configuration:
 
 ```

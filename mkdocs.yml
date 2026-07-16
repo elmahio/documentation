@@ -185,6 +185,7 @@ nav:
     - Create deployments from Atlassian Bamboo: create-deployments-from-atlassian-bamboo.md
 - MCP Server:
     - Set Up MCP Server: setup-mcp-server.md
+    - elmah.io AI Plugin: elmah-io-ai-plugin.md
     - Add MCP Server to Claude Code: add-mcp-server-to-claude-code.md
     - Add MCP Server to Claude Desktop: add-mcp-server-to-claude-desktop.md
     - Add MCP Server to ChatGPT: add-mcp-server-to-chatgpt.md

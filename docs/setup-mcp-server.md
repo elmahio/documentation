@@ -15,6 +15,9 @@ The MCP Server is available on the following URL:
 https://mcp.elmah.io/mcp
 ```
 
+!!! note
+    Using Claude Code? The [elmah.io AI Plugin](/elmah-io-ai-plugin/) installs this MCP server together with a set of prebuilt skills and a background monitoring agent, so you don't have to write your own prompts.
+
 ## MCP Authentication
 
 The elmah.io MCP server uses **OAuth2** to securely authorize your AI client. The authentication steps will vary from client to client, but all end up in a pop-up where you need to sign into elmah.io using either a username/password or with a social provider. Once signed in, a token will be generated for the MCP. The token is valid for 30 days. After the 30 days, your assistant will report an unauthorized error and you will need to re-authenticate.
