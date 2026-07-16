@@ -59,21 +59,31 @@ See [Set Up MCP Server](/setup-mcp-server/) for details on how authentication wo
 
 Skills are invoked automatically based on what you ask for. Some examples:
 
+Investigate a specific error:
+
 ```
 Debug this production error: NullReferenceException in OrderService
 ```
+
+Verify production health after shipping code:
 
 ```
 Run a post-deployment check after my latest deploy
 ```
 
+Find your highest-impact errors:
+
 ```
 What are the most frequent errors in my production log this week?
 ```
 
+Check monitor status:
+
 ```
 Is my site up? Check uptime status
 ```
+
+Launch the background agent after a deployment:
 
 ```
 Start the deployment watchdog for version 2.4.1
