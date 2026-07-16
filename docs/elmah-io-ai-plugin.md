@@ -26,7 +26,7 @@ The elmah.io AI Plugin packages the [elmah.io MCP server](/setup-mcp-server/) to
 
 ## Supported editors
 
-The plugin is currently available for **Claude Code**. Support for other editors is planned. Until then, use the [raw MCP server setup](/setup-mcp-server/) for editors like Cursor, VS Code, and Visual Studio — you'll get the same tools, just without the bundled skills and agent.
+The plugin is currently available for **Claude Code** and **Cursor**. For other editors, use the [raw MCP server setup](/setup-mcp-server/) — you'll get the same tools, just without the bundled skills and agent.
 
 ## Installing in Claude Code
 
@@ -54,6 +54,25 @@ Installing the plugin registers the elmah.io MCP server, which still needs to be
 - Follow the OAuth flow to sign in with your elmah.io account.
 
 See [Set Up MCP Server](/setup-mcp-server/) for details on how authentication works, including token expiry.
+
+## Installing in Cursor
+
+Cursor installs the plugin from a local clone of the repository rather than directly from GitHub.
+
+- Clone the repository to your machine:
+
+```
+git clone https://github.com/elmahio/elmah-io-ai-plugin.git
+```
+
+- In Cursor, click the settings icon next to your profile.
+- Click **Plugins**.
+- Click **Browse Marketplace**.
+- Click the **+ Add** button.
+- Select **From Local Repo**.
+- Browse to and select your local clone of the elmah.io AI Plugin.
+
+The elmah.io plugin is added. Authenticate the MCP server the same way as described above for Claude Code.
 
 ## Using the plugin
 

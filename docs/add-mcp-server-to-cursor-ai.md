@@ -7,6 +7,9 @@ description: Enable elmah.io in Cursor AI using its native MCP support. Follow t
 
 Cursor supports MCP natively. Follow these steps to integrate elmah.io.
 
+!!! note
+    Prefer prebuilt skills over writing your own prompts? See the [elmah.io AI Plugin](/elmah-io-ai-plugin/) instead, which installs the MCP server together with ready-made skills and a background monitoring agent.
+
 - Inside of Cursor, click **File > Preferences > Cursor Settings** to open the **Cursor Settings** screen.
 - In the left menu, click the **Tools & MCP** item.
 
