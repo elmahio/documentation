@@ -1,2 +1,3 @@
+# llms.txt: https://docs.elmah.io/llms.txt
 User-agent: *
 Disallow: /cdn-cgi/
