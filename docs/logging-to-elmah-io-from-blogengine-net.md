@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from BlogEngine.NET
 description: Set up error monitoring and cloud logging of any BlogEngine.NET blog. Instant notifications when your blog is down os starts failing.
+howto_steps:
+  - name: Install the Elmah.Io NuGet package
+    text: 'Run: dotnet add package Elmah.Io (or the equivalent Package Manager, PackageReference, or Paket command) in your BlogEngine.NET project.'
+  - name: Provide your API key and log ID during installation
+    text: When prompted during package installation, enter your API key and log ID.
+  - name: Verify errors are logged to elmah.io
+    text: Force an internal server error or similar in your blog, then check /elmah.axd or the search area of your log at elmah.io to confirm it was captured.
 ---
 
 # Logging to elmah.io from BlogEngine.NET

@@ -1,6 +1,15 @@
 ---
 title: Integrate elmah.io with Twilio
 description: Sending SMS/Text messages when new errors are logged is easy using our integration with Twilio. Pay as you go to reduce costs and stay on top of errors.
+howto_steps:
+  - name: Sign up for Twilio
+    text: Sign up for a Twilio account to get access to a Twilio phone number to send messages from, an Account SID, and a token needed to authenticate Twilio.
+  - name: Install the Twilio app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Twilio app, and click Install.
+  - name: Enter phone numbers and credentials
+    text: "Input your Twilio phone number (available on https://www.twilio.com/console/phone-numbers/incoming) in the From field. Input the phone number you want receiving error reports from elmah.io in the To field, fully qualified with a plus and the language code (US example: +12025550170 - UK example: +441632960775). Copy your Account SID and Auth Token from the Twilio Dashboard and input them in the fields on elmah.io."
+  - name: Save the configuration
+    text: Click Save to add the app to your log. When new errors are logged, an SMS/Text message is automatically sent to the configured phone number.
 ---
 
 # Install Twilio for elmah.io

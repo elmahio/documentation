@@ -1,6 +1,21 @@
 ---
 title: Logging heartbeats from Azure Functions
 description: Monitor scheduled Azure Functions with elmah.io Heartbeats. Get instant notifications when someone accidentally stops or misconfigures functions.
+howto_steps:
+  - name: Install the Elmah.Io.Functions package
+    text: "Install the Elmah.Io.Functions NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Functions. This requires dependency injection from the Microsoft.Azure.Functions.Extensions package."
+  - name: Register the ElmahIoHeartbeatFilter
+    text: |
+      Extend Startup.cs to configure ElmahIoFunctionOptions and register the filter:
+      builder.Services.Configure<ElmahIoFunctionOptions>(o =>
+      {
+          o.ApiKey = config["apiKey"];
+          o.LogId = new Guid(config["logId"]);
+          o.HeartbeatId = config["heartbeatId"];
+      });
+      builder.Services.AddSingleton<IFunctionFilter, ElmahIoHeartbeatFilter>();
+  - name: Add the configuration values
+    text: "Add the apiKey, logId, and heartbeatId values to local.settings.json, environment variables, or Azure configuration settings."
 ---
 
 # Logging heartbeats from Azure Functions

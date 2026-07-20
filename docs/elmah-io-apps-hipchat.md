@@ -1,6 +1,13 @@
 ---
 title: Install HipChat App for elmah.io
 description: Learn about how to set up the HipChat app for elmah.io. Automatically notify your team on HipChat when new errors are logged to elmah.io.
+howto_steps:
+  - name: Generate an OAuth 2 token
+    text: "Log into HipChat and go to the API Access page (like https://elmahio.hipchat.com/account/api, replacing elmahio with your subdomain). Input a label, click the Create button, and copy the generated token. Select both Send Notification and View Room in Scopes if you want to use the Test button on elmah.io."
+  - name: Install the HipChat app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the HipChat app, and click Install.
+  - name: Configure and save the integration
+    text: Paste the token into the Token textbox, input the name of the HipChat chat room into the Room textbox, and click Save.
 ---
 
 # Install HipChat App for elmah.io

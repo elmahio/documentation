@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from ServiceStack
 description: Learn about how to set up error monitoring in ServiceStack projects using the cloud-based error logging platform elmah.io.
+howto_steps:
+  - name: Install the ServiceStack and elmah.io packages
+    text: "Install both ServiceStack.Logging.Elmah and Elmah.Io NuGet packages into your ServiceStack web project: dotnet add package ServiceStack.Logging.Elmah and dotnet add package Elmah.Io."
+  - name: Provide your API key and log ID
+    text: "During the installation, you will be asked for your API key and log ID."
+  - name: Register the ELMAH log factory
+    text: "Add the following line to your AppHost: LogManager.LogFactory = new ElmahLogFactory(new NLogFactory()); Use NullLogFactory instead of NLogFactory if you don't need another logging framework alongside ELMAH."
 ---
 
 # Logging to elmah.io from ServiceStack

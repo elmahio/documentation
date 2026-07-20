@@ -1,6 +1,31 @@
 ---
 title: Logging heartbeats from Umbraco
 description: Umbraco comes with a health check feature that can carry out a range of built-in checks. Health Checks fits perfectly with elmah.io Heartbeats.
+howto_steps:
+  - name: Create a new health check on elmah.io
+    text: "Create a new health check on the elmah.io UI. Select 1 day in Interval and 5 minutes in Grace."
+  - name: Install the Elmah.Io.Umbraco package
+    text: "For Umbraco 10 and up, install the Elmah.Io.Umbraco NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Umbraco"
+  - name: Enable the elmah.io notification method
+    text: |
+      Extend appsettings.json to enable the elmah.io health check notification method:
+      "HealthChecks": {
+        "Notification": {
+          "Enabled": true,
+          "NotificationMethods": {
+            "elmah.io": {
+              "Enabled": true,
+              "Verbosity": "Summary",
+              "Settings": {
+                "apiKey": "API_KEY",
+                "logId": "LOG_ID",
+                "heartbeatId": "HEARTBEAT_ID"
+              }
+            }
+          }
+        }
+      }
+      Replace API_KEY, LOG_ID, and HEARTBEAT_ID with the values found on the elmah.io UI.
 ---
 
 # Logging heartbeats from Umbraco

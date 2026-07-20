@@ -1,6 +1,21 @@
 ---
 title: Add MCP Server to Perplexity AI
 description: Add the elmah.io MCP server to Perplexity AI using custom connectors. This guide covers OAuth setup and transport configuration for AI-powered logs.
+howto_steps:
+  - name: Open All settings
+    text: Inside Perplexity, click your profile in the lower left corner and click on All settings.
+  - name: Open Connectors
+    text: In the left menu, click Connectors. This will show the list of available connectors.
+  - name: Add a custom connector
+    text: Click the + Custom connector button and input the elmah.io connector values.
+  - name: Configure OAuth and transport
+    text: Expand Advanced, select OAuth, and input a Client ID of your choice. Also select Streamable HTTP beneath Transport and enable the checkmark in I understand custom connectors can introduce risks.
+  - name: Add and search for the connector
+    text: Click the Add button and search for the new connector.
+  - name: Authenticate with elmah.io
+    text: Click the connector in the search result. A browser window will open, asking you to sign in to elmah.io. When successfully signed in, Perplexity will show a checkmark next to the connector.
+  - name: Enable the connector
+    text: On the prompt page, make sure to enable the elmah.io connector to allow Perplexity to call the MCP server.
 ---
 
 # Add MCP Server to Perplexity AI

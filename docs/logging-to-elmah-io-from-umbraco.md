@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Umbraco
 description: Monitoring Umbraco is easy with elmah.io's custom integration. Log errors automatically, detect 404s, report health check results, and much more.
+howto_steps:
+  - name: Install the Elmah.Io.Umbraco package
+    text: "For Umbraco 10 and up, install the Elmah.Io.Umbraco NuGet package: dotnet add package Elmah.Io.Umbraco (or Install-Package Elmah.Io.Umbraco)."
+  - name: Register elmah.io in Startup.cs
+    text: "In ConfigureServices, call services.AddElmahIo(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }); In Configure, call app.UseElmahIo() after exception-handling and auth middleware but before UseUmbraco()."
+  - name: Hook elmah.io into Umbraco's Serilog output (optional)
+    text: "Extend the Serilog:WriteTo array in appsettings.json with { \"Name\": \"ElmahIo\", \"Args\": { \"apiKey\": \"API_KEY\", \"logId\": \"LOG_ID\" } } to route Umbraco's Serilog logging to elmah.io."
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.umbraco/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.umbraco/actions?query=workflow%3Abuild)

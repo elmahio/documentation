@@ -1,6 +1,25 @@
 ---
 title: Logging heartbeats from AWS Lambdas
 description: AWS Lambdas running on a schedule are great candidates for logging heartbeats to elmah.io. Learn how to monitor that your lambdas run here.
+howto_steps:
+  - name: Install the Elmah.Io.Client package
+    text: "Install the Elmah.Io.Client NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Client"
+  - name: Add the API key, log ID, and heartbeat ID
+    text: |
+      Add the API key, log ID, and heartbeat ID as fields in your code:
+      private const string ApiKey = "API_KEY";
+      private const string HeartbeatId = "HEARTBEAT_ID";
+      private static Guid LogId = new Guid("LOG_ID");
+      Replace API_KEY with a key that has the Heartbeats | Write permission, HEARTBEAT_ID with the heartbeat's ID, and LOG_ID with the log's ID.
+  - name: Create the elmah.io client
+    text: |
+      Create the elmah.io client and store the IHeartbeats object, for example in the Main method:
+      heartbeats = ElmahioAPI.Create(ApiKey).Heartbeats;
+  - name: Wrap the function handler in try/catch
+    text: |
+      In the function handler, wrap your code in try/catch and report the result:
+      heartbeats.Healthy(LogId, HeartbeatId); on success, or
+      heartbeats.Unhealthy(LogId, HeartbeatId, e.ToString()); in the catch block.
 ---
 
 # Logging heartbeats from AWS Lambdas

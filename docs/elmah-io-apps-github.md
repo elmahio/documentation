@@ -1,6 +1,15 @@
 ---
 title: Integrate elmah.io with GitHub
 description: Why spend time navigating your error logs and creating issues in GitHub manually? Using elmah.io and our integration with GitHub we maintain your list of bugs.
+howto_steps:
+  - name: Start generating a personal access token
+    text: Sign in to GitHub, click your profile photo in the top right corner, click Settings, then Developer settings, then Personal access token, and click Generate new token (classic).
+  - name: Configure token scope and generate it
+    text: Input a token note and select an expiration date. Check the public_repo checkbox if the target repository is public, or the repo checkbox if it is private. Click Generate token and copy the generated token (colored with a green background). Fine-grained tokens are also supported — select Read and write in the Issues permission.
+  - name: Install the GitHub app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the GitHub app, and click Install.
+  - name: Configure and save the integration
+    text: Paste the token into the Token textbox, input the name of the user or organization owning the repository into the Owner textbox, input the repository name into the Repository textbox, and click Save.
 ---
 
 # Install GitHub App for elmah.io

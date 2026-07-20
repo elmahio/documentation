@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Xamarin
 description: Learn about how to log all uncaught errors happening on your Xamarin apps to elmah.io. Log all crashes from both Android and iOS and fix bugs fast.
+howto_steps:
+  - name: Install the Elmah.Io.Xamarin package
+    text: "dotnet add package Elmah.Io.Xamarin --prerelease (or Install-Package Elmah.Io.Xamarin -IncludePrerelease)."
+  - name: Configure elmah.io for Android
+    text: "In MainActivity.cs, add using Elmah.Io.Xamarin;, then at the start of OnCreate call: ElmahIoXamarin.Init(new ElmahIoXamarinOptions { ApiKey = \"API_KEY\", LogId = new Guid(\"LOG_ID\"), });"
+  - name: Configure elmah.io for iOS
+    text: "In Main.cs, add using Elmah.Io.Xamarin;, then after the call to UIApplication.Main call: ElmahIoXamarin.Init(new ElmahIoXamarinOptions { ApiKey = \"API_KEY\", LogId = new Guid(\"LOG_ID\"), }); Replace API_KEY with your API key and LOG_ID with the log Id of the log you want to log to on both platforms."
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.xamarin/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.xamarin/actions?query=workflow%3Abuild)

@@ -1,6 +1,17 @@
 ---
 title: Integrate elmah.io with Trello
 description: Learn how to create Trello cards when new errors are logged in elmah.io. Integrate Trello with elmah.io and handle all tasks in a single tool.
+howto_steps:
+  - name: Get your API key
+    text: "Get your API key from https://trello.com/app-key. If you don't have a personal token available on that site, create a new Power-Up as described on the page, then create a new API key on that page."
+  - name: Generate a token
+    text: "Visit https://trello.com/1/authorize?expiration=never&scope=read,write,account&response_type=token&name=Server%20Token&key=API_KEY in your browser, replacing API_KEY with your Trello API key, and click the Allow button to generate a new token."
+  - name: Find the list ID
+    text: Open Developer Tools in your browser and click an existing card inside the list you want elmah.io to create new cards in. Locate the request for the card details in the Network tab, click the Preview tab, and find the list id in the card details.
+  - name: Install the Trello app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Trello app, and click Install.
+  - name: Enter your details, test, and save
+    text: Input the API key, token, and list ID located in the previous steps. Click the Test button to test that everything works, then click Save.
 ---
 
 # Install Trello App for elmah.io

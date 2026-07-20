@@ -1,6 +1,34 @@
 ---
 title: Logging heartbeats from Coravel
 description: Monitoring if Coravel scheduled tasks are successfully executed or even run can be a challenge. With elmah.io Heartbeats, we provide monitoring.
+howto_steps:
+  - name: Install the Elmah.Io.Client package
+    text: "Install the Elmah.Io.Client NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Client"
+  - name: Schedule the Coravel job
+    text: |
+      Schedule your job, for example every minute:
+      builder.Services.AddTransient<MyJob>();
+      builder.Services.AddScheduler();
+      app.Services.UseScheduler(scheduler =>
+      {
+          scheduler.Schedule<MyJob>().EveryMinute();
+      });
+  - name: Register the elmah.io Heartbeats client
+    text: |
+      Create the elmah.io client and register the Heartbeats client as a singleton:
+      var elmahIoClient = ElmahioAPI.Create("API_KEY", new ElmahIoOptions
+      {
+          Timeout = TimeSpan.FromSeconds(30)
+      });
+      builder.Services.AddSingleton(elmahIoClient.Heartbeats);
+      Replace API_KEY with a key that has permission to create heartbeats.
+  - name: Publish a heartbeat from the job
+    text: |
+      In the job class, inject IHeartbeatsClient, wrap the job code in try/catch, and report the result:
+      await heartbeats.HealthyAsync(logId, heartbeatId, took: stopwatch.ElapsedMilliseconds);
+      on success, or in the catch block:
+      await heartbeats.UnhealthyAsync(logId, heartbeatId, e.ToString(), took: stopwatch.ElapsedMilliseconds);
+      Replace LOG_ID and HEARTBEAT_ID with the correct values from elmah.io.
 ---
 
 # Logging heartbeats from Coravel

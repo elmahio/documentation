@@ -1,6 +1,21 @@
 ---
 title: Logging heartbeats from Isolated Azure Functions
 description: Monitor Isolated Azure Functions with elmah.io Heartbeats. Get instant notifications when someone accidentally stops or misconfigures functions.
+howto_steps:
+  - name: Install the Elmah.Io.Functions.Isolated package
+    text: "Install the Elmah.Io.Functions.Isolated NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Functions.Isolated"
+  - name: Register the heartbeat middleware
+    text: |
+      Extend Program.cs to add the heartbeat middleware with your credentials:
+      .ConfigureFunctionsWorkerDefaults((context, app) =>
+      {
+          app.AddHeartbeat(options =>
+          {
+              options.ApiKey = "API_KEY";
+              options.LogId = new Guid("LOG_ID");
+              options.HeartbeatId = "HEARTBEAT_ID";
+          });
+      })
 ---
 
 # Logging heartbeats from Isolated Azure Functions

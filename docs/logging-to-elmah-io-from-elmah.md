@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from ASP.NET / WebForms
 description: This article will explain the steps necessary to log errors from ASP.NET WebForms applications to elmah.io. Requires only a single NuGet package.
+howto_steps:
+  - name: Create a new ASP.NET Web Application in Visual Studio
+    text: Create a new ASP.NET Web Application project and select a project template of your choice.
+  - name: Sign up and create a log at elmah.io
+    text: Log in to elmah.io with username/password or a social provider. If it's your first time, you'll be guided through creating an organization and a log. Keep the install page open to copy your API key and log ID.
+  - name: Install the elmah.io NuGet package
+    text: In Visual Studio, right-click References, select Manage NuGet Packages, search for elmah.io, and click Install.
+  - name: Enter your API key and log ID
+    text: When prompted during package installation, input your API key and log ID in the dialog.
+  - name: Verify errors are logged
+    text: 'Add throw new Exception("Test"); somewhere, or press F5 and browse to a URL you know doesn''t exist, then check the Search tab of your log on the elmah.io dashboard to confirm the error shows up.'
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)

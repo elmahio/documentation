@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from ASP.NET Web API
 description: Learn about how to set up logging of all uncaught exceptions in ASP.NET Web API to elmah.io. Monitor your APIs with a single NuGet install only.
+howto_steps:
+  - name: Install the Elmah.Io.WebApi package
+    text: "dotnet add package Elmah.Io.WebApi (or Install-Package Elmah.Io.WebApi)."
+  - name: Provide your API key and log ID
+    text: "During installation, you will be asked for your API key and log ID."
+  - name: Register the exception logger
+    text: "For Web API 2.x, add to WebApiConfig.cs: config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger()); this intercepts all thrown exceptions, including errors in controller constructors and routing errors. For Web API 1.x, instead add GlobalConfiguration.Configuration.Filters.Add(new ElmahHandleErrorApiAttribute()); in Global.asax.cs' Application_Start, which only catches errors thrown in controller actions."
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)

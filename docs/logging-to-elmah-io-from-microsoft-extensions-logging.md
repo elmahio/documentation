@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from Microsoft.Extensions.Logging
 description: Learn about how to send structured logs from Microsoft.Extensions.Logging and ASP.NET Core to elmah.io. Add cloud logging with a NuGet package.
+howto_steps:
+  - name: Install Elmah.Io.Extensions.Logging
+    text: "Run: dotnet add package Elmah.Io.Extensions.Logging (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Add a using directive
+    text: Add using Elmah.Io.Extensions.Logging; to the top of Program.cs.
+  - name: Register the elmah.io logger
+    text: "Call builder.Logging.AddElmahIo(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }); and builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning); to only log warnings and up."
+  - name: Log messages via ILogger
+    text: "Inject ILogger<T> into a controller (e.g. HomeController) and call logger.LogWarning(\"Request to index\"); to send log messages to elmah.io."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)

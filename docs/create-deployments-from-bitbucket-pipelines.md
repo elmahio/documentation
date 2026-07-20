@@ -1,6 +1,14 @@
 ---
 title: Create deployments from Bitbucket Pipelines
 description: Learn how to set up automatic notifications to elmah.io of new deployments from Bitbucket Pipelines. Monitor new errors every time you release.
+howto_steps:
+  - name: Add your API key as a workspace variable
+    text: Go to Settings | Workspace Settings | Workspace variables and add a new secure variable holding your elmah.io API key.
+  - name: Add a deployment notification step
+    text: |
+      Add a new script to your build YAML file, after building and deploying your software:
+      - curl -X POST -d "{\"version\":\"$BITBUCKET_BUILD_NUMBER\"}" -H "Content-Type:application/json" https://api.elmah.io/v3/deployments?api_key=$ELMAHIO_APIKEY
+      The script uses curl to invoke the elmah.io Deployments endpoint with the API key ($ELMAHIO_APIKEY) and the Bitbucket build number ($BITBUCKET_BUILD_NUMBER) as the version.
 ---
 
 # Create deployments from Bitbucket Pipelines

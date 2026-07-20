@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from CoreWCF
 description: Learn how to set up logging to elmah.io from CoreWCF. Integrating cloud-logging from CoreWCF is easy with the Microsoft.Extensions.Logging integration.
+howto_steps:
+  - name: Install the Elmah.Io.Extensions.Logging NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Extensions.Logging (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Configure logging in Program.cs
+    text: 'Call builder.Logging.AddElmahIo(options => { options.ApiKey = "API_KEY"; options.LogId = new Guid("LOG_ID"); }), replacing API_KEY and LOG_ID with your values.'
+  - name: Add a custom IErrorHandler class
+    text: Create an ElmahIoErrorHandler class implementing IErrorHandler that logs the error via an injected ILogger in ProvideFault, since CoreWCF does not forward uncaught WCF exceptions to Microsoft.Extensions.Logging automatically.
+  - name: Add a service behavior to register the error handler
+    text: Create an ElmahIoErrorBehavior class implementing IServiceBehavior that adds ElmahIoErrorHandler to each ChannelDispatcher's ErrorHandlers collection in ApplyDispatchBehavior.
+  - name: Register the service behavior
+    text: 'Add builder.Services.AddSingleton<IServiceBehavior, ElmahIoErrorBehavior>(); to Program.cs so CoreWCF picks up the behavior.'
 ---
 
 # Logging to elmah.io from CoreWCF

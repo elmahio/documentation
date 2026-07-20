@@ -1,6 +1,17 @@
 ---
 title: Integrate elmah.io with ChatGPT
 description: Utilize elmah.io's integration with ChatGPT to get help fixing errors. When installing the app you will get an AI tab where you can ask ChatGPT for help.
+howto_steps:
+  - name: Install the ChatGPT app
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the ChatGPT app, and click Install.
+  - name: Choose a hosting model
+    text: Select either a model prefixed with 'OpenAI' to bring your own OpenAI API key, or a model prefixed with 'elmah.io' to use a model hosted by elmah.io directly on Azure (available on the Enterprise plan). Both options support GPT-3.5-Turbo, GPT-4, GPT-4o, and GPT-4o mini.
+  - name: Enter your OpenAI API key if applicable
+    text: If using an OpenAI-hosted model, input your OpenAI API key. If using a restricted API key, make sure to enable the Model capabilities resource permission.
+  - name: Choose what data to share with ChatGPT
+    text: By default, only the stack trace and a few other properties are shared with ChatGPT when clicking Get suggestion. Optionally enable toggles to also include source code, attached SQL, and/or breadcrumbs.
+  - name: Save the configuration
+    text: Click Save to add the app to your log. Errors valid for ChatGPT help will show an AI tab next to Detail and Inspector.
 ---
 
 # Install ChatGPT for elmah.io

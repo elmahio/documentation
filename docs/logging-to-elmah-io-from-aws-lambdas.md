@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from AWS Lambdas
 description: Learn how to set up automatic error logging of all uncaught errors inside AWS Lambdas. Use elmah.io to monitor your serverless environments.
+howto_steps:
+  - name: Set up Microsoft.Extensions.Logging for elmah.io
+    text: Install Elmah.Io.Extensions.Logging as described in Logging from Microsoft.Extensions.Logging, so warnings and errors are sent to elmah.io while other messages still go to CloudWatch.
+  - name: Configure logging in LambdaEntryPoint.cs
+    text: 'Override Init in your class deriving from Amazon.Lambda.AspNetCoreServer.APIGatewayProxyFunction and call builder.ConfigureLogging((ctx, logging) => { logging.AddElmahIo(options => { options.ApiKey = "API_KEY"; options.LogId = new Guid("LOG_ID"); }); logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning); });.'
+  - name: Repeat the configuration in LocalEntryPoint.cs
+    text: Add the same ConfigureLogging block to LocalEntryPoint.cs if you also want errors logged when running from localhost.
 ---
 
 # Logging to elmah.io from AWS Lambdas

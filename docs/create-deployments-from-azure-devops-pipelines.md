@@ -1,6 +1,24 @@
 ---
 title: Create deployments from Azure DevOps Pipelines
 description: Notifying elmah.io about new deployments is possible as build steps in Azure DevOps, by adding some PowerShell. Learn how to monitor deployments.
+howto_steps:
+  - name: Open your build definition YAML
+    text: Edit your build definition YAML file.
+  - name: Open the assistant
+    text: If not already shown, open the assistant by clicking the Show assistant button.
+  - name: Search for the task
+    text: "Search for: elmah.io deploy"
+  - name: Select the elmah.io task
+    text: Click the elmah.io Deployment Notification task.
+  - name: Configure the API key and log ID
+    text: Replace API_KEY with an API key with permission to create deployments, and LOG_ID with a log ID if the deployment is specific to a single log (omit it to show on all logs). The task uses the current build number (BUILD_BUILDNUMBER) as the version by default; override this in the Version text box if needed.
+  - name: Add the task to your pipeline
+    text: |
+      Click Add so the task is inserted into your YAML definition, typically as the last task:
+      - task: ElmahIoDeploymentNotification@4
+        inputs:
+          apiKey: 'API_KEY'
+          logId: 'LOG_ID'
 ---
 
 # Create deployments from Azure DevOps Pipelines

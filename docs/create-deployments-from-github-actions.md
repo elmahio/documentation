@@ -1,6 +1,23 @@
 ---
 title: Create deployments from GitHub Actions
 description: GitHub Actions is a great platform for releasing software too. Learn how to notify elmah.io when you deploy a new version of your project.
+howto_steps:
+  - name: Open repository secrets settings
+    text: Go to your project on GitHub, click the Settings tab, click the Secrets navigation item, then click New repository secret.
+  - name: Add the API key secret
+    text: Name the secret ELMAH_IO_API_KEY and insert your elmah.io API key as the value, using an API key that includes the Deployments | Write permission. Click Add secret.
+  - name: Add the log ID secret
+    text: Repeat the process to add a second secret named ELMAH_IO_LOG_ID containing your elmah.io log ID.
+  - name: Add the deployment step to your workflow
+    text: |
+      Insert this as the last step in your YAML build specification:
+      - name: Create Deployment on elmah.io
+        uses: elmahio/github-create-deployment-action@v1
+        with:
+          apiKey: ${{ secrets.ELMAH_IO_API_KEY }}
+          version: ${{ github.run_number }}
+          logId: ${{ secrets.ELMAH_IO_LOG_ID }}
+      The build number (github.run_number) is used as the version by default; change this if you prefer another scheme.
 ---
 
 # Create deployments from GitHub Actions

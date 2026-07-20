@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from NLog
 description: Set up cloud logging on NLog to start monitoring errors with elmah.io. Learn about our custom target that logs structured properties and more.
+howto_steps:
+  - name: Install Elmah.Io.NLog
+    text: "Run: dotnet add package Elmah.Io.NLog (or the Package Manager/PackageReference/Paket equivalent). Avoid NLog 4.6.0, which has a bug that prevents the elmah.io target from loading — use 4.5.11, 4.6.1, or newer."
+  - name: Configure the elmah.io target
+    text: "Add an elmahio target to your app.config/web.config/nlog.config, e.g. <target name=\"elmahio\" type=\"elmah.io\" apiKey=\"API_KEY\" logId=\"LOG_ID\"/> (or type=\"elmah.io, Elmah.Io.NLog\" on Elmah.Io.NLog >= 5), plus a rule like <logger name=\"*\" minlevel=\"Info\" writeTo=\"elmahio\" />."
+  - name: Log messages
+    text: "Use the standard NLog API, e.g. log.Warn(\"This is a warning message\"); and log.Error(new Exception(), \"This is an error message\");."
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.nlog/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.nlog/actions?query=workflow%3Abuild)

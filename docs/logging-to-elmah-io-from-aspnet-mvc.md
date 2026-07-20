@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from ASP.NET MVC
 description: Set up error monitoring of any ASP.NET MVC project using our package built exclusively for MVC. Notifications in real-time on all uncaught errors.
+howto_steps:
+  - name: Install the Elmah.Io.Mvc NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Mvc (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Provide your API key and log ID during installation
+    text: When prompted during package installation, enter your API key and log ID. This installs Elmah.Io.Mvc along with the underlying Elmah.MVC package.
+  - name: Clean up the web.config location element
+    text: Since Elmah.MVC exposes the ELMAH UI at /elmah (instead of /elmah.axd), remove the location element added to web.config by the Elmah.Io.Mvc installer.
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io/actions?query=workflow%3Abuild)

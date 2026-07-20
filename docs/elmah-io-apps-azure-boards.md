@@ -1,6 +1,17 @@
 ---
 title: Integrate elmah.io with Azure DevOps Boards
 description: With the Azure Boards integration, all of your bugs are automatically created on Azure DevOps. Never miss new errors again by monitoring them.
+howto_steps:
+  - name: Generate a personal access token
+    text: "In Azure DevOps, click the User settings icon in the top right corner, select Personal access tokens, click New Token, enable the Read & write scope under Work Items, click Create, and copy the generated token."
+  - name: Install the Azure Boards app
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Azure Boards app, and click Install.
+  - name: Enter your access token and project details
+    text: "Paste the token into the Token textbox, input your organization name (e.g. myorg from https://dev.azure.com/myorg/myproject) into the Organization textbox, and input your project name (e.g. myproject) into the Project textbox."
+  - name: Choose a work item type and optional parent
+    text: Use the Type dropdown to select a work item template such as Bug, Task, User Story, or Product Backlog Item. Optionally fill in the Parent field with a work item, epic, or similar ID to embed created bugs beneath it.
+  - name: Save the configuration
+    text: Click Save to add the app to your log. New errors will automatically create bugs in the configured Azure Board.
 ---
 
 # Install Azure Boards App for elmah.io

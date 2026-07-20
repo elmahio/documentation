@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from a running website on IIS
 description: Publishing a new version of your website may not always be an option when wanting to monitor errors. Learn about how to add elmah.io at runtime.
+howto_steps:
+  - name: Install the elmah.io NuGet package locally
+    text: "Run: nuget install elmah.io in a folder on your computer (not on the IIS server) to download the package files."
+  - name: Copy the DLLs to the website's bin folder
+    text: Copy `Elmah.dll`, `Elmah.Io.dll`, `Elmah.Io.Client.dll`, and `Newtonsoft.Json.dll` from the downloaded package folders into the `bin` folder of the running website.
+  - name: Configure elmah.io in Web.config
+    text: Add the elmah.io configuration to `Web.config` as described in Configure elmah.io manually, skipping the Install-Package step since the package isn't installed via Visual Studio.
+  - name: Restart the website if needed
+    text: If the website doesn't start logging errors to elmah.io after saving Web.config, restart the website.
 ---
 
 # Logging to elmah.io from a running website on IIS

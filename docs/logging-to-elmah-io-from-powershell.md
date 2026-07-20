@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from PowerShell
 description: Learn how to set up error logging from a PowerShell script to elmah.io. Log errors during a build, a scheduled task, and similar with elmah.io.
+howto_steps:
+  - name: Set your API key, log ID, and request URL
+    text: "$apiKey = \"API_KEY\"; $logId = \"LOG_ID\"; $url = \"https://api.elmah.io/v3/messages/$logId/?api_key=$apiKey\"."
+  - name: Build the message body
+    text: "$body = @{ title = \"Error from PowerShell\"; severity = \"Error\"; detail = \"This is an error message logged from PowerShell\"; hostname = hostname }."
+  - name: Send the message
+    text: "Invoke-RestMethod -Method Post -Uri $url -Body ($body|ConvertTo-Json) -ContentType \"application/json-patch+json\"."
 ---
 
 # Logging to elmah.io from PowerShell

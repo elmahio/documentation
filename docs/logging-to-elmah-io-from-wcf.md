@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from WCF
 description: Learn about how to set up cloud-logging on Windows Communication Foundation (WCF). Log and visualize all exceptions happening in your WCF APIs.
+howto_steps:
+  - name: Install the Elmah.Io NuGet package
+    text: "dotnet add package Elmah.Io (or Install-Package Elmah.Io) into your WCF project."
+  - name: Provide your API key and log ID
+    text: "During installation, you will be asked for your API key and log ID."
+  - name: Create an HttpErrorHandler class
+    text: "Implement WCF's IErrorHandler interface so ProvideFault calls Elmah.ErrorSignal.FromCurrentContext().Raise(error); when error is not null."
+  - name: Create a ServiceErrorBehaviourAttribute
+    text: "Add an IServiceBehavior attribute named ServiceErrorBehaviourAttribute that, in ApplyDispatchBehavior, instantiates the error handler type and adds it to each ChannelDispatcher's ErrorHandlers collection."
+  - name: Apply the attribute to your service
+    text: "Decorate your service implementation, e.g. [ServiceErrorBehaviour(typeof(HttpErrorHandler))] public class Service1 : IService1 { ... }"
 ---
 
 # Logging to elmah.io from WCF

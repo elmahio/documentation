@@ -1,6 +1,21 @@
 ---
 title: Add MCP Server to Claude Desktop
 description: Connect your elmah.io error logs to Claude Desktop using the MCP server. Follow these steps to set up custom connectors and start debugging.
+howto_steps:
+  - name: Open the Extensions settings
+    text: Open Claude Desktop and go to File > Settings. Beneath Desktop app, click the Extensions tab.
+  - name: Browse extensions
+    text: Click the Browse extensions button, then click the custom connector link in the top.
+  - name: Add a custom connector
+    text: Click the Plus icon and select the Add custom connector option.
+  - name: Enter the elmah.io MCP server details
+    text: In the Add custom connector dialog, input the values for the elmah.io MCP server.
+  - name: Authenticate with elmah.io
+    text: Click the Add button and a browser window will open, asking you to sign into elmah.io.
+  - name: Verify the connector was added
+    text: When signed in, the elmah.io connector will be added to the list of Web connectors and the available tools will be listed when selecting the connector.
+  - name: Allow tool access
+    text: Select Always allow on all or individual tools on the settings screen, or in the dropdown on the chat window, to allow Claude Desktop to always call a tool when needed.
 ---
 
 # Add MCP Server to Claude Desktop

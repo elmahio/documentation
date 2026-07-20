@@ -1,6 +1,27 @@
 ---
 title: Add MCP Server to VS Code
 description: Set up the elmah.io MCP server in VS Code to analyze error logs directly. Follow this guide to configure the HTTP server and authorize your tools.
+howto_steps:
+  - name: Open the command palette
+    text: "Inside of VS Code, click CTRL + Shift + p to open the search view."
+  - name: Start adding an MCP server
+    text: "Search for 'mcp:' and click MCP: Add server..."
+  - name: Select the server type
+    text: Select HTTP in the choose MCP server type dropdown.
+  - name: Enter the server URL
+    text: Input the elmah.io MCP server URL in the Enter Server URL field.
+  - name: Name the server
+    text: Input a name for the MCP server.
+  - name: Start the server
+    text: A new file named mcp.json is added to the code window. If VS Code doesn't automatically prompt you to authenticate, click the Start link above the MCP server name.
+  - name: Allow authentication
+    text: VS Code will prompt to authenticate. Click the Allow button.
+  - name: Sign in to elmah.io
+    text: VS Code will prompt to open an external website. Click the Open button and a browser will open, asking you to sign into elmah.io.
+  - name: Verify the connection
+    text: When signed in, VS Code will show the discovered MCP tools.
+  - name: Allow tool access
+    text: Select Allow Tools from Elmah.Io.Mvc in this Workspace to allow VS Code to call tools without a permission prompt every time.
 ---
 
 # Add MCP Server to VS Code

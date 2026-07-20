@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from Serilog
 description: Add cloud logging of structured log messages from Serilog directly to elmah.io. Search, analyze, and instant notifications on new errors logged.
+howto_steps:
+  - name: Install the Serilog sink package
+    text: "Add the NuGet package to your project: dotnet add package Serilog.Sinks.ElmahIo (or Install-Package Serilog.Sinks.ElmahIo)."
+  - name: Configure the elmah.io sink
+    text: "Create a LoggerConfiguration and write to elmah.io: new LoggerConfiguration().WriteTo.ElmahIo(new ElmahIoSinkOptions(\"API_KEY\", new Guid(\"LOG_ID\"))).CreateLogger(); then set Log.Logger to the result. Replace API_KEY with your API key and LOG_ID with the ID of the log you want messages sent to."
+  - name: Log exceptions
+    text: "Wrap risky code in try/catch and call Log.Error(e, \"The actual error message\") to log the exception through Serilog to elmah.io."
+  - name: Flush on shutdown
+    text: "Always call Log.CloseAndFlush(); before your program terminates to make sure buffered log messages are sent."
 ---
 
 [![Build status](https://github.com/elmahio/serilog-sinks-elmahio/workflows/build/badge.svg)](https://github.com/elmahio/serilog-sinks-elmahio/actions?query=workflow%3Abuild)

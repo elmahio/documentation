@@ -1,6 +1,19 @@
 ---
 title: Set Up Deployment Tracking
 description: Deployment tracking creates an overview of different versions of your code and shows the quality of each release. Learn about how to set it up.
+howto_steps:
+  - name: Open the API keys settings
+    text: Go to the organization settings page by clicking the gears icon next to the organization name on either the dashboard or in the left menu, then select the API Keys tab.
+  - name: Create a deployment API key
+    text: Click Add API Key, fill in a name of choice, and enable the Deployments > Write permission only. Click the save button and copy the API key for later use.
+  - name: Open Swagger UI
+    text: "Navigate to https://api.elmah.io/swagger/index.html, expand the Deployments node, and click the POST request."
+  - name: Authorize the request
+    text: Input your API key in the top right corner and click the JSON beneath Model Schema. This copies the example JSON to the deployment parameter.
+  - name: Set the release version
+    text: "Fill in the deployment JSON body with your release version, for example: { \"version\": \"1.42.7\" }. The version conforms to SemVer, and the release date is added automatically if not specified."
+  - name: Create the deployment
+    text: Click the Try it out! button and the deployment is created.
 ---
 
 # Set Up Deployment Tracking

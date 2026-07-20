@@ -1,6 +1,17 @@
 ---
 title: Integrate elmah.io with ClickUp
 description: Learn how to integrate elmah.io with ClickUp. Automatically create tasks in ClickUp when new errors are logged on elmah.io.
+howto_steps:
+  - name: Install the ClickUp app
+    text: Log in to elmah.io, go to the log settings page, click the Apps tab, locate the ClickUp app, and click Install.
+  - name: Generate a ClickUp API token
+    text: In ClickUp, click the profile photo in the bottom left corner and click Apps (not the ClickApps link beneath the team). On the Apps page, generate and copy a new token beneath the API Token section.
+  - name: Find the list ID
+    text: "Go to the list in ClickUp and click the list name to copy its link (e.g. https://app.clickup.com/.../v/li/901200300647). The list ID is the last part of the URL (901200300647 in the example)."
+  - name: Enter the token and list ID, then test
+    text: Input the API token and list ID on elmah.io, then click the Test button to test the values until it turns green.
+  - name: Save the configuration
+    text: Click the Save button to add the app to your log. New errors will automatically create tasks in the configured ClickUp list.
 ---
 
 # Install ClickUp for elmah.io

@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from Orchard CMS
 description: Learn how to set up error logging to elmah.io from Orchard CMS. Integration from either ASP.NET Core or MVC to start monitoring your website.
+howto_steps:
+  - name: Install the NuGet packages
+    text: "Run: dotnet add package Elmah.Io.Client and dotnet add package Elmah.Io.AspNetCore (or the Package Manager/PackageReference/Paket equivalents)."
+  - name: Wire up elmah.io in Startup.cs
+    text: "In ConfigureServices, call services.AddElmahIo(o => { o.ApiKey = \"API_KEY\"; o.LogId = new Guid(\"LOG_ID\"); });. In Configure, call app.UseElmahIo(); after other exception-handling middleware like UseDeveloperExceptionPage."
+  - name: Install Elmah.Io.NLog
+    text: "Run: dotnet add package Elmah.Io.NLog (or equivalent) to also route Orchard's internal NLog logging to elmah.io."
+  - name: Add the elmah.io target to NLog.config
+    text: "Add <add assembly=\"Elmah.Io.NLog\"/> under <extensions>, a <target name=\"elmahio\" type=\"elmah.io\" apiKey=\"API_KEY\" logId=\"LOG_ID\"/> under <targets>, and <logger name=\"*\" minlevel=\"Warn\" writeTo=\"elmahio\" /> under <rules> in NLog.config."
 ---
 
 # Logging to elmah.io from Orchard CMS

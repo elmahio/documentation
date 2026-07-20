@@ -1,6 +1,39 @@
 ---
 title: Logging heartbeats from Windows Scheduled Tasks
 description: Logging failing Windows Scheduled Tasks as elmah.io heartbeats will help you monitor as soon as a scheduled task fails.
+howto_steps:
+  - name: Open Task Scheduler and create a task
+    text: "Open Task Scheduler, go to Task Scheduler Library, click Create Task..., and give the new task a proper name."
+  - name: Add an event-based trigger
+    text: "In the Triggers tab click New..., then in the New Trigger window select On an event in the Begin the task dropdown and select the Custom radio button in Settings."
+  - name: Configure the custom event filter
+    text: |
+      Click New Event Filter..., select the XML tab, check Edit query manually, and input a query that triggers on Application Error messages from your app, for example:
+      <QueryList>
+        <Query Id="0" Path="Application">
+          <Select Path="Application">
+      *[System[Provider[@Name='Application Error']]]
+      and
+      *[EventData[(Data[@Name="AppName"]="ConsoleApp14.exe")]]
+          </Select>
+        </Query>
+      </QueryList>
+      Replace ConsoleApp14.exe with the filename of your app. Click OK, then click OK again to save the trigger.
+  - name: Add the action to start the PowerShell script
+    text: "Select the Actions tab, click New..., select Start a program in the Action dropdown, input the program and script path, then click OK to save the action and OK to save the task."
+  - name: Add the heartbeat PowerShell script
+    text: |
+      Create the script referenced by the action (for example c:\scripts\heartbeat.ps1) to log an Unhealthy heartbeat when the task is triggered:
+      $apiKey = "API_KEY"
+      $logId = "LOG_ID"
+      $heartbeatId = "HEARTBEAT_ID"
+      $url = "https://api.elmah.io/v3/heartbeats/$logId/$heartbeatId/?api_key=$apiKey"
+
+      $body = @{
+          result = "Unhealthy"
+          reason = "Error in scheduled task"
+      }
+      Invoke-RestMethod -Method Post -Uri $url -Body ($body|ConvertTo-Json) -ContentType "application/json-patch+json"
 ---
 
 # Logging heartbeats from Windows Scheduled Tasks

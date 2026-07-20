@@ -1,6 +1,15 @@
 ---
 title: Create deployments from Octopus Deploy
 description: Notifying elmah.io of a new deployment from Octopus Deploy is supported through a custom step template. Learn how to set it up in this article.
+howto_steps:
+  - name: Search for the step template
+    text: In the Process Editor, click the ADD STEP button and, in Choose Step Template, search for 'elmah.io'.
+  - name: Install the community step template
+    text: Hover over the 'elmah.io - Register Deployment' community template and click the INSTALL AND ADD button.
+  - name: Confirm the installation
+    text: In the Install and add modal, click the SAVE button.
+  - name: Configure and save the step
+    text: Fill in your API key and log ID in the step template fields and click the SAVE button. Use the Version field if you want an alternative version naming scheme.
 ---
 
 # Create deployments from Octopus Deploy

@@ -1,6 +1,15 @@
 ---
 title: Integrate elmah.io with YouTrack
 description: Integrate elmah.io with YouTrack to automatically create a list of issues from your production environment. Follow up on all new errors.
+howto_steps:
+  - name: Generate a permanent token
+    text: Go to your YouTrack profile, click Account Security, generate a new permanent token, and copy the generated token.
+  - name: Install the YouTrack app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the YouTrack app, and click Install.
+  - name: Enter your token and URL, then log in
+    text: Input your token and the base URL of your YouTrack Cloud installation, then click the Login button to fetch the list of projects from YouTrack.
+  - name: Save the configuration
+    text: Click Save to add the app to your log. New errors will automatically create issues in the configured YouTrack project.
 ---
 
 # Install YouTrack App for elmah.io

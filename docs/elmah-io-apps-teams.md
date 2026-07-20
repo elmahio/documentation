@@ -1,6 +1,21 @@
 ---
 title: Integrate elmah.io with Microsoft Teams
 description: Notify your team when new errors are introduced in production. With the elmah.io app for Microsoft Teams time from introducing a bug to fix is heavily reduced.
+howto_steps:
+  - name: Open the Workflows menu for a channel
+    text: In Microsoft Teams, click the ⋯ menu item next to the channel you want elmah.io to post messages to, then click the Workflows menu item.
+  - name: Select the webhook template
+    text: In the Workflows dialog, search for 'webhook' and select the 'Post to a channel when a webhook request is received' template.
+  - name: Validate the connection
+    text: Confirm or rename the generated workflow name, make sure a green checkmark is shown, and click the Next button.
+  - name: Select team and channel
+    text: Make sure the correct team and channel are selected, then click the Add workflow button.
+  - name: Copy the webhook URL
+    text: Once the workflow is added, copy the generated webhook URL and click the Done button.
+  - name: Install the Microsoft Teams app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Microsoft Teams v2 app, and click Install.
+  - name: Paste the webhook URL and save
+    text: In the overlay, paste the webhook URL copied earlier, then click Save to add the app to your log.
 ---
 
 # Install Microsoft Teams App for elmah.io

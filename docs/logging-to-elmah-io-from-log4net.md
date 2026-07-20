@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from log4net
 description: Learn about how to add error monitoring and storing log4net messages in the cloud with elmah.io. Simple setup using a single NuGet package.
+howto_steps:
+  - name: Install the elmah.io appender
+    text: "Run: dotnet add package Elmah.Io.Log4Net (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Enable the XML configurator
+    text: Add [assembly:log4net.Config.XmlConfigurator(Watch = true)] to your AssemblyInfo.cs file.
+  - name: Register the log4net config section
+    text: "Add <section name=\"log4net\" type=\"log4net.Config.Log4NetConfigurationSectionHandler, log4net\" /> to your web/app.config file."
+  - name: Configure the ElmahIoAppender
+    text: "Add a log4net element to web/app.config with an ElmahIoAppender pointing at logId and apiKey values, and a root level (e.g. Info) referencing the appender."
+  - name: Write log statements
+    text: "Use the usual log4net API, e.g. var log = log4net.LogManager.GetLogger(typeof(HomeController)); log.Info(\"Trying something\"); log.Error(\"Error happening\", ex);."
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.log4net/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.log4net/actions?query=workflow%3Abuild)

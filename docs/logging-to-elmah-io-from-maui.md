@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from MAUI
 description: Try out our alpha support for logging uncaught errors from .NET MAUI to elmah.io. Get crashes from real users logged instantly and react before your users.
+howto_steps:
+  - name: Install Elmah.Io.Blazor.Wasm
+    text: "Run: dotnet add package Elmah.Io.Blazor.Wasm --prerelease (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Configure the elmah.io logger
+    text: "In MauiProgram.cs, call builder.Logging.AddElmahIo(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }); on the MauiAppBuilder."
+  - name: Handle uncaught exceptions manually
+    text: "Subscribe to MauiExceptions.UnhandledException (or the platform-specific unhandled exception event, e.g. AppDomain.CurrentDomain.FirstChanceException on Windows) and log the exception via logger.LogError(exception, exception.GetBaseException().Message)."
 ---
 
 # Logging to elmah.io from MAUI

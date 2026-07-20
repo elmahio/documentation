@@ -1,6 +1,27 @@
 ---
 title: Create deployments from PowerShell
 description: If you release your software using a build or deployment server, creating the new release is easy using a bit of PowerShell. Read more here.
+howto_steps:
+  - name: Write the deployment script
+    text: |
+      $version = "1.42.7"
+      $url = 'https://api.elmah.io/v3/deployments?api_key=API_KEY'
+      $body = @{
+        version = $version
+      }
+      Invoke-RestMethod -Method Post -Uri $url -Body $body
+  - name: Replace the API key placeholder
+    text: Replace API_KEY with your API key found on your organization settings page.
+  - name: Extend the payload with more details
+    text: |
+      Optionally expand $body with more fields, e.g.:
+      version = "1.0.0"
+      created = [datetime]::UtcNow.ToString("o")
+      description = "my deployment"
+      userName = "Thomas"
+      userEmail = "thomas@elmah.io"
+      logId = "39e60b0b-21b4-4d12-8f09-81f3642c64be"
+      Set logId to attach the deployment to a single log, and use description (Markdown supported) for a changelog.
 ---
 
 # Create deployments from PowerShell

@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from WPF
 description: Learn about how to set up cloud-logging on WPF applications using elmah.io. Catch and log all errors happening on installations of your client.
+howto_steps:
+  - name: Install the Elmah.Io.Wpf package
+    text: "dotnet add package Elmah.Io.Wpf (or Install-Package Elmah.Io.Wpf)."
+  - name: Initialize elmah.io in App.xaml.cs
+    text: "In the App constructor, call: ElmahIoWpf.Init(new ElmahIoWpfOptions { ApiKey = \"API_KEY\", LogId = new Guid(\"LOG_ID\") }); Replace API_KEY with your API key and LOG_ID with the id of the log where you want errors logged."
+  - name: Generate a scoped API key
+    text: "Generate a new API key with the messages_write permission only, so it can be revoked easily if compromised."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Wpf/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Wpf/actions?query=workflow%3Abuild)

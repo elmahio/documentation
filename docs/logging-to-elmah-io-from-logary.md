@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Logary
 description: Learn about how to set up logging to elmah.io from Logary. Add cloud logging and error monitoring to F# in a breeze with Logary and elmah.io.
+howto_steps:
+  - name: Install Logary.Targets.ElmahIO
+    text: "Run: dotnet add package Logary.Targets.ElmahIO (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Configure the elmah.io target
+    text: "In F#, add ElmahIO.create { logId = Guid.Parse \"LOG_ID\"; apiKey = \"API_KEY\" } \"elmah.io\" to withTargets and Rule.createForTarget \"elmah.io\" to withRules. In C#, use .Target<ElmahIO.Builder>(\"elmah.io\", conf => conf.Target.SendTo(logId: \"LOG_ID\", apiKey: \"API_KEY\"))."
+  - name: Log messages
+    text: "In F#, get a logger with logary.getLogger and call Message.event Info \"...\" |> Message.setField ... |> Logger.logSimple logger. In C#, call logger.LogEventFormat(LogLevel.Fatal, \"Unhandled {exception}!\", e)."
 ---
 
 [![NuGet](https://img.shields.io/nuget/v/Logary.Targets.ElmahIO.svg)](https://www.nuget.org/packages/Logary.Targets.ElmahIO/)

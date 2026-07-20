@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from C# and console applications
 description: Set up logging from any C# and/or console application with the elmah.io client. In case you don't want to include a logging framework, use this.
+howto_steps:
+  - name: Install the Elmah.Io.Client NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Client (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Create an ElmahioAPI instance
+    text: 'Call var logger = ElmahioAPI.Create("API_KEY");, replacing API_KEY with your API key.'
+  - name: Log messages using the Messages methods
+    text: 'Use logger.Messages.Fatal, Error, Warning, Information, Debug, or Verbose with your log ID (as a Guid) to log at different severities, e.g. logger.Messages.Error(logId, new ApplicationException("An exception"), "Error message");.'
+  - name: Catch and log unhandled exceptions
+    text: 'Hook AppDomain.CurrentDomain.UnhandledException to catch exceptions the try/catch misses, and call logger.Messages.CreateAndNotify(logId, new CreateMessage { ... }) with details like Title, Detail, Severity, Source, and Type pulled from the exception.'
 ---
 
 # Logging to elmah.io from C\# and console applications

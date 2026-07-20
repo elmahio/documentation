@@ -1,6 +1,13 @@
 ---
 title: Logging from ASP.NET Core
 description: "To log all warnings and errors from ASP.NET Core, install the following NuGet package: Install-Package Elmah.Io.AspNetCore. Call the AddElmahIo method."
+howto_steps:
+  - name: Install the Elmah.Io.AspNetCore NuGet package
+    text: 'Run: dotnet add package Elmah.Io.AspNetCore (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Call AddElmahIo with your API key and log ID
+    text: 'In Program.cs (or ConfigureServices in Startup.cs), call builder.Services.AddElmahIo(options => { options.ApiKey = "API_KEY"; options.LogId = new Guid("LOG_ID"); }), replacing API_KEY and LOG_ID with your values.'
+  - name: Call UseElmahIo
+    text: Call app.UseElmahIo() (or the equivalent in the Configure method for Startup.cs-based apps), placed after exception and auth middleware like UseExceptionHandler and UseAuthentication, but before UseEndpoints or MapRazorPages.
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.AspNetCore/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.AspNetCore/actions?query=workflow%3Abuild)

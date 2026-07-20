@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from SignalR
 description: Easy logging and error monitoring in SignalR using elmah.io and Microsoft.Extensions.Logging. Get instant notifications when errors happen.
+howto_steps:
+  - name: Install the Elmah.Io.Extensions.Logging package
+    text: "dotnet add package Elmah.Io.Extensions.Logging (or Install-Package Elmah.Io.Extensions.Logging)."
+  - name: Add the using statement
+    text: "In Program.cs, add: using Elmah.Io.Extensions.Logging;"
+  - name: Configure elmah.io logging
+    text: "builder.Logging.AddElmahIo(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }); builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning); Replace API_KEY with your API key and LOG_ID with the log Id of the log you want to log to."
+  - name: Increase SignalR log verbosity if needed
+    text: "To see more detail from SignalR itself, add: logging.AddFilter(\"Microsoft.AspNetCore.SignalR\", LogLevel.Debug); logging.AddFilter(\"Microsoft.AspNetCore.Http.Connections\", LogLevel.Debug); Be aware this generates a lot of messages."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)

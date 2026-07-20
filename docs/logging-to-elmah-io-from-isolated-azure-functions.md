@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Isolated Azure Functions
 description: Logging errors to elmah.io from Isolated Azure Functions requires only a few lines of code. We've created a client specifically for Functions.
+howto_steps:
+  - name: Install the NuGet package
+    text: "Run: dotnet add package Elmah.Io.Functions.Isolated (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Add a using directive
+    text: Add using Elmah.Io.Functions.Isolated; to the top of the Program.cs file.
+  - name: Call AddElmahIo
+    text: "Using IHostBuilder, call app.AddElmahIo(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }) inside ConfigureFunctionsWorkerDefaults. On .NET 9 with IHostApplicationBuilder, call builder.AddElmahIo(options => { ... }) directly."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Functions.Isolated/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Functions.Isolated/actions?query=workflow%3Abuild)

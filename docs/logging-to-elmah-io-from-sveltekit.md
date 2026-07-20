@@ -1,6 +1,11 @@
 ---
 title: Logging to elmah.io from SvelteKit
 description: Utilize elmah.io to log all errors from a single-page SvelteKit app. Detailed client information, instant notifications, and much more with elmah.io.
+howto_steps:
+  - name: Install the elmah.io.javascript package
+    text: "Install the elmah.io.javascript npm package as described in Logging from JavaScript."
+  - name: Add error handling to hooks.client.js
+    text: "Create the src/hooks.client.js file if it doesn't exist and add: import Elmahio from 'elmah.io.javascript'; var logger = new Elmahio({ apiKey: 'API_KEY', logId: 'LOG_ID' }); export function handleError({ error, event }) { if (error && error.message) { logger.error(error.message, error); } else { logger.error('Error in application', error); } }"
 ---
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)

@@ -1,6 +1,11 @@
 ---
 title: Logging to elmah.io from Piranha CMS
 description: Learn how to set up error logging to elmah.io from the headless CMS Piranha. Install a NuGet package and a few lines of code and you're done.
+howto_steps:
+  - name: Install Elmah.Io.AspNetCore
+    text: "Run: dotnet add package Elmah.Io.AspNetCore (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Wire up elmah.io in Startup.cs
+    text: "In ConfigureServices, call services.AddElmahIo(o => { o.ApiKey = \"API_KEY\"; o.LogId = new Guid(\"LOG_ID\"); });. In Configure, call app.UseElmahIo(); after other exception-handling middleware (like UseDeveloperExceptionPage) but before the call to UsePiranha."
 ---
 
 # Logging to elmah.io from Piranha CMS

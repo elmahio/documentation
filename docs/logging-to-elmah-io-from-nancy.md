@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Nancy
 description: Learn about how to add error monitoring and cloud logging to any Nancy website with elmah.io. Simply install two NuGet packages and you are done.
+howto_steps:
+  - name: Install Elmah.Io
+    text: "Run: dotnet add package Elmah.Io (or the Package Manager/PackageReference/Paket equivalent). During installation you'll be prompted for your API key and log ID."
+  - name: Install Nancy.Elmah
+    text: "Run: dotnet add package Nancy.Elmah (or equivalent) after Elmah.Io — installing in this order avoids conflicts writing the ELMAH configuration to web.config."
+  - name: Hook Nancy.Elmah into the pipeline
+    text: "Create a Bootstrapper class overriding DefaultNancyBootstrapper, and in ApplicationStartup call base.ApplicationStartup(container, pipelines); followed by Elmahlogging.Enable(pipelines, \"elmah\");."
 ---
 
 # Logging to elmah.io from Nancy

@@ -1,6 +1,21 @@
 ---
 title: Integrate elmah.io with Atlassian Bitbucket
 description: Maintain a list of bugs using our Bitbucket app. Let elmah.io do the work and use the extra time fixing bugs rather than navigating bug trackers.
+howto_steps:
+  - name: Start generating an API token
+    text: "Click your user in the top right corner, select Account settings, click the Security page, and click the Create and manage API tokens link (https://id.atlassian.com/manage-profile/security/api-tokens). Click Create API token with scopes."
+  - name: Name the token
+    text: Input a name of choice, select an expiration date for the token, and click Next.
+  - name: Select the app
+    text: Select Bitbucket and click Next.
+  - name: Choose scopes
+    text: "Select the read:issue:bitbucket, write:issue:bitbucket, and read:repository:bitbucket scopes (the last one can be left out but the Test button on elmah.io won't work then)."
+  - name: Create and copy the token
+    text: On the confirmation page, click the Create token button and copy the generated API token.
+  - name: Install the Bitbucket app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Bitbucket app, and click Install.
+  - name: Configure and save the integration
+    text: Paste the API token into the API TOKEN textbox, input the team/workspace name into the TEAM textbox, input the repository name into the REPOSITORY textbox, input the email of the user who generated the token into the USERNAME textbox, and click Save.
 ---
 
 # Install Bitbucket App for elmah.io

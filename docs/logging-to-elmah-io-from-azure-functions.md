@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Azure Functions
 description: Logging errors to elmah.io from Azure Functions requires only a few lines of code. We've created a client specifically for Azure Functions.
+howto_steps:
+  - name: Install the Elmah.Io.Functions NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Functions (or the equivalent Package Manager, PackageReference, or Paket command) in your Azure Functions project.'
+  - name: Configure options and register the exception filter
+    text: 'In the Configure method of Startup.cs, set ElmahIoFunctionOptions with your ApiKey and LogId, then register the filter with builder.Services.AddSingleton<IFunctionFilter, ElmahIoExceptionFilter>().'
+  - name: Add apiKey and logId to your settings
+    text: Add apiKey and logId to the Values section of local.settings.json, then replace API_KEY and LOG_ID with your real values (or override them with application settings/environment variables when running on Azure).
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Functions/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Functions/actions?query=workflow%3Abuild)

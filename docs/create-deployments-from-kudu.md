@@ -1,6 +1,16 @@
 ---
 title: Create deployments from Kudu
 description: Kudu is the engine behind Git deployments on Microsoft Azure. Learn how to create an elmah.io deployment when you deploy app services to Azure.
+howto_steps:
+  - name: Open the Kudu debug console
+    text: "Navigate to https://yoursite.scm.azurewebsites.net (replacing yoursite with your Azure website name), click Debug console, and navigate to site\\deployments\\tools\\PostDeploymentActions (create it if it doesn't exist)."
+  - name: Create the PowerShell script file
+    text: "In the console prompt, run: touch CreateDeployment.ps1"
+  - name: Write the deployment script
+    text: |
+      Add a post-deployment script that generates a version from the current date, fetches commit info from the Kudu deployments endpoint ($deployUrl = "https://$httpHost/api/deployments/$commitId") using Basic auth built from MY_USERNAME/MY_PASSWORD, then POSTs version, description, userName and userEmail to https://api.elmah.io/v3/deployments?api_key=API_KEY with Invoke-RestMethod -Method Post.
+  - name: Replace the placeholders
+    text: Replace MY_USERNAME and MY_PASSWORD with your Azure deployment credentials, and API_KEY with your elmah.io API key found on your organization settings page.
 ---
 
 # Create deployments from Kudu

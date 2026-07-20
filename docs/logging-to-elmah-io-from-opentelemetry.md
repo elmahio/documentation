@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from OpenTelemetry
 description: Learn about how to send structured logs from OpenTelemetry. Use a standardized logging system with elmah.io.
+howto_steps:
+  - name: Install Elmah.Io.OpenTelemetry
+    text: "Run: dotnet add package Elmah.Io.OpenTelemetry --prerelease (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Configure the elmah.io exporter
+    text: "In Program.cs, call builder.Logging.AddOpenTelemetry(options => { options.AddElmahIoExporter(options => { options.ApiKey = \"API_KEY\"; options.LogId = new Guid(\"LOG_ID\"); }); });."
+  - name: Limit log volume with a filter
+    text: "Add builder.Logging.AddFilter<OpenTelemetryLoggerProvider>(\"*\", LogLevel.Warning); to only send warnings and up, avoiding wasted message quota on debug/information messages."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.OpenTelemetry/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.OpenTelemetry/actions?query=workflow%3Abuild)

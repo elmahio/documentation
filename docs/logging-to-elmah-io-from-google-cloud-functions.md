@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from Google Cloud Functions
 description: Configure error monitoring and log management on Google Cloud Functions with elmah.io. Simple install of the integration and you're flying.
+howto_steps:
+  - name: Install the NuGet package
+    text: "Run: dotnet add package Elmah.Io.Extensions.Logging (or the Package Manager/PackageReference/Paket equivalent)."
+  - name: Create a Startup.cs file
+    text: "In the root of your Function app, add a Startup class implementing FunctionsStartup that calls services.AddLogging(logging => logging.AddElmahIo(o => { o.ApiKey = \"API_KEY\"; o.LogId = new Guid(\"LOG_ID\"); })) and adds a filter for ElmahIoLoggerProvider at LogLevel.Warning."
+  - name: Replace the API key and log ID
+    text: Replace API_KEY with your API key and LOG_ID with the ID of the log to store messages in.
+  - name: Decorate the function with FunctionsStartup
+    text: "Add [FunctionsStartup(typeof(Startup))] above your function class, e.g. public class Function : IHttpFunction."
+  - name: Log messages manually (optional)
+    text: "Inject an ILogger<Function> in the function constructor and call _logger.LogWarning(\"Your log message goes here\") to log messages manually."
 ---
 
 # Logging to elmah.io from Google Cloud Functions

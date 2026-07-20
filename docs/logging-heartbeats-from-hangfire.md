@@ -1,6 +1,23 @@
 ---
 title: Logging heartbeats from Hangfire
 description: Monitoring if Hangfire tasks are successfully executed or even run can be a challenge. With elmah.io Heartbeats, we provide native monitoring.
+howto_steps:
+  - name: Install the Elmah.Io.Heartbeats.Hangfire package
+    text: "Install the Elmah.Io.Heartbeats.Hangfire NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Heartbeats.Hangfire"
+  - name: Schedule the recurring job
+    text: |
+      Schedule a recurring job, for example a method named Test running every minute:
+      RecurringJob.AddOrUpdate(() => Test(), Cron.Minutely);
+  - name: Decorate the method with the ElmahIoHeartbeat attribute
+    text: |
+      Add "using Elmah.Io.Heartbeats.Hangfire;" and decorate the scheduled method:
+      [ElmahIoHeartbeat("API_KEY", "LOG_ID", "HEARTBEAT_ID")]
+      public void Test()
+      {
+          // ...
+      }
+  - name: Replace the placeholder values
+    text: "Replace API_KEY, LOG_ID, and HEARTBEAT_ID with the correct values from elmah.io."
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Heartbeats.Hangfire/actions?query=workflow%3Abuild)

@@ -1,6 +1,13 @@
 ---
 title: Create deployments from Azure DevOps Releases
 description: If you are using Releases in Azure DevOps, you should use our extension to notify elmah.io about new deployments. Learn how to install it here.
+howto_steps:
+  - name: Install the extension
+    text: "Go to the elmah.io Deployment Tasks extension on the Azure DevOps Marketplace and click Get it free: https://marketplace.visualstudio.com/items?itemName=elmahio.deploy-tasks"
+  - name: Install it into your organization
+    text: Select your organization and click the Install button.
+  - name: Add and configure the deployment task
+    text: Go to your Azure DevOps project and add the elmah.io Deployment Notification task. Replace API_KEY with an API key with permission to create deployments, and LOG_ID with a log ID if the deployment should be specific to one log (deployments without a log ID show on all logs). The task uses the current release name (RELEASE_RELEASENAME) as the version by default; override this in the Version text box if needed.
 ---
 
 # Create deployments from Azure DevOps Releases

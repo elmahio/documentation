@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from a running website on Azure
 description: Using the elmah.io Site Extension for Azure App Services, error logging can be added to an already running website on Azure. Learn how.
+howto_steps:
+  - name: Open the Extensions tool in the Azure Portal
+    text: In the Azure Portal, select the website you want to monitor and click the Extensions tool.
+  - name: Add the elmah.io site extension
+    text: Click Add and select ".NET elmah.io for Azure" from the list.
+  - name: Accept the terms and restart the website
+    text: Accept the terms, click Add, then restart the website once the elmah.io Site Extension has been added so it loads.
+  - name: Add your API key and log ID as application settings
+    text: In Application settings, add the app setting names `ELMAHIO_APIKEY` and `ELMAHIO_LOGID` with your API key and log ID.
 ---
 
 # Logging to elmah.io from a running website on Azure

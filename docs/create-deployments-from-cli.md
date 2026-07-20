@@ -1,6 +1,13 @@
 ---
 title: Create deployments from the elmah.io CLI
 description: Deployments can be easily created from either the command line or a build server using the elmah.io CLI. Here's a quick guideline.
+howto_steps:
+  - name: Install the elmah.io CLI
+    text: "If not already installed, run: dotnet tool install --global Elmah.Io.Cli"
+  - name: Create a new deployment
+    text: "Run: elmahio deployments create --apiKey API_KEY --version 1.0.0"
+  - name: Reduce log output on build servers
+    text: "When calling the CLI from a build server, add the --nologo parameter to exclude the elmah.io logo and copyright message: elmahio deployments create --nologo --apiKey API_KEY --version 1.0.0"
 ---
 
 # Create deployments from the elmah.io CLI

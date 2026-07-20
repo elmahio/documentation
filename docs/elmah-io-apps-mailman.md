@@ -1,6 +1,11 @@
 ---
 title: Set up mail notifications on new errors
 description: The Mailman app for elmah.io sends out an email to an address of your choice, every time a new error is logged.
+howto_steps:
+  - name: Open the Mailman settings
+    text: Click the Install button on the Apps tab to open the Mailman settings page.
+  - name: Enter an email address and save
+    text: Input a valid email address in the Email input box and click Save.
 ---
 
 # Install Mailman App for elmah.io

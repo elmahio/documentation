@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Azure WebJobs
 description: Logging errors to elmah.io from Azure WebJobs requires only a few lines of code. We've created a client specifically for Azure WebJobs.
+howto_steps:
+  - name: Install the Elmah.Io.Functions package (version 3.1.23)
+    text: 'Run: dotnet add package Elmah.Io.Functions --version 3.1.23 (or the equivalent Package Manager, PackageReference, or Paket command). Support for WebJobs was removed in later versions.'
+  - name: Add the ElmahIoExceptionFilter attribute to your Functions class
+    text: 'Decorate the class with [ElmahIoExceptionFilter("API_KEY", "LOG_ID")], replacing API_KEY and LOG_ID with your values. If a WebJob method is declared async, change its return type to Task, otherwise the filter is never invoked.'
+  - name: Optionally use config variables instead of hardcoded values
+    text: 'Use [ElmahIoExceptionFilter("%apiKey%", "%logId%")] and add matching apiKey and logId entries to the appSettings section of App.config.'
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Functions/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Functions/actions?query=workflow%3Abuild)

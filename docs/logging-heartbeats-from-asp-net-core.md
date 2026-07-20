@@ -1,6 +1,17 @@
 ---
 title: Logging heartbeats from ASP.NET Core
 description: ASP.NET Core offers a feature called Health Checks. Heartbeats on elmah.io support health checks too by publishing results as heartbeats.
+howto_steps:
+  - name: Install the health checks package
+    text: "Install the Elmah.Io.AspNetCore.HealthChecks NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.AspNetCore.HealthChecks"
+  - name: Configure the elmah.io health check publisher
+    text: >-
+      Add AddElmahIoPublisher when configuring health checks:
+      builder.Services.AddHealthChecks().AddElmahIoPublisher(options => {
+      options.ApiKey = "API_KEY"; options.LogId = new Guid("LOG_ID");
+      options.HeartbeatId = "HEARTBEAT_ID"; });
+  - name: Replace the placeholder values
+    text: "Replace API_KEY, LOG_ID, and HEARTBEAT_ID with the values from Set up Heartbeats, using an API key with the Heartbeats - Write permission."
 ---
 
 # Logging heartbeats from ASP.NET Core

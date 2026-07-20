@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from System.Diagnostics
 description: Log trace and debug message from System.Diagnostics directly to elmah.io. Add cloud monitoring of internal .NET logging using Elmah.Io.Trace.
+howto_steps:
+  - name: Install the Elmah.Io.Trace package
+    text: "dotnet add package Elmah.Io.Trace (or Install-Package Elmah.Io.Trace)."
+  - name: Register the elmah.io trace listener
+    text: "System.Diagnostics.Trace.Listeners.Add(new ElmahIoTraceListener(\"API_KEY\", new Guid(\"LOG_ID\"))); Replace API_KEY with your API key and LOG_ID with your log id."
+  - name: Log messages and exceptions via Trace
+    text: "Call the Trace API to log messages, e.g. System.Diagnostics.Trace.Write(\"Starting something dangerous\"); and log exceptions with System.Diagnostics.Trace.Fail(e.Message, e.ToString()); inside a catch block."
 ---
 
 # Logging to elmah.io from System.Diagnostics

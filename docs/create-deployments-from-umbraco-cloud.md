@@ -1,6 +1,23 @@
 ---
 title: Create deployments from Umbraco Cloud
 description: Umbraco Cloud uses Azure to host Umbraco websites, so supporting deployment tracking corresponds to the steps for Kudu. Learn more about it here.
+howto_steps:
+  - name: Open the Umbraco Cloud debug console
+    text: "Navigate to https://your-umbraco-site.scm.s1.umbraco.io (replacing your-umbraco-site with your site name), click the Debug console link, and navigate to site\\deployments\\tools\\PostDeploymentActions\\deploymenthooks (create it if it doesn't exist)."
+  - name: Create the cmd file
+    text: |
+      Umbraco Cloud only executes cmd and bat files. Run: touch create-deployment.cmd, with the content:
+      echo "Creating elmah.io deployment"
+      cd %POST_DEPLOYMENT_ACTIONS_DIR%
+      cd deploymenthooks
+      powershell -command ". .\create-deployment.ps1"
+  - name: Create the PowerShell script file
+    text: "Run: touch create-deployment.ps1"
+  - name: Write the deployment script
+    text: |
+      Add a script that generates a version from the current date, fetches commit info from https://your-umbraco-site.scm.s1.umbraco.io/api/deployments/$commitId using Basic auth built from MY_USERNAME/MY_PASSWORD, then POSTs version, description, userName, userEmail and logId to https://api.elmah.io/v3/deployments?api_key=API_KEY with Invoke-RestMethod -Method Post.
+  - name: Replace the placeholders
+    text: Replace your-umbraco-site with your site name, MY_USERNAME and MY_PASSWORD with your Umbraco Cloud credentials, LOG_ID with your elmah.io log ID, and API_KEY with your elmah.io API key found on your organization settings page.
 ---
 
 # Create deployments from Umbraco Cloud

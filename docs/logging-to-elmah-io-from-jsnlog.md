@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from JSNLog
 description: Learn about how to add JavaScript logging to elmah.io using JSNLog. Log errors directly to the cloud and identify uncaught client-side errors.
+howto_steps:
+  - name: Install JSNLog.Elmah
+    text: "Run: dotnet add package JSNLog.Elmah (or the Package Manager/PackageReference/Paket equivalent) to install JSNLog with ELMAH as an appender."
+  - name: Install Elmah.Io
+    text: "Run: dotnet add package Elmah.Io. During installation you'll be prompted for your API key and log ID."
+  - name: Add the JSNLog script block
+    text: Add @Html.Raw(JSNLog.JavascriptLogging.Configure()) before any script imports in your _Layout.cshtml file.
+  - name: Test the integration
+    text: "Launch the web app and run JL().fatal(\"log message\"); in the browser's developer tools console, then check your elmah.io log for the new error."
+  - name: Log every JavaScript error
+    text: "Add a window.onerror handler at the bottom of _Layout.cshtml that calls JL(\"onerrorLogger\").fatalException({ msg, errorMsg, url, \"line number\": lineNumber, column }, errorObj) and returns false."
 ---
 
 # Logging to elmah.io from JSNLog

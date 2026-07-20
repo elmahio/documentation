@@ -1,6 +1,11 @@
 ---
 title: Logging to elmah.io from JavaScript
 description: Set up error monitoring of single-page applications using elmah.io's integration with JavaScript. Works with React, Angular, Vue, and more.
+howto_steps:
+  - name: Install elmah.io.javascript
+    text: "Install via npm: npm install elmah.io.javascript (or download the zip from GitHub releases, use the CDN, Bower, LibMan, or the elmah.io.javascript NuGet package for classic ASP.NET projects)."
+  - name: Reference the script on your page
+    text: "Reference elmahio.min.js just before the closing </body> tag (but before other JavaScript files), e.g. <script src=\"~/node_modules/elmah.io.javascript/dist/elmahio.min.js?apiKey=API_KEY&logId=LOG_ID\" type=\"text/javascript\"></script>."
 ---
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)

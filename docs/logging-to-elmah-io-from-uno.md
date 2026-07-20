@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Uno
 description: Learn about how to set up error monitoring and log uncaught exceptions from Uno applications to elmah.io. Get crash reports from your users.
+howto_steps:
+  - name: Install the Elmah.Io.Uno package
+    text: "dotnet add package Elmah.Io.Uno --prerelease (or Install-Package Elmah.Io.Uno -IncludePrerelease). Install the package in all platform projects since it is configured from the shared project."
+  - name: Add elmah.io to the logging factory
+    text: "In App.xaml.cs, locate the InitializeLogging method and add: builder.AddElmahIo(\"API_KEY\", new Guid(\"LOG_ID\")); Replace API_KEY with your API key and LOG_ID with the log Id of the log you want to log to."
+  - name: Log messages manually (optional)
+    text: "Add using Microsoft.Extensions.Logging; and using Uno.Extensions;, then call this.Log().LogWarning(\"Oh no\");"
 ---
 
 [![Build status](https://github.com/elmahio/elmah.io.uno/workflows/build/badge.svg)](https://github.com/elmahio/elmah.io.uno/actions?query=workflow%3Abuild)

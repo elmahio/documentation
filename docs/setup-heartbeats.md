@@ -1,6 +1,21 @@
 ---
 title: Set up Heartbeats
 description: Heartbeats complement the elmah.io Error Logging and Uptime Monitoring features. Learn about monitoring scheduled tasks and services.
+howto_steps:
+  - name: Open the Heartbeats tab
+    text: Open a log on elmah.io and navigate to the Heartbeats tab.
+  - name: Create a heartbeat
+    text: Click the Add Heartbeat button and fill in a name. Set Interval to how often your task runs (e.g. 30 minutes) and Grace to the buffer time allowed (e.g. 5 minutes) before elmah.io logs an error.
+  - name: Generate a Heartbeats API key
+    text: Go to the organization settings page, click the API Keys tab, add a new API key, and check the Heartbeats - Write permission only.
+  - name: Copy the log ID and heartbeat ID
+    text: Navigate back to your log and click the Instructions link on the newly created heartbeat to reveal the log ID and heartbeat ID. Copy and store both values.
+  - name: Install the client library
+    text: "Install the Elmah.Io.Client NuGet package, for example: dotnet add package Elmah.Io.Client"
+  - name: Add the heartbeat code
+    text: "Add code like the following to your application: var logId = new Guid(\"LOG_ID\"); var api = ElmahioAPI.Create(\"API_KEY\"); then call api.Heartbeats.Healthy(logId, \"HEARTBEAT_ID\") on success, or api.Heartbeats.Unhealthy(logId, \"HEARTBEAT_ID\") in a catch block."
+  - name: Replace the placeholder values
+    text: Replace LOG_ID, API_KEY, and HEARTBEAT_ID in the code with the values collected in the previous steps.
 ---
 
 # Set up Heartbeats

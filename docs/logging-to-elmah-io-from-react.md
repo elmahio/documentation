@@ -1,6 +1,11 @@
 ---
 title: Logging to elmah.io from React
 description: Utilize elmah.io to log all errors from a single-page React app. Detailed client information, instant notifications, and much more with elmah.io.
+howto_steps:
+  - name: Install elmah.io.javascript
+    text: Install the elmah.io.javascript npm package as described in the JavaScript logging guide.
+  - name: Initialize elmah.io in index.js/index.tsx
+    text: "import Elmahio from 'elmah.io.javascript'; then call new Elmahio({ apiKey: 'API_KEY', logId: 'LOG_ID' }); before ReactDOM.render is called."
 ---
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)

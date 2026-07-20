@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from AWS Beanstalk
 description: Logging to elmah.io from .NET applications deployed on AWS Beanstalk is as easy as with other cloud hosting services. Learn how to set it up.
+howto_steps:
+  - name: Install elmah.io in your ASP.NET, MVC, or Web API project
+    text: Follow the ASP.NET, MVC, or Web API guide to install elmah.io locally, specifying your API key and log ID in Web.config and, if needed, a separate set in Web.release.config.
+  - name: Add your API key and log ID as AWS environment properties
+    text: In the AWS console, open your environment's Configuration tab, click Edit under the Software category, and add Environment properties for your production API key and log ID.
+  - name: Reference the AWS properties from the elmah config
+    text: 'Update the errorLog element to read from the AWS app settings: <errorLog type="Elmah.Io.ErrorLog, Elmah.Io" apiKeyKey="elmahio-apikey" logIdKey="elmahio-logid" />, where apiKeyKey and logIdKey reference the app setting keys.'
+  - name: Remove the local keys for production in Web.release.config
+    text: 'Since AWS only inserts missing keys, remove any locally configured API key and log ID entries from appSettings in Web.release.config using: <add key="elmahio-logid" xdt:Transform="Remove" xdt:Locator="Match(key)" /> and the equivalent for elmahio-apikey.'
 ---
 
 # Logging to elmah.io from AWS Beanstalk

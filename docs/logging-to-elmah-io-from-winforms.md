@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from Windows Forms
 description: Learn about how to set up cloud-logging on Windows Forms applications using elmah.io. Log all errors happening on installations of your client.
+howto_steps:
+  - name: Install the Elmah.Io.Client package
+    text: "dotnet add package Elmah.Io.Client (or Install-Package Elmah.Io.Client)."
+  - name: Add the required usings
+    text: "In Program.cs, add: using Elmah.Io.Client; using System.Security.Principal; using System.Threading;"
+  - name: Subscribe to the ThreadException event
+    text: "Before calling Application.Run, add: Application.ThreadException += Application_ThreadException;"
+  - name: Implement the exception handler
+    text: "Add a static Application_ThreadException method that creates a logger with ElmahioAPI.Create(\"API_KEY\") and calls logger.Messages.Create(\"LOG_ID\", new CreateMessage { DateTime = DateTime.UtcNow, Detail = exception.ToString(), Type = baseException.GetType().FullName, Title = baseException.Message ?? \"An error occurred\", Data = data, Severity = \"Error\", Source = baseException.Source, User = WindowsIdentity.GetCurrent().Name, Version = Application.ProductVersion, Hostname = Environment.MachineName }); Replace API_KEY with your API key and LOG_ID with the id of the log where you want errors logged."
 ---
 
 # Logging to elmah.io from Windows Forms

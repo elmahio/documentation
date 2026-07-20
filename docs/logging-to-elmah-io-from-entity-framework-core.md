@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Entity Framework Core
 description: Log all errors inside Entity Framework Core with elmah.io. Get insights into failing requests and much more with just a few lines of code.
+howto_steps:
+  - name: Install the Elmah.Io.Extensions.Logging NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Extensions.Logging (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Add elmah.io to a LoggerFactory
+    text: 'Call var loggerFactory = new LoggerFactory().AddElmahIo("API_KEY", new Guid("LOG_ID"));, replacing API_KEY and LOG_ID with your values.'
+  - name: Enable the logger factory in Entity Framework Core
+    text: Call optionsBuilder.UseLoggerFactory(loggerFactory) alongside your provider configuration (e.g. .UseSqlServer(...)) so EF Core logs through it.
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Extensions.Logging/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Extensions.Logging/actions?query=workflow%3Abuild)

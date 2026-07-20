@@ -1,6 +1,15 @@
 ---
 title: Integrate elmah.io with Atlassian Jira
 description: Maintaining issues isn't the highlight of anyone's day. With elmah.io and Jira, we automatically create errors from your applications in Jira.
+howto_steps:
+  - name: Install the Jira app
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the Jira app, and click Install.
+  - name: Enter your site and project
+    text: "Input your site name, the first part of the URL you use to log into Jira (for https://elmahio.atlassian.net/, the site would be elmahio), into the site field. Input the uppercase project key into the Project field."
+  - name: Generate an API token
+    text: Go to the API Tokens page on your Jira account, click the Create API token button, input a label of your choice, and click Create to generate the token. Copy the token before closing the dialog.
+  - name: Enter credentials and save
+    text: Input your email in the Username field and the API token from the previous step in the Password field, then click Save to add the app to your log.
 ---
 
 # Install Jira App for elmah.io

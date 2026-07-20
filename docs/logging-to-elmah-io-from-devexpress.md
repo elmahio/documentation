@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from DevExpress (eXpressApp Framework)
 description: Learn about how to set up error monitoring in DevExpress (eXpressApp Framework). Add cloud logging by installing a single NuGet package only.
+howto_steps:
+  - name: Install the Elmah.Io NuGet package
+    text: 'Run: dotnet add package Elmah.Io (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Provide your API key and log ID during installation
+    text: When prompted during package installation, enter your API key and log ID.
+  - name: Verify the integration with a test exception
+    text: 'Add <% throw new Exception("Test exception"); %> to Default.aspx (or similar), launch the project, and confirm the test exception flows into elmah.io.'
 ---
 
 # Logging to elmah.io from DevExpress (eXpressApp Framework)

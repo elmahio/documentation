@@ -1,6 +1,42 @@
 ---
 title: Logging heartbeats from .NET (Core) Worker Services
 description: .NET (Core) offers Worker Services as a way to schedule recurring tasks. Monitoring that services run can be set up with elmah.io Heartbeats.
+howto_steps:
+  - name: Create a new heartbeat on elmah.io
+    text: "Create a new heartbeat on the elmah.io UI. For a worker running every 5 minutes, set Interval to 5 minutes and Grace to 1 minute."
+  - name: Install the Elmah.Io.Client package
+    text: "Install the Elmah.Io.Client NuGet package, for example with the .NET CLI: dotnet add package Elmah.Io.Client"
+  - name: Register IHeartbeats
+    text: |
+      In Program.cs or Startup.cs, register IHeartbeats from the elmah.io client:
+      .ConfigureServices((hostContext, services) =>
+      {
+          var elmahIoApi = ElmahioAPI.Create(hostContext.Configuration["ElmahIo:ApiKey"]);
+          services.AddSingleton(elmahIoApi.Heartbeats);
+          services.AddHostedService<Worker>();
+      });
+  - name: Inject IHeartbeats into the Worker
+    text: |
+      In the Worker class, inject IHeartbeats and read the log ID and heartbeat ID from configuration:
+      this.logId = new Guid(configuration["ElmahIo:LogId"]);
+      this.heartbeatId = configuration["ElmahIo:HeartbeatId"];
+  - name: Publish heartbeats from ExecuteAsync
+    text: |
+      In ExecuteAsync, wrap the worker code in try/catch and report the result:
+      await heartbeats.HealthyAsync(logId, heartbeatId);
+      on success, or in the catch block:
+      await heartbeats.UnhealthyAsync(logId, heartbeatId, e.ToString());
+  - name: Add the configuration to appsettings.json
+    text: |
+      Add the ElmahIo section to appsettings.json:
+      {
+        "ElmahIo": {
+          "ApiKey": "API_KEY",
+          "LogId": "LOG_ID",
+          "HeartbeatId": "HEARTBEAT_ID"
+        }
+      }
+      Replace the values with those from the elmah.io UI, using an API key with the Heartbeats | Write permission.
 ---
 
 # Logging heartbeats from .NET (Core) Worker Services

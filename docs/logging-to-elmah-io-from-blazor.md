@@ -1,6 +1,15 @@
 ---
 title: Logging to elmah.io from Blazor
 description: Easy monitoring of Blazor web applications with elmah.io. Support for both Blazor server apps and Blazor WebAssembly.
+howto_steps:
+  - name: Install the Elmah.Io.Extensions.Logging NuGet package
+    text: 'Run: dotnet add package Elmah.Io.Extensions.Logging (or the equivalent Package Manager, PackageReference, or Paket command).'
+  - name: Add elmah.io logging configuration in Program.cs
+    text: 'Call builder.Logging.AddElmahIo(options => { options.ApiKey = "API_KEY"; options.LogId = new Guid("LOG_ID"); }), replacing API_KEY and LOG_ID with your values.'
+  - name: Optionally include HTTP context details
+    text: Install the Elmah.Io.AspNetCore.ExtensionsLogging NuGet package and call app.UseElmahIoExtensionsLogging() just before UseRouting and UseEndpoints, to add contextual information like URL and status code.
+  - name: Log exceptions and other severities manually
+    text: 'Inject an ILogger into a component, wrap risky code in try/catch, and call logger.LogError(e, e.Message) (or LogInformation and similar) in addition to the automatic logging of uncaught exceptions.'
 ---
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/actions?query=workflow%3Abuild)

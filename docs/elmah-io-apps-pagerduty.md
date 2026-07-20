@@ -1,6 +1,21 @@
 ---
 title: Integrate elmah.io with PagerDuty
 description: Learn how to integrate PagerDuty with elmah.io. Get a phone call, email, or text message when new errors are logged on elmah.io.
+howto_steps:
+  - name: Sign in to PagerDuty
+    text: Sign in to PagerDuty and navigate to the Services page.
+  - name: Select your service
+    text: Select the service that you want to integrate with elmah.io in the list of services.
+  - name: Add an integration
+    text: On the Integrations tab, click the Add an integration button.
+  - name: Select elmah.io
+    text: On the Add Integrations page, search for elmah.io and select it in the search result, then click the Add button.
+  - name: Copy the integration key
+    text: Expand the newly created integration and copy the value in the Integration Key field.
+  - name: Install the PagerDuty app on elmah.io
+    text: Sign in to elmah.io, navigate to the Log Settings page of the log you want to integrate with PagerDuty, go to the Apps tab, locate the PagerDuty app, and click Install.
+  - name: Enter the integration key and save
+    text: Input the Integration Key copied earlier in the INTEGRATION KEY field and click the Save button.
 ---
 
 # Install PagerDuty for elmah.io

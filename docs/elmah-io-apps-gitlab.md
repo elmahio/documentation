@@ -1,6 +1,15 @@
 ---
 title: Integrate elmah.io with GitLab
 description: Time is better spend fixing bugs than maintaining issue trackers. With the elmah.io integration for GitLab we do the boring work of creating issues for you.
+howto_steps:
+  - name: Generate a personal access token
+    text: Log into GitLab, click your profile photo in the top right corner, select Preferences, and click the Access Tokens menu item. Input a token name, expiration date, and check the api checkbox. Click Create personal access token and copy the generated token.
+  - name: Install the GitLab app on elmah.io
+    text: Log into elmah.io, go to the log settings, click the Apps tab, locate the GitLab app, and click Install.
+  - name: Configure the integration
+    text: "Paste the token into the Token textbox, input the ID or name of the project into the Project textbox, and if self-hosting GitLab, input your custom URL into the URL textbox (for example https://gitlab.hooli.com)."
+  - name: Test and save
+    text: Click the Test button and observe it turn green, then click Save to add the app to your log.
 ---
 
 # Install GitLab App for elmah.io

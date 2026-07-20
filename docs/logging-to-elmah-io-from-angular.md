@@ -1,6 +1,13 @@
 ---
 title: Logging to elmah.io from Angular
 description: Learn how to utilize elmah.io.javascript to log uncaught errors from Angular apps to elmah.io. Get instant notifications when your SPA fails.
+howto_steps:
+  - name: Install elmah.io.javascript via npm
+    text: Install the `elmah.io.javascript` package through npm as described in Logging from JavaScript.
+  - name: Create a custom Angular error handler
+    text: "In the same folder as app.module.ts, create elmah-io-error-handler.ts implementing ErrorHandler, instantiating new Elmahio({ apiKey: 'API_KEY', logId: 'LOG_ID' }) in the constructor, and calling this.logger.error(...) from handleError."
+  - name: Register the error handler in app.module.ts
+    text: "Import ErrorHandler and ElmahIoErrorHandler in app.module.ts, and add { provide: ErrorHandler, useClass: ElmahIoErrorHandler } to the providers array of the NgModule."
 ---
 
 [![NuGet](https://img.shields.io/nuget/v/elmah.io.javascript.svg)](https://www.nuget.org/packages/elmah.io.javascript)

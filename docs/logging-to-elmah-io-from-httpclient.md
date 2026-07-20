@@ -1,6 +1,11 @@
 ---
 title: Logging to elmah.io from HttpClient
 description: Learn how to set up logging to elmah.io from a HttpClient. With a custom logger you can decide how you want to log from using a HttpClient.
+howto_steps:
+  - name: Implement a custom HttpClient logger
+    text: "Create a class (e.g. HttpClientLogger) implementing IHttpClientLogger, with LogRequestStart, LogRequestStop, and LogRequestFailed methods. In LogRequestStop, call _logger.LogInformation with structured properties like {method}, {url}, and {statusCode}. In LogRequestFailed, call _logger.LogError with the same properties plus the exception."
+  - name: Register the custom logger on the HttpClient
+    text: "builder.Services.AddHttpClient(\"myclient\").RemoveAllLoggers().AddLogger<HttpClientLogger>(); — RemoveAllLoggers stops the four default log messages, and AddLogger wires up your custom logger for the named HttpClient."
 ---
 
 # Logging to elmah.io from HttpClient

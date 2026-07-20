@@ -1,6 +1,13 @@
 ---
 title: Show quick fixes and Stack Overflow answers on elmah.io
 description: Utilize elmah.io's built-in Fixes app to include quick fixes and/or related answers from Stack Overflow on the extended details view.
+howto_steps:
+  - name: Install the Fixes app
+    text: Log in to elmah.io, go to the log settings page, click the Apps tab, locate the Fixes app, and click Install.
+  - name: Enable or disable sections
+    text: Use the two toggles to independently enable or disable the Quick Fixes section and the Stack Overflow section.
+  - name: Save the configuration
+    text: Click Save to add the app to your log. Only enabled sections will be shown on the extended details view, and no requests are made to Stack Overflow if the SHOW STACK OVERFLOW toggle is disabled.
 ---
 
 # Install Fixes for elmah.io

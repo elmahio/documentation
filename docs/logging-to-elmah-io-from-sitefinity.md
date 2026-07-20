@@ -1,6 +1,17 @@
 ---
 title: Logging to elmah.io from Sitefinity
 description: Monitor errors in Telerik Sitefinity by including the elmah.io cloud-logging package. Automatically notify you when errors in the CMS are logged.
+howto_steps:
+  - name: Open the Sitefinity website in Visual Studio
+    text: "Select File | Open Web Site... and navigate to the Sitefinity projects folder, e.g. \"C:\\Program Files (x86)\\Telerik\\Sitefinity\\Projects\\Default\"."
+  - name: Install the Elmah.Io NuGet package
+    text: "Right-click the website and install the package: dotnet add package Elmah.Io (or Install-Package Elmah.Io)."
+  - name: Provide your API key and log ID
+    text: "During installation, you will be prompted for your API key and log ID."
+  - name: Add a test page
+    text: "Right-click the website and add a new Web Form named ELMAH.aspx. In the code-behind Page_Load method, add: throw new ApplicationException();"
+  - name: Verify the error is logged
+    text: "Start the website and navigate to the ELMAH.aspx page. You should see the yellow screen of death, and a new error should appear on elmah.io."
 ---
 
 # Logging to elmah.io from Sitefinity
