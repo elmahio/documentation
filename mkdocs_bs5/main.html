@@ -55,7 +55,9 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "{% if page.meta.howto_steps %}HowTo{% else %}Article{% endif %}",
+      {% if page.meta.howto_steps %}"name": {{ page.title | tojson }}{% else %}"headline": {{ page.title | tojson }}{% endif %},
+      "description": {{ page.meta.description | tojson }},
       "publisher": {
         "@type": "Organization",
         "name": "elmah.io Documentation",
@@ -67,14 +69,22 @@
           "height": 60
         }
       },
-      "headline": "{{ page.title }}",
       "url": "{{ page.canonical_url }}",
       "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_date }}",
       "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_date }}",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://docs.elmah.io/"
-      }
+      }{% if page.meta.howto_steps %},
+      "step": [
+        {% for step in page.meta.howto_steps %}{
+          "@type": "HowToStep",
+          "position": {{ loop.index }},
+          "name": {{ step.name | tojson }},
+          "text": {{ step.text | tojson }}
+        }{% if not loop.last %},
+        {% endif %}{% endfor %}  
+      ]{% endif %}
     }
     </script>
 
