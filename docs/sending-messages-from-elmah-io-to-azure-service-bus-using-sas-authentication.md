@@ -1,6 +1,15 @@
 ---
 title: Sending Messages from elmah.io to Azure Service Bus using SAS Authentication
 description: Forward elmah.io messages to Azure Service Bus using SAS authentication. Learn to generate SAS tokens and configure HTTP rules easily.
+howto_steps:
+  - name: Generate a SAS token
+    text: Using the C# or PowerShell script, generate a SAS token from your Service Bus queue URI, SAS policy name, and primary key.
+  - name: Open Rules on the Log Settings page
+    text: Navigate to Rules on the Log Settings page for the log you want to forward messages from.
+  - name: Add and configure the rule
+    text: "Click Add rule, set the If condition to 'New Error or Fatal message', then configure the Then condition as an HTTP request: Method POST, URL set to the Service Bus queue's /messages endpoint, Content-Type application/json, Body containing the JSON to publish, Authentication Method SharedAccessSignature, and Token set to the SAS token generated in step 1."
+  - name: Save the rule
+    text: Click Save. elmah.io will now publish messages matching the rule to the Service Bus queue.
 ---
 
 # Sending Messages from elmah.io to Azure Service Bus using SAS Authentication
