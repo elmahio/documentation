@@ -263,6 +263,54 @@ app.Services.AddLogging(logging =>
 
 Please note that when enabling Distributed Tracing without having configured Application Insights, the functions runtime will show a warning when launching the function app. We are trying to convince Microsoft to either remove this or change it to an information message, since *Distributed Tracing* doesn't require Application Insights.
 
+The steps above are enough for the in-process model, where your code and the Functions host share the same process and `Activity.Current` is naturally shared. The isolated worker model (`dotnet-isolated`) needs a few extra steps, since your code runs in a separate process from the host.
+
+#### Isolated worker model
+
+In addition to `distributedTracingEnabled` shown above, the Functions host and your isolated worker process don't share trace context with each other unless OpenTelemetry is explicitly enabled on both sides. Add a root-level `telemetryMode` to `host.json`:
+
+```json
+{
+  "telemetryMode": "OpenTelemetry",
+  "extensions": {
+    "durableTask": {
+      "tracing": {
+        "distributedTracingEnabled": true,
+        "version": "V2"
+      }
+    }
+  }
+}
+```
+
+!!! warning
+    Setting `telemetryMode` to `OpenTelemetry` is a function app-wide change: the `logging.applicationInsights` section of `host.json` stops applying, and the Azure portal's log streaming and "recent invocations" views only work if you're also exporting to Azure Monitor. Make sure that's an acceptable trade-off before enabling it.
+
+Then install two more NuGet packages alongside `Elmah.Io.Client.Extensions.Correlation`:
+
+```xml
+<PackageReference Include="Microsoft.Azure.Functions.Worker.OpenTelemetry" Version="1.*" />
+<PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.*" />
+```
+
+And wire up OpenTelemetry in `Program.cs`:
+
+```csharp
+builder.Services.AddOpenTelemetry()
+    .WithTracing(t => t.SetSampler(new AlwaysOnSampler()).AddSource("Microsoft.DurableTask"))
+    .UseFunctionsWorkerDefaults();
+```
+
+This does two things, covering two different hops in the chain:
+
+- `UseFunctionsWorkerDefaults()` bridges the host's per-invocation trace context into `Activity.Current` inside the worker process. This is what correlates the orchestrator with the activity functions it calls (source `Microsoft.Azure.Functions.Worker`).
+- `AddSource("Microsoft.DurableTask")` listens to the Durable Task SDK's own instrumentation, which is what correlates the function that *starts* the orchestration (the one calling `ScheduleNewOrchestrationInstanceAsync`) with the orchestrator itself. Without this, the starter function gets its own unrelated trace ID even though the orchestrator and its activities still correlate with each other — an easy thing to miss if you only spot-check a couple of messages.
+
+Both are only needed because of `SetSampler(new AlwaysOnSampler())`: by default, OpenTelemetry only records a non-root span if the incoming trace context is marked "sampled", and the trace context Durable Task propagates between orchestrator/activity dispatches isn't. Without forcing `AlwaysOnSampler`, both sources above still exist but silently drop almost everything they'd otherwise correlate.
+
+!!! note
+    If none of this correlates at all, check your `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version. Versions before [v1.2.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.3) didn't support client/orchestrator correlation at all, and versions before [v1.4.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.4.0) didn't support it for Durable Entities — see [Azure/azure-functions-durable-extension#2798](https://github.com/Azure/azure-functions-durable-extension/issues/2798).
+
 ## W3C Trace Context
 
 The class `Activity` has been mentioned a couple of times already. Let's take a look at what that is and how it relates to W3C Trace Context. Trace Context is a specification by W3C for implementing distributed tracing across multiple processes which are already widely adopted. If you generate a trace identifier in a client initiating a chain of events, different Microsoft technologies like ASP.NET Core already pick up the extended set of headers and include those as part of log messages logged through Microsoft.Extensions.Logging.
