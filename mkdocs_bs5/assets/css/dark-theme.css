@@ -160,7 +160,11 @@
 }
 [data-bs-theme=darkmode] #bugsterModal .modal-header {
   background: #333;
-  border-color: #444;
+  border-color: #525252;
+}
+[data-bs-theme=darkmode] #bugsterModal .modal-announcement {
+  background: #444;
+  border-color: #525252;
 }
 [data-bs-theme=darkmode] #bugsterModal .modal-body {
   background: #333;

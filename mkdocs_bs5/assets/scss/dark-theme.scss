@@ -202,7 +202,11 @@
     #bugsterModal {
         .modal-header {
             background: #333;
-            border-color: #444;
+            border-color: #525252;
+        }
+        .modal-announcement {
+            background: #444;
+            border-color: #525252;
         }
         .modal-body {
             background: #333;

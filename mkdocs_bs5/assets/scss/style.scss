@@ -717,6 +717,12 @@ table .table-light th {
 		outline: none;
 		box-shadow: none;
 	}
+	.modal-announcement {
+		padding: 5px 16px;
+		text-align: center;
+		background: #f5f5f5;
+		border-bottom: 1px solid #dee2e6;
+	}
 	.modal-body {
 		display: flex;
 		flex-direction: column;
