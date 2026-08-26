@@ -660,9 +660,9 @@ table .table-light th {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			margin-right: auto;
 			margin-left: 12px;
 			height: 70px;
+			min-width: 84px;
 
 			.modal-title {
 				font-weight: normal;
@@ -709,6 +709,46 @@ table .table-light th {
 					--bs-spinner-width: 0.75rem;
 					--bs-spinner-height: 0.75rem;
 					--bs-spinner-border-width: 0.2em;
+				}
+			}
+		}
+		.modal-title-badge {
+			position: relative;
+			background: #f5f5f5;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			padding: 5px 10px;
+			font-size: 13px;
+			margin-left: 8px;
+			margin-right: auto;
+
+			.arrow {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform: translate(0px, 7px);
+
+				&::after {
+					content: "";
+					position: absolute;
+					display: block;
+					border-color: transparent;
+					border-style: solid;
+					left: -6px;
+					border-width: 8px 8px 8px 0;
+					border-right-color: #f5f5f5;
+					transform-origin: center right;
+				}
+				&::before {
+					content: "";
+					position: absolute;
+					display: block;
+					border-color: transparent;
+					border-style: solid;
+					left: -8px;
+					border-width: 8px 8px 8px 0;
+					border-right-color: #dee2e6;
+					transform-origin: center right;
 				}
 			}
 		}

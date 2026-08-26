@@ -662,7 +662,7 @@ function Bugster() {
         if (state === 'thinking') {
             textElement.textContent = 'Thinking...';
         } else if (state === 'working') {
-            textElement.textContent = 'Answering your question...';
+            textElement.textContent = 'Answering...';
         }
     }
 }
