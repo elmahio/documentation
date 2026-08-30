@@ -60,6 +60,16 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         </a>
     </div>
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/add-mcp-server-to-codex/" title="Codex">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/chatgpt.png" alt="Codex" />
+                </div>
+                <div class="guide-title">Codex</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/add-mcp-server-to-cursor-ai/" title="Cursor AI">
             <div class="guide-box">
                 <div class="guide-image">
