@@ -76,8 +76,9 @@ Usage:
   elmahio messages count [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The ID of the log
   --query <query>             Full-text or Lucene query to filter messages
   --severity <severity>       Filter by severity (Verbose, Debug, Information, Warning, Error, Fatal)
@@ -116,8 +117,9 @@ Usage:
   elmahio messages create [options]
 
 Options:
-  --apiKey <apiKey>                An API key with permission to execute the command. If omitted, the key stored via
-                                   'elmahio login' is used.
+  --apiKey <apiKey>                An API key with permission to execute the command. If omitted,
+                                   the ELMAHIO_API_KEY environment variable is used, falling back to
+                                   the key stored via 'elmahio login'.
   --logId <logId> (REQUIRED)       The ID of the log to send the log message to
   --application <application>      Used to identify which application logged this message. You can use this if you have
                                    multiple applications and services logging to the same log
@@ -190,7 +192,8 @@ Usage:
 
 Options:
   --apiKey <apiKey>                   An API key with permission to execute the command. If omitted,
-                                      the key stored via 'elmahio login' is used.
+                                      the ELMAHIO_API_KEY environment variable is used, falling back
+                                      to the key stored via 'elmahio login'.
   --logId <logId> (REQUIRED)          The ID of the log
   --messageId <messageId> (REQUIRED)  The ID of the message to fetch
   --json                              Output results as JSON instead of formatted text
@@ -221,8 +224,9 @@ Usage:
   elmahio messages list-frequent [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The ID of the log
   --count <count>             Number of frequent groups to return (1-25) [default: 5]
   --query <query>             Full-text or Lucene query to filter messages
@@ -261,8 +265,9 @@ Usage:
   elmahio messages list-recent [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The ID of the log
   --count <count>             Number of messages to return (1-100) [default: 10]
   --query <query>             Full-text or Lucene query to filter messages

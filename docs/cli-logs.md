@@ -106,8 +106,9 @@ Usage:
   elmahio logs dataloader [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The log ID of the log to import messages into
   --proxyHost <proxyHost>     A hostname or IP for a proxy to use to call elmah.io
   --proxyPort <proxyPort>     A port number for a proxy to use to call elmah.io
@@ -139,8 +140,9 @@ Usage:
   elmahio logs clear [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The log ID of the log to clear messages
   --query <query> (REQUIRED)  Clear messages matching this query (use * for all messages)
   --from <from>               Optional date and time to clear messages from
@@ -178,8 +180,9 @@ Usage:
   elmahio logs list [options]
 
 Options:
-  --apiKey <apiKey>            An API key with permission to execute the command. If omitted,
-                               the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>            An API key with permission to execute the command. If omitted, the
+                               ELMAHIO_API_KEY environment variable is used, falling back to the key
+                               stored via 'elmahio login'.
   --environment <environment>  Filter logs by environment name
   --json                       Output results as JSON instead of formatted text
   --proxyHost <proxyHost>      A hostname or IP for a proxy to use to call elmah.io
@@ -215,8 +218,9 @@ Usage:
   elmahio logs get [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The ID of the log to fetch details for
   --json                      Output results as JSON instead of formatted text
   --proxyHost <proxyHost>     A hostname or IP for a proxy to use to call elmah.io
@@ -247,7 +251,8 @@ Usage:
 
 Options:
   --apiKey <apiKey>                 An API key with permission to execute the command. If omitted,
-                                    the key stored via 'elmahio login' is used.
+                                    the ELMAHIO_API_KEY environment variable is used, falling back
+                                    to the key stored via 'elmahio login'.
   --logId <logId> (REQUIRED)        The ID of the log to export messages from
   --dateFrom <dateFrom> (REQUIRED)  Defines the Date from which the logs start.
                                     Ex. " --dateFrom 2026-04-01"
@@ -301,7 +306,8 @@ Usage:
 
 Options:
   --apiKey <apiKey>                 An API key with permission to execute the command. If omitted,
-                                    the key stored via 'elmahio login' is used.
+                                    the ELMAHIO_API_KEY environment variable is used, falling back
+                                    to the key stored via 'elmahio login'.
   --logId <logId> (REQUIRED)        The ID of the log to import messages to
   --type <iis|w3c> (REQUIRED)       The type of log file to import. Use 'w3c' for W3C Extended Log
                                     File Format and 'iis' for IIS Log File Format
@@ -344,8 +350,10 @@ Usage:
   elmahio logs sourcemap [options]
 
 Options:
-  --apiKey <apiKey>                                     An API key with permission to execute the command. If omitted,
-                                                        the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>                                     An API key with permission to execute the
+                                                        command. If omitted, the ELMAHIO_API_KEY
+                                                        environment variable is used, falling back
+                                                        to the key stored via 'elmahio login'.
   --logId <logId> (REQUIRED)                            The ID of the log which should contain the minified JavaScript
                                                         and source map
   --path <path> (REQUIRED)                              An URL to the online minified JavaScript file
@@ -380,8 +388,9 @@ Usage:
   elmahio logs tail [options]
 
 Options:
-  --apiKey <apiKey>           An API key with permission to execute the command. If omitted,
-                              the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>           An API key with permission to execute the command. If omitted, the
+                              ELMAHIO_API_KEY environment variable is used, falling back to the key
+                              stored via 'elmahio login'.
   --logId <logId> (REQUIRED)  The ID of the log to send the log message to
   --proxyHost <proxyHost>     A hostname or IP for a proxy to use to call elmah.io
   --proxyPort <proxyPort>     A port number for a proxy to use to call elmah.io

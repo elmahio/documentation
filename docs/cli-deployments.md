@@ -46,8 +46,9 @@ Usage:
   elmahio deployments create [options]
 
 Options:
-  --apiKey <apiKey>               An API key with permission to execute the command. If omitted,
-                                  the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>               An API key with permission to execute the command. If omitted, the
+                                  ELMAHIO_API_KEY environment variable is used, falling back to the
+                                  key stored via 'elmahio login'.
   --version <version> (REQUIRED)  The version number of this deployment
   --created <created>             When was this deployment created in UTC
   --description <description>     Description of this deployment
@@ -87,8 +88,9 @@ Usage:
   elmahio deployments list [options]
 
 Options:
-  --apiKey <apiKey>        An API key with permission to execute the command. If omitted,
-                           the key stored via 'elmahio login' is used.
+  --apiKey <apiKey>        An API key with permission to execute the command. If omitted, the
+                           ELMAHIO_API_KEY environment variable is used, falling back to the key
+                           stored via 'elmahio login'.
   --logId <logId>          Filter deployments to a specific log ID
   --count <count>          Number of deployments to return (max 25) [default: 5]
   --json                   Output results as JSON instead of formatted text

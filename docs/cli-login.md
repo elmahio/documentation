@@ -7,6 +7,17 @@ description: Learn about how to log into elmah.io with your API key. Use the log
 
 The `login` command is used to store an elmah.io API key locally. Sub-sequent commands will use the privately stored API key instead of requiring an `--apiKey` option. If specified, the `--proxyHost` and `--proxyPort` options are only used to test the API key on this command and will need to be specified again when running other commands.
 
+## Using an environment variable instead
+
+For CI pipelines and other non-interactive scenarios, you can skip `login` entirely by setting the `ELMAHIO_API_KEY` environment variable. All commands fall back to it when `--apiKey` isn't specified and no key has been stored locally:
+
+```cmd
+set ELMAHIO_API_KEY=API_KEY
+elmahio logs list
+```
+
+Precedence is `--apiKey` > `ELMAHIO_API_KEY` > the key stored via `login`.
+
 **Usage**
 
 ```cmd
