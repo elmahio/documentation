@@ -1,0 +1,68 @@
+# elmah.io Documentation
+
+> Documentation on how to install and use elmah.io, the error logging and uptime monitoring service for .NET. Covers SDK setup for every major .NET web/logging framework, JavaScript, mobile, the CLI, and the MCP server for AI assistants.
+
+## Getting Started
+
+- [Quick start](https://docs.elmah.io/): Sign up and send your first error.
+- [Authentication](https://docs.elmah.io/authentication/)
+- [Integrations high level overview](https://docs.elmah.io/integrations-high-level-overview/)
+
+## MCP Server (connect elmah.io to AI assistants)
+
+- [Set up MCP Server](https://docs.elmah.io/setup-mcp-server/)
+- [elmah.io AI Plugin](https://docs.elmah.io/elmah-io-ai-plugin/)
+- [Add MCP Server to Claude Code](https://docs.elmah.io/add-mcp-server-to-claude-code/)
+- [Add MCP Server to Claude Desktop](https://docs.elmah.io/add-mcp-server-to-claude-desktop/)
+- [Add MCP Server to ChatGPT](https://docs.elmah.io/add-mcp-server-to-chatgpt/)
+- [Add MCP Server to Cursor AI](https://docs.elmah.io/add-mcp-server-to-cursor-ai/)
+- [Add MCP Server to Perplexity AI](https://docs.elmah.io/add-mcp-server-to-perplexity-ai/)
+- [Add MCP Server to Visual Studio](https://docs.elmah.io/add-mcp-server-to-visual-studio/)
+- [Add MCP Server to VS Code](https://docs.elmah.io/add-mcp-server-to-vs-code/)
+- [Call MCP Server Using an API Key](https://docs.elmah.io/call-mcp-server-using-api-key/)
+
+## ASP.NET Core
+
+- [Logging from ASP.NET Core](https://docs.elmah.io/logging-to-elmah-io-from-aspnet-core/)
+- [Logging from Microsoft.Extensions.Logging](https://docs.elmah.io/logging-to-elmah-io-from-microsoft-extensions-logging/)
+- [Logging from Blazor](https://docs.elmah.io/logging-to-elmah-io-from-blazor/)
+- [ASP.NET Core troubleshooting](https://docs.elmah.io/asp-net-core-troubleshooting/)
+
+## Logging Frameworks
+
+- [Logging from Serilog](https://docs.elmah.io/logging-to-elmah-io-from-serilog/)
+- [Logging from NLog](https://docs.elmah.io/logging-to-elmah-io-from-nlog/)
+- [Logging from log4net](https://docs.elmah.io/logging-to-elmah-io-from-log4net/)
+
+## JavaScript
+
+- [Logging from JavaScript](https://docs.elmah.io/logging-to-elmah-io-from-javascript/)
+- [Logging from React](https://docs.elmah.io/logging-to-elmah-io-from-react/)
+- [Logging from Angular](https://docs.elmah.io/logging-to-elmah-io-from-angular/)
+- [Logging from Vue](https://docs.elmah.io/logging-to-elmah-io-from-vue/)
+- [Source maps](https://docs.elmah.io/sourcemaps/)
+
+## Other platforms
+
+- [Logging from Entity Framework Core](https://docs.elmah.io/logging-to-elmah-io-from-entity-framework-core/)
+- [Logging from Azure Functions](https://docs.elmah.io/logging-to-elmah-io-from-azure-functions/)
+- [Logging from Console applications](https://docs.elmah.io/logging-to-elmah-io-from-console-application/)
+- [Logging from Umbraco](https://docs.elmah.io/logging-to-elmah-io-from-umbraco/)
+- [Logging from Xamarin](https://docs.elmah.io/logging-to-elmah-io-from-xamarin/)
+- [Logging from MAUI](https://docs.elmah.io/logging-to-elmah-io-from-maui/)
+
+## Uptime Monitoring, Heartbeats and Deployment Tracking
+
+- [Set up Uptime Monitoring](https://docs.elmah.io/setup-uptime-monitoring/)
+- [Set up Heartbeats](https://docs.elmah.io/setup-heartbeats/)
+- [Set up Deployment Tracking](https://docs.elmah.io/setup-deployment-tracking/)
+
+## CLI
+
+- [CLI overview](https://docs.elmah.io/cli-overview/)
+- [Logs](https://docs.elmah.io/cli-logs/)
+- [Deployments](https://docs.elmah.io/cli-deployments/)
+
+## Optional
+
+- [Full documentation index](https://docs.elmah.io/): Complete navigation including Apps and Integrations (Slack, Teams, Jira, GitHub, GitLab, Zapier, and more), REST API reference, and troubleshooting guides not listed above.
