@@ -127,8 +127,14 @@ The elmah.io MCP server exposes the following tools to AI assistants:
 | `messages_list_recent` | List the most recent log messages for a specific log. |
 | `messages_list_frequent` | Identify the most frequent/common error groups in a log. Great for finding 'noisy' bugs. |
 | `messages_count` | Count the number of log messages based on severity and timeframe. |
+| `messages_hide` | Hide a log message by ID, optionally hiding every other occurrence of the same error. |
+| `messages_unhide` | Unhide a previously hidden log message by ID, optionally unhiding every other occurrence of the same error. |
+| `messages_fix` | Mark a log message as fixed by ID, optionally marking every other occurrence of the same error as fixed. |
+| `messages_open` | Reopen a fixed log message by ID, optionally reopening every other occurrence of the same error. |
 | `deployments_list` | List recent deployments for a log. A deployment represents a release of the software. |
 | `uptime_list` | Get a list of all uptime checks for a log, including their current status and 24h up/down percentage. |
 | `uptime_get_details` | Fetch the latest real-time results for a specific uptime check, including regional performance metrics. |
 | `heartbeats_list` | Get a list of all heartbeats configured for a log, including their current status. |
 | `heartbeats_get_details` | Get detailed information and recent check-in history for a specific heartbeat. |
+| `recommendations_list` | Get a list of recommendations for a log or an organization. Recommendations are automated suggestions for improving error monitoring setup, security, and configuration. |
+| `recommendations_get_details` | Get details about a single recommendation for a log or an organization. |
