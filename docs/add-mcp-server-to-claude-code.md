@@ -10,6 +10,8 @@ howto_steps:
     text: Locate elmahio in the list, verify it shows Needs authentication, select it, and click Authenticate.
   - name: Complete the OAuth flow
     text: Follow the OAuth flow to sign in with your elmah.io account.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connection
     text: "Run: claude mcp list, and confirm elmahio is listed with a connected status."
 ---
@@ -36,6 +38,7 @@ claude mcp add --transport http --client-id claudecode elmahio https://mcp.elmah
 - Locate **elmahio** in the list and verify that it shows **Needs authentication**.
 - Select the **elmahio** server and click **Authenticate**.
 - Follow the OAuth flow to sign in with your elmah.io account.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - Run the following to confirm the server is connected:
 
 ```

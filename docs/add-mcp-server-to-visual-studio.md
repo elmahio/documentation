@@ -18,6 +18,8 @@ howto_steps:
     text: In the configuration dialog, select the Authentication tab. Disable the check in Enable Dynamic Client Registration and give your client a name.
   - name: Authenticate with elmah.io
     text: Click the Authenticate link and a browser window will open, asking you to sign into elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connection
     text: When signed in, the authenticate dialog will show a green checkmark next to the Authenticated link and the number of discovered MCP tools will be shown on the left.
   - name: Allow tool calls
@@ -45,6 +47,7 @@ Visual Studio integrates MCP through GitHub Copilot Agent Mode.
 ![Authenticate MCP server](images/mcp/visual-studio-authenticate-mcp-server.png)
 
 - Click the **Authenticate** link and a browser window will open, asking you to sign into elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - When signed in, the authenticate dialog will show a green checkmark next to the **Authenticated** link and the number of discovered MCP tools will be shown on the left:
 
 ![MCP server authenticated](images/mcp/visual-studio-mcp-server-authenticated.png)

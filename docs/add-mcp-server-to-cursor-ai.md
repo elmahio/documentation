@@ -14,6 +14,8 @@ howto_steps:
     text: Navigate back to Cursor Settings and observe the elmah.io MCP server is now added and needs authentication. Click the Connect button.
   - name: Authenticate with elmah.io
     text: Allow Cursor to open an external website. A browser window will open, asking you to sign into elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connection
     text: When signed in, the elmah.io MCP server will be added to the list of installed MCP servers and the available tools will be listed when expanding the server.
 ---
@@ -51,4 +53,5 @@ Cursor supports MCP natively. Follow these steps to integrate elmah.io.
 ![Cursor Need authentication](images/mcp/cursor-need-authentication.png)
 
 - Click the **Connect** button and allow Cursor to open an external website. A browser window will open, asking you to sign into elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - When signed in, the elmah.io MCP server will be added to the list of installed MCP servers and the available tools will be listed when expanding the server. The MCP server is now ready for use.

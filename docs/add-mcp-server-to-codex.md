@@ -8,6 +8,8 @@ howto_steps:
     text: "Run: codex mcp login elmahio"
   - name: Complete the OAuth flow
     text: Follow the OAuth flow to sign in with your elmah.io account.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connection
     text: "Run: codex mcp list, and confirm elmahio is listed as connected."
 ---
@@ -32,6 +34,7 @@ codex mcp login elmahio
 ```
 
 - Follow the OAuth flow to sign in with your elmah.io account.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - Run the following to confirm the server is connected:
 
 ```

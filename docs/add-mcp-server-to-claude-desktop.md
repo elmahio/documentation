@@ -12,6 +12,8 @@ howto_steps:
     text: In the Add custom connector dialog, input the values for the elmah.io MCP server.
   - name: Authenticate with elmah.io
     text: Click the Add button and a browser window will open, asking you to sign into elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connector was added
     text: When signed in, the elmah.io connector will be added to the list of Web connectors and the available tools will be listed when selecting the connector.
   - name: Allow tool access
@@ -40,6 +42,7 @@ To use elmah.io tools in Claude Desktop, you need a Claude subscription with **C
 ![Claude Desktop input elmah.io values](images/mcp/claude-desktop-input-elmah-io-values.png)
 
 - Click the **Add** button and a browser window will open, asking you to sign into elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - When signed in, the elmah.io connector will be added to the list of **Web** connectors and the available tools will be listed when selecting the connector:
 
 ![Claude Desktop list available tools](images/mcp/claude-desktop-list-available-tools.png)

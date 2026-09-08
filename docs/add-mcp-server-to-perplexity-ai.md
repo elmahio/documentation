@@ -13,7 +13,9 @@ howto_steps:
   - name: Add and search for the connector
     text: Click the Add button and search for the new connector.
   - name: Authenticate with elmah.io
-    text: Click the connector in the search result. A browser window will open, asking you to sign in to elmah.io. When successfully signed in, Perplexity will show a checkmark next to the connector.
+    text: Click the connector in the search result. A browser window will open, asking you to sign in to elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed. Perplexity will then show a checkmark next to the connector.
   - name: Enable the connector
     text: On the prompt page, make sure to enable the elmah.io connector to allow Perplexity to call the MCP server.
 ---
@@ -39,7 +41,8 @@ Perplexity AI supports adding MCP servers through **Connectors**. You will need 
 
 ![Perplexity search connectors](images/mcp/perplexity-seach-connectors.png)
 
-- Click the connector in the search result. A browser window will open, asking you to sign in to elmah.io. When successfully signed in, Perplexity will show a checkmark next to the connector:
+- Click the connector in the search result. A browser window will open, asking you to sign in to elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed. Perplexity will then show a checkmark next to the connector:
 
 ![Perplexity connector installed](images/mcp/perplexity-connector-installed.png)
 

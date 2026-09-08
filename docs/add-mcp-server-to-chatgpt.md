@@ -12,6 +12,8 @@ howto_steps:
     text: Click Back and Create app. Fill in the elmah.io MCP server details (ChatGPT will automatically fill in the callback URL).
   - name: Authenticate with elmah.io
     text: Click the Create button and ChatGPT will open a browser window, asking you to sign into elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Confirm the connection
     text: When signed in, the elmah.io MCP server is added and ready to use.
 ---
@@ -34,4 +36,5 @@ ChatGPT supports adding MCP servers in developer mode. Follow these steps to int
 ![ChatGPT Create app](images/mcp/chatgpt-create-app.png)
 
 - Click the **Create** button and ChatGPT will open a browser window, asking you to sign into elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - When signed in, the elmah.io MCP server is added and ready to use.

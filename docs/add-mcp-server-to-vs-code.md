@@ -18,6 +18,8 @@ howto_steps:
     text: VS Code will prompt to authenticate. Click the Allow button.
   - name: Sign in to elmah.io
     text: VS Code will prompt to open an external website. Click the Open button and a browser will open, asking you to sign into elmah.io.
+  - name: Confirm access
+    text: After signing in, you'll see a Confirm access screen showing the destination you'll be redirected to. Click Continue to proceed.
   - name: Verify the connection
     text: When signed in, VS Code will show the discovered MCP tools.
   - name: Allow tool access
@@ -48,6 +50,7 @@ VS Code offer integrated MCP support. Learn how to set up elmah.io's MCP server 
 
 - VS Code will prompt to authenticate. Click the **Allow** button.
 - VS Code will prompt to open an external website. Click the **Open** button and a browser will open, asking you to sign into elmah.io.
+- After signing in, you'll see a **Confirm access** screen showing the destination you'll be redirected to. Click **Continue** to proceed.
 - When signed in, VS code will show the discovered MCP tools:
 
 ![MCP tools](images/mcp/vscode-mcp-tools.png)
