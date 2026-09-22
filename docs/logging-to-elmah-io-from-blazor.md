@@ -1,6 +1,6 @@
 ---
 title: Logging to elmah.io from Blazor
-description: Easy monitoring of Blazor web applications with elmah.io. Support for both Blazor server apps and Blazor WebAssembly.
+description: Easy monitoring of Blazor web applications with elmah.io. Support for Blazor Server apps, Blazor WebAssembly, and Blazor Web App.
 howto_steps:
   - name: Install the Elmah.Io.Extensions.Logging NuGet package
     text: 'Run: dotnet add package Elmah.Io.Extensions.Logging (or the equivalent Package Manager, PackageReference, or Paket command).'
@@ -14,11 +14,22 @@ howto_steps:
 
 [![Build status](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/workflows/build/badge.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/actions?query=workflow%3Abuild)
 [![NuGet](https://img.shields.io/nuget/v/Elmah.Io.Blazor.Wasm.svg)](https://www.nuget.org/packages/Elmah.Io.Blazor.Wasm)
-[![Samples](https://img.shields.io/badge/samples-3-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/tree/main/samples)
+[![Samples](https://img.shields.io/badge/samples-4-brightgreen.svg)](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/tree/main/samples)
 
 # Logging to elmah.io from Blazor
 
 [TOC]
+
+## Blazor Web App
+
+.NET 8 introduced a new project template for Blazor applications, called Blazor Web App (briefly known as Blazor United during preview), now the default template for new Blazor projects. It splits into two projects: a Server project, running the Static Server and Interactive Server render modes, and a Client project compiled to WebAssembly, running the Interactive WebAssembly and Interactive Auto render modes (Auto starts on the server, then switches to WebAssembly once downloaded).
+
+Since these are two separate projects, install a different elmah.io package in each, matching the sections below:
+
+- In the **Server** project, install `Elmah.Io.Extensions.Logging` (and optionally `Elmah.Io.AspNetCore.ExtensionsLogging`).
+- In the **Client** project, install `Elmah.Io.Blazor.Wasm`.
+
+Both packages can be installed and configured at the same time, since they live in different projects. Doing so logs uncaught exceptions to elmah.io no matter which render mode a component uses. A full example combining both is available in the [Elmah.Io.Blazor.Wasm samples](https://github.com/elmahio/Elmah.Io.Blazor.Wasm/tree/apiv4/samples/Elmah.Io.BlazorWebApp.Example.Net10) on GitHub.
 
 ## Blazor Server App
 
@@ -221,7 +232,3 @@ builder.Logging.AddElmahIo();
 
 !!! note
     The `AddElmahIo` mehtod without parameters was introduced in `Elmah.Io.Blazor.Wasm` v5 package. For earlier versions, provide empty options like this: `builder.Logging.AddElmahIo(options => {});`
-
-## Blazor (United) App
-
-.NET 8 introduces a new approach to developing Blazor applications, formerly known as Blazor United. We have started experimenting a bit with Blazor Apps which have the option of rendering both server-side and client-side from within the same Blazor application. As shown in the sections above, using server-side rendering needs `Elmah.Io.Extensions.Logging` while client-side rendering needs `Elmah.Io.Blazor.Wasm`. You cannot have both packages installed and configured in the same project so you need to stick to one of them for Blazor (United) Apps. Since the `Elmah.Io.Extensions.Logging` package doesn't work with Blazor WebAssembly, we recommend installing the `Elmah.Io.Blazor.Wasm` package if you want to log from both server-side and client-side. Once the new Blazor App framework matures, we will probably consolidate features from both packages into an `Elmah.Io.Blazor` package or similar.
