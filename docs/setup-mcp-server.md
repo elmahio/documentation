@@ -30,6 +30,16 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
 
 <div class="guides-boxes row">
     <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
+        <a href="/add-mcp-server-to-antigravity/" title="Antigravity">
+            <div class="guide-box">
+                <div class="guide-image">
+                    <img class="no-lightbox" src="/./assets/img/guides/antigravity.png" alt="Antigravity" />
+                </div>
+                <div class="guide-title">Antigravity</div>
+            </div>
+        </a>
+    </div>
+    <div class="guide-col col-4 col-sm-3 col-md-4 col-lg-3 col-xl-2">
         <a href="/add-mcp-server-to-claude-code/" title="Claude Code">
             <div class="guide-box">
                 <div class="guide-image">
