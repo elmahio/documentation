@@ -1,6 +1,6 @@
 ---
 title: Add MCP Server to Antigravity
-description: Connect the elmah.io MCP server to Google Antigravity using the agy CLI, so your AI assistant can query your error logs, deployments, and organization data directly.
+description: Connect the elmah.io MCP server to Google Antigravity using the agy CLI, so your AI client can query error logs, deployments, and organization data directly.
 howto_steps:
   - name: Get an API key
     text: Copy an API key from your organization settings, making sure it has the permissions for the tools you want to use.
