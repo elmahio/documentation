@@ -38,7 +38,7 @@ elmah.io is a cloud-based error management system originally developed on top of
 | [Deployment tracking](https://elmah.io/features/deployment-tracking/) | ❌ | ✅ |
 | [Uptime monitoring](https://elmah.io/features/uptime-monitoring/) | ❌ | ✅ |
 | [Heartbeats](https://elmah.io/features/heartbeats/) | ❌ | ✅ |
-| [Machine learning](https://elmah.io/features/machine-learning/) | ❌ | ✅ |
+| [Machine learning](https://elmah.io/ai/anomaly-and-bot-detection/) | ❌ | ✅ |
 | [Discount on popular software](https://elmah.io/goodiebag/) | ❌ | ✅ |
 
 ## elmah.io History
