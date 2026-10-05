@@ -1,6 +1,6 @@
 ---
 title: Integrate elmah.io with Zapier
-description: Learn how to integrate elmah.io with more than 2,000 online tools using our custom build integration with Zapier.
+description: Learn how to integrate elmah.io with more than 10,000 online tools using our custom build integration with Zapier.
 ---
 
 # Integrate with Zapier

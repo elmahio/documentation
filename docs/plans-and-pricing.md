@@ -24,6 +24,9 @@ Features:
 - Daily Backup - Automatic backups in a separate geographic region.
 - Developer Support - Direct chat support from developers.
 - Invoices - Downloadable and emailed invoices for card payments.
+- MCP Server - Let AI tools like Claude Code, Cursor, VS Code, Visual Studio and ChatGPT read your errors and mark them as fixed, hidden or bot traffic.
+- AI Plugin - A free plugin for Claude Code and Cursor with ready-made skills and a deployment-watchdog agent.
+- CLI - Query, tail and export log messages and create deployments from the command line.
 
 **Small Business Plan**
 
@@ -45,9 +48,10 @@ Includes everything in Small Business, plus:
 - 50,000 messages per month.
 - 2,000 emails per month.
 - Goodie Bag - Discounts on developer tools like MyGet, Entity Framework Profiler, and NDepend.
-- Uptime Checks (5) - Monitor endpoints from 5 global locations every 5 minutes.
-- App Store - Integrations with Slack, GitHub, and over 2,000 services via Zapier.
+- Uptime Checks (5) - Monitor endpoints from up to 5 of our 9 regions every 5 minutes.
+- App Store - Integrations with Slack, GitHub, and more than 10,000 services via Zapier.
 - Deployment Tracking - Track releases and analyze error frequency per deployment.
+- Bugster AI - Click Analyze with Bugster on your log data (Extended Access). Runs on your own OpenAI, Gemini or Claude API key.
 
 **Business+ Plan**
 
@@ -70,7 +74,7 @@ Includes everything in Business+, plus:
 - 40,000 emails per month.
 - Uptime Checks (50).
 - Heartbeats (20).
-- AI & Machine Learning - Detect anomalies and bots automatically. Integrated ChatGPT assistant for error analysis.
+- AI & Machine Learning - Anomaly detection and bot detection. Bugster can also use a model hosted by elmah.io, so log data stays in our data center.
 - Custom Documents - Option to have security questionnaires or audit documents completed.
 
 If you need more messages, custom plans are available as well. Reach out to support to hear more.
