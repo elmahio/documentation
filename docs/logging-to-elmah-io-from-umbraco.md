@@ -47,7 +47,47 @@ Install-Package Elmah.Io.Umbraco
 paket add Elmah.Io.Umbraco
 ```
 
-After installing the NuGet package add the following to the `Startup.cs` file:
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#umbraco13" aria-controls="umbraco13" role="tab" data-bs-toggle="tab" data-bs-tab="umbraco13">Umbraco 13 and newer</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#umbraco10" aria-controls="umbraco10" role="tab" data-bs-toggle="tab" data-bs-tab="umbraco10">Umbraco 10 to 12</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="umbraco13" markdown="1">
+After installing the NuGet package, add the following to the `Program.cs` file:
+
+```csharp
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.CreateUmbracoBuilder()
+    .AddBackOffice()
+    .AddWebsite()
+    .AddComposers()
+    .Build();
+
+builder.Services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+
+WebApplication app = builder.Build();
+
+await app.BootUmbracoAsync();
+
+app.UseElmahIo();
+
+app.UseUmbraco()
+    // ...
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="umbraco10" markdown="1">
+After installing the NuGet package, add the following to the `Startup.cs` file:
 
 ```csharp
 public class Startup
@@ -72,6 +112,8 @@ public class Startup
     }
 }
 ```
+</div>
+</div>
 
 !!! note
     Make sure to call the `UseElmahIo`-method **after** installation of other pieces of middleware handling exceptions and auth (like `UseDeveloperExceptionPage`, `UseExceptionHandler`, `UseAuthentication`, and `UseAuthorization`), but **before** the call to `UseUmbraco`.
@@ -161,14 +203,3 @@ When using Umbraco Cloud, you may not have a local clone of the source code. To 
 - Commit and push all changes to the git repository. This will add elmah.io logging to your remote Umbraco Cloud project.
 
 In case you want logging to different elmah.io logs from each Umbraco Cloud environment, please check out Umbraco's support for config transformations here: <a href="https://docs.umbraco.com/umbraco-cloud/build-and-customize-your-solution/set-up-your-project/project-settings/config-transforms" target="_blank">Config transforms</a>.
-
-## Umbraco Uno
-
-!!! warning
-    Umbraco Uno has been discontinued.
-
-Installing elmah.io in Umbraco Uno follows the process of installing it onto Umbraco Cloud. To modify code and configuration in Uno you will need a Umbraco Uno Standard plan or higher. Also, you need to enable *Custom Code* to clone the code locally. This can be done from Uno by clicking the *Enable custom code* button:
-
-![Enable custom code](images/umbraco-uno-enable-custom-code.png)
-
-After enabling Custom Code you can create a *Development* environment and follow the steps in the [Umbraco Cloud](#umbraco-cloud) documentation.

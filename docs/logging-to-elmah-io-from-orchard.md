@@ -35,35 +35,34 @@ paket add Elmah.Io.Client
 paket add Elmah.Io.AspNetCore
 ```
 
-Then modify your `Startup.cs` file:
+Then modify your `Program.cs` file:
 
 ```csharp
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // ...
-        services.AddElmahIo(o =>
-        {
-            o.ApiKey = "API_KEY";
-            o.LogId = new Guid("LOG_ID");
-        });
-    }
+var builder = WebApplication.CreateBuilder(args);
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        // ...
-        app.UseElmahIo();
-        // ...
-    }
-}
+builder.Services.AddOrchardCms();
+
+builder.Services.AddElmahIo(o =>
+{
+    o.ApiKey = "API_KEY";
+    o.LogId = new Guid("LOG_ID");
+});
+
+var app = builder.Build();
+
+// ...
+
+app.UseElmahIo();
+app.UseOrchardCore();
+
+app.Run();
 ```
 
 Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the id of the log ([Where is my log ID?](where-is-my-log-id.md)) where you want errors logged.
 
 Like with any other ASP.NET Core application, it's important to call the `UseElmahIo`-method after setting up other middleware handling exceptions (like `UseDeveloperExceptionPage`).
 
-Orchard uses NLog as the internal logging framework. Hooking into this pipeline is a great way to log warnings and errors through NLog to elmah.io as well.
+Orchard Core supports NLog (the default in the project templates) and Serilog for logging. If your site uses Serilog, follow [Logging to elmah.io from Serilog](logging-to-elmah-io-from-serilog.md) instead of the NLog section below. If your site uses NLog, hooking into that pipeline is a great way to log warnings and errors through NLog to elmah.io as well.
 
 Install the `Elmah.Io.Nlog` NuGet package:
 

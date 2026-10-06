@@ -27,6 +27,35 @@ Install-Package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#toplevel" aria-controls="toplevel" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#startup" aria-controls="startup" role="tab" data-bs-toggle="tab" data-bs-tab="startup">Program/Startup</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="toplevel" markdown="1">
+Then modify your `Program.cs` file:
+
+```csharp
+builder.Services.AddElmahIo(o =>
+{
+    o.ApiKey = "API_KEY";
+    o.LogId = new Guid("LOG_ID");
+});
+
+// ...
+
+app.UseElmahIo();
+
+// ...
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="startup" markdown="1">
 Then modify your `Startup.cs` file:
 
 ```csharp
@@ -50,6 +79,8 @@ public class Startup
     }
 }
 ```
+</div>
+</div>
 
 Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` with the id of the log ([Where is my log ID?](where-is-my-log-id.md)) where you want errors logged.
 

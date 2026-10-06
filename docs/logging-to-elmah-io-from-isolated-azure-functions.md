@@ -46,14 +46,26 @@ using Elmah.Io.Functions.Isolated;
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder" aria-controls="ihostbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder" aria-controls="ihostapplicationbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder" aria-controls="ihostapplicationbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder" aria-controls="ihostbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder" markdown="1">
+Next, call the `AddElmahIo` method:
+
+```csharp
+builder.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder" markdown="1">
 Next, call the `AddElmahIo` method inside `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
@@ -65,18 +77,6 @@ Next, call the `AddElmahIo` method inside `ConfigureFunctionsWorkerDefaults`:
         options.LogId = new Guid("LOG_ID");
     });
 })
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder" markdown="1">
-Next, call the `AddElmahIo` method:
-
-```csharp
-builder.AddElmahIo(options =>
-{
-    options.ApiKey = "API_KEY";
-    options.LogId = new Guid("LOG_ID");
-});
 ```
 </div>
 </div>
@@ -178,14 +178,28 @@ In the examples above, the API key and log ID are hardcoded in C#. You typically
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder2" aria-controls="ihostbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder2" aria-controls="ihostapplicationbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder2" aria-controls="ihostapplicationbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder2" aria-controls="ihostbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder2" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder2" markdown="1">
+
+```csharp
+var apiKey = builder.Configuration["apiKey"];
+var logId = builder.Configuration["logId"];
+
+builder.AddElmahIo(options =>
+{
+    options.ApiKey = apiKey;
+    options.LogId = new Guid(logId);
+});
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder2" markdown="1">
 
 ```csharp
 var host = new HostBuilder()
@@ -205,20 +219,6 @@ var host = new HostBuilder()
         // ...
     })
     .Build();
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder2" markdown="1">
-
-```csharp
-var apiKey = builder.Configuration["apiKey"];
-var logId = builder.Configuration["logId"];
-
-builder.AddElmahIo(options =>
-{
-    options.ApiKey = apiKey;
-    options.LogId = new Guid(logId);
-});
 ```
 </div>
 </div>
@@ -252,14 +252,29 @@ Loading values from a separate object like this requires custom code in the `Pro
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder3" aria-controls="ihostbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder3" aria-controls="ihostapplicationbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder3" aria-controls="ihostapplicationbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder3" aria-controls="ihostbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder3" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder3" markdown="1">
+```csharp
+builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
+#if DEBUG
+builder.Configuration.AddJsonFile("local.settings.json");
+#endif
+builder.Configuration.AddEnvironmentVariables();
+
+// ...
+
+builder.Services.Configure<ElmahIoFunctionOptions>(builder.Configuration.GetSection("ElmahIo"));
+builder.AddElmahIo();
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder3" markdown="1">
 ```csharp
 var host = new HostBuilder()
     .ConfigureAppConfiguration(c =>
@@ -276,20 +291,6 @@ var host = new HostBuilder()
         app.AddElmahIo();
     })
     .Build();
-```
-</div>
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder3" markdown="1">
-```csharp
-builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
-#if DEBUG
-builder.Configuration.AddJsonFile("local.settings.json");
-#endif
-builder.Configuration.AddEnvironmentVariables();
-
-// ...
-
-builder.Services.Configure<ElmahIoFunctionOptions>(builder.Configuration.GetSection("ElmahIo"));
-builder.AddElmahIo();
 ```
 </div>
 </div>
@@ -324,14 +325,25 @@ Then extend your `Program.cs` file like this:
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder4" aria-controls="ihostbuilder4" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder4" aria-controls="ihostapplicationbuilder4" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder4" aria-controls="ihostapplicationbuilder4" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder4" aria-controls="ihostbuilder4" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder4" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder4" markdown="1">
+```csharp
+builder.Logging.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder4" markdown="1">
 ```csharp
 var host = new HostBuilder()
     // ...
@@ -346,16 +358,6 @@ var host = new HostBuilder()
     })
     // ...
     .Build();
-```
-</div>
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder4" markdown="1">
-```csharp
-builder.Logging.AddElmahIo(options =>
-{
-    options.ApiKey = "API_KEY";
-    options.LogId = new Guid("LOG_ID");
-});
-builder.Logging.AddFilter<ElmahIoLoggerProvider>(null, LogLevel.Warning);
 ```
 </div>
 </div>
@@ -445,14 +447,21 @@ Next, change the Build Action to *Content* and Copy to Output Directory to *Copy
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder5" aria-controls="ihostbuilder5" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder5" aria-controls="ihostapplicationbuilder5" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder5" aria-controls="ihostapplicationbuilder5" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder5" aria-controls="ihostbuilder5" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder5" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder5" markdown="1">
+```csharp
+builder.Configuration.AddJsonFile("appsettings.json", optional: true);
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder5" markdown="1">
 ```csharp
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults((context, app) =>
@@ -472,12 +481,6 @@ var host = new HostBuilder()
     .Build();
 ```
 </div>
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder5" markdown="1">
-```csharp
-builder.Configuration.AddJsonFile("appsettings.json", optional: true);
-builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
-```
-</div>
 </div>
 
 ## Isolated Azure Functions Troubleshooting
@@ -489,14 +492,38 @@ Unfortunately, Azure Functions doesn't send exceptions happening in initializati
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostbuilder6" aria-controls="ihostbuilder6" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostapplicationbuilder6" aria-controls="ihostapplicationbuilder6" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder6" aria-controls="ihostapplicationbuilder6" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder6" aria-controls="ihostbuilder6" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="ihostbuilder6" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder6" markdown="1">
+```csharp
+try
+{
+    var builder = FunctionsApplication.CreateBuilder(args);
+
+    builder.ConfigureFunctionsWebApplication();
+
+    builder.AddElmahIo(options =>
+    {
+        options.ApiKey = "API_KEY";
+        options.LogId = new Guid("LOG_ID");
+    });
+
+    await builder.Build().RunAsync();
+}
+catch (Exception e)
+{
+    Console.Error.WriteLine(e);
+    throw;
+}
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder6" markdown="1">
 ```csharp
 try
 {
@@ -512,29 +539,6 @@ try
         .Build();
 
     host.Run();
-}
-catch (Exception e)
-{
-    Console.Error.WriteLine(e);
-    throw;
-}
-```
-</div>
-<div role="tabpanel" class="tab-pane" id="ihostapplicationbuilder6" markdown="1">
-```csharp
-try
-{
-    var builder = FunctionsApplication.CreateBuilder(args);
-
-    builder.ConfigureFunctionsWebApplication();
-
-    builder.AddElmahIo(options =>
-    {
-        options.ApiKey = "API_KEY";
-        options.LogId = new Guid("LOG_ID");
-    });
-
-    await builder.Build().RunAsync();
 }
 catch (Exception e)
 {
