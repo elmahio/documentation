@@ -13,7 +13,7 @@ howto_steps:
       Replace API_KEY with a key that has the Heartbeats | Write permission, HEARTBEAT_ID with the heartbeat's ID, and LOG_ID with the log's ID.
   - name: Create the elmah.io client
     text: |
-      Create the elmah.io client and store the IHeartbeats object, for example in the Main method:
+      Create the elmah.io client and store the IHeartbeatsClient object, for example in the Main method:
       heartbeats = ElmahioAPI.Create(ApiKey).Heartbeats;
   - name: Wrap the function handler in try/catch
     text: |
@@ -49,10 +49,10 @@ private static Guid LogId = new Guid("LOG_ID");
 
 Replace `API_KEY` with an API key with the *Heartbeats | Write* permission ([Where is my API key?](where-is-my-api-key.md)), `HEARTBEAT_ID` with the ID of the heartbeat available on the elmah.io UI, and `LOG_ID` with the ID of the log containing the heartbeat ([Where is my log ID?](where-is-my-log-id.md)).
 
-Create the elmah.io client and store the `IHeartbeat` object somewhere. In the following example, it is initialized in the `Main` method and stored in a static field:
+Create the elmah.io client and store the `IHeartbeatsClient` object somewhere. In the following example, it is initialized in the `Main` method and stored in a static field:
 
 ```csharp
-private static IHeartbeats heartbeats;
+private static IHeartbeatsClient heartbeats;
 
 private static async Task Main(string[] args)
 {

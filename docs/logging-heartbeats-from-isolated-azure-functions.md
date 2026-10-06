@@ -7,15 +7,12 @@ howto_steps:
   - name: Register the heartbeat middleware
     text: |
       Extend Program.cs to add the heartbeat middleware with your credentials:
-      .ConfigureFunctionsWorkerDefaults((context, app) =>
+      builder.AddHeartbeat(options =>
       {
-          app.AddHeartbeat(options =>
-          {
-              options.ApiKey = "API_KEY";
-              options.LogId = new Guid("LOG_ID");
-              options.HeartbeatId = "HEARTBEAT_ID";
-          });
-      })
+          options.ApiKey = "API_KEY";
+          options.LogId = new Guid("LOG_ID");
+          options.HeartbeatId = "HEARTBEAT_ID";
+      });
 ---
 
 # Logging heartbeats from Isolated Azure Functions
@@ -43,6 +40,30 @@ Install-Package Elmah.Io.Functions.Isolated
 paket add Elmah.Io.Functions.Isolated
 ```
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder" aria-controls="ihostapplicationbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder" aria-controls="ihostbuilder" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder" markdown="1">
+Extend the `Program.cs` file with the following code:
+
+```csharp
+builder.AddHeartbeat(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+    options.HeartbeatId = "HEARTBEAT_ID";
+});
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder" markdown="1">
 Extend the `Program.cs` file with the following code:
 
 ```csharp
@@ -56,6 +77,8 @@ Extend the `Program.cs` file with the following code:
     });
 })
 ```
+</div>
+</div>
 
 The code installs the heartbeat middleware, which will handle all of the communication with the elmah.io API.
 
@@ -78,6 +101,26 @@ Install-Package Elmah.Io.Client
 paket add Elmah.Io.Client
 ```
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder2" aria-controls="ihostapplicationbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder2" aria-controls="ihostbuilder2" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder2" markdown="1">
+Extend the `Program.cs` file with the following code:
+
+```csharp
+var elmahIo = ElmahioAPI.Create("API_KEY");
+builder.Services.AddSingleton(elmahIo.Heartbeats);
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder2" markdown="1">
 Extend the `Program.cs` file with the following code:
 
 ```csharp
@@ -87,16 +130,18 @@ Extend the `Program.cs` file with the following code:
     services.AddSingleton(elmahIo.Heartbeats);
 });
 ```
+</div>
+</div>
 
 Inside your function, wrap all of the code in `try/catch` and add code to create either a `Healthy` or `Unhealthy` heartbeat:
 
 ```csharp
 public class TimedFunction
 {
-    private readonly IHeartbeats heartbeats;
+    private readonly IHeartbeatsClient heartbeats;
     private readonly IConfiguration configuration;
 
-    public TimedFunction(IHeartbeats heartbeats, IConfiguration configuration)
+    public TimedFunction(IHeartbeatsClient heartbeats, IConfiguration configuration)
     {
         this.heartbeats = heartbeats;
         this.configuration = configuration;
@@ -136,6 +181,24 @@ Be aware that configuring a function to run in an internal (like every hour for 
 
 You may want a single heartbeat representing your entire function app consisting of multiple functions. This is a good option if you want to create heartbeats from queue-triggered functions or similar. In these cases, you don't want to create a heartbeat every time a message from the queue is handled, but you will want to notify elmah.io if dependencies like database connection suddenly aren't available. We recommend creating a new heartbeat function for this kind of Function. Like in the previous example, make sure to extend your `Program.cs` file like this:
 
+<div class="tabbable-responsive">
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#ihostapplicationbuilder3" aria-controls="ihostapplicationbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostapplicationbuilder">IHostApplicationBuilder</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#ihostbuilder3" aria-controls="ihostbuilder3" role="tab" data-bs-toggle="tab" data-bs-tab="ihostbuilder">IHostBuilder</a></li>
+</ul>
+</div>
+</div>
+
+<div class="tab-content tab-content-tabbable" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="ihostapplicationbuilder3" markdown="1">
+```csharp
+var elmahIo = ElmahioAPI.Create("API_KEY");
+builder.Services.AddSingleton(elmahIo.Heartbeats);
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="ihostbuilder3" markdown="1">
 ```csharp
 .ConfigureServices((ctx, services) =>
 {
@@ -143,6 +206,8 @@ You may want a single heartbeat representing your entire function app consisting
     services.AddSingleton(elmahIo.Heartbeats);
 });
 ```
+</div>
+</div>
 
 Then create a new timed function with the following code:
 
@@ -158,9 +223,9 @@ namespace My.FunctionApp
     public class Heartbeat
     {
         private readonly IConfiguration config;
-        private readonly IHeartbeats heartbeats;
+        private readonly IHeartbeatsClient heartbeats;
 
-        public Heartbeat(IHeartbeats heartbeats, IConfiguration config)
+        public Heartbeat(IHeartbeatsClient heartbeats, IConfiguration config)
         {
             this.heartbeats = heartbeats;
             this.config = config;

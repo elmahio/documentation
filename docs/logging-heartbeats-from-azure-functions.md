@@ -146,10 +146,10 @@ namespace My.FunctionApp
 {
     public class TimedFunction
     {
-        private readonly IHeartbeats heartbeats;
+        private readonly IHeartbeatsClient heartbeats;
         private readonly IConfiguration configuration;
 
-        public TimedFunction(IHeartbeats heartbeats, IConfiguration configuration)
+        public TimedFunction(IHeartbeatsClient heartbeats, IConfiguration configuration)
         {
             this.heartbeats = heartbeats;
             this.configuration = configuration;
@@ -232,9 +232,9 @@ namespace My.FunctionApp
     public class Heartbeat
     {
         private readonly IConfiguration config;
-        private readonly IHeartbeats heartbeats;
+        private readonly IHeartbeatsClient heartbeats;
 
-        public Heartbeat(IHeartbeats heartbeats, IConfiguration config)
+        public Heartbeat(IHeartbeatsClient heartbeats, IConfiguration config)
         {
             this.heartbeats = heartbeats;
             this.config = config;
