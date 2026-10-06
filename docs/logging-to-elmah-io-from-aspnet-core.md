@@ -35,7 +35,7 @@ Install-Package Elmah.Io.AspNetCore
 paket add Elmah.Io.AspNetCore
 ```
 
-In the `Startup.cs` file, add a new `using` statement:
+In the `Program.cs` file (or `Startup.cs`), add a new `using` statement:
 
 ```csharp
 using Elmah.Io.AspNetCore;
@@ -44,14 +44,34 @@ using Elmah.Io.AspNetCore;
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard" aria-controls="standard" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel" aria-controls="toplevel" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#toplevel" aria-controls="toplevel" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#startup" aria-controls="startup" role="tab" data-bs-toggle="tab" data-bs-tab="startup">Program/Startup</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="standard" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="toplevel" markdown="1">
+Call `AddElmahIo` in the `Program.cs` file:
+
+```csharp
+builder.Services.AddElmahIo(options =>
+{
+    options.ApiKey = "API_KEY";
+    options.LogId = new Guid("LOG_ID");
+});
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
+
+Call `UseElmahIo` in the `Program.cs` file:
+
+```csharp
+app.UseElmahIo();
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="startup" markdown="1">
 Call `AddElmahIo` in the `ConfigureServices`-method:
 
 ```csharp
@@ -77,26 +97,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     app.UseElmahIo();
     // ...
 }
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="toplevel" markdown="1">
-Call `AddElmahIo` in the `Program.cs` file:
-
-```csharp
-builder.Services.AddElmahIo(options =>
-{
-    options.ApiKey = "API_KEY";
-    options.LogId = new Guid("LOG_ID");
-});
-```
-
-Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with the log Id of the log you want to log to.
-
-Call `UseElmahIo` in the `Program.cs` file:
-
-```csharp
-app.UseElmahIo();
 ```
 </div>
 </div>
@@ -125,14 +125,43 @@ Configuring elmah.io is done by calling the `Configure`-method before `AddElmahI
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard2" aria-controls="standard2" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel2" aria-controls="toplevel2" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#toplevel2" aria-controls="toplevel2" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#startup2" aria-controls="startup2" role="tab" data-bs-toggle="tab" data-bs-tab="startup">Program/Startup</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="standard2" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="toplevel2" markdown="1">
+```csharp
+builder.Services.Configure<ElmahIoOptions>(builder.Configuration.GetSection("ElmahIo"));
+builder.Services.AddElmahIo();
+```
+
+Notice that you still need to call `AddElmahIo` to correctly register middleware dependencies.
+
+Finally, call the `UseElmahIo`-method (as you would do with config in C# too):
+
+```csharp
+app.UseElmahIo();
+```
+
+You can still configure additional options on the `ElmahIoOptions` object:
+
+```csharp
+builder.Services.Configure<ElmahIoOptions>(builder.Configuration.GetSection("ElmahIo"));
+builder.Services.Configure<ElmahIoOptions>(o =>
+{
+    o.OnMessage = msg =>
+    {
+        msg.Version = "1.0.0";
+    };
+});
+builder.Services.AddElmahIo();
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="startup2" markdown="1">
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -169,35 +198,6 @@ public void ConfigureServices(IServiceCollection services)
     });
     services.AddElmahIo();
 }
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="toplevel2" markdown="1">
-```csharp
-builder.Services.Configure<ElmahIoOptions>(builder.Configuration.GetSection("ElmahIo"));
-builder.Services.AddElmahIo();
-```
-
-Notice that you still need to call `AddElmahIo` to correctly register middleware dependencies.
-
-Finally, call the `UseElmahIo`-method (as you would do with config in C# too):
-
-```csharp
-app.UseElmahIo();
-```
-
-You can still configure additional options on the `ElmahIoOptions` object:
-
-```csharp
-builder.Services.Configure<ElmahIoOptions>(builder.Configuration.GetSection("ElmahIo"));
-builder.Services.Configure<ElmahIoOptions>(o =>
-{
-    o.OnMessage = msg =>
-    {
-        msg.Version = "1.0.0";
-    };
-});
-builder.Services.AddElmahIo();
 ```
 </div>
 </div>
@@ -325,14 +325,23 @@ public class DecorateElmahIoMessages : IConfigureOptions<ElmahIoOptions>
 <div class="tabbable-responsive">
 <div class="tabbable">
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="nav-item"><a class="nav-link active" href="#standard3" aria-controls="standard3" role="tab" data-bs-toggle="tab" data-bs-tab="standard">Standard</a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#toplevel3" aria-controls="toplevel3" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level statements</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link active" href="#toplevel3" aria-controls="toplevel3" role="tab" data-bs-toggle="tab" data-bs-tab="toplevel">Top-level</a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#startup3" aria-controls="startup3" role="tab" data-bs-toggle="tab" data-bs-tab="startup">Program/Startup</a></li>
 </ul>
 </div>
 </div>
 
 <div class="tab-content tab-content-tabbable" markdown="1">
-<div role="tabpanel" class="tab-pane active" id="standard3" markdown="1">
+<div role="tabpanel" class="tab-pane active" id="toplevel3" markdown="1">
+Then register `IHttpContextAccessor` and the new class in the in the `Program.cs` file:
+
+```csharp
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IConfigureOptions<ElmahIoOptions>, DecorateElmahIoMessages>();
+```
+</div>
+
+<div role="tabpanel" class="tab-pane" id="startup3" markdown="1">
 Then register `IHttpContextAccessor` and the new class in the `ConfigureServices` method in the `Startup.cs` file:
 
 ```csharp
@@ -342,15 +351,6 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<IConfigureOptions<ElmahIoOptions>, DecorateElmahIoMessages>();
     // ...
 }
-```
-</div>
-
-<div role="tabpanel" class="tab-pane" id="toplevel3" markdown="1">
-Then register `IHttpContextAccessor` and the new class in the in the `Program.cs` file:
-
-```csharp
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddSingleton<IConfigureOptions<ElmahIoOptions>, DecorateElmahIoMessages>();
 ```
 </div>
 </div>
@@ -453,11 +453,11 @@ builder.Services.AddElmahIo(options =>
 
 In this example, the elmah.io client routes all traffic through `http://localhost:8000`.
 
-## ASP.NET Core 8
+## Install with IExceptionHandler
 
-The `Elmah.Io.AspNetCore` package can be installed exactly how it is described above in ASP.NET Core 8. We still recommend doing that, so if you don't experience any problems with this approach, there's no need to read this section (unless you are just curious).
+The `Elmah.Io.AspNetCore` package can be installed exactly how it is described above, no matter which version of ASP.NET Core you are using. We still recommend doing that, so if you don't experience any problems with this approach, there's no need to read this section (unless you are just curious).
 
-ASP.NET Core 8 introduces a new way of logging and handling exceptions: `IExceptionHandler`. You have probably already seen a line similar to this in the `Program.cs` file:
+ASP.NET Core has a built-in way of logging and handling exceptions through the `IExceptionHandler` interface. You have probably already seen a line similar to this in the `Program.cs` file:
 
 ```csharp
 app.UseExceptionHandler("/Error");
