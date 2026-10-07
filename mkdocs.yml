@@ -21,6 +21,7 @@ plugins:
     - search
     - redirects:
         redirect_maps:
+            'logging-to-elmah-io-from-azure-webjobs.md': 'logging-to-elmah-io-from-azure-functions.md'
             'integrate-elmah-io-with-hipchat.md': 'elmah-io-apps-hipchat.md'
             'integrate-elmah-io-with-slack.md': 'elmah-io-apps-slack.md'
             'elmah-io-apps-webclient.md': 'creating-rules-to-perform-actions-on-messages.md'
@@ -127,7 +128,6 @@ nav:
     - Logging from DevExpress (eXpressApp Framework): logging-to-elmah-io-from-devexpress.md
     - Logging from Google Cloud Functions: logging-to-elmah-io-from-google-cloud-functions.md
     - Logging from System.Diagnostics: logging-to-elmah-io-from-system-diagnostics.md
-    - Logging from Azure WebJobs: logging-to-elmah-io-from-azure-webjobs.md
     - Logging from Nancy: logging-to-elmah-io-from-nancy.md
 - Apps and Integrations:
     - Slack: elmah-io-apps-slack.md

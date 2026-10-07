@@ -285,4 +285,52 @@ The `MyFunction` category will need configuration in either C# or in the `host.j
 
 ## Azure Functions v1
 
-The recent `Elmah.Io.Functions` package no longer supports Azure Functions v1. You can still log from Functions v1 using an older version of the package. Check out [Logging to elmah.io from Azure WebJobs](logging-to-elmah-io-from-azure-webjobs.md) for details. The guide is for Azure WebJobs but installation for Functions v1 is identical.
+The recent `Elmah.Io.Functions` package no longer supports Azure Functions v1. You can still log from Functions v1 using version `3.1.23` of the package:
+
+```cmd fct_label=".NET CLI"
+dotnet add package Elmah.Io.Functions --version 3.1.23
+```
+```powershell fct_label="Package Manager"
+Install-Package Elmah.Io.Functions -Version 3.1.23
+```
+```xml fct_label="PackageReference"
+<PackageReference Include="Elmah.Io.Functions" Version="3.1.23" />
+```
+```xml fct_label="Paket CLI"
+paket add Elmah.Io.Functions --version 3.1.23
+```
+
+Log all uncaught exceptions using the `ElmahIoExceptionFilter` attribute:
+
+```csharp
+[ElmahIoExceptionFilter("API_KEY", "LOG_ID")]
+public class Functions
+{
+    public static void ProcessQueueMessage([QueueTrigger("queue")] string msg, TextWriter log)
+    {
+        throw new Exception("Some exception");
+    }
+}
+```
+
+Replace `API_KEY` with your API key ([Where is my API key?](where-is-my-api-key.md)) and `LOG_ID` ([Where is my log ID?](where-is-my-log-id.md)) with your log ID.
+
+!!! note
+    If your function method is declared as async, remember to change the return type to `Task`. Without it, `ElmahIoExceptionFilter` is never invoked.
+
+The filter also supports config variables:
+
+```csharp
+[ElmahIoExceptionFilter("%apiKey%", "%logId%")]
+```
+
+The variables above would require you to add your API key and log ID to your `App.config`:
+
+```xml
+<configuration>
+  <appSettings>
+    <add key="apiKey" value="API_KEY"/>
+    <add key="logId" value="LOG_ID"/>
+  </appSettings>
+</configuration>
+```
