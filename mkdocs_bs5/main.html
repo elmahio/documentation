@@ -72,10 +72,7 @@
       "url": "{{ page.canonical_url }}",
       "datePublished": "{{ page.meta.git_creation_date_localized_raw_iso_date }}",
       "dateModified": "{{ page.meta.git_revision_date_localized_raw_iso_date }}",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://docs.elmah.io/"
-      }{% if page.meta.howto_steps %},
+      "mainEntityOfPage": "{{ page.canonical_url }}"{% if page.meta.howto_steps %},
       "step": [
         {% for step in page.meta.howto_steps %}{
           "@type": "HowToStep",
