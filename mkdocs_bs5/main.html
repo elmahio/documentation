@@ -78,7 +78,7 @@
           "@type": "HowToStep",
           "position": {{ loop.index }},
           "name": {{ step.name | tojson }},
-          "text": {{ step.text | tojson }}
+          "text": {{ step.text | trim | tojson }}
         }{% if not loop.last %},
         {% endif %}{% endfor %}  
       ]{% endif %}
