@@ -1,6 +1,6 @@
 ---
 title: Create deployments from Azure DevOps Pipelines
-description: Notifying elmah.io about new deployments is possible as build steps in Azure DevOps, by adding some PowerShell. Learn how to monitor deployments.
+description: Notify elmah.io about new deployments from Azure DevOps Pipelines with our task, which runs on Windows, Linux, and macOS agents. Learn how to monitor deployments.
 howto_steps:
   - name: Open your build definition YAML
     text: Edit your build definition YAML file.
@@ -15,7 +15,7 @@ howto_steps:
   - name: Add the task to your pipeline
     text: |
       Click Add so the task is inserted into your YAML definition, typically as the last task:
-      - task: ElmahIoDeploymentNotification@4
+      - task: ElmahIoDeploymentNotification@5
         inputs:
           apiKey: 'API_KEY'
           logId: 'LOG_ID'
@@ -25,7 +25,7 @@ howto_steps:
 
 [TOC]
     
-Notifying elmah.io about new deployments is possible as a build step in Azure DevOps Pipelines.
+Notifying elmah.io about new deployments is possible as a build step in Azure DevOps Pipelines. The task runs on Windows, Linux, and macOS agents and requires agent version 3.232.1 or newer, which all Microsoft-hosted agents already run.
 
 ## Using YAML
 
@@ -48,11 +48,15 @@ Notifying elmah.io about new deployments is possible as a build step in Azure De
 ```yaml
 steps:
 # other steps
-- task: ElmahIoDeploymentNotification@4
+- task: ElmahIoDeploymentNotification@5
   inputs:
     apiKey: 'API_KEY'
     logId: 'LOG_ID'
 ```
+
+## Upgrading from version 4
+
+If you already use `ElmahIoDeploymentNotification@4`, change it to `ElmahIoDeploymentNotification@5`. The inputs are the same. Version 4 does not run on Linux agents. Version 5 runs on Windows, Linux, and macOS, and fails the step if elmah.io rejects the request, for example because of an invalid API key. The error message from elmah.io is shown in the step log.
 
 ## Using Classic editor
 

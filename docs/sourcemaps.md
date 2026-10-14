@@ -121,7 +121,7 @@ api.SourceMaps.CreateOrUpdate(
 
 ### Upload from Azure DevOps
 
-Uploading one or more source maps from Azure DevOps is available using our integration with Pipelines and Releases. Here is a guide to help you upload source maps from Azure DevOps.
+Uploading one or more source maps from Azure DevOps is available using our integration with Pipelines and Releases. Here is a guide to help you upload source maps from Azure DevOps. The task runs on Windows, Linux, and macOS agents and requires agent version 3.232.1 or newer, which all Microsoft-hosted agents already run.
 
 Go to the [elmah.io Upload Source Map](https://marketplace.visualstudio.com/items?itemName=elmahio.elmah-io-upload-source-map) extension on the Azure DevOps Marketplace and click the _Get it free_ button:
 
@@ -140,7 +140,7 @@ Go to your Azure DevOps Pipeline configuration and add the *elmah.io Upload Sour
 When clicking the *Add* button, YAML code will be added to your configuration looking similar to this:
 
 ```yaml
-- task: ElmahIoUploadSourceMap@4
+- task: ElmahIoUploadSourceMap@5
   inputs:
     apiKey: 'API_KEY'
     logId: 'LOG_ID'
@@ -153,9 +153,13 @@ When clicking the *Add* button, YAML code will be added to your configuration lo
 
 Before you can include the upload source map task, you will need to publish your generated source maps and minified JavaScript files from your build pipeline.
 
-Go to your Azure DevOps project and add the *elmah.io Upload Source Map* task. Fill in all fields as shown here:
+Go to your Azure DevOps project and add the *elmah.io Upload Source Map* task. Select task version 5.* and fill in all fields as shown here:
 
-![Add the task](images/release-pipeline-task-v2.png)
+![Add the task](images/release-pipeline-task-v3.png)
+
+#### Upgrading from version 4
+
+If you already use `ElmahIoUploadSourceMap@4`, change it to `ElmahIoUploadSourceMap@5`, or select task version 5.* in a release pipeline. The inputs are the same. Version 4 does not run on Linux agents. Version 5 runs on Windows, Linux, and macOS, and fails the step if elmah.io rejects the upload, for example because of a missing permission or a file with the wrong extension. The error message from elmah.io is shown in the step log.
 
 ### Upload from GitHub Actions
 
