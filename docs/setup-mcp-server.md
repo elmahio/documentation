@@ -43,7 +43,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-claude-code/" title="Claude Code">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/claude.png" alt="Claude Code" />
+                    <img class="no-lightbox" src="/./assets/img/guides/claude-code.png" alt="Claude Code" />
                 </div>
                 <div class="guide-title">Claude Code</div>
             </div>
@@ -73,7 +73,7 @@ The elmah.io MCP server should be supported in all clients offering the OAuth fl
         <a href="/add-mcp-server-to-codex/" title="Codex">
             <div class="guide-box">
                 <div class="guide-image">
-                    <img class="no-lightbox" src="/./assets/img/guides/chatgpt.png" alt="Codex" />
+                    <img class="no-lightbox" src="/./assets/img/guides/codex.png" alt="Codex" />
                 </div>
                 <div class="guide-title">Codex</div>
             </div>
