@@ -48,7 +48,7 @@ Includes everything in Small Business, plus:
 - 50,000 messages per month.
 - 2,000 emails per month.
 - Goodie Bag - Discounts on developer tools like MyGet, Entity Framework Profiler, and NDepend.
-- Uptime Checks (5) - Monitor endpoints from up to 5 of our 9 regions every 5 minutes.
+- Uptime Checks (5) - Monitor HTTP endpoints and MCP servers from up to 5 of our 9 regions every 5 minutes. HTTP and MCP checks count toward the same limit.
 - App Store - Integrations with Slack, GitHub, and more than 10,000 services via Zapier.
 - Deployment Tracking - Track releases and analyze error frequency per deployment.
 - Bugster AI - Click Analyze with Bugster on your log data (Extended Access). Runs on your own OpenAI, Gemini or Claude API key.
