@@ -12,3 +12,7 @@ We have tried to get Cloudflare to adopt the elmah.io Uptime user-agent as an al
 To allow the elmah.io Uptime user-agent you can create a new firewall rule. To do so go to *Security* | *WAF* and select the *Custom rules* tab. Click the *Create rule* button and input the following values:
 
 ![Create firewall rule](images/create-cloudflare-firewall-rule.png)
+
+## MCP checks fail or can't connect
+
+For problems with uptime checks that monitor MCP servers, like rejected credentials or a missing tool, see [Monitor MCP Servers with Uptime Checks](/monitor-mcp-servers-with-uptime-checks/#troubleshooting).

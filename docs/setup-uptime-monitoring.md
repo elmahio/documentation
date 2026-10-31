@@ -22,6 +22,10 @@ Uptime checks are automatic HTTP requests that you may already know from Azure, 
 
 ![Uptime checks](images/uptime-checks.png)
 
+### MCP checks
+
+Uptime checks come in two types: HTTP and MCP. HTTP checks request a URL, as described above. MCP checks connect to an MCP server, verify that a tool exists, and call it. Use MCP checks to monitor an MCP server you host. Both types count toward the uptime check limit of your plan. Read more in [Monitor MCP Servers with Uptime Checks](/monitor-mcp-servers-with-uptime-checks/).
+
 ## SSL certificate expiration checks
 
 Expiring SSL certificates cause errors in your user's browser. If you ever tried forgetting to renew an SSL certificate, you know how many problems it can cause. With the SSL check option available when creating a new uptime check, elmah.io automatically validates your SSL certificates daily.
