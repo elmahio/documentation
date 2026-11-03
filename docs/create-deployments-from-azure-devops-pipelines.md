@@ -1,6 +1,6 @@
 ---
 title: Create deployments from Azure DevOps Pipelines
-description: Notify elmah.io about new deployments from Azure DevOps Pipelines with our task, which runs on Windows, Linux, and macOS agents. Learn how to monitor deployments.
+description: Notify elmah.io about new deployments from Azure DevOps Pipelines with our task, which runs on Windows, Linux, and macOS agents.
 howto_steps:
   - name: Open your build definition YAML
     text: Edit your build definition YAML file.
