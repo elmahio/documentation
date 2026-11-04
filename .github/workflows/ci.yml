@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
+        uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
-          python-version: 3.10.8
-      - uses: actions/setup-node@v3
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
         with:
-          node-version: 14.0.0
+          node-version: 22
       - run: npm install
-      - run: gulp min
+      - run: npx gulp min
       - name: Upload source map to elmah.io
         uses: elmahio/github-upload-source-map-action@v1
         with:
