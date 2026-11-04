@@ -25,7 +25,7 @@ Features:
 - Developer Support - Direct chat support from developers.
 - Invoices - Downloadable and emailed invoices for card payments.
 - MCP Server - Let AI tools like Claude Code, Cursor, VS Code, Visual Studio and ChatGPT read your errors and mark them as fixed, hidden or bot traffic.
-- AI Plugin - A free plugin for Claude Code and Cursor with ready-made skills and a deployment-watchdog agent.
+- AI Plugin - A free plugin for Claude Code, Cursor and ChatGPT with ready-made skills and a deployment-watchdog agent.
 - CLI - Query, tail and export log messages and create deployments from the command line.
 
 **Small Business Plan**

@@ -22,6 +22,9 @@ howto_steps:
 
 ChatGPT supports adding MCP servers in developer mode. Follow these steps to integrate elmah.io.
 
+!!! note
+    Prefer prebuilt skills over writing your own prompts? See the [elmah.io AI Plugin](/elmah-io-ai-plugin/) instead, which installs the MCP server together with ready-made skills.
+
 - Inside of ChatGPT, click your profile in the lower left corner and click on **Settings**.
 - Click the **Apps** tab:
 

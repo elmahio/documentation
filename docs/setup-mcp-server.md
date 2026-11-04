@@ -16,7 +16,7 @@ https://mcp.elmah.io/mcp
 ```
 
 !!! note
-    Using Claude Code or Cursor? The [elmah.io AI Plugin](/elmah-io-ai-plugin/) installs this MCP server together with a set of prebuilt skills and a background monitoring agent, so you don't have to write your own prompts.
+    Using Claude Code, Cursor or ChatGPT? The [elmah.io AI Plugin](/elmah-io-ai-plugin/) installs this MCP server together with a set of prebuilt skills (and a background monitoring agent in Claude Code and Cursor), so you don't have to write your own prompts.
 
 !!! note
     This page is about connecting AI tools to elmah.io. If you host an MCP server and want elmah.io to monitor it, see [Monitor MCP Servers with Uptime Checks](/monitor-mcp-servers-with-uptime-checks/).

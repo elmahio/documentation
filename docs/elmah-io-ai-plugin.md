@@ -24,9 +24,12 @@ The elmah.io AI Plugin packages the [elmah.io MCP server](/setup-mcp-server/) to
 
 `deployment-watchdog` is a background agent that monitors for regressions after a deployment. It alerts immediately on fatal errors or downtime, or reports back with a HEALTHY / UNHEALTHY verdict once enough data has accumulated.
 
+!!! note
+    The agent is available in Claude Code and Cursor. The ChatGPT and Codex plugin includes the four skills and the MCP server, but not the agent, since OpenAI plugins don't support agents.
+
 ## Supported editors
 
-The plugin is currently available for **Claude Code** and **Cursor**. For other editors, use the [raw MCP server setup](/setup-mcp-server/) — you'll get the same tools, just without the bundled skills and agent.
+The plugin is currently available for **Claude Code**, **Cursor**, and **ChatGPT** (including **Codex**). For other editors, use the [raw MCP server setup](/setup-mcp-server/). You'll get the same tools, just without the bundled skills and agent.
 
 ## Installing in Claude Code
 
@@ -73,6 +76,16 @@ git clone https://github.com/elmahio/elmah-io-ai-plugin.git
 - Browse to and select your local clone of the elmah.io AI Plugin.
 
 The elmah.io plugin is added. Authenticate the MCP server the same way as described above for Claude Code.
+
+## Installing in ChatGPT and Codex
+
+The elmah.io plugin is listed in OpenAI's plugin directory:
+
+- Open the [elmah.io plugin](https://chatgpt.com/plugins/plugin_asdk_app_6ad86e64d898819183e28056430982b9) page in ChatGPT.
+- Install the plugin.
+- When prompted, sign in with your elmah.io account and approve access.
+
+The plugin bundles the four skills and the elmah.io MCP server. It signs in with OAuth, and only sees the logs your elmah.io user can access. It can also mark messages as fixed, hidden, open or bot traffic, just like the [MCP server](/setup-mcp-server/). If you prefer to connect the MCP server without the skills, see [Add MCP Server to ChatGPT](/add-mcp-server-to-chatgpt/).
 
 ## Using the plugin
 
