@@ -7,6 +7,9 @@ description: Learn different approaches to export log messages from elmah.io to 
 
 Log messages can be exported from elmah.io in a few ways. Here's a range of options, depending on how much data you need and what tools you have available.
 
+!!! note
+    The search result on the log's search page can't be exported from the elmah.io UI. There is no export button for search results. To export multiple messages to JSON or CSV, use the elmah.io CLI or API as described below. From the UI, you can only export a single message.
+
 ## Exporting using the elmah.io CLI
 
 To export multiple messages, the easiest approach is to use the [elmah.io CLI](https://docs.elmah.io/cli-overview/). If you haven't installed it already, it can be done like this:
@@ -23,7 +26,9 @@ elmahio logs export --apiKey API_KEY --logId LOG_ID --dateFrom 2020-08-21 --date
 
 The command exports to JSON as a default, but you can export to CSV by including the `--format Csv` parameter.
 
-## Exporting using the elmah.io CLI
+To export the same messages as a search on the log's search page, pass the search query to the `--query` parameter.
+
+## Exporting using the elmah.io API
 
 If you prefer making an HTTP request or need to integrate this in another tool that doesn't support calling the elmah.io CLI, you can export messages using the elmah.io API. To return messages, use the `/messages/` endpoint:
 
