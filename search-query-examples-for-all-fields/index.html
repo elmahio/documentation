@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-title" content="elmah.io">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="../icons/mstile-144x144.png">
+    <meta name="theme-color" content="#0da58e">
+    <meta name="description" content="Copy-ready search queries for every searchable field on elmah.io log messages, including how to match text, keyword, boolean, number, and date fields and how to combine them with AND, OR, and NOT.">
+    <meta name="author" content="Thomas Ardal">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@elmah_io">
+    <meta name="twitter:creator" content="@elmah_io">
+    <meta name="twitter:title" content="Search query examples for every field | elmah.io">
+    <meta name="twitter:description" content="Copy-ready search queries for every searchable field on elmah.io log messages, including how to match text, keyword, boolean, number, and date fields and how to combine them with AND, OR, and NOT.">
+    <meta name="twitter:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="og:site_name" content="elmah.io Documentation" />
+    <meta property="og:title" content="Search query examples for every field">
+    <meta property="og:description" content="Copy-ready search queries for every searchable field on elmah.io log messages, including how to match text, keyword, boolean, number, and date fields and how to combine them with AND, OR, and NOT.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://docs.elmah.io/search-query-examples-for-all-fields/">
+    <meta property="og:image" content="https://docs.elmah.io/assets/img/open-graph-elmahio.png">
+    <meta property="article:published_time" content="2026-11-10">
+    <meta property="article:modified_time" content="2026-11-10">
+    <meta property="article:publisher" content="https://www.facebook.com/elmahdotio/" />
+    <meta property="article:author" content="elmah.io" />
+    <meta property="fb:app_id" content="218008838347208" />
+    <title>Search query examples for every field</title>
+    <link rel="canonical" href="https://docs.elmah.io/search-query-examples-for-all-fields/">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-brands-400.woff2" as="font" crossorigin />
+    <link rel="preload" href="../assets/fonts/font-awesome/webfonts/fa-regular-400.woff2" as="font" crossorigin />
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="../assets/css/style.min.css?version=705">
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Search query examples for every field",
+      "description": "Copy-ready search queries for every searchable field on elmah.io log messages, including how to match text, keyword, boolean, number, and date fields and how to combine them with AND, OR, and NOT.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "elmah.io Documentation",
+        "url": "https://docs.elmah.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.elmah.io/assets/img/elmahio-publication-logo.png",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "url": "https://docs.elmah.io/search-query-examples-for-all-fields/",
+      "datePublished": "2026-11-10",
+      "dateModified": "2026-11-10",
+      "mainEntityOfPage": "https://docs.elmah.io/search-query-examples-for-all-fields/"
+    }
+    </script>
+
+  </head>
+  <body>
+    <script src="../assets/js/theme-selector.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://elmah.io/">
+      <img src="../assets/img/logo.png" width="30" height="22" alt="elmah.io">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/ai/">AI</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/tour/">Tour</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-nav-btn justify-content-center">
+        <div class="mode-switch mb-2 mb-md-0 d-none">
+          <button id="toggle-theme" class="btn btn-outline-light d-block d-md-none d-lg-block">
+            <i class="fas fa-moon d-none" id="dark"></i>
+            <i class="fas fa-sun d-none" id="light"></i>
+          </button>
+        </div>
+        <li class="nav-item mx-md-2 mb-2 mb-md-0"><a class="btn btn-outline-light" href="https://app.elmah.io/login/">Login</a></li>
+        <li class="nav-item"><a class="btn btn-signup-trial" href="https://app.elmah.io/signup/">Free Trial</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container mb-5">
+      <div class="row-wrapper">
+        <aside class="sidebar">
+          <div class="sidebar-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><span class="input-group-text"><label class="mb-0" for="search"><i class="far fa-search"></i></label></span></div>
+              <input type="text" id="search" class="form-control" placeholder="Search ..." autocomplete="off" />
+            </div>
+            <div class="bugster-banner d-block d-md-none">
+              <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+                <div class="content">
+                  <p class="mb-1 lead">Have a question ?</p>
+                  <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+                </div>
+                <div class="bugster-logo">
+                  <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+                </div>
+              </a>
+            </div>
+            <div id="searchList" class="mt-3"></div>
+            <hr>
+            <ul class="main-nav">
+              
+              <li >
+                <a class="li_parent" href="javascript:;">Getting Started</a>
+                <ul>
+                  
+                  <li ><a href="/">Quick start</a></li>
+                  
+                  <li ><a href="/authentication/">Authentication</a></li>
+                  
+                  <li ><a href="/integrations-high-level-overview/">Integrations high level overview</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">ASP.NET</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-elmah/">Logging from WebForms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aspnet-mvc/">Logging from ASP.NET MVC</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-api/">Logging from Web API</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-web-pages/">Logging from Web Pages</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-iis/">Logging from a running website on IIS</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-a-running-website-on-azure/">Logging from a running website on Azure</a></li>
+                  
+                  <li ><a href="/logging-custom-data/">Logging custom data</a></li>
+                  
+                  <li ><a href="/logging-errors-programmatically/">Logging errors programmatically</a></li>
+                  
+                  <li ><a href="/logging-to-multiple-elmah-logs/">Logging to multiple logs</a></li>
+                  
+                  <li ><a href="/remove-sensitive-form-data/">Remove sensitive form data</a></li>
+                  
+                  <li ><a href="/setting-application-name/">Setting application name</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-manually/">Configure elmah.io manually</a></li>
+                  
+                  <li ><a href="/configure-elmah-io-from-code/">Configure elmah.io from code</a></li>
+                  
+                  <li ><a href="/logging-through-a-http-proxy/">Logging through a HTTP proxy</a></li>
+                  
+                  <li ><a href="/use-multiple-logs-for-different-environments/">Use multiple logs for different environments</a></li>
+                  
+                  <li ><a href="/specify-api-key-and-log-id-through-appsettings/">Specify API key and log ID through appSettings</a></li>
+                  
+                  <li ><a href="/elmah-and-custom-errors/">ELMAH and custom errors</a></li>
+                  
+                  <li ><a href="/logging-from-a-custom-http-module/">Logging from a custom HTTP module</a></li>
+                  
+                  <li ><a href="/asp-net-troubleshooting/">ASP.NET troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">ASP.NET Core</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aspnet-core/">Logging from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blazor/">Logging from Blazor</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-signalr/">Logging from SignalR</a></li>
+                  
+                  <li ><a href="/using-different-logs-per-environment-in-aspnet-core/">Using different logs per environment in ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-breadcrumbs-from-asp-net-core/">Logging breadcrumbs from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/roslyn-analyzers-for-elmah-io-and-aspnet-core/">Roslyn analyzers for elmah.io and ASP.NET Core</a></li>
+                  
+                  <li ><a href="/asp-net-core-troubleshooting/">ASP.NET Core troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging Frameworks</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-serilog/">Logging from Serilog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-log4net/">Logging from log4net</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nlog/">Logging from NLog</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-microsoft-extensions-logging/">Logging from Microsoft.Extensions.Logging</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-logary/">Logging from Logary</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-jsnlog/">Logging from JSNLog</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">JavaScript</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-javascript/">Logging from JavaScript</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-angular/">Logging from Angular</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-react/">Logging from React</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-vue/">Logging from Vue</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sveltekit/">Logging from SvelteKit</a></li>
+                  
+                  <li ><a href="/sourcemaps/">Source maps</a></li>
+                  
+                  <li ><a href="/javascript-troubleshooting/">JavaScript troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CMS/Blogs</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-umbraco/">Logging from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-sitefinity/">Logging from Sitefinity</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-blogengine-net/">Logging from BlogEngine.NET</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-orchard/">Logging from Orchard</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-piranha-cms/">Logging from Piranha CMS</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Mobile</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-xamarin/">Logging from Xamarin</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-uno/">Logging from Uno</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-maui/">Logging from MAUI</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Logging from something else</a>
+                <ul>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wcf/">Logging from WCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-corewcf/">Logging from CoreWCF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-azure-functions/">Logging from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-isolated-azure-functions/">Logging from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-powershell/">Logging from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-wpf/">Logging from WPF</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winui/">Logging from WinUI</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-winforms/">Logging from Windows Forms</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-entity-framework-core/">Logging from Entity Framework Core</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-console-application/">Logging from C# and console applications</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-opentelemetry/">Logging from OpenTelemetry</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-httpclient/">Logging from HttpClient</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-beanstalk/">Logging from AWS Beanstalk</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-aws-lambdas/">Logging from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-servicestack/">Logging from ServiceStack</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-devexpress/">Logging from DevExpress (eXpressApp Framework)</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-google-cloud-functions/">Logging from Google Cloud Functions</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-system-diagnostics/">Logging from System.Diagnostics</a></li>
+                  
+                  <li ><a href="/logging-to-elmah-io-from-nancy/">Logging from Nancy</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Apps and Integrations</a>
+                <ul>
+                  
+                  <li ><a href="/elmah-io-apps-slack/">Slack</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-teams/">Microsoft Teams</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-twilio/">Twilio</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-jira/">Jira</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-azure-boards/">Azure Boards</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-github/">GitHub</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-gitlab/">GitLab</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-pipedream/">Pipedream</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-trello/">Trello</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-youtrack/">YouTrack</a></li>
+                  
+                  <li ><a href="/integrate-elmah-io-with-zapier/">Zapier</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-pagerduty/">PagerDuty</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-clickup/">ClickUp</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-chatgpt/">ChatGPT</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-fixes/">Fixes</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-botbuster/">BotBuster (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-ipfilter/">IP Filter (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-mailman/">Mailman (deprecated)</a></li>
+                  
+                  <li ><a href="/elmah-io-apps-request-a-new-integration/">Request a new integration</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Uptime Monitoring</a>
+                <ul>
+                  
+                  <li ><a href="/setup-uptime-monitoring/">Set up Uptime Monitoring</a></li>
+                  
+                  <li ><a href="/monitor-mcp-servers-with-uptime-checks/">Monitor MCP Servers with Uptime Checks</a></li>
+                  
+                  <li ><a href="/missing-server-side-information-on-uptime-errors/">Missing server-side information on uptime errors</a></li>
+                  
+                  <li ><a href="/allowing-elmah-io-uptime-agents/">Allowing elmah.io uptime agents</a></li>
+                  
+                  <li ><a href="/uptime-monitoring-troubleshooting/">Uptime Monitoring Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Heartbeats</a>
+                <ul>
+                  
+                  <li ><a href="/setup-heartbeats/">Set up Heartbeats</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-asp-net-core/">Logging heartbeats from ASP.NET Core</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-azure-functions/">Logging heartbeats from Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-isolated-azure-functions/">Logging heartbeats from Isolated Azure Functions</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-powershell/">Logging heartbeats from PowerShell</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-curl/">Logging heartbeats from cURL</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-umbraco/">Logging heartbeats from Umbraco</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-hangfire/">Logging heartbeats from Hangfire</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-coravel/">Logging heartbeats from Coravel</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-net-core-worker-services/">Logging heartbeats from .NET Core Worker Services</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-aws-lambdas/">Logging heartbeats from AWS Lambdas</a></li>
+                  
+                  <li ><a href="/logging-heartbeats-from-windows-scheduled-tasks/">Logging heartbeats from Windows Scheduled Tasks</a></li>
+                  
+                  <li ><a href="/heartbeats-troubleshooting/">Heartbeats Troubleshooting</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Deployment Tracking</a>
+                <ul>
+                  
+                  <li ><a href="/setup-deployment-tracking/">Set up Deployment Tracking</a></li>
+                  
+                  <li ><a href="/create-deployments-from-powershell/">Create deployments from PowerShell</a></li>
+                  
+                  <li ><a href="/create-deployments-from-cli/">Create deployments from CLI</a></li>
+                  
+                  <li ><a href="/create-deployments-from-octopus-deploy/">Create deployments from Octopus Deploy</a></li>
+                  
+                  <li ><a href="/create-deployments-from-kudu/">Create deployments from Kudu</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-pipelines/">Create deployments from Azure DevOps Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-azure-devops-releases/">Create deployments from Azure DevOps Releases</a></li>
+                  
+                  <li ><a href="/create-deployments-from-github-actions/">Create deployments from GitHub Actions</a></li>
+                  
+                  <li ><a href="/create-deployments-from-gitlab-pipelines/">Create deployments from GitLab Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-umbraco-cloud/">Create deployments from Umbraco Cloud</a></li>
+                  
+                  <li ><a href="/create-deployments-from-bitbucket-pipelines/">Create deployments from Bitbucket Pipelines</a></li>
+                  
+                  <li ><a href="/create-deployments-from-atlassian-bamboo/">Create deployments from Atlassian Bamboo</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">MCP Server</a>
+                <ul>
+                  
+                  <li ><a href="/setup-mcp-server/">Set Up MCP Server</a></li>
+                  
+                  <li ><a href="/elmah-io-ai-plugin/">elmah.io AI Plugin</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-antigravity/">Add MCP Server to Antigravity</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-claude-code/">Add MCP Server to Claude Code</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-claude-desktop/">Add MCP Server to Claude Desktop</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-chatgpt/">Add MCP Server to ChatGPT</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-codex/">Add MCP Server to Codex</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-cursor-ai/">Add MCP Server to Cursor AI</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-perplexity-ai/">Add MCP Server to Perplexity AI</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-visual-studio/">Add MCP Server to Visual Studio</a></li>
+                  
+                  <li ><a href="/add-mcp-server-to-vs-code/">Add MCP Server to VS Code</a></li>
+                  
+                  <li ><a href="/call-mcp-server-using-api-key/">Call MCP Server Using an API Key</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">CLI</a>
+                <ul>
+                  
+                  <li ><a href="/cli-overview/">CLI overview</a></li>
+                  
+                  <li ><a href="/cli-login/">Login</a></li>
+                  
+                  <li ><a href="/cli-logout/">Logout</a></li>
+                  
+                  <li ><a href="/cli-deployments/">Deployments</a></li>
+                  
+                  <li ><a href="/cli-diagnose/">Diagnose</a></li>
+                  
+                  <li ><a href="/cli-logs/">Logs</a></li>
+                  
+                  <li ><a href="/cli-messages/">Messages</a></li>
+                  
+                </ul>
+              </li>
+              
+              <li class="li_dropdown">
+                <a class="li_parent" href="javascript:;">Everything Else</a>
+                <ul>
+                  
+                  <li ><a href="/managing-organisations-and-users/">Managing Organisations and Users</a></li>
+                  
+                  <li ><a href="/where-is-my-log-id/">Where is my log ID</a></li>
+                  
+                  <li ><a href="/where-is-my-api-key/">Where is my API key</a></li>
+                  
+                  <li ><a href="/where-is-the-permalink-button/">Where is the permalink button</a></li>
+                  
+                  <li ><a href="/where-is-my-invoice-receipt/">Where is my invoice / receipt</a></li>
+                  
+                  <li ><a href="/how-to-manage-subscriptions-update-credit-cards-etc/">How to manage subscriptions, update credit cards, etc.</a></li>
+                  
+                  <li ><a href="/managing-environments/">Managing Environments</a></li>
+                  
+                  <li ><a href="/recommendations/">Recommendations</a></li>
+                  
+                  <li ><a href="/how-to-delete-my-account/">How to delete my account</a></li>
+                  
+                  <li ><a href="/how-to-configure-api-key-permissions/">How to configure API key permissions</a></li>
+                  
+                  <li ><a href="/how-to-enable-two-factor-login/">How to enable two-factor login</a></li>
+                  
+                  <li ><a href="/how-to-rename-a-log/">How to rename a log</a></li>
+                  
+                  <li ><a href="/how-to-include-source-code-in-log-messages/">How to include source code in log messages</a></li>
+                  
+                  <li ><a href="/how-to-search-custom-data/">How to search custom data</a></li>
+                  
+                  <li ><a href="/how-to-get-the-sql-tab-to-show-up/">How to get the SQL tab to show up</a></li>
+                  
+                  <li ><a href="/how-to-configure-and-use-bugster/">How to configure and use Bugster</a></li>
+                  
+                  <li ><a href="/creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a></li>
+                  
+                  <li ><a href="/query-messages-using-full-text-search/">Query messages using full-text search</a></li>
+                  
+                  <li ><a href="/tips-and-tricks-to-stay-below-your-message-limit/">Tips and tricks to stay below your message limit</a></li>
+                  
+                  <li ><a href="/how-to-stay-below-the-message-size-limit/">How to stay below the message size limit</a></li>
+                  
+                  <li ><a href="/use-extended-user-details-without-email-as-id/">Use extended user details without email as ID</a></li>
+                  
+                  <li ><a href="/adding-version-information/">Adding version information</a></li>
+                  
+                  <li ><a href="/bot-detection/">Bot detection</a></li>
+                  
+                  <li ><a href="/include-filename-and-line-number-in-stacktraces/">Include filename and line number in stack traces</a></li>
+                  
+                  <li ><a href="/how-does-the-new-detection-work/">How does the new detection work</a></li>
+                  
+                  <li ><a href="/how-to-correlate-messages-across-services/">How to correlate messages across services</a></li>
+                  
+                  <li ><a href="/how-to-get-elmah-io-to-resolve-the-correct-client-ip/">How to get elmah.io to resolve the correct client IP</a></li>
+                  
+                  <li ><a href="/how-to-avoid-emails-getting-classified-as-spam/">How to avoid emails getting classified as spam</a></li>
+                  
+                  <li ><a href="/how-prices-are-calculated/">How prices are calculated</a></li>
+                  
+                  <li ><a href="/how-to-run-elmah-io-in-dark-mode/">How to run elmah.io in dark mode</a></li>
+                  
+                  <li ><a href="/how-to-show-elmah-io-dashboards-on-a-big-screen/">How to show elmah.io dashboards on a big screen</a></li>
+                  
+                  <li ><a href="/handle-elmah-io-downtime/">Handle elmah.io downtime</a></li>
+                  
+                  <li ><a href="/using-the-elmah-io-extension-for-visual-studio/">Using the elmah.io extension for Visual Studio</a></li>
+                  
+                  <li ><a href="/using-the-rest-api/">Using the REST API</a></li>
+                  
+                  <li ><a href="/tls-1-2-requirement-for-api-elmah-io/">TLS 1.2 Requirement for api.elmah.io</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v4-to-v5/">Upgrade elmah.io from v4 to v5</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v3-to-v4/">Upgrade elmah.io from v3 to v4</a></li>
+                  
+                  <li ><a href="/upgrade-elmah-io-from-v2-to-v3/">Upgrade elmah.io from v2 to v3</a></li>
+                  
+                  <li ><a href="/email-troubleshooting/">Email troubleshooting</a></li>
+                  
+                  <li ><a href="/elmah-and-elmah-io-differences/">ELMAH and elmah.io differences</a></li>
+                  
+                  <li ><a href="/vulnerability-disclosure-program/">Vulnerability Disclosure Program (VDP)</a></li>
+                  
+                </ul>
+              </li>
+              
+            </ul>
+          </div>
+        </aside>
+
+        <div class="d-grid w-100 d-block d-md-none">
+          <a id="show-sidebar" href="javascript:;" class="btn btn-light border">
+            <span class="fal fa-bars me-2"></span><span>Documentation menu</span>
+          </a>
+        </div>
+
+        <article class="col main-content">
+          <div class="main-content-body">
+
+            <h1 id="search-query-examples-for-every-field">Search query examples for every field</h1>
+<p>This page shows how to query every searchable field on an elmah.io log message. Queries use Lucene query syntax, the same syntax as the search field on the elmah.io UI and the <code>query</code> parameter of the API, CLI, and MCP server. For an introduction to searching, see <a href="../query-messages-using-full-text-search/">Query messages using full-text search</a>.</p>
+<h2 id="rules-for-writing-queries">Rules for writing queries</h2>
+<ul>
+<li>Only the fields on this page exist. Field names are case-sensitive and written in camelCase, like <code>hostName</code> and <code>statusCode</code>.</li>
+<li>There is no <code>@timestamp</code> field. The time of a message is in <code>time</code>. A query on a field that does not exist is not an error. It returns no messages.</li>
+<li>Always write <code>AND</code> or <code>OR</code> between conditions. A space between two conditions can be read as <code>OR</code>, so don't rely on it.</li>
+<li>Write boolean values in lowercase: <code>isNew:true</code>, not <code>isNew:True</code>.</li>
+<li>Wrap values containing spaces in double quotes: <code>message:"connection refused"</code>.</li>
+<li>The special characters <code>+ - = &amp;&amp; || &gt; &lt; ! ( ) { } [ ] ^ " ~ * ? : \ /</code> must be escaped with a backslash when they are part of a value. A forward slash at the start of a value must always be escaped, as in <code>url:\/api\/*</code>. Alternatively, wrap the value in double quotes.</li>
+</ul>
+<h2 id="combining-conditions">Combining conditions</h2>
+<p>Use <code>AND</code>, <code>OR</code>, and <code>NOT</code> (or <code>&amp;&amp;</code>, <code>||</code>, and <code>-</code>) to combine conditions. Both forms behave the same:</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" id=tab-group-0-0_0czdjbfge7sbasd-tab data-bs-toggle=tab data-bs-target=#tab-group-0-0_0czdjbfge7sbasd-panel type=button role=tab data-lang aria-controls=tab-group-0-0_0czdjbfge7sbasd-panel aria-selected=true></a></li><li class=nav-item><a class="nav-link " id=tab-group-0-1_9fij234r2u39c1t-tab data-bs-toggle=tab data-bs-target=#tab-group-0-1_9fij234r2u39c1t-panel type=button role=tab data-lang aria-controls=tab-group-0-1_9fij234r2u39c1t-panel aria-selected=false></a></li><li class=nav-item><a class="nav-link " id=tab-group-0-2_a6jyvk0qwzpgexc-tab data-bs-toggle=tab data-bs-target=#tab-group-0-2_a6jyvk0qwzpgexc-panel type=button role=tab data-lang aria-controls=tab-group-0-2_a6jyvk0qwzpgexc-panel aria-selected=false></a></li></ul><div class=tab-content><div id=tab-group-0-0_0czdjbfge7sbasd-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_0czdjbfge7sbasd-tab><pre><code class>severity:Error AND statusCode:500
+severity:Error &amp;&amp; statusCode:500
+</code></pre></div><div id=tab-group-0-1_9fij234r2u39c1t-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_9fij234r2u39c1t-tab><pre><code class>severity:Error OR severity:Fatal
+severity:Error || severity:Fatal
+</code></pre></div><div id=tab-group-0-2_a6jyvk0qwzpgexc-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_a6jyvk0qwzpgexc-tab><pre><code class>severity:Error AND NOT statusCode:404
+severity:Error AND -statusCode:404
+</code></pre></div></div></div>
+<p>Use parentheses to group conditions:</p>
+<p> <pre><code class>(country:DK OR country:SE) AND severity:Error
+</code></pre></p>
+<p>Match one of several values of the same field by putting them in parentheses:</p>
+<p> <pre><code class>severity:(Error OR Fatal)
+statusCode:(404 OR 500)
+</code></pre></p>
+<p>Find messages where a field has any value, or no value:</p>
+<p> <pre><code class>_exists_:user
+NOT _exists_:user
+</code></pre></p>
+<h2 id="how-to-match-each-kind-of-field">How to match each kind of field</h2>
+<p>Fields come in a few kinds, and the kind decides how a value is matched.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Fields</th>
+<th>How values are matched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text with <code>.raw</code></td>
+<td><code>applicationName</code>, <code>browser</code>, <code>category</code>, <code>hostName</code>, <code>message</code>, <code>method</code>, <code>os</code>, <code>remoteAddr</code>, <code>source</code>, <code>type</code>, <code>user</code>, <code>userAgent</code>, <code>version</code></td>
+<td>Searching the field itself matches words and ignores case. Searching <code>field.raw</code> matches the whole value exactly.</td>
+</tr>
+<tr>
+<td>Text only</td>
+<td><code>detail</code></td>
+<td>Matches words and ignores case. There is no <code>.raw</code>.</td>
+</tr>
+<tr>
+<td>Keyword</td>
+<td><code>country</code>, <code>severity</code>, <code>url</code>, <code>domain</code>, <code>correlationId</code>, <code>hash</code>, <code>assignedTo</code>, <code>messageTemplate</code></td>
+<td>Matches the whole value, and case matters. There is no <code>.raw</code>.</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>hidden</code>, <code>isNew</code>, <code>isFixed</code>, <code>isBurst</code>, <code>isUptime</code>, <code>isHeartbeat</code>, <code>isSpike</code>, <code>isBot</code>, <code>isBotSuggestion</code></td>
+<td><code>true</code> or <code>false</code>, in lowercase.</td>
+</tr>
+<tr>
+<td>Number</td>
+<td><code>statusCode</code></td>
+<td>Exact numbers and ranges.</td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code>time</code></td>
+<td>Exact dates, ranges, and relative dates like <code>now-24h</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Values in <code>.raw</code> fields are only indexed up to a maximum length: 256 characters for <code>applicationName</code>, <code>user</code>, and <code>version</code>, 512 for <code>category</code>, <code>source</code>, <code>type</code>, and <code>userAgent</code>, and 4096 for <code>message</code>. A longer value is not found by a <code>.raw</code> query, but is still found by a query on the field itself.</p>
+<p>Use the field itself (like <code>hostName:web*</code>) when you want to find words or parts of a value. Use <code>.raw</code> (like <code>hostName.raw:"web-01"</code>) when you want an exact match. For values containing dots, like namespaces and exception types, prefer <code>.raw</code>, since searching the field itself splits the value into parts and matches more than intended.</p>
+<h2 id="text-fields-with-raw">Text fields with .raw</h2>
+<h3 id="applicationname">applicationName</h3>
+<p> <pre><code class>applicationName:checkout
+applicationName.raw:&quot;Checkout API&quot;
+applicationName:checkout AND severity:Error
+</code></pre></p>
+<h3 id="browser">browser</h3>
+<p>Values are lowercase: <code>chrome</code>, <code>safari</code>, <code>edge</code>, <code>firefox</code>, <code>opera</code>, <code>ie</code>, and <code>other</code>.</p>
+<p> <pre><code class>browser:chrome
+browser:firefox OR browser:edge
+NOT browser:chrome
+</code></pre></p>
+<h3 id="category">category</h3>
+<p>Typically the logger name from a logging framework, like a class name with namespace.</p>
+<p> <pre><code class>category.raw:&quot;MyApp.Controllers.OrderController&quot;
+category.raw:MyApp.Controllers.*
+NOT category.raw:MyApp.Controllers.*
+</code></pre></p>
+<h3 id="hostname">hostName</h3>
+<p> <pre><code class>hostName:web-*
+hostName:web-01 OR hostName:web-02
+hostName.raw:&quot;web-01&quot;
+hostName:web-* AND severity:Error
+</code></pre></p>
+<h3 id="message">message</h3>
+<p>The title of the log message.</p>
+<p> <pre><code class>message:timeout
+message:&quot;connection refused&quot;
+message:timeout OR message:refused
+message:time*
+message.raw:&quot;The operation has timed out.&quot;
+</code></pre></p>
+<h3 id="method">method</h3>
+<p>The HTTP method.</p>
+<p> <pre><code class>method:POST
+method:POST OR method:PUT
+NOT method:GET
+</code></pre></p>
+<h3 id="os">os</h3>
+<p>Values are lowercase: <code>ios</code>, <code>windows</code>, <code>android</code>, <code>macos</code>, <code>linux</code>, and <code>other</code>.</p>
+<p> <pre><code class>os:windows
+os:android OR os:ios
+</code></pre></p>
+<h3 id="remoteaddr">remoteAddr</h3>
+<p>The IP address of the user.</p>
+<p> <pre><code class>remoteAddr:192.168.0.1
+remoteAddr:192.168.0.*
+NOT remoteAddr:192.168.0.*
+</code></pre></p>
+<h3 id="source">source</h3>
+<p>The source of the code logging the message, often an assembly name.</p>
+<p> <pre><code class>source:System.Data*
+source.raw:&quot;System.Data.SqlClient&quot;
+</code></pre></p>
+<h3 id="type">type</h3>
+<p>The type of the message. For errors, this is typically the exception type.</p>
+<p> <pre><code class>type.raw:System.NullReferenceException
+type.raw:System.*Exception
+type.raw:System.NullReferenceException OR type.raw:System.ArgumentNullException
+</code></pre></p>
+<h3 id="user">user</h3>
+<p>The user causing the message.</p>
+<p> <pre><code class>user:thomas@example.com
+user.raw:&quot;thomas@example.com&quot;
+user:thomas*
+_exists_:user
+</code></pre></p>
+<h3 id="useragent">userAgent</h3>
+<p> <pre><code class>userAgent:googlebot
+userAgent:googlebot OR userAgent:bingbot
+userAgent.raw:&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36&quot;
+</code></pre></p>
+<h3 id="version">version</h3>
+<p> <pre><code class>version:1.2.3
+version.raw:&quot;1.2.3&quot;
+version:1.2.*
+NOT version.raw:&quot;1.2.3&quot;
+</code></pre></p>
+<h2 id="text-field-without-raw">Text field without .raw</h2>
+<h3 id="detail">detail</h3>
+<p>The longer description of a message, like a stack trace. Matches words and ignores case.</p>
+<p> <pre><code class>detail:NullReferenceException
+detail:&quot;at MyApp.Services.OrderService&quot;
+detail:timeout AND detail:database
+</code></pre></p>
+<h2 id="keyword-fields">Keyword fields</h2>
+<p>Keyword fields match the whole value and are case-sensitive. Use wildcards to match part of a value.</p>
+<h3 id="assignedto">assignedTo</h3>
+<p> <pre><code class>assignedTo:USER_ID
+_exists_:assignedTo
+</code></pre></p>
+<h3 id="correlationid">correlationId</h3>
+<p> <pre><code class>correlationId:&quot;0HMVB1T2JQ5A3:00000001&quot;
+</code></pre></p>
+<h3 id="country">country</h3>
+<p>Use the uppercase ISO 3166 two-letter code. <code>country:dk</code> doesn't match, but <code>country:DK</code> does.</p>
+<p> <pre><code class>country:DK
+country:DK OR country:SE
+NOT country:US
+</code></pre></p>
+<h3 id="domain">domain</h3>
+<p> <pre><code class>domain:example.com
+domain:*.example.com
+</code></pre></p>
+<h3 id="hash">hash</h3>
+<p>The unique hash of a log message.</p>
+<p> <pre><code class>hash:HASH_VALUE
+</code></pre></p>
+<h3 id="messagetemplate">messageTemplate</h3>
+<p>The title template used by structured logging frameworks.</p>
+<p> <pre><code class>messageTemplate:&quot;User {user} failed to log in&quot;
+messageTemplate:*failed*
+</code></pre></p>
+<h3 id="severity">severity</h3>
+<p>The value is case-sensitive: <code>Verbose</code>, <code>Debug</code>, <code>Information</code>, <code>Warning</code>, <code>Error</code>, and <code>Fatal</code>. <code>severity:error</code> doesn't match, but <code>severity:Error</code> does.</p>
+<p> <pre><code class>severity:Error
+severity:(Error OR Fatal)
+severity:Error OR severity:Fatal
+NOT severity:Information
+</code></pre></p>
+<h3 id="url">url</h3>
+<p>The URL of the request. A forward slash at the start must be escaped, or the value wrapped in quotes.</p>
+<p> <pre><code class>url:&quot;/api/orders&quot;
+url:\/api\/orders*
+url:\/api\/*
+url:*checkout
+NOT url:\/api\/*
+</code></pre></p>
+<h2 id="boolean-fields">Boolean fields</h2>
+<p>Booleans are <code>true</code> or <code>false</code> in lowercase.</p>
+<p> <pre><code class>isNew:true
+isFixed:false
+isBurst:true
+isBot:false
+isBotSuggestion:true
+isUptime:true
+isHeartbeat:true
+isSpike:true
+hidden:true
+</code></pre></p>
+<p>Combine booleans with other fields:</p>
+<p> <pre><code class>isNew:true AND severity:Error
+isFixed:false AND isBot:false AND severity:(Error OR Fatal)
+isNew:true AND hostName:web-*
+</code></pre></p>
+<h2 id="number-field">Number field</h2>
+<h3 id="statuscode">statusCode</h3>
+<p><code>statusCode</code> is a number. Use <code>:</code> for an exact value and brackets or comparison operators for ranges.</p>
+<p> <pre><code class>statusCode:404
+statusCode:(404 OR 500)
+statusCode:[400 TO 499]
+statusCode:[500 TO 599]
+statusCode:&gt;=500
+statusCode:&gt;499
+NOT statusCode:404
+</code></pre></p>
+<h2 id="date-field">Date field</h2>
+<h3 id="time">time</h3>
+<p><code>time</code> is the UTC date and time of the message. Dates use the ISO 8601 format.</p>
+<p>Messages within a time frame:</p>
+<p> <pre><code class>time:[2026-11-01 TO 2026-11-05]
+time:[2026-11-01T08:00:00Z TO 2026-11-01T17:00:00Z]
+</code></pre></p>
+<p>Messages from a point in time and onward, or before one:</p>
+<p> <pre><code class>time:&gt;=2026-11-01
+time:&lt;2026-11-01
+time:[2026-11-01 TO *]
+</code></pre></p>
+<p>Relative time frames use <code>now</code> together with a duration. <code>h</code> is hours, <code>d</code> is days, <code>w</code> is weeks, and <code>M</code> is months:</p>
+<p> <pre><code class>time:[now-24h TO now]
+time:[now-7d TO now]
+time:[now-1M TO now]
+</code></pre></p>
+<p>Round to the start of the day with <code>/d</code>:</p>
+<p> <pre><code class>time:[now-1d/d TO now/d]
+</code></pre></p>
+<p>The search page on elmah.io also has a date range selector. When you only need a time frame, use the selector and keep the query for everything else.</p>
+<h2 id="combining-fields">Combining fields</h2>
+<p>New errors in a time frame on several hosts:</p>
+<p> <pre><code class>isNew:true AND severity:Error AND time:[now-24h TO now] AND hostName:web-*
+</code></pre></p>
+<p>Server errors from a specific host in a given week:</p>
+<p> <pre><code class>statusCode:[500 TO 599] AND hostName.raw:&quot;web-01&quot; AND time:[2026-11-02 TO 2026-11-08]
+</code></pre></p>
+<p>404 errors not caused by bots:</p>
+<p> <pre><code class>statusCode:404 AND isBot:false AND isBotSuggestion:false
+</code></pre></p>
+<p>Errors from either of two versions, excluding a URL path:</p>
+<p> <pre><code class>severity:Error AND version:(1.2.3 OR 1.2.4) AND NOT url:\/health*
+</code></pre></p>
+<p>Messages from Chrome or Firefox users in Denmark or Sweden:</p>
+<p> <pre><code class>(browser:chrome OR browser:firefox) AND (country:DK OR country:SE)
+</code></pre></p>
+<p>Messages with a user but no assigned owner:</p>
+<p> <pre><code class>_exists_:user AND NOT _exists_:assignedTo
+</code></pre></p>
+<h2 id="custom-data">Custom data</h2>
+<p>Custom data is searchable when the variable name starts with <code>X-ELMAHIO-SEARCH-</code>. The prefix is replaced with <code>data.</code>, so a variable named <code>X-ELMAHIO-SEARCH-author</code> is queried like this:</p>
+<p> <pre><code class>data.author:&quot;Walter Sobchak&quot;
+</code></pre></p>
+<p>For details, see <a href="../how-to-search-custom-data/">How to search custom data</a>.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p>The fields below don't exist. Use the field on the right instead.</p>
+<table>
+<thead>
+<tr>
+<th>Don't use</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@timestamp</code>, <code>timestamp</code>, <code>date</code></td>
+<td><code>time</code></td>
+</tr>
+<tr>
+<td><code>host</code>, <code>hostname</code>, <code>server</code></td>
+<td><code>hostName</code></td>
+</tr>
+<tr>
+<td><code>level</code>, <code>logLevel</code></td>
+<td><code>severity</code></td>
+</tr>
+<tr>
+<td><code>title</code>, <code>summary</code></td>
+<td><code>message</code></td>
+</tr>
+<tr>
+<td><code>exception</code>, <code>exceptionType</code></td>
+<td><code>type</code></td>
+</tr>
+<tr>
+<td><code>stackTrace</code>, <code>stacktrace</code></td>
+<td><code>detail</code></td>
+</tr>
+<tr>
+<td><code>status</code>, <code>httpStatus</code></td>
+<td><code>statusCode</code></td>
+</tr>
+<tr>
+<td><code>ip</code>, <code>clientIp</code></td>
+<td><code>remoteAddr</code></td>
+</tr>
+<tr>
+<td><code>app</code>, <code>application</code></td>
+<td><code>applicationName</code></td>
+</tr>
+<tr>
+<td><code>path</code>, <code>uri</code></td>
+<td><code>url</code></td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td><code>userAgent</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="notifications">Notifications</h2>
+<p>To be notified when new messages match a query, create a rule using the same query. See <a href="../creating-rules-to-perform-actions-on-messages/">Creating Rules to Perform Actions on Messages</a>.</p>
+
+            <br/>
+            <p><small><em>This article was brought to you by the elmah.io team. elmah.io is the best error management system for .NET web applications. We monitor your website, alert you when errors start happening, and help you fix errors fast.</em></small></p>
+            <p class="text-center">
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-none d-sm-block white-space-normal">See how we can help you monitor your website for crashes</a>
+                <a href="https://app.elmah.io/signup/" class="btn btn-lg btn-primary d-block d-sm-none">Monitor your website</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <footer>
+    	<div id="back-to-top" class="d-block d-sm-none"><span class="far fa-arrow-up"></span></div>
+    	<div class="pre-footer">
+	    	<div class="container">
+          <div class="company-logo">
+					  <img class="img-fluid" src="../assets/img/elmahio.png" width="222" height="138" alt="elmah.io">
+            <div class="bug-head"></div>
+				  </div>
+				  <a href="https://app.elmah.io/signup/" class="btn btn-primary float-end"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+			  </div>
+	    </div>
+    	<div class="links">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col">
+    					<span>Product</span>
+    					<ul class="list-unstyled">
+							  <li><a href="https://elmah.io/features/">Features</a></li>
+							  <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                <li><a href="https://elmah.io/tour/">Tour</a></li>
+							  <li><a href="https://elmah.io/features/apps-and-integrations/">App Store</a></li>
+						  </ul>
+            </div>
+    				<div class="col">
+    					<span>Company</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/about/">About</a></li>
+                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                <li><a href="https://docs.elmah.io/">Docs</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Learn</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                <li><a href="https://elmah.io/alternatives/">Alternatives</a></li>
+                <li><a href="https://elmah.io/api/v3/">API</a></li>
+                <li><a href="https://mcp.elmah.io">MCP</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+    					<span>Guides</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                <li><a href="https://elmah.io/features/asp-net-core/">ASP.NET Core Error Logging</a></li>
+              </ul>
+    				</div>
+    				<div class="col">
+              <span>Online Tools</span>
+              <ul class="list-unstyled">
+                <li><a href="https://elmah.io/tools/config-validator/">Web.config Validator</a></li>
+                <li><a href="https://elmah.io/tools/stack-trace-formatter/">Stack Trace Formatter</a></li>
+                <li><a href="https://elmah.io/tools/webconfig-transformation-tester/">Web.config Transform Tester</a></li>
+                <li><a href="https://elmah.io/tools/">More Free Tools</a></li>
+              </ul>
+            </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="copyright">
+    		<div class="container">
+    			<div class="row no-gutters">
+            <div class="col-lg-5 col-md-12 order-2 order-lg-1">
+              <div class="text-center text-lg-start">
+                <p>© 2013 - <span id="currentYear"></span> elmah.io. All Rights Reserved.</p>
+                <p><a href="https://elmah.io/legal/terms-of-use/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a> | <a role="button" class="link" onclick="CookieConsent.show(true);">Cookie Consent</a></p>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 order-3 order-lg-1">
+              <ul class="list-unstyled social mb-0">
+                <li class="list-inline-item"><a href="https://x.com/elmah_io" aria-label="Follow us on X"><i class="fab x-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/elmah-io/" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-12 order-1 order-lg-2">
+              <div class="footer-badges text-center text-lg-end">
+                <a href="https://elmah.io/security/"><img src="../assets/img/pcicompliant.png" width="67" height="40" draggable="false" alt="PCI Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/gdpr.png" width="106" height="40" draggable="false" alt="GDPR Compliant" /></a>
+                <a href="https://elmah.io/security/"><img src="../assets/img/shieldssl.png" width="102" height="40" draggable="false" alt="Alpha SSL" /></a>
+              </div>
+            </div>
+          </div>
+    		</div>
+    	</div>
+    </footer>
+
+    <div class="bugster-banner-floating">
+      <a role="button" data-bs-toggle="modal" data-bs-target="#bugsterModal">
+        <div class="content">
+          <p class="mb-1 lead">Have a question ?</p>
+          <p class="mb-0">Ask anything and Bugster will be ready to answer and help you.</p>
+        </div>
+        <div class="bugster-logo">
+          <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+        </div>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bugsterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bugsterModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="logo-wrapper">
+              <img class="img-fluid img-small" src="../assets/img/bugster_min.png" alt="Bugster icon">
+              <img class="img-fluid img-normal" src="../assets/img/bugster.png" alt="Bugster icon">
+            </div>
+            <div class="modal-title-wrapper">
+              <h5 class="modal-title" id="bugsterChatLabel">Bugster</h5>
+              <div class="status-container">
+                <div class="status-content text-muted">
+                  <div class="spinner-border text-success" role="status"></div>
+                  <span id="statusText" class="ms-1"></span>
+                </div>
+              </div>
+            </div>
+            <div class="modal-title-badge">
+              <span class="arrow"></span>
+              <span class="badge-content">Bugster is an AI assistant</span>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body scroll">
+            <div class="bugster-hero">
+              <div class="bugster-logo text-center">
+                <img class="img-fluid" src="../assets/img/bugster.png" width="383" height="374" alt="Bugster">
+              </div>
+              <div class="content text-center">
+                <p class="lead mb-2">Meet Bugster</p>
+                <p>Your AI assistant for quick navigation through documentation, providing valuable answers and insights in no time!</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="Why is my ASP.NET Core application not logging errors to elmah.io?">
+                      <span>Exceptions are not logged from ASP.NET Core</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I log errors to elmah.io from Serilog?">
+                      <span>How to log from Serilog?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="How do I include source code in log messages?">
+                      <span>How do I include source code?</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a role="button" class="list-group-item-action mb-2" data-question="What is the difference between ELMAH and elmah.io?">
+                      <span>How are ELMAH and elmah.io different?</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="alert alert-warning mt-2 p-2" role="alert">
+                      Bugster provides AI suggestions. Always verify solutions before applying them to your code.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bugster-chat d-none">
+              <div class="chat-history"></div>
+            </div>
+          </div>
+          <div class="modal-footer collapse show">
+            <form id="bugster-form" class="form w-100">
+              <div class="input-group">
+                <input type="text" id="question" class="form-control" placeholder="Ask Bugster" aria-label="Recipient's username" aria-describedby="send-message" required autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="send-message"><i class="fas fa-paper-plane px-3"></i></button>
+              </div>
+              <div class="form-text d-none">
+                <a role="button" class="intercom-link" data-event="showNewMessage" data-message="I need help from a human.">Transfer this conversation to a support request</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../vendor/elmahio/elmahio.min.js"></script>
+    <script src="../assets/js/initElmahio.js"></script>
+    
+    <script src="../assets/js/main.min.js?version=705"></script>
+    
+  </body>
+</html>
