@@ -140,6 +140,7 @@ The elmah.io MCP server exposes the following tools to AI assistants:
 | `messages_list_recent` | List the most recent log messages for a specific log. |
 | `messages_list_frequent` | Identify the most frequent/common error groups in a log. Great for finding 'noisy' bugs. |
 | `messages_count` | Count the number of log messages based on severity and timeframe. |
+| `messages_histogram` | Count messages per hour, day or week to see when errors started, spiked or stopped. |
 | `messages_hide` | Hide a log message by ID. Only call this when the user has explicitly asked to hide this message — never speculatively while just investigating errors. Optionally hides every other message with the same grouping hash. |
 | `messages_unhide` | Unhide a previously hidden log message by ID — the opposite of `messages_hide`. Only call this when the user has explicitly asked to unhide this message — never speculatively while just investigating errors. Optionally unhides every other message with the same grouping hash. |
 | `messages_fix` | Mark a log message as fixed by ID. Only call this when the user has explicitly asked to mark this error as fixed — never speculatively while just investigating errors. Optionally marks every other message with the same grouping hash as fixed. |
