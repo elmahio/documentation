@@ -158,3 +158,13 @@ The Read column marks tools that only return data from elmah.io. The Write colum
 | `heartbeats_get_details` | ✔️ |  | Get detailed information and recent check-in history for a specific heartbeat. |
 | `recommendations_list` | ✔️ |  | Get a list of recommendations for a log or an organization. Recommendations are automated suggestions for improving error monitoring setup, security, and configuration. Does not include the description and suggestions fields; call `recommendations_get_details` for those. Specify exactly one of logId or organizationId. |
 | `recommendations_get_details` | ✔️ |  | Get details about a single recommendation for a log or an organization. Specify exactly one of logId or organizationId. |
+
+### Interactive tools
+
+Some tools return a view that the AI client displays in the conversation, next to the result itself. The views are built with MCP Apps, which needs support from the AI client. Claude Desktop supports it. Clients without support get the result as plain text.
+
+| Tool | Read | Write | Description |
+| --- | :---: | :---: | --- |
+| `stacktrace_render` |  |  | Show a .NET or JavaScript stack trace as a formatted and syntax highlighted view. Takes the stack trace as text, plus an optional `language` (`Auto`, `DotNet`, or `JavaScript`). Works on any stack trace, not only ones logged to elmah.io, and doesn't look anything up in your logs. |
+
+`stacktrace_render` has no check mark in either column. It only formats the text it is given and doesn't touch your elmah.io data.
